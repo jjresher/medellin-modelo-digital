@@ -24,7 +24,7 @@ Hoja de ruta para llevar la app a la estructura de [Cerebro Lima](https://cerebr
 | 6 | [Economía y vivienda](#6-economía-y-vivienda) | 0 | ☑ |
 | 7 | [Turismo](#7-turismo) | 0 | ☑ |
 | 8 | [Municipio](#8-municipio) | 0 | ☑ |
-| 9 | [Servicios públicos](#9-servicios-públicos) | 0 | ☐ |
+| 9 | [Servicios públicos](#9-servicios-públicos) | 0 | ☑ |
 | 10 | [Territorio y cultura](#10-territorio-y-cultura) | 0, 1 | ☐ |
 | 11 | [Atlas de comunas y barrios](#11-atlas-de-comunas-y-barrios) | 3, 5, 6, 9 | ☐ |
 | 12 | [Correlaciones](#12-correlaciones) | 11 | ☐ |
@@ -142,7 +142,7 @@ Panorama va casi al final porque resume las cifras ancla de todas las demás sec
   - Mapa de calor saturado: se ajustaron el peso y el radio.
   - Porcentaje "sobre la norma" sin base: ahora se muestra el conteo, por ejemplo 536 construcciones en Laureles.
 - `Map3D.jsx` se dividió en `src/components/twin/`: `Map3D`, `config`, `Paneles` y `geo`.
-- **Pendiente de revisar a mano:** la fluidez con varias capas y el relieve activos en un portátil normal, y la interfaz en un móvil real.
+- **Pendiente de revisar a mano:** la fluidez con varias capas y el relieve activos en un portátil normal. La interfaz ya se revisó en un celular real.
 
 ---
 
@@ -206,7 +206,7 @@ Panorama va casi al final porque resume las cifras ancla de todas las demás sec
   - `verificar.py --red` daba por caídas todas las fuentes del SIATA: su API responde 405 a `HEAD`. `lago.existe()` ahora reintenta con un `GET` del primer byte.
   - `LineChart` hundía hasta cero los puntos sin dato; ahora corta la línea y deja el hueco, que es lo que hace falta con series en vivo (días sin medición).
 - **Pendiente externo:** `verificar.py --red` sigue marcando `metro-red` (fuente de la issue #2): ese proxy de ArcGIS responde 403 a cualquier petición directa y solo atiende su ruta `/query`. No afecta la ingesta ni `npm run verificar`.
-- **Pendiente de revisar a mano:** la sección en un móvil real y la fluidez del mapa con las isófonas de ruido encendidas. Chrome sin GPU dibuja las estaciones y la leyenda, pero no alcanza a pintar el mapa base vectorial.
+- **Pendiente de revisar a mano:** la fluidez del mapa con las isófonas de ruido encendidas (la sección ya se revisó en un celular real). Chrome sin GPU dibuja las estaciones y la leyenda, pero no alcanza a pintar el mapa base vectorial.
 
 ## 5. Gente
 
@@ -237,7 +237,7 @@ Panorama va casi al final porque resume las cifras ancla de todas las demás sec
 - Correcciones que salieron al probar:
   - Hogares y viviendas del DAP traían 25 filas (4 corregimientos partidos en urbano y rural); ahora se suman a 21.
   - El servidor de la Alcaldía responde a veces `200` con un error de base de datos. `lago.consulta_arcgis` reintenta antes de dar la capa por caída; beneficia a todos los temas.
-- **Pendiente de revisar a mano:** la sección en un móvil real (se probó a 390 px en Chrome sin desbordamiento horizontal).
+- Revisada en un celular real el 27 sep 2026.
 
 ---
 
@@ -273,7 +273,7 @@ Panorama va casi al final porque resume las cifras ancla de todas las demás sec
   - La capa de licencias no admite paginación y el servidor falla al azar: `lago.arcgis_por_ids` descarga por rangos de `objectid` y parte en mitades los lotes que fallan.
   - La capa del valor del suelo pesaba 4 MB (cada zona viene partida en manzanas); se cierran los huecos de calle y se simplifica a ~17 m.
 - Refactor: la clase `Territorios` pasó de `pull_demografia.py` a `lago.py` (la usan Gente y Economía), con un método para reconocer comunas escritas con nombre y tildes mal codificadas. El ranking y la ficha por territorio pasaron a `src/components/territorios/PanelTerritorios.jsx`, que usan Gente y Economía y usará el Atlas (#11).
-- **Pendiente de revisar a mano:** la sección en un móvil real (se probó a 390 px sin desbordamiento horizontal).
+- Revisada en un celular real el 27 sep 2026.
 
 ---
 
@@ -302,7 +302,7 @@ Panorama va casi al final porque resume las cifras ancla de todas las demás sec
   - Overpass rechazaba la consulta con 504 por pedir un timeout largo; con 25 s responde.
   - `LineChart`: el último rótulo del eje X se pegaba al anterior porque se alinea a la derecha; ahora se calcula el tramo real de cada rótulo. En el panel por territorio, "Vigencia Actualizado el…" pasó a "Vigencia: actualizado el…".
 - La capa de atractivos pasó de `pull_lentes.py` a `pull_turismo.py` (al reingestar lentes, su cifra de atractivos desaparece de ese tema).
-- **Pendiente de revisar a mano:** la sección en un móvil real (se probó a 390 px sin desbordamiento horizontal).
+- Revisada en un celular real el 27 sep 2026.
 
 ---
 
@@ -330,7 +330,7 @@ Panorama va casi al final porque resume las cifras ancla de todas las demás sec
   - La tabla de programación de ingresos de CUIPO en datos.gov.co tiene las columnas corridas (la cuenta llega en `ambito_codigo`); el script acepta los dos órdenes.
   - En el predial, los códigos 50–90 de "comuna de cobro" son otros municipios (50 es Casanare), no los corregimientos: se mapean solo 1–16, 17, 19 y 20.
   - El mapa se dibujaba con un ancho equivocado en móvil (MapLibre mide el contenedor antes de que la grilla termine de maquetarse): ahora se reajusta con un `ResizeObserver`. La atribución desplegada tapaba la leyenda: se pliega al cargar.
-- **Pendiente de revisar a mano:** la sección en un móvil real (se probó a 390 px sin desbordamiento horizontal).
+- Revisada en un celular real el 27 sep 2026 (además de la prueba a 390 px). Para abrir el servidor de desarrollo desde el celular, `next.config.mjs` agrega la IP del computador a `allowedDevOrigins`.
 
 ---
 
@@ -339,16 +339,29 @@ Panorama va casi al final porque resume las cifras ancla de todas las demás sec
 **Objetivo:** cobertura y tarifas de acueducto, alcantarillado, energía, gas y aseo por comuna. Cerebro Lima no tiene una sección equivalente; se agrega porque MEData y EPM sí publican este cruce para Medellín.
 
 **Tareas**
-- [ ] Cobertura y suscriptores de acueducto, alcantarillado y aseo por comuna y estrato, hasta 2019.
-- [ ] Suscriptores de acueducto por gran prestador y por pequeños prestadores, después de confirmar su vigencia real.
-- [ ] Tarifas de energía y de gas de EPM (mismos datasets que ya usa la issue #6, reutilizados aquí, no reingestados).
-- [ ] Subsidios y contribuciones de servicios públicos domiciliarios.
-- [ ] Estaciones de clasificación y aprovechamiento (ECAS) y organizaciones recicladoras.
-- [ ] Dejar la cobertura de internet fijo como `candidato`: no se encontró un dataset abierto por comuna.
+- [x] Cobertura y suscriptores de acueducto, alcantarillado y aseo por comuna y estrato, hasta 2019.
+- [x] Suscriptores de acueducto por gran prestador y por pequeños prestadores, después de confirmar su vigencia real (agosto y septiembre de 2023).
+- [x] Tarifas de energía y de gas de EPM ~~(mismos datasets que ya usa la issue #6, reutilizados aquí, no reingestados)~~ → la issue #6 no los ingestó; se ingestan aquí, y la energía sale de la publicación mensual de EPM (ver resultado).
+- [x] Subsidios y contribuciones de servicios públicos domiciliarios.
+- [x] Estaciones de clasificación y aprovechamiento (ECAS) y organizaciones recicladoras.
+- [x] Dejar la cobertura de internet fijo como `candidato`: no se encontró un dataset abierto por comuna.
 
 **Datos:** [Servicios públicos](fuentes-medellin.md#servicios-públicos).
 
 **Terminada cuando:** cada servicio muestra su cobertura o su tarifa más reciente por comuna, con su vigencia, y la cobertura de internet aparece marcada como `candidato` en vez de omitirse en silencio.
+
+**Resultado (27 sep 2026)**
+- Nuevo tema `servicios` con `ingesta/pull_servicios.py` y 13 fuentes: cobertura, suscriptores (EPM, pequeños prestadores y Emvarias) y subsidios (EPM y Emvarias) de MEData; tarifas de EPM de acueducto y alcantarillado, gas y energía; ECA de la Superservicios; organizaciones recicladoras (MEData); internet fijo del MinTIC, y la cobertura de internet por comuna como `candidato`. 29 cifras, 12 series y las listas `indicadores` y `territorios` (cobertura de los tres servicios, suscriptores de acueducto y suscriptores de pequeños prestadores). La cifra ancla del Panorama son los accesos a internet fijo (866.296 en el primer trimestre de 2026).
+- Nueva sección `Servicios públicos` (`src/components/ServiciosView.jsx`), con su entrada en el menú (no existía): tarifas vigentes por estrato (tabla de los cuatro servicios y series de estrato 1 frente a estrato 4), cobertura por territorio (mapa por servicio y tabla por estrato), ranking y ficha por territorio, suscriptores y subsidios (histórico), reciclaje y aprovechamiento, e internet fijo.
+- Una cifra `candidato` se muestra como "Sin dato abierto" en su tarjeta (`src/lib/lago.js`).
+- Decisiones de alcance:
+  - **Tarifas de energía:** `ytme-6qnu` no sirve (trae los mercados de Bogotá, Cali, Tolima y Valle, no Antioquia) y los datos abiertos de EPM para Antioquia terminan en 2021. Se lee la tarifa vigente de la publicación mensual en PDF que enlaza la página de EPM (estado `declarado`), con la serie de los meses del año en curso.
+  - **Tarifas de agua:** las de Aguas Nacionales EPM son de Quibdó. Se usan las de EPM para Medellín (`nfrm-mmfe`, hasta agosto de 2026).
+  - **ECA:** el archivo de MEData no tiene fecha y perdió las tildes en el origen; se usa el registro de la Superservicios (75 ECA en operación, certificado hasta julio de 2024). Las organizaciones recicladoras siguen saliendo de MEData.
+  - **Internet fijo:** el MinTIC sí publica accesos por municipio y estrato (hasta el primer trimestre de 2026): se muestra el dato de la ciudad como `observado` y el de las comunas como `candidato`.
+  - **Cobertura por territorio:** se reconstruye sumando suscriptores y viviendas de los estratos (`derivado`). La tabla por estrato muestra los valores por encima de 100 % tal como vienen, con su explicación.
+- Correcciones que salieron al probar: un número con punto de miles en la cobertura ("6.544") y consumos de EPM con coma decimal; en gas solo los estratos 1 y 2 tienen subsidio (el texto decía 1 a 3).
+- Probada a 1400 y a 390 px, sin desbordamiento horizontal: las tablas anchas se desplazan dentro de su tarjeta.
 
 ---
 

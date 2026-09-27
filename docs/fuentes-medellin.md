@@ -88,7 +88,7 @@ Convenciones: `ALC` = `https://www.medellin.gov.co/servidormapas/rest/services`,
 |---|---|---|---|
 | Subestaciones de energía | `IDEM/Hosted/Riesgo_Tecnológico/FeatureServer/8` | Vigente | 26 en el Valle de Aburrá: Poblado, Guayabal, San Diego, Villa Hermosa, San Cristóbal, etc. |
 | Redes de alta, media y baja tensión | Mismo servicio, capas 4, 2 y 3 | Vigente | |
-| Tarifas de energía EPM | datos.gov.co `ytme-6qnu` | Julio de 2026 | |
+| Tarifas de energía EPM | Publicación mensual en PDF de EPM (vigente); datos abiertos `sfcd-b3ey` hasta 2021 | Septiembre de 2026 | Ver [Servicios públicos](#servicios-públicos): `ytme-6qnu` no es el mercado de Antioquia. |
 | Subsidios y contribuciones EPM | datos.gov.co `av6t-m6ju` | Septiembre de 2026 | |
 | Estaciones de carga eléctrica EPM | datos.gov.co `qqm3-dw2u`, `bff2-84yc` | 2025 | |
 
@@ -231,15 +231,34 @@ Tasa de homicidios derivada con la población del DANE: **13,17 por 100.000 habi
 
 ### Servicios públicos
 
-| Dato | Endpoint | Vigencia | Notas |
+| Dato | Endpoint | Vigencia | Valor clave |
 |---|---|---|---|
-| Cobertura y suscriptores de acueducto, alcantarillado y aseo por comuna y estrato | `MED/1-014-26-000256/reporte_de_estratificacion_y_cobertura.csv` | Hasta el 31/12/2019 | Columnas `servicio, comuna, estrato, suscriptores, cobertura, periodo`. Es el único cruce por comuna y estrato que se encontró; no cubre energía ni gas. |
-| Suscriptores y consumos de acueducto, por gran prestador y por pequeños prestadores | MEData, tema Vivienda, Ciudad y Territorio (`Suscriptores y consumos gran prestador`, `...pequeños prestadores`, `Suscriptores aseo`) | Por verificar | El portal declara 2025; falta confirmar el corte real del dato, como en el resto de MEData (ver [§5](#5-discrepancias-y-lectura-responsable)). |
-| Tarifas de energía y de gas de EPM | datos.gov.co `ytme-6qnu` (energía), `ekup-y869` (gas) | 2025–2026 | Mismos datasets que en [Energía e infraestructura](#energía-e-infraestructura-equivale-a-la-lente-de-energía-de-lima); no repetir la ingesta, solo reutilizarlos aquí. |
-| Subsidios y contribuciones de servicios públicos domiciliarios | datos.gov.co `av6t-m6ju` | Septiembre de 2026 | Energía, gas, acueducto y alcantarillado en un mismo dataset |
-| Tarifas de acueducto, aseo y aguas residuales | datos.gov.co, `29ba-ken5`, `ri3x-4pu5`, `sqeg-ns6a` (Aguas Nacionales EPM) | 2025 | Aguas Nacionales EPM opera corregimientos y municipios vecinos, no el acueducto central de Medellín; verificar cobertura real antes de usarlo como el dato de la ciudad. |
-| Estaciones de clasificación y aprovechamiento (ECAS) y organizaciones recicladoras | MEData, tema Vivienda, Ciudad y Territorio | Por verificar | |
-| Cobertura de internet fijo por comuna | No se encontró un dataset abierto | — | `candidato`: ni el MinTIC ni los operadores publican cobertura de internet fija a nivel de comuna para Medellín. |
+| **Cobertura y suscriptores de acueducto, alcantarillado y aseo por comuna y estrato** | `MED/1-014-26-000256/reporte_de_estratificacion_y_cobertura.csv` | **31/12/2017, 2018 y 2019** | Columnas `servicio, comuna, estrato, suscriptores, cobertura, periodo`. 2019: cobertura de la ciudad 95,3 % (acueducto), 94,0 % (alcantarillado) y 95,5 % (aseo); Palmitas, 19,3 % en acueducto. No cubre energía ni gas. **En uso.** |
+| **Suscriptores y consumos de EPM (gran prestador)** | `MED/1-014-26-000261/suscriptores_y_consumos_gran_prestador.csv` | **Dic 2017 – ago 2023**, mensual (el portal dice 2025) | 872.157 suscriptores de acueducto en agosto de 2023, por estrato y uso. **En uso.** |
+| **Suscriptores de pequeños prestadores** | `MED/1-014-26-000262/suscriptores_y_consumos_pequenos_prestadores.csv` | **Dic 2017 – sep 2023** | 18 prestadores, 15.292 suscriptores de acueducto; `id_comuna` usa los códigos oficiales (60 San Cristóbal, 70 Altavista…). **En uso.** |
+| **Suscriptores de aseo (Emvarias)** | `MED/1-014-26-000260/suscriptores_aseo.csv` | Dic 2017 – ago 2023 | 957.580 suscriptores. **En uso.** |
+| **Subsidios y contribuciones** | `MED/1-014-26-000258/...gran_prestador.csv` (EPM), `.../000257/...aseo.csv` (Emvarias), `.../000259/...pequenos_prestadores.csv` | Dic 2017 – ago/sep 2023 | EPM 2022: 150.745 millones en subsidios y 129.169 en contribuciones. **En uso** (EPM y Emvarias). |
+| **Tarifas de acueducto y alcantarillado de EPM** | datos.gov.co `nfrm-mmfe`, `municipio='Medellín'` | **Abr 2017 – ago 2026**, mensual | Estrato 1: $1.991,32/m³ de consumo básico; estrato 4: $4.978,29. **En uso.** |
+| **Tarifas de gas natural de EPM** | datos.gov.co `ekup-y869` | **Ene 2020 – oct 2026** | Mercado del Valle de Aburrá (la publicación en PDF lo dice; el dataset no trae municipio). **En uso.** |
+| **Tarifas de energía de EPM (vigentes)** | Publicación mensual en PDF, enlazada desde `https://www.epm.com.co/clientesyusuarios/energia/tarifas-energia/` (archivos `*_ANT_*.pdf`) | **Ene – sep 2026** | Estrato 1, consumo de subsistencia: $425,51/kWh; costo unitario (estrato 4): $958,38. Estado `declarado`. **En uso.** |
+| Tarifas de energía de EPM (datos abiertos) | datos.gov.co `sfcd-b3ey` (y su espejo en MEData `1-061-26-000364`) | **Dic 2016 – dic 2021** | No se usa: termina en 2021 y la publicación mensual trae la tarifa vigente. |
+| Tarifas y costos de energía del mercado regulado | datos.gov.co `ytme-6qnu` | 2024 – sep 2025 | **No es Antioquia**: solo trae los mercados de ENEL (Bogotá), EMCALI y CELSIA donde comercializa EPM. No se usa. |
+| Tarifas de acueducto, aseo y aguas residuales de Aguas Nacionales EPM | datos.gov.co `29ba-ken5`, `ri3x-4pu5`, `sqeg-ns6a` | 2019–2025 | **Solo Quibdó.** No se usa. |
+| Subsidios y contribuciones de EPM (porcentajes) | datos.gov.co `av6t-m6ju` | Gas: oct 2019 – oct 2026; acueducto de Medellín: 2019–2021; energía: 2019–2020 | Porcentajes por estrato. No se usa: las tarifas por estrato ya los traen aplicados. |
+| **Registro de estaciones de clasificación y aprovechamiento (ECA)** | datos.gov.co `y97c-tfd9` (Superservicios), `municipio like '%MEDELL%'` | Certificaciones hasta el 22/07/2024 | 142 ECA registradas, 75 en operación, 25.794 t/mes de capacidad. Una fila por certificación: el estado vigente es el de la última. **En uso.** |
+| ECAS (Alcaldía) | `MED/1-014-26-000592/ECAS_...csv` | Sin fecha | 50 estaciones, sin fecha y con las tildes perdidas en el propio archivo ("ASOCIACIï¿½N"). Se reemplaza por el registro de la Superservicios. |
+| **Organizaciones recicladoras** | `MED/1-014-26-000593/Organizaciones_Recicladoras.csv` | Sin fecha (MEData la fecha en noviembre de 2023) | 31 organizaciones. **En uso.** |
+| **Accesos a internet fijo** | CSV del MinTIC en postdata.gov.co (`ACCESOS_INTERNET_FIJO_3_5.csv`, enlazado desde la ficha `fwe6-d4hc`) | **T1 2024 – T1 2026** | 866.296 accesos en Medellín en el primer trimestre de 2026, por segmento (estrato) y tecnología. **En uso.** |
+| Cobertura de internet fijo por comuna | No existe un dataset abierto | — | `candidato`: el MinTIC publica por municipio y los operadores no publican su cobertura por barrio. |
+
+**Notas de uso en Servicios públicos (issue #9, 27 sep 2026)**
+
+- **Vigencia real de MEData:** el portal fecha estos archivos en 2025, pero la cobertura por comuna llega al 31/12/2019 y los suscriptores y subsidios a agosto (EPM y Emvarias) o septiembre de 2023 (pequeños prestadores).
+- **Cobertura por territorio:** la fuente publica la cobertura por comuna y estrato. La del territorio se reconstruye sumando suscriptores y viviendas (viviendas = suscriptores ÷ cobertura) de sus estratos, así que queda como `derivado`. Por estrato hay celdas por encima de 100 % (hasta 1.300 % en estratos con 3 o 4 viviendas estimadas); por territorio ninguna pasa de 100 %. Una fila trae el punto de miles ("6.544").
+- **Consumos de EPM** con coma decimal ("858001,231").
+- **Energía:** la página de tarifas de EPM enlaza una publicación por mes del año en curso para el mercado de Antioquia (`_ANT_`); si EPM corrige un mes, la página enlaza el reemplazo. Se lee la tarifa residencial de nivel I con activos de EPM (la de la mayoría de hogares) con `pdftotext`. Los estratos 5 y 6 aparecen en una sola fila.
+- **Subsidios por servicio:** en agua y energía los estratos 1 a 3 tienen subsidio en el consumo básico o de subsistencia; en gas, solo los estratos 1 y 2.
+- **Internet fijo:** son accesos (conexiones), no hogares. El archivo pesa unos 130 MB y el servidor tarda unos 5 minutos en entregarlo: la ingesta lo guarda en `datos/crudos/` y solo lo vuelve a bajar si cambia de tamaño. El nombre del archivo se lee de la ficha `fwe6-d4hc`, no se fija en el código.
 
 ### Territorio, POT y cultura
 

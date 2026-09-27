@@ -387,3 +387,18 @@ h1 em { color: var(--green); font-family: Georgia, serif; font-weight: 400; }
   .territorios-map .map-legend { display: grid; width: auto; max-width: calc(100% - 20px); }
   .territorios-map .barrio-popup { top: 12px; right: auto; bottom: auto; left: 12px; max-width: 200px; }
 }
+
+/* ---- Servicios públicos (issue #9) ---- */
+.servicios-view .card-controls { justify-content: space-between; align-items: center; }
+.servicios-view .card-controls h3 { margin: 0; }
+.servicios-tabla td, .servicios-tabla th { text-align: right; }
+.servicios-tabla td:first-child, .servicios-tabla th:first-child { text-align: left; }
+.servicios-tabla thead tr:first-child th { white-space: normal; vertical-align: bottom; min-width: 90px; }
+.servicios-tabla tr.periodos th { padding-top: 0; color: var(--muted); font-size: 9px; }
+.servicios-ecas td { vertical-align: top; line-height: 1.45; }
+.servicios-ecas td:nth-child(3), .servicios-ecas td:nth-child(4), .servicios-ecas td:last-child { white-space: nowrap; }
+.servicios-view .tabla-card .link-fuente { display: inline-block; margin: 10px 0 4px; }
+.lista-organizaciones { columns: 2 280px; column-gap: 28px; margin: 4px 0 8px; padding: 0; list-style: none; }
+.lista-organizaciones li { break-inside: avoid; padding: 6px 0; border-bottom: 1px solid color-mix(in srgb, var(--line) 60%, transparent); color: var(--paper); font-size: 11px; line-height: 1.4; }
+.lista-organizaciones small { display: block; color: var(--dim); font: 9px ui-monospace, SFMono-Regular, Menlo, monospace; }
+.servicios-ecas td:first-child, .servicios-ecas td:nth-child(2) { min-width: 170px; }

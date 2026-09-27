@@ -33,3 +33,6 @@ public/data/*.pmtiles
 
 # Caché local de teselas de ortofoto (proxy /api/ortofoto)
 .cache/
+
+# Configuración local de desarrollo (IP del computador para abrir la app desde el celular)
+next.config.mjs

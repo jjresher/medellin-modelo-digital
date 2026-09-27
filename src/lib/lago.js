@@ -72,6 +72,8 @@ const numero = (valor, decimales = 0) => valor.toLocaleString('es-CO', {
 
 export function formatoValor(cifra) {
   const { valor, unidad, decimales } = cifra;
+  // Una cifra `candidato` no tiene valor: la fuente existe o se buscó, pero el dato no es abierto.
+  if (valor == null) return 'Sin dato abierto';
   if (typeof valor !== 'number') return String(valor);
   if (unidad === '%') return `${numero(valor, decimales ?? 1)} %`;
   if (Math.abs(valor) >= 1e6) return `${numero(valor / 1e6, 2)} M`;
@@ -80,5 +82,6 @@ export function formatoValor(cifra) {
 
 // La unidad se muestra aparte del valor, salvo el porcentaje, que ya va pegado a la cifra.
 export function formatoUnidad(cifra) {
+  if (cifra.valor == null) return '';
   return cifra.unidad === '%' ? '' : cifra.unidad;
 }

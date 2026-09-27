@@ -1,0 +1,5321 @@
+{
+ "tema": "servicios",
+ "titulo": "Servicios públicos",
+ "probado": "2026-09-27",
+ "ancla": [
+  "internet_fijo"
+ ],
+ "fuentes": [
+  {
+   "id": "medata-cobertura-servicios",
+   "nombre": "Reporte de estratificación y cobertura de acueducto, alcantarillado y aseo",
+   "entidad": "Subsecretaría de Servicios Públicos · Alcaldía de Medellín (MEData)",
+   "url": "http://medata.gov.co/sites/default/files/distribution/1-014-26-000256/reporte_de_estratificacion_y_cobertura.csv",
+   "estado": "observado",
+   "probado": "2026-09-27"
+  },
+  {
+   "id": "medata-suscriptores-epm",
+   "nombre": "Suscriptores y consumos de acueducto y alcantarillado del gran prestador (EPM)",
+   "entidad": "Subsecretaría de Servicios Públicos · Alcaldía de Medellín (MEData)",
+   "url": "http://medata.gov.co/sites/default/files/distribution/1-014-26-000261/suscriptores_y_consumos_gran_prestador.csv",
+   "estado": "observado",
+   "probado": "2026-09-27"
+  },
+  {
+   "id": "medata-pequenos-prestadores",
+   "nombre": "Suscriptores y consumos de los pequeños prestadores de acueducto y alcantarillado",
+   "entidad": "Subsecretaría de Servicios Públicos · Alcaldía de Medellín (MEData)",
+   "url": "http://medata.gov.co/sites/default/files/distribution/1-014-26-000262/suscriptores_y_consumos_pequenos_prestadores.csv",
+   "estado": "observado",
+   "probado": "2026-09-27"
+  },
+  {
+   "id": "medata-suscriptores-aseo",
+   "nombre": "Suscriptores del servicio de aseo (Emvarias)",
+   "entidad": "Subsecretaría de Servicios Públicos · Alcaldía de Medellín (MEData)",
+   "url": "http://medata.gov.co/sites/default/files/distribution/1-014-26-000260/suscriptores_aseo.csv",
+   "estado": "observado",
+   "probado": "2026-09-27"
+  },
+  {
+   "id": "medata-subsidios-epm",
+   "nombre": "Subsidios y contribuciones de acueducto y alcantarillado del gran prestador (EPM)",
+   "entidad": "Subsecretaría de Servicios Públicos · Alcaldía de Medellín (MEData)",
+   "url": "http://medata.gov.co/sites/default/files/distribution/1-014-26-000258/subsidios_y_contribuciones_gran_prestador.csv",
+   "estado": "observado",
+   "probado": "2026-09-27"
+  },
+  {
+   "id": "medata-subsidios-aseo",
+   "nombre": "Subsidios y contribuciones del servicio de aseo (Emvarias)",
+   "entidad": "Subsecretaría de Servicios Públicos · Alcaldía de Medellín (MEData)",
+   "url": "http://medata.gov.co/sites/default/files/distribution/1-014-26-000257/subsidios_y_contribuciones_aseo.csv",
+   "estado": "observado",
+   "probado": "2026-09-27"
+  },
+  {
+   "id": "epm-tarifas-agua",
+   "nombre": "Tarifas de acueducto y aguas residuales para hogares",
+   "entidad": "Empresas Públicas de Medellín (EPM)",
+   "url": "https://www.datos.gov.co/d/nfrm-mmfe",
+   "estado": "observado",
+   "probado": "2026-09-27"
+  },
+  {
+   "id": "epm-tarifas-gas",
+   "nombre": "Tarifas de gas natural para hogares",
+   "entidad": "Empresas Públicas de Medellín (EPM)",
+   "url": "https://www.datos.gov.co/d/ekup-y869",
+   "estado": "observado",
+   "probado": "2026-09-27"
+  },
+  {
+   "id": "epm-tarifas-energia",
+   "nombre": "Tarifas y costo de energía eléctrica, mercado regulado (publicación mensual)",
+   "entidad": "Empresas Públicas de Medellín (EPM)",
+   "url": "https://www.epm.com.co/clientesyusuarios/energia/tarifas-energia/",
+   "estado": "declarado",
+   "probado": "2026-09-27"
+  },
+  {
+   "id": "superservicios-ecas",
+   "nombre": "Registro de estaciones de clasificación y aprovechamiento (ECA)",
+   "entidad": "Superintendencia de Servicios Públicos Domiciliarios",
+   "url": "https://www.datos.gov.co/d/y97c-tfd9",
+   "estado": "observado",
+   "probado": "2026-09-27"
+  },
+  {
+   "id": "medata-recicladoras",
+   "nombre": "Organizaciones recicladoras",
+   "entidad": "Subsecretaría de Servicios Públicos · Alcaldía de Medellín (MEData)",
+   "url": "http://medata.gov.co/sites/default/files/distribution/1-014-26-000593/Organizaciones_Recicladoras.csv",
+   "estado": "observado",
+   "probado": "2026-09-27"
+  },
+  {
+   "id": "mintic-internet-fijo",
+   "nombre": "Accesos a internet fijo por municipio, segmento y tecnología",
+   "entidad": "Ministerio de Tecnologías de la Información y las Comunicaciones",
+   "url": "https://www.postdata.gov.co/sites/default/files/ACCESOS_INTERNET_FIJO_3_5.csv",
+   "estado": "observado",
+   "probado": "2026-09-27"
+  },
+  {
+   "id": "internet-fijo-comuna",
+   "nombre": "Cobertura de internet fijo por comuna",
+   "entidad": "MinTIC y operadores",
+   "url": "https://www.datos.gov.co/d/fwe6-d4hc",
+   "estado": "candidato",
+   "probado": "2026-09-27",
+   "uso": "Cobertura por comuna: no publicada"
+  }
+ ],
+ "cifras": {
+  "cobertura_acueducto": {
+   "valor": 95.3,
+   "unidad": "%",
+   "etiqueta": "Cobertura de acueducto 2019",
+   "fuente": "medata-cobertura-servicios",
+   "vigencia": "2019 (histórico)",
+   "estado": "derivado",
+   "decimales": 1,
+   "nota": "650.765 suscriptores residenciales. Suscriptores residenciales sobre las viviendas que estima la fuente. La fuente publica la cobertura por estrato; la del territorio suma los suscriptores y las viviendas de sus estratos. Corte al 31 de diciembre."
+  },
+  "cobertura_alcantarillado": {
+   "valor": 94.0,
+   "unidad": "%",
+   "etiqueta": "Cobertura de alcantarillado 2019",
+   "fuente": "medata-cobertura-servicios",
+   "vigencia": "2019 (histórico)",
+   "estado": "derivado",
+   "decimales": 1,
+   "nota": "641.457 suscriptores residenciales. Suscriptores residenciales sobre las viviendas que estima la fuente. La fuente publica la cobertura por estrato; la del territorio suma los suscriptores y las viviendas de sus estratos. Corte al 31 de diciembre."
+  },
+  "cobertura_aseo": {
+   "valor": 95.5,
+   "unidad": "%",
+   "etiqueta": "Cobertura de aseo 2019",
+   "fuente": "medata-cobertura-servicios",
+   "vigencia": "2019 (histórico)",
+   "estado": "derivado",
+   "decimales": 1,
+   "nota": "651.802 suscriptores residenciales. Suscriptores residenciales sobre las viviendas que estima la fuente. La fuente publica la cobertura por estrato; la del territorio suma los suscriptores y las viviendas de sus estratos. Corte al 31 de diciembre."
+  },
+  "suscriptores_epm_acueducto": {
+   "valor": 872157,
+   "unidad": "suscriptores",
+   "etiqueta": "Suscriptores de acueducto de EPM",
+   "fuente": "medata-suscriptores-epm",
+   "vigencia": "ago 2023 (histórico)",
+   "estado": "observado",
+   "nota": "Histórico: el archivo abierto termina en ago 2023. Todos los usos: residencial por estrato, comercial, industrial, oficial y especial."
+  },
+  "suscriptores_epm_alcantarillado": {
+   "valor": 863411,
+   "unidad": "suscriptores",
+   "etiqueta": "Suscriptores de alcantarillado de EPM",
+   "fuente": "medata-suscriptores-epm",
+   "vigencia": "ago 2023 (histórico)",
+   "estado": "observado",
+   "nota": "Histórico: el archivo abierto termina en ago 2023. Todos los usos: residencial por estrato, comercial, industrial, oficial y especial."
+  },
+  "suscriptores_pequenos": {
+   "valor": 15292,
+   "unidad": "suscriptores",
+   "etiqueta": "Suscriptores de acueducto de pequeños prestadores",
+   "fuente": "medata-pequenos-prestadores",
+   "vigencia": "sep 2023 (histórico)",
+   "estado": "observado",
+   "nota": "Juntas de acción comunal, asociaciones y corporaciones que prestan el acueducto donde no llega la red de EPM, sobre todo en los corregimientos. Histórico: el archivo abierto termina en sep 2023."
+  },
+  "pequenos_prestadores": {
+   "valor": 18,
+   "unidad": "prestadores",
+   "etiqueta": "Pequeños prestadores de acueducto que reportan",
+   "fuente": "medata-pequenos-prestadores",
+   "vigencia": "sep 2023 (histórico)",
+   "estado": "observado",
+   "nota": "Juntas de acción comunal, asociaciones y corporaciones que prestan el acueducto donde no llega la red de EPM, sobre todo en los corregimientos. Histórico: el archivo abierto termina en sep 2023."
+  },
+  "suscriptores_aseo": {
+   "valor": 957580,
+   "unidad": "suscriptores",
+   "etiqueta": "Suscriptores de aseo de Emvarias",
+   "fuente": "medata-suscriptores-aseo",
+   "vigencia": "ago 2023 (histórico)",
+   "estado": "observado",
+   "nota": "Histórico: el archivo abierto termina en ago 2023."
+  },
+  "epm_subsidios": {
+   "valor": 150745,
+   "unidad": "millones de $",
+   "etiqueta": "Subsidios EPM 2022",
+   "fuente": "medata-subsidios-epm",
+   "vigencia": "2022 (histórico)",
+   "estado": "observado",
+   "nota": "Suma de los 12 meses de 2022. Histórico: el archivo abierto termina en ago 2023. Los subsidios rebajan la factura de los estratos 1, 2 y 3; las contribuciones son el recargo que pagan los estratos 5 y 6 y los usos comercial e industrial."
+  },
+  "epm_contribuciones": {
+   "valor": 129169,
+   "unidad": "millones de $",
+   "etiqueta": "Contribuciones EPM 2022",
+   "fuente": "medata-subsidios-epm",
+   "vigencia": "2022 (histórico)",
+   "estado": "observado",
+   "nota": "Suma de los 12 meses de 2022. Histórico: el archivo abierto termina en ago 2023. Los subsidios rebajan la factura de los estratos 1, 2 y 3; las contribuciones son el recargo que pagan los estratos 5 y 6 y los usos comercial e industrial."
+  },
+  "epm_subsidiados": {
+   "valor": 67.4,
+   "unidad": "%",
+   "etiqueta": "Suscriptores con subsidio · EPM",
+   "fuente": "medata-subsidios-epm",
+   "vigencia": "ago 2023 (histórico)",
+   "estado": "derivado",
+   "decimales": 1,
+   "nota": "1.168.962 de 1.735.568 suscriptores."
+  },
+  "aseo_subsidios": {
+   "valor": 55569,
+   "unidad": "millones de $",
+   "etiqueta": "Subsidios Emvarias 2022",
+   "fuente": "medata-subsidios-aseo",
+   "vigencia": "2022 (histórico)",
+   "estado": "observado",
+   "nota": "Suma de los 12 meses de 2022. Histórico: el archivo abierto termina en ago 2023. Los subsidios rebajan la factura de los estratos 1, 2 y 3; las contribuciones son el recargo que pagan los estratos 5 y 6 y los usos comercial e industrial."
+  },
+  "aseo_contribuciones": {
+   "valor": 44784,
+   "unidad": "millones de $",
+   "etiqueta": "Contribuciones Emvarias 2022",
+   "fuente": "medata-subsidios-aseo",
+   "vigencia": "2022 (histórico)",
+   "estado": "observado",
+   "nota": "Suma de los 12 meses de 2022. Histórico: el archivo abierto termina en ago 2023. Los subsidios rebajan la factura de los estratos 1, 2 y 3; las contribuciones son el recargo que pagan los estratos 5 y 6 y los usos comercial e industrial."
+  },
+  "aseo_subsidiados": {
+   "valor": 69.6,
+   "unidad": "%",
+   "etiqueta": "Suscriptores con subsidio · Emvarias",
+   "fuente": "medata-subsidios-aseo",
+   "vigencia": "ago 2023 (histórico)",
+   "estado": "derivado",
+   "decimales": 1,
+   "nota": "666.601 de 957.580 suscriptores."
+  },
+  "tarifa_acueducto_e1": {
+   "valor": 1991.32,
+   "unidad": "$/m³",
+   "etiqueta": "Acueducto, estrato 1: consumo básico",
+   "fuente": "epm-tarifas-agua",
+   "vigencia": "ago 2026",
+   "estado": "observado",
+   "decimales": 2,
+   "nota": "Cargo fijo: $4072.02 al mes. Pesos por m³ del consumo básico, con el subsidio o la contribución de cada estrato ya aplicado. El estrato 4 paga la tarifa plena, sin subsidio ni contribución."
+  },
+  "tarifa_acueducto_e4": {
+   "valor": 4978.29,
+   "unidad": "$/m³",
+   "etiqueta": "Acueducto, estrato 4: consumo básico",
+   "fuente": "epm-tarifas-agua",
+   "vigencia": "ago 2026",
+   "estado": "observado",
+   "decimales": 2,
+   "nota": "Cargo fijo: $10180.05 al mes. Pesos por m³ del consumo básico, con el subsidio o la contribución de cada estrato ya aplicado. El estrato 4 paga la tarifa plena, sin subsidio ni contribución."
+  },
+  "tarifa_gas_e1": {
+   "valor": 1605.53,
+   "unidad": "$/m³",
+   "etiqueta": "Gas natural, estrato 1: hasta 20 m³",
+   "fuente": "epm-tarifas-gas",
+   "vigencia": "oct 2026",
+   "estado": "observado",
+   "decimales": 2,
+   "nota": "Mercado del Valle de Aburrá. Pesos por m³ de los primeros 20 m³ del mes, con el subsidio o la contribución del estrato ya aplicado; el cargo fijo es por usuario."
+  },
+  "tarifa_gas_e4": {
+   "valor": 3559.88,
+   "unidad": "$/m³",
+   "etiqueta": "Gas natural, estrato 4: hasta 20 m³",
+   "fuente": "epm-tarifas-gas",
+   "vigencia": "oct 2026",
+   "estado": "observado",
+   "decimales": 2,
+   "nota": "Mercado del Valle de Aburrá. Pesos por m³ de los primeros 20 m³ del mes, con el subsidio o la contribución del estrato ya aplicado; el cargo fijo es por usuario."
+  },
+  "tarifa_energia_e1": {
+   "valor": 425.51,
+   "unidad": "$/kWh",
+   "etiqueta": "Energía, estrato 1: consumo de subsistencia",
+   "fuente": "epm-tarifas-energia",
+   "vigencia": "sep 2026",
+   "estado": "declarado",
+   "decimales": 2,
+   "nota": "Pesos por kWh para hogares conectados a la red de EPM en baja tensión (nivel I, activos de EPM), con el subsidio o la contribución del estrato ya aplicados. Los estratos 1 a 3 tienen subsidio solo en el consumo de subsistencia (CS); el consumo por encima de él y el estrato 4 pagan el costo unitario."
+  },
+  "tarifa_energia_e4": {
+   "valor": 958.38,
+   "unidad": "$/kWh",
+   "etiqueta": "Energía, estrato 4",
+   "fuente": "epm-tarifas-energia",
+   "vigencia": "sep 2026",
+   "estado": "declarado",
+   "decimales": 2,
+   "nota": "Pesos por kWh para hogares conectados a la red de EPM en baja tensión (nivel I, activos de EPM), con el subsidio o la contribución del estrato ya aplicados. Los estratos 1 a 3 tienen subsidio solo en el consumo de subsistencia (CS); el consumo por encima de él y el estrato 4 pagan el costo unitario."
+  },
+  "energia_cargo_fijo": {
+   "valor": 9576.0,
+   "unidad": "$/factura",
+   "etiqueta": "Energía: cargo fijo por factura",
+   "fuente": "epm-tarifas-energia",
+   "vigencia": "sep 2026",
+   "estado": "declarado",
+   "nota": "Componente fijo del costo unitario, igual para todos los estratos."
+  },
+  "ecas": {
+   "valor": 75,
+   "unidad": "estaciones",
+   "etiqueta": "ECA en operación",
+   "fuente": "superservicios-ecas",
+   "vigencia": "Certificado hasta 2024-07-22",
+   "estado": "observado",
+   "nota": "Estaciones donde los prestadores de aprovechamiento (en su mayoría organizaciones de recicladores de oficio) pesan, clasifican y venden el material reciclable. Estado según la última certificación de cada ECA ante la Superservicios. Otras 67 registradas figuran inactivas."
+  },
+  "ecas_capacidad": {
+   "valor": 25794,
+   "unidad": "t/mes",
+   "etiqueta": "Capacidad de operación de las ECA",
+   "fuente": "superservicios-ecas",
+   "vigencia": "Certificado hasta 2024-07-22",
+   "estado": "observado",
+   "nota": "Suma de la capacidad de operación declarada por las 75 ECA en operación, en toneladas al mes."
+  },
+  "ecas_prestadores": {
+   "valor": 41,
+   "unidad": "prestadores",
+   "etiqueta": "Prestadores de aprovechamiento con ECA en operación",
+   "fuente": "superservicios-ecas",
+   "vigencia": "Certificado hasta 2024-07-22",
+   "estado": "observado",
+   "nota": "Estaciones donde los prestadores de aprovechamiento (en su mayoría organizaciones de recicladores de oficio) pesan, clasifican y venden el material reciclable. Estado según la última certificación de cada ECA ante la Superservicios."
+  },
+  "ecas_suelo_compatible": {
+   "valor": 65,
+   "unidad": "estaciones",
+   "etiqueta": "ECA en operación con uso del suelo compatible",
+   "fuente": "superservicios-ecas",
+   "vigencia": "Certificado hasta 2024-07-22",
+   "estado": "observado",
+   "nota": "Según lo que declara cada prestador: el POT permite la actividad en el predio."
+  },
+  "organizaciones_recicladoras": {
+   "valor": 31,
+   "unidad": "organizaciones",
+   "etiqueta": "Organizaciones de recicladores registradas",
+   "fuente": "medata-recicladoras",
+   "vigencia": "Registro sin fecha (MEData lo fecha en noviembre de 2023)",
+   "estado": "observado",
+   "nota": "Organizaciones de recicladores de oficio registradas ante la Alcaldía. El archivo no trae fecha."
+  },
+  "internet_fijo": {
+   "valor": 866296,
+   "unidad": "accesos",
+   "etiqueta": "Accesos a internet fijo",
+   "fuente": "mintic-internet-fijo",
+   "vigencia": "T1 2026",
+   "estado": "observado",
+   "nota": "Accesos (conexiones) de internet fijo reportados por los operadores, no hogares ni personas: un hogar o una empresa puede tener más de uno."
+  },
+  "internet_fijo_residencial": {
+   "valor": 792222,
+   "unidad": "accesos",
+   "etiqueta": "Accesos residenciales a internet fijo",
+   "fuente": "mintic-internet-fijo",
+   "vigencia": "T1 2026",
+   "estado": "observado",
+   "nota": "Estratos 1 a 6. Accesos (conexiones) de internet fijo reportados por los operadores, no hogares ni personas: un hogar o una empresa puede tener más de uno."
+  },
+  "internet_fijo_comuna": {
+   "valor": null,
+   "unidad": "accesos",
+   "etiqueta": "Internet fijo por comuna",
+   "fuente": "internet-fijo-comuna",
+   "vigencia": "No publicada",
+   "estado": "candidato",
+   "nota": "El MinTIC publica los accesos por municipio, segmento y tecnología, no por comuna, y los operadores no publican su cobertura por barrio. Queda como candidata hasta que exista un dato abierto."
+  }
+ },
+ "series": {
+  "suscriptores_epm_acueducto": {
+   "etiqueta": "Suscriptores de acueducto de EPM",
+   "unidad": "suscriptores",
+   "fuente": "medata-suscriptores-epm",
+   "estado": "observado",
+   "vigencia": "dic 2017 – ago 2023",
+   "puntos": [
+    [
+     "dic 2017",
+     778488
+    ],
+    [
+     "ene 2018",
+     778820
+    ],
+    [
+     "feb 2018",
+     781299
+    ],
+    [
+     "mar 2018",
+     782796
+    ],
+    [
+     "abr 2018",
+     785303
+    ],
+    [
+     "may 2018",
+     786802
+    ],
+    [
+     "jun 2018",
+     789421
+    ],
+    [
+     "jul 2018",
+     791149
+    ],
+    [
+     "ago 2018",
+     795032
+    ],
+    [
+     "sep 2018",
+     796949
+    ],
+    [
+     "oct 2018",
+     798439
+    ],
+    [
+     "nov 2018",
+     798439
+    ],
+    [
+     "dic 2018",
+     798695
+    ],
+    [
+     "ene 2019",
+     799662
+    ],
+    [
+     "feb 2019",
+     801236
+    ],
+    [
+     "mar 2019",
+     802837
+    ],
+    [
+     "abr 2019",
+     805592
+    ],
+    [
+     "may 2019",
+     807477
+    ],
+    [
+     "jun 2019",
+     809392
+    ],
+    [
+     "jul 2019",
+     810924
+    ],
+    [
+     "ago 2019",
+     812734
+    ],
+    [
+     "sep 2019",
+     814188
+    ],
+    [
+     "oct 2019",
+     815148
+    ],
+    [
+     "nov 2019",
+     816382
+    ],
+    [
+     "dic 2019",
+     817619
+    ],
+    [
+     "ene 2020",
+     819001
+    ],
+    [
+     "feb 2020",
+     819760
+    ],
+    [
+     "mar 2020",
+     821031
+    ],
+    [
+     "abr 2020",
+     818198
+    ],
+    [
+     "may 2020",
+     820768
+    ],
+    [
+     "jun 2020",
+     822224
+    ],
+    [
+     "jul 2020",
+     824067
+    ],
+    [
+     "ago 2020",
+     825563
+    ],
+    [
+     "sep 2020",
+     827209
+    ],
+    [
+     "oct 2020",
+     828689
+    ],
+    [
+     "nov 2020",
+     830458
+    ],
+    [
+     "dic 2020",
+     832659
+    ],
+    [
+     "ene 2021",
+     834390
+    ],
+    [
+     "feb 2021",
+     835430
+    ],
+    [
+     "mar 2021",
+     837435
+    ],
+    [
+     "abr 2021",
+     838087
+    ],
+    [
+     "may 2021",
+     839050
+    ],
+    [
+     "jun 2021",
+     839906
+    ],
+    [
+     "jul 2021",
+     841591
+    ],
+    [
+     "ago 2021",
+     843403
+    ],
+    [
+     "sep 2021",
+     844442
+    ],
+    [
+     "oct 2021",
+     845950
+    ],
+    [
+     "nov 2021",
+     846656
+    ],
+    [
+     "dic 2021",
+     847753
+    ],
+    [
+     "ene 2022",
+     845772
+    ],
+    [
+     "feb 2022",
+     846064
+    ],
+    [
+     "mar 2022",
+     847773
+    ],
+    [
+     "abr 2022",
+     848847
+    ],
+    [
+     "may 2022",
+     850039
+    ],
+    [
+     "jun 2022",
+     850940
+    ],
+    [
+     "jul 2022",
+     852209
+    ],
+    [
+     "ago 2022",
+     853646
+    ],
+    [
+     "sep 2022",
+     855035
+    ],
+    [
+     "oct 2022",
+     856843
+    ],
+    [
+     "nov 2022",
+     858077
+    ],
+    [
+     "dic 2022",
+     859265
+    ],
+    [
+     "ene 2023",
+     861051
+    ],
+    [
+     "feb 2023",
+     862650
+    ],
+    [
+     "mar 2023",
+     864629
+    ],
+    [
+     "abr 2023",
+     865272
+    ],
+    [
+     "may 2023",
+     866480
+    ],
+    [
+     "jun 2023",
+     867800
+    ],
+    [
+     "jul 2023",
+     870103
+    ],
+    [
+     "ago 2023",
+     872157
+    ]
+   ],
+   "nota": "Histórico: el archivo abierto termina en ago 2023. Todos los usos: residencial por estrato, comercial, industrial, oficial y especial."
+  },
+  "epm_subsidios_mensual": {
+   "etiqueta": "Subsidios otorgados por EPM por mes",
+   "unidad": "millones de $",
+   "fuente": "medata-subsidios-epm",
+   "estado": "observado",
+   "vigencia": "dic 2017 – ago 2023",
+   "puntos": [
+    [
+     "dic 2017",
+     7191
+    ],
+    [
+     "ene 2018",
+     7105
+    ],
+    [
+     "feb 2018",
+     7384
+    ],
+    [
+     "mar 2018",
+     7398
+    ],
+    [
+     "abr 2018",
+     7408
+    ],
+    [
+     "may 2018",
+     7459
+    ],
+    [
+     "jun 2018",
+     7619
+    ],
+    [
+     "jul 2018",
+     7917
+    ],
+    [
+     "ago 2018",
+     7831
+    ],
+    [
+     "sep 2018",
+     7898
+    ],
+    [
+     "oct 2018",
+     7773
+    ],
+    [
+     "nov 2018",
+     7678
+    ],
+    [
+     "dic 2018",
+     7683
+    ],
+    [
+     "ene 2019",
+     7681
+    ],
+    [
+     "feb 2019",
+     8330
+    ],
+    [
+     "mar 2019",
+     8432
+    ],
+    [
+     "abr 2019",
+     8420
+    ],
+    [
+     "may 2019",
+     8784
+    ],
+    [
+     "jun 2019",
+     8842
+    ],
+    [
+     "jul 2019",
+     8849
+    ],
+    [
+     "ago 2019",
+     9002
+    ],
+    [
+     "sep 2019",
+     9087
+    ],
+    [
+     "oct 2019",
+     8983
+    ],
+    [
+     "nov 2019",
+     8891
+    ],
+    [
+     "dic 2019",
+     8981
+    ],
+    [
+     "ene 2020",
+     8952
+    ],
+    [
+     "feb 2020",
+     9231
+    ],
+    [
+     "mar 2020",
+     9505
+    ],
+    [
+     "abr 2020",
+     9499
+    ],
+    [
+     "may 2020",
+     9594
+    ],
+    [
+     "jun 2020",
+     9676
+    ],
+    [
+     "jul 2020",
+     9630
+    ],
+    [
+     "ago 2020",
+     9722
+    ],
+    [
+     "sep 2020",
+     9637
+    ],
+    [
+     "oct 2020",
+     10003
+    ],
+    [
+     "nov 2020",
+     9682
+    ],
+    [
+     "dic 2020",
+     9823
+    ],
+    [
+     "ene 2021",
+     9876
+    ],
+    [
+     "feb 2021",
+     10016
+    ],
+    [
+     "mar 2021",
+     10213
+    ],
+    [
+     "abr 2021",
+     10287
+    ],
+    [
+     "may 2021",
+     10272
+    ],
+    [
+     "jun 2021",
+     10721
+    ],
+    [
+     "jul 2021",
+     11347
+    ],
+    [
+     "ago 2021",
+     11843
+    ],
+    [
+     "sep 2021",
+     11886
+    ],
+    [
+     "oct 2021",
+     11969
+    ],
+    [
+     "nov 2021",
+     12146
+    ],
+    [
+     "dic 2021",
+     12235
+    ],
+    [
+     "ene 2022",
+     11636
+    ],
+    [
+     "feb 2022",
+     11650
+    ],
+    [
+     "mar 2022",
+     12121
+    ],
+    [
+     "abr 2022",
+     12138
+    ],
+    [
+     "may 2022",
+     12626
+    ],
+    [
+     "jun 2022",
+     12529
+    ],
+    [
+     "jul 2022",
+     12597
+    ],
+    [
+     "ago 2022",
+     13064
+    ],
+    [
+     "sep 2022",
+     13110
+    ],
+    [
+     "oct 2022",
+     12999
+    ],
+    [
+     "nov 2022",
+     12900
+    ],
+    [
+     "dic 2022",
+     13376
+    ],
+    [
+     "ene 2023",
+     13353
+    ],
+    [
+     "feb 2023",
+     13204
+    ],
+    [
+     "mar 2023",
+     13429
+    ],
+    [
+     "abr 2023",
+     13933
+    ],
+    [
+     "may 2023",
+     13990
+    ],
+    [
+     "jun 2023",
+     14172
+    ],
+    [
+     "jul 2023",
+     14854
+    ],
+    [
+     "ago 2023",
+     15005
+    ]
+   ],
+   "nota": "Histórico: el archivo abierto termina en ago 2023. Los subsidios rebajan la factura de los estratos 1, 2 y 3; las contribuciones son el recargo que pagan los estratos 5 y 6 y los usos comercial e industrial."
+  },
+  "epm_contribuciones_mensual": {
+   "etiqueta": "Contribuciones recibidas por EPM por mes",
+   "unidad": "millones de $",
+   "fuente": "medata-subsidios-epm",
+   "estado": "observado",
+   "vigencia": "dic 2017 – ago 2023",
+   "puntos": [
+    [
+     "dic 2017",
+     5529
+    ],
+    [
+     "ene 2018",
+     5759
+    ],
+    [
+     "feb 2018",
+     5593
+    ],
+    [
+     "mar 2018",
+     5984
+    ],
+    [
+     "abr 2018",
+     6026
+    ],
+    [
+     "may 2018",
+     5894
+    ],
+    [
+     "jun 2018",
+     5997
+    ],
+    [
+     "jul 2018",
+     6301
+    ],
+    [
+     "ago 2018",
+     6304
+    ],
+    [
+     "sep 2018",
+     6263
+    ],
+    [
+     "oct 2018",
+     6506
+    ],
+    [
+     "nov 2018",
+     6501
+    ],
+    [
+     "dic 2018",
+     6393
+    ],
+    [
+     "ene 2019",
+     6414
+    ],
+    [
+     "feb 2019",
+     6280
+    ],
+    [
+     "mar 2019",
+     7325
+    ],
+    [
+     "abr 2019",
+     7104
+    ],
+    [
+     "may 2019",
+     7152
+    ],
+    [
+     "jun 2019",
+     7232
+    ],
+    [
+     "jul 2019",
+     7055
+    ],
+    [
+     "ago 2019",
+     7517
+    ],
+    [
+     "sep 2019",
+     7572
+    ],
+    [
+     "oct 2019",
+     7891
+    ],
+    [
+     "nov 2019",
+     7601
+    ],
+    [
+     "dic 2019",
+     7577
+    ],
+    [
+     "ene 2020",
+     7414
+    ],
+    [
+     "feb 2020",
+     7059
+    ],
+    [
+     "mar 2020",
+     7979
+    ],
+    [
+     "abr 2020",
+     7543
+    ],
+    [
+     "may 2020",
+     5481
+    ],
+    [
+     "jun 2020",
+     6539
+    ],
+    [
+     "jul 2020",
+     6904
+    ],
+    [
+     "ago 2020",
+     7171
+    ],
+    [
+     "sep 2020",
+     7030
+    ],
+    [
+     "oct 2020",
+     7290
+    ],
+    [
+     "nov 2020",
+     7443
+    ],
+    [
+     "dic 2020",
+     7704
+    ],
+    [
+     "ene 2021",
+     8030
+    ],
+    [
+     "feb 2021",
+     7349
+    ],
+    [
+     "mar 2021",
+     8102
+    ],
+    [
+     "abr 2021",
+     8368
+    ],
+    [
+     "may 2021",
+     7532
+    ],
+    [
+     "jun 2021",
+     7289
+    ],
+    [
+     "jul 2021",
+     7346
+    ],
+    [
+     "ago 2021",
+     8376
+    ],
+    [
+     "sep 2021",
+     8409
+    ],
+    [
+     "oct 2021",
+     9441
+    ],
+    [
+     "nov 2021",
+     9324
+    ],
+    [
+     "dic 2021",
+     9566
+    ],
+    [
+     "ene 2022",
+     9819
+    ],
+    [
+     "feb 2022",
+     9534
+    ],
+    [
+     "mar 2022",
+     10459
+    ],
+    [
+     "abr 2022",
+     10497
+    ],
+    [
+     "may 2022",
+     10291
+    ],
+    [
+     "jun 2022",
+     10606
+    ],
+    [
+     "jul 2022",
+     10782
+    ],
+    [
+     "ago 2022",
+     10988
+    ],
+    [
+     "sep 2022",
+     11501
+    ],
+    [
+     "oct 2022",
+     11800
+    ],
+    [
+     "nov 2022",
+     11389
+    ],
+    [
+     "dic 2022",
+     11504
+    ],
+    [
+     "ene 2023",
+     11498
+    ],
+    [
+     "feb 2023",
+     10807
+    ],
+    [
+     "mar 2023",
+     11877
+    ],
+    [
+     "abr 2023",
+     11750
+    ],
+    [
+     "may 2023",
+     11339
+    ],
+    [
+     "jun 2023",
+     11873
+    ],
+    [
+     "jul 2023",
+     12336
+    ],
+    [
+     "ago 2023",
+     12405
+    ]
+   ],
+   "nota": "Histórico: el archivo abierto termina en ago 2023. Los subsidios rebajan la factura de los estratos 1, 2 y 3; las contribuciones son el recargo que pagan los estratos 5 y 6 y los usos comercial e industrial."
+  },
+  "aseo_subsidios_mensual": {
+   "etiqueta": "Subsidios otorgados por Emvarias por mes",
+   "unidad": "millones de $",
+   "fuente": "medata-subsidios-aseo",
+   "estado": "observado",
+   "vigencia": "dic 2017 – ago 2023",
+   "puntos": [
+    [
+     "dic 2017",
+     2993
+    ],
+    [
+     "ene 2018",
+     3010
+    ],
+    [
+     "feb 2018",
+     3103
+    ],
+    [
+     "mar 2018",
+     3244
+    ],
+    [
+     "abr 2018",
+     3236
+    ],
+    [
+     "may 2018",
+     3265
+    ],
+    [
+     "jun 2018",
+     3282
+    ],
+    [
+     "jul 2018",
+     3305
+    ],
+    [
+     "ago 2018",
+     3333
+    ],
+    [
+     "sep 2018",
+     3277
+    ],
+    [
+     "oct 2018",
+     3272
+    ],
+    [
+     "nov 2018",
+     3296
+    ],
+    [
+     "dic 2018",
+     3304
+    ],
+    [
+     "ene 2019",
+     3326
+    ],
+    [
+     "feb 2019",
+     3532
+    ],
+    [
+     "mar 2019",
+     3671
+    ],
+    [
+     "abr 2019",
+     3658
+    ],
+    [
+     "may 2019",
+     3693
+    ],
+    [
+     "jun 2019",
+     3700
+    ],
+    [
+     "jul 2019",
+     3759
+    ],
+    [
+     "ago 2019",
+     3786
+    ],
+    [
+     "sep 2019",
+     3681
+    ],
+    [
+     "oct 2019",
+     3686
+    ],
+    [
+     "nov 2019",
+     3672
+    ],
+    [
+     "dic 2019",
+     3693
+    ],
+    [
+     "ene 2020",
+     3613
+    ],
+    [
+     "feb 2020",
+     3825
+    ],
+    [
+     "mar 2020",
+     3850
+    ],
+    [
+     "abr 2020",
+     3933
+    ],
+    [
+     "may 2020",
+     3930
+    ],
+    [
+     "jun 2020",
+     3967
+    ],
+    [
+     "jul 2020",
+     3963
+    ],
+    [
+     "ago 2020",
+     3954
+    ],
+    [
+     "sep 2020",
+     3732
+    ],
+    [
+     "oct 2020",
+     3762
+    ],
+    [
+     "nov 2020",
+     3751
+    ],
+    [
+     "dic 2020",
+     3793
+    ],
+    [
+     "ene 2021",
+     3967
+    ],
+    [
+     "feb 2021",
+     3887
+    ],
+    [
+     "mar 2021",
+     4119
+    ],
+    [
+     "abr 2021",
+     4174
+    ],
+    [
+     "may 2021",
+     4191
+    ],
+    [
+     "jun 2021",
+     4146
+    ],
+    [
+     "jul 2021",
+     4230
+    ],
+    [
+     "ago 2021",
+     4230
+    ],
+    [
+     "sep 2021",
+     4593
+    ],
+    [
+     "oct 2021",
+     4061
+    ],
+    [
+     "nov 2021",
+     4061
+    ],
+    [
+     "dic 2021",
+     4295
+    ],
+    [
+     "ene 2022",
+     4296
+    ],
+    [
+     "feb 2022",
+     4505
+    ],
+    [
+     "mar 2022",
+     4640
+    ],
+    [
+     "abr 2022",
+     4583
+    ],
+    [
+     "may 2022",
+     4666
+    ],
+    [
+     "jun 2022",
+     5338
+    ],
+    [
+     "jul 2022",
+     4801
+    ],
+    [
+     "ago 2022",
+     4741
+    ],
+    [
+     "sep 2022",
+     4315
+    ],
+    [
+     "oct 2022",
+     4552
+    ],
+    [
+     "nov 2022",
+     4552
+    ],
+    [
+     "dic 2022",
+     4580
+    ],
+    [
+     "ene 2023",
+     4659
+    ],
+    [
+     "feb 2023",
+     4639
+    ],
+    [
+     "mar 2023",
+     5215
+    ],
+    [
+     "abr 2023",
+     5217
+    ],
+    [
+     "may 2023",
+     5284
+    ],
+    [
+     "jun 2023",
+     5294
+    ],
+    [
+     "jul 2023",
+     5388
+    ],
+    [
+     "ago 2023",
+     5281
+    ]
+   ],
+   "nota": "Histórico: el archivo abierto termina en ago 2023. Los subsidios rebajan la factura de los estratos 1, 2 y 3; las contribuciones son el recargo que pagan los estratos 5 y 6 y los usos comercial e industrial."
+  },
+  "aseo_contribuciones_mensual": {
+   "etiqueta": "Contribuciones recibidas por Emvarias por mes",
+   "unidad": "millones de $",
+   "fuente": "medata-subsidios-aseo",
+   "estado": "observado",
+   "vigencia": "dic 2017 – ago 2023",
+   "puntos": [
+    [
+     "dic 2017",
+     2718
+    ],
+    [
+     "ene 2018",
+     2804
+    ],
+    [
+     "feb 2018",
+     2742
+    ],
+    [
+     "mar 2018",
+     2766
+    ],
+    [
+     "abr 2018",
+     2769
+    ],
+    [
+     "may 2018",
+     2792
+    ],
+    [
+     "jun 2018",
+     2812
+    ],
+    [
+     "jul 2018",
+     2826
+    ],
+    [
+     "ago 2018",
+     2864
+    ],
+    [
+     "sep 2018",
+     2814
+    ],
+    [
+     "oct 2018",
+     2847
+    ],
+    [
+     "nov 2018",
+     2863
+    ],
+    [
+     "dic 2018",
+     2875
+    ],
+    [
+     "ene 2019",
+     2884
+    ],
+    [
+     "feb 2019",
+     2994
+    ],
+    [
+     "mar 2019",
+     3094
+    ],
+    [
+     "abr 2019",
+     3089
+    ],
+    [
+     "may 2019",
+     3110
+    ],
+    [
+     "jun 2019",
+     3109
+    ],
+    [
+     "jul 2019",
+     3145
+    ],
+    [
+     "ago 2019",
+     3161
+    ],
+    [
+     "sep 2019",
+     3116
+    ],
+    [
+     "oct 2019",
+     3116
+    ],
+    [
+     "nov 2019",
+     3104
+    ],
+    [
+     "dic 2019",
+     3131
+    ],
+    [
+     "ene 2020",
+     3054
+    ],
+    [
+     "feb 2020",
+     3197
+    ],
+    [
+     "mar 2020",
+     3257
+    ],
+    [
+     "abr 2020",
+     3306
+    ],
+    [
+     "may 2020",
+     3284
+    ],
+    [
+     "jun 2020",
+     3279
+    ],
+    [
+     "jul 2020",
+     3252
+    ],
+    [
+     "ago 2020",
+     3252
+    ],
+    [
+     "sep 2020",
+     3090
+    ],
+    [
+     "oct 2020",
+     3087
+    ],
+    [
+     "nov 2020",
+     3087
+    ],
+    [
+     "dic 2020",
+     3113
+    ],
+    [
+     "ene 2021",
+     3208
+    ],
+    [
+     "feb 2021",
+     3181
+    ],
+    [
+     "mar 2021",
+     3321
+    ],
+    [
+     "abr 2021",
+     3359
+    ],
+    [
+     "may 2021",
+     3376
+    ],
+    [
+     "jun 2021",
+     3341
+    ],
+    [
+     "jul 2021",
+     3393
+    ],
+    [
+     "ago 2021",
+     3400
+    ],
+    [
+     "sep 2021",
+     3653
+    ],
+    [
+     "oct 2021",
+     3318
+    ],
+    [
+     "nov 2021",
+     3318
+    ],
+    [
+     "dic 2021",
+     3460
+    ],
+    [
+     "ene 2022",
+     3462
+    ],
+    [
+     "feb 2022",
+     3626
+    ],
+    [
+     "mar 2022",
+     3698
+    ],
+    [
+     "abr 2022",
+     3661
+    ],
+    [
+     "may 2022",
+     3704
+    ],
+    [
+     "jun 2022",
+     4125
+    ],
+    [
+     "jul 2022",
+     3836
+    ],
+    [
+     "ago 2022",
+     3815
+    ],
+    [
+     "sep 2022",
+     3591
+    ],
+    [
+     "oct 2022",
+     3742
+    ],
+    [
+     "nov 2022",
+     3742
+    ],
+    [
+     "dic 2022",
+     3782
+    ],
+    [
+     "ene 2023",
+     3898
+    ],
+    [
+     "feb 2023",
+     3930
+    ],
+    [
+     "mar 2023",
+     4360
+    ],
+    [
+     "abr 2023",
+     4411
+    ],
+    [
+     "may 2023",
+     4498
+    ],
+    [
+     "jun 2023",
+     4467
+    ],
+    [
+     "jul 2023",
+     4565
+    ],
+    [
+     "ago 2023",
+     4525
+    ]
+   ],
+   "nota": "Histórico: el archivo abierto termina en ago 2023. Los subsidios rebajan la factura de los estratos 1, 2 y 3; las contribuciones son el recargo que pagan los estratos 5 y 6 y los usos comercial e industrial."
+  },
+  "acueducto_consumo_e1": {
+   "etiqueta": "Acueducto: cargo por consumo básico, estrato 1",
+   "unidad": "$/m³",
+   "fuente": "epm-tarifas-agua",
+   "estado": "observado",
+   "vigencia": "abr 2017 – ago 2026",
+   "puntos": [
+    [
+     "abr 2017",
+     709.48
+    ],
+    [
+     "may 2017",
+     709.48
+    ],
+    [
+     "jun 2017",
+     709.48
+    ],
+    [
+     "jul 2017",
+     709.48
+    ],
+    [
+     "ago 2017",
+     710.25
+    ],
+    [
+     "sep 2017",
+     710.25
+    ],
+    [
+     "oct 2017",
+     710.25
+    ],
+    [
+     "nov 2017",
+     710.25
+    ],
+    [
+     "dic 2017",
+     710.25
+    ],
+    [
+     "ene 2018",
+     710.25
+    ],
+    [
+     "feb 2018",
+     818.77
+    ],
+    [
+     "mar 2018",
+     818.77
+    ],
+    [
+     "abr 2018",
+     818.77
+    ],
+    [
+     "may 2018",
+     818.77
+    ],
+    [
+     "jun 2018",
+     846.16
+    ],
+    [
+     "jul 2018",
+     846.16
+    ],
+    [
+     "ago 2018",
+     846.78
+    ],
+    [
+     "sep 2018",
+     846.78
+    ],
+    [
+     "oct 2018",
+     846.78
+    ],
+    [
+     "nov 2018",
+     942.75
+    ],
+    [
+     "dic 2018",
+     942.75
+    ],
+    [
+     "ene 2019",
+     942.75
+    ],
+    [
+     "feb 2019",
+     1007.16
+    ],
+    [
+     "mar 2019",
+     1007.16
+    ],
+    [
+     "abr 2019",
+     1007.24
+    ],
+    [
+     "may 2019",
+     1037.35
+    ],
+    [
+     "jun 2019",
+     1037.35
+    ],
+    [
+     "jul 2019",
+     1037.35
+    ],
+    [
+     "ago 2019",
+     1038.32
+    ],
+    [
+     "sep 2019",
+     1038.32
+    ],
+    [
+     "oct 2019",
+     1038.32
+    ],
+    [
+     "nov 2019",
+     1038.32
+    ],
+    [
+     "dic 2019",
+     1038.32
+    ],
+    [
+     "ene 2020",
+     1038.32
+    ],
+    [
+     "feb 2020",
+     1104.23
+    ],
+    [
+     "mar 2020",
+     1104.23
+    ],
+    [
+     "abr 2020",
+     1104.23
+    ],
+    [
+     "may 2020",
+     1104.23
+    ],
+    [
+     "jun 2020",
+     1104.23
+    ],
+    [
+     "jul 2020",
+     1104.23
+    ],
+    [
+     "ago 2020",
+     1104.23
+    ],
+    [
+     "sep 2020",
+     1104.23
+    ],
+    [
+     "oct 2020",
+     1104.23
+    ],
+    [
+     "nov 2020",
+     1104.23
+    ],
+    [
+     "dic 2020",
+     1137.34
+    ],
+    [
+     "ene 2021",
+     1137.34
+    ],
+    [
+     "feb 2021",
+     1186.58
+    ],
+    [
+     "mar 2021",
+     1186.58
+    ],
+    [
+     "abr 2021",
+     1187.08
+    ],
+    [
+     "may 2021",
+     1187.08
+    ],
+    [
+     "jun 2021",
+     1187.82
+    ],
+    [
+     "jul 2021",
+     1043.51
+    ],
+    [
+     "ago 2021",
+     1099.73
+    ],
+    [
+     "sep 2021",
+     1099.73
+    ],
+    [
+     "oct 2021",
+     1156.07
+    ],
+    [
+     "dic 2021",
+     1156.07
+    ],
+    [
+     "ene 2022",
+     1360.08
+    ],
+    [
+     "feb 2022",
+     1425.71
+    ],
+    [
+     "mar 2022",
+     1473.74
+    ],
+    [
+     "abr 2022",
+     1473.74
+    ],
+    [
+     "may 2022",
+     1522.38
+    ],
+    [
+     "jun 2022",
+     1522.38
+    ],
+    [
+     "jul 2022",
+     1522.38
+    ],
+    [
+     "ago 2022",
+     1569.6
+    ],
+    [
+     "sep 2022",
+     1569.6
+    ],
+    [
+     "oct 2022",
+     1568.0
+    ],
+    [
+     "nov 2022",
+     1568.0
+    ],
+    [
+     "dic 2022",
+     1619.38
+    ],
+    [
+     "ene 2023",
+     1619.38
+    ],
+    [
+     "feb 2023",
+     1619.1
+    ],
+    [
+     "mar 2023",
+     1619.1
+    ],
+    [
+     "abr 2023",
+     1693.25
+    ],
+    [
+     "may 2023",
+     1693.25
+    ],
+    [
+     "jun 2023",
+     1693.25
+    ],
+    [
+     "jul 2023",
+     1752.77
+    ],
+    [
+     "ago 2023",
+     1752.77
+    ],
+    [
+     "sep 2023",
+     1754.44
+    ],
+    [
+     "oct 2023",
+     1754.44
+    ],
+    [
+     "nov 2023",
+     1754.44
+    ],
+    [
+     "dic 2023",
+     1765.91
+    ],
+    [
+     "ene 2024",
+     1765.91
+    ],
+    [
+     "feb 2024",
+     1822.97
+    ],
+    [
+     "mar 2024",
+     1822.97
+    ],
+    [
+     "abr 2024",
+     1822.97
+    ],
+    [
+     "may 2024",
+     1822.97
+    ],
+    [
+     "jun 2024",
+     1881.02
+    ],
+    [
+     "jul 2024",
+     1822.86
+    ],
+    [
+     "ago 2024",
+     1822.86
+    ],
+    [
+     "sep 2024",
+     1822.86
+    ],
+    [
+     "oct 2024",
+     1824.7
+    ],
+    [
+     "nov 2024",
+     1874.94
+    ],
+    [
+     "dic 2024",
+     1874.94
+    ],
+    [
+     "ene 2025",
+     1874.94
+    ],
+    [
+     "feb 2025",
+     1874.94
+    ],
+    [
+     "mar 2025",
+     1874.94
+    ],
+    [
+     "abr 2025",
+     1937.58
+    ],
+    [
+     "may 2025",
+     1937.58
+    ],
+    [
+     "jun 2025",
+     1937.58
+    ],
+    [
+     "jul 2025",
+     1937.58
+    ],
+    [
+     "ago 2025",
+     1934.18
+    ],
+    [
+     "sep 2025",
+     1934.18
+    ],
+    [
+     "oct 2025",
+     1993.39
+    ],
+    [
+     "nov 2025",
+     1945.93
+    ],
+    [
+     "dic 2025",
+     1945.93
+    ],
+    [
+     "ene 2026",
+     1945.93
+    ],
+    [
+     "feb 2026",
+     1945.93
+    ],
+    [
+     "mar 2026",
+     1945.93
+    ],
+    [
+     "abr 2026",
+     1945.93
+    ],
+    [
+     "may 2026",
+     2010.36
+    ],
+    [
+     "jun 2026",
+     2010.36
+    ],
+    [
+     "jul 2026",
+     2010.36
+    ],
+    [
+     "ago 2026",
+     1991.32
+    ]
+   ],
+   "nota": "Pesos por m³ del consumo básico, con el subsidio o la contribución de cada estrato ya aplicado. El estrato 4 paga la tarifa plena, sin subsidio ni contribución."
+  },
+  "acueducto_consumo_e4": {
+   "etiqueta": "Acueducto: cargo por consumo básico, estrato 4",
+   "unidad": "$/m³",
+   "fuente": "epm-tarifas-agua",
+   "estado": "observado",
+   "vigencia": "abr 2017 – ago 2026",
+   "puntos": [
+    [
+     "abr 2017",
+     1773.7
+    ],
+    [
+     "may 2017",
+     1773.7
+    ],
+    [
+     "jun 2017",
+     1773.7
+    ],
+    [
+     "jul 2017",
+     1773.7
+    ],
+    [
+     "ago 2017",
+     1775.61
+    ],
+    [
+     "sep 2017",
+     1775.61
+    ],
+    [
+     "oct 2017",
+     1775.61
+    ],
+    [
+     "nov 2017",
+     1775.61
+    ],
+    [
+     "dic 2017",
+     1775.61
+    ],
+    [
+     "ene 2018",
+     1775.61
+    ],
+    [
+     "feb 2018",
+     2046.93
+    ],
+    [
+     "mar 2018",
+     2046.93
+    ],
+    [
+     "abr 2018",
+     2046.93
+    ],
+    [
+     "may 2018",
+     2046.93
+    ],
+    [
+     "jun 2018",
+     2115.4
+    ],
+    [
+     "jul 2018",
+     2115.4
+    ],
+    [
+     "ago 2018",
+     2116.94
+    ],
+    [
+     "sep 2018",
+     2116.94
+    ],
+    [
+     "oct 2018",
+     2116.94
+    ],
+    [
+     "nov 2018",
+     2356.87
+    ],
+    [
+     "dic 2018",
+     2356.87
+    ],
+    [
+     "ene 2019",
+     2356.87
+    ],
+    [
+     "feb 2019",
+     2517.89
+    ],
+    [
+     "mar 2019",
+     2517.89
+    ],
+    [
+     "abr 2019",
+     2518.09
+    ],
+    [
+     "may 2019",
+     2593.38
+    ],
+    [
+     "jun 2019",
+     2593.38
+    ],
+    [
+     "jul 2019",
+     2593.38
+    ],
+    [
+     "ago 2019",
+     2595.8
+    ],
+    [
+     "sep 2019",
+     2595.8
+    ],
+    [
+     "oct 2019",
+     2595.8
+    ],
+    [
+     "nov 2019",
+     2595.8
+    ],
+    [
+     "dic 2019",
+     2595.8
+    ],
+    [
+     "ene 2020",
+     2595.8
+    ],
+    [
+     "feb 2020",
+     2760.57
+    ],
+    [
+     "mar 2020",
+     2760.57
+    ],
+    [
+     "abr 2020",
+     2760.57
+    ],
+    [
+     "may 2020",
+     2760.57
+    ],
+    [
+     "jun 2020",
+     2760.57
+    ],
+    [
+     "jul 2020",
+     2760.57
+    ],
+    [
+     "ago 2020",
+     2760.57
+    ],
+    [
+     "sep 2020",
+     2760.57
+    ],
+    [
+     "oct 2020",
+     2760.57
+    ],
+    [
+     "nov 2020",
+     2760.57
+    ],
+    [
+     "dic 2020",
+     2843.36
+    ],
+    [
+     "ene 2021",
+     2843.36
+    ],
+    [
+     "feb 2021",
+     2966.46
+    ],
+    [
+     "mar 2021",
+     2966.46
+    ],
+    [
+     "abr 2021",
+     2967.7
+    ],
+    [
+     "may 2021",
+     2967.7
+    ],
+    [
+     "jun 2021",
+     2969.55
+    ],
+    [
+     "jul 2021",
+     3069.16
+    ],
+    [
+     "ago 2021",
+     3234.5
+    ],
+    [
+     "sep 2021",
+     3234.5
+    ],
+    [
+     "oct 2021",
+     3400.2
+    ],
+    [
+     "dic 2021",
+     3400.2
+    ],
+    [
+     "ene 2022",
+     3400.2
+    ],
+    [
+     "feb 2022",
+     3564.27
+    ],
+    [
+     "mar 2022",
+     3684.36
+    ],
+    [
+     "abr 2022",
+     3684.36
+    ],
+    [
+     "may 2022",
+     3805.95
+    ],
+    [
+     "jun 2022",
+     3805.95
+    ],
+    [
+     "jul 2022",
+     3805.95
+    ],
+    [
+     "ago 2022",
+     3924.01
+    ],
+    [
+     "sep 2022",
+     3924.01
+    ],
+    [
+     "oct 2022",
+     3919.99
+    ],
+    [
+     "nov 2022",
+     3919.99
+    ],
+    [
+     "dic 2022",
+     4048.44
+    ],
+    [
+     "ene 2023",
+     4048.44
+    ],
+    [
+     "feb 2023",
+     4047.75
+    ],
+    [
+     "mar 2023",
+     4047.75
+    ],
+    [
+     "abr 2023",
+     4233.12
+    ],
+    [
+     "may 2023",
+     4233.12
+    ],
+    [
+     "jun 2023",
+     4233.12
+    ],
+    [
+     "jul 2023",
+     4381.92
+    ],
+    [
+     "ago 2023",
+     4381.92
+    ],
+    [
+     "sep 2023",
+     4386.1
+    ],
+    [
+     "oct 2023",
+     4386.1
+    ],
+    [
+     "nov 2023",
+     4386.1
+    ],
+    [
+     "dic 2023",
+     4414.77
+    ],
+    [
+     "ene 2024",
+     4414.77
+    ],
+    [
+     "feb 2024",
+     4557.43
+    ],
+    [
+     "mar 2024",
+     4557.43
+    ],
+    [
+     "abr 2024",
+     4557.43
+    ],
+    [
+     "may 2024",
+     4557.43
+    ],
+    [
+     "jun 2024",
+     4702.56
+    ],
+    [
+     "jul 2024",
+     4557.15
+    ],
+    [
+     "ago 2024",
+     4557.15
+    ],
+    [
+     "sep 2024",
+     4557.15
+    ],
+    [
+     "oct 2024",
+     4561.75
+    ],
+    [
+     "nov 2024",
+     4687.36
+    ],
+    [
+     "dic 2024",
+     4687.36
+    ],
+    [
+     "ene 2025",
+     4687.36
+    ],
+    [
+     "feb 2025",
+     4687.36
+    ],
+    [
+     "mar 2025",
+     4687.36
+    ],
+    [
+     "abr 2025",
+     4843.95
+    ],
+    [
+     "may 2025",
+     4843.95
+    ],
+    [
+     "jun 2025",
+     4843.95
+    ],
+    [
+     "jul 2025",
+     4843.95
+    ],
+    [
+     "ago 2025",
+     4835.44
+    ],
+    [
+     "sep 2025",
+     4835.44
+    ],
+    [
+     "oct 2025",
+     4983.47
+    ],
+    [
+     "nov 2025",
+     4864.82
+    ],
+    [
+     "dic 2025",
+     4864.82
+    ],
+    [
+     "ene 2026",
+     4864.82
+    ],
+    [
+     "feb 2026",
+     4864.82
+    ],
+    [
+     "mar 2026",
+     4864.82
+    ],
+    [
+     "abr 2026",
+     4864.82
+    ],
+    [
+     "may 2026",
+     5025.9
+    ],
+    [
+     "jun 2026",
+     5025.9
+    ],
+    [
+     "jul 2026",
+     5025.9
+    ],
+    [
+     "ago 2026",
+     4978.29
+    ]
+   ],
+   "nota": "Pesos por m³ del consumo básico, con el subsidio o la contribución de cada estrato ya aplicado. El estrato 4 paga la tarifa plena, sin subsidio ni contribución."
+  },
+  "gas_consumo_e1": {
+   "etiqueta": "Gas natural: consumo hasta 20 m³, estrato 1",
+   "unidad": "$/m³",
+   "fuente": "epm-tarifas-gas",
+   "estado": "observado",
+   "vigencia": "ene 2020 – oct 2026",
+   "puntos": [
+    [
+     "ene 2020",
+     804.82
+    ],
+    [
+     "feb 2020",
+     806.87
+    ],
+    [
+     "mar 2020",
+     852.93
+    ],
+    [
+     "abr 2020",
+     879.72
+    ],
+    [
+     "may 2020",
+     964.42
+    ],
+    [
+     "jun 2020",
+     965.89
+    ],
+    [
+     "jul 2020",
+     962.78
+    ],
+    [
+     "ago 2020",
+     959.15
+    ],
+    [
+     "sep 2020",
+     959.2
+    ],
+    [
+     "oct 2020",
+     959.17
+    ],
+    [
+     "nov 2020",
+     962.09
+    ],
+    [
+     "dic 2020",
+     961.63
+    ],
+    [
+     "ene 2021",
+     960.35
+    ],
+    [
+     "feb 2021",
+     886.8
+    ],
+    [
+     "mar 2021",
+     913.18
+    ],
+    [
+     "abr 2021",
+     905.57
+    ],
+    [
+     "may 2021",
+     907.91
+    ],
+    [
+     "jun 2021",
+     925.68
+    ],
+    [
+     "jul 2021",
+     925.46
+    ],
+    [
+     "ago 2021",
+     927.84
+    ],
+    [
+     "sep 2021",
+     943.84
+    ],
+    [
+     "oct 2021",
+     943.49
+    ],
+    [
+     "nov 2021",
+     917.11
+    ],
+    [
+     "dic 2021",
+     917.34
+    ],
+    [
+     "ene 2022",
+     952.5
+    ],
+    [
+     "feb 2022",
+     1019.02
+    ],
+    [
+     "mar 2022",
+     1027.29
+    ],
+    [
+     "abr 2022",
+     1014.4
+    ],
+    [
+     "may 2022",
+     982.96
+    ],
+    [
+     "jun 2022",
+     1021.15
+    ],
+    [
+     "jul 2022",
+     1023.53
+    ],
+    [
+     "ago 2022",
+     1038.48
+    ],
+    [
+     "sep 2022",
+     1079.67
+    ],
+    [
+     "oct 2022",
+     1090.78
+    ],
+    [
+     "nov 2022",
+     1109.09
+    ],
+    [
+     "dic 2022",
+     1117.11
+    ],
+    [
+     "ene 2023",
+     1151.14
+    ],
+    [
+     "feb 2023",
+     1165.79
+    ],
+    [
+     "mar 2023",
+     1186.59
+    ],
+    [
+     "abr 2023",
+     1208.96
+    ],
+    [
+     "may 2023",
+     1221.6
+    ],
+    [
+     "jun 2023",
+     1231.01
+    ],
+    [
+     "jul 2023",
+     1236.39
+    ],
+    [
+     "ago 2023",
+     1240.07
+    ],
+    [
+     "sep 2023",
+     1246.26
+    ],
+    [
+     "oct 2023",
+     1255.0
+    ],
+    [
+     "nov 2023",
+     1261.56
+    ],
+    [
+     "dic 2023",
+     1264.81
+    ],
+    [
+     "ene 2024",
+     1270.61
+    ],
+    [
+     "feb 2024",
+     1276.56
+    ],
+    [
+     "mar 2024",
+     1288.34
+    ],
+    [
+     "abr 2024",
+     1302.21
+    ],
+    [
+     "may 2024",
+     1311.29
+    ],
+    [
+     "jun 2024",
+     1319.18
+    ],
+    [
+     "jul 2024",
+     1324.63
+    ],
+    [
+     "ago 2024",
+     1328.84
+    ],
+    [
+     "sep 2024",
+     1331.43
+    ],
+    [
+     "oct 2024",
+     1331.5
+    ],
+    [
+     "nov 2024",
+     1334.68
+    ],
+    [
+     "dic 2024",
+     1332.81
+    ],
+    [
+     "ene 2025",
+     1336.35
+    ],
+    [
+     "feb 2025",
+     1342.63
+    ],
+    [
+     "mar 2025",
+     1355.23
+    ],
+    [
+     "abr 2025",
+     1370.67
+    ],
+    [
+     "may 2025",
+     1377.84
+    ],
+    [
+     "jun 2025",
+     1387.05
+    ],
+    [
+     "jul 2025",
+     1391.57
+    ],
+    [
+     "ago 2025",
+     1393.07
+    ],
+    [
+     "sep 2025",
+     1396.75
+    ],
+    [
+     "oct 2025",
+     1399.38
+    ],
+    [
+     "nov 2025",
+     1403.85
+    ],
+    [
+     "dic 2025",
+     1406.43
+    ],
+    [
+     "ene 2026",
+     1407.35
+    ],
+    [
+     "feb 2026",
+     1411.05
+    ],
+    [
+     "mar 2026",
+     1433.65
+    ],
+    [
+     "abr 2026",
+     1471.46
+    ],
+    [
+     "may 2026",
+     1482.72
+    ],
+    [
+     "jun 2026",
+     1494.19
+    ],
+    [
+     "jul 2026",
+     1501.34
+    ],
+    [
+     "ago 2026",
+     1589.55
+    ],
+    [
+     "sep 2026",
+     1591.96
+    ],
+    [
+     "oct 2026",
+     1605.53
+    ]
+   ],
+   "nota": "Mercado del Valle de Aburrá. Pesos por m³ de los primeros 20 m³ del mes, con el subsidio o la contribución del estrato ya aplicado; el cargo fijo es por usuario."
+  },
+  "gas_consumo_e4": {
+   "etiqueta": "Gas natural: consumo hasta 20 m³, estrato 4",
+   "unidad": "$/m³",
+   "fuente": "epm-tarifas-gas",
+   "estado": "observado",
+   "vigencia": "ene 2020 – oct 2026",
+   "puntos": [
+    [
+     "ene 2020",
+     1709.03
+    ],
+    [
+     "feb 2020",
+     1650.61
+    ],
+    [
+     "mar 2020",
+     1826.91
+    ],
+    [
+     "abr 2020",
+     1894.88
+    ],
+    [
+     "may 2020",
+     2105.6
+    ],
+    [
+     "jun 2020",
+     1938.62
+    ],
+    [
+     "jul 2020",
+     1964.48
+    ],
+    [
+     "ago 2020",
+     1974.2
+    ],
+    [
+     "sep 2020",
+     1886.5
+    ],
+    [
+     "oct 2020",
+     1886.5
+    ],
+    [
+     "nov 2020",
+     1917.55
+    ],
+    [
+     "dic 2020",
+     1942.58
+    ],
+    [
+     "ene 2021",
+     1849.42
+    ],
+    [
+     "feb 2021",
+     1905.59
+    ],
+    [
+     "mar 2021",
+     1978.44
+    ],
+    [
+     "abr 2021",
+     1960.81
+    ],
+    [
+     "may 2021",
+     1967.82
+    ],
+    [
+     "jun 2021",
+     2015.64
+    ],
+    [
+     "jul 2021",
+     2015.64
+    ],
+    [
+     "ago 2021",
+     2015.64
+    ],
+    [
+     "sep 2021",
+     2052.61
+    ],
+    [
+     "oct 2021",
+     2052.61
+    ],
+    [
+     "nov 2021",
+     1985.19
+    ],
+    [
+     "dic 2021",
+     1985.19
+    ],
+    [
+     "ene 2022",
+     2069.34
+    ],
+    [
+     "feb 2022",
+     2234.04
+    ],
+    [
+     "mar 2022",
+     2244.31
+    ],
+    [
+     "abr 2022",
+     2207.85
+    ],
+    [
+     "may 2022",
+     2127.67
+    ],
+    [
+     "jun 2022",
+     2218.47
+    ],
+    [
+     "jul 2022",
+     2210.16
+    ],
+    [
+     "ago 2022",
+     2240.82
+    ],
+    [
+     "sep 2022",
+     2358.44
+    ],
+    [
+     "oct 2022",
+     2358.44
+    ],
+    [
+     "nov 2022",
+     2416.46
+    ],
+    [
+     "dic 2022",
+     2416.46
+    ],
+    [
+     "ene 2023",
+     2531.41
+    ],
+    [
+     "feb 2023",
+     2493.09
+    ],
+    [
+     "mar 2023",
+     2567.54
+    ],
+    [
+     "abr 2023",
+     2629.41
+    ],
+    [
+     "may 2023",
+     2522.44
+    ],
+    [
+     "jun 2023",
+     2586.17
+    ],
+    [
+     "jul 2023",
+     2505.94
+    ],
+    [
+     "ago 2023",
+     2401.05
+    ],
+    [
+     "sep 2023",
+     2349.35
+    ],
+    [
+     "oct 2023",
+     2384.49
+    ],
+    [
+     "nov 2023",
+     2384.49
+    ],
+    [
+     "dic 2023",
+     2384.49
+    ],
+    [
+     "ene 2024",
+     2281.06
+    ],
+    [
+     "feb 2024",
+     2438.92
+    ],
+    [
+     "mar 2024",
+     2483.27
+    ],
+    [
+     "abr 2024",
+     2477.79
+    ],
+    [
+     "may 2024",
+     2526.66
+    ],
+    [
+     "jun 2024",
+     2467.32
+    ],
+    [
+     "jul 2024",
+     2467.32
+    ],
+    [
+     "ago 2024",
+     2522.95
+    ],
+    [
+     "sep 2024",
+     2412.37
+    ],
+    [
+     "oct 2024",
+     2399.88
+    ],
+    [
+     "nov 2024",
+     2399.88
+    ],
+    [
+     "dic 2024",
+     2435.19
+    ],
+    [
+     "ene 2025",
+     2453.49
+    ],
+    [
+     "feb 2025",
+     2889.06
+    ],
+    [
+     "mar 2025",
+     2781.14
+    ],
+    [
+     "abr 2025",
+     2834.42
+    ],
+    [
+     "may 2025",
+     2697.96
+    ],
+    [
+     "jun 2025",
+     2749.36
+    ],
+    [
+     "jul 2025",
+     2828.03
+    ],
+    [
+     "ago 2025",
+     2753.8
+    ],
+    [
+     "sep 2025",
+     2753.8
+    ],
+    [
+     "oct 2025",
+     2726.52
+    ],
+    [
+     "nov 2025",
+     2689.8
+    ],
+    [
+     "dic 2025",
+     2765.58
+    ],
+    [
+     "ene 2026",
+     2636.32
+    ],
+    [
+     "feb 2026",
+     3067.14
+    ],
+    [
+     "mar 2026",
+     3159.68
+    ],
+    [
+     "abr 2026",
+     3243.65
+    ],
+    [
+     "may 2026",
+     3243.65
+    ],
+    [
+     "jun 2026",
+     3269.1
+    ],
+    [
+     "jul 2026",
+     3269.1
+    ],
+    [
+     "ago 2026",
+     3517.06
+    ],
+    [
+     "sep 2026",
+     3393.04
+    ],
+    [
+     "oct 2026",
+     3559.88
+    ]
+   ],
+   "nota": "Mercado del Valle de Aburrá. Pesos por m³ de los primeros 20 m³ del mes, con el subsidio o la contribución del estrato ya aplicado; el cargo fijo es por usuario."
+  },
+  "energia_e1": {
+   "etiqueta": "Energía, estrato 1 (consumo de subsistencia)",
+   "unidad": "$/kWh",
+   "fuente": "epm-tarifas-energia",
+   "estado": "declarado",
+   "vigencia": "ene 2026 – sep 2026",
+   "puntos": [
+    [
+     "ene 2026",
+     403.89
+    ],
+    [
+     "feb 2026",
+     408.66
+    ],
+    [
+     "mar 2026",
+     413.07
+    ],
+    [
+     "abr 2026",
+     416.28
+    ],
+    [
+     "may 2026",
+     419.54
+    ],
+    [
+     "jun 2026",
+     421.5
+    ],
+    [
+     "jul 2026",
+     423.15
+    ],
+    [
+     "ago 2026",
+     423.83
+    ],
+    [
+     "sep 2026",
+     425.51
+    ]
+   ],
+   "nota": "Pesos por kWh para hogares conectados a la red de EPM en baja tensión (nivel I, activos de EPM), con el subsidio o la contribución del estrato ya aplicados. Los estratos 1 a 3 tienen subsidio solo en el consumo de subsistencia (CS); el consumo por encima de él y el estrato 4 pagan el costo unitario."
+  },
+  "energia_e4": {
+   "etiqueta": "Energía, estrato 4",
+   "unidad": "$/kWh",
+   "fuente": "epm-tarifas-energia",
+   "estado": "declarado",
+   "vigencia": "ene 2026 – sep 2026",
+   "puntos": [
+    [
+     "ene 2026",
+     859.19
+    ],
+    [
+     "feb 2026",
+     801.24
+    ],
+    [
+     "mar 2026",
+     864.69
+    ],
+    [
+     "abr 2026",
+     864.06
+    ],
+    [
+     "may 2026",
+     876.97
+    ],
+    [
+     "jun 2026",
+     902.28
+    ],
+    [
+     "jul 2026",
+     921.38
+    ],
+    [
+     "ago 2026",
+     960.34
+    ],
+    [
+     "sep 2026",
+     958.38
+    ]
+   ],
+   "nota": "Pesos por kWh para hogares conectados a la red de EPM en baja tensión (nivel I, activos de EPM), con el subsidio o la contribución del estrato ya aplicados. Los estratos 1 a 3 tienen subsidio solo en el consumo de subsistencia (CS); el consumo por encima de él y el estrato 4 pagan el costo unitario."
+  },
+  "internet_fijo_trimestral": {
+   "etiqueta": "Accesos a internet fijo por trimestre",
+   "unidad": "accesos",
+   "fuente": "mintic-internet-fijo",
+   "estado": "observado",
+   "vigencia": "T1 2024 – T1 2026",
+   "puntos": [
+    [
+     "T1 2024",
+     773817
+    ],
+    [
+     "T2 2024",
+     768515
+    ],
+    [
+     "T3 2024",
+     781005
+    ],
+    [
+     "T4 2024",
+     791436
+    ],
+    [
+     "T1 2025",
+     806532
+    ],
+    [
+     "T2 2025",
+     818746
+    ],
+    [
+     "T3 2025",
+     837471
+    ],
+    [
+     "T4 2025",
+     850323
+    ],
+    [
+     "T1 2026",
+     866296
+    ]
+   ],
+   "nota": "Accesos (conexiones) de internet fijo reportados por los operadores, no hogares ni personas: un hogar o una empresa puede tener más de uno."
+  }
+ },
+ "listas": {
+  "cobertura_por_estrato": [
+   {
+    "estrato": "1",
+    "anio": 2019,
+    "acueducto": 102.3,
+    "alcantarillado": 99.9,
+    "aseo": 104.8,
+    "suscriptores_acueducto": 64001
+   },
+   {
+    "estrato": "2",
+    "anio": 2019,
+    "acueducto": 92.8,
+    "alcantarillado": 89.6,
+    "aseo": 92.4,
+    "suscriptores_acueducto": 187001
+   },
+   {
+    "estrato": "3",
+    "anio": 2019,
+    "acueducto": 95.0,
+    "alcantarillado": 94.5,
+    "aseo": 95.3,
+    "suscriptores_acueducto": 207855
+   },
+   {
+    "estrato": "4",
+    "anio": 2019,
+    "acueducto": 95.1,
+    "alcantarillado": 94.8,
+    "aseo": 95.4,
+    "suscriptores_acueducto": 88675
+   },
+   {
+    "estrato": "5",
+    "anio": 2019,
+    "acueducto": 100.9,
+    "alcantarillado": 101.0,
+    "aseo": 100.9,
+    "suscriptores_acueducto": 66082
+   },
+   {
+    "estrato": "6",
+    "anio": 2019,
+    "acueducto": 90.3,
+    "alcantarillado": 90.4,
+    "aseo": 89.1,
+    "suscriptores_acueducto": 37151
+   }
+  ],
+  "suscriptores_epm_por_uso": [
+   {
+    "uso": "Estrato 1",
+    "suscriptores": 86157,
+    "consumo_basico_m3": 858001,
+    "periodo": "ago 2023"
+   },
+   {
+    "uso": "Estrato 2",
+    "suscriptores": 250010,
+    "consumo_basico_m3": 2751858,
+    "periodo": "ago 2023"
+   },
+   {
+    "uso": "Estrato 3",
+    "suscriptores": 252529,
+    "consumo_basico_m3": 2725307,
+    "periodo": "ago 2023"
+   },
+   {
+    "uso": "Estrato 4",
+    "suscriptores": 103195,
+    "consumo_basico_m3": 1077739,
+    "periodo": "ago 2023"
+   },
+   {
+    "uso": "Estrato 5",
+    "suscriptores": 75452,
+    "consumo_basico_m3": 808011,
+    "periodo": "ago 2023"
+   },
+   {
+    "uso": "Estrato 6",
+    "suscriptores": 41357,
+    "consumo_basico_m3": 530038,
+    "periodo": "ago 2023"
+   },
+   {
+    "uso": "Comercial",
+    "suscriptores": 56699,
+    "consumo_basico_m3": 1076508,
+    "periodo": "ago 2023"
+   },
+   {
+    "uso": "Industrial",
+    "suscriptores": 4419,
+    "consumo_basico_m3": 496531,
+    "periodo": "ago 2023"
+   },
+   {
+    "uso": "Especial",
+    "suscriptores": 966,
+    "consumo_basico_m3": 110202,
+    "periodo": "ago 2023"
+   },
+   {
+    "uso": "Oficial",
+    "suscriptores": 1373,
+    "consumo_basico_m3": 397598,
+    "periodo": "ago 2023"
+   }
+  ],
+  "tarifas_agua": [
+   {
+    "servicio": "Acueducto",
+    "estrato": "1",
+    "periodo": "ago 2026",
+    "cargo_fijo": 4072.02,
+    "consumo_basico": 1991.32,
+    "consumo_superior": 4978.29
+   },
+   {
+    "servicio": "Acueducto",
+    "estrato": "2",
+    "periodo": "ago 2026",
+    "cargo_fijo": 6108.03,
+    "consumo_basico": 2986.97,
+    "consumo_superior": 4978.29
+   },
+   {
+    "servicio": "Acueducto",
+    "estrato": "3",
+    "periodo": "ago 2026",
+    "cargo_fijo": 8907.54,
+    "consumo_basico": 4356.0,
+    "consumo_superior": 4978.29
+   },
+   {
+    "servicio": "Acueducto",
+    "estrato": "4",
+    "periodo": "ago 2026",
+    "cargo_fijo": 10180.05,
+    "consumo_basico": 4978.29,
+    "consumo_superior": 4978.29
+   },
+   {
+    "servicio": "Acueducto",
+    "estrato": "5",
+    "periodo": "ago 2026",
+    "cargo_fijo": 15270.08,
+    "consumo_basico": 7467.44,
+    "consumo_superior": 7467.44
+   },
+   {
+    "servicio": "Acueducto",
+    "estrato": "6",
+    "periodo": "ago 2026",
+    "cargo_fijo": 16288.08,
+    "consumo_basico": 7965.26,
+    "consumo_superior": 7965.26
+   },
+   {
+    "servicio": "Alcantarillado",
+    "estrato": "1",
+    "periodo": "ago 2026",
+    "cargo_fijo": 2343.11,
+    "consumo_basico": 1578.07,
+    "consumo_superior": 3945.17
+   },
+   {
+    "servicio": "Alcantarillado",
+    "estrato": "2",
+    "periodo": "ago 2026",
+    "cargo_fijo": 3514.66,
+    "consumo_basico": 2367.1,
+    "consumo_superior": 3945.17
+   },
+   {
+    "servicio": "Alcantarillado",
+    "estrato": "3",
+    "periodo": "ago 2026",
+    "cargo_fijo": 5125.55,
+    "consumo_basico": 3452.02,
+    "consumo_superior": 3945.17
+   },
+   {
+    "servicio": "Alcantarillado",
+    "estrato": "4",
+    "periodo": "ago 2026",
+    "cargo_fijo": 5857.77,
+    "consumo_basico": 3945.17,
+    "consumo_superior": 3945.17
+   },
+   {
+    "servicio": "Alcantarillado",
+    "estrato": "5",
+    "periodo": "ago 2026",
+    "cargo_fijo": 8786.66,
+    "consumo_basico": 5917.76,
+    "consumo_superior": 5917.76
+   },
+   {
+    "servicio": "Alcantarillado",
+    "estrato": "6",
+    "periodo": "ago 2026",
+    "cargo_fijo": 9372.43,
+    "consumo_basico": 6312.27,
+    "consumo_superior": 6312.27
+   }
+  ],
+  "tarifas_gas": [
+   {
+    "estrato": "1",
+    "periodo": "oct 2026",
+    "cargo_fijo": 0.0,
+    "consumo_hasta_20": 1605.53,
+    "consumo_mas_de_20": 3559.88
+   },
+   {
+    "estrato": "2",
+    "periodo": "oct 2026",
+    "cargo_fijo": 0.0,
+    "consumo_hasta_20": 2001.87,
+    "consumo_mas_de_20": 3559.88
+   },
+   {
+    "estrato": "3",
+    "periodo": "oct 2026",
+    "cargo_fijo": 4389.71,
+    "consumo_hasta_20": 3559.88,
+    "consumo_mas_de_20": 3559.88
+   },
+   {
+    "estrato": "4",
+    "periodo": "oct 2026",
+    "cargo_fijo": 4389.71,
+    "consumo_hasta_20": 3559.88,
+    "consumo_mas_de_20": 3559.88
+   },
+   {
+    "estrato": "5",
+    "periodo": "oct 2026",
+    "cargo_fijo": 5267.65,
+    "consumo_hasta_20": 4271.86,
+    "consumo_mas_de_20": 4271.86
+   },
+   {
+    "estrato": "6",
+    "periodo": "oct 2026",
+    "cargo_fijo": 5267.65,
+    "consumo_hasta_20": 4271.86,
+    "consumo_mas_de_20": 4271.86
+   }
+  ],
+  "tarifas_energia": [
+   {
+    "estrato": "1",
+    "rango": "Rango 0 - CS",
+    "tarifa": 425.51,
+    "periodo": "sep 2026"
+   },
+   {
+    "estrato": "1",
+    "rango": "Rango > CS",
+    "tarifa": 958.38,
+    "periodo": "sep 2026"
+   },
+   {
+    "estrato": "2",
+    "rango": "Rango 0 - CS",
+    "tarifa": 531.88,
+    "periodo": "sep 2026"
+   },
+   {
+    "estrato": "2",
+    "rango": "Rango > CS",
+    "tarifa": 958.38,
+    "periodo": "sep 2026"
+   },
+   {
+    "estrato": "3",
+    "rango": "Rango 0 - CS",
+    "tarifa": 814.63,
+    "periodo": "sep 2026"
+   },
+   {
+    "estrato": "3",
+    "rango": "Rango > CS",
+    "tarifa": 958.38,
+    "periodo": "sep 2026"
+   },
+   {
+    "estrato": "4",
+    "rango": "Todo el consumo",
+    "tarifa": 958.38,
+    "periodo": "sep 2026"
+   },
+   {
+    "estrato": "5 y 6",
+    "rango": "Todo el consumo",
+    "tarifa": 1150.06,
+    "periodo": "sep 2026"
+   }
+  ],
+  "ecas": [
+   {
+    "nombre": "RECUPERADORA PAC",
+    "prestador": "Corporación Cívica Juventudes de Antioquia",
+    "inicio": "2020-03-01",
+    "capacidad": 1632.0,
+    "suelo_compatible": false,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "BARRANQUILLA",
+    "prestador": "Corporación Cívica Juventudes de Antioquia",
+    "inicio": "2022-01-03",
+    "capacidad": 1600.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "LA PAZ",
+    "prestador": "Corporación Cívica Juventudes de Antioquia",
+    "inicio": "2018-01-01",
+    "capacidad": 1420.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "LA 76 EL POLVORIN",
+    "prestador": "Corporación Cívica Juventudes de Antioquia",
+    "inicio": "2017-09-01",
+    "capacidad": 1360.0,
+    "suelo_compatible": false,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "JARDIN",
+    "prestador": "Corporación Cívica Juventudes de Antioquia",
+    "inicio": "2020-03-01",
+    "capacidad": 1250.0,
+    "suelo_compatible": false,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "Ciclopet S.A.S",
+    "prestador": "CICLOPET, S.A.S.E.S.P.",
+    "inicio": "2020-09-01",
+    "capacidad": 900.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": true
+   },
+   {
+    "nombre": "ECA ECORESIDUOS.",
+    "prestador": "CORPORACION NACIONAL ECORESIDUOS",
+    "inicio": "2022-04-29",
+    "capacidad": 875.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "RECUPERADORA DE MATERIALES SML",
+    "prestador": "ASOCIACION DE EMPRESARIOS DEL MATERIAL RECUPERADO",
+    "inicio": "2019-01-01",
+    "capacidad": 800.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": true
+   },
+   {
+    "nombre": "ECA soy reciclo playon",
+    "prestador": "ASOCIACION PARA EL FOMENTO DEL RECICLAJE SOY RECICLO ESP",
+    "inicio": "2024-06-01",
+    "capacidad": 750.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "Campo Valdés",
+    "prestador": "Cooperativa Multiactiva de Recicladores de Medellín",
+    "inicio": "2019-06-01",
+    "capacidad": 700.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "EL ESPIRITU SANTO",
+    "prestador": "Corporación Cívica Juventudes de Antioquia",
+    "inicio": "2020-03-01",
+    "capacidad": 700.0,
+    "suelo_compatible": false,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "ECA GLOBAL MEDELLIN",
+    "prestador": "Asociacion de recuperadores global",
+    "inicio": "2020-10-01",
+    "capacidad": 700.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": true
+   },
+   {
+    "nombre": "ECA 1",
+    "prestador": "ASOCIACION DE RECUPERADORES DESARROLLO VERDE",
+    "inicio": "2021-09-01",
+    "capacidad": 700.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": true
+   },
+   {
+    "nombre": "ECA CORPLANET",
+    "prestador": "Corporacion de Aprovechamiento Ambiental E.S.P",
+    "inicio": "2022-05-31",
+    "capacidad": 650.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "ECA Soy Reciclo Medelllin",
+    "prestador": "ASOCIACION PARA EL FOMENTO DEL RECICLAJE SOY RECICLO ESP",
+    "inicio": "2023-11-01",
+    "capacidad": 568.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "EXCEDENTES INDUSTRIALES LA 75",
+    "prestador": "Corporación Cívica Juventudes de Antioquia",
+    "inicio": "2020-03-01",
+    "capacidad": 500.0,
+    "suelo_compatible": false,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "ECA_COUNICOL_MED_2",
+    "prestador": "CORPORACION UNIDOS POR COLOMBIA",
+    "inicio": "2022-02-02",
+    "capacidad": 500.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "LOS AGUADEÑOS",
+    "prestador": "ASOCIACION DE RECICLADORES HUELLA NATURAL E.S.P.",
+    "inicio": "2019-05-02",
+    "capacidad": 500.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": true
+   },
+   {
+    "nombre": "RECICLAJES NJ",
+    "prestador": "ASOCIACION ECONMEDELLIN",
+    "inicio": "2021-10-01",
+    "capacidad": 500.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "ECA VILLA HERMOSA",
+    "prestador": "ASOCIACION DE RECICLADORES ECO GREEN FAMILY",
+    "inicio": "2023-06-01",
+    "capacidad": 500.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "excedemtes piaminte",
+    "prestador": "ASOCIACION DE EMPRESARIOS DEL MATERIAL RECUPERADO",
+    "inicio": "2017-09-25",
+    "capacidad": 471.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": true
+   },
+   {
+    "nombre": "MEDELLIN",
+    "prestador": "UNIÓN DE RECICLADORES DE ANTIOQUIA",
+    "inicio": "2022-07-29",
+    "capacidad": 435.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": true
+   },
+   {
+    "nombre": "MEDELLIN",
+    "prestador": "UNIÓN DE RECICLADORES DE ANTIOQUIA",
+    "inicio": "2022-07-29",
+    "capacidad": 435.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "ECA EL CHAGUALO",
+    "prestador": "CORPORACION NACIONAL ECORESIDUOS",
+    "inicio": "2022-04-18",
+    "capacidad": 410.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "JESUS NAZARENO",
+    "prestador": "Cooperativa Multiactiva de Recicladores de Medellín",
+    "inicio": "2015-01-01",
+    "capacidad": 355.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "RECUPERAMBIENTE",
+    "prestador": "Fundación Recuperambiente E.S.P",
+    "inicio": "2018-01-31",
+    "capacidad": 350.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "ECA VIDA-1",
+    "prestador": "ASOCIACION DE RECUPERADORES RECICLO",
+    "inicio": "2022-10-01",
+    "capacidad": 350.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "ECO Y RECICLA",
+    "prestador": "ASOCIACION DE RECICLADORES ECORECICLA",
+    "inicio": "2023-07-06",
+    "capacidad": 320.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "ARANJUEZ",
+    "prestador": "ASOCIACION DE RECICLADORES HUELLA NATURAL E.S.P.",
+    "inicio": "2023-09-01",
+    "capacidad": 300.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "ECA TRINIDAD",
+    "prestador": "Asociacion de recuperadores global",
+    "inicio": "2023-08-01",
+    "capacidad": 300.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "ECA ETERNA PRIMAVERA",
+    "prestador": "ASOCIACION AMBIENTALISTA GREEN GARBAGE",
+    "inicio": "2023-09-30",
+    "capacidad": 300.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "ECA Emvarias",
+    "prestador": "EMPRESAS VARIAS DE MEDELLIN S.A. E.S. P.",
+    "inicio": "2020-10-01",
+    "capacidad": 260.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": true
+   },
+   {
+    "nombre": "Centro NORTE",
+    "prestador": "Corporación nacional para el ambiente",
+    "inicio": "2017-11-30",
+    "capacidad": 250.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "ECA EL BARRENDERO",
+    "prestador": "FUNDACION ABURRA VERDE E.S.P.",
+    "inicio": "2021-10-01",
+    "capacidad": 250.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": true
+   },
+   {
+    "nombre": "ECA NATIVOS",
+    "prestador": "ASOCIACION DE RECICLADORES NATIVOS",
+    "inicio": "2022-05-01",
+    "capacidad": 250.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "MedellinPpal",
+    "prestador": "ASOCIACION DE RECICLADORES NATIVOS",
+    "inicio": "2021-11-01",
+    "capacidad": 210.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": true
+   },
+   {
+    "nombre": "ECA MUROS 2",
+    "prestador": "ASOCIACION DE RECICLADORES HUELLA NATURAL E.S.P.",
+    "inicio": "2024-05-10",
+    "capacidad": 200.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "ECA PRINCIPAL",
+    "prestador": "ASOCIACION DE RECILADORES UNIVERSO AMBIENTAL",
+    "inicio": "2024-04-01",
+    "capacidad": 200.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "ECA-VIDA 2",
+    "prestador": "ASOCIACION DE RECUPERADORES RECICLO",
+    "inicio": "2023-06-01",
+    "capacidad": 180.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "ARRECICLAR",
+    "prestador": "ASOCIACIÓN DE RECICLADORES DE ANTIOQUIA",
+    "inicio": "2013-12-16",
+    "capacidad": 150.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "Centro de Acopio Barrio Colombia",
+    "prestador": "ASOCIACIÓN DE RECICLADORES DE ANTIOQUIA",
+    "inicio": "2013-12-16",
+    "capacidad": 150.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "Central",
+    "prestador": "Corporación nacional para el ambiente",
+    "inicio": "2017-11-30",
+    "capacidad": 150.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "LOS MONOS",
+    "prestador": "ASOCIACION DE RECICLADORES HUELLA NATURAL E.S.P.",
+    "inicio": "2022-01-01",
+    "capacidad": 150.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "ECA NARANJAL ARVERDE 1",
+    "prestador": "ASOCIACION DE RECUPERADORES DESARROLLO VERDE",
+    "inicio": "2022-10-03",
+    "capacidad": 150.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "ECA VIDA 1",
+    "prestador": "ASOCIACION DE RECUPERADORES RECICLO",
+    "inicio": "2022-09-01",
+    "capacidad": 150.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "ECA VIDA 2",
+    "prestador": "ASOCIACION DE RECUPERADORES RECICLO",
+    "inicio": "2023-06-01",
+    "capacidad": 150.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "ECAREECICLAMAS",
+    "prestador": "CORPORACION AMBIENTAL DE RESIDUOS REECICLAMAS",
+    "inicio": "2022-11-01",
+    "capacidad": 140.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "EXCEDENTES GOMEZ",
+    "prestador": "ASOCIACION DE EMPRESARIOS DEL MATERIAL RECUPERADO",
+    "inicio": "2017-01-01",
+    "capacidad": 138.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": true
+   },
+   {
+    "nombre": "ANTIOQUIA AMBIENTAL SAS",
+    "prestador": "fundacion sociocultural ambientarte",
+    "inicio": "2019-07-12",
+    "capacidad": 130.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": true
+   },
+   {
+    "nombre": "ECA-MED-3-9-1",
+    "prestador": "Asociación Recircular",
+    "inicio": "2020-04-01",
+    "capacidad": 120.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": true
+   },
+   {
+    "nombre": "CORASEARESOWA",
+    "prestador": "Corporación para la recuperación y aprovechamiento de residuos",
+    "inicio": "2019-02-01",
+    "capacidad": 110.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": true
+   },
+   {
+    "nombre": "ECA_COUNICOL_MED_1",
+    "prestador": "CORPORACION UNIDOS POR COLOMBIA",
+    "inicio": "2021-07-01",
+    "capacidad": 100.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "ASOCIACION DE RECICLADORES ASOFUTURO",
+    "prestador": "ASOCIACION DE RECICLADORES ASOFUTURO",
+    "inicio": "2022-01-26",
+    "capacidad": 100.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "ECAHERRADURA",
+    "prestador": "Corporación para la recuperación y aprovechamiento de residuos",
+    "inicio": "2022-09-01",
+    "capacidad": 95.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": true
+   },
+   {
+    "nombre": "RECICLAJE EL PRIMO",
+    "prestador": "ASOCIACION DE EMPRESARIOS DEL MATERIAL RECUPERADO",
+    "inicio": "2017-01-01",
+    "capacidad": 90.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": true
+   },
+   {
+    "nombre": "ECA-MED-4-11-1",
+    "prestador": "Asociación Recircular",
+    "inicio": "2020-04-01",
+    "capacidad": 90.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": true
+   },
+   {
+    "nombre": "ECA-MED-4-11-2",
+    "prestador": "Asociación Recircular",
+    "inicio": "2022-08-01",
+    "capacidad": 75.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "RECUPERADORA DE MATERIAL RECICLABLE ECO",
+    "prestador": "Corporación Corplanet",
+    "inicio": "2020-10-19",
+    "capacidad": 70.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "Centro de Coomulvi",
+    "prestador": "COOPERATIVA MULTIACTIVA LAS VIOLETAS COOMULVI",
+    "inicio": "2017-09-01",
+    "capacidad": 60.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "reciclajes willly",
+    "prestador": "CORPORACION DE APROVECHAMIENTO DE RECICLABLES",
+    "inicio": "2020-04-01",
+    "capacidad": 60.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "EXCEDENTES RJ",
+    "prestador": "ASOCIACION ECONMEDELLIN",
+    "inicio": "2005-05-11",
+    "capacidad": 60.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "RECICLADORA TRINIDAD",
+    "prestador": "ASOCIACION ECONMEDELLIN",
+    "inicio": "2017-05-24",
+    "capacidad": 60.0,
+    "suelo_compatible": false,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "Punto Ecologico Granizal",
+    "prestador": "Corporación Corplanet",
+    "inicio": "2021-06-16",
+    "capacidad": 51.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "EXCEDENTES FSC",
+    "prestador": "ASOCIACION DE EMPRESARIOS DEL MATERIAL RECUPERADO",
+    "inicio": "2017-01-01",
+    "capacidad": 50.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": true
+   },
+   {
+    "nombre": "ECA 1",
+    "prestador": "ASOCIACION DE RECICLADORES ASOFUTURO",
+    "inicio": "2022-02-28",
+    "capacidad": 50.0,
+    "suelo_compatible": false,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "JGY Plasticos",
+    "prestador": "Corporación Corplanet",
+    "inicio": "2021-06-01",
+    "capacidad": 39.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "ecaoccidente",
+    "prestador": "Corporación de Reciclaje Nuevo Occidente",
+    "inicio": "2017-09-01",
+    "capacidad": 30.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": true
+   },
+   {
+    "nombre": "cootramas",
+    "prestador": "Cooperativa Trabajo Asociado Manos Solidarias",
+    "inicio": "2017-10-27",
+    "capacidad": 30.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "ECA ECOVITAL MEDELLIN",
+    "prestador": "ASOCIACION ECOVITAL",
+    "inicio": "2020-07-01",
+    "capacidad": 20.0,
+    "suelo_compatible": false,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "ARPSE",
+    "prestador": "Asociación Ambiental de Recuperadores y prestadores de servicios Santa Elena",
+    "inicio": "2017-09-01",
+    "capacidad": 15.0,
+    "suelo_compatible": false,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "ASOSAC",
+    "prestador": "Asociación de Ambientalistas San Cristobal",
+    "inicio": "2017-09-28",
+    "capacidad": 10.0,
+    "suelo_compatible": false,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "ALTAVISTA",
+    "prestador": "Asociación de recuperadores Pioneros de Altavista",
+    "inicio": "2017-10-01",
+    "capacidad": 10.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "Corporación Olas Corolas",
+    "prestador": "Corporación Olas",
+    "inicio": "2017-09-01",
+    "capacidad": 5.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "ARRECUPERAR1",
+    "prestador": "Asociacion ambiental de recuperadores y prestadores de servicios de palmitas ARRECUPERAR",
+    "inicio": "2017-10-01",
+    "capacidad": 3.5,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": false
+   },
+   {
+    "nombre": "eca_metalrec",
+    "prestador": "Metales y Excedentes Recuperados",
+    "inicio": "2019-01-01",
+    "capacidad": 2.0,
+    "suelo_compatible": true,
+    "autorizacion_ambiental": false
+   }
+  ],
+  "organizaciones_recicladoras": [
+   {
+    "nombre": "ASOCIACIÓN DE RECUPERADORES RECICLO - ASORECICLO",
+    "direccion": "CR 31 57B 28"
+   },
+   {
+    "nombre": "UNIÓN DE RECICLADORES DE ANTIOQUIA - UNIRANT",
+    "direccion": "CR 50 74 30"
+   },
+   {
+    "nombre": "CORPORACIÓN AMBIENTAL DE RESIDUOS - REECICLAMAS",
+    "direccion": "CL 43 55 29"
+   },
+   {
+    "nombre": "ASOCIACIÓN AMBIENTAL DE RECUPERADORES Y PRESTADORES DE SERVICIOS DE PALMITAS - ARRECUPERAR",
+    "direccion": "CL 20 34 137, Parte Central"
+   },
+   {
+    "nombre": "ASOCIACIÓN AMBIENTAL DE RECUPERADORES Y PRESTADORES DE SERVICIOS SANTA ELENA - ARPSE",
+    "direccion": "KM 1 620 CR 40 Este 58B 164, Santa Elena"
+   },
+   {
+    "nombre": "ASOCIACIÓN DE EMPRESARIOS DEL MATERIAL RECUPERADO - ASEMAR",
+    "direccion": "CL 44 71 69"
+   },
+   {
+    "nombre": "CORPORACIÓN NACIONAL PARA EL AMBIENTE",
+    "direccion": "CR 31 35A 31, La Milagrosa"
+   },
+   {
+    "nombre": "COOPERATIVA DE RECICLADORES DE MEDELLÍN - RECIMED",
+    "direccion": "CL 58 51D 26"
+   },
+   {
+    "nombre": "ASOCIACIÓN DE RECICLADORES DE ANTIOQUIA - ARRECICLAR",
+    "direccion": "CR 46 52 140, Oficina 711"
+   },
+   {
+    "nombre": "ECONMEDELLÍN - ECONOMIA RECICLADORA POR MEDELLÍN",
+    "direccion": "CR 55 90 51"
+   },
+   {
+    "nombre": "ASOCIACIÓN DE RECUPERADORES GLOBAL - ARGLO",
+    "direccion": "CR 46 46 32"
+   },
+   {
+    "nombre": "ASOCIACIÓN DE RECICLADORES SOL NACIENTE E.S.P.",
+    "direccion": "CL 107 74 11"
+   },
+   {
+    "nombre": "CORPORACIÓN DE RECICLAJE DE NUEVO OCCIDENTE - CORPOOCCIDENTE",
+    "direccion": "CL 66 143 67"
+   },
+   {
+    "nombre": "COOPERATIVA MULTIACTIVA LAS VIOLETAS - COOMULVI",
+    "direccion": "CL 60 52 60"
+   },
+   {
+    "nombre": "COOPERATIVA TRABAJO ASOCIADO MANOS SOLIDARIAS",
+    "direccion": "CL 104B 48 60"
+   },
+   {
+    "nombre": "CORPORACIÓN PARA LA RECUPERACIÓN Y APROVECHAMIENTO DE RESIDUOS - CORASEARES",
+    "direccion": "CL 3 80A 77"
+   },
+   {
+    "nombre": "CORPORACIÓN CÍVICA JUVENTUDES DE ANTIOQUIA",
+    "direccion": "CL 45F 77 76"
+   },
+   {
+    "nombre": "ASOCIACIÓN RECOLECTORA DE RECICLAJE DE COLOMBIA - ASORREDECOL",
+    "direccion": "DG 44 39A 106 Vía Machado"
+   },
+   {
+    "nombre": "ASOCIACIÓN ECOVITAL",
+    "direccion": "CL 11E Sur 53 143"
+   },
+   {
+    "nombre": "FUNDACIÓN RECUPERAMBIENTE E.S.P.",
+    "direccion": "CL 45A 63B 37"
+   },
+   {
+    "nombre": "ASOCIACIÓN DE RECICLADORES HUELLA NATURAL E.S.P.",
+    "direccion": "CR 76C 107A 115"
+   },
+   {
+    "nombre": "ASOCIACIÓN DE RECUPERADORES DESARROLLO VERDE",
+    "direccion": "CR 50 67 41"
+   },
+   {
+    "nombre": "FUNDACION ABURRA VERDE E.S.P.",
+    "direccion": "CL 40 Sur  40 30"
+   },
+   {
+    "nombre": "CORPORACIÓN NACIONAL ECORESIDUOS",
+    "direccion": "CR 53 35 55"
+   },
+   {
+    "nombre": "ASOCIACIÓN DE RECICLADORES NATIVOS - ARNSP",
+    "direccion": "CR 44 39 66"
+   },
+   {
+    "nombre": "CORPORACIÓN UNIDOS POR COLOMBIA - COUNICOL",
+    "direccion": "CL 50A 50 47"
+   },
+   {
+    "nombre": "ASOCIACIÓN RECIRCULAR",
+    "direccion": "CL 123 51 35"
+   },
+   {
+    "nombre": "FUNDACION SOCIOCULTURAL AMBIENTARTE",
+    "direccion": "CR 46 52 25 INT 615"
+   },
+   {
+    "nombre": "CORPORACIÓN DE APROVECHAMIENTO DE RECICABLES - CORAPRORECICLA",
+    "direccion": "CR 63B 45 47"
+   },
+   {
+    "nombre": "ASOCIACIÓN DE RECICLADORES - ECORECICLA",
+    "direccion": "CL 73 69 61"
+   },
+   {
+    "nombre": "ASOCIACIÓN DE RECICLADORES - ASOFUTURO",
+    "direccion": "CL 55 58 18"
+   }
+  ],
+  "internet_por_segmento": [
+   {
+    "segmento": "Residencial - Estrato 2",
+    "accesos": 271915,
+    "periodo": "T1 2026"
+   },
+   {
+    "segmento": "Residencial - Estrato 3",
+    "accesos": 250043,
+    "periodo": "T1 2026"
+   },
+   {
+    "segmento": "Residencial - Estrato 4",
+    "accesos": 110932,
+    "periodo": "T1 2026"
+   },
+   {
+    "segmento": "Residencial - Estrato 5",
+    "accesos": 62965,
+    "periodo": "T1 2026"
+   },
+   {
+    "segmento": "Corporativo",
+    "accesos": 62894,
+    "periodo": "T1 2026"
+   },
+   {
+    "segmento": "Residencial - Estrato 1",
+    "accesos": 58462,
+    "periodo": "T1 2026"
+   },
+   {
+    "segmento": "Residencial - Estrato 6",
+    "accesos": 37905,
+    "periodo": "T1 2026"
+   },
+   {
+    "segmento": "Sin estratificar",
+    "accesos": 7448,
+    "periodo": "T1 2026"
+   },
+   {
+    "segmento": "Corporativo  (accesos adicionales)",
+    "accesos": 3076,
+    "periodo": "T1 2026"
+   },
+   {
+    "segmento": "Uso propio interno del operador",
+    "accesos": 656,
+    "periodo": "T1 2026"
+   }
+  ],
+  "indicadores": [
+   {
+    "clave": "cobertura_acueducto",
+    "etiqueta": "Cobertura de acueducto",
+    "unidad": "% de viviendas",
+    "fuente": "medata-cobertura-servicios",
+    "estado": "derivado",
+    "vigencia": "2017–2019 (histórico)",
+    "decimales": 1,
+    "nota": "Suscriptores residenciales sobre las viviendas que estima la fuente. La fuente publica la cobertura por estrato; la del territorio suma los suscriptores y las viviendas de sus estratos. Corte al 31 de diciembre."
+   },
+   {
+    "clave": "cobertura_alcantarillado",
+    "etiqueta": "Cobertura de alcantarillado",
+    "unidad": "% de viviendas",
+    "fuente": "medata-cobertura-servicios",
+    "estado": "derivado",
+    "vigencia": "2017–2019 (histórico)",
+    "decimales": 1,
+    "nota": "Suscriptores residenciales sobre las viviendas que estima la fuente. La fuente publica la cobertura por estrato; la del territorio suma los suscriptores y las viviendas de sus estratos. Corte al 31 de diciembre."
+   },
+   {
+    "clave": "cobertura_aseo",
+    "etiqueta": "Cobertura de aseo",
+    "unidad": "% de viviendas",
+    "fuente": "medata-cobertura-servicios",
+    "estado": "derivado",
+    "vigencia": "2017–2019 (histórico)",
+    "decimales": 1,
+    "nota": "Suscriptores residenciales sobre las viviendas que estima la fuente. La fuente publica la cobertura por estrato; la del territorio suma los suscriptores y las viviendas de sus estratos. Corte al 31 de diciembre."
+   },
+   {
+    "clave": "suscriptores_acueducto",
+    "etiqueta": "Suscriptores residenciales de acueducto",
+    "unidad": "suscriptores",
+    "fuente": "medata-cobertura-servicios",
+    "estado": "observado",
+    "vigencia": "2017–2019 (histórico)",
+    "decimales": 0,
+    "nota": "Suscriptores de todos los prestadores (EPM y pequeños prestadores). Corte al 31 de diciembre."
+   },
+   {
+    "clave": "suscriptores_pequenos",
+    "etiqueta": "Suscriptores de acueducto de pequeños prestadores",
+    "unidad": "suscriptores",
+    "fuente": "medata-pequenos-prestadores",
+    "estado": "observado",
+    "vigencia": "sep 2023 (histórico)",
+    "decimales": 0,
+    "nota": "Juntas de acción comunal, asociaciones y corporaciones que prestan el acueducto donde no llega la red de EPM, sobre todo en los corregimientos. Histórico: el archivo abierto termina en sep 2023. Un 0 indica que la fuente no registra pequeños prestadores en el territorio."
+   }
+  ],
+  "territorios": [
+   {
+    "codigo": "01",
+    "nombre": "Popular",
+    "tipo": "Comuna",
+    "valores": {
+     "cobertura_acueducto": {
+      "2017": 94.7,
+      "2018": 95.0,
+      "2019": 93.1
+     },
+     "cobertura_alcantarillado": {
+      "2017": 89.2,
+      "2018": 89.9,
+      "2019": 90.1
+     },
+     "cobertura_aseo": {
+      "2017": 91.6,
+      "2018": 92.4,
+      "2019": 90.1
+     },
+     "suscriptores_acueducto": {
+      "2017": 24167,
+      "2018": 24078,
+      "2019": 23452
+     },
+     "suscriptores_pequenos": {
+      "2023": 0
+     }
+    }
+   },
+   {
+    "codigo": "02",
+    "nombre": "Santa Cruz",
+    "tipo": "Comuna",
+    "valores": {
+     "cobertura_acueducto": {
+      "2017": 96.2,
+      "2018": 95.8,
+      "2019": 95.5
+     },
+     "cobertura_alcantarillado": {
+      "2017": 92.0,
+      "2018": 91.9,
+      "2019": 92.9
+     },
+     "cobertura_aseo": {
+      "2017": 95.1,
+      "2018": 95.8,
+      "2019": 93.9
+     },
+     "suscriptores_acueducto": {
+      "2017": 19873,
+      "2018": 19838,
+      "2019": 19414
+     },
+     "suscriptores_pequenos": {
+      "2023": 0
+     }
+    }
+   },
+   {
+    "codigo": "03",
+    "nombre": "Manrique",
+    "tipo": "Comuna",
+    "valores": {
+     "cobertura_acueducto": {
+      "2017": 92.0,
+      "2018": 92.4,
+      "2019": 93.5
+     },
+     "cobertura_alcantarillado": {
+      "2017": 89.3,
+      "2018": 89.9,
+      "2019": 92.1
+     },
+     "cobertura_aseo": {
+      "2017": 90.6,
+      "2018": 91.7,
+      "2019": 93.7
+     },
+     "suscriptores_acueducto": {
+      "2017": 31090,
+      "2018": 31003,
+      "2019": 31778
+     },
+     "suscriptores_pequenos": {
+      "2023": 0
+     }
+    }
+   },
+   {
+    "codigo": "04",
+    "nombre": "Aranjuez",
+    "tipo": "Comuna",
+    "valores": {
+     "cobertura_acueducto": {
+      "2017": 98.8,
+      "2018": 98.2,
+      "2019": 97.1
+     },
+     "cobertura_alcantarillado": {
+      "2017": 94.3,
+      "2018": 94.5,
+      "2019": 95.0
+     },
+     "cobertura_aseo": {
+      "2017": 97.7,
+      "2018": 97.6,
+      "2019": 97.5
+     },
+     "suscriptores_acueducto": {
+      "2017": 31874,
+      "2018": 31758,
+      "2019": 38222
+     },
+     "suscriptores_pequenos": {
+      "2023": 0
+     }
+    }
+   },
+   {
+    "codigo": "05",
+    "nombre": "Castilla",
+    "tipo": "Comuna",
+    "valores": {
+     "cobertura_acueducto": {
+      "2017": 99.2,
+      "2018": 98.2,
+      "2019": 97.5
+     },
+     "cobertura_alcantarillado": {
+      "2017": 95.4,
+      "2018": 95.2,
+      "2019": 94.1
+     },
+     "cobertura_aseo": {
+      "2017": 98.3,
+      "2018": 97.8,
+      "2019": 96.4
+     },
+     "suscriptores_acueducto": {
+      "2017": 29058,
+      "2018": 29117,
+      "2019": 28571
+     },
+     "suscriptores_pequenos": {
+      "2023": 0
+     }
+    }
+   },
+   {
+    "codigo": "06",
+    "nombre": "Doce de Octubre",
+    "tipo": "Comuna",
+    "valores": {
+     "cobertura_acueducto": {
+      "2017": 99.3,
+      "2018": 98.8,
+      "2019": 98.4
+     },
+     "cobertura_alcantarillado": {
+      "2017": 98.4,
+      "2018": 98.1,
+      "2019": 97.8
+     },
+     "cobertura_aseo": {
+      "2017": 98.3,
+      "2018": 98.3,
+      "2019": 97.7
+     },
+     "suscriptores_acueducto": {
+      "2017": 37543,
+      "2018": 37530,
+      "2019": 36961
+     },
+     "suscriptores_pequenos": {
+      "2023": 0
+     }
+    }
+   },
+   {
+    "codigo": "07",
+    "nombre": "Robledo",
+    "tipo": "Comuna",
+    "valores": {
+     "cobertura_acueducto": {
+      "2017": 95.9,
+      "2018": 97.0,
+      "2019": 96.8
+     },
+     "cobertura_alcantarillado": {
+      "2017": 96.9,
+      "2018": 97.0,
+      "2019": 96.8
+     },
+     "cobertura_aseo": {
+      "2017": 95.7,
+      "2018": 95.1,
+      "2019": 97.5
+     },
+     "suscriptores_acueducto": {
+      "2017": 47838,
+      "2018": 50011,
+      "2019": 50134
+     },
+     "suscriptores_pequenos": {
+      "2023": 0
+     }
+    }
+   },
+   {
+    "codigo": "08",
+    "nombre": "Villa Hermosa",
+    "tipo": "Comuna",
+    "valores": {
+     "cobertura_acueducto": {
+      "2017": 96.3,
+      "2018": 96.0,
+      "2019": 95.5
+     },
+     "cobertura_alcantarillado": {
+      "2017": 93.6,
+      "2018": 93.6,
+      "2019": 96.6
+     },
+     "cobertura_aseo": {
+      "2017": 94.3,
+      "2018": 95.0,
+      "2019": 96.0
+     },
+     "suscriptores_acueducto": {
+      "2017": 34383,
+      "2018": 34238,
+      "2019": 33454
+     },
+     "suscriptores_pequenos": {
+      "2023": 688
+     }
+    }
+   },
+   {
+    "codigo": "09",
+    "nombre": "Buenos Aires",
+    "tipo": "Comuna",
+    "valores": {
+     "cobertura_acueducto": {
+      "2017": 98.9,
+      "2018": 98.6,
+      "2019": 97.5
+     },
+     "cobertura_alcantarillado": {
+      "2017": 98.9,
+      "2018": 99.0,
+      "2019": 98.4
+     },
+     "cobertura_aseo": {
+      "2017": 97.7,
+      "2018": 97.9,
+      "2019": 98.5
+     },
+     "suscriptores_acueducto": {
+      "2017": 42148,
+      "2018": 43059,
+      "2019": 43874
+     },
+     "suscriptores_pequenos": {
+      "2023": 0
+     }
+    }
+   },
+   {
+    "codigo": "10",
+    "nombre": "La Candelaria",
+    "tipo": "Comuna",
+    "valores": {
+     "cobertura_acueducto": {
+      "2017": 98.4,
+      "2018": 98.1,
+      "2019": 94.6
+     },
+     "cobertura_alcantarillado": {
+      "2017": 98.1,
+      "2018": 98.8,
+      "2019": 94.3
+     },
+     "cobertura_aseo": {
+      "2017": 96.2,
+      "2018": 96.3,
+      "2019": 95.6
+     },
+     "suscriptores_acueducto": {
+      "2017": 31847,
+      "2018": 31301,
+      "2019": 29864
+     },
+     "suscriptores_pequenos": {
+      "2023": 0
+     }
+    }
+   },
+   {
+    "codigo": "11",
+    "nombre": "Laureles Estadio",
+    "tipo": "Comuna",
+    "valores": {
+     "cobertura_acueducto": {
+      "2017": 99.6,
+      "2018": 99.3,
+      "2019": 96.7
+     },
+     "cobertura_alcantarillado": {
+      "2017": 99.4,
+      "2018": 98.6,
+      "2019": 96.7
+     },
+     "cobertura_aseo": {
+      "2017": 95.0,
+      "2018": 94.7,
+      "2019": 96.7
+     },
+     "suscriptores_acueducto": {
+      "2017": 43340,
+      "2018": 46990,
+      "2019": 39623
+     },
+     "suscriptores_pequenos": {
+      "2023": 0
+     }
+    }
+   },
+   {
+    "codigo": "12",
+    "nombre": "La América",
+    "tipo": "Comuna",
+    "valores": {
+     "cobertura_acueducto": {
+      "2017": 99.7,
+      "2018": 99.4,
+      "2019": 97.8
+     },
+     "cobertura_alcantarillado": {
+      "2017": 99.6,
+      "2018": 98.7,
+      "2019": 97.6
+     },
+     "cobertura_aseo": {
+      "2017": 97.1,
+      "2018": 96.4,
+      "2019": 98.5
+     },
+     "suscriptores_acueducto": {
+      "2017": 35202,
+      "2018": 39176,
+      "2019": 32728
+     },
+     "suscriptores_pequenos": {
+      "2023": 0
+     }
+    }
+   },
+   {
+    "codigo": "13",
+    "nombre": "San Javier",
+    "tipo": "Comuna",
+    "valores": {
+     "cobertura_acueducto": {
+      "2017": 98.2,
+      "2018": 98.1,
+      "2019": 97.5
+     },
+     "cobertura_alcantarillado": {
+      "2017": 97.4,
+      "2018": 97.4,
+      "2019": 97.8
+     },
+     "cobertura_aseo": {
+      "2017": 97.0,
+      "2018": 97.5,
+      "2019": 97.3
+     },
+     "suscriptores_acueducto": {
+      "2017": 38494,
+      "2018": 39822,
+      "2019": 37664
+     },
+     "suscriptores_pequenos": {
+      "2023": 0
+     }
+    }
+   },
+   {
+    "codigo": "14",
+    "nombre": "El Poblado",
+    "tipo": "Comuna",
+    "valores": {
+     "cobertura_acueducto": {
+      "2017": 98.1,
+      "2018": 99.3,
+      "2019": 98.3
+     },
+     "cobertura_alcantarillado": {
+      "2017": 98.1,
+      "2018": 98.8,
+      "2019": 98.3
+     },
+     "cobertura_aseo": {
+      "2017": 95.0,
+      "2018": 95.7,
+      "2019": 98.2
+     },
+     "suscriptores_acueducto": {
+      "2017": 49838,
+      "2018": 61236,
+      "2019": 47911
+     },
+     "suscriptores_pequenos": {
+      "2023": 0
+     }
+    }
+   },
+   {
+    "codigo": "15",
+    "nombre": "Guayabal",
+    "tipo": "Comuna",
+    "valores": {
+     "cobertura_acueducto": {
+      "2017": 99.5,
+      "2018": 98.6,
+      "2019": 96.8
+     },
+     "cobertura_alcantarillado": {
+      "2017": 99.7,
+      "2018": 99.8,
+      "2019": 96.3
+     },
+     "cobertura_aseo": {
+      "2017": 98.9,
+      "2018": 98.6,
+      "2019": 96.4
+     },
+     "suscriptores_acueducto": {
+      "2017": 17195,
+      "2018": 17084,
+      "2019": 16474
+     },
+     "suscriptores_pequenos": {
+      "2023": 0
+     }
+    }
+   },
+   {
+    "codigo": "16",
+    "nombre": "Belén",
+    "tipo": "Comuna",
+    "valores": {
+     "cobertura_acueducto": {
+      "2017": 99.2,
+      "2018": 99.3,
+      "2019": 98.1
+     },
+     "cobertura_alcantarillado": {
+      "2017": 99.1,
+      "2018": 98.7,
+      "2019": 98.1
+     },
+     "cobertura_aseo": {
+      "2017": 97.1,
+      "2018": 96.4,
+      "2019": 98.0
+     },
+     "suscriptores_acueducto": {
+      "2017": 67211,
+      "2018": 75671,
+      "2019": 67671
+     },
+     "suscriptores_pequenos": {
+      "2023": 0
+     }
+    }
+   },
+   {
+    "codigo": "50",
+    "nombre": "San Sebastián de Palmitas",
+    "tipo": "Corregimiento",
+    "valores": {
+     "cobertura_acueducto": {
+      "2017": 32.6,
+      "2018": 45.5,
+      "2019": 19.3
+     },
+     "cobertura_alcantarillado": {
+      "2017": 16.2,
+      "2018": 38.1,
+      "2019": 15.1
+     },
+     "cobertura_aseo": {
+      "2017": 5.6,
+      "2018": 11.3,
+      "2019": 45.4
+     },
+     "suscriptores_acueducto": {
+      "2017": 265,
+      "2018": 370,
+      "2019": 338
+     },
+     "suscriptores_pequenos": {
+      "2023": 319
+     }
+    }
+   },
+   {
+    "codigo": "60",
+    "nombre": "San Cristóbal",
+    "tipo": "Corregimiento",
+    "valores": {
+     "cobertura_acueducto": {
+      "2017": 98.6,
+      "2018": 95.4,
+      "2019": 91.8
+     },
+     "cobertura_alcantarillado": {
+      "2017": 89.5,
+      "2018": 84.3,
+      "2019": 85.4
+     },
+     "cobertura_aseo": {
+      "2017": 84.3,
+      "2018": 85.9,
+      "2019": 90.6
+     },
+     "suscriptores_acueducto": {
+      "2017": 25401,
+      "2018": 30712,
+      "2019": 30584
+     },
+     "suscriptores_pequenos": {
+      "2023": 7436
+     }
+    }
+   },
+   {
+    "codigo": "70",
+    "nombre": "Altavista",
+    "tipo": "Corregimiento",
+    "valores": {
+     "cobertura_acueducto": {
+      "2017": 96.1,
+      "2018": 75.6,
+      "2019": 75.2
+     },
+     "cobertura_alcantarillado": {
+      "2017": 79.0,
+      "2018": 96.8,
+      "2019": 89.2
+     },
+     "cobertura_aseo": {
+      "2017": 72.5,
+      "2018": 71.4,
+      "2019": 82.8
+     },
+     "suscriptores_acueducto": {
+      "2017": 9094,
+      "2018": 8460,
+      "2019": 7273
+     },
+     "suscriptores_pequenos": {
+      "2023": 1857
+     }
+    }
+   },
+   {
+    "codigo": "80",
+    "nombre": "San Antonio de Prado",
+    "tipo": "Corregimiento",
+    "valores": {
+     "cobertura_acueducto": {
+      "2017": 100.0,
+      "2018": 96.9,
+      "2019": 93.1
+     },
+     "cobertura_alcantarillado": {
+      "2017": 95.6,
+      "2018": 90.3,
+      "2019": 89.5
+     },
+     "cobertura_aseo": {
+      "2017": 93.2,
+      "2018": 95.5,
+      "2019": 96.4
+     },
+     "suscriptores_acueducto": {
+      "2017": 30025,
+      "2018": 30768,
+      "2019": 29418
+     },
+     "suscriptores_pequenos": {
+      "2023": 1740
+     }
+    }
+   },
+   {
+    "codigo": "90",
+    "nombre": "Santa Elena",
+    "tipo": "Corregimiento",
+    "valores": {
+     "cobertura_acueducto": {
+      "2017": 45.7,
+      "2018": 75.9,
+      "2019": 56.7
+     },
+     "cobertura_alcantarillado": {
+      "2017": 9.3,
+      "2018": 16.8,
+      "2019": 14.9
+     },
+     "cobertura_aseo": {
+      "2017": 8.1,
+      "2018": 30.4,
+      "2019": 52.9
+     },
+     "suscriptores_acueducto": {
+      "2017": 3649,
+      "2018": 3899,
+      "2019": 5357
+     },
+     "suscriptores_pequenos": {
+      "2023": 3252
+     }
+    }
+   }
+  ]
+ }
+}

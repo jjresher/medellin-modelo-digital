@@ -1,9 +1,10 @@
 {
  "probado": "2026-09-27",
- "n": 66,
+ "n": 79,
  "por_estado": {
-  "observado": 64,
-  "declarado": 2
+  "observado": 75,
+  "declarado": 3,
+  "candidato": 1
  },
  "datasets": [
   {
@@ -456,6 +457,149 @@
    "tema": "municipio",
    "vigencia": "2020 (histórico)",
    "uso": "Impuesto predial facturado 2020"
+  },
+  {
+   "id": "medata-cobertura-servicios",
+   "nombre": "Reporte de estratificación y cobertura de acueducto, alcantarillado y aseo",
+   "entidad": "Subsecretaría de Servicios Públicos · Alcaldía de Medellín (MEData)",
+   "url": "http://medata.gov.co/sites/default/files/distribution/1-014-26-000256/reporte_de_estratificacion_y_cobertura.csv",
+   "estado": "observado",
+   "probado": "2026-09-27",
+   "tema": "servicios",
+   "vigencia": "2019 (histórico)",
+   "uso": "Cobertura de acueducto 2019, Cobertura de alcantarillado 2019, Cobertura de aseo 2019"
+  },
+  {
+   "id": "medata-suscriptores-epm",
+   "nombre": "Suscriptores y consumos de acueducto y alcantarillado del gran prestador (EPM)",
+   "entidad": "Subsecretaría de Servicios Públicos · Alcaldía de Medellín (MEData)",
+   "url": "http://medata.gov.co/sites/default/files/distribution/1-014-26-000261/suscriptores_y_consumos_gran_prestador.csv",
+   "estado": "observado",
+   "probado": "2026-09-27",
+   "tema": "servicios",
+   "vigencia": "dic 2017 – ago 2023",
+   "uso": "Suscriptores de acueducto de EPM, Suscriptores de alcantarillado de EPM"
+  },
+  {
+   "id": "medata-pequenos-prestadores",
+   "nombre": "Suscriptores y consumos de los pequeños prestadores de acueducto y alcantarillado",
+   "entidad": "Subsecretaría de Servicios Públicos · Alcaldía de Medellín (MEData)",
+   "url": "http://medata.gov.co/sites/default/files/distribution/1-014-26-000262/suscriptores_y_consumos_pequenos_prestadores.csv",
+   "estado": "observado",
+   "probado": "2026-09-27",
+   "tema": "servicios",
+   "vigencia": "sep 2023 (histórico)",
+   "uso": "Suscriptores de acueducto de pequeños prestadores, Pequeños prestadores de acueducto que reportan"
+  },
+  {
+   "id": "medata-suscriptores-aseo",
+   "nombre": "Suscriptores del servicio de aseo (Emvarias)",
+   "entidad": "Subsecretaría de Servicios Públicos · Alcaldía de Medellín (MEData)",
+   "url": "http://medata.gov.co/sites/default/files/distribution/1-014-26-000260/suscriptores_aseo.csv",
+   "estado": "observado",
+   "probado": "2026-09-27",
+   "tema": "servicios",
+   "vigencia": "ago 2023 (histórico)",
+   "uso": "Suscriptores de aseo de Emvarias"
+  },
+  {
+   "id": "medata-subsidios-epm",
+   "nombre": "Subsidios y contribuciones de acueducto y alcantarillado del gran prestador (EPM)",
+   "entidad": "Subsecretaría de Servicios Públicos · Alcaldía de Medellín (MEData)",
+   "url": "http://medata.gov.co/sites/default/files/distribution/1-014-26-000258/subsidios_y_contribuciones_gran_prestador.csv",
+   "estado": "observado",
+   "probado": "2026-09-27",
+   "tema": "servicios",
+   "vigencia": "dic 2017 – ago 2023",
+   "uso": "Subsidios EPM 2022, Contribuciones EPM 2022, Suscriptores con subsidio · EPM"
+  },
+  {
+   "id": "medata-subsidios-aseo",
+   "nombre": "Subsidios y contribuciones del servicio de aseo (Emvarias)",
+   "entidad": "Subsecretaría de Servicios Públicos · Alcaldía de Medellín (MEData)",
+   "url": "http://medata.gov.co/sites/default/files/distribution/1-014-26-000257/subsidios_y_contribuciones_aseo.csv",
+   "estado": "observado",
+   "probado": "2026-09-27",
+   "tema": "servicios",
+   "vigencia": "dic 2017 – ago 2023",
+   "uso": "Subsidios Emvarias 2022, Contribuciones Emvarias 2022, Suscriptores con subsidio · Emvarias"
+  },
+  {
+   "id": "epm-tarifas-agua",
+   "nombre": "Tarifas de acueducto y aguas residuales para hogares",
+   "entidad": "Empresas Públicas de Medellín (EPM)",
+   "url": "https://www.datos.gov.co/d/nfrm-mmfe",
+   "estado": "observado",
+   "probado": "2026-09-27",
+   "tema": "servicios",
+   "vigencia": "abr 2017 – ago 2026",
+   "uso": "Acueducto, estrato 1: consumo básico, Acueducto, estrato 4: consumo básico"
+  },
+  {
+   "id": "epm-tarifas-gas",
+   "nombre": "Tarifas de gas natural para hogares",
+   "entidad": "Empresas Públicas de Medellín (EPM)",
+   "url": "https://www.datos.gov.co/d/ekup-y869",
+   "estado": "observado",
+   "probado": "2026-09-27",
+   "tema": "servicios",
+   "vigencia": "ene 2020 – oct 2026",
+   "uso": "Gas natural, estrato 1: hasta 20 m³, Gas natural, estrato 4: hasta 20 m³"
+  },
+  {
+   "id": "epm-tarifas-energia",
+   "nombre": "Tarifas y costo de energía eléctrica, mercado regulado (publicación mensual)",
+   "entidad": "Empresas Públicas de Medellín (EPM)",
+   "url": "https://www.epm.com.co/clientesyusuarios/energia/tarifas-energia/",
+   "estado": "declarado",
+   "probado": "2026-09-27",
+   "tema": "servicios",
+   "vigencia": "ene 2026 – sep 2026",
+   "uso": "Energía, estrato 1: consumo de subsistencia, Energía, estrato 4, Energía: cargo fijo por factura"
+  },
+  {
+   "id": "superservicios-ecas",
+   "nombre": "Registro de estaciones de clasificación y aprovechamiento (ECA)",
+   "entidad": "Superintendencia de Servicios Públicos Domiciliarios",
+   "url": "https://www.datos.gov.co/d/y97c-tfd9",
+   "estado": "observado",
+   "probado": "2026-09-27",
+   "tema": "servicios",
+   "vigencia": "Certificado hasta 2024-07-22",
+   "uso": "ECA en operación, Capacidad de operación de las ECA, Prestadores de aprovechamiento con ECA en operación, ECA en operación con uso del suelo compatible"
+  },
+  {
+   "id": "medata-recicladoras",
+   "nombre": "Organizaciones recicladoras",
+   "entidad": "Subsecretaría de Servicios Públicos · Alcaldía de Medellín (MEData)",
+   "url": "http://medata.gov.co/sites/default/files/distribution/1-014-26-000593/Organizaciones_Recicladoras.csv",
+   "estado": "observado",
+   "probado": "2026-09-27",
+   "tema": "servicios",
+   "vigencia": "Registro sin fecha (MEData lo fecha en noviembre de 2023)",
+   "uso": "Organizaciones de recicladores registradas"
+  },
+  {
+   "id": "mintic-internet-fijo",
+   "nombre": "Accesos a internet fijo por municipio, segmento y tecnología",
+   "entidad": "Ministerio de Tecnologías de la Información y las Comunicaciones",
+   "url": "https://www.postdata.gov.co/sites/default/files/ACCESOS_INTERNET_FIJO_3_5.csv",
+   "estado": "observado",
+   "probado": "2026-09-27",
+   "tema": "servicios",
+   "vigencia": "T1 2024 – T1 2026",
+   "uso": "Accesos a internet fijo, Accesos residenciales a internet fijo"
+  },
+  {
+   "id": "internet-fijo-comuna",
+   "nombre": "Cobertura de internet fijo por comuna",
+   "entidad": "MinTIC y operadores",
+   "url": "https://www.datos.gov.co/d/fwe6-d4hc",
+   "estado": "candidato",
+   "probado": "2026-09-27",
+   "uso": "Cobertura por comuna: no publicada",
+   "tema": "servicios",
+   "vigencia": "No publicada"
   },
   {
    "id": "metro-afluencia",
