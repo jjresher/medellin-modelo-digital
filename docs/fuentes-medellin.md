@@ -26,7 +26,7 @@ Se propone adoptar el mismo contrato para Medellín.
 | Gente | Población, hogares, IMCV, pobreza multidimensional, IDH | DANE, DAP, ECV |
 | Economía y vivienda | Mercado laboral, oferta inmobiliaria, valor del suelo, licencias | DANE GEIH, OIME, IDEM |
 | Turismo | Visitantes extranjeros, pasajeros del aeropuerto, ocupación hotelera, atractivos | MinCIT, Aerocivil, MEData |
-| Municipio | Presupuesto, inversión por comuna, contratación, Concejo | MEData, SECOP II |
+| Municipio | Presupuesto, inversión por comuna, contratación, Concejo | CUIPO (Contraloría), Alcaldía, SECOP II, Concejo |
 | Seguridad | Delitos 2018–2026 (Policía) y mapa georreferenciado 2003–2023 (SISC) | datos.gov.co, MEData |
 | *(sin equivalente directo en Lima)* | **Servicios públicos**: cobertura y tarifas de acueducto, energía, gas y aseo por comuna | MEData, EPM, datos.gov.co |
 | Territorio y cultura | POT, amenazas, patrimonio, bibliotecas, equipamientos, espacio verde | Servidor de mapas de la Alcaldía |
@@ -128,7 +128,7 @@ Convenciones: `ALC` = `https://www.medellin.gov.co/servidormapas/rest/services`,
 | Licencias (capa 0) | `.../VM_Licencias/MapServer/0` | 2006 | 835 registros sin fecha ni tipo; el año sale del código (`C4-00383-06-LC`). No se usa. |
 | Establecimientos de Industria y Comercio | `ALC/ccio_ind_turism/VC_Act_Comercial_Empresarial/MapServer/0` | Registro activo; sin fecha | 443.241 contratos activos del impuesto, 63.897 de ellos "No posee establecimientos". `comuna` viene vacía en la mitad; `nombre_comuna` sirve, con tildes mal codificadas ("BelÃ©n"). `grupo_actividad` 01–05 sin diccionario publicado. **En uso.** |
 | **Estructura empresarial por comuna** | datos.gov.co `pb3w-3vmc` (Cámara de Comercio) | **2018–2022** | Empresas por clase CIIU y comuna; 110.843 en 2022. **En uso.** |
-| Facturación del impuesto predial por comuna | `MED/1-016-12-000302/...csv` | Hasta 2023 | Pendiente para Municipio (#8). |
+| Facturación del impuesto predial por comuna | `MED/1-016-12-000302/...csv` | **2019–2020** (no 2023) | En uso en Municipio (#8); ver sus notas. |
 
 **Notas de uso en Economía y vivienda (issue #6, 27 sep 2026)**
 
@@ -162,12 +162,27 @@ Convenciones: `ALC` = `https://www.medellin.gov.co/servidormapas/rest/services`,
 
 ### Municipio
 
-| Dato | Endpoint | Vigencia | Notas |
+| Dato | Endpoint | Vigencia | Valor clave |
 |---|---|---|---|
-| Inversión pública por comuna | `ALC/hacienda_credi_publ/VM_Inversion_Publica/MapServer/{0..16}` | 2008–2024 | Popular 2024: $521.337 millones |
-| Ingresos y gastos de inversión | `MED/1-016-12-000238/comportamiento_de_ingresos.csv` y `.../000236/...gastos_de_inversion.csv` | Falta confirmar a qué vigencia corresponden | |
-| Contratación (SECOP II) | datos.gov.co `jbjy-vk9h`, entidad `DISTRITO ESPECIAL DE CIENCIA TECNOLOGIA E INNOVACION DE MEDELLIN` | Continua | 14.518 contratos del Distrito central, más sus entidades descentralizadas |
-| Acuerdos y proyectos del Concejo | datos.gov.co `9smt-mgt4`, `sqkr-77ej` | Julio de 2026 | |
+| **Presupuesto del Distrito (CUIPO)** | datos.gov.co, Contraloría: programación de ingresos `22ah-ddsj`, ejecución de ingresos `9axr-9gnb`, programación de gastos `d9mu-h6ar`, ejecución de gastos `4f7r-epif`; filtro `codigo_entidad='210105001'` | **2023 – junio de 2026**, por trimestre (`periodo` 20230301 … 20260601) | Presupuesto inicial de gastos 2026: **11,84 billones**; 2025: 10,92 billones (cuadra con los 10,9 billones aprobados por el Concejo) y 8,79 billones de inversión inicial (igual a la cifra aprobada). Compromisos 2025: 11,79 billones. **En uso.** |
+| **Inversión pública por comuna y corregimiento** | `hacienda_credi_publ/VM_Inversion_Publica/MapServer/0` (campos `inversion_2008` … `inversion_2024`; las capas 1–16 repiten la misma tabla) | **2008–2024** | Popular 2024: $521.338 millones; suma de los 21 territorios en 2024: 7,84 billones. Inversión ordenada (facturada o pagada) con corte al 31 de diciembre. **En uso.** |
+| Inversión por comuna, un archivo por año | MEData `1-002-11-000043` … `000278` | 2008–2019 | No se usa: la capa de la Alcaldía cubre los mismos años y llega a 2024. |
+| **Contratación (SECOP II)** | datos.gov.co `jbjy-vk9h`, `nombre_entidad='DISTRITO ESPECIAL DE CIENCIA TECNOLOGIA E INNOVACION DE MEDELLIN'` | Continua (hoy, hasta septiembre de 2026) | 14.518 contratos en total; 2025: **1.471 contratos por 7,59 billones**, sin cancelados ni borradores. **En uso.** |
+| **Acuerdos del Concejo** | datos.gov.co `9smt-mgt4` | Último sancionado el 16 de enero de 2026 | 34 acuerdos de 2025. **En uso.** |
+| **Proyectos de acuerdo** | datos.gov.co `sqkr-77ej` | 2026 parcial (sin fecha de radicación) | 39 proyectos en 2025. **En uso.** |
+| Sesiones plenarias del Concejo | datos.gov.co `i7cm-y3c6` | Abril de 2026 | Filas repetidas (4.710 filas para unas 2.300 sesiones). No se usa. |
+| Ingresos y gastos de inversión (MEData) | `MED/1-016-12-000238/comportamiento_de_ingresos.csv` y `.../000236/comportamiento_de_gastos_de_inversion.csv` | **Sin año en el archivo; no se pudo confirmar** | No se usan (ver notas). |
+
+**Notas de uso en Municipio (issue #8, 27 sep 2026)**
+
+- **Vigencia de los archivos de presupuesto de MEData.** No tienen columna de año; los metadatos dicen "2018" y el archivo se modificó en marzo de 2025. Usan los códigos del FUT, que se reportó hasta 2020. Al compararlos con los decretos de liquidación del presupuesto: dos partidas del SGP coinciden al peso con el de 2019 (Decreto 1018 de 2018), pero el total inicial (5,43 billones) no coincide con el de 2019 (5,03 billones); se acerca al de 2020 (5,42 billones) sin ser igual, y ninguna partida coincide con ese decreto. Además, el recaudo (23 % del definitivo) indica un corte de primer trimestre. Con eso no se puede asignar un año con certeza, así que se reemplazan por **CUIPO**, que publica el mismo presupuesto con año y trimestre explícitos.
+- **CUIPO · programación de ingresos (`22ah-ddsj`) tiene las columnas corridas**: el código de la cuenta llega en `ambito_codigo`, su nombre en `ambito_nombre`, el presupuesto inicial en `cod_detalle_sectorial` y el definitivo en `nom_detalle_sectorial`. El script acepta los dos órdenes.
+- **CUIPO acumula de enero al corte**: el dato de un año es su último trimestre reportado; un año está completo con el corte de diciembre. Solo se suma la vigencia actual (incluidas las vigencias futuras que se ejecutan en el año), no las reservas ni las cuentas por pagar de años anteriores. La programación de gastos no trae agregada la cuenta 2.3 (inversión): se calcula como total menos funcionamiento (2.1) y deuda (2.2). La inversión por sector usa los dos primeros dígitos del código programático MGA; su suma cuadra con la cuenta 2.3.
+- **Qué cubre CUIPO:** administración central, Concejo, Personería y Contraloría. Los establecimientos públicos reportan con su propio código, así que el total puede ser menor que el presupuesto general anunciado (2026: 11,84 billones en CUIPO frente a 12,06 anunciados).
+- **SECOP II:** el NIT del Distrito (890905211) lo comparten el Concejo y la Personería; se filtra por `nombre_entidad`. Hay valores imposibles (un contrato "Modificado" de 7,7 × 10²⁰ pesos en 2019): se excluyen los que superan 10 billones, más que el presupuesto anual. En 2017 el Distrito firmó solo 91 contratos en SECOP II; la serie empieza en 2018. "Otro" es el tipo de mayor valor: en 2025, el 91 % son contratos o convenios interadministrativos.
+- **Concejo:** años mal digitados ("5006", "2204", "0206"); se usa 2008 en adelante, cuando el registro es completo. La numeración de acuerdos y proyectos corre por periodo constitucional (2016–2019, 2020–2023, 2024–2027) y no tiene saltos, así que los conteos por año están completos.
+- **Predial por comuna:** el archivo solo trae la facturación trimestral (enero, abril, julio y octubre) de 2019 y 2020, no hasta 2023. Es impuesto **facturado**, no recaudado, y la "comuna de cobro" es la dirección de envío de la factura: del código 21 en adelante son otros municipios (el 50 es Casanare, no Palmitas), y el 18 junta San Cristóbal y Palmitas. Los corregimientos usan los códigos 17 (San Antonio de Prado), 19 (Santa Elena) y 20 (Altavista). El recaudo actual de toda la ciudad sale de CUIPO. `facturacion_historica_impuesto_predial_unificado_por_concepto.csv` (`000263`) trae el total de la ciudad de 2013 a 2017 y no se usa.
+- **Inversión por comuna** está en pesos corrientes: los montos de años distintos no se comparan en términos reales. No se calcula por habitante porque la población por comuna del lago es solo la de 2026.
 
 ### Seguridad
 

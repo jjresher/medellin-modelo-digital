@@ -1,8 +1,8 @@
 {
  "probado": "2026-09-27",
- "n": 59,
+ "n": 66,
  "por_estado": {
-  "observado": 57,
+  "observado": 64,
   "declarado": 2
  },
  "datasets": [
@@ -379,6 +379,83 @@
    "tema": "turismo",
    "vigencia": "OpenStreetMap al 2026-06-01",
    "uso": "Hospedajes mapeados en OpenStreetMap"
+  },
+  {
+   "id": "cuipo-ingresos",
+   "nombre": "CUIPO · programación y ejecución de ingresos del Distrito de Medellín",
+   "entidad": "Contraloría General de la República",
+   "url": "https://www.datos.gov.co/d/9axr-9gnb",
+   "estado": "observado",
+   "probado": "2026-09-27",
+   "tema": "municipio",
+   "vigencia": "2025 · ene–jun 2026",
+   "uso": "Ingresos recaudados 2025, Ingresos recaudados 2026, Impuesto predial unificado: recaudo 2025, Impuesto de industria y comercio: recaudo 2025"
+  },
+  {
+   "id": "cuipo-gastos",
+   "nombre": "CUIPO · programación y ejecución de gastos del Distrito de Medellín",
+   "entidad": "Contraloría General de la República",
+   "url": "https://www.datos.gov.co/d/4f7r-epif",
+   "estado": "observado",
+   "probado": "2026-09-27",
+   "tema": "municipio",
+   "vigencia": "2025 · 2026 · corte jun 2026 · ene–jun 2026",
+   "uso": "Presupuesto inicial de gastos 2026, Presupuesto definitivo de gastos 2026, Presupuesto definitivo de gastos 2025, Gastos comprometidos 2025…"
+  },
+  {
+   "id": "concejo-acuerdos",
+   "nombre": "Acuerdos sancionados",
+   "entidad": "Concejo de Medellín",
+   "url": "https://www.datos.gov.co/d/9smt-mgt4",
+   "estado": "observado",
+   "probado": "2026-09-27",
+   "tema": "municipio",
+   "vigencia": "2008 – 2025",
+   "uso": "Acuerdos sancionados 2025"
+  },
+  {
+   "id": "concejo-proyectos",
+   "nombre": "Proyectos de acuerdo",
+   "entidad": "Concejo de Medellín",
+   "url": "https://www.datos.gov.co/d/sqkr-77ej",
+   "estado": "observado",
+   "probado": "2026-09-27",
+   "tema": "municipio",
+   "vigencia": "2008 – 2025",
+   "uso": "Proyectos de acuerdo radicados 2025, Proyectos de acuerdo radicados 2026"
+  },
+  {
+   "id": "alcaldia-inversion-comunas",
+   "nombre": "Inversión pública por comuna y corregimiento",
+   "entidad": "Departamento Administrativo de Planeación · Alcaldía de Medellín",
+   "url": "https://www.medellin.gov.co/servidormapas/rest/services/hacienda_credi_publ/VM_Inversion_Publica/MapServer/0",
+   "estado": "observado",
+   "probado": "2026-09-27",
+   "tema": "municipio",
+   "vigencia": "2008 – 2024",
+   "uso": "Inversión localizada en comunas y corregimientos 2024"
+  },
+  {
+   "id": "secop2-distrito",
+   "nombre": "SECOP II · contratos electrónicos del Distrito de Medellín",
+   "entidad": "Colombia Compra Eficiente",
+   "url": "https://www.datos.gov.co/d/jbjy-vk9h",
+   "estado": "observado",
+   "probado": "2026-09-27",
+   "tema": "municipio",
+   "vigencia": "2018 – 2025",
+   "uso": "Contratos firmados en SECOP II 2025, Valor contratado en SECOP II 2025, Contratos firmados en SECOP II 2026"
+  },
+  {
+   "id": "medata-predial-comunas",
+   "nombre": "Facturación histórica del impuesto predial unificado por comuna de cobro",
+   "entidad": "Secretaría de Hacienda · Alcaldía de Medellín (MEData)",
+   "url": "http://medata.gov.co/sites/default/files/distribution/1-016-12-000302/facturacion_historica_impuesto_predial_unificado_por_concepto_por_comuna_de_cobro.csv",
+   "estado": "observado",
+   "probado": "2026-09-27",
+   "tema": "municipio",
+   "vigencia": "2020 (histórico)",
+   "uso": "Impuesto predial facturado 2020"
   },
   {
    "id": "metro-afluencia",

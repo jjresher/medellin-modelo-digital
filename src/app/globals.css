@@ -363,3 +363,27 @@ h1 em { color: var(--green); font-family: Georgia, serif; font-weight: 400; }
 .turismo-view .card-controls { justify-content: space-between; align-items: center; }
 .turismo-view .card-controls h3 { margin: 0; }
 .turismo-view .link-fuente { display: inline-block; margin-top: 14px; text-decoration: none; }
+
+/* ---- Municipio (issue #8) ---- */
+.subtitulo-bloque { margin: 22px 0 10px; color: var(--dim); font: 10px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .9px; text-transform: uppercase; }
+/* Las tablas anchas (presupuesto por año, contratos, acuerdos) se desplazan dentro de su tarjeta en móvil. */
+.tabla-card { margin-top: 14px; overflow-x: auto; }
+.municipio-tabla td, .municipio-tabla th { text-align: right; white-space: nowrap; }
+.municipio-tabla td:first-child, .municipio-tabla th:first-child { text-align: left; }
+.municipio-tabla small { color: var(--dim); }
+.municipio-contratos td, .municipio-acuerdos td { vertical-align: top; line-height: 1.45; }
+.municipio-contratos td:first-child, .municipio-acuerdos td:nth-child(2) { min-width: 260px; }
+.municipio-contratos td:not(:first-child), .municipio-acuerdos td:first-child, .municipio-acuerdos td:last-child { white-space: nowrap; }
+.municipio-contratos a { color: var(--paper); text-decoration-color: var(--line); }
+.municipio-contratos a:hover { color: var(--cyan); }
+.municipio-view .card-controls { justify-content: space-between; align-items: center; }
+.municipio-view .card-controls h3 { margin: 0; }
+/* La leyenda va por encima de la atribución de OpenFreeMap, que ocupa la esquina inferior al desplegarse. */
+.territorios-map .barrio-legend { bottom: 38px; }
+.territorios-map .legend-ticks { gap: 6px; }
+.territorios-map .legend-ticks i { white-space: nowrap; }
+/* El mapa de territorios conserva su leyenda en móvil (el gemelo la oculta para dejar espacio). */
+@media (max-width: 900px) {
+  .territorios-map .map-legend { display: grid; width: auto; max-width: calc(100% - 20px); }
+  .territorios-map .barrio-popup { top: 12px; right: auto; bottom: auto; left: 12px; max-width: 200px; }
+}

@@ -23,7 +23,7 @@ Hoja de ruta para llevar la app a la estructura de [Cerebro Lima](https://cerebr
 | 5 | [Gente](#5-gente) | 0 | ☑ |
 | 6 | [Economía y vivienda](#6-economía-y-vivienda) | 0 | ☑ |
 | 7 | [Turismo](#7-turismo) | 0 | ☑ |
-| 8 | [Municipio](#8-municipio) | 0 | ☐ |
+| 8 | [Municipio](#8-municipio) | 0 | ☑ |
 | 9 | [Servicios públicos](#9-servicios-públicos) | 0 | ☐ |
 | 10 | [Territorio y cultura](#10-territorio-y-cultura) | 0, 1 | ☐ |
 | 11 | [Atlas de comunas y barrios](#11-atlas-de-comunas-y-barrios) | 3, 5, 6, 9 | ☐ |
@@ -309,13 +309,28 @@ Panorama va casi al final porque resume las cifras ancla de todas las demás sec
 ## 8. Municipio
 
 **Tareas**
-- [ ] Presupuesto: ingresos y gastos de inversión (MEData), después de confirmar a qué vigencia corresponden.
-- [ ] Inversión pública por comuna, 2008–2024, en serie y en mapa.
-- [ ] Contratación en SECOP II: número y valor por año y principales objetos.
-- [ ] Actividad del Concejo: acuerdos y proyectos.
-- [ ] Recaudo del impuesto predial por comuna, hasta 2023.
+- [x] Presupuesto: ingresos y gastos de inversión ~~(MEData), después de confirmar a qué vigencia corresponden~~ → CUIPO (ver resultado).
+- [x] Inversión pública por comuna, 2008–2024, en serie y en mapa.
+- [x] Contratación en SECOP II: número y valor por año y principales objetos.
+- [x] Actividad del Concejo: acuerdos y proyectos.
+- [x] ~~Recaudo~~ Facturación del impuesto predial por comuna, ~~hasta 2023~~ 2019–2020 (ver resultado).
 
 **Datos:** [Municipio](fuentes-medellin.md#municipio).
+
+**Resultado (27 sep 2026)**
+- Nuevo tema `municipio` con `ingesta/pull_municipio.py` y 7 fuentes: CUIPO (ingresos y gastos, Contraloría), inversión por comuna (Planeación), SECOP II, acuerdos y proyectos del Concejo, y el predial por comuna de cobro (MEData). 19 cifras, 5 series y las listas `indicadores` y `territorios` (inversión, participación en la inversión y predial facturado), con el contrato de Gente, Economía y Turismo. La cifra ancla del Panorama es el presupuesto inicial de gastos del año en curso (2026: 11,84 billones).
+- Nueva sección `Municipio` (`src/components/MunicipioView.jsx`): presupuesto (año en curso y último año completo, tabla 2023–2026, ingresos por tipo e inversión por sector), inversión por comuna (serie 2008–2024 y mapa por año, en monto o participación), ranking y ficha por territorio, el predial histórico, contratación (serie, valor por tipo y los 10 contratos de mayor valor con enlace a SECOP) y el Concejo (proyectos y acuerdos por año, acuerdos por tema del periodo en curso y los últimos sancionados).
+- Nuevo mapa coroplético de los 21 territorios, `src/components/territorios/MapaTerritorios.jsx`, que recibe los valores por código: lo podrá usar el Atlas (#11).
+- Decisiones de alcance:
+  - **Presupuesto:** los archivos de MEData no traen el año y no se pudo confirmar su vigencia: dos partidas del SGP coinciden con el decreto de 2019, pero el total no coincide con el de ningún año y el recaudo indica un corte de primer trimestre. Se usa CUIPO, que publica lo mismo con año y trimestre (2023 a junio de 2026) y cuadra con lo aprobado por el Concejo en 2025. Detalle en [fuentes-medellin.md](fuentes-medellin.md#municipio).
+  - **Predial por comuna:** el archivo abierto solo llega a 2020 (no a 2023), es facturación y no recaudo, y agrupa por la dirección a la que se envía el cobro. Se muestra como histórico, con esas tres advertencias; San Cristóbal y Palmitas, que se facturan juntos, quedan sin dato. El recaudo actual de la ciudad sale de CUIPO.
+  - **SECOP II:** solo la administración central (el Concejo y la Personería comparten NIT y se excluyen, igual que las entidades descentralizadas). Sin contratos cancelados ni borradores, y sin el único valor imposible (7,7 × 10²⁰ pesos). La serie empieza en 2018.
+  - **Inversión por comuna:** pesos corrientes; se agrega la participación de cada territorio en el total del año (`derivado`), que sí se puede comparar entre años. No se calcula por habitante: la población por comuna del lago es solo la de 2026.
+- Correcciones que salieron al probar:
+  - La tabla de programación de ingresos de CUIPO en datos.gov.co tiene las columnas corridas (la cuenta llega en `ambito_codigo`); el script acepta los dos órdenes.
+  - En el predial, los códigos 50–90 de "comuna de cobro" son otros municipios (50 es Casanare), no los corregimientos: se mapean solo 1–16, 17, 19 y 20.
+  - El mapa se dibujaba con un ancho equivocado en móvil (MapLibre mide el contenedor antes de que la grilla termine de maquetarse): ahora se reajusta con un `ResizeObserver`. La atribución desplegada tapaba la leyenda: se pliega al cargar.
+- **Pendiente de revisar a mano:** la sección en un móvil real (se probó a 390 px sin desbordamiento horizontal).
 
 ---
 

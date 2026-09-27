@@ -20,6 +20,7 @@ export const accentByTheme = {
   economia: 'cyan',
   seguridad: 'pink',
   turismo: 'yellow',
+  municipio: 'orange',
   movilidad: 'orange',
   gemelo: 'purple',
   lentes: 'purple',

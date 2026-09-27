@@ -1,0 +1,2188 @@
+{
+ "tema": "municipio",
+ "titulo": "Municipio",
+ "probado": "2026-09-27",
+ "ancla": [
+  "presupuesto_inicial"
+ ],
+ "fuentes": [
+  {
+   "id": "cuipo-ingresos",
+   "nombre": "CUIPO · programación y ejecución de ingresos del Distrito de Medellín",
+   "entidad": "Contraloría General de la República",
+   "url": "https://www.datos.gov.co/d/9axr-9gnb",
+   "estado": "observado",
+   "probado": "2026-09-27"
+  },
+  {
+   "id": "cuipo-gastos",
+   "nombre": "CUIPO · programación y ejecución de gastos del Distrito de Medellín",
+   "entidad": "Contraloría General de la República",
+   "url": "https://www.datos.gov.co/d/4f7r-epif",
+   "estado": "observado",
+   "probado": "2026-09-27"
+  },
+  {
+   "id": "concejo-acuerdos",
+   "nombre": "Acuerdos sancionados",
+   "entidad": "Concejo de Medellín",
+   "url": "https://www.datos.gov.co/d/9smt-mgt4",
+   "estado": "observado",
+   "probado": "2026-09-27"
+  },
+  {
+   "id": "concejo-proyectos",
+   "nombre": "Proyectos de acuerdo",
+   "entidad": "Concejo de Medellín",
+   "url": "https://www.datos.gov.co/d/sqkr-77ej",
+   "estado": "observado",
+   "probado": "2026-09-27"
+  },
+  {
+   "id": "alcaldia-inversion-comunas",
+   "nombre": "Inversión pública por comuna y corregimiento",
+   "entidad": "Departamento Administrativo de Planeación · Alcaldía de Medellín",
+   "url": "https://www.medellin.gov.co/servidormapas/rest/services/hacienda_credi_publ/VM_Inversion_Publica/MapServer/0",
+   "estado": "observado",
+   "probado": "2026-09-27"
+  },
+  {
+   "id": "secop2-distrito",
+   "nombre": "SECOP II · contratos electrónicos del Distrito de Medellín",
+   "entidad": "Colombia Compra Eficiente",
+   "url": "https://www.datos.gov.co/d/jbjy-vk9h",
+   "estado": "observado",
+   "probado": "2026-09-27"
+  },
+  {
+   "id": "medata-predial-comunas",
+   "nombre": "Facturación histórica del impuesto predial unificado por comuna de cobro",
+   "entidad": "Secretaría de Hacienda · Alcaldía de Medellín (MEData)",
+   "url": "http://medata.gov.co/sites/default/files/distribution/1-016-12-000302/facturacion_historica_impuesto_predial_unificado_por_concepto_por_comuna_de_cobro.csv",
+   "estado": "observado",
+   "probado": "2026-09-27"
+  }
+ ],
+ "cifras": {
+  "presupuesto_inicial": {
+   "valor": 11.84,
+   "unidad": "billones de $",
+   "etiqueta": "Presupuesto inicial de gastos 2026",
+   "fuente": "cuipo-gastos",
+   "vigencia": "2026",
+   "estado": "observado",
+   "decimales": 2,
+   "nota": "Apropiación inicial del Distrito para 2026, tal como la reporta a CUIPO: administración central, Concejo, Personería y Contraloría. Los establecimientos públicos (Aeropuerto Olaya Herrera, Biblioteca Pública Piloto…) reportan por separado y no están incluidos. Billones de pesos corrientes (un billón es un millón de millones)."
+  },
+  "presupuesto_definitivo_actual": {
+   "valor": 13.333,
+   "unidad": "billones de $",
+   "etiqueta": "Presupuesto definitivo de gastos 2026",
+   "fuente": "cuipo-gastos",
+   "vigencia": "corte jun 2026",
+   "estado": "observado",
+   "decimales": 2,
+   "nota": "Apropiación con las adiciones y reducciones hechas hasta el corte. Billones de pesos corrientes (un billón es un millón de millones)."
+  },
+  "presupuesto_definitivo": {
+   "valor": 12.399,
+   "unidad": "billones de $",
+   "etiqueta": "Presupuesto definitivo de gastos 2025",
+   "fuente": "cuipo-gastos",
+   "vigencia": "2025",
+   "estado": "observado",
+   "decimales": 2,
+   "nota": "Apropiación al cierre del año, con adiciones y reducciones. Billones de pesos corrientes (un billón es un millón de millones)."
+  },
+  "gastos_comprometidos": {
+   "valor": 11.786,
+   "unidad": "billones de $",
+   "etiqueta": "Gastos comprometidos 2025",
+   "fuente": "cuipo-gastos",
+   "vigencia": "2025",
+   "estado": "observado",
+   "decimales": 2,
+   "nota": "Compromisos (contratos y demás obligaciones adquiridas) de la vigencia 2025. Billones de pesos corrientes (un billón es un millón de millones)."
+  },
+  "inversion_comprometida": {
+   "valor": 10.029,
+   "unidad": "billones de $",
+   "etiqueta": "Inversión comprometida 2025",
+   "fuente": "cuipo-gastos",
+   "vigencia": "2025",
+   "estado": "observado",
+   "decimales": 2,
+   "nota": "Compromisos del presupuesto de inversión de 2025. Billones de pesos corrientes (un billón es un millón de millones)."
+  },
+  "ejecucion_gastos": {
+   "valor": 95.1,
+   "unidad": "%",
+   "etiqueta": "Gastos comprometidos sobre el presupuesto definitivo 2025",
+   "fuente": "cuipo-gastos",
+   "vigencia": "2025",
+   "estado": "derivado",
+   "decimales": 1,
+   "nota": "11,79 ÷ 12,40 billones de pesos."
+  },
+  "ingresos_recaudados": {
+   "valor": 13.173,
+   "unidad": "billones de $",
+   "etiqueta": "Ingresos recaudados 2025",
+   "fuente": "cuipo-ingresos",
+   "vigencia": "2025",
+   "estado": "observado",
+   "decimales": 2,
+   "nota": "Recaudo total de la vigencia, incluidos los recursos de capital (crédito, excedentes de EPM y rendimientos). Billones de pesos corrientes (un billón es un millón de millones)."
+  },
+  "ingresos_recaudados_actual": {
+   "valor": 8.061,
+   "unidad": "billones de $",
+   "etiqueta": "Ingresos recaudados 2026",
+   "fuente": "cuipo-ingresos",
+   "vigencia": "ene–jun 2026",
+   "estado": "observado",
+   "decimales": 2,
+   "nota": "Acumulado del año hasta el corte. Billones de pesos corrientes (un billón es un millón de millones)."
+  },
+  "gastos_comprometidos_actual": {
+   "valor": 6.928,
+   "unidad": "billones de $",
+   "etiqueta": "Gastos comprometidos 2026",
+   "fuente": "cuipo-gastos",
+   "vigencia": "ene–jun 2026",
+   "estado": "observado",
+   "decimales": 2,
+   "nota": "Acumulado del año hasta el corte. Billones de pesos corrientes (un billón es un millón de millones)."
+  },
+  "predial_recaudo": {
+   "valor": 1.273,
+   "unidad": "billones de $",
+   "etiqueta": "Impuesto predial unificado: recaudo 2025",
+   "fuente": "cuipo-ingresos",
+   "vigencia": "2025",
+   "estado": "observado",
+   "decimales": 2,
+   "nota": "Vigencia actual y anteriores. Billones de pesos corrientes (un billón es un millón de millones)."
+  },
+  "ica_recaudo": {
+   "valor": 1.338,
+   "unidad": "billones de $",
+   "etiqueta": "Impuesto de industria y comercio: recaudo 2025",
+   "fuente": "cuipo-ingresos",
+   "vigencia": "2025",
+   "estado": "observado",
+   "decimales": 2,
+   "nota": "Vigencia actual y anteriores. Billones de pesos corrientes (un billón es un millón de millones)."
+  },
+  "acuerdos": {
+   "valor": 34,
+   "unidad": "acuerdos",
+   "etiqueta": "Acuerdos sancionados 2025",
+   "fuente": "concejo-acuerdos",
+   "vigencia": "2025",
+   "estado": "observado",
+   "nota": "El año es el del acuerdo; se sanciona semanas después de aprobado, así que los de diciembre pueden quedar firmados en enero. Último acuerdo sancionado en la fuente: 2026-01-16."
+  },
+  "proyectos": {
+   "valor": 39,
+   "unidad": "proyectos",
+   "etiqueta": "Proyectos de acuerdo radicados 2025",
+   "fuente": "concejo-proyectos",
+   "vigencia": "2025",
+   "estado": "observado"
+  },
+  "proyectos_actual": {
+   "valor": 7,
+   "unidad": "proyectos",
+   "etiqueta": "Proyectos de acuerdo radicados 2026",
+   "fuente": "concejo-proyectos",
+   "vigencia": "2026 (parcial)",
+   "estado": "observado",
+   "nota": "La fuente no publica la fecha de radicación, solo el año."
+  },
+  "inversion_comunas": {
+   "valor": 7.839,
+   "unidad": "billones de $",
+   "etiqueta": "Inversión localizada en comunas y corregimientos 2024",
+   "fuente": "alcaldia-inversion-comunas",
+   "vigencia": "2024",
+   "estado": "observado",
+   "decimales": 2,
+   "nota": "Suma de los 21 territorios. Inversión ordenada (facturada o pagada) de cada vigencia, con corte al 31 de diciembre, según la ubicación de los proyectos. Pesos corrientes, sin ajustar por inflación."
+  },
+  "contratos_secop": {
+   "valor": 1471,
+   "unidad": "contratos",
+   "etiqueta": "Contratos firmados en SECOP II 2025",
+   "fuente": "secop2-distrito",
+   "vigencia": "2025",
+   "estado": "observado",
+   "nota": "Contratos firmados por la administración central del Distrito en SECOP II, sin los cancelados ni los borradores. Se excluye 1 contrato con un valor registrado mayor que el presupuesto anual del Distrito (errores de digitación). No incluye al Concejo, la Personería ni las entidades descentralizadas, que contratan por separado."
+  },
+  "valor_secop": {
+   "valor": 7.589,
+   "unidad": "billones de $",
+   "etiqueta": "Valor contratado en SECOP II 2025",
+   "fuente": "secop2-distrito",
+   "vigencia": "2025",
+   "estado": "observado",
+   "decimales": 2,
+   "nota": "Valor inicial de los contratos, en pesos corrientes. Contratos firmados por la administración central del Distrito en SECOP II, sin los cancelados ni los borradores. Se excluye 1 contrato con un valor registrado mayor que el presupuesto anual del Distrito (errores de digitación). No incluye al Concejo, la Personería ni las entidades descentralizadas, que contratan por separado."
+  },
+  "contratos_secop_actual": {
+   "valor": 1214,
+   "unidad": "contratos",
+   "etiqueta": "Contratos firmados en SECOP II 2026",
+   "fuente": "secop2-distrito",
+   "vigencia": "ene–sep 2026",
+   "estado": "observado",
+   "nota": "Contratos firmados por la administración central del Distrito en SECOP II, sin los cancelados ni los borradores. Se excluye 1 contrato con un valor registrado mayor que el presupuesto anual del Distrito (errores de digitación). No incluye al Concejo, la Personería ni las entidades descentralizadas, que contratan por separado."
+  },
+  "predial_facturado": {
+   "valor": 0.751,
+   "unidad": "billones de $",
+   "etiqueta": "Impuesto predial facturado 2020",
+   "fuente": "medata-predial-comunas",
+   "vigencia": "2020 (histórico)",
+   "estado": "observado",
+   "decimales": 2,
+   "nota": "Suma de las cuatro facturaciones trimestrales de 2020, sin intereses. El 37,7 % se envía a direcciones de cobro fuera de Medellín o sin identificar."
+  }
+ },
+ "series": {
+  "acuerdos_anual": {
+   "etiqueta": "Acuerdos sancionados por año",
+   "unidad": "acuerdos",
+   "fuente": "concejo-acuerdos",
+   "estado": "observado",
+   "vigencia": "2008 – 2025",
+   "puntos": [
+    [
+     "2008",
+     67
+    ],
+    [
+     "2009",
+     87
+    ],
+    [
+     "2010",
+     79
+    ],
+    [
+     "2011",
+     59
+    ],
+    [
+     "2012",
+     67
+    ],
+    [
+     "2013",
+     104
+    ],
+    [
+     "2014",
+     49
+    ],
+    [
+     "2015",
+     57
+    ],
+    [
+     "2016",
+     21
+    ],
+    [
+     "2017",
+     56
+    ],
+    [
+     "2018",
+     29
+    ],
+    [
+     "2019",
+     40
+    ],
+    [
+     "2020",
+     26
+    ],
+    [
+     "2021",
+     25
+    ],
+    [
+     "2022",
+     20
+    ],
+    [
+     "2023",
+     26
+    ],
+    [
+     "2024",
+     21
+    ],
+    [
+     "2025",
+     34
+    ]
+   ],
+   "nota": "El año es el del acuerdo; se sanciona semanas después de aprobado, así que los de diciembre pueden quedar firmados en enero."
+  },
+  "proyectos_anual": {
+   "etiqueta": "Proyectos de acuerdo radicados por año",
+   "unidad": "proyectos",
+   "fuente": "concejo-proyectos",
+   "estado": "observado",
+   "vigencia": "2008 – 2025",
+   "puntos": [
+    [
+     "2008",
+     110
+    ],
+    [
+     "2009",
+     113
+    ],
+    [
+     "2010",
+     94
+    ],
+    [
+     "2011",
+     67
+    ],
+    [
+     "2012",
+     96
+    ],
+    [
+     "2013",
+     130
+    ],
+    [
+     "2014",
+     72
+    ],
+    [
+     "2015",
+     61
+    ],
+    [
+     "2016",
+     56
+    ],
+    [
+     "2017",
+     60
+    ],
+    [
+     "2018",
+     55
+    ],
+    [
+     "2019",
+     52
+    ],
+    [
+     "2020",
+     44
+    ],
+    [
+     "2021",
+     41
+    ],
+    [
+     "2022",
+     41
+    ],
+    [
+     "2023",
+     26
+    ],
+    [
+     "2024",
+     36
+    ],
+    [
+     "2025",
+     39
+    ]
+   ]
+  },
+  "inversion_comunas_anual": {
+   "etiqueta": "Inversión pública localizada en comunas y corregimientos",
+   "unidad": "billones de $",
+   "fuente": "alcaldia-inversion-comunas",
+   "estado": "observado",
+   "vigencia": "2008 – 2024",
+   "puntos": [
+    [
+     "2008",
+     1.795
+    ],
+    [
+     "2009",
+     2.056
+    ],
+    [
+     "2010",
+     2.366
+    ],
+    [
+     "2011",
+     2.623
+    ],
+    [
+     "2012",
+     2.513
+    ],
+    [
+     "2013",
+     3.228
+    ],
+    [
+     "2014",
+     3.118
+    ],
+    [
+     "2015",
+     3.203
+    ],
+    [
+     "2016",
+     3.126
+    ],
+    [
+     "2017",
+     4.366
+    ],
+    [
+     "2018",
+     4.768
+    ],
+    [
+     "2019",
+     4.691
+    ],
+    [
+     "2020",
+     4.668
+    ],
+    [
+     "2021",
+     5.133
+    ],
+    [
+     "2022",
+     5.494
+    ],
+    [
+     "2023",
+     6.267
+    ],
+    [
+     "2024",
+     7.839
+    ]
+   ],
+   "nota": "Inversión ordenada (facturada o pagada) de cada vigencia, con corte al 31 de diciembre, según la ubicación de los proyectos. Pesos corrientes, sin ajustar por inflación."
+  },
+  "contratos_secop_anual": {
+   "etiqueta": "Contratos firmados por año",
+   "unidad": "contratos",
+   "fuente": "secop2-distrito",
+   "estado": "observado",
+   "vigencia": "2018 – 2025",
+   "puntos": [
+    [
+     "2018",
+     1602
+    ],
+    [
+     "2019",
+     1003
+    ],
+    [
+     "2020",
+     1622
+    ],
+    [
+     "2021",
+     1739
+    ],
+    [
+     "2022",
+     1721
+    ],
+    [
+     "2023",
+     1675
+    ],
+    [
+     "2024",
+     1303
+    ],
+    [
+     "2025",
+     1471
+    ]
+   ],
+   "nota": "Contratos firmados por la administración central del Distrito en SECOP II, sin los cancelados ni los borradores. Se excluye 1 contrato con un valor registrado mayor que el presupuesto anual del Distrito (errores de digitación). No incluye al Concejo, la Personería ni las entidades descentralizadas, que contratan por separado."
+  },
+  "valor_secop_anual": {
+   "etiqueta": "Valor de los contratos firmados por año",
+   "unidad": "billones de $",
+   "fuente": "secop2-distrito",
+   "estado": "observado",
+   "vigencia": "2018 – 2025",
+   "puntos": [
+    [
+     "2018",
+     1.93
+    ],
+    [
+     "2019",
+     1.101
+    ],
+    [
+     "2020",
+     2.349
+    ],
+    [
+     "2021",
+     3.637
+    ],
+    [
+     "2022",
+     2.992
+    ],
+    [
+     "2023",
+     3.774
+    ],
+    [
+     "2024",
+     4.265
+    ],
+    [
+     "2025",
+     7.589
+    ]
+   ],
+   "nota": "Pesos corrientes. Contratos firmados por la administración central del Distrito en SECOP II, sin los cancelados ni los borradores. Se excluye 1 contrato con un valor registrado mayor que el presupuesto anual del Distrito (errores de digitación). No incluye al Concejo, la Personería ni las entidades descentralizadas, que contratan por separado."
+  }
+ },
+ "listas": {
+  "presupuesto_anual": [
+   {
+    "anio": 2023,
+    "corte": "dic 2023",
+    "completo": true,
+    "ingresos_inicial": 7524501773203,
+    "ingresos_definitivo": 8617691662346,
+    "recaudo": 9024952074003,
+    "gastos_inicial": 7524501773203,
+    "gastos_definitivo": 8368227009893,
+    "compromisos": 7985088592796,
+    "pagos": 7732253169677,
+    "funcionamiento_inicial": 1162744149363,
+    "funcionamiento_definitivo": 1150838545896,
+    "funcionamiento_compromisos": 1136087033700,
+    "deuda_inicial": 661757623840,
+    "deuda_definitivo": 444206511620,
+    "deuda_compromisos": 443587997259,
+    "inversion_inicial": 5700000000000,
+    "inversion_definitivo": 6773181952377,
+    "inversion_compromisos": 6405413561837
+   },
+   {
+    "anio": 2024,
+    "corte": "dic 2024",
+    "completo": true,
+    "ingresos_inicial": 8735062155894,
+    "ingresos_definitivo": 10828467929716,
+    "recaudo": 11204667901437,
+    "gastos_inicial": 8735062155894,
+    "gastos_definitivo": 10615293230222,
+    "compromisos": 10127149716674,
+    "pagos": 9757846946036,
+    "funcionamiento_inicial": 1338853755702,
+    "funcionamiento_definitivo": 1306837950110,
+    "funcionamiento_compromisos": 1267709154724,
+    "deuda_inicial": 945983999442,
+    "deuda_definitivo": 638794522959,
+    "deuda_compromisos": 635642307547,
+    "inversion_inicial": 6450224400750,
+    "inversion_definitivo": 8669660757153,
+    "inversion_compromisos": 8223798254403
+   },
+   {
+    "anio": 2025,
+    "corte": "dic 2025",
+    "completo": true,
+    "ingresos_inicial": 10917284395460,
+    "ingresos_definitivo": 12752184225762,
+    "recaudo": 13173171876352,
+    "gastos_inicial": 10917284395460,
+    "gastos_definitivo": 12399246706803,
+    "compromisos": 11785999622660,
+    "pagos": 11334365779521,
+    "funcionamiento_inicial": 1507832374781,
+    "funcionamiento_definitivo": 1451424087533,
+    "funcionamiento_compromisos": 1363774239840,
+    "deuda_inicial": 616582915580,
+    "deuda_definitivo": 394886450958,
+    "deuda_compromisos": 393294997324,
+    "inversion_inicial": 8792869105099,
+    "inversion_definitivo": 10552936168312,
+    "inversion_compromisos": 10028930385496
+   },
+   {
+    "anio": 2026,
+    "corte": "jun 2026",
+    "completo": false,
+    "ingresos_inicial": 11840400989495,
+    "ingresos_definitivo": 13779890966121,
+    "recaudo": 8060825846666,
+    "gastos_inicial": 11840400989495,
+    "gastos_definitivo": 13333259187447,
+    "compromisos": 6927684924615,
+    "pagos": 5072561312150,
+    "funcionamiento_inicial": 1421446856403,
+    "funcionamiento_definitivo": 1421446859578,
+    "funcionamiento_compromisos": 757353439203,
+    "deuda_inicial": 673518037237,
+    "deuda_definitivo": 629469102123,
+    "deuda_compromisos": 274583570906,
+    "inversion_inicial": 9745436095855,
+    "inversion_definitivo": 11282343225746,
+    "inversion_compromisos": 5895747914506
+   }
+  ],
+  "ingresos_composicion": [
+   {
+    "cuenta": "1.1.01",
+    "nombre": "Tributarios",
+    "recaudo": 3743818904101
+   },
+   {
+    "cuenta": "1.1.02",
+    "nombre": "No tributarios",
+    "recaudo": 4153017033636
+   },
+   {
+    "cuenta": "1.2",
+    "nombre": "Recursos de capital",
+    "recaudo": 5276335938615
+   },
+   {
+    "cuenta": "1.1.01.01.200",
+    "nombre": "Impuesto predial unificado",
+    "recaudo": 1272699136740
+   },
+   {
+    "cuenta": "1.1.01.02.200",
+    "nombre": "Impuesto de industria y comercio",
+    "recaudo": 1337759824279
+   }
+  ],
+  "inversion_por_sector": [
+   {
+    "codigo": "22",
+    "sector": "Educación",
+    "anio": 2025,
+    "compromisos": 2708725430093
+   },
+   {
+    "codigo": "19",
+    "sector": "Salud y protección social",
+    "anio": 2025,
+    "compromisos": 1918528058125
+   },
+   {
+    "codigo": "45",
+    "sector": "Gobierno territorial",
+    "anio": 2025,
+    "compromisos": 1313764201358
+   },
+   {
+    "codigo": "41",
+    "sector": "Inclusión social y reconciliación",
+    "anio": 2025,
+    "compromisos": 1074640814980
+   },
+   {
+    "codigo": "40",
+    "sector": "Vivienda, ciudad y territorio",
+    "anio": 2025,
+    "compromisos": 845217504093
+   },
+   {
+    "codigo": "24",
+    "sector": "Transporte",
+    "anio": 2025,
+    "compromisos": 841554395424
+   },
+   {
+    "codigo": "43",
+    "sector": "Deporte y recreación",
+    "anio": 2025,
+    "compromisos": 486978998638
+   },
+   {
+    "codigo": "33",
+    "sector": "Cultura",
+    "anio": 2025,
+    "compromisos": 239809582292
+   },
+   {
+    "codigo": "32",
+    "sector": "Ambiente y desarrollo sostenible",
+    "anio": 2025,
+    "compromisos": 133452269235
+   },
+   {
+    "codigo": "21",
+    "sector": "Minas y energía",
+    "anio": 2025,
+    "compromisos": 125227244942
+   },
+   {
+    "codigo": "23",
+    "sector": "Tecnologías de la información y las comunicaciones",
+    "anio": 2025,
+    "compromisos": 86319293884
+   },
+   {
+    "codigo": "35",
+    "sector": "Comercio, industria y turismo",
+    "anio": 2025,
+    "compromisos": 72594324813
+   },
+   {
+    "codigo": "39",
+    "sector": "Ciencia, tecnología e innovación",
+    "anio": 2025,
+    "compromisos": 71950181414
+   },
+   {
+    "codigo": "04",
+    "sector": "Información estadística",
+    "anio": 2025,
+    "compromisos": 35465866213
+   },
+   {
+    "codigo": "12",
+    "sector": "Justicia y del derecho",
+    "anio": 2025,
+    "compromisos": 33020557078
+   },
+   {
+    "codigo": "36",
+    "sector": "Trabajo",
+    "anio": 2025,
+    "compromisos": 25220852207
+   },
+   {
+    "codigo": "17",
+    "sector": "Agricultura y desarrollo rural",
+    "anio": 2025,
+    "compromisos": 16460810707
+   }
+  ],
+  "acuerdos_por_tema": [
+   {
+    "tema": "Presupuesto",
+    "acuerdos": 11,
+    "desde": 2024
+   },
+   {
+    "tema": "Educación",
+    "acuerdos": 6,
+    "desde": 2024
+   },
+   {
+    "tema": "Impuestos, tasas y contribuciones",
+    "acuerdos": 6,
+    "desde": 2024
+   },
+   {
+    "tema": "Cultura",
+    "acuerdos": 6,
+    "desde": 2024
+   },
+   {
+    "tema": "Bienestar y Desarrollo Social",
+    "acuerdos": 5,
+    "desde": 2024
+   },
+   {
+    "tema": "Vigencias futuras",
+    "acuerdos": 5,
+    "desde": 2024
+   },
+   {
+    "tema": "Escala de remuneración de los servidores públicos",
+    "acuerdos": 3,
+    "desde": 2024
+   },
+   {
+    "tema": "Crear, suprimir o fusionar entidades distritales",
+    "acuerdos": 2,
+    "desde": 2024
+   },
+   {
+    "tema": "Enajenación y destinación de bienes",
+    "acuerdos": 2,
+    "desde": 2024
+   },
+   {
+    "tema": "Reestructura y creación entidades",
+    "acuerdos": 2,
+    "desde": 2024
+   },
+   {
+    "tema": "Medio Ambiente",
+    "acuerdos": 1,
+    "desde": 2024
+   },
+   {
+    "tema": "Desafectaciones",
+    "acuerdos": 1,
+    "desde": 2024
+   },
+   {
+    "tema": "Planificación",
+    "acuerdos": 1,
+    "desde": 2024
+   },
+   {
+    "tema": "Vivienda",
+    "acuerdos": 1,
+    "desde": 2024
+   },
+   {
+    "tema": "Estatutos y reglamentos",
+    "acuerdos": 1,
+    "desde": 2024
+   },
+   {
+    "tema": "Desarrollo Organizacional",
+    "acuerdos": 1,
+    "desde": 2024
+   },
+   {
+    "tema": "Plan de Desarrollo",
+    "acuerdos": 1,
+    "desde": 2024
+   }
+  ],
+  "acuerdos_recientes": [
+   {
+    "numero": "49",
+    "anio": 2025,
+    "titulo": "Por medio del cual se crea el programa SOYED en las instituciones educativas oficiales y privadas del Distrito de Ciencia, Tecnología e Innovación de Medellín y se dictan otras disposiciones",
+    "tema": "Educación",
+    "sancion": "2026-01-16"
+   },
+   {
+    "numero": "55",
+    "anio": 2025,
+    "titulo": "Por medio del cual se autoriza a la Empresa de Transporte Masivo del Valle de Aburrá Limitada – Metro de Medellín Ltda. para constituir una sociedad filial, con domicilio en Bermudas, y se dictan otras disposiciones",
+    "tema": "Crear, suprimir o fusionar entidades distritales",
+    "sancion": "2025-12-18"
+   },
+   {
+    "numero": "54",
+    "anio": 2025,
+    "titulo": "Por medio del cual se promueve la implementación de proyectos pedagógicos de educación financiera y emprendimiento en los establecimientos educativos oficiales del Distrito Especial de Ciencia, Tecnología e Innovación de Medellín y se articula con las dependencias distritales competentes en el fortalecimiento de capacidades para la vida",
+    "tema": "Educación",
+    "sancion": "2025-12-18"
+   },
+   {
+    "numero": "53",
+    "anio": 2025,
+    "titulo": "Por medio del cual se fija el porcentaje ambiental del impuesto predial como una sobretasa con destino a la protección del medio ambiente y de los recursos naturales renovables en el Distrito Especial de Ciencia Tecnología e Innovación de Medellín para el año 2026",
+    "tema": "Impuestos, tasas y contribuciones",
+    "sancion": "2025-12-18"
+   },
+   {
+    "numero": "52",
+    "anio": 2025,
+    "titulo": "Por medio del cual se realizan unos traslados en el Presupuesto General del Distrito Especial de Ciencia, Tecnología e Innovación de Medellín en la vigencia fiscal 2025",
+    "tema": "Presupuesto",
+    "sancion": "2025-12-18"
+   },
+   {
+    "numero": "51",
+    "anio": 2025,
+    "titulo": "Por medio del cual se fija el incremento salarial que regirá en el año 2026",
+    "tema": "Escala de remuneración de los servidores públicos",
+    "sancion": "2025-12-18"
+   },
+   {
+    "numero": "50",
+    "anio": 2025,
+    "titulo": "Por medio del cual se establecen los lineamientos para la formulación y adopción del Plan Maestro de Recuperación y Atención Integral del Río Aburrá–Medellín, las quebradas y demás elementos del recurso hídrico superficial y el Plan Maestro de Drenaje Urbano Sostenible del Distrito de Medellín, y se dictan otras disposiciones",
+    "tema": "Medio Ambiente",
+    "sancion": "2025-12-17"
+   },
+   {
+    "numero": "48",
+    "anio": 2025,
+    "titulo": "Por medio del cual se establece el Presupuesto General del Distrito Especial de Ciencia Tecnología e Innovación de Medellín para la vigencia fiscal 2026",
+    "tema": "Presupuesto",
+    "sancion": "2025-12-10"
+   },
+   {
+    "numero": "47",
+    "anio": 2025,
+    "titulo": "POR MEDIO DEL CUAL SE ESTABLECEN LINEAMIENTOS PARA LA PROMOCIÓN DE LA ECONOMÍA PLATEADA A TRAVÉS DEL FORTALECIMIENTO DE COMPETENCIAS DIGITALES, DE EMPRENDIMIENTO Y PARTICIPACIÓN DE PERSONAS MAYORES EN EL DISTRTITO MEDELLÍN",
+    "tema": "Bienestar y Desarrollo Social",
+    "sancion": "2025-12-09"
+   },
+   {
+    "numero": "46",
+    "anio": 2025,
+    "titulo": "Por medio del cual se adiciona el Acuerdo 093 de 2023",
+    "tema": "Impuestos, tasas y contribuciones",
+    "sancion": "2025-12-01"
+   }
+  ],
+  "secop_por_tipo": [
+   {
+    "tipo": "Otro",
+    "anio": 2025,
+    "contratos": 396,
+    "valor": 4166302506321
+   },
+   {
+    "tipo": "Prestación de servicios",
+    "anio": 2025,
+    "contratos": 864,
+    "valor": 1702270187574
+   },
+   {
+    "tipo": "Operaciones de Crédito Público",
+    "anio": 2025,
+    "contratos": 3,
+    "valor": 1000000000000
+   },
+   {
+    "tipo": "Obra",
+    "anio": 2025,
+    "contratos": 32,
+    "valor": 298306723139
+   },
+   {
+    "tipo": "Suministros",
+    "anio": 2025,
+    "contratos": 59,
+    "valor": 147848170972
+   },
+   {
+    "tipo": "Servicios financieros",
+    "anio": 2025,
+    "contratos": 3,
+    "valor": 133938881151
+   },
+   {
+    "tipo": "Seguros",
+    "anio": 2025,
+    "contratos": 8,
+    "valor": 41747287404
+   },
+   {
+    "tipo": "Interventoría",
+    "anio": 2025,
+    "contratos": 23,
+    "valor": 29727516711
+   },
+   {
+    "tipo": "Arrendamiento de inmuebles",
+    "anio": 2025,
+    "contratos": 42,
+    "valor": 22558435196
+   },
+   {
+    "tipo": "Consultoría",
+    "anio": 2025,
+    "contratos": 8,
+    "valor": 22361460158
+   },
+   {
+    "tipo": "Decreto 092 de 2017",
+    "anio": 2025,
+    "contratos": 24,
+    "valor": 16378123736
+   },
+   {
+    "tipo": "Compraventa",
+    "anio": 2025,
+    "contratos": 9,
+    "valor": 7749920537
+   }
+  ],
+  "secop_mayores": [
+   {
+    "objeto": "Celebrar un contrato de empréstito en la modalidad de crédito de Deuda Pública Interna",
+    "tipo": "Operaciones de Crédito Público",
+    "modalidad": "Contratación directa",
+    "valor": 503210859577,
+    "fecha": "2025-11-25",
+    "proveedor": "BANCOLOMBIA",
+    "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.9167766&isFromPublicArea=True&isModal=true&asPopupView=true"
+   },
+   {
+    "objeto": "CONTRATO INTERADMINISTRATIVO DE MANDATO SIN REPRESENTACIÓN PARA LA GERENCIA INTEGRAL DE PROYECTOS ESTRATEGICOS DE INFRAESTRUCTURA EDUCATIVA",
+    "tipo": "Otro",
+    "modalidad": "Contratación Directa (con ofertas)",
+    "valor": 407534750024,
+    "fecha": "2025-08-30",
+    "proveedor": "EMPRESA DE DESARROLLO URBANO DE MEDELLIN",
+    "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.8680837&isFromPublicArea=True&isModal=true&asPopupView=true"
+   },
+   {
+    "objeto": "CONTRATO INTERADMINISTRATIVO DE MANDATO SIN REPRESENTACIÓN PARA LA GERENCIA INTEGRAL DEL PROYECTO DE SEGURIDAD DE LA SECRETARÍA DE EDUCACIÓN DEL DISTRITO.",
+    "tipo": "Otro",
+    "modalidad": "Contratación Directa (con ofertas)",
+    "valor": 323477752507,
+    "fecha": "2025-01-15",
+    "proveedor": "EMPRESA PARA LA SEGURIDAD Y SOLUCIONES URBANAS - ESU",
+    "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.7353516&isFromPublicArea=True&isModal=true&asPopupView=true"
+   },
+   {
+    "objeto": "Celebrar contrato de empréstito en la modalidad de crédito de deuda pública interna",
+    "tipo": "Operaciones de Crédito Público",
+    "modalidad": "Contratación directa",
+    "valor": 296539017355,
+    "fecha": "2025-10-07",
+    "proveedor": "BBOGOTA",
+    "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.8908559&isFromPublicArea=True&isModal=true&asPopupView=true"
+   },
+   {
+    "objeto": "Contrato interadministrativo de mandato sin representación para la implementación y el gerenciamiento del proyecto Complejo de Seguridad Distrital.",
+    "tipo": "Otro",
+    "modalidad": "Contratación Directa (con ofertas)",
+    "valor": 205438083989,
+    "fecha": "2025-05-26",
+    "proveedor": "EMPRESA PARA LA SEGURIDAD Y SOLUCIONES URBANAS - ESU",
+    "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.8189352&isFromPublicArea=True&isModal=true&asPopupView=true"
+   },
+   {
+    "objeto": "Celebrar contrato de empréstito en la modalidad de crédito de Deuda Publica Interna",
+    "tipo": "Operaciones de Crédito Público",
+    "modalidad": "Contratación directa",
+    "valor": 200250123068,
+    "fecha": "2025-10-07",
+    "proveedor": "Banco de Occidente SA",
+    "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.8891099&isFromPublicArea=True&isModal=true&asPopupView=true"
+   },
+   {
+    "objeto": "CONTRATO INTERADMINISTRATIVO DE MANDATO SIN REPRESENTACIÓN PARA LA GERENCIA; COORDINACIÓN; ADMINISTRACIÓN Y EJECUCIÓN DE LOS PROYECTOS DENOMINADOS RECREOS CULTURALES",
+    "tipo": "Otro",
+    "modalidad": "Contratación Directa (con ofertas)",
+    "valor": 146712784113,
+    "fecha": "2025-10-25",
+    "proveedor": "EMPRESA DE DESARROLLO URBANO DE MEDELLIN",
+    "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.9007080&isFromPublicArea=True&isModal=true&asPopupView=true"
+   },
+   {
+    "objeto": "Prestación servicios para la atención alimentaria a población escolar.\nLote 3: Complemento Ración Industrializada - RI; complemento Ración Industrializada Vaso de Leche - RIVL y Comida Caliente Trasportada -CCT (Almuerzo).",
+    "tipo": "Prestación de servicios",
+    "modalidad": "Licitación pública",
+    "valor": 144681233086,
+    "fecha": "2025-03-06",
+    "proveedor": "NUTRISER COLOMBIA SAS",
+    "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.7462438&isFromPublicArea=True&isModal=true&asPopupView=true"
+   },
+   {
+    "objeto": "Prestación servicios para la atención alimentaria a población escolar.\nLote 1: Complemento AM-PM; complemento ración industrializada de contingencia - RIC y complemento Ración Industrializada Vaso de Leche - RIVL",
+    "tipo": "Prestación de servicios",
+    "modalidad": "Licitación pública",
+    "valor": 124906725102,
+    "fecha": "2025-03-06",
+    "proveedor": "No Definido",
+    "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.7462438&isFromPublicArea=True&isModal=true&asPopupView=true"
+   },
+   {
+    "objeto": "PRESTAR EL SERVICIO INTEGRAL DE ASEO Y CAFETERÍA DE LAS INSTITUCIONES EDUCATIVAS",
+    "tipo": "Prestación de servicios",
+    "modalidad": "Selección abreviada subasta inversa",
+    "valor": 116257992462,
+    "fecha": "2025-05-29",
+    "proveedor": "SERVILIMPIEZA S.A.",
+    "url": "https://community.secop.gov.co/Public/Tendering/OpportunityDetail/Index?noticeUID=CO1.NTC.7995217&isFromPublicArea=True&isModal=true&asPopupView=true"
+   }
+  ],
+  "predial_san_cristobal_palmitas": [
+   {
+    "anio": 2019,
+    "valor": 5525242574
+   },
+   {
+    "anio": 2020,
+    "valor": 5576850958
+   }
+  ],
+  "indicadores": [
+   {
+    "clave": "inversion_publica",
+    "etiqueta": "Inversión pública",
+    "unidad": "millones de $",
+    "fuente": "alcaldia-inversion-comunas",
+    "estado": "observado",
+    "vigencia": "2008–2024",
+    "decimales": 0,
+    "nota": "Inversión ordenada (facturada o pagada) de cada vigencia, con corte al 31 de diciembre, según la ubicación de los proyectos. Pesos corrientes, sin ajustar por inflación."
+   },
+   {
+    "clave": "inversion_participacion",
+    "etiqueta": "Participación en la inversión de la ciudad",
+    "unidad": "%",
+    "fuente": "alcaldia-inversion-comunas",
+    "estado": "derivado",
+    "vigencia": "2008–2024",
+    "decimales": 1,
+    "nota": "Inversión del territorio sobre la suma de los 21 territorios en el mismo año."
+   },
+   {
+    "clave": "predial_facturado",
+    "etiqueta": "Impuesto predial facturado (comuna de cobro)",
+    "unidad": "millones de $",
+    "fuente": "medata-predial-comunas",
+    "estado": "observado",
+    "vigencia": "2019–2020 (histórico)",
+    "decimales": 0,
+    "nota": "Impuesto facturado (no recaudado) según la comuna a la que se envía el cobro, que no siempre es donde está el predio. San Cristóbal y Palmitas se facturan juntos y no se reparten."
+   }
+  ],
+  "territorios": [
+   {
+    "codigo": "01",
+    "nombre": "Popular",
+    "tipo": "Comuna",
+    "valores": {
+     "inversion_publica": {
+      "2008": 121894,
+      "2009": 118447,
+      "2010": 149668,
+      "2011": 163695,
+      "2012": 174425,
+      "2013": 202370,
+      "2014": 200326,
+      "2015": 235427,
+      "2016": 223118,
+      "2017": 260339,
+      "2018": 292272,
+      "2019": 308007,
+      "2020": 310746,
+      "2021": 337019,
+      "2022": 384321,
+      "2023": 432311,
+      "2024": 521338
+     },
+     "inversion_participacion": {
+      "2008": 6.79,
+      "2009": 5.76,
+      "2010": 6.33,
+      "2011": 6.24,
+      "2012": 6.94,
+      "2013": 6.27,
+      "2014": 6.42,
+      "2015": 7.35,
+      "2016": 7.14,
+      "2017": 5.96,
+      "2018": 6.13,
+      "2019": 6.57,
+      "2020": 6.66,
+      "2021": 6.57,
+      "2022": 6.99,
+      "2023": 6.9,
+      "2024": 6.65
+     },
+     "predial_facturado": {
+      "2019": 5469,
+      "2020": 5682
+     }
+    }
+   },
+   {
+    "codigo": "02",
+    "nombre": "Santa Cruz",
+    "tipo": "Comuna",
+    "valores": {
+     "inversion_publica": {
+      "2008": 93395,
+      "2009": 91392,
+      "2010": 105356,
+      "2011": 112220,
+      "2012": 129289,
+      "2013": 157090,
+      "2014": 155537,
+      "2015": 174599,
+      "2016": 173281,
+      "2017": 243736,
+      "2018": 245711,
+      "2019": 245371,
+      "2020": 247049,
+      "2021": 313561,
+      "2022": 306648,
+      "2023": 328779,
+      "2024": 425871
+     },
+     "inversion_participacion": {
+      "2008": 5.2,
+      "2009": 4.44,
+      "2010": 4.45,
+      "2011": 4.28,
+      "2012": 5.15,
+      "2013": 4.87,
+      "2014": 4.99,
+      "2015": 5.45,
+      "2016": 5.54,
+      "2017": 5.58,
+      "2018": 5.15,
+      "2019": 5.23,
+      "2020": 5.29,
+      "2021": 6.11,
+      "2022": 5.58,
+      "2023": 5.25,
+      "2024": 5.43
+     },
+     "predial_facturado": {
+      "2019": 1971,
+      "2020": 2067
+     }
+    }
+   },
+   {
+    "codigo": "03",
+    "nombre": "Manrique",
+    "tipo": "Comuna",
+    "valores": {
+     "inversion_publica": {
+      "2008": 120222,
+      "2009": 137302,
+      "2010": 149977,
+      "2011": 165351,
+      "2012": 199742,
+      "2013": 210083,
+      "2014": 200160,
+      "2015": 224933,
+      "2016": 230182,
+      "2017": 280241,
+      "2018": 332538,
+      "2019": 348763,
+      "2020": 342065,
+      "2021": 367328,
+      "2022": 405271,
+      "2023": 480644,
+      "2024": 593198
+     },
+     "inversion_participacion": {
+      "2008": 6.7,
+      "2009": 6.68,
+      "2010": 6.34,
+      "2011": 6.3,
+      "2012": 7.95,
+      "2013": 6.51,
+      "2014": 6.42,
+      "2015": 7.02,
+      "2016": 7.36,
+      "2017": 6.42,
+      "2018": 6.97,
+      "2019": 7.44,
+      "2020": 7.33,
+      "2021": 7.16,
+      "2022": 7.38,
+      "2023": 7.67,
+      "2024": 7.57
+     },
+     "predial_facturado": {
+      "2019": 6874,
+      "2020": 6012
+     }
+    }
+   },
+   {
+    "codigo": "04",
+    "nombre": "Aranjuez",
+    "tipo": "Comuna",
+    "valores": {
+     "inversion_publica": {
+      "2008": 159426,
+      "2009": 127050,
+      "2010": 181936,
+      "2011": 165259,
+      "2012": 182186,
+      "2013": 232941,
+      "2014": 209061,
+      "2015": 247197,
+      "2016": 237295,
+      "2017": 299051,
+      "2018": 306131,
+      "2019": 302872,
+      "2020": 323276,
+      "2021": 393481,
+      "2022": 357508,
+      "2023": 381962,
+      "2024": 482632
+     },
+     "inversion_participacion": {
+      "2008": 8.88,
+      "2009": 6.18,
+      "2010": 7.69,
+      "2011": 6.3,
+      "2012": 7.25,
+      "2013": 7.22,
+      "2014": 6.71,
+      "2015": 7.72,
+      "2016": 7.59,
+      "2017": 6.85,
+      "2018": 6.42,
+      "2019": 6.46,
+      "2020": 6.93,
+      "2021": 7.67,
+      "2022": 6.51,
+      "2023": 6.09,
+      "2024": 6.16
+     },
+     "predial_facturado": {
+      "2019": 10853,
+      "2020": 9451
+     }
+    }
+   },
+   {
+    "codigo": "05",
+    "nombre": "Castilla",
+    "tipo": "Comuna",
+    "valores": {
+     "inversion_publica": {
+      "2008": 101347,
+      "2009": 107414,
+      "2010": 115562,
+      "2011": 117248,
+      "2012": 170760,
+      "2013": 211194,
+      "2014": 188047,
+      "2015": 209136,
+      "2016": 197826,
+      "2017": 283494,
+      "2018": 267480,
+      "2019": 251439,
+      "2020": 258925,
+      "2021": 278245,
+      "2022": 278160,
+      "2023": 322142,
+      "2024": 412050
+     },
+     "inversion_participacion": {
+      "2008": 5.65,
+      "2009": 5.22,
+      "2010": 4.88,
+      "2011": 4.47,
+      "2012": 6.8,
+      "2013": 6.54,
+      "2014": 6.03,
+      "2015": 6.53,
+      "2016": 6.33,
+      "2017": 6.49,
+      "2018": 5.61,
+      "2019": 5.36,
+      "2020": 5.55,
+      "2021": 5.42,
+      "2022": 5.06,
+      "2023": 5.14,
+      "2024": 5.26
+     },
+     "predial_facturado": {
+      "2019": 13056,
+      "2020": 10574
+     }
+    }
+   },
+   {
+    "codigo": "06",
+    "nombre": "Doce de Octubre",
+    "tipo": "Comuna",
+    "valores": {
+     "inversion_publica": {
+      "2008": 127720,
+      "2009": 142313,
+      "2010": 196542,
+      "2011": 144830,
+      "2012": 161885,
+      "2013": 216840,
+      "2014": 202088,
+      "2015": 224067,
+      "2016": 227529,
+      "2017": 342626,
+      "2018": 322352,
+      "2019": 328588,
+      "2020": 337308,
+      "2021": 367367,
+      "2022": 404450,
+      "2023": 459292,
+      "2024": 565332
+     },
+     "inversion_participacion": {
+      "2008": 7.11,
+      "2009": 6.92,
+      "2010": 8.31,
+      "2011": 5.52,
+      "2012": 6.44,
+      "2013": 6.72,
+      "2014": 6.48,
+      "2015": 6.99,
+      "2016": 7.28,
+      "2017": 7.85,
+      "2018": 6.76,
+      "2019": 7.0,
+      "2020": 7.23,
+      "2021": 7.16,
+      "2022": 7.36,
+      "2023": 7.33,
+      "2024": 7.21
+     },
+     "predial_facturado": {
+      "2019": 7127,
+      "2020": 7257
+     }
+    }
+   },
+   {
+    "codigo": "07",
+    "nombre": "Robledo",
+    "tipo": "Comuna",
+    "valores": {
+     "inversion_publica": {
+      "2008": 128767,
+      "2009": 167610,
+      "2010": 138431,
+      "2011": 155843,
+      "2012": 184847,
+      "2013": 203443,
+      "2014": 199962,
+      "2015": 233153,
+      "2016": 223002,
+      "2017": 336712,
+      "2018": 378321,
+      "2019": 369523,
+      "2020": 375233,
+      "2021": 416022,
+      "2022": 449857,
+      "2023": 520667,
+      "2024": 659729
+     },
+     "inversion_participacion": {
+      "2008": 7.17,
+      "2009": 8.15,
+      "2010": 5.85,
+      "2011": 5.94,
+      "2012": 7.36,
+      "2013": 6.3,
+      "2014": 6.41,
+      "2015": 7.28,
+      "2016": 7.13,
+      "2017": 7.71,
+      "2018": 7.93,
+      "2019": 7.88,
+      "2020": 8.04,
+      "2021": 8.1,
+      "2022": 8.19,
+      "2023": 8.31,
+      "2024": 8.42
+     },
+     "predial_facturado": {
+      "2019": 18526,
+      "2020": 17509
+     }
+    }
+   },
+   {
+    "codigo": "08",
+    "nombre": "Villa Hermosa",
+    "tipo": "Comuna",
+    "valores": {
+     "inversion_publica": {
+      "2008": 127867,
+      "2009": 122291,
+      "2010": 167871,
+      "2011": 274571,
+      "2012": 182398,
+      "2013": 288629,
+      "2014": 262657,
+      "2015": 220980,
+      "2016": 225643,
+      "2017": 286325,
+      "2018": 307672,
+      "2019": 312393,
+      "2020": 324607,
+      "2021": 350903,
+      "2022": 382248,
+      "2023": 444239,
+      "2024": 578008
+     },
+     "inversion_participacion": {
+      "2008": 7.12,
+      "2009": 5.95,
+      "2010": 7.1,
+      "2011": 10.47,
+      "2012": 7.26,
+      "2013": 8.94,
+      "2014": 8.42,
+      "2015": 6.9,
+      "2016": 7.22,
+      "2017": 6.56,
+      "2018": 6.45,
+      "2019": 6.66,
+      "2020": 6.95,
+      "2021": 6.84,
+      "2022": 6.96,
+      "2023": 7.09,
+      "2024": 7.37
+     },
+     "predial_facturado": {
+      "2019": 13339,
+      "2020": 12938
+     }
+    }
+   },
+   {
+    "codigo": "09",
+    "nombre": "Buenos Aires",
+    "tipo": "Comuna",
+    "valores": {
+     "inversion_publica": {
+      "2008": 94969,
+      "2009": 99811,
+      "2010": 140523,
+      "2011": 225130,
+      "2012": 132395,
+      "2013": 185344,
+      "2014": 187499,
+      "2015": 179590,
+      "2016": 169438,
+      "2017": 216724,
+      "2018": 245656,
+      "2019": 270765,
+      "2020": 250789,
+      "2021": 277673,
+      "2022": 311268,
+      "2023": 342771,
+      "2024": 440700
+     },
+     "inversion_participacion": {
+      "2008": 5.29,
+      "2009": 4.85,
+      "2010": 5.94,
+      "2011": 8.58,
+      "2012": 5.27,
+      "2013": 5.74,
+      "2014": 6.01,
+      "2015": 5.61,
+      "2016": 5.42,
+      "2017": 4.96,
+      "2018": 5.15,
+      "2019": 5.77,
+      "2020": 5.37,
+      "2021": 5.41,
+      "2022": 5.67,
+      "2023": 5.47,
+      "2024": 5.62
+     },
+     "predial_facturado": {
+      "2019": 16405,
+      "2020": 15816
+     }
+    }
+   },
+   {
+    "codigo": "10",
+    "nombre": "La Candelaria",
+    "tipo": "Comuna",
+    "valores": {
+     "inversion_publica": {
+      "2008": 73669,
+      "2009": 100033,
+      "2010": 104483,
+      "2011": 192091,
+      "2012": 122539,
+      "2013": 165749,
+      "2014": 166642,
+      "2015": 161271,
+      "2016": 158804,
+      "2017": 367576,
+      "2018": 343262,
+      "2019": 229960,
+      "2020": 229152,
+      "2021": 237588,
+      "2022": 255273,
+      "2023": 304074,
+      "2024": 334375
+     },
+     "inversion_participacion": {
+      "2008": 4.1,
+      "2009": 4.86,
+      "2010": 4.42,
+      "2011": 7.32,
+      "2012": 4.88,
+      "2013": 5.13,
+      "2014": 5.34,
+      "2015": 5.03,
+      "2016": 5.08,
+      "2017": 8.42,
+      "2018": 7.2,
+      "2019": 4.9,
+      "2020": 4.91,
+      "2021": 4.63,
+      "2022": 4.65,
+      "2023": 4.85,
+      "2024": 4.27
+     },
+     "predial_facturado": {
+      "2019": 65181,
+      "2020": 52291
+     }
+    }
+   },
+   {
+    "codigo": "11",
+    "nombre": "Laureles Estadio",
+    "tipo": "Comuna",
+    "valores": {
+     "inversion_publica": {
+      "2008": 55433,
+      "2009": 145112,
+      "2010": 77554,
+      "2011": 77677,
+      "2012": 86842,
+      "2013": 87120,
+      "2014": 93250,
+      "2015": 87033,
+      "2016": 89156,
+      "2017": 125183,
+      "2018": 147136,
+      "2019": 130301,
+      "2020": 130400,
+      "2021": 125318,
+      "2022": 133838,
+      "2023": 159372,
+      "2024": 186980
+     },
+     "inversion_participacion": {
+      "2008": 3.09,
+      "2009": 7.06,
+      "2010": 3.28,
+      "2011": 2.96,
+      "2012": 3.46,
+      "2013": 2.7,
+      "2014": 2.99,
+      "2015": 2.72,
+      "2016": 2.85,
+      "2017": 2.87,
+      "2018": 3.09,
+      "2019": 2.78,
+      "2020": 2.79,
+      "2021": 2.44,
+      "2022": 2.44,
+      "2023": 2.54,
+      "2024": 2.39
+     },
+     "predial_facturado": {
+      "2019": 67057,
+      "2020": 59417
+     }
+    }
+   },
+   {
+    "codigo": "12",
+    "nombre": "La América",
+    "tipo": "Comuna",
+    "valores": {
+     "inversion_publica": {
+      "2008": 68208,
+      "2009": 65309,
+      "2010": 65715,
+      "2011": 64575,
+      "2012": 70871,
+      "2013": 100764,
+      "2014": 86787,
+      "2015": 107067,
+      "2016": 98215,
+      "2017": 119023,
+      "2018": 143318,
+      "2019": 145544,
+      "2020": 145372,
+      "2021": 159899,
+      "2022": 161060,
+      "2023": 188203,
+      "2024": 239173
+     },
+     "inversion_participacion": {
+      "2008": 3.8,
+      "2009": 3.18,
+      "2010": 2.78,
+      "2011": 2.46,
+      "2012": 2.82,
+      "2013": 3.12,
+      "2014": 2.78,
+      "2015": 3.34,
+      "2016": 3.14,
+      "2017": 2.73,
+      "2018": 3.01,
+      "2019": 3.1,
+      "2020": 3.11,
+      "2021": 3.12,
+      "2022": 2.93,
+      "2023": 3.0,
+      "2024": 3.05
+     },
+     "predial_facturado": {
+      "2019": 27392,
+      "2020": 25206
+     }
+    }
+   },
+   {
+    "codigo": "13",
+    "nombre": "San Javier",
+    "tipo": "Comuna",
+    "valores": {
+     "inversion_publica": {
+      "2008": 112952,
+      "2009": 119553,
+      "2010": 168582,
+      "2011": 150276,
+      "2012": 141455,
+      "2013": 176807,
+      "2014": 194956,
+      "2015": 205351,
+      "2016": 197813,
+      "2017": 248983,
+      "2018": 293810,
+      "2019": 291961,
+      "2020": 304295,
+      "2021": 344110,
+      "2022": 368443,
+      "2023": 431784,
+      "2024": 527323
+     },
+     "inversion_participacion": {
+      "2008": 6.29,
+      "2009": 5.81,
+      "2010": 7.13,
+      "2011": 5.73,
+      "2012": 5.63,
+      "2013": 5.48,
+      "2014": 6.25,
+      "2015": 6.41,
+      "2016": 6.33,
+      "2017": 5.7,
+      "2018": 6.16,
+      "2019": 6.22,
+      "2020": 6.52,
+      "2021": 6.7,
+      "2022": 6.71,
+      "2023": 6.89,
+      "2024": 6.73
+     },
+     "predial_facturado": {
+      "2019": 9744,
+      "2020": 9326
+     }
+    }
+   },
+   {
+    "codigo": "14",
+    "nombre": "El Poblado",
+    "tipo": "Comuna",
+    "valores": {
+     "inversion_publica": {
+      "2008": 84930,
+      "2009": 85555,
+      "2010": 80476,
+      "2011": 103766,
+      "2012": 79192,
+      "2013": 105914,
+      "2014": 112644,
+      "2015": 89708,
+      "2016": 88949,
+      "2017": 155546,
+      "2018": 157755,
+      "2019": 140168,
+      "2020": 135594,
+      "2021": 130474,
+      "2022": 134594,
+      "2023": 140627,
+      "2024": 197032
+     },
+     "inversion_participacion": {
+      "2008": 4.73,
+      "2009": 4.16,
+      "2010": 3.4,
+      "2011": 3.96,
+      "2012": 3.15,
+      "2013": 3.28,
+      "2014": 3.61,
+      "2015": 2.8,
+      "2016": 2.85,
+      "2017": 3.56,
+      "2018": 3.31,
+      "2019": 2.99,
+      "2020": 2.91,
+      "2021": 2.54,
+      "2022": 2.45,
+      "2023": 2.24,
+      "2024": 2.51
+     },
+     "predial_facturado": {
+      "2019": 181701,
+      "2020": 156494
+     }
+    }
+   },
+   {
+    "codigo": "15",
+    "nombre": "Guayabal",
+    "tipo": "Comuna",
+    "valores": {
+     "inversion_publica": {
+      "2008": 53792,
+      "2009": 62168,
+      "2010": 100753,
+      "2011": 100274,
+      "2012": 87704,
+      "2013": 121097,
+      "2014": 97738,
+      "2015": 89365,
+      "2016": 91110,
+      "2017": 130568,
+      "2018": 133636,
+      "2019": 136572,
+      "2020": 142696,
+      "2021": 140554,
+      "2022": 151424,
+      "2023": 197571,
+      "2024": 208558
+     },
+     "inversion_participacion": {
+      "2008": 3.0,
+      "2009": 3.02,
+      "2010": 4.26,
+      "2011": 3.82,
+      "2012": 3.49,
+      "2013": 3.75,
+      "2014": 3.13,
+      "2015": 2.79,
+      "2016": 2.91,
+      "2017": 2.99,
+      "2018": 2.8,
+      "2019": 2.91,
+      "2020": 3.06,
+      "2021": 2.74,
+      "2022": 2.76,
+      "2023": 3.15,
+      "2024": 2.66
+     },
+     "predial_facturado": {
+      "2019": 25099,
+      "2020": 21195
+     }
+    }
+   },
+   {
+    "codigo": "16",
+    "nombre": "Belén",
+    "tipo": "Comuna",
+    "valores": {
+     "inversion_publica": {
+      "2008": 108712,
+      "2009": 106284,
+      "2010": 137423,
+      "2011": 115414,
+      "2012": 146608,
+      "2013": 181455,
+      "2014": 151003,
+      "2015": 162430,
+      "2016": 174613,
+      "2017": 225286,
+      "2018": 290644,
+      "2019": 258664,
+      "2020": 267240,
+      "2021": 300195,
+      "2022": 325914,
+      "2023": 372339,
+      "2024": 469780
+     },
+     "inversion_participacion": {
+      "2008": 6.06,
+      "2009": 5.17,
+      "2010": 5.81,
+      "2011": 4.4,
+      "2012": 5.83,
+      "2013": 5.62,
+      "2014": 4.84,
+      "2015": 5.07,
+      "2016": 5.59,
+      "2017": 5.16,
+      "2018": 6.1,
+      "2019": 5.51,
+      "2020": 5.73,
+      "2021": 5.85,
+      "2022": 5.93,
+      "2023": 5.94,
+      "2024": 5.99
+     },
+     "predial_facturado": {
+      "2019": 47967,
+      "2020": 43408
+     }
+    }
+   },
+   {
+    "codigo": "50",
+    "nombre": "San Sebastián de Palmitas",
+    "tipo": "Corregimiento",
+    "valores": {
+     "inversion_publica": {
+      "2008": 7629,
+      "2009": 30913,
+      "2010": 32179,
+      "2011": 30920,
+      "2012": 18952,
+      "2013": 24832,
+      "2014": 41156,
+      "2015": 34499,
+      "2016": 19019,
+      "2017": 38297,
+      "2018": 36985,
+      "2019": 38316,
+      "2020": 35714,
+      "2021": 34587,
+      "2022": 40110,
+      "2023": 45393,
+      "2024": 75912
+     },
+     "inversion_participacion": {
+      "2008": 0.42,
+      "2009": 1.5,
+      "2010": 1.36,
+      "2011": 1.18,
+      "2012": 0.75,
+      "2013": 0.77,
+      "2014": 1.32,
+      "2015": 1.08,
+      "2016": 0.61,
+      "2017": 0.88,
+      "2018": 0.78,
+      "2019": 0.82,
+      "2020": 0.77,
+      "2021": 0.67,
+      "2022": 0.73,
+      "2023": 0.72,
+      "2024": 0.97
+     }
+    }
+   },
+   {
+    "codigo": "60",
+    "nombre": "San Cristóbal",
+    "tipo": "Corregimiento",
+    "valores": {
+     "inversion_publica": {
+      "2008": 57549,
+      "2009": 82531,
+      "2010": 110313,
+      "2011": 92853,
+      "2012": 80585,
+      "2013": 145722,
+      "2014": 144184,
+      "2015": 117827,
+      "2016": 116818,
+      "2017": 136136,
+      "2018": 201391,
+      "2019": 212072,
+      "2020": 195743,
+      "2021": 218908,
+      "2022": 251656,
+      "2023": 279025,
+      "2024": 380851
+     },
+     "inversion_participacion": {
+      "2008": 3.21,
+      "2009": 4.01,
+      "2010": 4.66,
+      "2011": 3.54,
+      "2012": 3.21,
+      "2013": 4.51,
+      "2014": 4.62,
+      "2015": 3.68,
+      "2016": 3.74,
+      "2017": 3.12,
+      "2018": 4.22,
+      "2019": 4.52,
+      "2020": 4.19,
+      "2021": 4.26,
+      "2022": 4.58,
+      "2023": 4.45,
+      "2024": 4.86
+     }
+    }
+   },
+   {
+    "codigo": "70",
+    "nombre": "Altavista",
+    "tipo": "Corregimiento",
+    "valores": {
+     "inversion_publica": {
+      "2008": 17492,
+      "2009": 36504,
+      "2010": 40022,
+      "2011": 39278,
+      "2012": 36042,
+      "2013": 46197,
+      "2014": 60271,
+      "2015": 44556,
+      "2016": 37167,
+      "2017": 71946,
+      "2018": 89174,
+      "2019": 113567,
+      "2020": 68228,
+      "2021": 76538,
+      "2022": 88260,
+      "2023": 91539,
+      "2024": 113390
+     },
+     "inversion_participacion": {
+      "2008": 0.97,
+      "2009": 1.78,
+      "2010": 1.69,
+      "2011": 1.5,
+      "2012": 1.43,
+      "2013": 1.43,
+      "2014": 1.93,
+      "2015": 1.39,
+      "2016": 1.19,
+      "2017": 1.65,
+      "2018": 1.87,
+      "2019": 2.42,
+      "2020": 1.46,
+      "2021": 1.49,
+      "2022": 1.61,
+      "2023": 1.46,
+      "2024": 1.45
+     },
+     "predial_facturado": {
+      "2019": 388,
+      "2020": 421
+     }
+    }
+   },
+   {
+    "codigo": "80",
+    "nombre": "San Antonio de Prado",
+    "tipo": "Corregimiento",
+    "valores": {
+     "inversion_publica": {
+      "2008": 55687,
+      "2009": 73563,
+      "2010": 70575,
+      "2011": 98252,
+      "2012": 89201,
+      "2013": 133764,
+      "2014": 109786,
+      "2015": 116071,
+      "2016": 116913,
+      "2017": 131223,
+      "2018": 183994,
+      "2019": 197813,
+      "2020": 194693,
+      "2021": 205866,
+      "2022": 235783,
+      "2023": 259589,
+      "2024": 336024
+     },
+     "inversion_participacion": {
+      "2008": 3.1,
+      "2009": 3.58,
+      "2010": 2.98,
+      "2011": 3.75,
+      "2012": 3.55,
+      "2013": 4.14,
+      "2014": 3.52,
+      "2015": 3.62,
+      "2016": 3.74,
+      "2017": 3.01,
+      "2018": 3.86,
+      "2019": 4.22,
+      "2020": 4.17,
+      "2021": 4.01,
+      "2022": 4.29,
+      "2023": 4.14,
+      "2024": 4.29
+     },
+     "predial_facturado": {
+      "2019": 6233,
+      "2020": 6263
+     }
+    }
+   },
+   {
+    "codigo": "90",
+    "nombre": "Santa Elena",
+    "tipo": "Corregimiento",
+    "valores": {
+     "inversion_publica": {
+      "2008": 23559,
+      "2009": 35164,
+      "2010": 31854,
+      "2011": 33780,
+      "2012": 34679,
+      "2013": 30918,
+      "2014": 54187,
+      "2015": 39192,
+      "2016": 29776,
+      "2017": 67023,
+      "2018": 48954,
+      "2019": 58134,
+      "2020": 48453,
+      "2021": 57489,
+      "2022": 68386,
+      "2023": 84521,
+      "2024": 90450
+     },
+     "inversion_participacion": {
+      "2008": 1.31,
+      "2009": 1.71,
+      "2010": 1.35,
+      "2011": 1.29,
+      "2012": 1.38,
+      "2013": 0.96,
+      "2014": 1.74,
+      "2015": 1.22,
+      "2016": 0.95,
+      "2017": 1.54,
+      "2018": 1.03,
+      "2019": 1.24,
+      "2020": 1.04,
+      "2021": 1.12,
+      "2022": 1.24,
+      "2023": 1.35,
+      "2024": 1.15
+     },
+     "predial_facturado": {
+      "2019": 805,
+      "2020": 706
+     }
+    }
+   }
+  ]
+ }
+}
