@@ -1,7 +1,7 @@
 {
  "tema": "seguridad",
  "titulo": "Seguridad",
- "probado": "2026-09-26",
+ "probado": "2026-09-27",
  "ancla": [
   "homicidios_anio_curso",
   "homicidios_tasa"
@@ -13,7 +13,7 @@
    "entidad": "Ministerio de Defensa Nacional · Policía Nacional",
    "url": "https://www.datos.gov.co/d/m8fd-ahd9",
    "estado": "observado",
-   "probado": "2026-09-26"
+   "probado": "2026-09-27"
   },
   {
    "id": "policia-hurto-personas",
@@ -21,7 +21,7 @@
    "entidad": "Ministerio de Defensa Nacional · Policía Nacional",
    "url": "https://www.datos.gov.co/d/4rxi-8m8d",
    "estado": "observado",
-   "probado": "2026-09-26"
+   "probado": "2026-09-27"
   },
   {
    "id": "policia-hurto-vehiculos",
@@ -29,7 +29,7 @@
    "entidad": "Ministerio de Defensa Nacional · Policía Nacional",
    "url": "https://www.datos.gov.co/d/csb4-y6v2",
    "estado": "observado",
-   "probado": "2026-09-26"
+   "probado": "2026-09-27"
   },
   {
    "id": "policia-extorsion",
@@ -37,7 +37,7 @@
    "entidad": "Ministerio de Defensa Nacional · Policía Nacional",
    "url": "https://www.datos.gov.co/d/q2ib-t9am",
    "estado": "observado",
-   "probado": "2026-09-26"
+   "probado": "2026-09-27"
   },
   {
    "id": "policia-violencia-intrafamiliar",
@@ -45,7 +45,7 @@
    "entidad": "Ministerio de Defensa Nacional · Policía Nacional",
    "url": "https://www.datos.gov.co/d/gepp-dxcs",
    "estado": "observado",
-   "probado": "2026-09-26"
+   "probado": "2026-09-27"
   },
   {
    "id": "policia-delitos-sexuales",
@@ -53,7 +53,7 @@
    "entidad": "Ministerio de Defensa Nacional · Policía Nacional",
    "url": "https://www.datos.gov.co/d/bz43-8ahq",
    "estado": "observado",
-   "probado": "2026-09-26"
+   "probado": "2026-09-27"
   },
   {
    "id": "policia-lesiones-personales",
@@ -61,7 +61,7 @@
    "entidad": "Ministerio de Defensa Nacional · Policía Nacional",
    "url": "https://www.datos.gov.co/d/jr6v-i33g",
    "estado": "observado",
-   "probado": "2026-09-26"
+   "probado": "2026-09-27"
   },
   {
    "id": "sisc-homicidio",
@@ -69,7 +69,7 @@
    "entidad": "Secretaría de Seguridad y Convivencia · Alcaldía de Medellín (SISC / MEData)",
    "url": "http://medata.gov.co/sites/default/files/distribution/1-027-23-000008/homicidio.csv",
    "estado": "observado",
-   "probado": "2026-09-26"
+   "probado": "2026-09-27"
   },
   {
    "id": "sisc-hurto-persona",
@@ -77,7 +77,7 @@
    "entidad": "Secretaría de Seguridad y Convivencia · Alcaldía de Medellín (SISC / MEData)",
    "url": "http://medata.gov.co/sites/default/files/distribution/1-027-23-000011/hurto_a_persona.csv",
    "estado": "observado",
-   "probado": "2026-09-26"
+   "probado": "2026-09-27"
   },
   {
    "id": "sisc-hurto-carro",
@@ -85,7 +85,7 @@
    "entidad": "Secretaría de Seguridad y Convivencia · Alcaldía de Medellín (SISC / MEData)",
    "url": "http://medata.gov.co/sites/default/files/distribution/1-027-23-000013/hurto_de_carro.csv",
    "estado": "observado",
-   "probado": "2026-09-26"
+   "probado": "2026-09-27"
   },
   {
    "id": "sisc-hurto-moto",
@@ -93,7 +93,7 @@
    "entidad": "Secretaría de Seguridad y Convivencia · Alcaldía de Medellín (SISC / MEData)",
    "url": "http://medata.gov.co/sites/default/files/distribution/1-027-23-000014/hurto_de_moto.csv",
    "estado": "observado",
-   "probado": "2026-09-26"
+   "probado": "2026-09-27"
   },
   {
    "id": "sisc-hurto-residencia",
@@ -101,7 +101,7 @@
    "entidad": "Secretaría de Seguridad y Convivencia · Alcaldía de Medellín (SISC / MEData)",
    "url": "http://medata.gov.co/sites/default/files/distribution/1-027-23-000012/hurto_a_residencia.csv",
    "estado": "observado",
-   "probado": "2026-09-26"
+   "probado": "2026-09-27"
   },
   {
    "id": "sisc-hurto-comercio",
@@ -109,7 +109,7 @@
    "entidad": "Secretaría de Seguridad y Convivencia · Alcaldía de Medellín (SISC / MEData)",
    "url": "http://medata.gov.co/sites/default/files/distribution/1-027-23-000010/hurto_a_establecimiento_comercial.csv",
    "estado": "observado",
-   "probado": "2026-09-26"
+   "probado": "2026-09-27"
   },
   {
    "id": "sisc-extorsion-sisc",
@@ -117,7 +117,7 @@
    "entidad": "Secretaría de Seguridad y Convivencia · Alcaldía de Medellín (SISC / MEData)",
    "url": "http://medata.gov.co/sites/default/files/distribution/1-027-23-000007/extorsion.csv",
    "estado": "observado",
-   "probado": "2026-09-26"
+   "probado": "2026-09-27"
   },
   {
    "id": "sisc-lesion-dolosa",
@@ -125,7 +125,7 @@
    "entidad": "Secretaría de Seguridad y Convivencia · Alcaldía de Medellín (SISC / MEData)",
    "url": "http://medata.gov.co/sites/default/files/distribution/1-027-23-000002/lesion_no_fatal_dolosa_segun_policia.csv",
    "estado": "observado",
-   "probado": "2026-09-26"
+   "probado": "2026-09-27"
   }
  ],
  "cifras": {
@@ -157,14 +157,14 @@
    "nota": "176 casos frente a 220 en el mismo periodo de 2025."
   },
   "homicidios_tasa": {
-   "valor": 12.64,
+   "valor": 13.17,
    "unidad": "por 100 mil hab.",
    "etiqueta": "Tasa de homicidios 2025",
    "fuente": "policia-homicidios",
    "vigencia": "2025",
    "estado": "derivado",
    "decimales": 2,
-   "nota": "333 casos (Policía) ÷ 2.634.570 habitantes (proyección DANE) × 100.000."
+   "nota": "333 casos (Policía) ÷ 2.528.343 habitantes (proyección DANE) × 100.000."
   },
   "hurto_personas": {
    "valor": 24924,
@@ -194,14 +194,14 @@
    "nota": "16630 casos frente a 15128 en el mismo periodo de 2025."
   },
   "hurto_personas_tasa": {
-   "valor": 946.04,
+   "valor": 985.78,
    "unidad": "por 100 mil hab.",
    "etiqueta": "Tasa de hurto a personas 2025",
    "fuente": "policia-hurto-personas",
    "vigencia": "2025",
    "estado": "derivado",
    "decimales": 2,
-   "nota": "24924 casos (Policía) ÷ 2.634.570 habitantes (proyección DANE) × 100.000."
+   "nota": "24924 casos (Policía) ÷ 2.528.343 habitantes (proyección DANE) × 100.000."
   },
   "hurto_vehiculos": {
    "valor": 6000,
@@ -231,14 +231,14 @@
    "nota": "3214 casos frente a 4477 en el mismo periodo de 2025."
   },
   "hurto_vehiculos_tasa": {
-   "valor": 227.74,
+   "valor": 237.31,
    "unidad": "por 100 mil hab.",
    "etiqueta": "Tasa de hurto de vehículos 2025",
    "fuente": "policia-hurto-vehiculos",
    "vigencia": "2025",
    "estado": "derivado",
    "decimales": 2,
-   "nota": "6000 casos (Policía) ÷ 2.634.570 habitantes (proyección DANE) × 100.000."
+   "nota": "6000 casos (Policía) ÷ 2.528.343 habitantes (proyección DANE) × 100.000."
   },
   "extorsion": {
    "valor": 972,
@@ -268,14 +268,14 @@
    "nota": "719 casos frente a 600 en el mismo periodo de 2025."
   },
   "extorsion_tasa": {
-   "valor": 36.89,
+   "valor": 38.44,
    "unidad": "por 100 mil hab.",
    "etiqueta": "Tasa de extorsión 2025",
    "fuente": "policia-extorsion",
    "vigencia": "2025",
    "estado": "derivado",
    "decimales": 2,
-   "nota": "972 casos (Policía) ÷ 2.634.570 habitantes (proyección DANE) × 100.000."
+   "nota": "972 casos (Policía) ÷ 2.528.343 habitantes (proyección DANE) × 100.000."
   },
   "violencia_intrafamiliar": {
    "valor": 10638,
@@ -305,14 +305,14 @@
    "nota": "7624 casos frente a 7319 en el mismo periodo de 2025."
   },
   "violencia_intrafamiliar_tasa": {
-   "valor": 403.79,
+   "valor": 420.75,
    "unidad": "por 100 mil hab.",
    "etiqueta": "Tasa de violencia intrafamiliar 2025",
    "fuente": "policia-violencia-intrafamiliar",
    "vigencia": "2025",
    "estado": "derivado",
    "decimales": 2,
-   "nota": "10638 casos (Policía) ÷ 2.634.570 habitantes (proyección DANE) × 100.000."
+   "nota": "10638 casos (Policía) ÷ 2.528.343 habitantes (proyección DANE) × 100.000."
   },
   "delitos_sexuales": {
    "valor": 2380,
@@ -342,14 +342,14 @@
    "nota": "1435 casos frente a 1707 en el mismo periodo de 2025."
   },
   "delitos_sexuales_tasa": {
-   "valor": 90.34,
+   "valor": 94.13,
    "unidad": "por 100 mil hab.",
    "etiqueta": "Tasa de delitos sexuales 2025",
    "fuente": "policia-delitos-sexuales",
    "vigencia": "2025",
    "estado": "derivado",
    "decimales": 2,
-   "nota": "2380 casos (Policía) ÷ 2.634.570 habitantes (proyección DANE) × 100.000."
+   "nota": "2380 casos (Policía) ÷ 2.528.343 habitantes (proyección DANE) × 100.000."
   },
   "lesiones_personales": {
    "valor": 4690,
@@ -379,14 +379,14 @@
    "nota": "3323 casos frente a 3157 en el mismo periodo de 2025."
   },
   "lesiones_personales_tasa": {
-   "valor": 178.02,
+   "valor": 185.5,
    "unidad": "por 100 mil hab.",
    "etiqueta": "Tasa de lesiones personales 2025",
    "fuente": "policia-lesiones-personales",
    "vigencia": "2025",
    "estado": "derivado",
    "decimales": 2,
-   "nota": "4690 casos (Policía) ÷ 2.634.570 habitantes (proyección DANE) × 100.000."
+   "nota": "4690 casos (Policía) ÷ 2.528.343 habitantes (proyección DANE) × 100.000."
   },
   "sisc_homicidio_ventana": {
    "valor": 1139,

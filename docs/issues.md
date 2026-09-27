@@ -20,7 +20,7 @@ Hoja de ruta para llevar la app a la estructura de [Cerebro Lima](https://cerebr
 | 2 | [Lentes y herramientas del gemelo](#2-lentes-y-herramientas-del-gemelo) | 1 | ☑ |
 | 3 | [Seguridad](#3-seguridad) | 0 | ☑ |
 | 4 | [Ambiente y satélite](#4-ambiente-y-satélite) | 0 | ☑ |
-| 5 | [Gente](#5-gente) | 0 | ☐ |
+| 5 | [Gente](#5-gente) | 0 | ☑ |
 | 6 | [Economía y vivienda](#6-economía-y-vivienda) | 0 | ☐ |
 | 7 | [Turismo](#7-turismo) | 0 | ☐ |
 | 8 | [Municipio](#8-municipio) | 0 | ☐ |
@@ -152,7 +152,7 @@ Panorama va casi al final porque resume las cifras ancla de todas las demás sec
 
 **Tareas**
 - [x] Series anuales y mensuales 2018–2026 (Policía): homicidio, hurto a personas, hurto de vehículos, extorsión, violencia intrafamiliar, delitos sexuales y lesiones personales.
-- [x] Tasas por 100.000 habitantes con la población del DANE (estado `derivado`): homicidios 2024 = 11,81 y 2025 = 12,64.
+- [x] Tasas por 100.000 habitantes con la población del DANE (estado `derivado`): homicidios 2024 = 11,81 y 2025 = 12,64 (2025 = 13,17 desde la issue #5, con la proyección PPED del DANE).
 - [x] Comparación del año en curso con el mismo periodo del año anterior.
 - [x] Mapa de calor por barrio con el SISC de 2003 a noviembre de 2023, rotulado como histórico.
 - [x] Ranking de comunas por tipo de delito (SISC).
@@ -213,17 +213,31 @@ Panorama va casi al final porque resume las cifras ancla de todas las demás sec
 **Objetivo:** mostrar quién vive en Medellín y cómo vive, por comuna.
 
 **Tareas**
-- [ ] Población total del DANE 2020–2035; 2026 = 2.650.662.
-- [ ] Población por comuna y corregimiento: la proporción del DAP aplicada al total del DANE (estado `derivado`), con nota explicativa.
-- [ ] Hogares y viviendas por comuna (DAP).
-- [ ] IMCV y pobreza multidimensional por comuna 2014–2024, e IDH 2014–2021.
-- [ ] Estratos socioeconómicos.
-- [ ] Eventos de salud geográficos (natalidad, mortalidad, dengue), después de verificar su vigencia.
-- [ ] Pirámide poblacional si el archivo del DANE trae edades; si no, dejarla como `candidato`.
+- [x] Población total del DANE ~~2020–2035; 2026 = 2.650.662~~ → PPED 2018–2042; 2026 = 2.526.795 (ver resultado).
+- [x] Población por comuna y corregimiento: la proporción del DAP aplicada al total del DANE (estado `derivado`), con nota explicativa.
+- [x] Hogares y viviendas por comuna (DAP).
+- [x] IMCV y pobreza multidimensional por comuna 2014–2024, e IDH 2014–2021.
+- [x] Estratos socioeconómicos.
+- [x] Eventos de salud geográficos (natalidad, mortalidad, dengue), después de verificar su vigencia.
+- [x] Pirámide poblacional si el archivo del DANE trae edades; si no, dejarla como `candidato`.
 
 **Datos:** [Gente](fuentes-medellin.md#gente) y la [discrepancia 1](fuentes-medellin.md#5-discrepancias-y-lectura-responsable).
 
 **Terminada cuando:** las 21 comunas y corregimientos tienen población, IMCV y pobreza con vigencia visible.
+
+**Resultado (27 sep 2026)**
+- **Cambio de total oficial:** el DANE publicó en julio de 2025 la serie PPED 2018–2042, que reemplaza la post-COVID 2020–2035 (su página ya no enlaza el archivo anterior). Para 2026 da **2.526.795** habitantes, no 2.650.662. El lago usa la PPED; al reingestar Seguridad, la tasa de homicidios de 2025 pasa de 12,64 a **13,17** por 100.000 habitantes, y el resto de tasas de la Policía cambia en la misma proporción.
+- `pull_demografia.py` ahora ingesta 6 fuentes: DANE por área, DANE por sexo y edad (131 MB, se guarda en `datos/crudos/` y solo se vuelve a bajar si cambia), DAP, ECV (IMCV, pobreza multidimensional, IDH), estratos del catastro y SIVIGILA. El tema pasó de 7 a 22 cifras.
+- Dos listas nuevas en el tema, pensadas también para el Atlas (#11): `indicadores` (16, cada uno con fuente, vigencia real y estado) y `territorios` (21, con los valores por año). `verificar.py` valida su contrato.
+- Nueva sección `Gente` (`src/components/GenteView.jsx` y `src/components/gente/`): cifras de ciudad, serie 2018–2042, pirámide por grupos de 5 años (2018, 2026 y 2042, con escala común), ranking por territorio con selector de indicador, ficha de cada territorio con el año de cada dato, distribución de estratos y eventos de salud.
+- Decisiones de alcance:
+  - **Estratos:** la capa `/0` del DAP responde con error de base de datos; se usa la capa equivalente del catastro (`ConsultaOperadorCatastral_geo/MapServer/23`, 32.384 manzanas). La unidad es la manzana, no la vivienda, y así se dice en pantalla.
+  - **Salud:** el servicio se rotula "vigente", pero los datos llegan a 2022. Las tasas son las que publica la Secretaría de Salud (por 100.000 habitantes, con población del DAP).
+  - **Pirámide:** el archivo PPED trae edades simples, así que no quedó como `candidato`. Edad mediana, población de 60+ y menor de 15 son `derivado`.
+- Correcciones que salieron al probar:
+  - Hogares y viviendas del DAP traían 25 filas (4 corregimientos partidos en urbano y rural); ahora se suman a 21.
+  - El servidor de la Alcaldía responde a veces `200` con un error de base de datos. `lago.consulta_arcgis` reintenta antes de dar la capa por caída; beneficia a todos los temas.
+- **Pendiente de revisar a mano:** la sección en un móvil real (se probó a 390 px en Chrome sin desbordamiento horizontal).
 
 ---
 

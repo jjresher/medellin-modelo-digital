@@ -84,16 +84,25 @@ def socrata(recurso, **soql):
     return json_url(f'https://www.datos.gov.co/resource/{recurso}.json', params)
 
 
+def consulta_arcgis(capa, params, intentos=4):
+    """GET a /query. ArcGIS responde a veces 200 con {"error": ...} por un fallo pasajero de su base de datos
+    ("Unable to complete operation"); se reintenta antes de dar la capa por caída."""
+    for intento in range(intentos):
+        datos = json_url(f'{capa}/query', params)
+        if 'error' not in datos:
+            return datos
+        time.sleep(3 * (intento + 1))
+    raise RuntimeError(f'{capa}: {datos["error"]}')
+
+
 def arcgis(capa, where='1=1', campos='*', geometria=False):
     """Consulta una capa ArcGIS REST y pagina con resultOffset cuando el servidor lo permite."""
     base = {'where': where, 'outFields': campos, 'returnGeometry': str(geometria).lower(), 'f': 'json'}
-    datos = json_url(f'{capa}/query', base)
-    if 'error' in datos:
-        raise RuntimeError(f'{capa}: {datos["error"]}')
+    datos = consulta_arcgis(capa, base)
     filas = [f['attributes'] for f in datos.get('features', [])]
     offset = len(filas)
     while datos.get('exceededTransferLimit'):
-        datos = json_url(f'{capa}/query', {**base, 'resultOffset': offset})
+        datos = consulta_arcgis(capa, {**base, 'resultOffset': offset})
         lote = [f['attributes'] for f in datos.get('features', [])]
         if not lote:
             break
@@ -109,9 +118,7 @@ def arcgis_geojson(capa, campos='*', where='1=1', offset=None):
         params['maxAllowableOffset'] = offset
     features = []
     while True:
-        datos = json_url(f'{capa}/query', {**params, 'resultOffset': len(features)})
-        if 'error' in datos:
-            raise RuntimeError(f'{capa}: {datos["error"]}')
+        datos = consulta_arcgis(capa, {**params, 'resultOffset': len(features)})
         features += datos.get('features', [])
         # En GeoJSON, ArcGIS avisa del corte en la raíz o dentro de "properties", según la versión.
         cortado = datos.get('exceededTransferLimit') or (datos.get('properties') or {}).get('exceededTransferLimit')

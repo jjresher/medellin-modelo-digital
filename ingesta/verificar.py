@@ -112,6 +112,26 @@ def verificar_tema(ruta, inf):
         if len(set(etiquetas)) != len(etiquetas):
             inf.error(lugar, 'tiene etiquetas repetidas')
 
+    # Indicadores por territorio (tema demografia y, más adelante, el atlas): mismo contrato de fuente y estado.
+    for ind in tema['listas'].get('indicadores', []):
+        lugar = f'{donde} › indicador {ind.get("clave", "?")}'
+        faltan = [k for k in ('clave', 'etiqueta', 'unidad', 'fuente', 'vigencia', 'estado') if not ind.get(k)]
+        if faltan:
+            inf.error(lugar, f'sin {", ".join(faltan)}')
+            continue
+        if ind['estado'] not in ESTADOS:
+            inf.error(lugar, f'estado desconocido "{ind["estado"]}"')
+        if ind['fuente'] not in fuentes:
+            inf.error(lugar, f'la fuente "{ind["fuente"]}" no está declarada')
+        usadas.add(ind['fuente'])
+        valores = [v for t in tema['listas'].get('territorios', []) for v in t['valores'].get(ind['clave'], {}).values()]
+        if not valores:
+            inf.error(lugar, 'ningún territorio tiene valor')
+        elif not all(numero_valido(v) and v >= 0 for v in valores):
+            inf.error(lugar, 'tiene valores que no son números no negativos')
+        elif ind['unidad'].startswith('%') and not all(v <= 100 for v in valores):
+            inf.error(lugar, 'tiene porcentajes por encima de 100')
+
     for clave in tema['ancla']:
         if clave not in tema['cifras']:
             inf.error(donde, f'"ancla" menciona la cifra "{clave}", que no existe')

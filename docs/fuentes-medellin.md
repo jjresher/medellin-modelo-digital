@@ -96,14 +96,25 @@ Convenciones: `ALC` = `https://www.medellin.gov.co/servidormapas/rest/services`,
 
 | Dato | Endpoint | Vigencia | Valor clave |
 |---|---|---|---|
-| **Proyección municipal DANE (post-COVID)** | `https://www.dane.gov.co/files/censo2018/proyecciones-de-poblacion/Municipal/DCD-area-proypoblacion-Mun-2020-2035-ActPostCOVID-19.xlsx` | 2020–2035 | **2026: 2.650.662** (cabecera 2.609.841, rural 40.821) |
+| **Proyección municipal DANE (PPED, julio de 2025)** | `https://www.dane.gov.co/files/censo2018/proyecciones-de-poblacion/Municipal/PPED-AreaMun-2018-2042_VP.xlsx` | 2018–2042 | **2026: 2.526.795** (cabecera 2.478.217, rural 48.578). **En uso desde la issue #5.** |
+| Proyección DANE por área, sexo y edad (PPED) | `.../Municipal/PPED-AreaSexoEdadMun-2018-2042_VP.xlsx` | 2018–2042 | 131 MB; edades simples de 0 a 100+ por sexo. Alimenta la pirámide. |
+| Proyección municipal DANE post-COVID (reemplazada) | `.../Municipal/DCD-area-proypoblacion-Mun-2020-2035-ActPostCOVID-19.xlsx` | 2020–2035 | 2026: 2.650.662. Sigue en línea, pero la página del DANE ya no la enlaza: la reemplazó la serie PPED. |
 | Proyección por comuna y corregimiento (DAP) | `ALC/mapas_nacionales/VC_Distribucion_Poblacional/MapServer/1`; hogares en `/2`, viviendas en `/3`, estrato en `/0` | 2018–2030, elaborada en diciembre de 2018 | Suma 2026: **2.787.912** (ver §5) |
 | IMCV por comuna | `ALC/estadisticas/VC_Indicadores_ECV/MapServer/2` | 2014–2024 (sin 2020) | Popular 2024: 35,07 |
-| Pobreza multidimensional por comuna | `.../VC_Indicadores_ECV/MapServer/1` | 2014–2024 | |
+| Pobreza multidimensional por comuna | `.../VC_Indicadores_ECV/MapServer/1` | 2014–2024 (sin 2020) | |
 | IDH por comuna | `.../MapServer/3` | 2014–2021 | |
+| Inseguridad alimentaria y esperanza de vida por comuna | `.../MapServer/0` y `/5` | 2014–2024 y 2018–2023 | Esperanza de vida solo cubre las 16 comunas. No se usan todavía. |
 | Desempleo y PIB por comuna | `.../MapServer/4` y `/6` | 2014–2022 | |
+| **Estratificación por manzana** | `ALC/ServiciosCatastro/ConsultaOperadorCatastral_geo/MapServer/23` | Base catastral vigente | 32.384 manzanas con `comuna`, `codigo_barrio` y `estrato`. Mismo esquema que la capa `/0` del DAP, que respondía con error de base de datos. **En uso.** |
 | Microdatos de la ECV | `MED/1-002-09-000040/encuesta_calidad_vida.csv` | Por verificar | 367 MB |
-| Eventos de salud geográficos | `ALC/salud_protec_soc/VC_Datos_Enfermedades` | El servicio dice "2008-vigente"; no se verificó el corte | Dengue, mortalidad, natalidad, intento de suicidio, violencia de género |
+| Eventos de salud geográficos | `ALC/salud_protec_soc/VC_Datos_Enfermedades` | **2008–2022** (natalidad y mortalidad desde 2012), aunque el servicio diga "vigente" | Casos y tasa por 100.000 habitantes por comuna (con población del DAP), del SIVIGILA. Hay una fila "99" de registros sin comuna. |
+
+### Notas de uso en la sección Gente (issue #5, 27 sep 2026)
+
+- **Cambio de total oficial.** El DANE publicó en julio de 2025 una actualización de las proyecciones (PPED 2018–2042) que reemplaza la serie post-COVID 2020–2035. Para 2026 da 2.526.795 habitantes, 123.867 menos (−4,7 %). El lago usa ahora la PPED, y por eso cambian las tasas por 100.000 habitantes de Seguridad: homicidios 2025 pasa de 12,64 a **13,17**.
+- **Hogares y viviendas del DAP** traen 25 filas: San Cristóbal, Altavista, San Antonio de Prado y Santa Elena vienen partidos en parte urbana y rural con el mismo código. Se suman por código para tener 21 territorios. La capa de población no trae código; se cruza por nombre con la de hogares.
+- **Estratos:** la unidad es la manzana, no la vivienda. Una manzana grande y una pequeña pesan lo mismo, y así se rotula en pantalla.
+- **El servidor de la Alcaldía** responde a veces `200` con `{"error": "Unable to complete operation"}` (fallo pasajero de su base de datos). `lago.consulta_arcgis` reintenta hasta 4 veces antes de dar la capa por caída.
 
 ### Economía y vivienda
 
@@ -153,7 +164,7 @@ Hay dos fuentes que se complementan y no deben mezclarse en una misma serie:
 
 También hay hurto a residencias (`7mn7-vzqp`), hurto a comercio (`7i2x-h5vp`) y secuestro (`d7zw-hpf4`).
 
-Tasa de homicidios derivada con la población del DANE: **11,81 por 100.000 habitantes en 2024** y **12,64 en 2025**.
+Tasa de homicidios derivada con la población del DANE: **13,17 por 100.000 habitantes en 2025** con la proyección PPED vigente (con la serie post-COVID anterior daba 12,64; ver [notas de Gente](#notas-de-uso-en-la-sección-gente-issue-5-27-sep-2026)).
 
 **SISC en MEData.** Registros georreferenciados con latitud, longitud, barrio y comuna, de 2003 a **noviembre de 2023**. Por ejemplo, `MED/1-027-23-000008/homicidio.csv` tiene 19.647 registros, 18.598 de ellos con coordenadas. Hay archivos equivalentes para cada tipo de hurto, extorsión, llamadas al 123 y otros. Sirve para el ranking por comuna y el mapa por barrio.
 
@@ -248,7 +259,7 @@ y conserva la última copia (ver `src/app/api/ambiente`).
 
 ## 5. Discrepancias y lectura responsable
 
-1. **Población.** La proyección de Planeación por comuna suma 2.787.912 habitantes en 2026, y el DANE post-COVID da 2.650.662 (−4,9 %). Se propone usar el total del DANE como cifra oficial y la serie de Planeación solo como proporción para repartirlo por comuna, marcando el resultado como `derivado`.
+1. **Población.** La proyección de Planeación por comuna suma 2.787.912 habitantes en 2026, y el DANE vigente (PPED, julio de 2025) da 2.526.795 (−9,4 %; con la serie post-COVID anterior eran 2.650.662). Se propone usar el total del DANE como cifra oficial y la serie de Planeación solo como proporción para repartirlo por comuna, marcando el resultado como `derivado`.
 2. **Homicidios 2023.** El SISC registra 343, pero su serie se corta el 29 de noviembre; la Policía registra 359 para el año completo. Cada gráfica debe usar una sola fuente.
 3. **Fechas de MEData.** El portal marca varios datasets como actualizados en 2025, pero los datos llegan hasta 2021–2023. La vigencia debe calcularse a partir del dato mismo, no de los metadatos.
 4. **Afluencia del Metro.** No equivale a viajes únicos. No debe compararse con la cifra de "1,16 M viajes SITVA/día" que muestra hoy el Panorama.

@@ -301,3 +301,49 @@ h1 em { color: var(--green); font-family: Georgia, serif; font-weight: 400; }
   .ambiente-view .chart-table { font-size: 10px; }
   .ambiente-view .chart-table td { white-space: normal; }
 }
+
+/* ---- Gente (issue #5) ---- */
+.procedencia { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; margin: 0 0 12px; color: var(--yellow); font: 10px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .4px; }
+.procedencia button { padding: 0; border: 0; color: var(--cyan); background: transparent; font: inherit; }
+.indicador-cabecera { margin-top: 18px; }
+.indicador-cabecera h3 { margin: 0 0 6px; font-size: 15px; letter-spacing: -.2px; }
+.indicador-cabecera .sec-note { margin: 0 0 4px; font-size: 11px; }
+.gente-view .chart-card { min-width: 0; }
+.ficha-territorio { display: grid; align-content: start; gap: 10px; }
+.ficha-territorio h3 { margin: 4px 0 0; }
+.ficha-tabla td:first-child { color: var(--muted); }
+.ficha-tabla td:nth-child(2) { color: var(--dim); font: 10px ui-monospace, SFMono-Regular, Menlo, monospace; }
+.ficha-tabla tr.activo td { color: var(--paper); background: color-mix(in srgb, var(--green) 8%, transparent); }
+.ficha-tabla .estado { margin-left: 4px; }
+.card-controls .table-toggle { margin-left: auto; }
+.chart-legend i.cuadro { width: 10px; height: 10px; border-radius: 2px; }
+
+.piramide-leyenda { justify-content: center; }
+.piramide-leyenda i { width: 10px; height: 10px; border-radius: 2px; }
+.piramide-filas { display: grid; gap: 2px; }
+.piramide-fila { position: relative; display: grid; grid-template-columns: 1fr 52px 1fr; align-items: center; padding: 0; border: 0; background: transparent; cursor: default; }
+.piramide-lado { display: flex; height: 12px; }
+.piramide-lado.izq { justify-content: flex-end; }
+.piramide-lado > span { display: block; height: 100%; border-radius: 0 3px 3px 0; }
+.piramide-lado.izq > span { border-radius: 3px 0 0 3px; }
+.piramide-grupo { color: var(--dim); font: 9px ui-monospace, SFMono-Regular, Menlo, monospace; text-align: center; }
+.piramide-fila:hover .piramide-grupo, .piramide-fila:focus-visible .piramide-grupo { color: var(--paper); }
+.piramide-tooltip { top: -6px; left: 50%; transform: translate(-50%, -100%); min-width: 210px; }
+
+.estratos-filas { display: grid; gap: 5px; }
+.estratos-fila { display: grid; grid-template-columns: 170px 1fr; align-items: center; gap: 10px; }
+.estratos-fila.ciudad { padding-bottom: 6px; margin-bottom: 3px; border-bottom: 1px solid var(--line); }
+.estratos-fila.ciudad .bar-label { color: var(--paper); font-weight: 700; }
+.estratos-barra { display: flex; gap: 2px; height: 14px; }
+.estratos-barra button { position: relative; min-width: 2px; padding: 0; border: 0; }
+.estratos-barra button:first-child { border-radius: 3px 0 0 3px; }
+.estratos-barra button:last-child { border-radius: 0 3px 3px 0; }
+.estratos-barra button:hover, .estratos-barra button:focus-visible { filter: brightness(1.2); }
+.estratos-tooltip { top: -6px; left: 50%; transform: translate(-50%, -100%); min-width: 170px; white-space: nowrap; }
+.estratos-tabla td, .estratos-tabla th { text-align: right; }
+.estratos-tabla td:first-child, .estratos-tabla th:first-child { text-align: left; }
+
+@media (max-width: 600px) {
+  .estratos-fila { grid-template-columns: 1fr; gap: 3px; }
+  .piramide-fila { grid-template-columns: 1fr 44px 1fr; }
+}
