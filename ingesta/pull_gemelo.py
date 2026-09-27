@@ -11,11 +11,15 @@ portal IDEM del Área Metropolitana y se convierten a PMTiles con tippecanoe (in
 
 import collections
 import concurrent.futures as cf
+import csv
 import json
 import subprocess
 import sys
 
-from lago import RAIZ, Tema, descargar, json_url
+import numpy as np
+import shapely
+
+from lago import RAIZ, Tema, arcgis_geojson, descargar, json_url
 
 IDEM = 'https://portalidem.metropol.gov.co/server/rest/services/DISTRITO_MEDELLIN_CATASTRO/MapServer'
 CAPA_URBANA, CAPA_RURAL = 8, 7
@@ -26,6 +30,8 @@ CAMPOS = 'OBJECTID,NUMERO_PISOS,NUMERO_SOTANOS,ALTURA,ANIOCONSTRUCCION,AREA_CONS
 DIR_GEO = RAIZ / 'public' / 'data' / 'geo'
 DIR_CRUDOS = RAIZ / 'datos' / 'crudos'
 PMTILES = RAIZ / 'public' / 'data' / 'edificios.pmtiles'
+PUNTOS = DIR_CRUDOS / 'construcciones_puntos.csv'  # centroide + atributos clave, para lentes y análisis
+POT = 'https://portalidem.metropol.gov.co/server/rest/services/DISTRITO_MEDELLIN_POT/MapServer'
 TIPPECANOE = RAIZ / '.herramientas' / 'bin' / 'tippecanoe'
 
 CAPAS_BASE = [
@@ -53,12 +59,10 @@ def limites(t):
              'Área Metropolitana del Valle de Aburrá · Portal IDEM (catastro del Distrito)', IDEM)
     DIR_GEO.mkdir(parents=True, exist_ok=True)
     # maxAllowableOffset en grados (~2 m) simplifica sin cambiar la forma a la escala de la ciudad.
-    params = {'where': '1=1', 'outFields': '*', 'outSR': 4326, 'geometryPrecision': 6,
-              'maxAllowableOffset': 0.00002, 'f': 'geojson'}
     capas = {'comunas': 0, 'barrios': 1, 'veredas': 2}
     conteos = {}
     for nombre, capa in capas.items():
-        datos = json_url(f'{IDEM}/{capa}/query', params)
+        datos = arcgis_geojson(f'{IDEM}/{capa}', offset=0.00002)
         for f in datos['features']:
             p = f['properties']
             f['properties'] = {k: v for k, v in p.items() if not k.startswith(('SHAPE', 'SE_ANNO', 'OBJECTID'))}
@@ -113,6 +117,12 @@ def propiedades(p, rural):
     return salida
 
 
+def centroide(geometria):
+    """Promedio de los vértices del anillo exterior: basta para ubicar construcciones de pocos metros."""
+    anillo = geometria['coordinates'][0] if geometria['type'] == 'Polygon' else geometria['coordinates'][0][0]
+    return sum(c[0] for c in anillo) / len(anillo), sum(c[1] for c in anillo) / len(anillo)
+
+
 def construcciones(t):
     t.fuente('catastro-construcciones', 'Construcciones urbanas y rurales del catastro distrital',
              'Área Metropolitana del Valle de Aburrá · Portal IDEM (catastro del Distrito)', f'{IDEM}/{CAPA_URBANA}')
@@ -120,6 +130,7 @@ def construcciones(t):
     salida = DIR_CRUDOS / 'construcciones.ndjson'
     pisos = collections.Counter()
     altos, n_estimadas, conteo = [], 0, {0: 0, 1: 0}
+    xs, ys = [], []
 
     with salida.open('w', encoding='utf-8') as archivo, cf.ThreadPoolExecutor(6) as pool:
         for capa, rural in ((CAPA_URBANA, 0), (CAPA_RURAL, 1)):
@@ -136,6 +147,9 @@ def construcciones(t):
                     conteo[rural] += 1
                     if p['p'] >= 25:
                         altos.append(p)
+                    x, y = centroide(f['geometry'])
+                    xs.append(x)
+                    ys.append(y)
                     archivo.write(json.dumps(f, separators=(',', ':')) + '\n')
                 if i % 50 == 0:
                     print(f'    capa {capa}: lote {i + 1}/{len(desdes)} · {sum(conteo.values()):,} construcciones',
@@ -169,7 +183,71 @@ def construcciones(t):
         {'cbml': p['c'], 'pisos': p['p'], 'altura_m': p['h'], 'tipo': p['t']}
         for p in sorted(altos, key=lambda p: (-p['p'], -p['h']))[:15]])
     print(f'  · {total:,} construcciones ({conteo[0]:,} urbanas, {conteo[1]:,} rurales) → {salida.name}')
+    enriquecer(t, salida, np.array(xs), np.array(ys))
     return salida
+
+
+def poligonos(geojson, campo):
+    """Geometrías shapely y el valor de `campo` de cada polígono de un GeoJSON."""
+    feats = [f for f in geojson['features'] if f.get('geometry')]
+    return [shapely.geometry.shape(f['geometry']) for f in feats], [f['properties'].get(campo) for f in feats]
+
+
+def ubicar(xs, ys, geoms, valores):
+    """Para cada punto, el valor del polígono que lo contiene (o None)."""
+    puntos = shapely.points(xs, ys)
+    arbol = shapely.STRtree(geoms)
+    idx_punto, idx_poligono = arbol.query(puntos, predicate='within')
+    salida = [None] * len(xs)
+    for i, j in zip(idx_punto, idx_poligono):
+        salida[i] = valores[j]
+    return salida
+
+
+def enriquecer(t, ndjson, xs, ys):
+    """Agrega a cada construcción su comuna (k) y la altura normativa del POT en pisos (n), si es numérica."""
+    t.fuente('pot-tratamientos', 'POT (Acuerdo 48 de 2014) · tratamientos urbanos con altura normativa',
+             'Área Metropolitana del Valle de Aburrá · Portal IDEM', f'{POT}/5')
+    comunas = json.loads((DIR_GEO / 'comunas.geojson').read_text(encoding='utf-8'))
+    geoms_c, codigos = poligonos(comunas, 'CODIGO')
+    tratamientos = arcgis_geojson(f'{POT}/5', 'ALTURANORMATIVA')
+    con_altura = [f for f in tratamientos['features'] if str(f['properties'].get('ALTURANORMATIVA')).isdigit()]
+    geoms_t, alturas = poligonos({'features': con_altura}, 'ALTURANORMATIVA')
+    comuna = ubicar(xs, ys, geoms_c, codigos)
+    norma = ubicar(xs, ys, geoms_t, [int(a) for a in alturas])
+
+    temporal = ndjson.with_suffix('.tmp')
+    sobre = con_norma = 0
+    with ndjson.open(encoding='utf-8') as entrada, temporal.open('w', encoding='utf-8') as salida, \
+            PUNTOS.open('w', newline='', encoding='utf-8') as puntos:
+        escritor = csv.writer(puntos)
+        escritor.writerow(['x', 'y', 'p', 'a', 'k', 'n'])
+        for i, linea in enumerate(entrada):
+            f = json.loads(linea)
+            p = f['properties']
+            if comuna[i]:
+                p['k'] = comuna[i]
+            if norma[i] is not None:
+                p['n'] = norma[i]
+                con_norma += 1
+                sobre += p['p'] > norma[i]
+            salida.write(json.dumps(f, separators=(',', ':')) + '\n')
+            escritor.writerow([f'{xs[i]:.6f}', f'{ys[i]:.6f}', p['p'], p['a'], comuna[i] or '', norma[i] if norma[i] is not None else ''])
+    temporal.replace(ndjson)
+
+    fuente = 'pot-tratamientos'
+    t.cifra('construcciones_con_altura_normativa', con_norma, 'construcciones',
+            'Construcciones en zonas con altura normativa en pisos', fuente, 'POT vigente (Acuerdo 48 de 2014)',
+            estado='derivado',
+            nota=f'Construcciones cuyo centroide cae en un tratamiento del POT con ALTURANORMATIVA numérica '
+                 f'({len(con_altura)} de {len(tratamientos["features"])} polígonos). En el resto la norma es '
+                 '"N/A" o "Variable".')
+    t.cifra('construcciones_sobre_altura_normativa', sobre, 'construcciones',
+            'Construcciones con más pisos que la altura normativa', fuente, 'POT vigente (Acuerdo 48 de 2014)',
+            estado='derivado',
+            nota='Pisos del catastro mayores que la altura normativa del tratamiento donde está su centroide. '
+                 'Es un cruce geométrico: no considera licencias, reconocimientos ni normas anteriores al POT.')
+    print(f'  · cruce espacial: {sum(1 for c in comuna if c):,} con comuna, {con_norma:,} con altura normativa')
 
 
 def teselas(ndjson):
@@ -198,7 +276,11 @@ def main(solo_limites=False):
     t = Tema('gemelo', 'Gemelo 3D')
     with t.bloque('idem-limites'):
         limites(t)
-    if not solo_limites:
+    if solo_limites:
+        # Lo que no se vuelve a ingestar se conserva de la corrida anterior, en lugar de desaparecer del lago.
+        for fuente in ('catastro-construcciones', 'pot-tratamientos'):
+            t._heredar(fuente)
+    else:
         with t.bloque('catastro-construcciones'):
             teselas(construcciones(t))
     for capa in CAPAS_BASE:

@@ -23,6 +23,14 @@
    "probado": "2026-09-26"
   },
   {
+   "id": "pot-tratamientos",
+   "nombre": "POT (Acuerdo 48 de 2014) · tratamientos urbanos con altura normativa",
+   "entidad": "Área Metropolitana del Valle de Aburrá · Portal IDEM",
+   "url": "https://portalidem.metropol.gov.co/server/rest/services/DISTRITO_MEDELLIN_POT/MapServer/5",
+   "estado": "observado",
+   "probado": "2026-09-26"
+  },
+  {
    "id": "ortofoto-2024",
    "nombre": "Ortofoto 2024 del Distrito",
    "entidad": "Alcaldía de Medellín",
@@ -151,6 +159,24 @@
    "vigencia": "Base catastral vigente",
    "estado": "observado",
    "nota": "Para estas construcciones el mapa estima la altura como pisos × 2.3 m (ALTURAPISO del catastro) y lo indica al consultarlas."
+  },
+  "construcciones_con_altura_normativa": {
+   "valor": 685555,
+   "unidad": "construcciones",
+   "etiqueta": "Construcciones en zonas con altura normativa en pisos",
+   "fuente": "pot-tratamientos",
+   "vigencia": "POT vigente (Acuerdo 48 de 2014)",
+   "estado": "derivado",
+   "nota": "Construcciones cuyo centroide cae en un tratamiento del POT con ALTURANORMATIVA numérica (177 de 522 polígonos). En el resto la norma es \"N/A\" o \"Variable\"."
+  },
+  "construcciones_sobre_altura_normativa": {
+   "valor": 67477,
+   "unidad": "construcciones",
+   "etiqueta": "Construcciones con más pisos que la altura normativa",
+   "fuente": "pot-tratamientos",
+   "vigencia": "POT vigente (Acuerdo 48 de 2014)",
+   "estado": "derivado",
+   "nota": "Pisos del catastro mayores que la altura normativa del tratamiento donde está su centroide. Es un cruce geométrico: no considera licencias, reconocimientos ni normas anteriores al POT."
   }
  },
  "series": {},

@@ -41,7 +41,7 @@ export default function Home() {
   // La sección activa vive en el #hash para poder enlazarla (por ejemplo, /#twin).
   useEffect(() => {
     const fromHash = () => {
-      const id = window.location.hash.slice(1);
+      const id = window.location.hash.slice(1).split('?')[0];
       if (navigation.some(([navId]) => navId === id)) setActive(id);
     };
     fromHash();
@@ -54,5 +54,5 @@ export default function Home() {
     window.history.replaceState(null, '', id === 'panorama' ? window.location.pathname : `#${id}`);
   };
   const openSource = (sourceId) => { navigate('sources'); setFocusSource(sourceId); };
-  return <div className="app-shell"><Sidebar active={active} onNavigate={navigate} isOpen={menuOpen} onClose={() => setMenuOpen(false)} lago={lago} /><main className="workspace"><header className="topbar"><button className="menu-button" onClick={() => setMenuOpen(true)} aria-label="Abrir menú">☰</button><div>MODELO DIGITAL <span>/</span> <strong>{current}</strong></div><button className="source-shortcut" onClick={() => navigate('sources')}>Fuentes <span>↗</span></button></header>{active === 'panorama' && <Panorama lago={lago} onSource={openSource} onTwin={() => navigate('twin')} />}{active === 'twin' && <DigitalTwinView gemelo={lago.temas.gemelo} />}{active === 'sources' && <SourcesView catalogo={lago.catalogo} focusId={focusSource} />}{!implemented.has(active) && <ComingSoon label={current} />}</main></div>;
+  return <div className="app-shell"><Sidebar active={active} onNavigate={navigate} isOpen={menuOpen} onClose={() => setMenuOpen(false)} lago={lago} /><main className="workspace"><header className="topbar"><button className="menu-button" onClick={() => setMenuOpen(true)} aria-label="Abrir menú">☰</button><div>MODELO DIGITAL <span>/</span> <strong>{current}</strong></div><button className="source-shortcut" onClick={() => navigate('sources')}>Fuentes <span>↗</span></button></header>{active === 'panorama' && <Panorama lago={lago} onSource={openSource} onTwin={() => navigate('twin')} />}{active === 'twin' && <DigitalTwinView gemelo={lago.temas.gemelo} lentes={lago.temas.lentes} catalogo={lago.catalogo} />}{active === 'sources' && <SourcesView catalogo={lago.catalogo} focusId={focusSource} />}{!implemented.has(active) && <ComingSoon label={current} />}</main></div>;
 }

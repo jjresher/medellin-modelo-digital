@@ -42,6 +42,14 @@ ingesta/instalar_tippecanoe.sh
 
 **Gemelo 3D.** Las construcciones del catastro (más de un millón) se descargan a `datos/crudos/` y se convierten a `public/data/edificios.pmtiles` (unos 57 MB). Ni los datos crudos ni el PMTiles se guardan en git: después de clonar el proyecto hay que generarlos con `npm run ingesta` (o solo `.venv/bin/python ingesta/correr.py gemelo`, unos 6 minutos). Sin ese archivo, el mapa muestra los límites y avisa que faltan los edificios.
 
+**Lentes y capas temáticas.** `ingesta/pull_lentes.py` depende de lo que genera el gemelo: los límites y el cruce espacial de las construcciones. Por eso `correr.py` lo ejecuta después de `gemelo`. Produce:
+- las capas del panel Explorar, en `public/data/geo/capas/`;
+- el mapa de calor de siniestros viales, en `public/data/siniestros.pmtiles` (no se guarda en git);
+- la rejilla para "Analizar punto", en `public/data/geo/analisis.json`;
+- los índices 0–100 por comuna, en el tema `lentes` del lago.
+
+Para regenerar solo esto: `.venv/bin/python ingesta/correr.py lentes`, unos 6 minutos.
+
 **Ortofotos.** El mapa las pide a `/api/ortofoto/<año>/{z}/{y}/{x}`, un proxy que guarda cada tesela en `.cache/ortofoto/`. El servidor de la Alcaldía se cae con frecuencia; cuando falla, se ve la imagen satelital de Esri debajo.
 
 Para actualizar:

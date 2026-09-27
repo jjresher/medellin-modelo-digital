@@ -21,5 +21,6 @@ export const accentByTheme = {
   seguridad: 'pink',
   turismo: 'yellow',
   movilidad: 'orange',
-  gemelo: 'purple'
+  gemelo: 'purple',
+  lentes: 'purple'
 };

@@ -72,6 +72,16 @@ Convenciones: `ALC` = `https://www.medellin.gov.co/servidormapas/rest/services`,
 | Terreno global | `https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png` | Estático | **En uso** como relieve del gemelo 3D (`raster-dem`, codificación Terrarium) |
 | Cartografía base | OpenFreeMap (ya integrada) | Continua | |
 
+### Notas de uso en las lentes del gemelo (issue #2, 26 sep 2026)
+
+- **Paginación.** Los servicios ArcGIS cortan cada respuesta en su `maxRecordCount` (2.000 en el IDEM). Sin paginar, las líneas de alta tensión (2.231) y los equipamientos (2.139) llegaban truncados en 2.000 sin error visible. `lago.arcgis_geojson` pagina con `resultOffset`.
+- **Red de media tensión** (`Riesgo_Tecnológico/FeatureServer/2`, 79.537 tramos). No se descarga: se suma `longitud_c` por comuna con una consulta estadística espacial (POST con la geometría de la comuna). Un tramo que cruza un límite cuenta en ambos territorios.
+- **No hay demanda eléctrica abierta por comuna.** MEData solo publica consumos de acueducto por estrato o prestador. La lente de energía muestra infraestructura, no consumo.
+- **Altura normativa del POT.** Los tratamientos del IDEM (`DISTRITO_MEDELLIN_POT/MapServer/5`, 522 polígonos) traen `ALTURANORMATIVA`, pero solo 177 tienen un número de pisos; el resto dice "N/A" o "Variable". De las construcciones, 685.555 caen en zonas con altura numérica. En Laureles son apenas 536 de 60.835, así que todo porcentaje "sobre la norma" debe mostrar su base.
+- **Víctimas en incidentes viales** (MEData): 1.048.317 filas, de las cuales 235.840 son registros reales con coordenadas (el resto son filas vacías). Cubren 2014–2021. Las coordenadas usan coma decimal.
+- **Aforos vehiculares** (MEData): 2017–2019. Cada fila es un movimiento de giro cada 15 minutos con un volumen horario móvil (`VEHICULO_EQUIVALENTE`). El volumen de una intersección es la suma de sus movimientos en la hora de máxima demanda de cada día. Hay 152 intersecciones con datos válidos.
+- **Estaciones del Sistema Metro** (portal del Metro): 167 elementos, que incluyen metro, cables (`sistema = C`), Metroplús (`MPLUS`) y tranvía (`T`).
+
 ### Energía e infraestructura (equivale a la lente de energía de Lima)
 
 | Dato | Endpoint | Vigencia | Notas |

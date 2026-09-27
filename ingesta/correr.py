@@ -15,7 +15,8 @@ import traceback
 from lago import DIR_LAGO, hoy
 
 # demografia va primero: seguridad usa su población para calcular tasas.
-TEMAS = ['demografia', 'economia', 'seguridad', 'turismo', 'movilidad', 'gemelo']
+# lentes va después de gemelo: usa sus límites y el cruce espacial de las construcciones.
+TEMAS = ['demografia', 'economia', 'seguridad', 'turismo', 'movilidad', 'gemelo', 'lentes']
 
 
 def vigencia_de(tema, fuente_id):

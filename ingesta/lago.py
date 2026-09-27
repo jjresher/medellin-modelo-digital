@@ -33,13 +33,18 @@ def hoy():
     return dt.date.today()
 
 
-def descargar(url, params=None, intentos=3, timeout=90):
-    """GET con User-Agent de navegador (el servidor de la Alcaldía rechaza clientes sin él) y reintentos."""
+def descargar(url, params=None, intentos=3, timeout=90, post=None):
+    """GET (o POST si se pasa `post`) con User-Agent de navegador y reintentos.
+
+    El servidor de la Alcaldía rechaza clientes sin User-Agent. POST sirve para consultas ArcGIS con
+    geometrías largas que no caben en una URL.
+    """
     if params:
         url += ('&' if '?' in url else '?') + urllib.parse.urlencode(params)
+    cuerpo = urllib.parse.urlencode(post).encode() if post else None
     for intento in range(intentos):
         try:
-            req = urllib.request.Request(url, headers={'User-Agent': UA})
+            req = urllib.request.Request(url, data=cuerpo, headers={'User-Agent': UA})
             with urllib.request.urlopen(req, timeout=timeout) as r:
                 return r.read()
         except urllib.error.HTTPError as e:
@@ -61,8 +66,8 @@ def existe(url):
         return False
 
 
-def json_url(url, params=None):
-    return json.loads(descargar(url, params))
+def json_url(url, params=None, post=None):
+    return json.loads(descargar(url, params, post=post))
 
 
 def socrata(recurso, **soql):
@@ -87,6 +92,24 @@ def arcgis(capa, where='1=1', campos='*', geometria=False):
         filas += lote
         offset += len(lote)
     return filas
+
+
+def arcgis_geojson(capa, campos='*', where='1=1', offset=None):
+    """Descarga una capa completa en GeoJSON, paginando: los servicios cortan cada respuesta en su maxRecordCount."""
+    params = {'where': where, 'outFields': campos, 'outSR': 4326, 'geometryPrecision': 6, 'f': 'geojson'}
+    if offset:
+        params['maxAllowableOffset'] = offset
+    features = []
+    while True:
+        datos = json_url(f'{capa}/query', {**params, 'resultOffset': len(features)})
+        if 'error' in datos:
+            raise RuntimeError(f'{capa}: {datos["error"]}')
+        features += datos.get('features', [])
+        # En GeoJSON, ArcGIS avisa del corte en la raíz o dentro de "properties", según la versión.
+        cortado = datos.get('exceededTransferLimit') or (datos.get('properties') or {}).get('exceededTransferLimit')
+        if not cortado or not datos.get('features'):
+            return {'type': 'FeatureCollection', 'features': features}
+
 
 
 def excel(contenido):

@@ -17,7 +17,7 @@ Hoja de ruta para llevar la app a la estructura de [Cerebro Lima](https://cerebr
 |---|---|---|---|
 | 0 | [Lago de datos, ingesta y verificación](#0-lago-de-datos-ingesta-y-verificación) | — | ☑ |
 | 1 | [Gemelo 3D con alturas reales](#1-gemelo-3d-con-alturas-reales) | 0 | ☑ |
-| 2 | [Lentes y herramientas del gemelo](#2-lentes-y-herramientas-del-gemelo) | 1 | ☐ |
+| 2 | [Lentes y herramientas del gemelo](#2-lentes-y-herramientas-del-gemelo) | 1 | ☑ |
 | 3 | [Seguridad](#3-seguridad) | 0 | ☐ |
 | 4 | [Ambiente y satélite](#4-ambiente-y-satélite) | 0 | ☐ |
 | 5 | [Gente](#5-gente) | 0 | ☐ |
@@ -104,17 +104,17 @@ Panorama va casi al final porque resume las cifras ancla de todas las demás sec
 **Objetivo:** que el mapa responda preguntas, como las lentes de Cerebro Lima.
 
 **Tareas**
-- [ ] Cuatro lentes en la barra superior del mapa:
+- [x] Cuatro lentes en la barra superior del mapa:
   - **Cruce urbano:** combina las otras tres lentes en un índice por comuna.
   - **Energía:** 26 subestaciones y redes de alta y media tensión.
   - **Densificación:** pisos construidos frente a la altura normativa del POT.
   - **Presión vial:** aforos, velocidad por corredor y siniestros. Es un indicador estructural de 0 a 100, no tráfico en vivo, y debe decirlo en pantalla.
-- [ ] Panel **Explorar** con capas temáticas: Movilidad, Servicios, Turismo, Verde, Planificación, Edificación 3D y Riesgo.
-- [ ] **Analizar punto:** radios de 500 m y 1 km que resumen edificios, energía, equipamientos y siniestros cercanos.
-- [ ] Herramientas: medir distancia, comparar fechas (ortofotos 2016, 2019, 2021 y 2024), HUD técnico, norte, pantalla completa y compartir vista (cámara, base y capas en la URL).
-- [ ] Atajos de teclado: `1`–`4` lentes, `E` explorar, `A` analizar, `M` medir, `H` HUD, `Esc` salir.
-- [ ] Guía inicial "Empieza aquí" y ayuda rápida con los atajos.
-- [ ] Recuadro "Qué estás viendo" con la fuente, la vigencia y el estado de cada capa.
+- [x] Panel **Explorar** con capas temáticas: Movilidad, Servicios, Turismo, Verde, Planificación, Edificación 3D y Riesgo.
+- [x] **Analizar punto:** radios de 500 m y 1 km que resumen edificios, energía, equipamientos y siniestros cercanos.
+- [x] Herramientas: medir distancia, comparar fechas (ortofotos 2016, 2019, 2021 y 2024), HUD técnico, norte, pantalla completa y compartir vista (cámara, base y capas en la URL).
+- [x] Atajos de teclado: `1`–`4` lentes, `E` explorar, `A` analizar, `M` medir, `H` HUD, `Esc` salir.
+- [x] Guía inicial "Empieza aquí" y ayuda rápida con los atajos.
+- [x] Recuadro "Qué estás viendo" con la fuente, la vigencia y el estado de cada capa.
 
 **Datos:**
 - [Energía](fuentes-medellin.md#energía-e-infraestructura-equivale-a-la-lente-de-energía-de-lima)
@@ -123,6 +123,26 @@ Panorama va casi al final porque resume las cifras ancla de todas las demás sec
 - Ortofotos 2016–2024 en [Gemelo 3D](fuentes-medellin.md#gemelo-3d-y-cartografía)
 
 **Terminada cuando:** cada lente cambia el mapa y explica su método, "Analizar" devuelve cifras con fuente, y un enlace compartido abre la misma vista.
+
+**Resultado (26 sep 2026)**
+- Nuevo tema del lago `lentes` (`ingesta/pull_lentes.py`), con 13 cifras. Índices 0–100 para las 21 comunas y corregimientos, calculados como posición relativa entre ellas:
+  - **Energía:** km de red de media tensión y de alta tensión por km². No hay demanda eléctrica abierta por comuna, así que la lente muestra infraestructura.
+  - **Densificación:** índice de construcción bruto y pisos promedio. En el mapa, cada construcción se colorea por pisos frente a la altura normativa del POT.
+  - **Presión vial:** víctimas viales por km² al año (2019–2021) y volumen en hora pico de los aforos (2017–2019). Son las series abiertas más recientes.
+  - **Cruce urbano:** promedio de las tres.
+- Panel Explorar con 6 capas temáticas (Movilidad, Servicios, Turismo, Verde, Planificación, Riesgo) más la edificación 3D. Cada capa se descarga solo cuando se activa.
+- Herramientas:
+  - Analizar (radios de 500 m y 1 km sobre una rejilla de ~110 m).
+  - Medir, comparar ortofotos 2016–2024 con mezcla y HUD.
+  - Norte y compartir vista (cámara, base, lente y capas en la URL).
+  - Atajos, ayuda, guía inicial y "Qué estás viendo" con fuente, vigencia y estado de cada capa.
+- Con base fotográfica se ocultan los rellenos y las líneas del estilo oscuro, que tapaban la imagen, y se dejan solo las etiquetas.
+- Correcciones que salieron al probar:
+  - Descargas ArcGIS truncadas en 2.000 elementos: se agregó paginación en la librería compartida.
+  - Mapa de calor saturado: se ajustaron el peso y el radio.
+  - Porcentaje "sobre la norma" sin base: ahora se muestra el conteo, por ejemplo 536 construcciones en Laureles.
+- `Map3D.jsx` se dividió en `src/components/twin/`: `Map3D`, `config`, `Paneles` y `geo`.
+- **Pendiente de revisar a mano:** la fluidez con varias capas y el relieve activos en un portátil normal, y la interfaz en un móvil real.
 
 ---
 
