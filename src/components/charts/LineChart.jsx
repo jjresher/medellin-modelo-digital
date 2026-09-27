@@ -1,24 +1,50 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { grid, textMuted, textPrimary, textSecondary } from './tokens';
 
-const W = 640;
 const H = 220;
-const PAD = { top: 14, right: 40, bottom: 22, left: 44 };
+const FUENTE = 11;          // px: el texto del eje se dibuja en píxeles reales, no escalado con la tarjeta
+const ANCHO_LETRA = 6.2;    // px por carácter a 11 px; alcanza para reservar márgenes sin medir el DOM
+const PAD_TOP = 14;
+const PAD_BOTTOM = 26;
 
 const fmtDefault = (v) => Number(v).toLocaleString('es-CO', { maximumFractionDigits: 1 });
+const anchoTexto = (texto) => String(texto).length * ANCHO_LETRA;
 
-function niceTicks(min, max, n = 4) {
-  if (min === max) return [min];
-  const span = max - min;
-  const step = Math.pow(10, Math.floor(Math.log10(span / n)));
-  const mult = span / n / step;
-  const niceStep = (mult >= 5 ? 5 : mult >= 2 ? 2 : 1) * step;
-  const start = Math.floor(min / niceStep) * niceStep;
+/**
+ * Eje Y con pasos "redondos" (1, 2, 5 × 10ⁿ) que siempre cubre el mínimo y el máximo de los datos. Con desdeCero
+ * empieza en 0; si no, cerca del mínimo: una tasa que se mueve entre 58 y 68 % se vería plana contra un eje desde 0.
+ * Empezar lejos de cero es válido en líneas (no en barras), y el rótulo del eje deja ver dónde empieza.
+ */
+function escalaY(minDato, maxDato, desdeCero, pasos = 5) {
+  let bajo = desdeCero ? Math.min(0, minDato) : minDato;
+  let alto = Math.max(maxDato, desdeCero ? 0 : maxDato);
+  if (alto === bajo) { alto += Math.abs(alto) * 0.1 || 1; bajo -= desdeCero ? 0 : Math.abs(bajo) * 0.1 || 1; }
+  const crudo = (alto - bajo) / pasos;
+  const magnitud = Math.pow(10, Math.floor(Math.log10(crudo)));
+  const paso = [1, 2, 5, 10].find((m) => m * magnitud >= crudo) * magnitud;
+  const inicio = Math.floor(bajo / paso) * paso;
+  const fin = Math.ceil(alto / paso) * paso;
   const ticks = [];
-  for (let v = start; v <= max + niceStep * 0.001; v += niceStep) if (v >= min - niceStep * 0.001) ticks.push(Math.round(v * 100) / 100);
+  for (let k = 0; inicio + k * paso <= fin + paso * 1e-9; k++) ticks.push(Number((inicio + k * paso).toPrecision(12)));
   return ticks;
+}
+
+/**
+ * Posiciones del eje X que caben sin encimarse: se reparte un rótulo cada tantos puntos según el ancho disponible,
+ * siempre con el primero y el último, y se quita el regular que quedaría pegado al último.
+ */
+function ticksX(etiquetas, anchoPlot) {
+  const n = etiquetas.length;
+  if (n <= 1) return n ? [0] : [];
+  const hueco = Math.max(...etiquetas.map(anchoTexto)) + 18;
+  const caben = Math.max(2, Math.floor(anchoPlot / hueco) + 1);
+  const cada = Math.max(1, Math.ceil((n - 1) / (caben - 1)));
+  const separacion = anchoPlot / (n - 1);
+  const marcas = [];
+  for (let i = 0; i < n - 1; i += cada) if ((n - 1 - i) * separacion >= hueco) marcas.push(i);
+  return [...marcas, n - 1];
 }
 
 /**
@@ -26,23 +52,44 @@ function niceTicks(min, max, n = 4) {
  * "año en curso vs año anterior" (dos líneas: la actual en color sólido, la anterior en gris
  * punteado — color contra gris, no dos acentos compitiendo por identidad).
  *
- * series: [{ label, color, dashed?, points: [[etiquetaX, valor], ...] }]
+ * series: [{ label, color, dashed?, points: [[etiquetaX, valor | null], ...] }] — null deja un hueco en la línea.
  */
-export default function LineChart({ series, unit = '', formatValue = fmtDefault, height = H, ariaLabel }) {
+export default function LineChart({ series, unit = '', formatValue = fmtDefault, height = H, ariaLabel, desdeCero = true }) {
+  const caja = useRef(null);
+  const [ancho, setAncho] = useState(560);
   const [hover, setHover] = useState(null);
-  const labels = series[0]?.points.map((p) => p[0]) ?? [];
-  const n = labels.length;
-  const allValues = series.flatMap((s) => s.points.map((p) => p[1])).filter((v) => v != null);
-  const min = Math.min(0, ...allValues);
-  const max = Math.max(...allValues, 1);
-  const ticks = useMemo(() => niceTicks(min, max), [min, max]);
-  const topTick = ticks[ticks.length - 1] ?? max;
 
-  const x = (i) => PAD.left + (n <= 1 ? 0 : (i / (n - 1)) * (W - PAD.left - PAD.right));
-  const y = (v) => height - PAD.bottom - ((v - min) / (topTick - min || 1)) * (height - PAD.top - PAD.bottom);
+  useEffect(() => {
+    const nodo = caja.current;
+    if (!nodo) return undefined;
+    const observador = new ResizeObserver(([entrada]) => {
+      const medido = Math.round(entrada.contentRect.width);
+      if (medido > 0) setAncho(medido);
+    });
+    observador.observe(nodo);
+    return () => observador.disconnect();
+  }, []);
+
+  const labels = series[0]?.points.map((p) => String(p[0])) ?? [];
+  const n = labels.length;
+  const valores = series.flatMap((s) => s.points.map((p) => p[1])).filter((v) => v != null);
+  if (!n || !valores.length) return null;
+
+  const ticks = escalaY(Math.min(...valores), Math.max(...valores), desdeCero);
+  const bajo = ticks[0];
+  const alto = ticks[ticks.length - 1];
+  const finales = series.map((s) => [...s.points].reverse().find((p) => p[1] != null)).filter(Boolean);
+
+  // Márgenes a la medida de los rótulos: los del eje Y a la izquierda, el valor final a la derecha.
+  const padLeft = Math.ceil(Math.max(...ticks.map((t) => anchoTexto(formatValue(t))))) + 10;
+  const padRight = Math.ceil(Math.max(12, ...finales.map((p) => anchoTexto(formatValue(p[1])) + 14)));
+  const anchoPlot = Math.max(40, ancho - padLeft - padRight);
+
+  const x = (i) => padLeft + (n <= 1 ? anchoPlot / 2 : (i / (n - 1)) * anchoPlot);
+  const y = (v) => height - PAD_BOTTOM - ((v - bajo) / (alto - bajo || 1)) * (height - PAD_TOP - PAD_BOTTOM);
 
   // Un punto sin dato corta la línea: la serie sigue en el siguiente valor con un hueco, en vez de caer al eje
-  // (las series en vivo del SIATA traen días sin medición).
+  // (las series en vivo del SIATA traen días sin medición y la GEIH no midió la subocupación a mediados de 2020).
   const path = (points) => {
     let comando = 'M';
     return points.map(([, v], i) => {
@@ -52,26 +99,18 @@ export default function LineChart({ series, unit = '', formatValue = fmtDefault,
       return trazo;
     }).filter(Boolean).join(' ');
   };
-
-  const xTickEvery = Math.max(1, Math.ceil(n / 7));
-  // Siempre se marca el último punto; se omite el múltiplo regular anterior si quedaría pegado a él.
-  const xTicks = new Set();
-  for (let i = 0; i < n; i += xTickEvery) xTicks.add(i);
-  if (n > 1) {
-    const anterior = [...xTicks].filter((i) => i !== n - 1).pop();
-    if (anterior != null && n - 1 - anterior < xTickEvery / 2) xTicks.delete(anterior);
-    xTicks.add(n - 1);
-  }
+  const marcasX = ticksX(labels, anchoPlot);
 
   const onMove = (event) => {
     const rect = event.currentTarget.getBoundingClientRect();
-    const px = ((event.clientX - rect.left) / rect.width) * W;
-    const i = Math.max(0, Math.min(n - 1, Math.round(((px - PAD.left) / (W - PAD.left - PAD.right)) * (n - 1))));
-    setHover(i);
+    const px = event.clientX - rect.left;
+    setHover(Math.max(0, Math.min(n - 1, Math.round(((px - padLeft) / anchoPlot) * (n - 1)))));
   };
+  // El tooltip se mantiene dentro de la tarjeta aunque el punto esté en un borde.
+  const tooltipLeft = hover == null ? 0 : Math.min(Math.max(x(hover), 80), ancho - 80);
 
   return (
-    <div className="linechart" role="img" aria-label={ariaLabel ?? series.map((s) => s.label).join(' vs ')}>
+    <div ref={caja} className="linechart" role="img" aria-label={ariaLabel ?? series.map((s) => s.label).join(' vs ')}>
       {series.length > 1 && (
         <div className="chart-legend">
           {series.map((s) => (
@@ -79,15 +118,17 @@ export default function LineChart({ series, unit = '', formatValue = fmtDefault,
           ))}
         </div>
       )}
-      <svg viewBox={`0 0 ${W} ${height}`} preserveAspectRatio="none" onMouseMove={onMove} onMouseLeave={() => setHover(null)} onTouchMove={(e) => onMove(e.touches[0] ?? e)}>
+      <svg width={ancho} height={height} viewBox={`0 0 ${ancho} ${height}`} onMouseMove={onMove} onMouseLeave={() => setHover(null)}
+        onTouchMove={(e) => onMove(e.touches[0] ?? e)}>
         {ticks.map((t) => (
           <g key={t}>
-            <line x1={PAD.left} x2={W - PAD.right} y1={y(t)} y2={y(t)} stroke={grid} strokeWidth="1" />
-            <text x={PAD.left - 8} y={y(t)} dy="3" textAnchor="end" fontSize="9" fill={textMuted}>{formatValue(t)}</text>
+            <line x1={padLeft} x2={padLeft + anchoPlot} y1={y(t)} y2={y(t)} stroke={grid} strokeWidth="1" />
+            <text x={padLeft - 8} y={y(t)} dy="4" textAnchor="end" fontSize={FUENTE} fill={textMuted}>{formatValue(t)}</text>
           </g>
         ))}
-        {labels.map((lab, i) => xTicks.has(i) && (
-          <text key={lab} x={x(i)} y={height - 6} textAnchor={i === n - 1 ? 'end' : 'middle'} fontSize="9" fill={textMuted}>{lab}</text>
+        {marcasX.map((i) => (
+          <text key={i} x={x(i)} y={height - 8} fontSize={FUENTE} fill={textMuted}
+            textAnchor={n === 1 ? 'middle' : i === 0 ? 'start' : i === n - 1 ? 'end' : 'middle'}>{labels[i]}</text>
         ))}
         {series.map((s) => (
           <path key={s.label} d={path(s.points)} fill="none" stroke={s.color} strokeWidth="2" strokeLinejoin="round" strokeLinecap="round"
@@ -100,13 +141,13 @@ export default function LineChart({ series, unit = '', formatValue = fmtDefault,
           return (
             <g key={`${s.label}-end`}>
               <circle cx={x(i)} cy={y(last[1])} r="4" fill={s.color} stroke="#272822" strokeWidth="2" />
-              <text x={x(i) + 7} y={y(last[1])} dy="3" fontSize="10" fontFamily="ui-monospace, Menlo, monospace" fill={textPrimary}>{formatValue(last[1])}</text>
+              <text x={x(i) + 8} y={y(last[1])} dy="4" fontSize={FUENTE} fontFamily="ui-monospace, Menlo, monospace" fill={textPrimary}>{formatValue(last[1])}</text>
             </g>
           );
         })}
         {hover != null && (
           <g>
-            <line x1={x(hover)} x2={x(hover)} y1={PAD.top} y2={height - PAD.bottom} stroke={textSecondary} strokeWidth="1" strokeDasharray="2 2" />
+            <line x1={x(hover)} x2={x(hover)} y1={PAD_TOP} y2={height - PAD_BOTTOM} stroke={textSecondary} strokeWidth="1" strokeDasharray="2 2" />
             {series.map((s) => s.points[hover]?.[1] != null && (
               <circle key={s.label} cx={x(hover)} cy={y(s.points[hover][1])} r="4" fill={s.color} stroke="#272822" strokeWidth="2" />
             ))}
@@ -114,10 +155,10 @@ export default function LineChart({ series, unit = '', formatValue = fmtDefault,
         )}
       </svg>
       {hover != null && (
-        <div className="chart-tooltip" style={{ left: `${(x(hover) / W) * 100}%` }}>
+        <div className="chart-tooltip" style={{ left: `${tooltipLeft}px` }}>
           <b>{labels[hover]}</b>
-          {series.map((s) => s.points[hover]?.[1] != null && (
-            <span key={s.label}><i style={{ background: s.color }} />{s.label}: <strong>{formatValue(s.points[hover][1])}{unit && ` ${unit}`}</strong></span>
+          {series.map((s) => (
+            <span key={s.label}><i style={{ background: s.color }} />{s.label}: <strong>{s.points[hover]?.[1] == null ? 'sin dato' : `${formatValue(s.points[hover][1])}${unit ? ` ${unit}` : ''}`}</strong></span>
           ))}
         </div>
       )}

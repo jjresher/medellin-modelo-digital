@@ -1,12 +1,11 @@
 'use client';
 
-import { useMemo, useState } from 'react';
-import BarChart from './charts/BarChart';
 import LineChart from './charts/LineChart';
 import { accent } from './charts/tokens';
 import Estratos from './gente/Estratos';
 import Piramide from './gente/Piramide';
 import MetricCard from './MetricCard';
+import PanelTerritorios, { Procedencia } from './territorios/PanelTerritorios';
 
 // Sección Gente. Todo sale del tema `demografia` del lago: cifras de ciudad, la pirámide del DANE y, por cada
 // comuna y corregimiento, los indicadores con su propia fuente, vigencia y estado (listas `indicadores` y `territorios`).
@@ -28,99 +27,6 @@ const FICHA = ['poblacion', 'hogares', 'viviendas', 'imcv', 'pobreza_multidimens
 
 const pick = (tema, clave) => (tema.cifras[clave] ? { ...tema.cifras[clave], clave, tema: 'demografia' } : null);
 const formato = (valor, decimales = 0) => Number(valor).toLocaleString('es-CO', { minimumFractionDigits: decimales, maximumFractionDigits: decimales });
-// Los índices (IMCV 0–100, IDH 0–1) no llevan unidad junto al valor: su escala está en la etiqueta del indicador.
-const unidadCorta = (ind) => (/^(puntos|índice)/.test(ind.unidad) ? '' : ind.unidad);
-
-function ultimoAnio(territorios, clave) {
-  const anios = territorios.flatMap((t) => Object.keys(t.valores[clave] ?? {}));
-  return anios.sort().at(-1);
-}
-
-function Procedencia({ indicador, fuentes, onSource }) {
-  const fuente = fuentes.find((f) => f.id === indicador.fuente);
-  return (
-    <p className="procedencia">
-      <span>Vigencia {indicador.vigencia}</span>
-      <span className={`estado ${indicador.estado}`}>{indicador.estado}</span>
-      {fuente && <button onClick={() => onSource(fuente.id)}>{fuente.entidad} ↗</button>}
-    </p>
-  );
-}
-
-function Comunas({ tema, onSource }) {
-  const { indicadores = [], territorios = [] } = tema.listas;
-  const porClave = useMemo(() => Object.fromEntries(indicadores.map((i) => [i.clave, i])), [indicadores]);
-  const opciones = SELECTOR.filter(([clave]) => porClave[clave]);
-  const [clave, setClave] = useState(opciones[0]?.[0]);
-  const [codigo, setCodigo] = useState(territorios[0]?.codigo);
-  const ind = porClave[clave];
-  const anio = ind ? ultimoAnio(territorios, clave) : null;
-
-  const ranking = useMemo(() => {
-    if (!ind) return [];
-    return territorios
-      .filter((t) => t.valores[clave]?.[anio] != null)
-      .map((t) => ({ label: t.nombre, value: t.valores[clave][anio], codigo: t.codigo, note: `${t.tipo} · ${anio}` }))
-      .sort((a, b) => b.value - a.value);
-  }, [territorios, clave, anio, ind]);
-  const sinDato = territorios.filter((t) => t.valores[clave]?.[anio] == null).map((t) => t.nombre);
-
-  const territorio = territorios.find((t) => t.codigo === codigo);
-  const evolucion = territorio && Object.entries(territorio.valores[clave] ?? {}).sort(([a], [b]) => a.localeCompare(b));
-
-  if (!ind) return null;
-  const fmt = (v) => formato(v, ind.decimales);
-  return (
-    <section className="sec-block">
-      <div className="section-heading"><div><p className="eyebrow">16 COMUNAS Y 5 CORREGIMIENTOS</p><h2>Cada territorio, con su vigencia</h2></div></div>
-      <p className="sec-note">Cada indicador conserva su fuente y su último año con dato; por eso no todos llegan al mismo año. Elige un indicador para ordenar los territorios y un territorio para ver su ficha.</p>
-      <div className="chips">{opciones.map(([k, l]) => <button key={k} className={k === clave ? 'on' : ''} onClick={() => setClave(k)}>{l}</button>)}</div>
-      <div className="indicador-cabecera">
-        <h3>{ind.etiqueta} · {anio}</h3>
-        <Procedencia indicador={ind} fuentes={tema.fuentes} onSource={onSource} />
-        {ind.nota && <p className="sec-note">{ind.nota}</p>}
-      </div>
-      <div className="chart-grid gente-grid">
-        <div className="chart-card">
-          <h3>{ind.etiqueta} ({ind.unidad}), {anio}</h3>
-          <BarChart data={ranking} color={accent.green} unit={unidadCorta(ind)} formatValue={fmt} ariaLabel={`${ind.etiqueta} por territorio`}
-            selected={territorio?.nombre} onSelect={(d) => setCodigo(d.codigo)} />
-          {sinDato.length > 0 && <p className="chart-fuente">Sin dato en {anio}: {sinDato.join(', ')}.</p>}
-        </div>
-        <div className="chart-card ficha-territorio">
-          <label className="selector-estacion">Territorio
-            <select value={codigo} onChange={(e) => setCodigo(e.target.value)}>
-              {territorios.map((t) => <option key={t.codigo} value={t.codigo}>{t.nombre} ({t.tipo.toLowerCase()})</option>)}
-            </select>
-          </label>
-          {evolucion?.length > 1 && (
-            <>
-              <h3>{ind.etiqueta} en {territorio.nombre}</h3>
-              <LineChart series={[{ label: territorio.nombre, color: accent.green, points: evolucion.map(([a, v]) => [a, v]) }]} unit={unidadCorta(ind)} formatValue={fmt} height={180} />
-            </>
-          )}
-          <table className="chart-table ficha-tabla">
-            <thead><tr><th>Indicador</th><th>Año</th><th>Valor</th></tr></thead>
-            <tbody>
-              {FICHA.filter((k) => porClave[k]).map((k) => {
-                const serie = Object.entries(territorio?.valores[k] ?? {}).sort(([a], [b]) => a.localeCompare(b));
-                const [a, v] = serie.at(-1) ?? [];
-                const i = porClave[k];
-                return (
-                  <tr key={k} className={k === clave ? 'activo' : ''}>
-                    <td>{i.etiqueta} <span className={`estado ${i.estado}`}>{i.estado}</span></td>
-                    <td>{a ?? '—'}</td>
-                    <td>{v == null ? 'sin dato' : `${formato(v, i.decimales)} ${unidadCorta(i)}`.trim()}</td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-  );
-}
 
 function BloqueEstratos({ tema, onSource }) {
   const { indicadores = [], territorios = [] } = tema.listas;
@@ -167,13 +73,13 @@ export default function GenteView({ tema, onSource }) {
         <section className="sec-block">
           <div className="section-heading"><div><p className="eyebrow">DANE · PROYECCIONES PPED (JULIO DE 2025)</p><h2>Población y edades</h2></div></div>
           <div className="chart-grid">
-            {serie && <div className="chart-card"><h3>Población de Medellín, {serie.vigencia}</h3><LineChart series={[{ label: 'Población', color: accent.green, points: serie.puntos }]} formatValue={(v) => `${formato(v / 1e6, 2)} M`} /><p className="chart-fuente">{serie.nota}</p></div>}
+            {serie && <div className="chart-card"><h3>Población de Medellín, {serie.vigencia}</h3><LineChart series={[{ label: 'Población', color: accent.green, points: serie.puntos }]} formatValue={(v) => (v ? `${formato(v / 1e6, 2)} M` : '0')} /><p className="chart-fuente">{serie.nota}</p></div>}
             {piramide.length > 0 && <div className="chart-card"><h3>Pirámide de población por grupos de edad</h3><Piramide filas={piramide} /></div>}
           </div>
         </section>
       )}
 
-      <Comunas tema={tema} onSource={onSource} />
+      <PanelTerritorios tema={tema} onSource={onSource} selector={SELECTOR} ficha={FICHA} />
       <BloqueEstratos tema={tema} onSource={onSource} />
 
       {salud.length > 0 && (

@@ -241,7 +241,7 @@ h1 em { color: var(--green); font-family: Georgia, serif; font-weight: 400; }
 
 .barchart { display: grid; gap: 10px; }
 .table-toggle { justify-self: end; padding: 0; border: 0; color: var(--cyan); background: transparent; font: 10px ui-monospace, SFMono-Regular, Menlo, monospace; }
-.bar-rows { display: grid; gap: 5px; max-height: 460px; overflow-y: auto; }
+.bar-rows { display: grid; gap: 5px; }
 .bar-row { position: relative; display: grid; grid-template-columns: 150px 1fr 64px; align-items: center; gap: 8px; padding: 3px 0; border: 0; background: transparent; text-align: left; cursor: pointer; }
 .bar-row.selected .bar-label { color: var(--paper); }
 .bar-label { overflow: hidden; color: var(--muted); font-size: 10.5px; text-overflow: ellipsis; white-space: nowrap; }
@@ -347,3 +347,14 @@ h1 em { color: var(--green); font-family: Georgia, serif; font-weight: 400; }
   .estratos-fila { grid-template-columns: 1fr; gap: 3px; }
   .piramide-fila { grid-template-columns: 1fr 44px 1fr; }
 }
+
+/* ---- Economía y vivienda (issue #6) ---- */
+.laboral-card, .estrato-card { margin-top: 14px; }
+/* La tabla por estrato tiene 6 columnas: en móvil se desplaza dentro de su tarjeta en vez de ensanchar la página. */
+.estrato-card { overflow-x: auto; }
+.economia-tabla th { white-space: nowrap; }
+.laboral-card .card-controls { margin-bottom: 8px; }
+.chart-card h3.subtitulo { margin-top: 18px; }
+.economia-tabla td, .economia-tabla th { text-align: right; }
+.economia-tabla td:first-child, .economia-tabla th:first-child { text-align: left; }
+.economia-view .link-fuente { display: inline-block; margin-top: 4px; text-decoration: none; }

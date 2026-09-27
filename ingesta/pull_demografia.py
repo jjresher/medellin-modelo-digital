@@ -12,7 +12,7 @@ import re
 import urllib.request
 from collections import Counter
 
-from lago import RAIZ, UA, Tema, arcgis, descargar, excel, hoy
+from lago import RAIZ, UA, Tema, Territorios, arcgis, descargar, excel, hoy
 
 DANE_BASE = 'https://www.dane.gov.co/files/censo2018/proyecciones-de-poblacion/Municipal/'
 DANE_AREA = DANE_BASE + 'PPED-AreaMun-2018-2042_VP.xlsx'
@@ -124,52 +124,6 @@ def piramide_dane(t, anio):
             str(anio), estado='derivado', nota=f'{miles(mayores)} de {miles(total)} habitantes.')
     t.cifra('poblacion_menor_15', round(menores / total * 100, 1), '%', 'Población menor de 15 años', 'dane-pped-edad',
             str(anio), estado='derivado', nota=f'{miles(menores)} de {miles(total)} habitantes.')
-
-
-class Territorios:
-    """Acumula por código de comuna o corregimiento los valores de cada indicador, con su definición. Los 21
-    territorios y sus nombres salen de los límites del gemelo (comunas.geojson), no de cada fuente."""
-
-    def __init__(self):
-        self.filas, self.indicadores = {}, {}
-        limites = json.loads((RAIZ / 'public' / 'data' / 'geo' / 'comunas.geojson').read_text(encoding='utf-8'))
-        for f in limites['features']:
-            p = f['properties']
-            if p.get('NOMBRE') and p['CODIGO'].isdigit():
-                self.filas[p['CODIGO']] = {'codigo': p['CODIGO'],
-                                           'nombre': re.sub(r'^Corregimiento de ', '', p['NOMBRE']),
-                                           'tipo': 'Corregimiento' if int(p['CODIGO']) >= 50 else 'Comuna',
-                                           'valores': {}}
-        if len(self.filas) != 21:
-            raise RuntimeError(f'comunas.geojson trae {len(self.filas)} comunas y corregimientos con nombre, no 21')
-
-    def indicador(self, clave, etiqueta, unidad, fuente, vigencia, estado='observado', decimales=0, nota=None):
-        self.indicadores[clave] = {'clave': clave, 'etiqueta': etiqueta, 'unidad': unidad, 'fuente': fuente,
-                                   'estado': estado, 'vigencia': vigencia, 'decimales': decimales,
-                                   **({'nota': nota} if nota else {})}
-
-    def valor(self, codigo, clave, anio, valor):
-        fila = self.filas.get(str(codigo).zfill(2))
-        if fila is None:
-            raise RuntimeError(f'Código de territorio desconocido: {codigo!r}')
-        if valor is not None:
-            fila['valores'].setdefault(clave, {})[str(anio)] = valor
-
-    def heredar(self, previo, fuente):
-        """Si una fuente falla, se conservan sus indicadores y valores de la ingesta anterior."""
-        listas = (previo or {}).get('listas', {})
-        claves = [i['clave'] for i in listas.get('indicadores', []) if i['fuente'] == fuente]
-        for ind in listas.get('indicadores', []):
-            if ind['clave'] in claves:
-                self.indicadores[ind['clave']] = ind
-        for fila in listas.get('territorios', []):
-            for clave in claves:
-                if clave in fila['valores'] and fila['codigo'] in self.filas:
-                    self.filas[fila['codigo']]['valores'][clave] = fila['valores'][clave]
-
-    def escribir(self, t):
-        t.lista('indicadores', list(self.indicadores.values()))
-        t.lista('territorios', sorted(self.filas.values(), key=lambda f: f['codigo']))
 
 
 def columnas_anio(fila, prefijo):

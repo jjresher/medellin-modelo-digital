@@ -21,7 +21,7 @@ Hoja de ruta para llevar la app a la estructura de [Cerebro Lima](https://cerebr
 | 3 | [Seguridad](#3-seguridad) | 0 | ☑ |
 | 4 | [Ambiente y satélite](#4-ambiente-y-satélite) | 0 | ☑ |
 | 5 | [Gente](#5-gente) | 0 | ☑ |
-| 6 | [Economía y vivienda](#6-economía-y-vivienda) | 0 | ☐ |
+| 6 | [Economía y vivienda](#6-economía-y-vivienda) | 0 | ☑ |
 | 7 | [Turismo](#7-turismo) | 0 | ☐ |
 | 8 | [Municipio](#8-municipio) | 0 | ☐ |
 | 9 | [Servicios públicos](#9-servicios-públicos) | 0 | ☐ |
@@ -244,16 +244,36 @@ Panorama va casi al final porque resume las cifras ancla de todas las demás sec
 ## 6. Economía y vivienda
 
 **Tareas**
-- [ ] Mercado laboral de Medellín A.M. desde la GEIH: desocupación, ocupación y participación, en serie trimestral 2007–2026. Último dato: 6,97 %.
-- [ ] Precio por m² de venta y de arriendo por comuna y estrato, derivado de la OIME 2023.
-- [ ] Valor del suelo por zona (IDEM).
-- [ ] Licencias urbanísticas por comuna y tipo.
-- [ ] Establecimientos comerciales y estructura empresarial por comuna.
-- [ ] Rentabilidad bruta (arriendo × 12 / precio) por comuna, estado `derivado`.
+- [x] Mercado laboral de Medellín A.M. desde la GEIH: desocupación, ocupación y participación, en serie trimestral 2007–2026. Último dato: 6,97 %.
+- [x] Precio por m² de venta y de arriendo por comuna y estrato, derivado de la OIME ~~2023~~ → 2024–2025 (ver resultado).
+- [x] Valor del suelo por zona (IDEM).
+- [x] Licencias urbanísticas por comuna y tipo.
+- [x] Establecimientos comerciales y estructura empresarial por comuna.
+- [x] Rentabilidad bruta (arriendo × 12 / precio) por comuna, estado `derivado`.
 
 **Datos:** [Economía y vivienda](fuentes-medellin.md#economía-y-vivienda).
 
 **Terminada cuando:** la serie laboral se actualiza sola con el anexo mensual del DANE y los precios muestran su vigencia (2023).
+
+**Resultado (27 sep 2026)**
+- `pull_economia.py` pasa de 1 a 6 fuentes: GEIH, OIME, valor catastral del suelo (IDEM), licencias de las curadurías, Industria y Comercio y Cámara de Comercio. El tema tiene 13 cifras, 8 series y las listas `indicadores` (8) y `territorios` (21), con el mismo contrato que Gente.
+- Nueva sección `Economía y vivienda` (`src/components/EconomiaView.jsx`): mercado laboral con selector de tasa, precios de vivienda (serie 2008–2025 y tabla por estrato), ranking y ficha por territorio, valor del suelo, licencias y empresas. Nueva capa **Valor del suelo** en el panel Explorar del gemelo (1,1 MB).
+- La serie laboral ya se actualizaba sola (busca el anexo GEIH más reciente hacia atrás); se conserva.
+- Decisiones de alcance:
+  - **Precios de vivienda:** en vez de los anuncios de internet de 2023 (capa 1 de la OIME), se usa la capa 0, *investigaciones del Catastro*, que cubre 2008–2026 con unos 10.000 registros por año. Mediana del precio de oferta por m² de apartamentos y casas, sin atípicos, con áreas de 20 a 500 m². Para que haya muestra por comuna se juntan los dos últimos años completos (hoy 2024–2025) y se exige un mínimo de 20 ofertas; Popular, Santa Cruz y Palmitas no llegan y se muestran como "sin dato". Pesos corrientes, sin ajustar por inflación.
+  - **Rentabilidad bruta:** cociente de medianas del mismo periodo (arriendo mensual × 12 ÷ venta); así se explica en pantalla.
+  - **Licencias:** el archivo de curadurías llega a 2020. Se muestra como histórico: serie 2003–2020 y, por comuna, las licencias de 2016–2020.
+  - **Empresas:** el registro de Industria y Comercio (443.241 contratos activos, incluidos 63.897 sin local) y la Cámara de Comercio (110.843 empresas en 2022) se muestran por separado, con un aviso de que no se suman ni se comparan.
+  - **Fuentes sin año publicado** (valor del suelo e Industria y Comercio) se guardan con la clave `vigente`, no con el año de la consulta.
+- Correcciones que salieron al probar:
+  - Las etiquetas del anexo GEIH venían sucias ("nov 19–ene 20 2019", "ene–mar* 2020", "ago- oct"); ahora son uniformes ("nov 2019–ene 2020").
+  - La subocupación tenía siete trimestres de 2020 en 0. Según la nota del propio anexo, el DANE no pudo medirla entre marzo y julio de 2020: ahora son hueco (`null`) y la gráfica lo explica. `verificar.py` acepta `null` en las series.
+  - **`LineChart`** (compartido con Gente, Seguridad y Ambiente) tenía tres fallos: el eje terminaba por debajo del máximo y la línea se salía por arriba, el texto se escalaba con la tarjeta (enorme a ancho completo, diminuto en media tarjeta) y los rótulos del eje X se encimaban. Ahora mide su ancho real y dibuja en píxeles, el eje siempre cubre los datos y reparte solo las etiquetas que caben. Las tasas laborales ya no arrancan en 0: participación, entre 58 y 68 %, se veía plana.
+  - Los rankings de barras cortaban las últimas filas (tope de 460 px); se quitó el tope.
+  - La capa de licencias no admite paginación y el servidor falla al azar: `lago.arcgis_por_ids` descarga por rangos de `objectid` y parte en mitades los lotes que fallan.
+  - La capa del valor del suelo pesaba 4 MB (cada zona viene partida en manzanas); se cierran los huecos de calle y se simplifica a ~17 m.
+- Refactor: la clase `Territorios` pasó de `pull_demografia.py` a `lago.py` (la usan Gente y Economía), con un método para reconocer comunas escritas con nombre y tildes mal codificadas. El ranking y la ficha por territorio pasaron a `src/components/territorios/PanelTerritorios.jsx`, que usan Gente y Economía y usará el Atlas (#11).
+- **Pendiente de revisar a mano:** la sección en un móvil real (se probó a 390 px sin desbordamiento horizontal).
 
 ---
 

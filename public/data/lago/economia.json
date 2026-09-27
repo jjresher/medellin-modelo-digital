@@ -1,9 +1,10 @@
 {
  "tema": "economia",
  "titulo": "Economía y vivienda",
- "probado": "2026-09-26",
+ "probado": "2026-09-27",
  "ancla": [
-  "desempleo"
+  "desempleo",
+  "venta_m2"
  ],
  "fuentes": [
   {
@@ -12,7 +13,47 @@
    "entidad": "DANE",
    "url": "https://www.dane.gov.co/files/operaciones/GEIH/anex-GEIH-jul2026.xlsx",
    "estado": "observado",
-   "probado": "2026-09-26"
+   "probado": "2026-09-27"
+  },
+  {
+   "id": "oime-ofertas",
+   "nombre": "Observatorio Inmobiliario de Medellín (OIME): ofertas de vivienda investigadas por el Catastro",
+   "entidad": "Subsecretaría de Catastro · Alcaldía de Medellín",
+   "url": "https://www.medellin.gov.co/servidormapas/rest/services/vivienda_ciudad_terri/VM_Oferta_Comercial_Oime/MapServer/0",
+   "estado": "observado",
+   "probado": "2026-09-27"
+  },
+  {
+   "id": "idem-valor-suelo",
+   "nombre": "Zonas de valor catastral del suelo de Medellín",
+   "entidad": "Área Metropolitana del Valle de Aburrá · Portal IDEM (catastro del Distrito)",
+   "url": "https://portalidem.metropol.gov.co/server/rest/services/MEDELLIN_Uso_y_Valores_Suelo/MapServer/0",
+   "estado": "observado",
+   "probado": "2026-09-27"
+  },
+  {
+   "id": "curadurias-licencias",
+   "nombre": "Licencias urbanísticas expedidas por las curadurías (archivo digitalizado)",
+   "entidad": "Departamento Administrativo de Planeación · Alcaldía de Medellín",
+   "url": "https://www.medellin.gov.co/servidormapas/rest/services/vivienda_ciudad_terri/VM_Licencias/MapServer/2",
+   "estado": "observado",
+   "probado": "2026-09-27"
+  },
+  {
+   "id": "alc-industria-comercio",
+   "nombre": "Establecimientos de Industria y Comercio activos por actividad",
+   "entidad": "Secretaría de Hacienda · Alcaldía de Medellín",
+   "url": "https://www.medellin.gov.co/servidormapas/rest/services/ccio_ind_turism/VC_Act_Comercial_Empresarial/MapServer/0",
+   "estado": "observado",
+   "probado": "2026-09-27"
+  },
+  {
+   "id": "camara-estructura",
+   "nombre": "Estructura empresarial de Medellín según comunas y actividad económica",
+   "entidad": "Cámara de Comercio de Medellín para Antioquia",
+   "url": "https://www.datos.gov.co/d/pb3w-3vmc",
+   "estado": "observado",
+   "probado": "2026-09-27"
   }
  ],
  "cifras": {
@@ -51,6 +92,86 @@
    "vigencia": "may–jul 2026 (trimestre móvil)",
    "estado": "observado",
    "decimales": 2
+  },
+  "venta_m2": {
+   "valor": 3666667,
+   "unidad": "$/m²",
+   "etiqueta": "Precio de oferta de vivienda por m²",
+   "fuente": "oime-ofertas",
+   "vigencia": "2024–2025",
+   "estado": "observado",
+   "nota": "Mediana del precio de oferta por m² de área privada de apartamentos y casas, investigados por el Catastro. Se excluyen los registros que el Catastro marca como atípicos y las áreas fuera de 20–500 m². Pesos corrientes, sin ajustar por inflación. Es precio de oferta, no de cierre. 7.794 ofertas en 2024–2025."
+  },
+  "arriendo_m2": {
+   "valor": 27143,
+   "unidad": "$/m² al mes",
+   "etiqueta": "Arriendo de oferta de vivienda por m²",
+   "fuente": "oime-ofertas",
+   "vigencia": "2024–2025",
+   "estado": "observado",
+   "nota": "Mediana del precio de oferta por m² de área privada de apartamentos y casas, investigados por el Catastro. Se excluyen los registros que el Catastro marca como atípicos y las áreas fuera de 20–500 m². Pesos corrientes, sin ajustar por inflación. Es precio de oferta, no de cierre. 5.751 ofertas en 2024–2025."
+  },
+  "rentabilidad_bruta": {
+   "valor": 8.88,
+   "unidad": "%",
+   "etiqueta": "Rentabilidad bruta del arriendo",
+   "fuente": "oime-ofertas",
+   "vigencia": "2024–2025",
+   "estado": "derivado",
+   "decimales": 1,
+   "nota": "Arriendo mensual por m² × 12 ÷ precio de venta por m², con las medianas de oferta del mismo periodo. Es un cociente de medianas, no la rentabilidad de un mismo inmueble, y no descuenta administración, impuestos ni vacancia."
+  },
+  "valor_suelo_mediana": {
+   "valor": 705000,
+   "unidad": "$/m²",
+   "etiqueta": "Valor catastral del suelo (zona mediana)",
+   "fuente": "idem-valor-suelo",
+   "vigencia": "Base catastral consultada el 2026-09-27",
+   "estado": "observado",
+   "nota": "Valor catastral del suelo por m² de cada zona geoeconómica homogénea; no es precio de mercado. El servicio no publica el año de la base catastral. Mediana de las 276 zonas, sin ponderar por área."
+  },
+  "valor_suelo_zonas": {
+   "valor": 276,
+   "unidad": "zonas",
+   "etiqueta": "Zonas de valor catastral del suelo",
+   "fuente": "idem-valor-suelo",
+   "vigencia": "Base catastral consultada el 2026-09-27",
+   "estado": "observado"
+  },
+  "licencias_ventana": {
+   "valor": 15493,
+   "unidad": "licencias",
+   "etiqueta": "Licencias urbanísticas 2016–2020",
+   "fuente": "curadurias-licencias",
+   "vigencia": "2016–2020 (histórico)",
+   "estado": "observado",
+   "nota": "Archivo histórico de las cuatro curadurías y el DAP, georreferenciado por la Alcaldía. Llega hasta 2020: 2021 y posteriores traen muy pocos registros y no se muestran. \"Varias\" agrupa licencias con más de un objeto."
+  },
+  "licencias_obra_nueva": {
+   "valor": 1397,
+   "unidad": "licencias",
+   "etiqueta": "Licencias de obra nueva 2016–2020",
+   "fuente": "curadurias-licencias",
+   "vigencia": "2016–2020 (histórico)",
+   "estado": "observado"
+  },
+  "establecimientos_ica": {
+   "valor": 443241,
+   "unidad": "contratos",
+   "etiqueta": "Contribuyentes activos de Industria y Comercio",
+   "fuente": "alc-industria-comercio",
+   "vigencia": "Registro activo consultado el 2026-09-27",
+   "estado": "observado",
+   "nota": "Contratos activos del impuesto de Industria y Comercio. Incluye contribuyentes registrados sin establecimiento físico (63.897 dicen \"No posee establecimientos\"). No es el número de empresas de la Cámara de Comercio, que cuenta matrículas mercantiles."
+  },
+  "empresas_camara": {
+   "valor": 110843,
+   "unidad": "empresas",
+   "etiqueta": "Empresas matriculadas 2022",
+   "fuente": "camara-estructura",
+   "vigencia": "2022",
+   "estado": "observado",
+   "nota": "Empresas con matrícula mercantil en la Cámara de Comercio. Hasta 2020 cerca de 18.000 empresas quedaban \"sin georreferenciar\" por año; desde 2021 son unas pocas centenas, así que el conteo por comuna no es comparable antes y después de 2021. El total de la ciudad sí lo es."
   }
  },
  "series": {
@@ -102,11 +223,11 @@
      10.42
     ],
     [
-     "nov 07–ene 08 2007",
+     "nov 2007–ene 2008",
      11.87
     ],
     [
-     "dic 07–feb 08 2007",
+     "dic 2007–feb 2008",
      13.31
     ],
     [
@@ -150,11 +271,11 @@
      12.42
     ],
     [
-     "nov 08–ene 09 2008",
+     "nov 2008–ene 2009",
      15.01
     ],
     [
-     "dic 08- feb 09 2008",
+     "dic 2008–feb 2009",
      17.03
     ],
     [
@@ -166,7 +287,7 @@
      16.59
     ],
     [
-     "mar-may 2009",
+     "mar–may 2009",
      15.32
     ],
     [
@@ -198,11 +319,11 @@
      14.63
     ],
     [
-     "nov 09-ene 10 2009",
+     "nov 2009–ene 2010",
      15.69
     ],
     [
-     "dic 09–feb 10 2009",
+     "dic 2009–feb 2010",
      15.86
     ],
     [
@@ -210,7 +331,7 @@
      15.53
     ],
     [
-     "feb-abr 2010",
+     "feb–abr 2010",
      15.36
     ],
     [
@@ -246,11 +367,11 @@
      12.7
     ],
     [
-     "nov 10-ene 11 2010",
+     "nov 2010–ene 2011",
      13.53
     ],
     [
-     "dic 10–feb 11 2010",
+     "dic 2010–feb 2011",
      14.17
     ],
     [
@@ -258,7 +379,7 @@
      14.02
     ],
     [
-     "feb-abr 2011",
+     "feb–abr 2011",
      12.81
     ],
     [
@@ -294,11 +415,11 @@
      11.37
     ],
     [
-     "nov 11-ene 12 2011",
+     "nov 2011–ene 2012",
      12.71
     ],
     [
-     "dic 11–feb 12 2011",
+     "dic 2011–feb 2012",
      12.98
     ],
     [
@@ -342,11 +463,11 @@
      11.63
     ],
     [
-     "nov12–ene13 2012",
+     "nov 2012–ene 2013",
      12.63
     ],
     [
-     "dic 12–feb 13 2012",
+     "dic 2012–feb 2013",
      13.66
     ],
     [
@@ -390,11 +511,11 @@
      10.11
     ],
     [
-     "nov13–ene14 2013",
+     "nov 2013–ene 2014",
      11.7
     ],
     [
-     "dic 13–feb 14 2013",
+     "dic 2013–feb 2014",
      12.28
     ],
     [
@@ -414,7 +535,7 @@
      10.44
     ],
     [
-     "may- jul 2014",
+     "may–jul 2014",
      10.57
     ],
     [
@@ -438,11 +559,11 @@
      10.61
     ],
     [
-     "nov 14–ene 15 2014",
+     "nov 2014–ene 2015",
      11.95
     ],
     [
-     "dic 14–feb 15 2014",
+     "dic 2014–feb 2015",
      12.65
     ],
     [
@@ -486,11 +607,11 @@
      9.93
     ],
     [
-     "nov 15–ene 16 2015",
+     "nov 2015–ene 2016",
      12.31
     ],
     [
-     "dic 15–feb 16 2015",
+     "dic 2015–feb 2016",
      13.59
     ],
     [
@@ -534,11 +655,11 @@
      10.15
     ],
     [
-     "nov 16–ene 17 2016",
+     "nov 2016–ene 2017",
      11.81
     ],
     [
-     "dic 16–feb 17 2016",
+     "dic 2016–feb 2017",
      12.68
     ],
     [
@@ -582,11 +703,11 @@
      10.62
     ],
     [
-     "nov 17–ene 18 2017",
+     "nov 2017–ene 2018",
      12.76
     ],
     [
-     "dic 17–feb 18 2017",
+     "dic 2017–feb 2018",
      13.64
     ],
     [
@@ -630,11 +751,11 @@
      11.18
     ],
     [
-     "nov 18–ene 19 2018",
+     "nov 2018–ene 2019",
      12.75
     ],
     [
-     "dic 18–feb 19 2018",
+     "dic 2018–feb 2019",
      13.78
     ],
     [
@@ -678,43 +799,43 @@
      11.81
     ],
     [
-     "nov 19–ene 20 2019",
+     "nov 2019–ene 2020",
      12.02
     ],
     [
-     "dic 19–feb 20 2019",
+     "dic 2019–feb 2020",
      12.82
     ],
     [
-     "ene–mar* 2020",
+     "ene–mar 2020",
      13.96
     ],
     [
-     "feb–abr* 2020",
+     "feb–abr 2020",
      18.52
     ],
     [
-     "mar–may* 2020",
+     "mar–may 2020",
      22.8
     ],
     [
-     "abr–jun* 2020",
+     "abr–jun 2020",
      26.69
     ],
     [
-     "may–jul* 2020",
+     "may–jul 2020",
      26.29
     ],
     [
-     "jun–ago* 2020",
+     "jun–ago 2020",
      24.48
     ],
     [
-     "jul–sep* 2020",
+     "jul–sep 2020",
      21.62
     ],
     [
-     "ago- oct 2020",
+     "ago–oct 2020",
      18.27
     ],
     [
@@ -726,11 +847,11 @@
      16.39
     ],
     [
-     "nov 20–ene 21 2020",
+     "nov 2020–ene 2021",
      17.06
     ],
     [
-     "dic 20–feb 21 2020",
+     "dic 2020–feb 2021",
      16.9
     ],
     [
@@ -774,11 +895,11 @@
      12.15
     ],
     [
-     "nov 21–ene 22 2021",
+     "nov 2021–ene 2022",
      12.1
     ],
     [
-     "dic 21–feb 22 2021",
+     "dic 2021–feb 2022",
      11.72
     ],
     [
@@ -822,11 +943,11 @@
      8.99
     ],
     [
-     "nov 22–ene 23 2022",
+     "nov 2022–ene 2023",
      9.41
     ],
     [
-     "dic 22–feb 23 2022",
+     "dic 2022–feb 2023",
      10.33
     ],
     [
@@ -870,11 +991,11 @@
      8.07
     ],
     [
-     "nov 23–ene 24 2023",
+     "nov 2023–ene 2024",
      8.87
     ],
     [
-     "dic 23–feb 24 2023",
+     "dic 2023–feb 2024",
      9.88
     ],
     [
@@ -918,11 +1039,11 @@
      7.0
     ],
     [
-     "nov 24–ene 25 2024",
+     "nov 2024–ene 2025",
      6.94
     ],
     [
-     "dic 24–feb 25 2024",
+     "dic 2024–feb 2025",
      7.29
     ],
     [
@@ -966,11 +1087,11 @@
      7.51
     ],
     [
-     "nov 25–ene 26 2026",
+     "nov 2025–ene 2026",
      7.99
     ],
     [
-     "dic 25–feb 26 2026",
+     "dic 2025–feb 2026",
      9.02
     ],
     [
@@ -993,7 +1114,8 @@
      "may–jul 2026",
      6.97
     ]
-   ]
+   ],
+   "nota": ""
   },
   "ocupacion_trimestral": {
    "etiqueta": "Tasa de ocupación · Medellín A.M. (trimestre móvil)",
@@ -1043,11 +1165,11 @@
      57.49
     ],
     [
-     "nov 07–ene 08 2007",
+     "nov 2007–ene 2008",
      56.53
     ],
     [
-     "dic 07–feb 08 2007",
+     "dic 2007–feb 2008",
      55.67
     ],
     [
@@ -1091,11 +1213,11 @@
      55.7
     ],
     [
-     "nov 08–ene 09 2008",
+     "nov 2008–ene 2009",
      53.64
     ],
     [
-     "dic 08- feb 09 2008",
+     "dic 2008–feb 2009",
      53.71
     ],
     [
@@ -1107,7 +1229,7 @@
      56.98
     ],
     [
-     "mar-may 2009",
+     "mar–may 2009",
      57.46
     ],
     [
@@ -1139,11 +1261,11 @@
      58.27
     ],
     [
-     "nov 09-ene 10 2009",
+     "nov 2009–ene 2010",
      57.29
     ],
     [
-     "dic 09–feb 10 2009",
+     "dic 2009–feb 2010",
      56.79
     ],
     [
@@ -1151,7 +1273,7 @@
      56.34
     ],
     [
-     "feb-abr 2010",
+     "feb–abr 2010",
      56.34
     ],
     [
@@ -1187,11 +1309,11 @@
      58.81
     ],
     [
-     "nov 10-ene 11 2010",
+     "nov 2010–ene 2011",
      57.7
     ],
     [
-     "dic 10–feb 11 2010",
+     "dic 2010–feb 2011",
      56.87
     ],
     [
@@ -1199,7 +1321,7 @@
      56.59
     ],
     [
-     "feb-abr 2011",
+     "feb–abr 2011",
      57.52
     ],
     [
@@ -1235,11 +1357,11 @@
      59.96
     ],
     [
-     "nov 11-ene 12 2011",
+     "nov 2011–ene 2012",
      58.83
     ],
     [
-     "dic 11–feb 12 2011",
+     "dic 2011–feb 2012",
      58.39
     ],
     [
@@ -1283,11 +1405,11 @@
      59.89
     ],
     [
-     "nov12–ene13 2012",
+     "nov 2012–ene 2013",
      58.86
     ],
     [
-     "dic 12–feb 13 2012",
+     "dic 2012–feb 2013",
      57.39
     ],
     [
@@ -1331,11 +1453,11 @@
      61.12
     ],
     [
-     "nov13–ene14 2013",
+     "nov 2013–ene 2014",
      59.68
     ],
     [
-     "dic 13–feb 14 2013",
+     "dic 2013–feb 2014",
      59.32
     ],
     [
@@ -1355,7 +1477,7 @@
      60.34
     ],
     [
-     "may- jul 2014",
+     "may–jul 2014",
      60.28
     ],
     [
@@ -1379,11 +1501,11 @@
      59.68
     ],
     [
-     "nov 14–ene 15 2014",
+     "nov 2014–ene 2015",
      58.43
     ],
     [
-     "dic 14–feb 15 2014",
+     "dic 2014–feb 2015",
      57.46
     ],
     [
@@ -1427,11 +1549,11 @@
      59.03
     ],
     [
-     "nov 15–ene 16 2015",
+     "nov 2015–ene 2016",
      57.16
     ],
     [
-     "dic 15–feb 16 2015",
+     "dic 2015–feb 2016",
      55.95
     ],
     [
@@ -1475,11 +1597,11 @@
      58.6
     ],
     [
-     "nov 16–ene 17 2016",
+     "nov 2016–ene 2017",
      57.74
     ],
     [
-     "dic 16–feb 17 2016",
+     "dic 2016–feb 2017",
      57.12
     ],
     [
@@ -1523,11 +1645,11 @@
      57.42
     ],
     [
-     "nov 17–ene 18 2017",
+     "nov 2017–ene 2018",
      55.74
     ],
     [
-     "dic 17–feb 18 2017",
+     "dic 2017–feb 2018",
      55.34
     ],
     [
@@ -1571,11 +1693,11 @@
      56.54
     ],
     [
-     "nov 18–ene 19 2018",
+     "nov 2018–ene 2019",
      55.02
     ],
     [
-     "dic 18–feb 19 2018",
+     "dic 2018–feb 2019",
      54.43
     ],
     [
@@ -1619,43 +1741,43 @@
      55.63
     ],
     [
-     "nov 19–ene 20 2019",
+     "nov 2019–ene 2020",
      55.54
     ],
     [
-     "dic 19–feb 20 2019",
+     "dic 2019–feb 2020",
      54.64
     ],
     [
-     "ene–mar* 2020",
+     "ene–mar 2020",
      52.46
     ],
     [
-     "feb–abr* 2020",
+     "feb–abr 2020",
      48.06
     ],
     [
-     "mar–may* 2020",
+     "mar–may 2020",
      45.29
     ],
     [
-     "abr–jun* 2020",
+     "abr–jun 2020",
      43.59
     ],
     [
-     "may–jul* 2020",
+     "may–jul 2020",
      45.05
     ],
     [
-     "jun–ago* 2020",
+     "jun–ago 2020",
      45.96
     ],
     [
-     "jul–sep* 2020",
+     "jul–sep 2020",
      47.49
     ],
     [
-     "ago- oct 2020",
+     "ago–oct 2020",
      50.36
     ],
     [
@@ -1667,11 +1789,11 @@
      52.55
     ],
     [
-     "nov 20–ene 21 2020",
+     "nov 2020–ene 2021",
      50.99
     ],
     [
-     "dic 20–feb 21 2020",
+     "dic 2020–feb 2021",
      50.96
     ],
     [
@@ -1715,11 +1837,11 @@
      53.85
     ],
     [
-     "nov 21–ene 22 2021",
+     "nov 2021–ene 2022",
      54.64
     ],
     [
-     "dic 21–feb 22 2021",
+     "dic 2021–feb 2022",
      55.79
     ],
     [
@@ -1763,11 +1885,11 @@
      60.11
     ],
     [
-     "nov 22–ene 23 2022",
+     "nov 2022–ene 2023",
      58.73
     ],
     [
-     "dic 22–feb 23 2022",
+     "dic 2022–feb 2023",
      57.68
     ],
     [
@@ -1811,11 +1933,11 @@
      60.02
     ],
     [
-     "nov 23–ene 24 2023",
+     "nov 2023–ene 2024",
      58.77
     ],
     [
-     "dic 23–feb 24 2023",
+     "dic 2023–feb 2024",
      58.42
     ],
     [
@@ -1859,11 +1981,11 @@
      62.23
     ],
     [
-     "nov 24–ene 25 2024",
+     "nov 2024–ene 2025",
      61.31
     ],
     [
-     "dic 24–feb 25 2024",
+     "dic 2024–feb 2025",
      60.79
     ],
     [
@@ -1907,11 +2029,11 @@
      62.69
     ],
     [
-     "nov 25–ene 26 2026",
+     "nov 2025–ene 2026",
      60.9
     ],
     [
-     "dic 25–feb 26 2026",
+     "dic 2025–feb 2026",
      60.09
     ],
     [
@@ -1934,7 +2056,8 @@
      "may–jul 2026",
      62.66
     ]
-   ]
+   ],
+   "nota": ""
   },
   "participacion_trimestral": {
    "etiqueta": "Participación laboral · Medellín A.M. (trimestre móvil)",
@@ -1984,11 +2107,11 @@
      64.18
     ],
     [
-     "nov 07–ene 08 2007",
+     "nov 2007–ene 2008",
      64.14
     ],
     [
-     "dic 07–feb 08 2007",
+     "dic 2007–feb 2008",
      64.22
     ],
     [
@@ -2032,11 +2155,11 @@
      63.6
     ],
     [
-     "nov 08–ene 09 2008",
+     "nov 2008–ene 2009",
      63.11
     ],
     [
-     "dic 08- feb 09 2008",
+     "dic 2008–feb 2009",
      64.74
     ],
     [
@@ -2048,7 +2171,7 @@
      68.31
     ],
     [
-     "mar-may 2009",
+     "mar–may 2009",
      67.85
     ],
     [
@@ -2080,11 +2203,11 @@
      68.26
     ],
     [
-     "nov 09-ene 10 2009",
+     "nov 2009–ene 2010",
      67.96
     ],
     [
-     "dic 09–feb 10 2009",
+     "dic 2009–feb 2010",
      67.5
     ],
     [
@@ -2092,7 +2215,7 @@
      66.7
     ],
     [
-     "feb-abr 2010",
+     "feb–abr 2010",
      66.56
     ],
     [
@@ -2128,11 +2251,11 @@
      67.36
     ],
     [
-     "nov 10-ene 11 2010",
+     "nov 2010–ene 2011",
      66.73
     ],
     [
-     "dic 10–feb 11 2010",
+     "dic 2010–feb 2011",
      66.26
     ],
     [
@@ -2140,7 +2263,7 @@
      65.81
     ],
     [
-     "feb-abr 2011",
+     "feb–abr 2011",
      65.98
     ],
     [
@@ -2176,11 +2299,11 @@
      67.65
     ],
     [
-     "nov 11-ene 12 2011",
+     "nov 2011–ene 2012",
      67.4
     ],
     [
-     "dic 11–feb 12 2011",
+     "dic 2011–feb 2012",
      67.1
     ],
     [
@@ -2224,11 +2347,11 @@
      67.78
     ],
     [
-     "nov12–ene13 2012",
+     "nov 2012–ene 2013",
      67.36
     ],
     [
-     "dic 12–feb 13 2012",
+     "dic 2012–feb 2013",
      66.47
     ],
     [
@@ -2272,11 +2395,11 @@
      67.99
     ],
     [
-     "nov13–ene14 2013",
+     "nov 2013–ene 2014",
      67.59
     ],
     [
-     "dic 13–feb 14 2013",
+     "dic 2013–feb 2014",
      67.62
     ],
     [
@@ -2296,7 +2419,7 @@
      67.37
     ],
     [
-     "may- jul 2014",
+     "may–jul 2014",
      67.4
     ],
     [
@@ -2320,11 +2443,11 @@
      66.77
     ],
     [
-     "nov 14–ene 15 2014",
+     "nov 2014–ene 2015",
      66.36
     ],
     [
-     "dic 14–feb 15 2014",
+     "dic 2014–feb 2015",
      65.78
     ],
     [
@@ -2368,11 +2491,11 @@
      65.54
     ],
     [
-     "nov 15–ene 16 2015",
+     "nov 2015–ene 2016",
      65.18
     ],
     [
-     "dic 15–feb 16 2015",
+     "dic 2015–feb 2016",
      64.75
     ],
     [
@@ -2416,11 +2539,11 @@
      65.22
     ],
     [
-     "nov 16–ene 17 2016",
+     "nov 2016–ene 2017",
      65.47
     ],
     [
-     "dic 16–feb 17 2016",
+     "dic 2016–feb 2017",
      65.41
     ],
     [
@@ -2464,11 +2587,11 @@
      64.24
     ],
     [
-     "nov 17–ene 18 2017",
+     "nov 2017–ene 2018",
      63.9
     ],
     [
-     "dic 17–feb 18 2017",
+     "dic 2017–feb 2018",
      64.08
     ],
     [
@@ -2512,11 +2635,11 @@
      63.66
     ],
     [
-     "nov 18–ene 19 2018",
+     "nov 2018–ene 2019",
      63.07
     ],
     [
-     "dic 18–feb 19 2018",
+     "dic 2018–feb 2019",
      63.13
     ],
     [
@@ -2560,43 +2683,43 @@
      63.08
     ],
     [
-     "nov 19–ene 20 2019",
+     "nov 2019–ene 2020",
      63.13
     ],
     [
-     "dic 19–feb 20 2019",
+     "dic 2019–feb 2020",
      62.68
     ],
     [
-     "ene–mar* 2020",
+     "ene–mar 2020",
      60.97
     ],
     [
-     "feb–abr* 2020",
+     "feb–abr 2020",
      58.99
     ],
     [
-     "mar–may* 2020",
+     "mar–may 2020",
      58.66
     ],
     [
-     "abr–jun* 2020",
+     "abr–jun 2020",
      59.46
     ],
     [
-     "may–jul* 2020",
+     "may–jul 2020",
      61.12
     ],
     [
-     "jun–ago* 2020",
+     "jun–ago 2020",
      60.85
     ],
     [
-     "jul–sep* 2020",
+     "jul–sep 2020",
      60.59
     ],
     [
-     "ago- oct 2020",
+     "ago–oct 2020",
      61.62
     ],
     [
@@ -2608,11 +2731,11 @@
      62.85
     ],
     [
-     "nov 20–ene 21 2020",
+     "nov 2020–ene 2021",
      61.48
     ],
     [
-     "dic 20–feb 21 2020",
+     "dic 2020–feb 2021",
      61.32
     ],
     [
@@ -2656,11 +2779,11 @@
      61.3
     ],
     [
-     "nov 21–ene 22 2021",
+     "nov 2021–ene 2022",
      62.17
     ],
     [
-     "dic 21–feb 22 2021",
+     "dic 2021–feb 2022",
      63.2
     ],
     [
@@ -2704,11 +2827,11 @@
      66.05
     ],
     [
-     "nov 22–ene 23 2022",
+     "nov 2022–ene 2023",
      64.82
     ],
     [
-     "dic 22–feb 23 2022",
+     "dic 2022–feb 2023",
      64.32
     ],
     [
@@ -2752,11 +2875,11 @@
      65.29
     ],
     [
-     "nov 23–ene 24 2023",
+     "nov 2023–ene 2024",
      64.48
     ],
     [
-     "dic 23–feb 24 2023",
+     "dic 2023–feb 2024",
      64.82
     ],
     [
@@ -2800,11 +2923,11 @@
      66.92
     ],
     [
-     "nov 24–ene 25 2024",
+     "nov 2024–ene 2025",
      65.89
     ],
     [
-     "dic 24–feb 25 2024",
+     "dic 2024–feb 2025",
      65.57
     ],
     [
@@ -2848,11 +2971,11 @@
      67.78
     ],
     [
-     "nov 25–ene 26 2026",
+     "nov 2025–ene 2026",
      66.18
     ],
     [
-     "dic 25–feb 26 2026",
+     "dic 2025–feb 2026",
      66.05
     ],
     [
@@ -2875,7 +2998,8 @@
      "may–jul 2026",
      67.35
     ]
-   ]
+   ],
+   "nota": ""
   },
   "subocupacion_trimestral": {
    "etiqueta": "Subocupación · Medellín A.M. (trimestre móvil)",
@@ -2925,11 +3049,11 @@
      8.83
     ],
     [
-     "nov 07–ene 08 2007",
+     "nov 2007–ene 2008",
      8.77
     ],
     [
-     "dic 07–feb 08 2007",
+     "dic 2007–feb 2008",
      9.59
     ],
     [
@@ -2973,11 +3097,11 @@
      10.06
     ],
     [
-     "nov 08–ene 09 2008",
+     "nov 2008–ene 2009",
      10.43
     ],
     [
-     "dic 08- feb 09 2008",
+     "dic 2008–feb 2009",
      11.74
     ],
     [
@@ -2989,7 +3113,7 @@
      15.02
     ],
     [
-     "mar-may 2009",
+     "mar–may 2009",
      15.03
     ],
     [
@@ -3021,11 +3145,11 @@
      13.62
     ],
     [
-     "nov 09-ene 10 2009",
+     "nov 2009–ene 2010",
      13.19
     ],
     [
-     "dic 09–feb 10 2009",
+     "dic 2009–feb 2010",
      12.84
     ],
     [
@@ -3033,7 +3157,7 @@
      13.12
     ],
     [
-     "feb-abr 2010",
+     "feb–abr 2010",
      13.2
     ],
     [
@@ -3069,11 +3193,11 @@
      12.46
     ],
     [
-     "nov 10-ene 11 2010",
+     "nov 2010–ene 2011",
      10.93
     ],
     [
-     "dic 10–feb 11 2010",
+     "dic 2010–feb 2011",
      11.1
     ],
     [
@@ -3081,7 +3205,7 @@
      12.47
     ],
     [
-     "feb-abr 2011",
+     "feb–abr 2011",
      13.04
     ],
     [
@@ -3117,11 +3241,11 @@
      11.12
     ],
     [
-     "nov 11-ene 12 2011",
+     "nov 2011–ene 2012",
      10.86
     ],
     [
-     "dic 11–feb 12 2011",
+     "dic 2011–feb 2012",
      10.99
     ],
     [
@@ -3165,11 +3289,11 @@
      12.32
     ],
     [
-     "nov12–ene13 2012",
+     "nov 2012–ene 2013",
      11.93
     ],
     [
-     "dic 12–feb 13 2012",
+     "dic 2012–feb 2013",
      11.93
     ],
     [
@@ -3213,11 +3337,11 @@
      9.43
     ],
     [
-     "nov13–ene14 2013",
+     "nov 2013–ene 2014",
      8.88
     ],
     [
-     "dic 13–feb 14 2013",
+     "dic 2013–feb 2014",
      8.58
     ],
     [
@@ -3237,7 +3361,7 @@
      9.43
     ],
     [
-     "may- jul 2014",
+     "may–jul 2014",
      9.67
     ],
     [
@@ -3261,11 +3385,11 @@
      11.04
     ],
     [
-     "nov 14–ene 15 2014",
+     "nov 2014–ene 2015",
      10.72
     ],
     [
-     "dic 14–feb 15 2014",
+     "dic 2014–feb 2015",
      9.96
     ],
     [
@@ -3309,11 +3433,11 @@
      9.38
     ],
     [
-     "nov 15–ene 16 2015",
+     "nov 2015–ene 2016",
      9.82
     ],
     [
-     "dic 15–feb 16 2015",
+     "dic 2015–feb 2016",
      9.77
     ],
     [
@@ -3357,11 +3481,11 @@
      9.59
     ],
     [
-     "nov 16–ene 17 2016",
+     "nov 2016–ene 2017",
      9.49
     ],
     [
-     "dic 16–feb 17 2016",
+     "dic 2016–feb 2017",
      9.39
     ],
     [
@@ -3405,11 +3529,11 @@
      8.21
     ],
     [
-     "nov 17–ene 18 2017",
+     "nov 2017–ene 2018",
      8.25
     ],
     [
-     "dic 17–feb 18 2017",
+     "dic 2017–feb 2018",
      8.68
     ],
     [
@@ -3453,11 +3577,11 @@
      8.45
     ],
     [
-     "nov 18–ene 19 2018",
+     "nov 2018–ene 2019",
      8.41
     ],
     [
-     "dic 18–feb 19 2018",
+     "dic 2018–feb 2019",
      8.82
     ],
     [
@@ -3501,43 +3625,43 @@
      9.69
     ],
     [
-     "nov 19–ene 20 2019",
+     "nov 2019–ene 2020",
      10.07
     ],
     [
-     "dic 19–feb 20 2019",
+     "dic 2019–feb 2020",
      10.19
     ],
     [
-     "ene–mar* 2020",
-     0
+     "ene–mar 2020",
+     null
     ],
     [
-     "feb–abr* 2020",
-     0
+     "feb–abr 2020",
+     null
     ],
     [
-     "mar–may* 2020",
-     0
+     "mar–may 2020",
+     null
     ],
     [
-     "abr–jun* 2020",
-     0
+     "abr–jun 2020",
+     null
     ],
     [
-     "may–jul* 2020",
-     0
+     "may–jul 2020",
+     null
     ],
     [
-     "jun–ago* 2020",
-     0
+     "jun–ago 2020",
+     null
     ],
     [
-     "jul–sep* 2020",
-     0
+     "jul–sep 2020",
+     null
     ],
     [
-     "ago- oct 2020",
+     "ago–oct 2020",
      9.76
     ],
     [
@@ -3549,11 +3673,11 @@
      9.7
     ],
     [
-     "nov 20–ene 21 2020",
+     "nov 2020–ene 2021",
      8.24
     ],
     [
-     "dic 20–feb 21 2020",
+     "dic 2020–feb 2021",
      7.22
     ],
     [
@@ -3597,11 +3721,11 @@
      4.43
     ],
     [
-     "nov 21–ene 22 2021",
+     "nov 2021–ene 2022",
      4.48
     ],
     [
-     "dic 21–feb 22 2021",
+     "dic 2021–feb 2022",
      4.99
     ],
     [
@@ -3645,11 +3769,11 @@
      6.41
     ],
     [
-     "nov 22–ene 23 2022",
+     "nov 2022–ene 2023",
      6.68
     ],
     [
-     "dic 22–feb 23 2022",
+     "dic 2022–feb 2023",
      6.53
     ],
     [
@@ -3693,11 +3817,11 @@
      5.44
     ],
     [
-     "nov 23–ene 24 2023",
+     "nov 2023–ene 2024",
      5.44
     ],
     [
-     "dic 23–feb 24 2023",
+     "dic 2023–feb 2024",
      5.61
     ],
     [
@@ -3741,11 +3865,11 @@
      5.53
     ],
     [
-     "nov 24–ene 25 2024",
+     "nov 2024–ene 2025",
      5.71
     ],
     [
-     "dic 24–feb 25 2024",
+     "dic 2024–feb 2025",
      5.37
     ],
     [
@@ -3789,11 +3913,11 @@
      6.57
     ],
     [
-     "nov 25–ene 26 2026",
+     "nov 2025–ene 2026",
      6.28
     ],
     [
-     "dic 25–feb 26 2026",
+     "dic 2025–feb 2026",
      5.99
     ],
     [
@@ -3816,8 +3940,1168 @@
      "may–jul 2026",
      6.1
     ]
-   ]
+   ],
+   "nota": "7 trimestres de 2020 sin dato: por el cambio de operativo de la pandemia, el DANE no pudo medir la población subocupada entre marzo y julio de 2020."
+  },
+  "venta_m2_anual": {
+   "etiqueta": "Precio de oferta de vivienda por m² (mediana por año)",
+   "unidad": "$/m²",
+   "fuente": "oime-ofertas",
+   "estado": "observado",
+   "vigencia": "2008 – 2025",
+   "puntos": [
+    [
+     "2008",
+     851289
+    ],
+    [
+     "2009",
+     1173913
+    ],
+    [
+     "2010",
+     1075000
+    ],
+    [
+     "2011",
+     1186244
+    ],
+    [
+     "2012",
+     1372634
+    ],
+    [
+     "2013",
+     1486486
+    ],
+    [
+     "2014",
+     1253141
+    ],
+    [
+     "2015",
+     1621622
+    ],
+    [
+     "2016",
+     1441541
+    ],
+    [
+     "2017",
+     1928571
+    ],
+    [
+     "2018",
+     2179487
+    ],
+    [
+     "2019",
+     2561323
+    ],
+    [
+     "2020",
+     2373333
+    ],
+    [
+     "2021",
+     3234026
+    ],
+    [
+     "2022",
+     3448276
+    ],
+    [
+     "2023",
+     3888702
+    ],
+    [
+     "2024",
+     3401361
+    ],
+    [
+     "2025",
+     3962264
+    ]
+   ],
+   "nota": "Mediana del precio de oferta por m² de área privada de apartamentos y casas, investigados por el Catastro. Se excluyen los registros que el Catastro marca como atípicos y las áreas fuera de 20–500 m². Pesos corrientes, sin ajustar por inflación. Es precio de oferta, no de cierre."
+  },
+  "arriendo_m2_anual": {
+   "etiqueta": "Arriendo de oferta de vivienda por m² (mediana por año)",
+   "unidad": "$/m² al mes",
+   "fuente": "oime-ofertas",
+   "estado": "observado",
+   "vigencia": "2008 – 2025",
+   "puntos": [
+    [
+     "2008",
+     8095
+    ],
+    [
+     "2009",
+     8426
+    ],
+    [
+     "2010",
+     8905
+    ],
+    [
+     "2011",
+     9722
+    ],
+    [
+     "2012",
+     10145
+    ],
+    [
+     "2013",
+     10569
+    ],
+    [
+     "2014",
+     11042
+    ],
+    [
+     "2015",
+     11029
+    ],
+    [
+     "2016",
+     12727
+    ],
+    [
+     "2017",
+     13281
+    ],
+    [
+     "2018",
+     14286
+    ],
+    [
+     "2019",
+     15455
+    ],
+    [
+     "2020",
+     16129
+    ],
+    [
+     "2021",
+     16216
+    ],
+    [
+     "2022",
+     18293
+    ],
+    [
+     "2023",
+     23333
+    ],
+    [
+     "2024",
+     26021
+    ],
+    [
+     "2025",
+     27692
+    ]
+   ],
+   "nota": "Mediana del precio de oferta por m² de área privada de apartamentos y casas, investigados por el Catastro. Se excluyen los registros que el Catastro marca como atípicos y las áreas fuera de 20–500 m². Pesos corrientes, sin ajustar por inflación. Es precio de oferta, no de cierre."
+  },
+  "licencias_anual": {
+   "etiqueta": "Licencias urbanísticas por año",
+   "unidad": "licencias",
+   "fuente": "curadurias-licencias",
+   "estado": "observado",
+   "vigencia": "2003 – 2020",
+   "puntos": [
+    [
+     "2003",
+     2213
+    ],
+    [
+     "2004",
+     7276
+    ],
+    [
+     "2005",
+     7161
+    ],
+    [
+     "2006",
+     9927
+    ],
+    [
+     "2007",
+     8970
+    ],
+    [
+     "2008",
+     6755
+    ],
+    [
+     "2009",
+     5916
+    ],
+    [
+     "2010",
+     5679
+    ],
+    [
+     "2011",
+     5987
+    ],
+    [
+     "2012",
+     5578
+    ],
+    [
+     "2013",
+     5202
+    ],
+    [
+     "2014",
+     3354
+    ],
+    [
+     "2015",
+     2652
+    ],
+    [
+     "2016",
+     2709
+    ],
+    [
+     "2017",
+     2945
+    ],
+    [
+     "2018",
+     4467
+    ],
+    [
+     "2019",
+     3702
+    ],
+    [
+     "2020",
+     1670
+    ]
+   ],
+   "nota": "Archivo histórico de las cuatro curadurías y el DAP, georreferenciado por la Alcaldía. Llega hasta 2020: 2021 y posteriores traen muy pocos registros y no se muestran. \"Varias\" agrupa licencias con más de un objeto."
+  },
+  "empresas_anual": {
+   "etiqueta": "Empresas matriculadas en Medellín",
+   "unidad": "empresas",
+   "fuente": "camara-estructura",
+   "estado": "observado",
+   "vigencia": "2018 – 2022",
+   "puntos": [
+    [
+     "2018",
+     102569
+    ],
+    [
+     "2019",
+     106957
+    ],
+    [
+     "2020",
+     97534
+    ],
+    [
+     "2021",
+     101698
+    ],
+    [
+     "2022",
+     110843
+    ]
+   ],
+   "nota": "Empresas con matrícula mercantil en la Cámara de Comercio. Hasta 2020 cerca de 18.000 empresas quedaban \"sin georreferenciar\" por año; desde 2021 son unas pocas centenas, así que el conteo por comuna no es comparable antes y después de 2021. El total de la ciudad sí lo es."
   }
  },
- "listas": {}
+ "listas": {
+  "vivienda_por_estrato": [
+   {
+    "estrato": 1,
+    "venta_m2": 1186050,
+    "ofertas_venta": 366,
+    "arriendo_m2": 17949,
+    "ofertas_arriendo": 31,
+    "rentabilidad_bruta": 18.16
+   },
+   {
+    "estrato": 2,
+    "venta_m2": 1621260,
+    "ofertas_venta": 1038,
+    "arriendo_m2": 17273,
+    "ofertas_arriendo": 325,
+    "rentabilidad_bruta": 12.78
+   },
+   {
+    "estrato": 3,
+    "venta_m2": 3066667,
+    "ofertas_venta": 2460,
+    "arriendo_m2": 22000,
+    "ofertas_arriendo": 1888,
+    "rentabilidad_bruta": 8.61
+   },
+   {
+    "estrato": 4,
+    "venta_m2": 4303261,
+    "ofertas_venta": 1644,
+    "arriendo_m2": 28868,
+    "ofertas_arriendo": 1538,
+    "rentabilidad_bruta": 8.05
+   },
+   {
+    "estrato": 5,
+    "venta_m2": 4905660,
+    "ofertas_venta": 1625,
+    "arriendo_m2": 31746,
+    "ofertas_arriendo": 1323,
+    "rentabilidad_bruta": 7.77
+   },
+   {
+    "estrato": 6,
+    "venta_m2": 6907837,
+    "ofertas_venta": 596,
+    "arriendo_m2": 44762,
+    "ofertas_arriendo": 631,
+    "rentabilidad_bruta": 7.78
+   }
+  ],
+  "licencias_por_objeto": [
+   {
+    "objeto": "Varias",
+    "licencias": 7052
+   },
+   {
+    "objeto": "Modificación",
+    "licencias": 2775
+   },
+   {
+    "objeto": "Construcción",
+    "licencias": 2613
+   },
+   {
+    "objeto": "Obra nueva",
+    "licencias": 1397
+   },
+   {
+    "objeto": "Ampliación",
+    "licencias": 938
+   },
+   {
+    "objeto": "No definido",
+    "licencias": 718
+   }
+  ],
+  "ica_por_grupo": [
+   {
+    "grupo": "Comercial",
+    "contratos": 187802
+   },
+   {
+    "grupo": "Servicios",
+    "contratos": 187164
+   },
+   {
+    "grupo": "Industrial",
+    "contratos": 53683
+   },
+   {
+    "grupo": "Financiero",
+    "contratos": 8545
+   },
+   {
+    "grupo": "Otras actividades",
+    "contratos": 4117
+   },
+   {
+    "grupo": "Sin grupo",
+    "contratos": 1930
+   }
+  ],
+  "empresas_por_sector": [
+   {
+    "sector": "Comercio",
+    "empresas": 36709
+   },
+   {
+    "sector": "Industria manufacturera",
+    "empresas": 14172
+   },
+   {
+    "sector": "Profesionales y técnicas",
+    "empresas": 10457
+   },
+   {
+    "sector": "Alojamiento y comida",
+    "empresas": 9632
+   },
+   {
+    "sector": "Inmobiliarias",
+    "empresas": 7627
+   },
+   {
+    "sector": "Construcción",
+    "empresas": 6366
+   },
+   {
+    "sector": "Servicios administrativos",
+    "empresas": 5021
+   },
+   {
+    "sector": "Otros servicios",
+    "empresas": 4331
+   },
+   {
+    "sector": "Información y comunicaciones",
+    "empresas": 3878
+   },
+   {
+    "sector": "Transporte",
+    "empresas": 2516
+   },
+   {
+    "sector": "Agropecuario",
+    "empresas": 2250
+   },
+   {
+    "sector": "Salud",
+    "empresas": 2086
+   },
+   {
+    "sector": "Financieras y seguros",
+    "empresas": 1963
+   },
+   {
+    "sector": "Arte y recreación",
+    "empresas": 1752
+   },
+   {
+    "sector": "Educación",
+    "empresas": 935
+   },
+   {
+    "sector": "Energía, agua y residuos",
+    "empresas": 614
+   },
+   {
+    "sector": "Minería",
+    "empresas": 382
+   },
+   {
+    "sector": "Sin CIIU",
+    "empresas": 116
+   },
+   {
+    "sector": "Administración pública",
+    "empresas": 36
+   }
+  ],
+  "indicadores": [
+   {
+    "clave": "venta_m2",
+    "etiqueta": "Precio de oferta por m² (venta)",
+    "unidad": "$/m²",
+    "fuente": "oime-ofertas",
+    "estado": "observado",
+    "vigencia": "2024–2025",
+    "decimales": 0,
+    "nota": "Mediana del precio de oferta por m² de área privada de apartamentos y casas, investigados por el Catastro. Se excluyen los registros que el Catastro marca como atípicos y las áreas fuera de 20–500 m². Pesos corrientes, sin ajustar por inflación. Es precio de oferta, no de cierre. Solo territorios con al menos 20 ofertas en 2024–2025."
+   },
+   {
+    "clave": "arriendo_m2",
+    "etiqueta": "Arriendo de oferta por m²",
+    "unidad": "$/m² al mes",
+    "fuente": "oime-ofertas",
+    "estado": "observado",
+    "vigencia": "2024–2025",
+    "decimales": 0,
+    "nota": "Mediana del precio de oferta por m² de área privada de apartamentos y casas, investigados por el Catastro. Se excluyen los registros que el Catastro marca como atípicos y las áreas fuera de 20–500 m². Pesos corrientes, sin ajustar por inflación. Es precio de oferta, no de cierre. Solo territorios con al menos 20 ofertas en 2024–2025."
+   },
+   {
+    "clave": "rentabilidad_bruta",
+    "etiqueta": "Rentabilidad bruta del arriendo",
+    "unidad": "%",
+    "fuente": "oime-ofertas",
+    "estado": "derivado",
+    "vigencia": "2024–2025",
+    "decimales": 1,
+    "nota": "Arriendo mensual por m² × 12 ÷ precio de venta por m², con las medianas de oferta del mismo periodo. Es un cociente de medianas, no la rentabilidad de un mismo inmueble, y no descuenta administración, impuestos ni vacancia."
+   },
+   {
+    "clave": "valor_suelo",
+    "etiqueta": "Valor catastral del suelo (promedio por área)",
+    "unidad": "$/m²",
+    "fuente": "idem-valor-suelo",
+    "estado": "derivado",
+    "vigencia": "Base catastral consultada el 2026-09-27",
+    "decimales": 0,
+    "nota": "Valor catastral del suelo por m² de cada zona geoeconómica homogénea; no es precio de mercado. El servicio no publica el año de la base catastral. Promedio de las zonas que tocan el territorio, ponderado por el área de cada una dentro de él. Solo territorios cubiertos al menos en un 50 %."
+   },
+   {
+    "clave": "licencias",
+    "etiqueta": "Licencias urbanísticas",
+    "unidad": "licencias",
+    "fuente": "curadurias-licencias",
+    "estado": "observado",
+    "vigencia": "2016–2020 (histórico)",
+    "decimales": 0,
+    "nota": "Archivo histórico de las cuatro curadurías y el DAP, georreferenciado por la Alcaldía. Llega hasta 2020: 2021 y posteriores traen muy pocos registros y no se muestran. \"Varias\" agrupa licencias con más de un objeto. 9 licencias del periodo no tienen comuna reconocible y no se asignan."
+   },
+   {
+    "clave": "licencias_obra_nueva",
+    "etiqueta": "Licencias de obra nueva",
+    "unidad": "licencias",
+    "fuente": "curadurias-licencias",
+    "estado": "observado",
+    "vigencia": "2016–2020 (histórico)",
+    "decimales": 0,
+    "nota": "Archivo histórico de las cuatro curadurías y el DAP, georreferenciado por la Alcaldía. Llega hasta 2020: 2021 y posteriores traen muy pocos registros y no se muestran. \"Varias\" agrupa licencias con más de un objeto. 9 licencias del periodo no tienen comuna reconocible y no se asignan."
+   },
+   {
+    "clave": "establecimientos_ica",
+    "etiqueta": "Contribuyentes de Industria y Comercio",
+    "unidad": "contratos",
+    "fuente": "alc-industria-comercio",
+    "estado": "observado",
+    "vigencia": "Registro activo consultado el 2026-09-27",
+    "decimales": 0,
+    "nota": "Contratos activos del impuesto de Industria y Comercio. Incluye contribuyentes registrados sin establecimiento físico (63.897 dicen \"No posee establecimientos\"). No es el número de empresas de la Cámara de Comercio, que cuenta matrículas mercantiles. 49.757 contratos no tienen comuna y no se asignan. Los grupos de actividad se rotulan a partir del código CIIU que predomina en cada uno; el servicio no publica su diccionario."
+   },
+   {
+    "clave": "empresas_camara",
+    "etiqueta": "Empresas matriculadas (Cámara de Comercio)",
+    "unidad": "empresas",
+    "fuente": "camara-estructura",
+    "estado": "observado",
+    "vigencia": "2022",
+    "decimales": 0,
+    "nota": "Empresas con matrícula mercantil en la Cámara de Comercio. Hasta 2020 cerca de 18.000 empresas quedaban \"sin georreferenciar\" por año; desde 2021 son unas pocas centenas, así que el conteo por comuna no es comparable antes y después de 2021. El total de la ciudad sí lo es."
+   }
+  ],
+  "territorios": [
+   {
+    "codigo": "01",
+    "nombre": "Popular",
+    "tipo": "Comuna",
+    "valores": {
+     "valor_suelo": {
+      "vigente": 323107
+     },
+     "licencias": {
+      "2016–2020": 591
+     },
+     "licencias_obra_nueva": {
+      "2016–2020": 3
+     },
+     "establecimientos_ica": {
+      "vigente": 5259
+     },
+     "empresas_camara": {
+      "2022": 1416
+     }
+    }
+   },
+   {
+    "codigo": "02",
+    "nombre": "Santa Cruz",
+    "tipo": "Comuna",
+    "valores": {
+     "valor_suelo": {
+      "vigente": 422262
+     },
+     "licencias": {
+      "2016–2020": 705
+     },
+     "licencias_obra_nueva": {
+      "2016–2020": 8
+     },
+     "establecimientos_ica": {
+      "vigente": 5948
+     },
+     "empresas_camara": {
+      "2022": 1637
+     }
+    }
+   },
+   {
+    "codigo": "03",
+    "nombre": "Manrique",
+    "tipo": "Comuna",
+    "valores": {
+     "venta_m2": {
+      "2024–2025": 1462755
+     },
+     "arriendo_m2": {
+      "2024–2025": 17241
+     },
+     "rentabilidad_bruta": {
+      "2024–2025": 14.14
+     },
+     "valor_suelo": {
+      "vigente": 391382
+     },
+     "licencias": {
+      "2016–2020": 1191
+     },
+     "licencias_obra_nueva": {
+      "2016–2020": 29
+     },
+     "establecimientos_ica": {
+      "vigente": 9331
+     },
+     "empresas_camara": {
+      "2022": 2271
+     }
+    }
+   },
+   {
+    "codigo": "04",
+    "nombre": "Aranjuez",
+    "tipo": "Comuna",
+    "valores": {
+     "venta_m2": {
+      "2024–2025": 1982799
+     },
+     "arriendo_m2": {
+      "2024–2025": 17949
+     },
+     "rentabilidad_bruta": {
+      "2024–2025": 10.86
+     },
+     "valor_suelo": {
+      "vigente": 693539
+     },
+     "licencias": {
+      "2016–2020": 1224
+     },
+     "licencias_obra_nueva": {
+      "2016–2020": 38
+     },
+     "establecimientos_ica": {
+      "vigente": 16990
+     },
+     "empresas_camara": {
+      "2022": 4330
+     }
+    }
+   },
+   {
+    "codigo": "05",
+    "nombre": "Castilla",
+    "tipo": "Comuna",
+    "valores": {
+     "venta_m2": {
+      "2024–2025": 1846360
+     },
+     "arriendo_m2": {
+      "2024–2025": 18333
+     },
+     "rentabilidad_bruta": {
+      "2024–2025": 11.92
+     },
+     "valor_suelo": {
+      "vigente": 840101
+     },
+     "licencias": {
+      "2016–2020": 1001
+     },
+     "licencias_obra_nueva": {
+      "2016–2020": 20
+     },
+     "establecimientos_ica": {
+      "vigente": 14180
+     },
+     "empresas_camara": {
+      "2022": 3396
+     }
+    }
+   },
+   {
+    "codigo": "06",
+    "nombre": "Doce de Octubre",
+    "tipo": "Comuna",
+    "valores": {
+     "venta_m2": {
+      "2024–2025": 1392535
+     },
+     "arriendo_m2": {
+      "2024–2025": 16279
+     },
+     "rentabilidad_bruta": {
+      "2024–2025": 14.03
+     },
+     "valor_suelo": {
+      "vigente": 505524
+     },
+     "licencias": {
+      "2016–2020": 1777
+     },
+     "licencias_obra_nueva": {
+      "2016–2020": 9
+     },
+     "establecimientos_ica": {
+      "vigente": 10364
+     },
+     "empresas_camara": {
+      "2022": 2490
+     }
+    }
+   },
+   {
+    "codigo": "07",
+    "nombre": "Robledo",
+    "tipo": "Comuna",
+    "valores": {
+     "venta_m2": {
+      "2024–2025": 4101223
+     },
+     "arriendo_m2": {
+      "2024–2025": 27071
+     },
+     "rentabilidad_bruta": {
+      "2024–2025": 7.92
+     },
+     "valor_suelo": {
+      "vigente": 756911
+     },
+     "licencias": {
+      "2016–2020": 1063
+     },
+     "licencias_obra_nueva": {
+      "2016–2020": 53
+     },
+     "establecimientos_ica": {
+      "vigente": 13325
+     },
+     "empresas_camara": {
+      "2022": 3604
+     }
+    }
+   },
+   {
+    "codigo": "08",
+    "nombre": "Villa Hermosa",
+    "tipo": "Comuna",
+    "valores": {
+     "venta_m2": {
+      "2024–2025": 1531267
+     },
+     "arriendo_m2": {
+      "2024–2025": 20227
+     },
+     "rentabilidad_bruta": {
+      "2024–2025": 15.85
+     },
+     "valor_suelo": {
+      "vigente": 514083
+     },
+     "licencias": {
+      "2016–2020": 818
+     },
+     "licencias_obra_nueva": {
+      "2016–2020": 30
+     },
+     "establecimientos_ica": {
+      "vigente": 8386
+     },
+     "empresas_camara": {
+      "2022": 3052
+     }
+    }
+   },
+   {
+    "codigo": "09",
+    "nombre": "Buenos Aires",
+    "tipo": "Comuna",
+    "valores": {
+     "venta_m2": {
+      "2024–2025": 2865646
+     },
+     "arriendo_m2": {
+      "2024–2025": 24000
+     },
+     "rentabilidad_bruta": {
+      "2024–2025": 10.05
+     },
+     "valor_suelo": {
+      "vigente": 860342
+     },
+     "licencias": {
+      "2016–2020": 949
+     },
+     "licencias_obra_nueva": {
+      "2016–2020": 55
+     },
+     "establecimientos_ica": {
+      "vigente": 15026
+     },
+     "empresas_camara": {
+      "2022": 3977
+     }
+    }
+   },
+   {
+    "codigo": "10",
+    "nombre": "La Candelaria",
+    "tipo": "Comuna",
+    "valores": {
+     "venta_m2": {
+      "2024–2025": 3583333
+     },
+     "arriendo_m2": {
+      "2024–2025": 24638
+     },
+     "rentabilidad_bruta": {
+      "2024–2025": 8.25
+     },
+     "valor_suelo": {
+      "vigente": 2892423
+     },
+     "licencias": {
+      "2016–2020": 680
+     },
+     "licencias_obra_nueva": {
+      "2016–2020": 93
+     },
+     "establecimientos_ica": {
+      "vigente": 94549
+     },
+     "empresas_camara": {
+      "2022": 22912
+     }
+    }
+   },
+   {
+    "codigo": "11",
+    "nombre": "Laureles Estadio",
+    "tipo": "Comuna",
+    "valores": {
+     "venta_m2": {
+      "2024–2025": 4521277
+     },
+     "arriendo_m2": {
+      "2024–2025": 30612
+     },
+     "rentabilidad_bruta": {
+      "2024–2025": 8.12
+     },
+     "valor_suelo": {
+      "vigente": 1935018
+     },
+     "licencias": {
+      "2016–2020": 832
+     },
+     "licencias_obra_nueva": {
+      "2016–2020": 266
+     },
+     "establecimientos_ica": {
+      "vigente": 43278
+     },
+     "empresas_camara": {
+      "2022": 11247
+     }
+    }
+   },
+   {
+    "codigo": "12",
+    "nombre": "La América",
+    "tipo": "Comuna",
+    "valores": {
+     "venta_m2": {
+      "2024–2025": 4014540
+     },
+     "arriendo_m2": {
+      "2024–2025": 25833
+     },
+     "rentabilidad_bruta": {
+      "2024–2025": 7.72
+     },
+     "valor_suelo": {
+      "vigente": 1521121
+     },
+     "licencias": {
+      "2016–2020": 671
+     },
+     "licencias_obra_nueva": {
+      "2016–2020": 149
+     },
+     "establecimientos_ica": {
+      "vigente": 19484
+     },
+     "empresas_camara": {
+      "2022": 4713
+     }
+    }
+   },
+   {
+    "codigo": "13",
+    "nombre": "San Javier",
+    "tipo": "Comuna",
+    "valores": {
+     "venta_m2": {
+      "2024–2025": 3478261
+     },
+     "arriendo_m2": {
+      "2024–2025": 22097
+     },
+     "rentabilidad_bruta": {
+      "2024–2025": 7.62
+     },
+     "valor_suelo": {
+      "vigente": 597376
+     },
+     "licencias": {
+      "2016–2020": 671
+     },
+     "licencias_obra_nueva": {
+      "2016–2020": 36
+     },
+     "establecimientos_ica": {
+      "vigente": 10237
+     },
+     "empresas_camara": {
+      "2022": 2440
+     }
+    }
+   },
+   {
+    "codigo": "14",
+    "nombre": "El Poblado",
+    "tipo": "Comuna",
+    "valores": {
+     "venta_m2": {
+      "2024–2025": 6779206
+     },
+     "arriendo_m2": {
+      "2024–2025": 44828
+     },
+     "rentabilidad_bruta": {
+      "2024–2025": 7.94
+     },
+     "valor_suelo": {
+      "vigente": 1947763
+     },
+     "licencias": {
+      "2016–2020": 633
+     },
+     "licencias_obra_nueva": {
+      "2016–2020": 154
+     },
+     "establecimientos_ica": {
+      "vigente": 61756
+     },
+     "empresas_camara": {
+      "2022": 20550
+     }
+    }
+   },
+   {
+    "codigo": "15",
+    "nombre": "Guayabal",
+    "tipo": "Comuna",
+    "valores": {
+     "venta_m2": {
+      "2024–2025": 3720930
+     },
+     "arriendo_m2": {
+      "2024–2025": 24000
+     },
+     "rentabilidad_bruta": {
+      "2024–2025": 7.74
+     },
+     "valor_suelo": {
+      "vigente": 1513161
+     },
+     "licencias": {
+      "2016–2020": 672
+     },
+     "licencias_obra_nueva": {
+      "2016–2020": 44
+     },
+     "establecimientos_ica": {
+      "vigente": 19199
+     },
+     "empresas_camara": {
+      "2022": 5884
+     }
+    }
+   },
+   {
+    "codigo": "16",
+    "nombre": "Belén",
+    "tipo": "Comuna",
+    "valores": {
+     "venta_m2": {
+      "2024–2025": 4175824
+     },
+     "arriendo_m2": {
+      "2024–2025": 28956
+     },
+     "rentabilidad_bruta": {
+      "2024–2025": 8.32
+     },
+     "valor_suelo": {
+      "vigente": 1288738
+     },
+     "licencias": {
+      "2016–2020": 1221
+     },
+     "licencias_obra_nueva": {
+      "2016–2020": 235
+     },
+     "establecimientos_ica": {
+      "vigente": 36971
+     },
+     "empresas_camara": {
+      "2022": 10090
+     }
+    }
+   },
+   {
+    "codigo": "50",
+    "nombre": "San Sebastián de Palmitas",
+    "tipo": "Corregimiento",
+    "valores": {
+     "valor_suelo": {
+      "vigente": 9536
+     },
+     "licencias": {
+      "2016–2020": 4
+     },
+     "licencias_obra_nueva": {
+      "2016–2020": 1
+     },
+     "establecimientos_ica": {
+      "vigente": 30
+     },
+     "empresas_camara": {
+      "2022": 55
+     }
+    }
+   },
+   {
+    "codigo": "60",
+    "nombre": "San Cristóbal",
+    "tipo": "Corregimiento",
+    "valores": {
+     "venta_m2": {
+      "2024–2025": 4562500
+     },
+     "arriendo_m2": {
+      "2024–2025": 26876
+     },
+     "rentabilidad_bruta": {
+      "2024–2025": 7.07
+     },
+     "valor_suelo": {
+      "vigente": 88275
+     },
+     "licencias": {
+      "2016–2020": 133
+     },
+     "licencias_obra_nueva": {
+      "2016–2020": 30
+     },
+     "establecimientos_ica": {
+      "vigente": 3537
+     },
+     "empresas_camara": {
+      "2022": 1325
+     }
+    }
+   },
+   {
+    "codigo": "70",
+    "nombre": "Altavista",
+    "tipo": "Corregimiento",
+    "valores": {
+     "venta_m2": {
+      "2024–2025": 5675676
+     },
+     "arriendo_m2": {
+      "2024–2025": 40200
+     },
+     "rentabilidad_bruta": {
+      "2024–2025": 8.5
+     },
+     "valor_suelo": {
+      "vigente": 43369
+     },
+     "licencias": {
+      "2016–2020": 28
+     },
+     "licencias_obra_nueva": {
+      "2016–2020": 8
+     },
+     "establecimientos_ica": {
+      "vigente": 1548
+     },
+     "empresas_camara": {
+      "2022": 1029
+     }
+    }
+   },
+   {
+    "codigo": "80",
+    "nombre": "San Antonio de Prado",
+    "tipo": "Corregimiento",
+    "valores": {
+     "venta_m2": {
+      "2024–2025": 2685185
+     },
+     "arriendo_m2": {
+      "2024–2025": 21429
+     },
+     "rentabilidad_bruta": {
+      "2024–2025": 9.58
+     },
+     "valor_suelo": {
+      "vigente": 56128
+     },
+     "licencias": {
+      "2016–2020": 503
+     },
+     "licencias_obra_nueva": {
+      "2016–2020": 59
+     },
+     "establecimientos_ica": {
+      "vigente": 3721
+     },
+     "empresas_camara": {
+      "2022": 1873
+     }
+    }
+   },
+   {
+    "codigo": "90",
+    "nombre": "Santa Elena",
+    "tipo": "Corregimiento",
+    "valores": {
+     "venta_m2": {
+      "2024–2025": 2909660
+     },
+     "valor_suelo": {
+      "vigente": 40062
+     },
+     "licencias": {
+      "2016–2020": 117
+     },
+     "licencias_obra_nueva": {
+      "2016–2020": 76
+     },
+     "establecimientos_ica": {
+      "vigente": 365
+     },
+     "empresas_camara": {
+      "2022": 1412
+     }
+    }
+   }
+  ]
+ }
 }

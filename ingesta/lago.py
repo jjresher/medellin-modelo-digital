@@ -17,7 +17,9 @@ import datetime as dt
 import http.client
 import io
 import json
+import re
 import time
+import unicodedata
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -111,6 +113,32 @@ def arcgis(capa, where='1=1', campos='*', geometria=False):
     return filas
 
 
+def arcgis_por_ids(capa, campos='*', where='1=1', lote=1000):
+    """Descarga una capa que no admite paginación ("Pagination is not supported"): pide todos los objectid y luego
+    los registros por rangos de id.
+
+    El servidor de la Alcaldía falla al azar con "Unable to complete operation", y más cuanto más grande es la
+    consulta: un lote que no pasa tras sus reintentos se parte en dos y se pide cada mitad, hasta lotes de 50.
+    """
+    ids = sorted(consulta_arcgis(capa, {'where': where, 'returnIdsOnly': 'true', 'f': 'json'}, intentos=8).get('objectIds') or [])
+
+    def traer(tramo):
+        try:
+            datos = consulta_arcgis(capa, {'where': f'({where}) AND objectid >= {tramo[0]} AND objectid <= {tramo[-1]}',
+                                           'outFields': campos, 'returnGeometry': 'false', 'f': 'json'}, intentos=3)
+            return [f['attributes'] for f in datos.get('features', [])]
+        except RuntimeError:
+            if len(tramo) <= 50:
+                raise
+            mitad = len(tramo) // 2
+            return traer(tramo[:mitad]) + traer(tramo[mitad:])
+
+    filas = []
+    for i in range(0, len(ids), lote):
+        filas += traer(ids[i:i + lote])
+    return filas
+
+
 def arcgis_geojson(capa, campos='*', where='1=1', offset=None):
     """Descarga una capa completa en GeoJSON, paginando: los servicios cortan cada respuesta en su maxRecordCount."""
     params = {'where': where, 'outFields': campos, 'outSR': 4326, 'geometryPrecision': 6, 'f': 'geojson'}
@@ -150,6 +178,78 @@ def numero(texto):
 def excel(contenido):
     import openpyxl  # dependencia de ingesta/requirements.txt
     return openpyxl.load_workbook(io.BytesIO(contenido), read_only=True, data_only=True)
+
+
+# ---------------------------------------------------------------- territorios (16 comunas y 5 corregimientos)
+
+# Nombres con que las fuentes escriben algunos territorios y que no coinciden con los límites del gemelo.
+ALIAS_TERRITORIO = {'Laureles': '11', 'Palmitas': '50'}
+
+
+def normalizar_nombre(nombre):
+    """Mayúsculas, sin tildes y sin "Corregimiento de". Repara tildes mal codificadas (utf-8 leído como latin-1)."""
+    texto = str(nombre or '').strip()
+    if 'Ã' in texto:
+        try:
+            texto = texto.encode('latin-1').decode('utf-8')
+        except (UnicodeEncodeError, UnicodeDecodeError):
+            pass
+    texto = ''.join(c for c in unicodedata.normalize('NFD', texto) if unicodedata.category(c) != 'Mn').upper()
+    return re.sub(r'\s+', ' ', re.sub(r'^CORREGIMIENTO DE ', '', texto)).strip()
+
+
+class Territorios:
+    """Acumula por código de comuna o corregimiento los valores de cada indicador, con su definición. Los 21
+    territorios y sus nombres salen de los límites del gemelo (comunas.geojson), no de cada fuente."""
+
+    def __init__(self):
+        self.filas, self.indicadores, self._por_nombre = {}, {}, {}
+        limites = json.loads((RAIZ / 'public' / 'data' / 'geo' / 'comunas.geojson').read_text(encoding='utf-8'))
+        for f in limites['features']:
+            p = f['properties']
+            if p.get('NOMBRE') and p['CODIGO'].isdigit():
+                self.filas[p['CODIGO']] = {'codigo': p['CODIGO'],
+                                           'nombre': re.sub(r'^Corregimiento de ', '', p['NOMBRE']),
+                                           'tipo': 'Corregimiento' if int(p['CODIGO']) >= 50 else 'Comuna',
+                                           'valores': {}}
+        if len(self.filas) != 21:
+            raise RuntimeError(f'comunas.geojson trae {len(self.filas)} comunas y corregimientos con nombre, no 21')
+
+    def codigo(self, nombre):
+        """Código del territorio a partir de su nombre, tal como lo escriben las fuentes: con o sin tildes, en
+        mayúsculas, con "Corregimiento de" delante o con tildes mal codificadas ("BelÃ©n"). None si no coincide."""
+        if not self._por_nombre:
+            self._por_nombre = {normalizar_nombre(f['nombre']): c for c, f in self.filas.items()}
+            self._por_nombre.update({normalizar_nombre(alias): c for alias, c in ALIAS_TERRITORIO.items()})
+        return self._por_nombre.get(normalizar_nombre(nombre))
+
+    def indicador(self, clave, etiqueta, unidad, fuente, vigencia, estado='observado', decimales=0, nota=None):
+        self.indicadores[clave] = {'clave': clave, 'etiqueta': etiqueta, 'unidad': unidad, 'fuente': fuente,
+                                   'estado': estado, 'vigencia': vigencia, 'decimales': decimales,
+                                   **({'nota': nota} if nota else {})}
+
+    def valor(self, codigo, clave, anio, valor):
+        fila = self.filas.get(str(codigo).zfill(2))
+        if fila is None:
+            raise RuntimeError(f'Código de territorio desconocido: {codigo!r}')
+        if valor is not None:
+            fila['valores'].setdefault(clave, {})[str(anio)] = valor
+
+    def heredar(self, previo, fuente):
+        """Si una fuente falla, se conservan sus indicadores y valores de la ingesta anterior."""
+        listas = (previo or {}).get('listas', {})
+        claves = [i['clave'] for i in listas.get('indicadores', []) if i['fuente'] == fuente]
+        for ind in listas.get('indicadores', []):
+            if ind['clave'] in claves:
+                self.indicadores[ind['clave']] = ind
+        for fila in listas.get('territorios', []):
+            for clave in claves:
+                if clave in fila['valores'] and fila['codigo'] in self.filas:
+                    self.filas[fila['codigo']]['valores'][clave] = fila['valores'][clave]
+
+    def escribir(self, t):
+        t.lista('indicadores', list(self.indicadores.values()))
+        t.lista('territorios', sorted(self.filas.values(), key=lambda f: f['codigo']))
 
 
 class Tema:
@@ -200,8 +300,9 @@ class Tema:
             self.ancla.append(clave)
 
     def serie(self, clave, puntos, unidad, etiqueta, fuente, estado='observado', **extra):
+        con_dato = [p for p in puntos if p[1] is not None]
         self.series[clave] = {'etiqueta': etiqueta, 'unidad': unidad, 'fuente': fuente, 'estado': estado,
-                              'vigencia': f'{puntos[0][0]} – {puntos[-1][0]}', 'puntos': puntos, **extra}
+                              'vigencia': f'{con_dato[0][0]} – {con_dato[-1][0]}', 'puntos': puntos, **extra}
 
     def lista(self, clave, filas):
         self.listas[clave] = filas

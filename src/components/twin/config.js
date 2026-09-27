@@ -56,6 +56,9 @@ const tratamientos = [
 
 const amenazas = [['Movimientos en masa', '#fd971f'], ['Inundaciones', '#66d9ef'], ['Avenidas Torrenciales', '#ae81ff']];
 
+// Valor catastral del suelo por m²: rampa secuencial de un tono, en escala logarítmica (va de miles a millones de pesos).
+const sueloRamp = [[3, '#3a3b33'], [5, '#66d9ef'], [6, '#ae81ff'], [7, '#f92672']];
+
 // Capas del panel Explorar. `archivos` son GeoJSON en CAPAS_DIR; el id del archivo es el id de la fuente de MapLibre.
 export const thematicLayers = {
   movilidad: {
@@ -107,6 +110,16 @@ export const thematicLayers = {
       { id: 'capa-tratamientos-line', type: 'line', source: 'planificacion_tratamientos', paint: { 'line-color': '#f8f8f2', 'line-width': 0.5, 'line-opacity': 0.35 } }
     ],
     legend: tratamientos.map(([label, , color]) => [label, color])
+  },
+  suelo: {
+    label: 'Valor del suelo',
+    fuentes: ['idem-valor-suelo'],
+    archivos: ['economia_valor_suelo'],
+    layers: [
+      { id: 'capa-suelo-fill', type: 'fill', source: 'economia_valor_suelo', paint: { 'fill-color': ['interpolate', ['linear'], ['log10', ['max', ['get', 'valor_m2'], 1]], ...sueloRamp.flat()], 'fill-opacity': 0.45 } },
+      { id: 'capa-suelo-line', type: 'line', source: 'economia_valor_suelo', paint: { 'line-color': '#f8f8f2', 'line-width': 0.4, 'line-opacity': 0.35 } }
+    ],
+    legend: [['Hasta $10.000/m²', sueloRamp[0][1]], ['$100.000/m²', sueloRamp[1][1]], ['$1 M/m²', sueloRamp[2][1]], ['$10 M/m² o más', sueloRamp[3][1]]]
   },
   riesgo: {
     label: 'Riesgo',

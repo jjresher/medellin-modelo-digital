@@ -120,13 +120,23 @@ Convenciones: `ALC` = `https://www.medellin.gov.co/servidormapas/rest/services`,
 
 | Dato | Endpoint | Vigencia | Valor clave |
 |---|---|---|---|
-| **Mercado laboral, Medellín A.M.** | `https://www.dane.gov.co/files/operaciones/GEIH/anex-GEIH-<mes><año>.xlsx`, hoja `Total 23 ciudades A.M. Trim` | Mayo–julio de 2026 | **Desocupación 6,97 %**, ocupación 62,66 %, participación 67,35 % |
-| **Oferta inmobiliaria (OIME)** | `ALC/vivienda_ciudad_terri/VM_Oferta_Comercial_Oime/MapServer/1` | 2023 | 28.425 anuncios (13.877 de venta y 14.547 de arriendo) con precio, área, estrato y coordenadas. Permite derivar el precio por m² por comuna. |
-| Valor del suelo por zona | `IDEM/MEDELLIN_Uso_y_Valores_Suelo/MapServer/0` | Vigente | 276 zonas con `VALOR_M2` |
-| Licencias urbanísticas | `ALC/vivienda_ciudad_terri/VM_Licencias/MapServer/0`; histórico en MEData `1-002-26-000413` | Por verificar | |
-| Establecimientos comerciales | `ALC/ccio_ind_turism/VC_Act_Comercial_Empresarial/MapServer/0` | Por verificar | 443.241 registros |
-| Estructura empresarial por comuna | datos.gov.co `pb3w-3vmc` (Cámara de Comercio) | 2023 | |
-| Facturación del impuesto predial por comuna | `MED/1-016-12-000302/...csv` | Hasta 2023 | |
+| **Mercado laboral, Medellín A.M.** | `https://www.dane.gov.co/files/operaciones/GEIH/anex-GEIH-<mes><año>.xlsx`, hoja `Total 23 ciudades A.M. Trim` | Mayo–julio de 2026 | **Desocupación 6,97 %**, ocupación 62,66 %, participación 67,35 %. Serie trimestral móvil desde ene–mar 2007. **En uso.** |
+| **Oferta de vivienda investigada por el Catastro (OIME)** | `ALC/vivienda_ciudad_terri/VM_Oferta_Comercial_Oime/MapServer/0` | **2008–2026** (2026 parcial) | 193.920 registros de venta y arriendo, unos 10.000 por año, con precio, área privada, estrato, comuna y marca de atípico. `commercial_value` es el precio total en venta y el canon **mensual** en arriendo. **En uso** (apartamentos y casas). |
+| Anuncios de vivienda en internet (OIME) | `.../VM_Oferta_Comercial_Oime/MapServer/1` | 2023 | 28.425 anuncios (13.878 de venta y 14.547 de arriendo). No se usa: la capa 0 es más reciente y la investiga el Catastro. |
+| Valor catastral del suelo por zona | `IDEM/MEDELLIN_Uso_y_Valores_Suelo/MapServer/0` | Base catastral vigente; **el servicio no publica el año** | 276 zonas geoeconómicas con `VALOR_M2` (tipo "Valor Catastral"), de $3.835 a $10,8 M por m². Es avalúo catastral, no precio de mercado. **En uso.** |
+| Licencias urbanísticas (curadurías) | `ALC/vivienda_ciudad_terri/VM_Licencias/MapServer/2` | **2003–2020**; 2021 trae 127 registros | 92.308 licencias con `anio` (texto libre: "2008", "2003-1998", "20'04"…), `objeto` y `g__comuna`. **No admite paginación**: se descarga por rangos de `objectid`. **En uso.** |
+| Licencias (capa 0) | `.../VM_Licencias/MapServer/0` | 2006 | 835 registros sin fecha ni tipo; el año sale del código (`C4-00383-06-LC`). No se usa. |
+| Establecimientos de Industria y Comercio | `ALC/ccio_ind_turism/VC_Act_Comercial_Empresarial/MapServer/0` | Registro activo; sin fecha | 443.241 contratos activos del impuesto, 63.897 de ellos "No posee establecimientos". `comuna` viene vacía en la mitad; `nombre_comuna` sirve, con tildes mal codificadas ("BelÃ©n"). `grupo_actividad` 01–05 sin diccionario publicado. **En uso.** |
+| **Estructura empresarial por comuna** | datos.gov.co `pb3w-3vmc` (Cámara de Comercio) | **2018–2022** | Empresas por clase CIIU y comuna; 110.843 en 2022. **En uso.** |
+| Facturación del impuesto predial por comuna | `MED/1-016-12-000302/...csv` | Hasta 2023 | Pendiente para Municipio (#8). |
+
+**Notas de uso en Economía y vivienda (issue #6, 27 sep 2026)**
+
+- **OIME:** se usa la capa de investigaciones del Catastro (2008–2026) en vez de los anuncios de 2023. Mediana del precio de oferta por m² de área privada, sin atípicos y con áreas entre 20 y 500 m². Para que las comunas tengan muestra se juntan los dos últimos años completos (hoy 2024–2025) y se exige un mínimo de 20 ofertas; Popular, Santa Cruz y Palmitas no llegan. Los promedios simples no sirven: los apartamentos en venta de 2025 promedian 741 m² por unos pocos registros erróneos.
+- **Rentabilidad bruta** = arriendo mensual por m² × 12 ÷ precio de venta por m², con medianas del mismo periodo: es un cociente de medianas, no la rentabilidad de un mismo inmueble.
+- **Industria y Comercio y Cámara de Comercio no se mezclan:** el primero cuenta contratos del impuesto (443.241, con contribuyentes sin local); la segunda, matrículas mercantiles (110.843 en 2022).
+- **Cámara de Comercio:** hasta 2020 unas 18.000 empresas por año quedaban "sin georreferenciar"; desde 2021, unas pocas centenas. El conteo por comuna no es comparable antes y después de 2021; el total de la ciudad sí.
+- **Servidor de la Alcaldía:** además del error pasajero ya conocido, las consultas por rango de `objectid` de licencias fallan a veces varias veces seguidas. `lago.arcgis_por_ids` reintenta hasta 8 veces cada lote.
 
 ### Turismo
 

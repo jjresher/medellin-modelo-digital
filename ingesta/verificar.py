@@ -104,10 +104,11 @@ def verificar_tema(ruta, inf):
             inf.error(lugar, f'la fuente "{s.get("fuente")}" no está declarada')
         usadas.add(s.get('fuente'))
         puntos = s.get('puntos') or []
-        if len(puntos) < 2:
-            inf.error(lugar, 'tiene menos de 2 puntos')
-        elif any(len(p) != 2 or not numero_valido(p[1]) for p in puntos):
-            inf.error(lugar, 'tiene puntos que no son [etiqueta, número]')
+        # null marca un periodo sin dato (se dibuja como hueco); tiene que haber al menos 2 puntos con número.
+        if sum(1 for p in puntos if len(p) == 2 and numero_valido(p[1])) < 2:
+            inf.error(lugar, 'tiene menos de 2 puntos con dato')
+        elif any(len(p) != 2 or not (p[1] is None or numero_valido(p[1])) for p in puntos):
+            inf.error(lugar, 'tiene puntos que no son [etiqueta, número o null]')
         etiquetas = [str(p[0]) for p in puntos]
         if len(set(etiquetas)) != len(etiquetas):
             inf.error(lugar, 'tiene etiquetas repetidas')

@@ -1,8 +1,8 @@
 {
  "probado": "2026-09-27",
- "n": 50,
+ "n": 55,
  "por_estado": {
-  "observado": 48,
+  "observado": 53,
   "declarado": 2
  },
  "datasets": [
@@ -78,10 +78,65 @@
    "entidad": "DANE",
    "url": "https://www.dane.gov.co/files/operaciones/GEIH/anex-GEIH-jul2026.xlsx",
    "estado": "observado",
-   "probado": "2026-09-26",
+   "probado": "2026-09-27",
    "tema": "economia",
    "vigencia": "ene–mar 2007 – may–jul 2026",
    "uso": "Desempleo · Medellín A.M., Tasa de ocupación · Medellín A.M., Participación laboral · Medellín A.M., Subocupación · Medellín A.M."
+  },
+  {
+   "id": "oime-ofertas",
+   "nombre": "Observatorio Inmobiliario de Medellín (OIME): ofertas de vivienda investigadas por el Catastro",
+   "entidad": "Subsecretaría de Catastro · Alcaldía de Medellín",
+   "url": "https://www.medellin.gov.co/servidormapas/rest/services/vivienda_ciudad_terri/VM_Oferta_Comercial_Oime/MapServer/0",
+   "estado": "observado",
+   "probado": "2026-09-27",
+   "tema": "economia",
+   "vigencia": "2008 – 2025",
+   "uso": "Precio de oferta de vivienda por m², Arriendo de oferta de vivienda por m², Rentabilidad bruta del arriendo"
+  },
+  {
+   "id": "idem-valor-suelo",
+   "nombre": "Zonas de valor catastral del suelo de Medellín",
+   "entidad": "Área Metropolitana del Valle de Aburrá · Portal IDEM (catastro del Distrito)",
+   "url": "https://portalidem.metropol.gov.co/server/rest/services/MEDELLIN_Uso_y_Valores_Suelo/MapServer/0",
+   "estado": "observado",
+   "probado": "2026-09-27",
+   "tema": "economia",
+   "vigencia": "Base catastral consultada el 2026-09-27",
+   "uso": "Valor catastral del suelo (zona mediana), Zonas de valor catastral del suelo"
+  },
+  {
+   "id": "curadurias-licencias",
+   "nombre": "Licencias urbanísticas expedidas por las curadurías (archivo digitalizado)",
+   "entidad": "Departamento Administrativo de Planeación · Alcaldía de Medellín",
+   "url": "https://www.medellin.gov.co/servidormapas/rest/services/vivienda_ciudad_terri/VM_Licencias/MapServer/2",
+   "estado": "observado",
+   "probado": "2026-09-27",
+   "tema": "economia",
+   "vigencia": "2003 – 2020",
+   "uso": "Licencias urbanísticas 2016–2020, Licencias de obra nueva 2016–2020"
+  },
+  {
+   "id": "alc-industria-comercio",
+   "nombre": "Establecimientos de Industria y Comercio activos por actividad",
+   "entidad": "Secretaría de Hacienda · Alcaldía de Medellín",
+   "url": "https://www.medellin.gov.co/servidormapas/rest/services/ccio_ind_turism/VC_Act_Comercial_Empresarial/MapServer/0",
+   "estado": "observado",
+   "probado": "2026-09-27",
+   "tema": "economia",
+   "vigencia": "Registro activo consultado el 2026-09-27",
+   "uso": "Contribuyentes activos de Industria y Comercio"
+  },
+  {
+   "id": "camara-estructura",
+   "nombre": "Estructura empresarial de Medellín según comunas y actividad económica",
+   "entidad": "Cámara de Comercio de Medellín para Antioquia",
+   "url": "https://www.datos.gov.co/d/pb3w-3vmc",
+   "estado": "observado",
+   "probado": "2026-09-27",
+   "tema": "economia",
+   "vigencia": "2018 – 2022",
+   "uso": "Empresas matriculadas 2022"
   },
   {
    "id": "policia-homicidios",

@@ -52,6 +52,7 @@ const popupFields = {
   'capa-proteccion-fill': ['Suelo de protección', [['subcategoria', 'Subcategoría']], 'nombre'],
   'capa-tratamientos-fill': ['Tratamiento del POT', [['codigo', 'Código'], ['altura_normativa', 'Altura normativa (pisos)'], ['ic_max', 'Índice de construcción máx.'], ['densidad_max', 'Densidad máx. (viv/ha)']], 'tratamiento'],
   'capa-riesgo-fill': ['Zona de riesgo (POT)', [['riesgo', 'Condición'], ['amenaza', 'Amenaza']], 'nombre'],
+  'capa-suelo-fill': ['Valor catastral del suelo', [['valor_m2', 'Pesos por m²']]],
   'lente-subestaciones': ['Subestación de energía', [['estado', 'Estado'], ['clasificacion', 'Clasificación'], ['direccion', 'Dirección']], 'nombre'],
   'lente-alta-tension': ['Línea de alta tensión', [['tension_kv', 'Tensión (kV)'], ['circuito', 'Circuito']]],
   'lente-aforos': ['Intersección aforada', [['veh_eq_hora_pico', 'Veh. equivalentes en hora pico'], ['anios', 'Años del aforo']], 'interseccion']
