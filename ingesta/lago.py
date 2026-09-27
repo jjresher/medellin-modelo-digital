@@ -12,6 +12,7 @@ Estados: observado (dato abierto descargado), declarado (leído de PDF o prensa)
 derivado (calculado) y candidato (existe pero no es abierto; no lleva valor).
 """
 
+import csv
 import datetime as dt
 import http.client
 import io
@@ -110,6 +111,26 @@ def arcgis_geojson(capa, campos='*', where='1=1', offset=None):
         if not cortado or not datos.get('features'):
             return {'type': 'FeatureCollection', 'features': features}
 
+
+
+def leer_csv(url, timeout=300):
+    """Descarga un CSV grande y lo decodifica probando utf-8 y luego latin-1 (varios archivos de MEData
+    vienen en latin-1, con tildes mal codificadas en utf-8)."""
+    crudo = descargar(url, timeout=timeout)
+    for codificacion in ('utf-8', 'latin-1'):
+        try:
+            return list(csv.DictReader(io.StringIO(crudo.decode(codificacion))))
+        except UnicodeDecodeError:
+            continue
+    raise RuntimeError(f'No se pudo decodificar {url} ni en utf-8 ni en latin-1')
+
+
+def numero(texto):
+    """Convierte a float admitiendo coma decimal; None si no es un número (p. ej. "NaN" o "Sin dato")."""
+    try:
+        return float(str(texto).replace(',', '.'))
+    except (TypeError, ValueError):
+        return None
 
 
 def excel(contenido):

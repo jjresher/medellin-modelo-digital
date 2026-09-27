@@ -24,7 +24,7 @@ import urllib.parse
 import shapely
 from shapely.geometry import mapping, shape
 
-from lago import RAIZ, Tema, arcgis_geojson as geojson_arcgis, descargar, json_url
+from lago import RAIZ, Tema, arcgis_geojson as geojson_arcgis, descargar, json_url, leer_csv, numero
 
 IDEM = 'https://portalidem.metropol.gov.co/server/rest/services'
 POT = f'{IDEM}/DISTRITO_MEDELLIN_POT/MapServer'
@@ -76,22 +76,6 @@ def punto(geom, props):
 def limpiar(props, campos):
     return {nuevo: (props.get(viejo).strip() if isinstance(props.get(viejo), str) else props.get(viejo))
             for viejo, nuevo in campos.items() if props.get(viejo) not in (None, '', ' ')}
-
-
-def leer_csv(url):
-    crudo = descargar(url, timeout=300)
-    for codificacion in ('utf-8', 'latin-1'):
-        try:
-            return list(csv.DictReader(io.StringIO(crudo.decode(codificacion))))
-        except UnicodeDecodeError:
-            continue
-
-
-def numero(texto):
-    try:
-        return float(str(texto).replace(',', '.'))
-    except ValueError:
-        return None
 
 
 # ---------------------------------------------------------------- territorios

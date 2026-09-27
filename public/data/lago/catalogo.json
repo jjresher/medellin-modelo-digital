@@ -1,8 +1,8 @@
 {
  "probado": "2026-09-26",
- "n": 28,
+ "n": 36,
  "por_estado": {
-  "observado": 28
+  "observado": 36
  },
  "datasets": [
   {
@@ -57,8 +57,8 @@
    "estado": "observado",
    "probado": "2026-09-26",
    "tema": "seguridad",
-   "vigencia": "2018 – 2026",
-   "uso": "Hurto a personas 2025, Hurto a personas en 2026, Hurto a personas: variación frente a 2025"
+   "vigencia": "2024-01 – 2026-08",
+   "uso": "Hurto a personas 2025, Hurto a personas en 2026, Hurto a personas: variación frente a 2025, Tasa de hurto a personas 2025"
   },
   {
    "id": "policia-hurto-vehiculos",
@@ -68,8 +68,8 @@
    "estado": "observado",
    "probado": "2026-09-26",
    "tema": "seguridad",
-   "vigencia": "2018 – 2026",
-   "uso": "Hurto de vehículos 2025, Hurto de vehículos en 2026, Hurto de vehículos: variación frente a 2025"
+   "vigencia": "2024-01 – 2026-08",
+   "uso": "Hurto de vehículos 2025, Hurto de vehículos en 2026, Hurto de vehículos: variación frente a 2025, Tasa de hurto de vehículos 2025"
   },
   {
    "id": "policia-extorsion",
@@ -79,8 +79,8 @@
    "estado": "observado",
    "probado": "2026-09-26",
    "tema": "seguridad",
-   "vigencia": "2018 – 2026",
-   "uso": "Extorsión 2025, Extorsión en 2026, Extorsión: variación frente a 2025"
+   "vigencia": "2024-01 – 2026-08",
+   "uso": "Extorsión 2025, Extorsión en 2026, Extorsión: variación frente a 2025, Tasa de extorsión 2025"
   },
   {
    "id": "policia-violencia-intrafamiliar",
@@ -90,8 +90,8 @@
    "estado": "observado",
    "probado": "2026-09-26",
    "tema": "seguridad",
-   "vigencia": "2018 – 2026",
-   "uso": "Violencia intrafamiliar 2025, Violencia intrafamiliar en 2026, Violencia intrafamiliar: variación frente a 2025"
+   "vigencia": "2024-01 – 2026-08",
+   "uso": "Violencia intrafamiliar 2025, Violencia intrafamiliar en 2026, Violencia intrafamiliar: variación frente a 2025, Tasa de violencia intrafamiliar 2025"
   },
   {
    "id": "policia-delitos-sexuales",
@@ -101,8 +101,8 @@
    "estado": "observado",
    "probado": "2026-09-26",
    "tema": "seguridad",
-   "vigencia": "2018 – 2026",
-   "uso": "Delitos sexuales 2025, Delitos sexuales en 2026, Delitos sexuales: variación frente a 2025"
+   "vigencia": "2024-01 – 2026-08",
+   "uso": "Delitos sexuales 2025, Delitos sexuales en 2026, Delitos sexuales: variación frente a 2025, Tasa de delitos sexuales 2025"
   },
   {
    "id": "policia-lesiones-personales",
@@ -112,8 +112,96 @@
    "estado": "observado",
    "probado": "2026-09-26",
    "tema": "seguridad",
-   "vigencia": "2018 – 2026",
-   "uso": "Lesiones personales 2025, Lesiones personales en 2026, Lesiones personales: variación frente a 2025"
+   "vigencia": "2024-01 – 2026-08",
+   "uso": "Lesiones personales 2025, Lesiones personales en 2026, Lesiones personales: variación frente a 2025, Tasa de lesiones personales 2025"
+  },
+  {
+   "id": "sisc-homicidio",
+   "nombre": "Homicidio (SISC, georreferenciado)",
+   "entidad": "Secretaría de Seguridad y Convivencia · Alcaldía de Medellín (SISC / MEData)",
+   "url": "http://medata.gov.co/sites/default/files/distribution/1-027-23-000008/homicidio.csv",
+   "estado": "observado",
+   "probado": "2026-09-26",
+   "tema": "seguridad",
+   "vigencia": "2003 – 2023",
+   "uso": "Homicidio, 2021–2023 (histórico)"
+  },
+  {
+   "id": "sisc-hurto-persona",
+   "nombre": "Hurto a persona (SISC, georreferenciado)",
+   "entidad": "Secretaría de Seguridad y Convivencia · Alcaldía de Medellín (SISC / MEData)",
+   "url": "http://medata.gov.co/sites/default/files/distribution/1-027-23-000011/hurto_a_persona.csv",
+   "estado": "observado",
+   "probado": "2026-09-26",
+   "tema": "seguridad",
+   "vigencia": "2003 – 2023",
+   "uso": "Hurto a persona, 2021–2023 (histórico)"
+  },
+  {
+   "id": "sisc-hurto-carro",
+   "nombre": "Hurto de carro (SISC, georreferenciado)",
+   "entidad": "Secretaría de Seguridad y Convivencia · Alcaldía de Medellín (SISC / MEData)",
+   "url": "http://medata.gov.co/sites/default/files/distribution/1-027-23-000013/hurto_de_carro.csv",
+   "estado": "observado",
+   "probado": "2026-09-26",
+   "tema": "seguridad",
+   "vigencia": "2003 – 2023",
+   "uso": "Hurto de carro, 2021–2023 (histórico)"
+  },
+  {
+   "id": "sisc-hurto-moto",
+   "nombre": "Hurto de moto (SISC, georreferenciado)",
+   "entidad": "Secretaría de Seguridad y Convivencia · Alcaldía de Medellín (SISC / MEData)",
+   "url": "http://medata.gov.co/sites/default/files/distribution/1-027-23-000014/hurto_de_moto.csv",
+   "estado": "observado",
+   "probado": "2026-09-26",
+   "tema": "seguridad",
+   "vigencia": "2003 – 2023",
+   "uso": "Hurto de moto, 2021–2023 (histórico)"
+  },
+  {
+   "id": "sisc-hurto-residencia",
+   "nombre": "Hurto a residencia (SISC, georreferenciado)",
+   "entidad": "Secretaría de Seguridad y Convivencia · Alcaldía de Medellín (SISC / MEData)",
+   "url": "http://medata.gov.co/sites/default/files/distribution/1-027-23-000012/hurto_a_residencia.csv",
+   "estado": "observado",
+   "probado": "2026-09-26",
+   "tema": "seguridad",
+   "vigencia": "2003 – 2023",
+   "uso": "Hurto a residencia, 2021–2023 (histórico)"
+  },
+  {
+   "id": "sisc-hurto-comercio",
+   "nombre": "Hurto a establecimiento comercial (SISC, georreferenciado)",
+   "entidad": "Secretaría de Seguridad y Convivencia · Alcaldía de Medellín (SISC / MEData)",
+   "url": "http://medata.gov.co/sites/default/files/distribution/1-027-23-000010/hurto_a_establecimiento_comercial.csv",
+   "estado": "observado",
+   "probado": "2026-09-26",
+   "tema": "seguridad",
+   "vigencia": "2003 – 2023",
+   "uso": "Hurto a establecimiento comercial, 2021–2023 (histórico)"
+  },
+  {
+   "id": "sisc-extorsion-sisc",
+   "nombre": "Extorsión (SISC, georreferenciado)",
+   "entidad": "Secretaría de Seguridad y Convivencia · Alcaldía de Medellín (SISC / MEData)",
+   "url": "http://medata.gov.co/sites/default/files/distribution/1-027-23-000007/extorsion.csv",
+   "estado": "observado",
+   "probado": "2026-09-26",
+   "tema": "seguridad",
+   "vigencia": "2003 – 2023",
+   "uso": "Extorsión, 2021–2023 (histórico)"
+  },
+  {
+   "id": "sisc-lesion-dolosa",
+   "nombre": "Lesión no fatal dolosa (SISC, georreferenciado)",
+   "entidad": "Secretaría de Seguridad y Convivencia · Alcaldía de Medellín (SISC / MEData)",
+   "url": "http://medata.gov.co/sites/default/files/distribution/1-027-23-000002/lesion_no_fatal_dolosa_segun_policia.csv",
+   "estado": "observado",
+   "probado": "2026-09-26",
+   "tema": "seguridad",
+   "vigencia": "2003 – 2023",
+   "uso": "Lesión no fatal dolosa, 2021–2023 (histórico)"
   },
   {
    "id": "mincit-extranjeros",

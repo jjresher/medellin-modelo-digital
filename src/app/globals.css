@@ -211,3 +211,53 @@ h1 em { color: var(--green); font-family: Georgia, serif; font-weight: 400; }
 }
 .legend-block em i.square { border-radius: 1px; outline: 1px solid var(--line); }
 .side-panel > small { display: block; }
+
+/* ---- Seguridad y gráficas reutilizables (issue #3) ---- */
+.sec-block { padding: 30px 0; border-top: 1px solid var(--line); }
+.sec-block:first-of-type { border-top: 0; }
+.sec-note { max-width: 720px; margin: -4px 0 14px; color: var(--muted); font-size: 12px; line-height: 1.6; }
+.warning-note { display: flex; gap: 12px; max-width: 780px; margin: 0 0 26px; padding: 12px 14px; border: 1px solid color-mix(in srgb, var(--orange) 55%, var(--line)); border-radius: 3px; background: color-mix(in srgb, var(--orange) 8%, transparent); }
+.warning-note span { flex: none; color: var(--orange); font-size: 15px; }
+.warning-note p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
+.metrics-grid.compact { grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 4px 0 22px; }
+.chart-grid, .sisc-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 8px; }
+.chart-card { padding: 14px 16px 16px; border: 1px solid var(--line); border-radius: 3px; background: var(--panel); }
+.chart-card h3 { margin: 0 0 10px; color: var(--paper); font-size: 13px; font-weight: 600; letter-spacing: -.1px; }
+.chart-fuente { margin: 6px 0 0; color: var(--dim); font-size: 10px; }
+
+.linechart { position: relative; }
+.linechart svg { display: block; width: 100%; height: auto; }
+.chart-legend { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 6px; color: var(--muted); font: 10px ui-monospace, SFMono-Regular, Menlo, monospace; }
+.chart-legend span { display: flex; align-items: center; gap: 6px; }
+.chart-legend i { display: inline-block; width: 14px; height: 2px; border-radius: 1px; }
+.chart-legend i.dashed { height: 0; border-top: 2px dashed; background: none; }
+.chart-tooltip { position: absolute; top: 6px; z-index: 2; display: grid; gap: 3px; min-width: 130px; padding: 7px 9px; border: 1px solid var(--line); border-radius: 2px; background: rgba(39, 40, 34, .96); color: var(--paper); font: 10px ui-monospace, SFMono-Regular, Menlo, monospace; pointer-events: none; transform: translateX(-50%); }
+.chart-tooltip b { color: var(--muted); font-weight: 400; }
+.chart-tooltip span { display: flex; align-items: center; gap: 6px; }
+.chart-tooltip i { width: 8px; height: 8px; border-radius: 50%; }
+.chart-tooltip strong { color: var(--paper); }
+
+.barchart { display: grid; gap: 10px; }
+.table-toggle { justify-self: end; padding: 0; border: 0; color: var(--cyan); background: transparent; font: 10px ui-monospace, SFMono-Regular, Menlo, monospace; }
+.bar-rows { display: grid; gap: 5px; max-height: 460px; overflow-y: auto; }
+.bar-row { position: relative; display: grid; grid-template-columns: 150px 1fr 64px; align-items: center; gap: 8px; padding: 3px 0; border: 0; background: transparent; text-align: left; cursor: pointer; }
+.bar-row.selected .bar-label { color: var(--paper); }
+.bar-label { overflow: hidden; color: var(--muted); font-size: 10.5px; text-overflow: ellipsis; white-space: nowrap; }
+.bar-track { height: 14px; border-radius: 3px; background: color-mix(in srgb, var(--line) 55%, transparent); overflow: hidden; }
+.bar-fill { display: block; height: 100%; border-radius: 3px 0 0 3px; }
+.bar-value { color: var(--paper); font: 10.5px ui-monospace, SFMono-Regular, Menlo, monospace; text-align: right; }
+.bar-tooltip { top: -6px; left: 152px; transform: translateY(-100%); }
+.chart-table { width: 100%; border-collapse: collapse; font-size: 11px; }
+.chart-table th, .chart-table td { padding: 5px 8px; border-bottom: 1px solid color-mix(in srgb, var(--line) 60%, transparent); text-align: left; color: var(--muted); }
+.chart-table th { color: var(--dim); font: 9px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .5px; }
+.chart-table td:last-child, .chart-table th:last-child { text-align: right; color: var(--paper); }
+
+.barrio-map { position: relative; overflow: hidden; border-radius: 2px; }
+.barrio-map-canvas { position: absolute; inset: 0; }
+.barrio-legend { position: absolute; right: 10px; bottom: 10px; }
+.barrio-popup { top: 12px; left: 12px; right: auto; z-index: 3; }
+
+@media (max-width: 900px) {
+  .metrics-grid.compact { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .chart-grid, .sisc-grid { grid-template-columns: 1fr; }
+}

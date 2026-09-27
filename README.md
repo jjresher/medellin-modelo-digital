@@ -52,6 +52,8 @@ Para regenerar solo esto: `.venv/bin/python ingesta/correr.py lentes`, unos 6 mi
 
 **Ortofotos.** El mapa las pide a `/api/ortofoto/<año>/{z}/{y}/{x}`, un proxy que guarda cada tesela en `.cache/ortofoto/`. El servidor de la Alcaldía se cae con frecuencia; cuando falla, se ve la imagen satelital de Esri debajo.
 
+**Seguridad.** `pull_seguridad.py` descarga además 8 archivos del SISC (MEData), hasta 124 MB el más pesado, y necesita `public/data/geo/comunas.geojson` (lo genera `gemelo`) y `demografia.json` para la tasa por comuna. Con buena conexión tarda unos 5 minutos; produce `public/data/geo/seguridad_barrios.json` para el mapa por barrio.
+
 Para actualizar:
 
 ```bash

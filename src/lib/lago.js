@@ -43,6 +43,20 @@ export function useLago() {
   return lago;
 }
 
+// Un archivo estático fuera del lago (por ejemplo, public/data/geo/seguridad_barrios.json), con el
+// mismo criterio de no fallar en silencio: mientras carga o si falta, el componente lo sabe.
+export function useJsonEstatico(ruta) {
+  const [estado, setEstado] = useState({ estado: 'cargando', datos: null });
+  useEffect(() => {
+    let activo = true;
+    fetch(ruta).then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
+      .then((datos) => { if (activo) setEstado({ estado: 'listo', datos }); })
+      .catch((error) => { if (activo) setEstado({ estado: 'error', datos: null, error: error.message }); });
+    return () => { activo = false; };
+  }, [ruta]);
+  return estado;
+}
+
 // Cifras que cada tema declara en `ancla`, en el orden del índice, para el Panorama.
 export function cifrasAncla(lago) {
   return lago.orden.flatMap((tema) => {

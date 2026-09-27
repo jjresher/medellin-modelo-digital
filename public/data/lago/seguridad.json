@@ -4,7 +4,7 @@
  "probado": "2026-09-26",
  "ancla": [
   "homicidios_anio_curso",
-  "tasa_homicidios"
+  "homicidios_tasa"
  ],
  "fuentes": [
   {
@@ -62,6 +62,70 @@
    "url": "https://www.datos.gov.co/d/jr6v-i33g",
    "estado": "observado",
    "probado": "2026-09-26"
+  },
+  {
+   "id": "sisc-homicidio",
+   "nombre": "Homicidio (SISC, georreferenciado)",
+   "entidad": "Secretaría de Seguridad y Convivencia · Alcaldía de Medellín (SISC / MEData)",
+   "url": "http://medata.gov.co/sites/default/files/distribution/1-027-23-000008/homicidio.csv",
+   "estado": "observado",
+   "probado": "2026-09-26"
+  },
+  {
+   "id": "sisc-hurto-persona",
+   "nombre": "Hurto a persona (SISC, georreferenciado)",
+   "entidad": "Secretaría de Seguridad y Convivencia · Alcaldía de Medellín (SISC / MEData)",
+   "url": "http://medata.gov.co/sites/default/files/distribution/1-027-23-000011/hurto_a_persona.csv",
+   "estado": "observado",
+   "probado": "2026-09-26"
+  },
+  {
+   "id": "sisc-hurto-carro",
+   "nombre": "Hurto de carro (SISC, georreferenciado)",
+   "entidad": "Secretaría de Seguridad y Convivencia · Alcaldía de Medellín (SISC / MEData)",
+   "url": "http://medata.gov.co/sites/default/files/distribution/1-027-23-000013/hurto_de_carro.csv",
+   "estado": "observado",
+   "probado": "2026-09-26"
+  },
+  {
+   "id": "sisc-hurto-moto",
+   "nombre": "Hurto de moto (SISC, georreferenciado)",
+   "entidad": "Secretaría de Seguridad y Convivencia · Alcaldía de Medellín (SISC / MEData)",
+   "url": "http://medata.gov.co/sites/default/files/distribution/1-027-23-000014/hurto_de_moto.csv",
+   "estado": "observado",
+   "probado": "2026-09-26"
+  },
+  {
+   "id": "sisc-hurto-residencia",
+   "nombre": "Hurto a residencia (SISC, georreferenciado)",
+   "entidad": "Secretaría de Seguridad y Convivencia · Alcaldía de Medellín (SISC / MEData)",
+   "url": "http://medata.gov.co/sites/default/files/distribution/1-027-23-000012/hurto_a_residencia.csv",
+   "estado": "observado",
+   "probado": "2026-09-26"
+  },
+  {
+   "id": "sisc-hurto-comercio",
+   "nombre": "Hurto a establecimiento comercial (SISC, georreferenciado)",
+   "entidad": "Secretaría de Seguridad y Convivencia · Alcaldía de Medellín (SISC / MEData)",
+   "url": "http://medata.gov.co/sites/default/files/distribution/1-027-23-000010/hurto_a_establecimiento_comercial.csv",
+   "estado": "observado",
+   "probado": "2026-09-26"
+  },
+  {
+   "id": "sisc-extorsion-sisc",
+   "nombre": "Extorsión (SISC, georreferenciado)",
+   "entidad": "Secretaría de Seguridad y Convivencia · Alcaldía de Medellín (SISC / MEData)",
+   "url": "http://medata.gov.co/sites/default/files/distribution/1-027-23-000007/extorsion.csv",
+   "estado": "observado",
+   "probado": "2026-09-26"
+  },
+  {
+   "id": "sisc-lesion-dolosa",
+   "nombre": "Lesión no fatal dolosa (SISC, georreferenciado)",
+   "entidad": "Secretaría de Seguridad y Convivencia · Alcaldía de Medellín (SISC / MEData)",
+   "url": "http://medata.gov.co/sites/default/files/distribution/1-027-23-000002/lesion_no_fatal_dolosa_segun_policia.csv",
+   "estado": "observado",
+   "probado": "2026-09-26"
   }
  ],
  "cifras": {
@@ -92,7 +156,7 @@
    "decimales": 1,
    "nota": "176 casos frente a 220 en el mismo periodo de 2025."
   },
-  "tasa_homicidios": {
+  "homicidios_tasa": {
    "valor": 12.64,
    "unidad": "por 100 mil hab.",
    "etiqueta": "Tasa de homicidios 2025",
@@ -100,7 +164,7 @@
    "vigencia": "2025",
    "estado": "derivado",
    "decimales": 2,
-   "nota": "333 homicidios (Policía) ÷ 2.634.570 habitantes (proyección DANE) × 100.000."
+   "nota": "333 casos (Policía) ÷ 2.634.570 habitantes (proyección DANE) × 100.000."
   },
   "hurto_personas": {
    "valor": 24924,
@@ -129,6 +193,16 @@
    "decimales": 1,
    "nota": "16630 casos frente a 15128 en el mismo periodo de 2025."
   },
+  "hurto_personas_tasa": {
+   "valor": 946.04,
+   "unidad": "por 100 mil hab.",
+   "etiqueta": "Tasa de hurto a personas 2025",
+   "fuente": "policia-hurto-personas",
+   "vigencia": "2025",
+   "estado": "derivado",
+   "decimales": 2,
+   "nota": "24924 casos (Policía) ÷ 2.634.570 habitantes (proyección DANE) × 100.000."
+  },
   "hurto_vehiculos": {
    "valor": 6000,
    "unidad": "casos",
@@ -155,6 +229,16 @@
    "estado": "derivado",
    "decimales": 1,
    "nota": "3214 casos frente a 4477 en el mismo periodo de 2025."
+  },
+  "hurto_vehiculos_tasa": {
+   "valor": 227.74,
+   "unidad": "por 100 mil hab.",
+   "etiqueta": "Tasa de hurto de vehículos 2025",
+   "fuente": "policia-hurto-vehiculos",
+   "vigencia": "2025",
+   "estado": "derivado",
+   "decimales": 2,
+   "nota": "6000 casos (Policía) ÷ 2.634.570 habitantes (proyección DANE) × 100.000."
   },
   "extorsion": {
    "valor": 972,
@@ -183,6 +267,16 @@
    "decimales": 1,
    "nota": "719 casos frente a 600 en el mismo periodo de 2025."
   },
+  "extorsion_tasa": {
+   "valor": 36.89,
+   "unidad": "por 100 mil hab.",
+   "etiqueta": "Tasa de extorsión 2025",
+   "fuente": "policia-extorsion",
+   "vigencia": "2025",
+   "estado": "derivado",
+   "decimales": 2,
+   "nota": "972 casos (Policía) ÷ 2.634.570 habitantes (proyección DANE) × 100.000."
+  },
   "violencia_intrafamiliar": {
    "valor": 10638,
    "unidad": "casos",
@@ -209,6 +303,16 @@
    "estado": "derivado",
    "decimales": 1,
    "nota": "7624 casos frente a 7319 en el mismo periodo de 2025."
+  },
+  "violencia_intrafamiliar_tasa": {
+   "valor": 403.79,
+   "unidad": "por 100 mil hab.",
+   "etiqueta": "Tasa de violencia intrafamiliar 2025",
+   "fuente": "policia-violencia-intrafamiliar",
+   "vigencia": "2025",
+   "estado": "derivado",
+   "decimales": 2,
+   "nota": "10638 casos (Policía) ÷ 2.634.570 habitantes (proyección DANE) × 100.000."
   },
   "delitos_sexuales": {
    "valor": 2380,
@@ -237,6 +341,16 @@
    "decimales": 1,
    "nota": "1435 casos frente a 1707 en el mismo periodo de 2025."
   },
+  "delitos_sexuales_tasa": {
+   "valor": 90.34,
+   "unidad": "por 100 mil hab.",
+   "etiqueta": "Tasa de delitos sexuales 2025",
+   "fuente": "policia-delitos-sexuales",
+   "vigencia": "2025",
+   "estado": "derivado",
+   "decimales": 2,
+   "nota": "2380 casos (Policía) ÷ 2.634.570 habitantes (proyección DANE) × 100.000."
+  },
   "lesiones_personales": {
    "valor": 4690,
    "unidad": "casos",
@@ -263,6 +377,88 @@
    "estado": "derivado",
    "decimales": 1,
    "nota": "3323 casos frente a 3157 en el mismo periodo de 2025."
+  },
+  "lesiones_personales_tasa": {
+   "valor": 178.02,
+   "unidad": "por 100 mil hab.",
+   "etiqueta": "Tasa de lesiones personales 2025",
+   "fuente": "policia-lesiones-personales",
+   "vigencia": "2025",
+   "estado": "derivado",
+   "decimales": 2,
+   "nota": "4690 casos (Policía) ÷ 2.634.570 habitantes (proyección DANE) × 100.000."
+  },
+  "sisc_homicidio_ventana": {
+   "valor": 1139,
+   "unidad": "casos",
+   "etiqueta": "Homicidio, 2021–2023 (histórico)",
+   "fuente": "sisc-homicidio",
+   "vigencia": "2021–2023 (histórico)",
+   "estado": "observado",
+   "nota": "Suma de las 21 comunas y corregimientos con comuna diligenciada en el registro; excluye registros sin comuna asignada."
+  },
+  "sisc_hurto_persona_ventana": {
+   "valor": 97234,
+   "unidad": "casos",
+   "etiqueta": "Hurto a persona, 2021–2023 (histórico)",
+   "fuente": "sisc-hurto-persona",
+   "vigencia": "2021–2023 (histórico)",
+   "estado": "observado",
+   "nota": "Suma de las 21 comunas y corregimientos con comuna diligenciada en el registro; excluye registros sin comuna asignada."
+  },
+  "sisc_hurto_carro_ventana": {
+   "valor": 2682,
+   "unidad": "casos",
+   "etiqueta": "Hurto de carro, 2021–2023 (histórico)",
+   "fuente": "sisc-hurto-carro",
+   "vigencia": "2021–2023 (histórico)",
+   "estado": "observado",
+   "nota": "Suma de las 21 comunas y corregimientos con comuna diligenciada en el registro; excluye registros sin comuna asignada."
+  },
+  "sisc_hurto_moto_ventana": {
+   "valor": 15460,
+   "unidad": "casos",
+   "etiqueta": "Hurto de moto, 2021–2023 (histórico)",
+   "fuente": "sisc-hurto-moto",
+   "vigencia": "2021–2023 (histórico)",
+   "estado": "observado",
+   "nota": "Suma de las 21 comunas y corregimientos con comuna diligenciada en el registro; excluye registros sin comuna asignada."
+  },
+  "sisc_hurto_residencia_ventana": {
+   "valor": 7578,
+   "unidad": "casos",
+   "etiqueta": "Hurto a residencia, 2021–2023 (histórico)",
+   "fuente": "sisc-hurto-residencia",
+   "vigencia": "2021–2023 (histórico)",
+   "estado": "observado",
+   "nota": "Suma de las 21 comunas y corregimientos con comuna diligenciada en el registro; excluye registros sin comuna asignada."
+  },
+  "sisc_hurto_comercio_ventana": {
+   "valor": 11381,
+   "unidad": "casos",
+   "etiqueta": "Hurto a establecimiento comercial, 2021–2023 (histórico)",
+   "fuente": "sisc-hurto-comercio",
+   "vigencia": "2021–2023 (histórico)",
+   "estado": "observado",
+   "nota": "Suma de las 21 comunas y corregimientos con comuna diligenciada en el registro; excluye registros sin comuna asignada."
+  },
+  "sisc_extorsion_sisc_ventana": {
+   "valor": 1798,
+   "unidad": "casos",
+   "etiqueta": "Extorsión, 2021–2023 (histórico)",
+   "fuente": "sisc-extorsion-sisc",
+   "vigencia": "2021–2023 (histórico)",
+   "estado": "observado",
+   "nota": "Suma de las 21 comunas y corregimientos con comuna diligenciada en el registro; excluye registros sin comuna asignada."
+  },
+  "sisc_lesion_dolosa_ventana": {
+   "valor": 13641,
+   "unidad": "casos",
+   "etiqueta": "Lesión no fatal dolosa, 2021–2023 (histórico)",
+   "fuente": "sisc-lesion-dolosa",
+   "vigencia": "2021–2023 (histórico)",
+   "estado": "observado",
+   "nota": "Suma de las 21 comunas y corregimientos con comuna diligenciada en el registro; excluye registros sin comuna asignada."
   }
  },
  "series": {
@@ -495,6 +691,143 @@
    ],
    "nota": "2026 parcial: hasta el 2026-08-31."
   },
+  "hurto_personas_mensual": {
+   "etiqueta": "Hurto a personas por mes",
+   "unidad": "casos",
+   "fuente": "policia-hurto-personas",
+   "estado": "observado",
+   "vigencia": "2024-01 – 2026-08",
+   "puntos": [
+    [
+     "2024-01",
+     2360
+    ],
+    [
+     "2024-02",
+     2274
+    ],
+    [
+     "2024-03",
+     2070
+    ],
+    [
+     "2024-04",
+     2364
+    ],
+    [
+     "2024-05",
+     2475
+    ],
+    [
+     "2024-06",
+     2164
+    ],
+    [
+     "2024-07",
+     2189
+    ],
+    [
+     "2024-08",
+     2322
+    ],
+    [
+     "2024-09",
+     2103
+    ],
+    [
+     "2024-10",
+     1895
+    ],
+    [
+     "2024-11",
+     1642
+    ],
+    [
+     "2024-12",
+     1314
+    ],
+    [
+     "2025-01",
+     1586
+    ],
+    [
+     "2025-02",
+     1803
+    ],
+    [
+     "2025-03",
+     2049
+    ],
+    [
+     "2025-04",
+     1888
+    ],
+    [
+     "2025-05",
+     2003
+    ],
+    [
+     "2025-06",
+     1809
+    ],
+    [
+     "2025-07",
+     1703
+    ],
+    [
+     "2025-08",
+     2287
+    ],
+    [
+     "2025-09",
+     2167
+    ],
+    [
+     "2025-10",
+     2722
+    ],
+    [
+     "2025-11",
+     2575
+    ],
+    [
+     "2025-12",
+     2332
+    ],
+    [
+     "2026-01",
+     2371
+    ],
+    [
+     "2026-02",
+     1901
+    ],
+    [
+     "2026-03",
+     2478
+    ],
+    [
+     "2026-04",
+     2192
+    ],
+    [
+     "2026-05",
+     2452
+    ],
+    [
+     "2026-06",
+     2003
+    ],
+    [
+     "2026-07",
+     1839
+    ],
+    [
+     "2026-08",
+     1394
+    ]
+   ]
+  },
   "hurto_vehiculos_anual": {
    "etiqueta": "Hurto de vehículos por año",
    "unidad": "casos",
@@ -540,6 +873,143 @@
     ]
    ],
    "nota": "2026 parcial: hasta el 2026-08-31."
+  },
+  "hurto_vehiculos_mensual": {
+   "etiqueta": "Hurto de vehículos por mes",
+   "unidad": "casos",
+   "fuente": "policia-hurto-vehiculos",
+   "estado": "observado",
+   "vigencia": "2024-01 – 2026-08",
+   "puntos": [
+    [
+     "2024-01",
+     658
+    ],
+    [
+     "2024-02",
+     695
+    ],
+    [
+     "2024-03",
+     692
+    ],
+    [
+     "2024-04",
+     630
+    ],
+    [
+     "2024-05",
+     684
+    ],
+    [
+     "2024-06",
+     608
+    ],
+    [
+     "2024-07",
+     661
+    ],
+    [
+     "2024-08",
+     664
+    ],
+    [
+     "2024-09",
+     669
+    ],
+    [
+     "2024-10",
+     692
+    ],
+    [
+     "2024-11",
+     588
+    ],
+    [
+     "2024-12",
+     377
+    ],
+    [
+     "2025-01",
+     599
+    ],
+    [
+     "2025-02",
+     590
+    ],
+    [
+     "2025-03",
+     645
+    ],
+    [
+     "2025-04",
+     560
+    ],
+    [
+     "2025-05",
+     498
+    ],
+    [
+     "2025-06",
+     526
+    ],
+    [
+     "2025-07",
+     565
+    ],
+    [
+     "2025-08",
+     494
+    ],
+    [
+     "2025-09",
+     433
+    ],
+    [
+     "2025-10",
+     460
+    ],
+    [
+     "2025-11",
+     422
+    ],
+    [
+     "2025-12",
+     208
+    ],
+    [
+     "2026-01",
+     571
+    ],
+    [
+     "2026-02",
+     491
+    ],
+    [
+     "2026-03",
+     477
+    ],
+    [
+     "2026-04",
+     390
+    ],
+    [
+     "2026-05",
+     356
+    ],
+    [
+     "2026-06",
+     404
+    ],
+    [
+     "2026-07",
+     333
+    ],
+    [
+     "2026-08",
+     192
+    ]
+   ]
   },
   "extorsion_anual": {
    "etiqueta": "Extorsión por año",
@@ -587,6 +1057,143 @@
    ],
    "nota": "2026 parcial: hasta el 2026-08-30."
   },
+  "extorsion_mensual": {
+   "etiqueta": "Extorsión por mes",
+   "unidad": "casos",
+   "fuente": "policia-extorsion",
+   "estado": "observado",
+   "vigencia": "2024-01 – 2026-08",
+   "puntos": [
+    [
+     "2024-01",
+     66
+    ],
+    [
+     "2024-02",
+     74
+    ],
+    [
+     "2024-03",
+     61
+    ],
+    [
+     "2024-04",
+     60
+    ],
+    [
+     "2024-05",
+     64
+    ],
+    [
+     "2024-06",
+     58
+    ],
+    [
+     "2024-07",
+     77
+    ],
+    [
+     "2024-08",
+     96
+    ],
+    [
+     "2024-09",
+     103
+    ],
+    [
+     "2024-10",
+     112
+    ],
+    [
+     "2024-11",
+     105
+    ],
+    [
+     "2024-12",
+     74
+    ],
+    [
+     "2025-01",
+     43
+    ],
+    [
+     "2025-02",
+     61
+    ],
+    [
+     "2025-03",
+     60
+    ],
+    [
+     "2025-04",
+     57
+    ],
+    [
+     "2025-05",
+     86
+    ],
+    [
+     "2025-06",
+     88
+    ],
+    [
+     "2025-07",
+     103
+    ],
+    [
+     "2025-08",
+     103
+    ],
+    [
+     "2025-09",
+     102
+    ],
+    [
+     "2025-10",
+     97
+    ],
+    [
+     "2025-11",
+     101
+    ],
+    [
+     "2025-12",
+     71
+    ],
+    [
+     "2026-01",
+     75
+    ],
+    [
+     "2026-02",
+     79
+    ],
+    [
+     "2026-03",
+     107
+    ],
+    [
+     "2026-04",
+     109
+    ],
+    [
+     "2026-05",
+     131
+    ],
+    [
+     "2026-06",
+     126
+    ],
+    [
+     "2026-07",
+     70
+    ],
+    [
+     "2026-08",
+     22
+    ]
+   ]
+  },
   "violencia_intrafamiliar_anual": {
    "etiqueta": "Violencia intrafamiliar por año",
    "unidad": "casos",
@@ -632,6 +1239,143 @@
     ]
    ],
    "nota": "2026 parcial: hasta el 2026-08-31."
+  },
+  "violencia_intrafamiliar_mensual": {
+   "etiqueta": "Violencia intrafamiliar por mes",
+   "unidad": "casos",
+   "fuente": "policia-violencia-intrafamiliar",
+   "estado": "observado",
+   "vigencia": "2024-01 – 2026-08",
+   "puntos": [
+    [
+     "2024-01",
+     843
+    ],
+    [
+     "2024-02",
+     940
+    ],
+    [
+     "2024-03",
+     1026
+    ],
+    [
+     "2024-04",
+     897
+    ],
+    [
+     "2024-05",
+     1053
+    ],
+    [
+     "2024-06",
+     923
+    ],
+    [
+     "2024-07",
+     1057
+    ],
+    [
+     "2024-08",
+     961
+    ],
+    [
+     "2024-09",
+     1054
+    ],
+    [
+     "2024-10",
+     973
+    ],
+    [
+     "2024-11",
+     794
+    ],
+    [
+     "2024-12",
+     438
+    ],
+    [
+     "2025-01",
+     841
+    ],
+    [
+     "2025-02",
+     816
+    ],
+    [
+     "2025-03",
+     971
+    ],
+    [
+     "2025-04",
+     727
+    ],
+    [
+     "2025-05",
+     990
+    ],
+    [
+     "2025-06",
+     805
+    ],
+    [
+     "2025-07",
+     1125
+    ],
+    [
+     "2025-08",
+     1044
+    ],
+    [
+     "2025-09",
+     1066
+    ],
+    [
+     "2025-10",
+     933
+    ],
+    [
+     "2025-11",
+     880
+    ],
+    [
+     "2025-12",
+     440
+    ],
+    [
+     "2026-01",
+     935
+    ],
+    [
+     "2026-02",
+     970
+    ],
+    [
+     "2026-03",
+     1079
+    ],
+    [
+     "2026-04",
+     958
+    ],
+    [
+     "2026-05",
+     1162
+    ],
+    [
+     "2026-06",
+     964
+    ],
+    [
+     "2026-07",
+     806
+    ],
+    [
+     "2026-08",
+     750
+    ]
+   ]
   },
   "delitos_sexuales_anual": {
    "etiqueta": "Delitos sexuales por año",
@@ -679,6 +1423,143 @@
    ],
    "nota": "2026 parcial: hasta el 2026-08-31."
   },
+  "delitos_sexuales_mensual": {
+   "etiqueta": "Delitos sexuales por mes",
+   "unidad": "casos",
+   "fuente": "policia-delitos-sexuales",
+   "estado": "observado",
+   "vigencia": "2024-01 – 2026-08",
+   "puntos": [
+    [
+     "2024-01",
+     100
+    ],
+    [
+     "2024-02",
+     105
+    ],
+    [
+     "2024-03",
+     129
+    ],
+    [
+     "2024-04",
+     136
+    ],
+    [
+     "2024-05",
+     161
+    ],
+    [
+     "2024-06",
+     165
+    ],
+    [
+     "2024-07",
+     187
+    ],
+    [
+     "2024-08",
+     218
+    ],
+    [
+     "2024-09",
+     227
+    ],
+    [
+     "2024-10",
+     198
+    ],
+    [
+     "2024-11",
+     154
+    ],
+    [
+     "2024-12",
+     61
+    ],
+    [
+     "2025-01",
+     168
+    ],
+    [
+     "2025-02",
+     184
+    ],
+    [
+     "2025-03",
+     228
+    ],
+    [
+     "2025-04",
+     222
+    ],
+    [
+     "2025-05",
+     201
+    ],
+    [
+     "2025-06",
+     188
+    ],
+    [
+     "2025-07",
+     271
+    ],
+    [
+     "2025-08",
+     245
+    ],
+    [
+     "2025-09",
+     208
+    ],
+    [
+     "2025-10",
+     192
+    ],
+    [
+     "2025-11",
+     178
+    ],
+    [
+     "2025-12",
+     95
+    ],
+    [
+     "2026-01",
+     210
+    ],
+    [
+     "2026-02",
+     181
+    ],
+    [
+     "2026-03",
+     194
+    ],
+    [
+     "2026-04",
+     168
+    ],
+    [
+     "2026-05",
+     243
+    ],
+    [
+     "2026-06",
+     150
+    ],
+    [
+     "2026-07",
+     141
+    ],
+    [
+     "2026-08",
+     148
+    ]
+   ]
+  },
   "lesiones_personales_anual": {
    "etiqueta": "Lesiones personales por año",
    "unidad": "casos",
@@ -724,7 +1605,1921 @@
     ]
    ],
    "nota": "2026 parcial: hasta el 2026-08-31."
+  },
+  "lesiones_personales_mensual": {
+   "etiqueta": "Lesiones personales por mes",
+   "unidad": "casos",
+   "fuente": "policia-lesiones-personales",
+   "estado": "observado",
+   "vigencia": "2024-01 – 2026-08",
+   "puntos": [
+    [
+     "2024-01",
+     369
+    ],
+    [
+     "2024-02",
+     411
+    ],
+    [
+     "2024-03",
+     423
+    ],
+    [
+     "2024-04",
+     389
+    ],
+    [
+     "2024-05",
+     436
+    ],
+    [
+     "2024-06",
+     316
+    ],
+    [
+     "2024-07",
+     433
+    ],
+    [
+     "2024-08",
+     400
+    ],
+    [
+     "2024-09",
+     484
+    ],
+    [
+     "2024-10",
+     448
+    ],
+    [
+     "2024-11",
+     369
+    ],
+    [
+     "2024-12",
+     273
+    ],
+    [
+     "2025-01",
+     378
+    ],
+    [
+     "2025-02",
+     350
+    ],
+    [
+     "2025-03",
+     430
+    ],
+    [
+     "2025-04",
+     363
+    ],
+    [
+     "2025-05",
+     441
+    ],
+    [
+     "2025-06",
+     344
+    ],
+    [
+     "2025-07",
+     450
+    ],
+    [
+     "2025-08",
+     401
+    ],
+    [
+     "2025-09",
+     411
+    ],
+    [
+     "2025-10",
+     414
+    ],
+    [
+     "2025-11",
+     441
+    ],
+    [
+     "2025-12",
+     267
+    ],
+    [
+     "2026-01",
+     353
+    ],
+    [
+     "2026-02",
+     402
+    ],
+    [
+     "2026-03",
+     474
+    ],
+    [
+     "2026-04",
+     431
+    ],
+    [
+     "2026-05",
+     544
+    ],
+    [
+     "2026-06",
+     377
+    ],
+    [
+     "2026-07",
+     358
+    ],
+    [
+     "2026-08",
+     384
+    ]
+   ]
+  },
+  "sisc_homicidio_anual": {
+   "etiqueta": "Homicidio por año (SISC)",
+   "unidad": "casos",
+   "fuente": "sisc-homicidio",
+   "estado": "observado",
+   "vigencia": "2003 – 2023",
+   "puntos": [
+    [
+     "2003",
+     2007
+    ],
+    [
+     "2004",
+     1187
+    ],
+    [
+     "2005",
+     782
+    ],
+    [
+     "2006",
+     804
+    ],
+    [
+     "2007",
+     771
+    ],
+    [
+     "2008",
+     1045
+    ],
+    [
+     "2009",
+     2186
+    ],
+    [
+     "2010",
+     2022
+    ],
+    [
+     "2011",
+     1651
+    ],
+    [
+     "2012",
+     1248
+    ],
+    [
+     "2013",
+     927
+    ],
+    [
+     "2014",
+     659
+    ],
+    [
+     "2015",
+     496
+    ],
+    [
+     "2016",
+     544
+    ],
+    [
+     "2017",
+     582
+    ],
+    [
+     "2018",
+     635
+    ],
+    [
+     "2019",
+     593
+    ],
+    [
+     "2020",
+     369
+    ],
+    [
+     "2021",
+     405
+    ],
+    [
+     "2022",
+     391
+    ],
+    [
+     "2023",
+     343
+    ]
+   ],
+   "nota": "Serie histórica; el SISC llega hasta 2023."
+  },
+  "sisc_hurto_persona_anual": {
+   "etiqueta": "Hurto a persona por año (SISC)",
+   "unidad": "casos",
+   "fuente": "sisc-hurto-persona",
+   "estado": "observado",
+   "vigencia": "2003 – 2023",
+   "puntos": [
+    [
+     "2003",
+     5486
+    ],
+    [
+     "2004",
+     5600
+    ],
+    [
+     "2005",
+     6888
+    ],
+    [
+     "2006",
+     4399
+    ],
+    [
+     "2007",
+     3487
+    ],
+    [
+     "2008",
+     5166
+    ],
+    [
+     "2009",
+     4384
+    ],
+    [
+     "2010",
+     3310
+    ],
+    [
+     "2011",
+     1894
+    ],
+    [
+     "2012",
+     3568
+    ],
+    [
+     "2013",
+     5908
+    ],
+    [
+     "2014",
+     7719
+    ],
+    [
+     "2015",
+     12051
+    ],
+    [
+     "2016",
+     18034
+    ],
+    [
+     "2017",
+     26307
+    ],
+    [
+     "2018",
+     37652
+    ],
+    [
+     "2019",
+     45502
+    ],
+    [
+     "2020",
+     27639
+    ],
+    [
+     "2021",
+     34650
+    ],
+    [
+     "2022",
+     39139
+    ],
+    [
+     "2023",
+     27706
+    ]
+   ],
+   "nota": "Serie histórica; el SISC llega hasta 2023."
+  },
+  "sisc_hurto_carro_anual": {
+   "etiqueta": "Hurto de carro por año (SISC)",
+   "unidad": "casos",
+   "fuente": "sisc-hurto-carro",
+   "estado": "observado",
+   "vigencia": "2003 – 2023",
+   "puntos": [
+    [
+     "2003",
+     6820
+    ],
+    [
+     "2004",
+     4974
+    ],
+    [
+     "2005",
+     2698
+    ],
+    [
+     "2006",
+     2320
+    ],
+    [
+     "2007",
+     1822
+    ],
+    [
+     "2008",
+     1639
+    ],
+    [
+     "2009",
+     2430
+    ],
+    [
+     "2010",
+     1622
+    ],
+    [
+     "2011",
+     2000
+    ],
+    [
+     "2012",
+     1846
+    ],
+    [
+     "2013",
+     1651
+    ],
+    [
+     "2014",
+     1185
+    ],
+    [
+     "2015",
+     956
+    ],
+    [
+     "2016",
+     859
+    ],
+    [
+     "2017",
+     1028
+    ],
+    [
+     "2018",
+     1020
+    ],
+    [
+     "2019",
+     955
+    ],
+    [
+     "2020",
+     931
+    ],
+    [
+     "2021",
+     895
+    ],
+    [
+     "2022",
+     1004
+    ],
+    [
+     "2023",
+     916
+    ]
+   ],
+   "nota": "Serie histórica; el SISC llega hasta 2023."
+  },
+  "sisc_hurto_moto_anual": {
+   "etiqueta": "Hurto de moto por año (SISC)",
+   "unidad": "casos",
+   "fuente": "sisc-hurto-moto",
+   "estado": "observado",
+   "vigencia": "2003 – 2023",
+   "puntos": [
+    [
+     "2003",
+     4516
+    ],
+    [
+     "2004",
+     3190
+    ],
+    [
+     "2005",
+     2717
+    ],
+    [
+     "2006",
+     2538
+    ],
+    [
+     "2007",
+     2141
+    ],
+    [
+     "2008",
+     2128
+    ],
+    [
+     "2009",
+     3341
+    ],
+    [
+     "2010",
+     2287
+    ],
+    [
+     "2011",
+     4947
+    ],
+    [
+     "2012",
+     5095
+    ],
+    [
+     "2013",
+     4924
+    ],
+    [
+     "2014",
+     4668
+    ],
+    [
+     "2015",
+     4376
+    ],
+    [
+     "2016",
+     5126
+    ],
+    [
+     "2017",
+     3982
+    ],
+    [
+     "2018",
+     4813
+    ],
+    [
+     "2019",
+     4969
+    ],
+    [
+     "2020",
+     4244
+    ],
+    [
+     "2021",
+     4776
+    ],
+    [
+     "2022",
+     5823
+    ],
+    [
+     "2023",
+     5809
+    ]
+   ],
+   "nota": "Serie histórica; el SISC llega hasta 2023."
+  },
+  "sisc_hurto_residencia_anual": {
+   "etiqueta": "Hurto a residencia por año (SISC)",
+   "unidad": "casos",
+   "fuente": "sisc-hurto-residencia",
+   "estado": "observado",
+   "vigencia": "2003 – 2023",
+   "puntos": [
+    [
+     "2003",
+     2224
+    ],
+    [
+     "2004",
+     1586
+    ],
+    [
+     "2005",
+     1244
+    ],
+    [
+     "2006",
+     1178
+    ],
+    [
+     "2007",
+     574
+    ],
+    [
+     "2008",
+     1276
+    ],
+    [
+     "2009",
+     730
+    ],
+    [
+     "2010",
+     422
+    ],
+    [
+     "2011",
+     245
+    ],
+    [
+     "2012",
+     666
+    ],
+    [
+     "2013",
+     1189
+    ],
+    [
+     "2014",
+     1374
+    ],
+    [
+     "2015",
+     2450
+    ],
+    [
+     "2016",
+     2224
+    ],
+    [
+     "2017",
+     3895
+    ],
+    [
+     "2018",
+     4752
+    ],
+    [
+     "2019",
+     4588
+    ],
+    [
+     "2020",
+     4116
+    ],
+    [
+     "2021",
+     3677
+    ],
+    [
+     "2022",
+     2760
+    ],
+    [
+     "2023",
+     1503
+    ]
+   ],
+   "nota": "Serie histórica; el SISC llega hasta 2023."
+  },
+  "sisc_hurto_comercio_anual": {
+   "etiqueta": "Hurto a establecimiento comercial por año (SISC)",
+   "unidad": "casos",
+   "fuente": "sisc-hurto-comercio",
+   "estado": "observado",
+   "vigencia": "2003 – 2023",
+   "puntos": [
+    [
+     "2003",
+     2342
+    ],
+    [
+     "2004",
+     1525
+    ],
+    [
+     "2005",
+     1564
+    ],
+    [
+     "2006",
+     1346
+    ],
+    [
+     "2007",
+     782
+    ],
+    [
+     "2008",
+     1187
+    ],
+    [
+     "2009",
+     945
+    ],
+    [
+     "2010",
+     536
+    ],
+    [
+     "2011",
+     326
+    ],
+    [
+     "2012",
+     956
+    ],
+    [
+     "2013",
+     1385
+    ],
+    [
+     "2014",
+     1671
+    ],
+    [
+     "2015",
+     2221
+    ],
+    [
+     "2016",
+     2294
+    ],
+    [
+     "2017",
+     5527
+    ],
+    [
+     "2018",
+     6139
+    ],
+    [
+     "2019",
+     6317
+    ],
+    [
+     "2020",
+     5934
+    ],
+    [
+     "2021",
+     4525
+    ],
+    [
+     "2022",
+     4413
+    ],
+    [
+     "2023",
+     2464
+    ]
+   ],
+   "nota": "Serie histórica; el SISC llega hasta 2023."
+  },
+  "sisc_extorsion_sisc_anual": {
+   "etiqueta": "Extorsión por año (SISC)",
+   "unidad": "casos",
+   "fuente": "sisc-extorsion-sisc",
+   "estado": "observado",
+   "vigencia": "2003 – 2023",
+   "puntos": [
+    [
+     "2003",
+     144
+    ],
+    [
+     "2004",
+     105
+    ],
+    [
+     "2005",
+     68
+    ],
+    [
+     "2006",
+     62
+    ],
+    [
+     "2007",
+     50
+    ],
+    [
+     "2008",
+     42
+    ],
+    [
+     "2009",
+     115
+    ],
+    [
+     "2010",
+     153
+    ],
+    [
+     "2011",
+     197
+    ],
+    [
+     "2012",
+     209
+    ],
+    [
+     "2013",
+     457
+    ],
+    [
+     "2014",
+     310
+    ],
+    [
+     "2015",
+     243
+    ],
+    [
+     "2016",
+     336
+    ],
+    [
+     "2017",
+     487
+    ],
+    [
+     "2018",
+     578
+    ],
+    [
+     "2019",
+     629
+    ],
+    [
+     "2020",
+     507
+    ],
+    [
+     "2021",
+     613
+    ],
+    [
+     "2022",
+     459
+    ],
+    [
+     "2023",
+     776
+    ]
+   ],
+   "nota": "Serie histórica; el SISC llega hasta 2023."
+  },
+  "sisc_lesion_dolosa_anual": {
+   "etiqueta": "Lesión no fatal dolosa por año (SISC)",
+   "unidad": "casos",
+   "fuente": "sisc-lesion-dolosa",
+   "estado": "observado",
+   "vigencia": "2003 – 2023",
+   "puntos": [
+    [
+     "2003",
+     942
+    ],
+    [
+     "2004",
+     829
+    ],
+    [
+     "2005",
+     833
+    ],
+    [
+     "2006",
+     735
+    ],
+    [
+     "2007",
+     711
+    ],
+    [
+     "2008",
+     1435
+    ],
+    [
+     "2009",
+     885
+    ],
+    [
+     "2010",
+     624
+    ],
+    [
+     "2011",
+     766
+    ],
+    [
+     "2012",
+     1950
+    ],
+    [
+     "2013",
+     1822
+    ],
+    [
+     "2014",
+     2614
+    ],
+    [
+     "2015",
+     3255
+    ],
+    [
+     "2016",
+     5691
+    ],
+    [
+     "2017",
+     6238
+    ],
+    [
+     "2018",
+     6332
+    ],
+    [
+     "2019",
+     5678
+    ],
+    [
+     "2020",
+     3885
+    ],
+    [
+     "2021",
+     4840
+    ],
+    [
+     "2022",
+     4711
+    ],
+    [
+     "2023",
+     4431
+    ]
+   ],
+   "nota": "Serie histórica; el SISC llega hasta 2023."
   }
  },
- "listas": {}
+ "listas": {
+  "sisc_ranking_homicidio": [
+   {
+    "codigo": "10",
+    "nombre": "La Candelaria",
+    "casos": 225,
+    "tasa_x10mil": 27.81
+   },
+   {
+    "codigo": "04",
+    "nombre": "Aranjuez",
+    "casos": 97,
+    "tasa_x10mil": 6.57
+   },
+   {
+    "codigo": "07",
+    "nombre": "Robledo",
+    "casos": 81,
+    "tasa_x10mil": 3.69
+   },
+   {
+    "codigo": "16",
+    "nombre": "Belén",
+    "casos": 70,
+    "tasa_x10mil": 3.12
+   },
+   {
+    "codigo": "60",
+    "nombre": "Corregimiento de San Cristóbal",
+    "casos": 69,
+    "tasa_x10mil": 3.88
+   },
+   {
+    "codigo": "08",
+    "nombre": "Villa Hermosa",
+    "casos": 63,
+    "tasa_x10mil": 3.44
+   },
+   {
+    "codigo": "13",
+    "nombre": "San Javier",
+    "casos": 61,
+    "tasa_x10mil": 3.28
+   },
+   {
+    "codigo": "05",
+    "nombre": "Castilla",
+    "casos": 56,
+    "tasa_x10mil": 4.37
+   },
+   {
+    "codigo": "03",
+    "nombre": "Manrique",
+    "casos": 55,
+    "tasa_x10mil": 2.92
+   },
+   {
+    "codigo": "11",
+    "nombre": "Laureles Estadio",
+    "casos": 51,
+    "tasa_x10mil": 5.03
+   },
+   {
+    "codigo": "06",
+    "nombre": "Doce de Octubre",
+    "casos": 49,
+    "tasa_x10mil": 2.62
+   },
+   {
+    "codigo": "09",
+    "nombre": "Buenos Aires",
+    "casos": 45,
+    "tasa_x10mil": 2.41
+   },
+   {
+    "codigo": "02",
+    "nombre": "Santa Cruz",
+    "casos": 38,
+    "tasa_x10mil": 2.97
+   },
+   {
+    "codigo": "15",
+    "nombre": "Guayabal",
+    "casos": 38,
+    "tasa_x10mil": 5.93
+   },
+   {
+    "codigo": "01",
+    "nombre": "Popular",
+    "casos": 37,
+    "tasa_x10mil": 2.36
+   },
+   {
+    "codigo": "14",
+    "nombre": "El Poblado",
+    "casos": 23,
+    "tasa_x10mil": 2.01
+   },
+   {
+    "codigo": "70",
+    "nombre": "Corregimiento de Altavista",
+    "casos": 23,
+    "tasa_x10mil": 4.75
+   },
+   {
+    "codigo": "90",
+    "nombre": "Corregimiento de Santa Elena",
+    "casos": 19,
+    "tasa_x10mil": 5.19
+   },
+   {
+    "codigo": "80",
+    "nombre": "Corregimiento de San Antonio de Prado",
+    "casos": 19,
+    "tasa_x10mil": 1.44
+   },
+   {
+    "codigo": "12",
+    "nombre": "La América",
+    "casos": 16,
+    "tasa_x10mil": 1.8
+   },
+   {
+    "codigo": "50",
+    "nombre": "Corregimiento de San Sebastián de Palmitas",
+    "casos": 4,
+    "tasa_x10mil": 5.59
+   }
+  ],
+  "sisc_ranking_hurto_persona": [
+   {
+    "codigo": "10",
+    "nombre": "La Candelaria",
+    "casos": 25089,
+    "tasa_x10mil": 3101.54
+   },
+   {
+    "codigo": "11",
+    "nombre": "Laureles Estadio",
+    "casos": 12346,
+    "tasa_x10mil": 1216.88
+   },
+   {
+    "codigo": "14",
+    "nombre": "El Poblado",
+    "casos": 12295,
+    "tasa_x10mil": 1076.4
+   },
+   {
+    "codigo": "16",
+    "nombre": "Belén",
+    "casos": 7744,
+    "tasa_x10mil": 344.99
+   },
+   {
+    "codigo": "04",
+    "nombre": "Aranjuez",
+    "casos": 5526,
+    "tasa_x10mil": 374.19
+   },
+   {
+    "codigo": "05",
+    "nombre": "Castilla",
+    "casos": 5293,
+    "tasa_x10mil": 412.67
+   },
+   {
+    "codigo": "07",
+    "nombre": "Robledo",
+    "casos": 4497,
+    "tasa_x10mil": 204.72
+   },
+   {
+    "codigo": "15",
+    "nombre": "Guayabal",
+    "casos": 3979,
+    "tasa_x10mil": 621.21
+   },
+   {
+    "codigo": "12",
+    "nombre": "La América",
+    "casos": 3942,
+    "tasa_x10mil": 443.29
+   },
+   {
+    "codigo": "09",
+    "nombre": "Buenos Aires",
+    "casos": 3697,
+    "tasa_x10mil": 197.88
+   },
+   {
+    "codigo": "08",
+    "nombre": "Villa Hermosa",
+    "casos": 2701,
+    "tasa_x10mil": 147.53
+   },
+   {
+    "codigo": "13",
+    "nombre": "San Javier",
+    "casos": 1783,
+    "tasa_x10mil": 95.96
+   },
+   {
+    "codigo": "03",
+    "nombre": "Manrique",
+    "casos": 1684,
+    "tasa_x10mil": 89.3
+   },
+   {
+    "codigo": "06",
+    "nombre": "Doce de Octubre",
+    "casos": 1595,
+    "tasa_x10mil": 85.29
+   },
+   {
+    "codigo": "60",
+    "nombre": "Corregimiento de San Cristóbal",
+    "casos": 1384,
+    "tasa_x10mil": 77.88
+   },
+   {
+    "codigo": "01",
+    "nombre": "Popular",
+    "casos": 1009,
+    "tasa_x10mil": 64.23
+   },
+   {
+    "codigo": "02",
+    "nombre": "Santa Cruz",
+    "casos": 862,
+    "tasa_x10mil": 67.31
+   },
+   {
+    "codigo": "80",
+    "nombre": "Corregimiento de San Antonio de Prado",
+    "casos": 786,
+    "tasa_x10mil": 59.56
+   },
+   {
+    "codigo": "90",
+    "nombre": "Corregimiento de Santa Elena",
+    "casos": 707,
+    "tasa_x10mil": 193.14
+   },
+   {
+    "codigo": "70",
+    "nombre": "Corregimiento de Altavista",
+    "casos": 280,
+    "tasa_x10mil": 57.88
+   },
+   {
+    "codigo": "50",
+    "nombre": "Corregimiento de San Sebastián de Palmitas",
+    "casos": 35,
+    "tasa_x10mil": 48.94
+   }
+  ],
+  "sisc_ranking_hurto_carro": [
+   {
+    "codigo": "11",
+    "nombre": "Laureles Estadio",
+    "casos": 397,
+    "tasa_x10mil": 39.13
+   },
+   {
+    "codigo": "10",
+    "nombre": "La Candelaria",
+    "casos": 237,
+    "tasa_x10mil": 29.3
+   },
+   {
+    "codigo": "05",
+    "nombre": "Castilla",
+    "casos": 234,
+    "tasa_x10mil": 18.24
+   },
+   {
+    "codigo": "04",
+    "nombre": "Aranjuez",
+    "casos": 227,
+    "tasa_x10mil": 15.37
+   },
+   {
+    "codigo": "16",
+    "nombre": "Belén",
+    "casos": 210,
+    "tasa_x10mil": 9.36
+   },
+   {
+    "codigo": "09",
+    "nombre": "Buenos Aires",
+    "casos": 206,
+    "tasa_x10mil": 11.03
+   },
+   {
+    "codigo": "07",
+    "nombre": "Robledo",
+    "casos": 177,
+    "tasa_x10mil": 8.06
+   },
+   {
+    "codigo": "12",
+    "nombre": "La América",
+    "casos": 167,
+    "tasa_x10mil": 18.78
+   },
+   {
+    "codigo": "08",
+    "nombre": "Villa Hermosa",
+    "casos": 131,
+    "tasa_x10mil": 7.16
+   },
+   {
+    "codigo": "15",
+    "nombre": "Guayabal",
+    "casos": 124,
+    "tasa_x10mil": 19.36
+   },
+   {
+    "codigo": "13",
+    "nombre": "San Javier",
+    "casos": 105,
+    "tasa_x10mil": 5.65
+   },
+   {
+    "codigo": "06",
+    "nombre": "Doce de Octubre",
+    "casos": 93,
+    "tasa_x10mil": 4.97
+   },
+   {
+    "codigo": "60",
+    "nombre": "Corregimiento de San Cristóbal",
+    "casos": 79,
+    "tasa_x10mil": 4.45
+   },
+   {
+    "codigo": "14",
+    "nombre": "El Poblado",
+    "casos": 78,
+    "tasa_x10mil": 6.83
+   },
+   {
+    "codigo": "03",
+    "nombre": "Manrique",
+    "casos": 69,
+    "tasa_x10mil": 3.66
+   },
+   {
+    "codigo": "80",
+    "nombre": "Corregimiento de San Antonio de Prado",
+    "casos": 45,
+    "tasa_x10mil": 3.41
+   },
+   {
+    "codigo": "90",
+    "nombre": "Corregimiento de Santa Elena",
+    "casos": 33,
+    "tasa_x10mil": 9.01
+   },
+   {
+    "codigo": "02",
+    "nombre": "Santa Cruz",
+    "casos": 29,
+    "tasa_x10mil": 2.26
+   },
+   {
+    "codigo": "01",
+    "nombre": "Popular",
+    "casos": 27,
+    "tasa_x10mil": 1.72
+   },
+   {
+    "codigo": "50",
+    "nombre": "Corregimiento de San Sebastián de Palmitas",
+    "casos": 7,
+    "tasa_x10mil": 9.79
+   },
+   {
+    "codigo": "70",
+    "nombre": "Corregimiento de Altavista",
+    "casos": 7,
+    "tasa_x10mil": 1.45
+   }
+  ],
+  "sisc_ranking_hurto_moto": [
+   {
+    "codigo": "10",
+    "nombre": "La Candelaria",
+    "casos": 1630,
+    "tasa_x10mil": 201.5
+   },
+   {
+    "codigo": "04",
+    "nombre": "Aranjuez",
+    "casos": 1606,
+    "tasa_x10mil": 108.75
+   },
+   {
+    "codigo": "09",
+    "nombre": "Buenos Aires",
+    "casos": 1467,
+    "tasa_x10mil": 78.52
+   },
+   {
+    "codigo": "07",
+    "nombre": "Robledo",
+    "casos": 1439,
+    "tasa_x10mil": 65.51
+   },
+   {
+    "codigo": "05",
+    "nombre": "Castilla",
+    "casos": 1162,
+    "tasa_x10mil": 90.6
+   },
+   {
+    "codigo": "08",
+    "nombre": "Villa Hermosa",
+    "casos": 1054,
+    "tasa_x10mil": 57.57
+   },
+   {
+    "codigo": "03",
+    "nombre": "Manrique",
+    "casos": 947,
+    "tasa_x10mil": 50.22
+   },
+   {
+    "codigo": "16",
+    "nombre": "Belén",
+    "casos": 897,
+    "tasa_x10mil": 39.96
+   },
+   {
+    "codigo": "06",
+    "nombre": "Doce de Octubre",
+    "casos": 825,
+    "tasa_x10mil": 44.11
+   },
+   {
+    "codigo": "13",
+    "nombre": "San Javier",
+    "casos": 674,
+    "tasa_x10mil": 36.27
+   },
+   {
+    "codigo": "11",
+    "nombre": "Laureles Estadio",
+    "casos": 670,
+    "tasa_x10mil": 66.04
+   },
+   {
+    "codigo": "12",
+    "nombre": "La América",
+    "casos": 579,
+    "tasa_x10mil": 65.11
+   },
+   {
+    "codigo": "60",
+    "nombre": "Corregimiento de San Cristóbal",
+    "casos": 534,
+    "tasa_x10mil": 30.05
+   },
+   {
+    "codigo": "01",
+    "nombre": "Popular",
+    "casos": 486,
+    "tasa_x10mil": 30.94
+   },
+   {
+    "codigo": "02",
+    "nombre": "Santa Cruz",
+    "casos": 417,
+    "tasa_x10mil": 32.56
+   },
+   {
+    "codigo": "15",
+    "nombre": "Guayabal",
+    "casos": 408,
+    "tasa_x10mil": 63.7
+   },
+   {
+    "codigo": "80",
+    "nombre": "Corregimiento de San Antonio de Prado",
+    "casos": 298,
+    "tasa_x10mil": 22.58
+   },
+   {
+    "codigo": "14",
+    "nombre": "El Poblado",
+    "casos": 225,
+    "tasa_x10mil": 19.7
+   },
+   {
+    "codigo": "90",
+    "nombre": "Corregimiento de Santa Elena",
+    "casos": 79,
+    "tasa_x10mil": 21.58
+   },
+   {
+    "codigo": "70",
+    "nombre": "Corregimiento de Altavista",
+    "casos": 56,
+    "tasa_x10mil": 11.58
+   },
+   {
+    "codigo": "50",
+    "nombre": "Corregimiento de San Sebastián de Palmitas",
+    "casos": 7,
+    "tasa_x10mil": 9.79
+   }
+  ],
+  "sisc_ranking_hurto_residencia": [
+   {
+    "codigo": "11",
+    "nombre": "Laureles Estadio",
+    "casos": 1219,
+    "tasa_x10mil": 120.15
+   },
+   {
+    "codigo": "14",
+    "nombre": "El Poblado",
+    "casos": 980,
+    "tasa_x10mil": 85.8
+   },
+   {
+    "codigo": "16",
+    "nombre": "Belén",
+    "casos": 977,
+    "tasa_x10mil": 43.53
+   },
+   {
+    "codigo": "12",
+    "nombre": "La América",
+    "casos": 549,
+    "tasa_x10mil": 61.74
+   },
+   {
+    "codigo": "10",
+    "nombre": "La Candelaria",
+    "casos": 501,
+    "tasa_x10mil": 61.93
+   },
+   {
+    "codigo": "07",
+    "nombre": "Robledo",
+    "casos": 452,
+    "tasa_x10mil": 20.58
+   },
+   {
+    "codigo": "09",
+    "nombre": "Buenos Aires",
+    "casos": 401,
+    "tasa_x10mil": 21.46
+   },
+   {
+    "codigo": "04",
+    "nombre": "Aranjuez",
+    "casos": 293,
+    "tasa_x10mil": 19.84
+   },
+   {
+    "codigo": "08",
+    "nombre": "Villa Hermosa",
+    "casos": 281,
+    "tasa_x10mil": 15.35
+   },
+   {
+    "codigo": "03",
+    "nombre": "Manrique",
+    "casos": 246,
+    "tasa_x10mil": 13.05
+   },
+   {
+    "codigo": "13",
+    "nombre": "San Javier",
+    "casos": 245,
+    "tasa_x10mil": 13.19
+   },
+   {
+    "codigo": "05",
+    "nombre": "Castilla",
+    "casos": 227,
+    "tasa_x10mil": 17.7
+   },
+   {
+    "codigo": "60",
+    "nombre": "Corregimiento de San Cristóbal",
+    "casos": 218,
+    "tasa_x10mil": 12.27
+   },
+   {
+    "codigo": "15",
+    "nombre": "Guayabal",
+    "casos": 203,
+    "tasa_x10mil": 31.69
+   },
+   {
+    "codigo": "01",
+    "nombre": "Popular",
+    "casos": 192,
+    "tasa_x10mil": 12.22
+   },
+   {
+    "codigo": "80",
+    "nombre": "Corregimiento de San Antonio de Prado",
+    "casos": 150,
+    "tasa_x10mil": 11.37
+   },
+   {
+    "codigo": "06",
+    "nombre": "Doce de Octubre",
+    "casos": 148,
+    "tasa_x10mil": 7.91
+   },
+   {
+    "codigo": "90",
+    "nombre": "Corregimiento de Santa Elena",
+    "casos": 120,
+    "tasa_x10mil": 32.78
+   },
+   {
+    "codigo": "02",
+    "nombre": "Santa Cruz",
+    "casos": 105,
+    "tasa_x10mil": 8.2
+   },
+   {
+    "codigo": "70",
+    "nombre": "Corregimiento de Altavista",
+    "casos": 63,
+    "tasa_x10mil": 13.02
+   },
+   {
+    "codigo": "50",
+    "nombre": "Corregimiento de San Sebastián de Palmitas",
+    "casos": 8,
+    "tasa_x10mil": 11.19
+   }
+  ],
+  "sisc_ranking_hurto_comercio": [
+   {
+    "codigo": "10",
+    "nombre": "La Candelaria",
+    "casos": 2609,
+    "tasa_x10mil": 322.53
+   },
+   {
+    "codigo": "14",
+    "nombre": "El Poblado",
+    "casos": 1738,
+    "tasa_x10mil": 152.16
+   },
+   {
+    "codigo": "11",
+    "nombre": "Laureles Estadio",
+    "casos": 1492,
+    "tasa_x10mil": 147.06
+   },
+   {
+    "codigo": "16",
+    "nombre": "Belén",
+    "casos": 815,
+    "tasa_x10mil": 36.31
+   },
+   {
+    "codigo": "15",
+    "nombre": "Guayabal",
+    "casos": 613,
+    "tasa_x10mil": 95.7
+   },
+   {
+    "codigo": "04",
+    "nombre": "Aranjuez",
+    "casos": 586,
+    "tasa_x10mil": 39.68
+   },
+   {
+    "codigo": "05",
+    "nombre": "Castilla",
+    "casos": 570,
+    "tasa_x10mil": 44.44
+   },
+   {
+    "codigo": "07",
+    "nombre": "Robledo",
+    "casos": 509,
+    "tasa_x10mil": 23.17
+   },
+   {
+    "codigo": "12",
+    "nombre": "La América",
+    "casos": 426,
+    "tasa_x10mil": 47.91
+   },
+   {
+    "codigo": "09",
+    "nombre": "Buenos Aires",
+    "casos": 395,
+    "tasa_x10mil": 21.14
+   },
+   {
+    "codigo": "06",
+    "nombre": "Doce de Octubre",
+    "casos": 286,
+    "tasa_x10mil": 15.29
+   },
+   {
+    "codigo": "08",
+    "nombre": "Villa Hermosa",
+    "casos": 244,
+    "tasa_x10mil": 13.33
+   },
+   {
+    "codigo": "13",
+    "nombre": "San Javier",
+    "casos": 222,
+    "tasa_x10mil": 11.95
+   },
+   {
+    "codigo": "03",
+    "nombre": "Manrique",
+    "casos": 213,
+    "tasa_x10mil": 11.3
+   },
+   {
+    "codigo": "01",
+    "nombre": "Popular",
+    "casos": 178,
+    "tasa_x10mil": 11.33
+   },
+   {
+    "codigo": "80",
+    "nombre": "Corregimiento de San Antonio de Prado",
+    "casos": 143,
+    "tasa_x10mil": 10.84
+   },
+   {
+    "codigo": "60",
+    "nombre": "Corregimiento de San Cristóbal",
+    "casos": 122,
+    "tasa_x10mil": 6.87
+   },
+   {
+    "codigo": "02",
+    "nombre": "Santa Cruz",
+    "casos": 95,
+    "tasa_x10mil": 7.42
+   },
+   {
+    "codigo": "90",
+    "nombre": "Corregimiento de Santa Elena",
+    "casos": 90,
+    "tasa_x10mil": 24.59
+   },
+   {
+    "codigo": "70",
+    "nombre": "Corregimiento de Altavista",
+    "casos": 25,
+    "tasa_x10mil": 5.17
+   },
+   {
+    "codigo": "50",
+    "nombre": "Corregimiento de San Sebastián de Palmitas",
+    "casos": 10,
+    "tasa_x10mil": 13.98
+   }
+  ],
+  "sisc_ranking_extorsion_sisc": [
+   {
+    "codigo": "10",
+    "nombre": "La Candelaria",
+    "casos": 346,
+    "tasa_x10mil": 42.77
+   },
+   {
+    "codigo": "16",
+    "nombre": "Belén",
+    "casos": 160,
+    "tasa_x10mil": 7.13
+   },
+   {
+    "codigo": "11",
+    "nombre": "Laureles Estadio",
+    "casos": 120,
+    "tasa_x10mil": 11.83
+   },
+   {
+    "codigo": "04",
+    "nombre": "Aranjuez",
+    "casos": 109,
+    "tasa_x10mil": 7.38
+   },
+   {
+    "codigo": "05",
+    "nombre": "Castilla",
+    "casos": 103,
+    "tasa_x10mil": 8.03
+   },
+   {
+    "codigo": "09",
+    "nombre": "Buenos Aires",
+    "casos": 103,
+    "tasa_x10mil": 5.51
+   },
+   {
+    "codigo": "07",
+    "nombre": "Robledo",
+    "casos": 102,
+    "tasa_x10mil": 4.64
+   },
+   {
+    "codigo": "13",
+    "nombre": "San Javier",
+    "casos": 95,
+    "tasa_x10mil": 5.11
+   },
+   {
+    "codigo": "14",
+    "nombre": "El Poblado",
+    "casos": 88,
+    "tasa_x10mil": 7.7
+   },
+   {
+    "codigo": "12",
+    "nombre": "La América",
+    "casos": 84,
+    "tasa_x10mil": 9.45
+   },
+   {
+    "codigo": "08",
+    "nombre": "Villa Hermosa",
+    "casos": 72,
+    "tasa_x10mil": 3.93
+   },
+   {
+    "codigo": "80",
+    "nombre": "Corregimiento de San Antonio de Prado",
+    "casos": 64,
+    "tasa_x10mil": 4.85
+   },
+   {
+    "codigo": "06",
+    "nombre": "Doce de Octubre",
+    "casos": 62,
+    "tasa_x10mil": 3.32
+   },
+   {
+    "codigo": "60",
+    "nombre": "Corregimiento de San Cristóbal",
+    "casos": 62,
+    "tasa_x10mil": 3.49
+   },
+   {
+    "codigo": "03",
+    "nombre": "Manrique",
+    "casos": 59,
+    "tasa_x10mil": 3.13
+   },
+   {
+    "codigo": "15",
+    "nombre": "Guayabal",
+    "casos": 54,
+    "tasa_x10mil": 8.43
+   },
+   {
+    "codigo": "01",
+    "nombre": "Popular",
+    "casos": 52,
+    "tasa_x10mil": 3.31
+   },
+   {
+    "codigo": "02",
+    "nombre": "Santa Cruz",
+    "casos": 46,
+    "tasa_x10mil": 3.59
+   },
+   {
+    "codigo": "70",
+    "nombre": "Corregimiento de Altavista",
+    "casos": 11,
+    "tasa_x10mil": 2.27
+   },
+   {
+    "codigo": "90",
+    "nombre": "Corregimiento de Santa Elena",
+    "casos": 6,
+    "tasa_x10mil": 1.64
+   },
+   {
+    "codigo": "50",
+    "nombre": "Corregimiento de San Sebastián de Palmitas",
+    "casos": 0,
+    "tasa_x10mil": 0.0
+   }
+  ],
+  "sisc_ranking_lesion_dolosa": [
+   {
+    "codigo": "10",
+    "nombre": "La Candelaria",
+    "casos": 2404,
+    "tasa_x10mil": 297.19
+   },
+   {
+    "codigo": "04",
+    "nombre": "Aranjuez",
+    "casos": 887,
+    "tasa_x10mil": 60.06
+   },
+   {
+    "codigo": "16",
+    "nombre": "Belén",
+    "casos": 852,
+    "tasa_x10mil": 37.96
+   },
+   {
+    "codigo": "03",
+    "nombre": "Manrique",
+    "casos": 849,
+    "tasa_x10mil": 45.02
+   },
+   {
+    "codigo": "07",
+    "nombre": "Robledo",
+    "casos": 840,
+    "tasa_x10mil": 38.24
+   },
+   {
+    "codigo": "11",
+    "nombre": "Laureles Estadio",
+    "casos": 769,
+    "tasa_x10mil": 75.8
+   },
+   {
+    "codigo": "08",
+    "nombre": "Villa Hermosa",
+    "casos": 749,
+    "tasa_x10mil": 40.91
+   },
+   {
+    "codigo": "01",
+    "nombre": "Popular",
+    "casos": 746,
+    "tasa_x10mil": 47.49
+   },
+   {
+    "codigo": "05",
+    "nombre": "Castilla",
+    "casos": 741,
+    "tasa_x10mil": 57.77
+   },
+   {
+    "codigo": "09",
+    "nombre": "Buenos Aires",
+    "casos": 685,
+    "tasa_x10mil": 36.66
+   },
+   {
+    "codigo": "06",
+    "nombre": "Doce de Octubre",
+    "casos": 663,
+    "tasa_x10mil": 35.45
+   },
+   {
+    "codigo": "13",
+    "nombre": "San Javier",
+    "casos": 629,
+    "tasa_x10mil": 33.85
+   },
+   {
+    "codigo": "14",
+    "nombre": "El Poblado",
+    "casos": 567,
+    "tasa_x10mil": 49.64
+   },
+   {
+    "codigo": "02",
+    "nombre": "Santa Cruz",
+    "casos": 474,
+    "tasa_x10mil": 37.01
+   },
+   {
+    "codigo": "60",
+    "nombre": "Corregimiento de San Cristóbal",
+    "casos": 430,
+    "tasa_x10mil": 24.2
+   },
+   {
+    "codigo": "15",
+    "nombre": "Guayabal",
+    "casos": 411,
+    "tasa_x10mil": 64.17
+   },
+   {
+    "codigo": "12",
+    "nombre": "La América",
+    "casos": 387,
+    "tasa_x10mil": 43.52
+   },
+   {
+    "codigo": "80",
+    "nombre": "Corregimiento de San Antonio de Prado",
+    "casos": 338,
+    "tasa_x10mil": 25.61
+   },
+   {
+    "codigo": "90",
+    "nombre": "Corregimiento de Santa Elena",
+    "casos": 116,
+    "tasa_x10mil": 31.69
+   },
+   {
+    "codigo": "70",
+    "nombre": "Corregimiento de Altavista",
+    "casos": 83,
+    "tasa_x10mil": 17.16
+   },
+   {
+    "codigo": "50",
+    "nombre": "Corregimiento de San Sebastián de Palmitas",
+    "casos": 21,
+    "tasa_x10mil": 29.37
+   }
+  ]
+ }
 }

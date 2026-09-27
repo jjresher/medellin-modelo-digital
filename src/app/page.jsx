@@ -8,7 +8,8 @@ import { navigation } from '../data/navegacion';
 import { cifrasAncla, useLago } from '../lib/lago';
 
 const DigitalTwinView = dynamic(() => import('../components/DigitalTwinView'), { ssr: false, loading: () => <div className="view-loading">Preparando el gemelo 3D…</div> });
-const implemented = new Set(['panorama', 'twin', 'sources']);
+const SeguridadView = dynamic(() => import('../components/SeguridadView'), { ssr: false, loading: () => <div className="view-loading">Cargando seguridad…</div> });
+const implemented = new Set(['panorama', 'twin', 'sources', 'safety']);
 
 function LakeStatus({ lago }) {
   if (lago.estado === 'cargando') return <div className="sidebar-status"><i className="loading" /> CARGANDO LAGO…</div>;
@@ -54,5 +55,5 @@ export default function Home() {
     window.history.replaceState(null, '', id === 'panorama' ? window.location.pathname : `#${id}`);
   };
   const openSource = (sourceId) => { navigate('sources'); setFocusSource(sourceId); };
-  return <div className="app-shell"><Sidebar active={active} onNavigate={navigate} isOpen={menuOpen} onClose={() => setMenuOpen(false)} lago={lago} /><main className="workspace"><header className="topbar"><button className="menu-button" onClick={() => setMenuOpen(true)} aria-label="Abrir menú">☰</button><div>MODELO DIGITAL <span>/</span> <strong>{current}</strong></div><button className="source-shortcut" onClick={() => navigate('sources')}>Fuentes <span>↗</span></button></header>{active === 'panorama' && <Panorama lago={lago} onSource={openSource} onTwin={() => navigate('twin')} />}{active === 'twin' && <DigitalTwinView gemelo={lago.temas.gemelo} lentes={lago.temas.lentes} catalogo={lago.catalogo} />}{active === 'sources' && <SourcesView catalogo={lago.catalogo} focusId={focusSource} />}{!implemented.has(active) && <ComingSoon label={current} />}</main></div>;
+  return <div className="app-shell"><Sidebar active={active} onNavigate={navigate} isOpen={menuOpen} onClose={() => setMenuOpen(false)} lago={lago} /><main className="workspace"><header className="topbar"><button className="menu-button" onClick={() => setMenuOpen(true)} aria-label="Abrir menú">☰</button><div>MODELO DIGITAL <span>/</span> <strong>{current}</strong></div><button className="source-shortcut" onClick={() => navigate('sources')}>Fuentes <span>↗</span></button></header>{active === 'panorama' && <Panorama lago={lago} onSource={openSource} onTwin={() => navigate('twin')} />}{active === 'twin' && <DigitalTwinView gemelo={lago.temas.gemelo} lentes={lago.temas.lentes} catalogo={lago.catalogo} />}{active === 'safety' && <SeguridadView tema={lago.temas.seguridad} onSource={openSource} />}{active === 'sources' && <SourcesView catalogo={lago.catalogo} focusId={focusSource} />}{!implemented.has(active) && <ComingSoon label={current} />}</main></div>;
 }

@@ -155,7 +155,16 @@ También hay hurto a residencias (`7mn7-vzqp`), hurto a comercio (`7i2x-h5vp`) y
 
 Tasa de homicidios derivada con la población del DANE: **11,81 por 100.000 habitantes en 2024** y **12,64 en 2025**.
 
-**SISC en MEData.** Registros georreferenciados con latitud, longitud, barrio y comuna, de 2003 a **noviembre de 2023**. Por ejemplo, `MED/1-027-23-000008/homicidio.csv` tiene 19.647 registros, 18.598 de ellos con coordenadas. Hay archivos equivalentes para cada tipo de hurto, extorsión, llamadas al 123 y otros. Sirve para mapas de calor históricos por barrio.
+**SISC en MEData.** Registros georreferenciados con latitud, longitud, barrio y comuna, de 2003 a **noviembre de 2023**. Por ejemplo, `MED/1-027-23-000008/homicidio.csv` tiene 19.647 registros, 18.598 de ellos con coordenadas. Hay archivos equivalentes para cada tipo de hurto, extorsión, llamadas al 123 y otros. Sirve para el ranking por comuna y el mapa por barrio.
+
+### Notas de uso en la sección Seguridad (issue #3, 26 sep 2026)
+
+- **Ocho archivos SISC en uso**, con taxonomía propia (no calcada de la Policía): homicidio (7.070.197 B), hurto a persona (**124.482.690 B**, el más pesado), hurto de carro, hurto de moto, hurto a residencia, hurto a establecimiento comercial, extorsión y lesión no fatal dolosa. Violencia intrafamiliar y delitos sexuales no tienen un archivo SISC equivalente directo (el SISC solo publica "Reincidencia" y "Solicitud de medidas de protección" para violencia intrafamiliar, indicadores distintos a un conteo total), así que el ranking y el mapa por barrio cubren 8 categorías propias del SISC, no las 7 de la Policía.
+- **Formato de los campos:** `codigo_comuna` viene sin ceros a la izquierda ("6", "10") y a veces "SIN DATO" o vacío; `codigo_barrio` viene con "#" al inicio ("#0603"): al quitarlo, coincide con el `CODIGO` de `barrios.geojson` y `veredas.geojson` que ya usa el gemelo (issue #1).
+- **Ventana reciente:** el ranking por comuna y el mapa por barrio usan los últimos 3 años de cada archivo (2021–2023 en la mayoría), el mismo criterio que ya usaba `pull_lentes.py` para las víctimas viales. La serie anual completa (2003 al último año) también se guarda, para quien quiera ver la tendencia larga.
+- **Tasa por comuna:** se cruza el conteo SISC con la población por comuna del DAP (`demografia.json`, lista `poblacion_dap_por_territorio`), que solo trae nombre y valor. El cruce por nombre exige quitarle "Corregimiento de " al nombre de `comunas.geojson` antes de comparar; los 16 nombres de comuna coinciden tal cual.
+- **Mapa por barrio: es un coropletico, no un mapa de calor de puntos.** Se agregan los casos de la ventana reciente al polígono de cada barrio o vereda (271 + 79, del catastro) y se colorea con la misma rampa secuencial gris→morado→rosa de los índices del gemelo (issue #2). Un kernel de densidad sobre los puntos crudos habría sido más fiel al término "mapa de calor", pero exige generar un PMTiles nuevo solo para esta sección; el coropletico reutiliza los polígonos que ya existían y es igual de legible a la escala de la ciudad. Se documenta aquí para que quede claro que es una decisión de diseño, no un dato distinto.
+- **Homicidio, ventana 2021–2023:** La Candelaria concentra 225 casos (el resto de comunas no pasa de 100), y dentro de ella el barrio Guayaquil concentra 1.931 casos de hurto a persona en la misma ventana — consistente con ser el centro comercial y de mayor afluencia peatonal de la ciudad.
 
 ### Movilidad
 

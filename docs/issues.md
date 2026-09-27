@@ -18,7 +18,7 @@ Hoja de ruta para llevar la app a la estructura de [Cerebro Lima](https://cerebr
 | 0 | [Lago de datos, ingesta y verificación](#0-lago-de-datos-ingesta-y-verificación) | — | ☑ |
 | 1 | [Gemelo 3D con alturas reales](#1-gemelo-3d-con-alturas-reales) | 0 | ☑ |
 | 2 | [Lentes y herramientas del gemelo](#2-lentes-y-herramientas-del-gemelo) | 1 | ☑ |
-| 3 | [Seguridad](#3-seguridad) | 0 | ☐ |
+| 3 | [Seguridad](#3-seguridad) | 0 | ☑ |
 | 4 | [Ambiente y satélite](#4-ambiente-y-satélite) | 0 | ☐ |
 | 5 | [Gente](#5-gente) | 0 | ☐ |
 | 6 | [Economía y vivienda](#6-economía-y-vivienda) | 0 | ☐ |
@@ -151,16 +151,25 @@ Panorama va casi al final porque resume las cifras ancla de todas las demás sec
 **Objetivo:** mostrar la seguridad de la ciudad con series actuales y un mapa histórico por barrio.
 
 **Tareas**
-- [ ] Series anuales y mensuales 2018–2026 (Policía): homicidio, hurto a personas, hurto de vehículos, extorsión, violencia intrafamiliar, delitos sexuales y lesiones personales.
-- [ ] Tasas por 100.000 habitantes con la población del DANE (estado `derivado`): homicidios 2024 = 11,81 y 2025 = 12,64.
-- [ ] Comparación del año en curso con el mismo periodo del año anterior.
-- [ ] Mapa de calor por barrio con el SISC de 2003 a noviembre de 2023, rotulado como histórico.
-- [ ] Ranking de comunas por tipo de delito (SISC).
-- [ ] Nota visible: la Policía y el SISC no se mezclan en una misma serie (ver discrepancia de 2023).
+- [x] Series anuales y mensuales 2018–2026 (Policía): homicidio, hurto a personas, hurto de vehículos, extorsión, violencia intrafamiliar, delitos sexuales y lesiones personales.
+- [x] Tasas por 100.000 habitantes con la población del DANE (estado `derivado`): homicidios 2024 = 11,81 y 2025 = 12,64.
+- [x] Comparación del año en curso con el mismo periodo del año anterior.
+- [x] Mapa de calor por barrio con el SISC de 2003 a noviembre de 2023, rotulado como histórico.
+- [x] Ranking de comunas por tipo de delito (SISC).
+- [x] Nota visible: la Policía y el SISC no se mezclan en una misma serie (ver discrepancia de 2023).
 
 **Datos:** [Seguridad](fuentes-medellin.md#seguridad) y la [discrepancia 2](fuentes-medellin.md#5-discrepancias-y-lectura-responsable).
 
 **Terminada cuando:** las cifras de 2026 llegan hasta el último mes publicado y el mapa de calor carga por barrio.
+
+**Resultado (26 sep 2026)**
+- `pull_seguridad.py` ahora ingesta también el SISC: 8 archivos de MEData (hasta 124 MB el más pesado), agregados por comuna (ranking, 21 territorios) y por barrio/vereda (350 polígonos, `public/data/geo/seguridad_barrios.json`). El tema `seguridad` del lago pasó de 8 a 36 cifras y de 2 a 22 series.
+- Tasa por 100.000 habitantes ahora se calcula para los 7 delitos de la Policía, no solo homicidios; y la serie mensual (2 años) también se generó para los 7, no solo homicidios.
+- Nueva sección `Seguridad` (`src/components/SeguridadView.jsx`): selector de delito para las series de la Policía, aviso visible de que Policía y SISC no se mezclan, selector de categoría SISC con un ranking de comunas (gráfica de barras, con vista de tabla) y un mapa por barrio lado a lado.
+- Dos componentes de gráficas nuevos y reutilizables para las issues siguientes: `LineChart` y `BarChart` (`src/components/charts/`), siguiendo la skill de dataviz: un acento por gráfica (nunca dos acentos saturados compitiendo en una misma serie), leyenda solo con 2+ series, tooltip por hover/foco y vista de tabla en el ranking.
+- **Decisión de diseño, documentada en `fuentes-medellin.md`:** el "mapa de calor por barrio" se implementó como un coropletico (casos agregados al polígono del barrio, coloreados con la misma rampa secuencial de los índices del gemelo), no como un mapa de calor de puntos (kernel de densidad). Reutiliza los polígonos que ya existían del catastro y no exige generar un PMTiles nuevo.
+- **Corrección encontrada al probar:** el mapa por barrio se veía negro por completo. Faltaba `maplibregl.setWorkerUrl(...)`, la misma corrección para Next/Turbopack que ya tiene `Map3D.jsx`; sin ella, ni el estilo base ni las fuentes GeoJSON se procesan. Quedó igual en `BarrioMap.jsx`.
+- **Pendiente:** no hay gráfica de "año en curso vs. año anterior" mes a mes con dos líneas (actual sólida, anterior punteada) como se planeó al inicio; los datos que ya se ingestan no traen esa serie pareada. En su lugar, la comparación queda en la cifra de variación % (exacta) y en la gráfica mensual de 24 meses, que muestra el mismo periodo del año anterior en la misma línea.
 
 ---
 
