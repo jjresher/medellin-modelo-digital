@@ -14,6 +14,7 @@ function EstadoVivo({ lecturas }) {
   const obsoletas = listas.filter((l) => l.obsoleto);
   const fallidas = lecturas.filter((l) => l.estado === 'error');
   const leido = listas.map((l) => l.leido).sort().at(-1);
+  const actualizando = lecturas.some((l) => l.refrescando);
   const minutos = obsoletas.length ? Math.round(Math.min(...obsoletas.map((l) => l.edad ?? 0)) / 60) : 0;
   return (
     <div className="vivo-estado">
@@ -22,7 +23,7 @@ function EstadoVivo({ lecturas }) {
         {listas.length === 0 ? 'Leyendo datos en vivo…' : `Lectura de las ${hora(leido)}`}
         <small>Se refresca cada 10 minutos. El proxy guarda la última copia de cada fuente.</small>
       </p>
-      <button onClick={() => lecturas.forEach((l) => l.recargar())}>Actualizar ahora</button>
+      <button disabled={actualizando} onClick={() => lecturas.forEach((l) => l.recargar())}>{actualizando ? 'Actualizando…' : 'Actualizar ahora'}</button>
       {obsoletas.length > 0 && (
         <span className="vivo-aviso">El SIATA no respondió en {obsoletas.length} de {lecturas.length} consultas: se muestra la última copia guardada, de hace {minutos} min.</span>
       )}

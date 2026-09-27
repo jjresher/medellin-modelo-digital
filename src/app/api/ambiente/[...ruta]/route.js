@@ -102,11 +102,14 @@ export async function GET(request, { params }) {
   const { clave, url } = objetivo;
   const ttl = TTL[clave] ?? TTL_DEFECTO;
   const recurso = ruta.join('/');
+  // ?forzar=1 (botón "Actualizar ahora") salta la ventana de caché y pide un dato nuevo; si el SIATA falla, igual
+  // se responde con la última copia.
+  const forzar = new URL(request.url).searchParams.get('forzar') === '1';
 
   const guardada = memoria.get(clave) ?? (await desdeDisco(clave));
   if (guardada) {
     memoria.set(clave, guardada);
-    if (edad(guardada) < ttl) return respuesta(recurso, guardada, ttl);
+    if (!forzar && edad(guardada) < ttl) return respuesta(recurso, guardada, ttl);
   }
   try {
     return respuesta(recurso, await leerArriba(clave, url), ttl);

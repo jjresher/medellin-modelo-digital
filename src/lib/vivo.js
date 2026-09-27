@@ -10,8 +10,10 @@ const REFRESCO_MS = 10 * 60 * 1000; // la misma ventana de caché del proxy
 
 export function useVivo(recurso) {
   const [lectura, setLectura] = useState({ estado: 'cargando' });
-  const [ciclo, setCiclo] = useState(0);
-  const recargar = useCallback(() => setCiclo((n) => n + 1), []);
+  // Cada disparo es un objeto nuevo: `forzar` distingue el botón (pide un dato nuevo al proxy) del refresco
+  // automático (respeta la caché del proxy, que vence a la vez).
+  const [disparo, setDisparo] = useState({ forzar: false });
+  const recargar = useCallback(() => setDisparo({ forzar: true }), []);
 
   useEffect(() => {
     if (!recurso) {
@@ -20,7 +22,7 @@ export function useVivo(recurso) {
     }
     let activo = true;
     setLectura((previo) => (previo.recurso === recurso ? { ...previo, refrescando: true } : { estado: 'cargando', recurso }));
-    fetch(`${BASE}/${recurso}`, { cache: 'no-store' })
+    fetch(`${BASE}/${recurso}${disparo.forzar ? '?forzar=1' : ''}`, { cache: 'no-store' })
       .then(async (respuesta) => {
         const cuerpo = await respuesta.json().catch(() => null);
         if (!respuesta.ok) throw new Error(cuerpo?.error ?? `HTTP ${respuesta.status}`);
@@ -34,12 +36,12 @@ export function useVivo(recurso) {
       })
       .catch((error) => { if (activo) setLectura({ estado: 'error', recurso, error: error.message }); });
     return () => { activo = false; };
-  }, [recurso, ciclo]);
+  }, [recurso, disparo]);
 
   useEffect(() => {
-    const id = window.setInterval(recargar, REFRESCO_MS);
+    const id = window.setInterval(() => setDisparo({ forzar: false }), REFRESCO_MS);
     return () => window.clearInterval(id);
-  }, [recargar]);
+  }, []);
 
   return { ...lectura, recargar };
 }

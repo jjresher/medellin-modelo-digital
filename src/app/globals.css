@@ -271,6 +271,7 @@ h1 em { color: var(--green); font-family: Georgia, serif; font-weight: 400; }
 .vivo-estado p i.stale { background: var(--orange); }
 .vivo-estado p small { color: var(--dim); font: 10px/1.5 Arial, Helvetica, sans-serif; }
 .vivo-estado button { margin-left: auto; padding: 6px 10px; border: 1px solid var(--line); border-radius: 2px; color: var(--paper); background: var(--ink); font: 10px ui-monospace, SFMono-Regular, Menlo, monospace; }
+.vivo-estado button:disabled { color: var(--dim); cursor: progress; }
 .vivo-aviso { flex-basis: 100%; color: var(--orange); font-size: 11px; line-height: 1.5; }
 .alertas-vacio { margin-bottom: 20px; }
 .alertas-siata p { margin: 8px 0 0; }
