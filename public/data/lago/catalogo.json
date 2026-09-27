@@ -1,8 +1,9 @@
 {
  "probado": "2026-09-26",
- "n": 36,
+ "n": 46,
  "por_estado": {
-  "observado": 36
+  "observado": 44,
+  "declarado": 2
  },
  "datasets": [
   {
@@ -400,6 +401,116 @@
    "tema": "lentes",
    "vigencia": "Registro vigente",
    "uso": "Atractivos turísticos registrados"
+  },
+  {
+   "id": "siata-pm25",
+   "nombre": "PM2.5 e índice ICA por estación (promedio de 24 h)",
+   "entidad": "SIATA · Área Metropolitana del Valle de Aburrá",
+   "url": "https://geoportal.siata.gov.co/fastgeoapi/geodata/geodataJson/1/pm25_minio",
+   "estado": "observado",
+   "probado": "2026-09-26",
+   "tema": "ambiente",
+   "vigencia": "Red en operación",
+   "uso": "Estaciones de calidad del aire (PM2.5), Estaciones de monitoreo del SIATA"
+  },
+  {
+   "id": "siata-pluvios",
+   "nombre": "Pluviómetros con acumulado de lluvia",
+   "entidad": "SIATA · Área Metropolitana del Valle de Aburrá",
+   "url": "https://geoportal.siata.gov.co/fastgeoapi/geodata/geodataJson/3/pluvios_v2",
+   "estado": "observado",
+   "probado": "2026-09-26",
+   "tema": "ambiente",
+   "vigencia": "Red en operación",
+   "uso": "Pluviómetros"
+  },
+  {
+   "id": "siata-niveles",
+   "nombre": "Nivel de quebradas y del río Medellín",
+   "entidad": "SIATA · Área Metropolitana del Valle de Aburrá",
+   "url": "https://geoportal.siata.gov.co/fastgeoapi/geodata/geodataJson/2/niveles",
+   "estado": "observado",
+   "probado": "2026-09-26",
+   "tema": "ambiente",
+   "vigencia": "Red en operación",
+   "uso": "Estaciones de nivel de quebradas"
+  },
+  {
+   "id": "siata-meteo",
+   "nombre": "Temperatura, viento y humedad por estación",
+   "entidad": "SIATA · Área Metropolitana del Valle de Aburrá",
+   "url": "https://geoportal.siata.gov.co/fastgeoapi/geodata/geodataJson/3/tempVient",
+   "estado": "observado",
+   "probado": "2026-09-26",
+   "tema": "ambiente",
+   "vigencia": "Red en operación",
+   "uso": "Estaciones meteorológicas"
+  },
+  {
+   "id": "siata-ruido",
+   "nombre": "Red oficial de ruido (promedio de 7 días)",
+   "entidad": "SIATA · Área Metropolitana del Valle de Aburrá",
+   "url": "https://geoportal.siata.gov.co/fastgeoapi/geodata/geodataJson/1/ruido_oficial",
+   "estado": "observado",
+   "probado": "2026-09-26",
+   "tema": "ambiente",
+   "vigencia": "Red en operación",
+   "uso": "Estaciones de ruido"
+  },
+  {
+   "id": "siata-alertas",
+   "nombre": "Alertas activas del geoportal ciudadano",
+   "entidad": "SIATA · Área Metropolitana del Valle de Aburrá",
+   "url": "https://geoportal.siata.gov.co/fastgeoapi/alerts/active/citizen",
+   "estado": "observado",
+   "probado": "2026-09-26",
+   "uso": "Aviso de alertas activas en la sección Ambiente (lectura en vivo)",
+   "tema": "ambiente",
+   "vigencia": "Servicio vigente"
+  },
+  {
+   "id": "usgs-sismos",
+   "nombre": "Sismos de magnitud 4 o más a menos de 300 km de Medellín",
+   "entidad": "Servicio Geológico de Estados Unidos (USGS) · web service FDSN",
+   "url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2000-01-01&latitude=6.2476&longitude=-75.5686&maxradiuskm=300&minmagnitude=4&orderby=time",
+   "estado": "observado",
+   "probado": "2026-09-26",
+   "tema": "ambiente",
+   "vigencia": "2000 – 2026",
+   "uso": "Sismos de magnitud 4 o más (12 meses), Sismo más fuerte desde 2000"
+  },
+  {
+   "id": "amva-ruido",
+   "nombre": "Mapa de ruido del Valle de Aburrá (isófonas de ruido total, día y noche)",
+   "entidad": "Área Metropolitana del Valle de Aburrá · Portal IDEM",
+   "url": "https://portalidem.metropol.gov.co/server/rest/services/Hosted/AMVA_GESTION_DEL_RUIDO/FeatureServer",
+   "estado": "declarado",
+   "probado": "2026-09-26",
+   "tema": "ambiente",
+   "vigencia": "Estudio del AMVA",
+   "uso": "Área de Medellín con 65 dB(A) o más, nivel diurno (Ld), Área de Medellín con 65 dB(A) o más, nivel nocturno (Ln)"
+  },
+  {
+   "id": "nasa-gibs-viirs",
+   "nombre": "Luces nocturnas VIIRS (Day/Night Band, radiancia diaria)",
+   "entidad": "NASA · Global Imagery Browse Services (GIBS)",
+   "url": "https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/VIIRS_SNPP_DayNightBand_At_Sensor_Radiance/default/default/GoogleMapsCompatible_Level8/0/0/0.png",
+   "estado": "observado",
+   "probado": "2026-09-26",
+   "uso": "Capa satelital del mapa de Ambiente (teselas hasta el nivel 8, ~2 km por píxel)",
+   "tema": "ambiente",
+   "vigencia": "Servicio vigente"
+  },
+  {
+   "id": "eox-sentinel2",
+   "nombre": "Mosaico Sentinel-2 sin nubes (s2cloudless 2023)",
+   "entidad": "EOX IT Services · ESA Sentinel-2",
+   "url": "https://tiles.maps.eox.at/wmts/1.0.0/s2cloudless-2023_3857/default/g/0/0/0.jpg",
+   "estado": "declarado",
+   "probado": "2026-09-26",
+   "uso": "Capa satelital del mapa de Ambiente. Licencia CC BY-NC-SA: solo uso no comercial",
+   "tema": "ambiente",
+   "vigencia": "Servicio vigente"
   }
  ]
 }

@@ -54,6 +54,8 @@ Para regenerar solo esto: `.venv/bin/python ingesta/correr.py lentes`, unos 6 mi
 
 **Seguridad.** `pull_seguridad.py` descarga además 8 archivos del SISC (MEData), hasta 124 MB el más pesado, y necesita `public/data/geo/comunas.geojson` (lo genera `gemelo`) y `demografia.json` para la tasa por comuna. Con buena conexión tarda unos 5 minutos; produce `public/data/geo/seguridad_barrios.json` para el mapa por barrio.
 
+**Ambiente.** Lo que cambia cada pocos minutos (calidad del aire, lluvia, niveles, temperatura, ruido, alertas y sismos) **no se guarda en el lago**: la app lo pide en vivo a `/api/ambiente/<recurso>`, un proxy que cachea 10 minutos en `.cache/ambiente/` y, si el SIATA no responde, sirve la última copia marcada como obsoleta con su hora. `pull_ambiente.py` solo ingesta lo estable: el tamaño de cada red del SIATA, la serie anual de sismos del USGS y el mapa de ruido del AMVA (`public/data/geo/capas/ruido_amva_{dia,noche}.geojson`, unos 735 KB cada uno). Necesita `public/data/geo/comunas.geojson` (lo genera `gemelo`) para recortar las isófonas al Distrito y tarda unos 2 minutos y medio, casi todo en unirlas.
+
 Para actualizar:
 
 ```bash

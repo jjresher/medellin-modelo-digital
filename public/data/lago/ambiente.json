@@ -1,0 +1,414 @@
+{
+ "tema": "ambiente",
+ "titulo": "Ambiente y satélite",
+ "probado": "2026-09-26",
+ "ancla": [
+  "estaciones_siata"
+ ],
+ "fuentes": [
+  {
+   "id": "siata-pm25",
+   "nombre": "PM2.5 e índice ICA por estación (promedio de 24 h)",
+   "entidad": "SIATA · Área Metropolitana del Valle de Aburrá",
+   "url": "https://geoportal.siata.gov.co/fastgeoapi/geodata/geodataJson/1/pm25_minio",
+   "estado": "observado",
+   "probado": "2026-09-26"
+  },
+  {
+   "id": "siata-pluvios",
+   "nombre": "Pluviómetros con acumulado de lluvia",
+   "entidad": "SIATA · Área Metropolitana del Valle de Aburrá",
+   "url": "https://geoportal.siata.gov.co/fastgeoapi/geodata/geodataJson/3/pluvios_v2",
+   "estado": "observado",
+   "probado": "2026-09-26"
+  },
+  {
+   "id": "siata-niveles",
+   "nombre": "Nivel de quebradas y del río Medellín",
+   "entidad": "SIATA · Área Metropolitana del Valle de Aburrá",
+   "url": "https://geoportal.siata.gov.co/fastgeoapi/geodata/geodataJson/2/niveles",
+   "estado": "observado",
+   "probado": "2026-09-26"
+  },
+  {
+   "id": "siata-meteo",
+   "nombre": "Temperatura, viento y humedad por estación",
+   "entidad": "SIATA · Área Metropolitana del Valle de Aburrá",
+   "url": "https://geoportal.siata.gov.co/fastgeoapi/geodata/geodataJson/3/tempVient",
+   "estado": "observado",
+   "probado": "2026-09-26"
+  },
+  {
+   "id": "siata-ruido",
+   "nombre": "Red oficial de ruido (promedio de 7 días)",
+   "entidad": "SIATA · Área Metropolitana del Valle de Aburrá",
+   "url": "https://geoportal.siata.gov.co/fastgeoapi/geodata/geodataJson/1/ruido_oficial",
+   "estado": "observado",
+   "probado": "2026-09-26"
+  },
+  {
+   "id": "siata-alertas",
+   "nombre": "Alertas activas del geoportal ciudadano",
+   "entidad": "SIATA · Área Metropolitana del Valle de Aburrá",
+   "url": "https://geoportal.siata.gov.co/fastgeoapi/alerts/active/citizen",
+   "estado": "observado",
+   "probado": "2026-09-26",
+   "uso": "Aviso de alertas activas en la sección Ambiente (lectura en vivo)"
+  },
+  {
+   "id": "usgs-sismos",
+   "nombre": "Sismos de magnitud 4 o más a menos de 300 km de Medellín",
+   "entidad": "Servicio Geológico de Estados Unidos (USGS) · web service FDSN",
+   "url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2000-01-01&latitude=6.2476&longitude=-75.5686&maxradiuskm=300&minmagnitude=4&orderby=time",
+   "estado": "observado",
+   "probado": "2026-09-26"
+  },
+  {
+   "id": "amva-ruido",
+   "nombre": "Mapa de ruido del Valle de Aburrá (isófonas de ruido total, día y noche)",
+   "entidad": "Área Metropolitana del Valle de Aburrá · Portal IDEM",
+   "url": "https://portalidem.metropol.gov.co/server/rest/services/Hosted/AMVA_GESTION_DEL_RUIDO/FeatureServer",
+   "estado": "declarado",
+   "probado": "2026-09-26"
+  },
+  {
+   "id": "nasa-gibs-viirs",
+   "nombre": "Luces nocturnas VIIRS (Day/Night Band, radiancia diaria)",
+   "entidad": "NASA · Global Imagery Browse Services (GIBS)",
+   "url": "https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/VIIRS_SNPP_DayNightBand_At_Sensor_Radiance/default/default/GoogleMapsCompatible_Level8/0/0/0.png",
+   "estado": "observado",
+   "probado": "2026-09-26",
+   "uso": "Capa satelital del mapa de Ambiente (teselas hasta el nivel 8, ~2 km por píxel)"
+  },
+  {
+   "id": "eox-sentinel2",
+   "nombre": "Mosaico Sentinel-2 sin nubes (s2cloudless 2023)",
+   "entidad": "EOX IT Services · ESA Sentinel-2",
+   "url": "https://tiles.maps.eox.at/wmts/1.0.0/s2cloudless-2023_3857/default/g/0/0/0.jpg",
+   "estado": "declarado",
+   "probado": "2026-09-26",
+   "uso": "Capa satelital del mapa de Ambiente. Licencia CC BY-NC-SA: solo uso no comercial"
+  }
+ ],
+ "cifras": {
+  "estaciones_pm25": {
+   "valor": 23,
+   "unidad": "estaciones",
+   "etiqueta": "Estaciones de calidad del aire (PM2.5)",
+   "fuente": "siata-pm25",
+   "vigencia": "Red en operación",
+   "estado": "observado",
+   "nota": "12 en Medellín y el resto en el Valle de Aburrá. Las lecturas de cada estación se piden en vivo, no se guardan en el lago."
+  },
+  "estaciones_pluvios": {
+   "valor": 183,
+   "unidad": "estaciones",
+   "etiqueta": "Pluviómetros",
+   "fuente": "siata-pluvios",
+   "vigencia": "Red en operación",
+   "estado": "observado",
+   "nota": "103 en Medellín y el resto en el Valle de Aburrá. Las lecturas de cada estación se piden en vivo, no se guardan en el lago."
+  },
+  "estaciones_niveles": {
+   "valor": 165,
+   "unidad": "estaciones",
+   "etiqueta": "Estaciones de nivel de quebradas",
+   "fuente": "siata-niveles",
+   "vigencia": "Red en operación",
+   "estado": "observado",
+   "nota": "94 en Medellín y el resto en el Valle de Aburrá. Las lecturas de cada estación se piden en vivo, no se guardan en el lago."
+  },
+  "estaciones_meteo": {
+   "valor": 45,
+   "unidad": "estaciones",
+   "etiqueta": "Estaciones meteorológicas",
+   "fuente": "siata-meteo",
+   "vigencia": "Red en operación",
+   "estado": "observado",
+   "nota": "0 en Medellín y el resto en el Valle de Aburrá. Las lecturas de cada estación se piden en vivo, no se guardan en el lago."
+  },
+  "estaciones_ruido": {
+   "valor": 8,
+   "unidad": "estaciones",
+   "etiqueta": "Estaciones de ruido",
+   "fuente": "siata-ruido",
+   "vigencia": "Red en operación",
+   "estado": "observado",
+   "nota": "3 en Medellín y el resto en el Valle de Aburrá. Las lecturas de cada estación se piden en vivo, no se guardan en el lago."
+  },
+  "estaciones_siata": {
+   "valor": 424,
+   "unidad": "estaciones",
+   "etiqueta": "Estaciones de monitoreo del SIATA",
+   "fuente": "siata-pm25",
+   "vigencia": "Red en operación",
+   "estado": "derivado",
+   "nota": "Suma de las redes consultadas (estaciones de calidad del aire (pm2.5) 23, pluviómetros 183, estaciones de nivel de quebradas 165, estaciones meteorológicas 45, estaciones de ruido 8). Una misma torre puede tener sensores de varias redes y contarse más de una vez."
+  },
+  "sismos_12m": {
+   "valor": 101,
+   "unidad": "sismos",
+   "etiqueta": "Sismos de magnitud 4 o más (12 meses)",
+   "fuente": "usgs-sismos",
+   "vigencia": "2025-09-26 – 2026-09-26",
+   "estado": "observado",
+   "nota": "Con epicentro a menos de 300 km del centro de Medellín."
+  },
+  "sismo_magnitud_maxima": {
+   "valor": 7.4,
+   "unidad": "magnitud",
+   "etiqueta": "Sismo más fuerte desde 2000",
+   "fuente": "usgs-sismos",
+   "vigencia": "2000–2026",
+   "estado": "observado",
+   "decimales": 1,
+   "nota": "2026-08-10, 2 km SE of San José del Palmar, Colombia, a 108.2 km de profundidad."
+  },
+  "ruido_area_dia": {
+   "valor": 5044.1,
+   "unidad": "ha",
+   "etiqueta": "Área de Medellín con 65 dB(A) o más, nivel diurno (Ld)",
+   "fuente": "amva-ruido",
+   "vigencia": "Estudio del AMVA",
+   "estado": "derivado",
+   "decimales": 0,
+   "nota": "Suma de las bandas de la isófona modelada desde 65 dB(A). El estudio modela desde 35 dB(A): fuera de las isófonas no hay dato. 65 dB(A) es el límite diurno para uso residencial de la Resolución 627 de 2006. Isófonas generalizadas a ~67 m y recortadas al límite del Distrito."
+  },
+  "ruido_area_noche": {
+   "valor": 2689.9,
+   "unidad": "ha",
+   "etiqueta": "Área de Medellín con 65 dB(A) o más, nivel nocturno (Ln)",
+   "fuente": "amva-ruido",
+   "vigencia": "Estudio del AMVA",
+   "estado": "derivado",
+   "decimales": 0,
+   "nota": "Suma de las bandas de la isófona modelada desde 65 dB(A). El estudio modela desde 35 dB(A): fuera de las isófonas no hay dato. 65 dB(A) es el límite diurno para uso residencial de la Resolución 627 de 2006. Isófonas generalizadas a ~67 m y recortadas al límite del Distrito."
+  }
+ },
+ "series": {
+  "sismos_anual": {
+   "etiqueta": "Sismos de magnitud 4 o más a menos de 300 km",
+   "unidad": "sismos",
+   "fuente": "usgs-sismos",
+   "estado": "observado",
+   "vigencia": "2000 – 2026",
+   "puntos": [
+    [
+     "2000",
+     57
+    ],
+    [
+     "2001",
+     39
+    ],
+    [
+     "2002",
+     41
+    ],
+    [
+     "2003",
+     33
+    ],
+    [
+     "2004",
+     58
+    ],
+    [
+     "2005",
+     57
+    ],
+    [
+     "2006",
+     51
+    ],
+    [
+     "2007",
+     64
+    ],
+    [
+     "2008",
+     58
+    ],
+    [
+     "2009",
+     25
+    ],
+    [
+     "2010",
+     29
+    ],
+    [
+     "2011",
+     43
+    ],
+    [
+     "2012",
+     35
+    ],
+    [
+     "2013",
+     48
+    ],
+    [
+     "2014",
+     68
+    ],
+    [
+     "2015",
+     61
+    ],
+    [
+     "2016",
+     77
+    ],
+    [
+     "2017",
+     50
+    ],
+    [
+     "2018",
+     51
+    ],
+    [
+     "2019",
+     49
+    ],
+    [
+     "2020",
+     79
+    ],
+    [
+     "2021",
+     79
+    ],
+    [
+     "2022",
+     73
+    ],
+    [
+     "2023",
+     87
+    ],
+    [
+     "2024",
+     77
+    ],
+    [
+     "2025",
+     54
+    ],
+    [
+     "2026",
+     89
+    ]
+   ],
+   "nota": "2026 parcial: hasta el 2026-09-26, último evento publicado. Distancia medida al centro de Medellín."
+  }
+ },
+ "listas": {
+  "ruido_amva_dia": [
+   {
+    "iso": 35,
+    "rango_db": "35.0-40.0",
+    "ha": 122.7
+   },
+   {
+    "iso": 40,
+    "rango_db": "40.0-45.0",
+    "ha": 275.4
+   },
+   {
+    "iso": 45,
+    "rango_db": "45.0-50.0",
+    "ha": 731.8
+   },
+   {
+    "iso": 50,
+    "rango_db": "50.0-55.0",
+    "ha": 969.1
+   },
+   {
+    "iso": 55,
+    "rango_db": "55.0-60.0",
+    "ha": 1381.3
+   },
+   {
+    "iso": 60,
+    "rango_db": "60.0-65.0",
+    "ha": 2404.9
+   },
+   {
+    "iso": 65,
+    "rango_db": "65.0-70.0",
+    "ha": 2894.7
+   },
+   {
+    "iso": 70,
+    "rango_db": "70.0-75.0",
+    "ha": 1586.4
+   },
+   {
+    "iso": 75,
+    "rango_db": "75.0-80.0",
+    "ha": 503.0
+   },
+   {
+    "iso": 80,
+    "rango_db": ">80.0",
+    "ha": 60.0
+   }
+  ],
+  "ruido_amva_noche": [
+   {
+    "iso": 35,
+    "rango_db": "35.0-40.0",
+    "ha": 245.0
+   },
+   {
+    "iso": 40,
+    "rango_db": "40.0-45.0",
+    "ha": 659.9
+   },
+   {
+    "iso": 45,
+    "rango_db": "45.0-50.0",
+    "ha": 972.8
+   },
+   {
+    "iso": 50,
+    "rango_db": "50.0-55.0",
+    "ha": 1270.6
+   },
+   {
+    "iso": 55,
+    "rango_db": "55.0-60.0",
+    "ha": 2102.1
+   },
+   {
+    "iso": 60,
+    "rango_db": "60.0-65.0",
+    "ha": 3207.0
+   },
+   {
+    "iso": 65,
+    "rango_db": "65.0-70.0",
+    "ha": 1793.3
+   },
+   {
+    "iso": 70,
+    "rango_db": "70.0-75.0",
+    "ha": 775.1
+   },
+   {
+    "iso": 75,
+    "rango_db": "75.0-80.0",
+    "ha": 108.1
+   },
+   {
+    "iso": 80,
+    "rango_db": ">80.0",
+    "ha": 13.4
+   }
+  ]
+ }
+}

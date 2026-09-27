@@ -41,7 +41,17 @@ export default function LineChart({ series, unit = '', formatValue = fmtDefault,
   const x = (i) => PAD.left + (n <= 1 ? 0 : (i / (n - 1)) * (W - PAD.left - PAD.right));
   const y = (v) => height - PAD.bottom - ((v - min) / (topTick - min || 1)) * (height - PAD.top - PAD.bottom);
 
-  const path = (points) => points.map(([, v], i) => `${i === 0 ? 'M' : 'L'}${x(i).toFixed(1)},${v == null ? y(min) : y(v).toFixed(1)}`).join(' ');
+  // Un punto sin dato corta la línea: la serie sigue en el siguiente valor con un hueco, en vez de caer al eje
+  // (las series en vivo del SIATA traen días sin medición).
+  const path = (points) => {
+    let comando = 'M';
+    return points.map(([, v], i) => {
+      if (v == null) { comando = 'M'; return ''; }
+      const trazo = `${comando}${x(i).toFixed(1)},${y(v).toFixed(1)}`;
+      comando = 'L';
+      return trazo;
+    }).filter(Boolean).join(' ');
+  };
 
   const xTickEvery = Math.max(1, Math.ceil(n / 7));
   // Siempre se marca el último punto; se omite el múltiplo regular anterior si quedaría pegado a él.

@@ -22,5 +22,6 @@ export const accentByTheme = {
   turismo: 'yellow',
   movilidad: 'orange',
   gemelo: 'purple',
-  lentes: 'purple'
+  lentes: 'purple',
+  ambiente: 'cyan'
 };

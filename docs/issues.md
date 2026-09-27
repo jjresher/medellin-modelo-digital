@@ -19,7 +19,7 @@ Hoja de ruta para llevar la app a la estructura de [Cerebro Lima](https://cerebr
 | 1 | [Gemelo 3D con alturas reales](#1-gemelo-3d-con-alturas-reales) | 0 | ☑ |
 | 2 | [Lentes y herramientas del gemelo](#2-lentes-y-herramientas-del-gemelo) | 1 | ☑ |
 | 3 | [Seguridad](#3-seguridad) | 0 | ☑ |
-| 4 | [Ambiente y satélite](#4-ambiente-y-satélite) | 0 | ☐ |
+| 4 | [Ambiente y satélite](#4-ambiente-y-satélite) | 0 | ☑ |
 | 5 | [Gente](#5-gente) | 0 | ☐ |
 | 6 | [Economía y vivienda](#6-economía-y-vivienda) | 0 | ☐ |
 | 7 | [Turismo](#7-turismo) | 0 | ☐ |
@@ -178,19 +178,35 @@ Panorama va casi al final porque resume las cifras ancla de todas las demás sec
 **Objetivo:** mostrar datos ambientales en vivo del Valle de Aburrá y capas satelitales.
 
 **Tareas**
-- [ ] Ruta de Next.js que funcione como proxy del SIATA con caché de 10 minutos, porque el SIATA no permite CORS. Capas: PM2.5 e ICA, pluviómetros, niveles de quebradas, temperatura y viento, y ruido.
-- [ ] Tarjetas en vivo: ICA promedio, estación con peor aire, lluvia acumulada y alertas activas.
-- [ ] Capas en el mapa: estaciones coloreadas por ICA y niveles de quebradas.
-- [ ] Serie de PM2.5 de los últimos 30 días.
-- [ ] Capas satelitales: luces nocturnas VIIRS (NASA GIBS) y Sentinel-2 (solo uso no comercial).
-- [ ] Sismos cercanos con magnitud 4 o más, desde el USGS.
-- [ ] Mapa de ruido del AMVA.
+- [x] Ruta de Next.js que funcione como proxy del SIATA con caché de 10 minutos, porque el SIATA no permite CORS. Capas: PM2.5 e ICA, pluviómetros, niveles de quebradas, temperatura y viento, y ruido.
+- [x] Tarjetas en vivo: ICA promedio, estación con peor aire, lluvia acumulada y alertas activas.
+- [x] Capas en el mapa: estaciones coloreadas por ICA y niveles de quebradas.
+- [x] Serie de PM2.5 de los últimos 30 días.
+- [x] Capas satelitales: luces nocturnas VIIRS (NASA GIBS) y Sentinel-2 (solo uso no comercial).
+- [x] Sismos cercanos con magnitud 4 o más, desde el USGS.
+- [x] Mapa de ruido del AMVA.
 
 **Datos:** [Ambiente y satélite](fuentes-medellin.md#ambiente-y-satélite). **No usar** `EntregaData1`, que está congelado desde 2024.
 
 **Terminada cuando:** las cifras muestran la hora de la última lectura y el proxy responde aunque el SIATA falle, usando la última copia en caché.
 
----
+**Resultado (26 sep 2026)**
+- Proxy `/api/ambiente/<recurso>` (`src/app/api/ambiente`): 7 recursos del SIATA y del USGS, más tres series por estación (`pm25-serie`, `lluvia-dia`, `lluvia-mes`). Cachea 10 minutos (30 el USGS) en memoria y en `.cache/ambiente/`, y **cada respuesta trae la hora de la lectura**. Probado: con el servicio caído y una copia guardada responde 200 con `obsoleto: true` y la copia; sin copia previa, 502 con el motivo.
+- Nueva sección `Ambiente` (`src/components/AmbienteView.jsx` y `src/components/ambiente/`): barra de estado con la hora de lectura y botón de actualizar, tarjetas en vivo, series de PM2.5 y de lluvia por estación, mapa de estaciones, ruido y sismos. Se refresca sola cada 10 minutos.
+- Nuevo tema del lago `ambiente` (`ingesta/pull_ambiente.py`): 10 cifras, la serie anual de sismos y 10 fuentes. **Las lecturas del SIATA no se congelan en el lago**: el lago guarda lo estable (tamaño de cada red, sismos, mapa de ruido) y lo que cambia cada minuto se lee del proxy con su hora.
+- Decisiones de alcance, todas visibles en pantalla:
+  - **"Lluvia acumulada":** la capa en vivo de pluviómetros solo publica el acumulado de los últimos 15 minutos. La tarjeta de ciudad muestra ese máximo entre los 103 pluviómetros de Medellín, y el acumulado real de 24 horas y de 30 días se pide por estación a `pluvio_24h` y `pluvio_30d`, dos endpoints que no estaban en la investigación y aparecieron en el esquema de la API.
+  - **"Estación con peor aire":** se rotula como el ICA más alto y se acompaña de la categoría oficial del índice (Resolución 2254 de 2017) con los colores del propio SIATA. Es la definición del indicador, no una lectura de la app.
+  - **Niveles de quebradas:** la capa no publica la unidad y el valor puede ser negativo (es la lectura del sensor frente a su punto de referencia). Se muestra crudo en el mapa, sin ranking ni comparación entre estaciones, y la ficha lo explica.
+  - **Capas satelitales:** viven en el mapa de Ambiente y no en el gemelo 3D. VIIRS solo tiene teselas hasta el nivel 8 (~2 km por píxel), así que se lee a escala del valle; y el mosaico Sentinel-2 de 2023 no agrega nada sobre la ortofoto 2024 del gemelo. Sentinel-2 queda rotulado con su licencia CC BY-NC-SA.
+  - **Mapa de ruido del AMVA:** se empaquetan las dos capas de ruido total (día y noche), unidas por banda de dB(A), recortadas al Distrito y generalizadas a ~67 m: 735 KB cada una en vez de más de 12 MB. Las capas por fuente (automotor, metro, aeropuerto, industria) quedan en el servicio, sin empaquetar.
+- Correcciones que salieron al probar los endpoints:
+  - La ruta de series documentada (`geographJson/1/pm25_30d/`) responde 404: la buena es `geodata/geographJson/{equipo}/{variable}/{código}`. Corregido en [fuentes-medellin.md](fuentes-medellin.md#ambiente-y-satélite).
+  - `alerts/` devuelve avisos de prueba con texto *lorem ipsum*; las alertas reales están en `alerts/active/citizen`.
+  - `verificar.py --red` daba por caídas todas las fuentes del SIATA: su API responde 405 a `HEAD`. `lago.existe()` ahora reintenta con un `GET` del primer byte.
+  - `LineChart` hundía hasta cero los puntos sin dato; ahora corta la línea y deja el hueco, que es lo que hace falta con series en vivo (días sin medición).
+- **Pendiente externo:** `verificar.py --red` sigue marcando `metro-red` (fuente de la issue #2): ese proxy de ArcGIS responde 403 a cualquier petición directa y solo atiende su ruta `/query`. No afecta la ingesta ni `npm run verificar`.
+- **Pendiente de revisar a mano:** la sección en un móvil real y la fluidez del mapa con las isófonas de ruido encendidas. Chrome sin GPU dibuja las estaciones y la leyenda, pero no alcanza a pintar el mapa base vectorial.
 
 ## 5. Gente
 

@@ -59,12 +59,19 @@ def descargar(url, params=None, intentos=3, timeout=90, post=None):
 
 
 def existe(url):
-    try:
-        req = urllib.request.Request(url, method='HEAD', headers={'User-Agent': UA})
-        with urllib.request.urlopen(req, timeout=40) as r:
-            return r.status < 400
-    except urllib.error.HTTPError:
-        return False
+    """¿La URL responde? Se prueba con HEAD y, si el servidor no admite ese método (el SIATA responde 405),
+    con un GET que pide solo el primer byte."""
+    for metodo, cabeceras in (('HEAD', {}), ('GET', {'Range': 'bytes=0-0'})):
+        try:
+            req = urllib.request.Request(url, method=metodo, headers={'User-Agent': UA, **cabeceras})
+            with urllib.request.urlopen(req, timeout=40) as r:
+                return r.status < 400
+        except urllib.error.HTTPError as e:
+            if e.code not in (400, 403, 405, 501):
+                return False
+        except (urllib.error.URLError, TimeoutError, ConnectionError, http.client.HTTPException):
+            return False
+    return False
 
 
 def json_url(url, params=None, post=None):
@@ -153,9 +160,11 @@ class Tema:
         ruta = DIR_LAGO / f'{tema}.json'
         self.previo = json.loads(ruta.read_text(encoding='utf-8')) if ruta.exists() else None
 
-    def fuente(self, id, nombre, entidad, url, estado='observado'):
+    def fuente(self, id, nombre, entidad, url, estado='observado', **extra):
+        """Declara una fuente. `uso` describe para qué se usa cuando la fuente no aporta cifras (por ejemplo,
+        una capa satelital del mapa): sin él, la verificación avisa de una fuente declarada y no usada."""
         self.fuentes[id] = {'id': id, 'nombre': nombre, 'entidad': entidad, 'url': url, 'estado': estado,
-                            'probado': hoy().isoformat()}
+                            'probado': hoy().isoformat(), **extra}
         return id
 
     def bloque(self, fuente_id):

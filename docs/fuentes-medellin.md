@@ -210,21 +210,34 @@ Tasa de homicidios derivada con la población del DANE: **11,81 por 100.000 habi
 
 ### Ambiente y satélite
 
+`SIATA` = `https://geoportal.siata.gov.co/fastgeoapi`. El catálogo de capas está en `SIATA/geodata/geodataJson/`
+y el esquema completo de la API en `SIATA/openapi.json`. **El SIATA no envía cabeceras CORS**: el navegador no
+puede llamarlo directo, así que la app lo consulta por el proxy `/api/ambiente/<recurso>`, que cachea 10 minutos
+y conserva la última copia (ver `src/app/api/ambiente`).
+
 | Dato | Endpoint | Vigencia | Notas |
 |---|---|---|---|
-| **PM2.5 e índice ICA, promedio de 24 h** | `https://geoportal.siata.gov.co/fastgeoapi/geodata/geodataJson/1/pm25_minio` | **En vivo** | 23 estaciones |
-| Pluviómetros | `.../geodataJson/3/pluvios_v2` | En vivo | 183 |
-| Niveles de quebradas | `.../geodataJson/2/niveles` | En vivo | 165 |
-| Temperatura, viento y humedad | `.../geodataJson/3/tempVient` | En vivo | 45 |
-| Ruido | `.../geodataJson/1/ruido_oficial` | Semanal | 8 estaciones |
-| Series y alertas | `.../geographJson/1/pm25_30d/`, `https://geoportal.siata.gov.co/fastgeoapi/alerts/active/citizen` | En vivo | |
-| Mapas de ruido del AMVA | `IDEM/Hosted/AMVA_GESTION_DEL_RUIDO/FeatureServer` | Estudio | Tráfico, metro, aeropuerto e industria, de día y de noche |
-| Luces nocturnas VIIRS | NASA GIBS WMTS, `VIIRS_SNPP_DayNightBand_At_Sensor_Radiance` | Diaria | |
-| Sentinel-2 sin nubes | EOX `s2cloudless-2023` | 2023 | Licencia **CC BY-NC-SA**: solo uso no comercial |
-| Sismos | USGS FDSN `https://earthquake.usgs.gov/fdsnws/event/1/query` | En vivo | La web del SGC devuelve 403 a clientes automáticos |
+| **PM2.5 e índice ICA, promedio de 24 h** | `SIATA/geodata/geodataJson/1/pm25_minio` | **En vivo** | 23 estaciones, 12 en Medellín. Trae `PM25_24H_prom`, `ICA_24H_prom`, la ventana `fechaInicio`–`fechaFin` y el `color` oficial del ICA |
+| Pluviómetros | `SIATA/geodata/geodataJson/3/pluvios_v2` | En vivo | 183 (103 en Medellín). La capa solo publica `acumulado_15min`: el acumulado de 24 h o de 30 días hay que pedirlo por estación |
+| Niveles de quebradas | `SIATA/geodata/geodataJson/2/niveles` | En vivo | 165. `nivelActual` puede ser negativo o el texto "No hay datos en el tiempo consultado"; **la capa no publica la unidad** |
+| Temperatura, viento y humedad | `SIATA/geodata/geodataJson/3/tempVient` | En vivo | 45. No trae la hora de cada medición: la vigencia es la hora de la lectura |
+| Ruido | `SIATA/geodata/geodataJson/1/ruido_oficial` | Semanal | 8 estaciones, con promedio de 7 días, de día y de noche |
+| Series por estación | `SIATA/geodata/geographJson/{equipo}/{variable}/{código}` | En vivo | `1/pm25_30d` (PM2.5 diario, 30 días), `2/pluvio_30d` (lluvia diaria y acumulada) y `2/pluvio_24h` (cada 5 minutos, con `Ptt_Total_Acum_P1`). Equipos en `SIATA/geodata/teams/` |
+| Alertas activas | `SIATA/alerts/active/citizen` | En vivo | Lista (vacía si no hay alertas) con `title`, `description`, `start_date` y `end_date`. **No usar `SIATA/alerts/`**: devuelve también avisos de prueba con texto *lorem ipsum* |
+| Mapas de ruido del AMVA | `IDEM/Hosted/AMVA_GESTION_DEL_RUIDO/FeatureServer` | Estudio | Isófonas cada 5 dB(A) desde 35. Capas 11/12 automotor, 21/22 aeropuerto, 23/24 metro, 25/26 industria y **27/28 total día/noche** (unos 8.400 polígonos cada una) |
+| Luces nocturnas VIIRS | `https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/VIIRS_SNPP_DayNightBand_At_Sensor_Radiance/default/{fecha}/GoogleMapsCompatible_Level8/{z}/{y}/{x}.png` | Diaria | Con CORS. Solo hay teselas hasta el nivel 8 (~2 km por píxel): se lee a escala del valle, no de barrio |
+| Sentinel-2 sin nubes | `https://tiles.maps.eox.at/wmts/1.0.0/s2cloudless-2023_3857/default/g/{z}/{y}/{x}.jpg` | 2023 | Con CORS. Licencia **CC BY-NC-SA**: solo uso no comercial |
+| Sismos | USGS FDSN `https://earthquake.usgs.gov/fdsnws/event/1/query` | En vivo | Con CORS. `latitude`/`longitude`/`maxradiuskm` para el radio y `minmagnitude`; 1.533 eventos de magnitud 4 o más a 300 km desde 2000. La web del SGC devuelve 403 a clientes automáticos |
 | Clima actual | Open-Meteo | En vivo | Sin llave |
 
 **No usar** `siata.gov.co/EntregaData1/*.json`: aunque sigue en línea, el histórico termina el 31 de julio de 2024 y el archivo "Last" el 4 de septiembre de 2024.
+
+**Correcciones al probar los endpoints (26 de septiembre de 2026)**
+
+- La ruta de las series era `geographJson/1/pm25_30d/`; la buena es `geodata/geographJson/1/pm25_30d/{código}`, con el código de la estación. Sin él responde 404.
+- Los días sin medición llegan como `null` dentro de `PM25_Diario`, así que la gráfica los deja como hueco y no como caída a cero.
+- El campo del municipio cambia de nombre en cada capa (`Municipio`, `municipio`, `ubicacion`, `Ciudad`) y viene con tildes y espacios inconsistentes ("Medellín ", "Medellin").
+- Las isófonas del AMVA vienen a 4 m: sin generalizar pesan más de 12 MB por capa. Se unen por banda de dB(A), se recortan al límite del Distrito y se simplifican a ~67 m; quedan en unos 735 KB, con el área de cada banda en hectáreas.
 
 ### Escucha social
 
