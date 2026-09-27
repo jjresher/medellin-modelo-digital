@@ -1,0 +1,730 @@
+{
+ "tema": "seguridad",
+ "titulo": "Seguridad",
+ "probado": "2026-09-26",
+ "ancla": [
+  "homicidios_anio_curso",
+  "tasa_homicidios"
+ ],
+ "fuentes": [
+  {
+   "id": "policia-homicidios",
+   "nombre": "Homicidios · Policía Nacional",
+   "entidad": "Ministerio de Defensa Nacional · Policía Nacional",
+   "url": "https://www.datos.gov.co/d/m8fd-ahd9",
+   "estado": "observado",
+   "probado": "2026-09-26"
+  },
+  {
+   "id": "policia-hurto-personas",
+   "nombre": "Hurto a personas · Policía Nacional",
+   "entidad": "Ministerio de Defensa Nacional · Policía Nacional",
+   "url": "https://www.datos.gov.co/d/4rxi-8m8d",
+   "estado": "observado",
+   "probado": "2026-09-26"
+  },
+  {
+   "id": "policia-hurto-vehiculos",
+   "nombre": "Hurto de vehículos · Policía Nacional",
+   "entidad": "Ministerio de Defensa Nacional · Policía Nacional",
+   "url": "https://www.datos.gov.co/d/csb4-y6v2",
+   "estado": "observado",
+   "probado": "2026-09-26"
+  },
+  {
+   "id": "policia-extorsion",
+   "nombre": "Extorsión · Policía Nacional",
+   "entidad": "Ministerio de Defensa Nacional · Policía Nacional",
+   "url": "https://www.datos.gov.co/d/q2ib-t9am",
+   "estado": "observado",
+   "probado": "2026-09-26"
+  },
+  {
+   "id": "policia-violencia-intrafamiliar",
+   "nombre": "Violencia intrafamiliar · Policía Nacional",
+   "entidad": "Ministerio de Defensa Nacional · Policía Nacional",
+   "url": "https://www.datos.gov.co/d/gepp-dxcs",
+   "estado": "observado",
+   "probado": "2026-09-26"
+  },
+  {
+   "id": "policia-delitos-sexuales",
+   "nombre": "Delitos sexuales · Policía Nacional",
+   "entidad": "Ministerio de Defensa Nacional · Policía Nacional",
+   "url": "https://www.datos.gov.co/d/bz43-8ahq",
+   "estado": "observado",
+   "probado": "2026-09-26"
+  },
+  {
+   "id": "policia-lesiones-personales",
+   "nombre": "Lesiones personales · Policía Nacional",
+   "entidad": "Ministerio de Defensa Nacional · Policía Nacional",
+   "url": "https://www.datos.gov.co/d/jr6v-i33g",
+   "estado": "observado",
+   "probado": "2026-09-26"
+  }
+ ],
+ "cifras": {
+  "homicidios": {
+   "valor": 333,
+   "unidad": "casos",
+   "etiqueta": "Homicidios 2025",
+   "fuente": "policia-homicidios",
+   "vigencia": "2025",
+   "estado": "observado"
+  },
+  "homicidios_anio_curso": {
+   "valor": 176,
+   "unidad": "casos",
+   "etiqueta": "Homicidios en 2026",
+   "fuente": "policia-homicidios",
+   "vigencia": "ene–ago 2026",
+   "estado": "observado",
+   "nota": "Del 1 de enero al 2026-08-29, último día publicado."
+  },
+  "homicidios_variacion": {
+   "valor": -20.0,
+   "unidad": "%",
+   "etiqueta": "Homicidios: variación frente a 2025",
+   "fuente": "policia-homicidios",
+   "vigencia": "ene–ago 2026",
+   "estado": "derivado",
+   "decimales": 1,
+   "nota": "176 casos frente a 220 en el mismo periodo de 2025."
+  },
+  "tasa_homicidios": {
+   "valor": 12.64,
+   "unidad": "por 100 mil hab.",
+   "etiqueta": "Tasa de homicidios 2025",
+   "fuente": "policia-homicidios",
+   "vigencia": "2025",
+   "estado": "derivado",
+   "decimales": 2,
+   "nota": "333 homicidios (Policía) ÷ 2.634.570 habitantes (proyección DANE) × 100.000."
+  },
+  "hurto_personas": {
+   "valor": 24924,
+   "unidad": "casos",
+   "etiqueta": "Hurto a personas 2025",
+   "fuente": "policia-hurto-personas",
+   "vigencia": "2025",
+   "estado": "observado"
+  },
+  "hurto_personas_anio_curso": {
+   "valor": 16630,
+   "unidad": "casos",
+   "etiqueta": "Hurto a personas en 2026",
+   "fuente": "policia-hurto-personas",
+   "vigencia": "ene–ago 2026",
+   "estado": "observado",
+   "nota": "Del 1 de enero al 2026-08-31, último día publicado."
+  },
+  "hurto_personas_variacion": {
+   "valor": 9.9,
+   "unidad": "%",
+   "etiqueta": "Hurto a personas: variación frente a 2025",
+   "fuente": "policia-hurto-personas",
+   "vigencia": "ene–ago 2026",
+   "estado": "derivado",
+   "decimales": 1,
+   "nota": "16630 casos frente a 15128 en el mismo periodo de 2025."
+  },
+  "hurto_vehiculos": {
+   "valor": 6000,
+   "unidad": "casos",
+   "etiqueta": "Hurto de vehículos 2025",
+   "fuente": "policia-hurto-vehiculos",
+   "vigencia": "2025",
+   "estado": "observado"
+  },
+  "hurto_vehiculos_anio_curso": {
+   "valor": 3214,
+   "unidad": "casos",
+   "etiqueta": "Hurto de vehículos en 2026",
+   "fuente": "policia-hurto-vehiculos",
+   "vigencia": "ene–ago 2026",
+   "estado": "observado",
+   "nota": "Del 1 de enero al 2026-08-31, último día publicado."
+  },
+  "hurto_vehiculos_variacion": {
+   "valor": -28.2,
+   "unidad": "%",
+   "etiqueta": "Hurto de vehículos: variación frente a 2025",
+   "fuente": "policia-hurto-vehiculos",
+   "vigencia": "ene–ago 2026",
+   "estado": "derivado",
+   "decimales": 1,
+   "nota": "3214 casos frente a 4477 en el mismo periodo de 2025."
+  },
+  "extorsion": {
+   "valor": 972,
+   "unidad": "casos",
+   "etiqueta": "Extorsión 2025",
+   "fuente": "policia-extorsion",
+   "vigencia": "2025",
+   "estado": "observado"
+  },
+  "extorsion_anio_curso": {
+   "valor": 719,
+   "unidad": "casos",
+   "etiqueta": "Extorsión en 2026",
+   "fuente": "policia-extorsion",
+   "vigencia": "ene–ago 2026",
+   "estado": "observado",
+   "nota": "Del 1 de enero al 2026-08-30, último día publicado."
+  },
+  "extorsion_variacion": {
+   "valor": 19.8,
+   "unidad": "%",
+   "etiqueta": "Extorsión: variación frente a 2025",
+   "fuente": "policia-extorsion",
+   "vigencia": "ene–ago 2026",
+   "estado": "derivado",
+   "decimales": 1,
+   "nota": "719 casos frente a 600 en el mismo periodo de 2025."
+  },
+  "violencia_intrafamiliar": {
+   "valor": 10638,
+   "unidad": "casos",
+   "etiqueta": "Violencia intrafamiliar 2025",
+   "fuente": "policia-violencia-intrafamiliar",
+   "vigencia": "2025",
+   "estado": "observado"
+  },
+  "violencia_intrafamiliar_anio_curso": {
+   "valor": 7624,
+   "unidad": "casos",
+   "etiqueta": "Violencia intrafamiliar en 2026",
+   "fuente": "policia-violencia-intrafamiliar",
+   "vigencia": "ene–ago 2026",
+   "estado": "observado",
+   "nota": "Del 1 de enero al 2026-08-31, último día publicado."
+  },
+  "violencia_intrafamiliar_variacion": {
+   "valor": 4.2,
+   "unidad": "%",
+   "etiqueta": "Violencia intrafamiliar: variación frente a 2025",
+   "fuente": "policia-violencia-intrafamiliar",
+   "vigencia": "ene–ago 2026",
+   "estado": "derivado",
+   "decimales": 1,
+   "nota": "7624 casos frente a 7319 en el mismo periodo de 2025."
+  },
+  "delitos_sexuales": {
+   "valor": 2380,
+   "unidad": "casos",
+   "etiqueta": "Delitos sexuales 2025",
+   "fuente": "policia-delitos-sexuales",
+   "vigencia": "2025",
+   "estado": "observado"
+  },
+  "delitos_sexuales_anio_curso": {
+   "valor": 1435,
+   "unidad": "casos",
+   "etiqueta": "Delitos sexuales en 2026",
+   "fuente": "policia-delitos-sexuales",
+   "vigencia": "ene–ago 2026",
+   "estado": "observado",
+   "nota": "Del 1 de enero al 2026-08-31, último día publicado."
+  },
+  "delitos_sexuales_variacion": {
+   "valor": -15.9,
+   "unidad": "%",
+   "etiqueta": "Delitos sexuales: variación frente a 2025",
+   "fuente": "policia-delitos-sexuales",
+   "vigencia": "ene–ago 2026",
+   "estado": "derivado",
+   "decimales": 1,
+   "nota": "1435 casos frente a 1707 en el mismo periodo de 2025."
+  },
+  "lesiones_personales": {
+   "valor": 4690,
+   "unidad": "casos",
+   "etiqueta": "Lesiones personales 2025",
+   "fuente": "policia-lesiones-personales",
+   "vigencia": "2025",
+   "estado": "observado"
+  },
+  "lesiones_personales_anio_curso": {
+   "valor": 3323,
+   "unidad": "casos",
+   "etiqueta": "Lesiones personales en 2026",
+   "fuente": "policia-lesiones-personales",
+   "vigencia": "ene–ago 2026",
+   "estado": "observado",
+   "nota": "Del 1 de enero al 2026-08-31, último día publicado."
+  },
+  "lesiones_personales_variacion": {
+   "valor": 5.3,
+   "unidad": "%",
+   "etiqueta": "Lesiones personales: variación frente a 2025",
+   "fuente": "policia-lesiones-personales",
+   "vigencia": "ene–ago 2026",
+   "estado": "derivado",
+   "decimales": 1,
+   "nota": "3323 casos frente a 3157 en el mismo periodo de 2025."
+  }
+ },
+ "series": {
+  "homicidios_anual": {
+   "etiqueta": "Homicidios por año",
+   "unidad": "casos",
+   "fuente": "policia-homicidios",
+   "estado": "observado",
+   "vigencia": "2018 – 2026",
+   "puntos": [
+    [
+     "2018",
+     625
+    ],
+    [
+     "2019",
+     576
+    ],
+    [
+     "2020",
+     366
+    ],
+    [
+     "2021",
+     391
+    ],
+    [
+     "2022",
+     358
+    ],
+    [
+     "2023",
+     359
+    ],
+    [
+     "2024",
+     309
+    ],
+    [
+     "2025",
+     333
+    ],
+    [
+     "2026",
+     176
+    ]
+   ],
+   "nota": "2026 parcial: hasta el 2026-08-29."
+  },
+  "homicidios_mensual": {
+   "etiqueta": "Homicidios por mes",
+   "unidad": "casos",
+   "fuente": "policia-homicidios",
+   "estado": "observado",
+   "vigencia": "2024-01 – 2026-08",
+   "puntos": [
+    [
+     "2024-01",
+     26
+    ],
+    [
+     "2024-02",
+     27
+    ],
+    [
+     "2024-03",
+     34
+    ],
+    [
+     "2024-04",
+     16
+    ],
+    [
+     "2024-05",
+     19
+    ],
+    [
+     "2024-06",
+     18
+    ],
+    [
+     "2024-07",
+     21
+    ],
+    [
+     "2024-08",
+     35
+    ],
+    [
+     "2024-09",
+     31
+    ],
+    [
+     "2024-10",
+     28
+    ],
+    [
+     "2024-11",
+     25
+    ],
+    [
+     "2024-12",
+     29
+    ],
+    [
+     "2025-01",
+     26
+    ],
+    [
+     "2025-02",
+     19
+    ],
+    [
+     "2025-03",
+     40
+    ],
+    [
+     "2025-04",
+     22
+    ],
+    [
+     "2025-05",
+     39
+    ],
+    [
+     "2025-06",
+     20
+    ],
+    [
+     "2025-07",
+     32
+    ],
+    [
+     "2025-08",
+     25
+    ],
+    [
+     "2025-09",
+     24
+    ],
+    [
+     "2025-10",
+     26
+    ],
+    [
+     "2025-11",
+     23
+    ],
+    [
+     "2025-12",
+     37
+    ],
+    [
+     "2026-01",
+     28
+    ],
+    [
+     "2026-02",
+     14
+    ],
+    [
+     "2026-03",
+     31
+    ],
+    [
+     "2026-04",
+     23
+    ],
+    [
+     "2026-05",
+     16
+    ],
+    [
+     "2026-06",
+     25
+    ],
+    [
+     "2026-07",
+     20
+    ],
+    [
+     "2026-08",
+     19
+    ]
+   ]
+  },
+  "hurto_personas_anual": {
+   "etiqueta": "Hurto a personas por año",
+   "unidad": "casos",
+   "fuente": "policia-hurto-personas",
+   "estado": "observado",
+   "vigencia": "2018 – 2026",
+   "puntos": [
+    [
+     "2018",
+     21975
+    ],
+    [
+     "2019",
+     27263
+    ],
+    [
+     "2020",
+     17776
+    ],
+    [
+     "2021",
+     23703
+    ],
+    [
+     "2022",
+     28733
+    ],
+    [
+     "2023",
+     32439
+    ],
+    [
+     "2024",
+     25172
+    ],
+    [
+     "2025",
+     24924
+    ],
+    [
+     "2026",
+     16630
+    ]
+   ],
+   "nota": "2026 parcial: hasta el 2026-08-31."
+  },
+  "hurto_vehiculos_anual": {
+   "etiqueta": "Hurto de vehículos por año",
+   "unidad": "casos",
+   "fuente": "policia-hurto-vehiculos",
+   "estado": "observado",
+   "vigencia": "2018 – 2026",
+   "puntos": [
+    [
+     "2018",
+     5851
+    ],
+    [
+     "2019",
+     5925
+    ],
+    [
+     "2020",
+     5204
+    ],
+    [
+     "2021",
+     5671
+    ],
+    [
+     "2022",
+     6958
+    ],
+    [
+     "2023",
+     7547
+    ],
+    [
+     "2024",
+     7618
+    ],
+    [
+     "2025",
+     6000
+    ],
+    [
+     "2026",
+     3214
+    ]
+   ],
+   "nota": "2026 parcial: hasta el 2026-08-31."
+  },
+  "extorsion_anual": {
+   "etiqueta": "Extorsión por año",
+   "unidad": "casos",
+   "fuente": "policia-extorsion",
+   "estado": "observado",
+   "vigencia": "2018 – 2026",
+   "puntos": [
+    [
+     "2018",
+     578
+    ],
+    [
+     "2019",
+     648
+    ],
+    [
+     "2020",
+     634
+    ],
+    [
+     "2021",
+     636
+    ],
+    [
+     "2022",
+     671
+    ],
+    [
+     "2023",
+     941
+    ],
+    [
+     "2024",
+     950
+    ],
+    [
+     "2025",
+     972
+    ],
+    [
+     "2026",
+     719
+    ]
+   ],
+   "nota": "2026 parcial: hasta el 2026-08-30."
+  },
+  "violencia_intrafamiliar_anual": {
+   "etiqueta": "Violencia intrafamiliar por año",
+   "unidad": "casos",
+   "fuente": "policia-violencia-intrafamiliar",
+   "estado": "observado",
+   "vigencia": "2018 – 2026",
+   "puntos": [
+    [
+     "2018",
+     8264
+    ],
+    [
+     "2019",
+     10110
+    ],
+    [
+     "2020",
+     10007
+    ],
+    [
+     "2021",
+     10103
+    ],
+    [
+     "2022",
+     8474
+    ],
+    [
+     "2023",
+     8663
+    ],
+    [
+     "2024",
+     10959
+    ],
+    [
+     "2025",
+     10638
+    ],
+    [
+     "2026",
+     7624
+    ]
+   ],
+   "nota": "2026 parcial: hasta el 2026-08-31."
+  },
+  "delitos_sexuales_anual": {
+   "etiqueta": "Delitos sexuales por año",
+   "unidad": "casos",
+   "fuente": "policia-delitos-sexuales",
+   "estado": "observado",
+   "vigencia": "2018 – 2026",
+   "puntos": [
+    [
+     "2018",
+     2215
+    ],
+    [
+     "2019",
+     2494
+    ],
+    [
+     "2020",
+     2247
+    ],
+    [
+     "2021",
+     2621
+    ],
+    [
+     "2022",
+     1522
+    ],
+    [
+     "2023",
+     1636
+    ],
+    [
+     "2024",
+     1841
+    ],
+    [
+     "2025",
+     2380
+    ],
+    [
+     "2026",
+     1435
+    ]
+   ],
+   "nota": "2026 parcial: hasta el 2026-08-31."
+  },
+  "lesiones_personales_anual": {
+   "etiqueta": "Lesiones personales por año",
+   "unidad": "casos",
+   "fuente": "policia-lesiones-personales",
+   "estado": "observado",
+   "vigencia": "2018 – 2026",
+   "puntos": [
+    [
+     "2018",
+     6351
+    ],
+    [
+     "2019",
+     5696
+    ],
+    [
+     "2020",
+     3918
+    ],
+    [
+     "2021",
+     4880
+    ],
+    [
+     "2022",
+     4696
+    ],
+    [
+     "2023",
+     5029
+    ],
+    [
+     "2024",
+     4751
+    ],
+    [
+     "2025",
+     4690
+    ],
+    [
+     "2026",
+     3323
+    ]
+   ],
+   "nota": "2026 parcial: hasta el 2026-08-31."
+  }
+ },
+ "listas": {}
+}

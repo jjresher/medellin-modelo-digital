@@ -1,0 +1,129 @@
+{
+ "tema": "movilidad",
+ "titulo": "Movilidad",
+ "probado": "2026-09-26",
+ "ancla": [
+  "afluencia_metro_dia_habil"
+ ],
+ "fuentes": [
+  {
+   "id": "metro-afluencia",
+   "nombre": "Afluencia Metro por línea y hora",
+   "entidad": "Metro de Medellín",
+   "url": "https://metrodemedellin.maps.arcgis.com/sharing/rest/content/items/47c841c020644d26ae54d4e0871df154/data",
+   "estado": "observado",
+   "probado": "2026-09-26"
+  }
+ ],
+ "cifras": {
+  "afluencia_metro_dia_habil": {
+   "valor": 997241,
+   "unidad": "entradas/día",
+   "etiqueta": "Afluencia Metro · día hábil",
+   "fuente": "metro-afluencia",
+   "vigencia": "ene–jul 2026",
+   "estado": "observado",
+   "nota": "Promedio de lunes a viernes, festivos incluidos. Afluencia = entradas registradas por línea: un pasajero que transborda puede contarse en más de una línea."
+  },
+  "afluencia_metro_maximo": {
+   "valor": 1145569,
+   "unidad": "entradas",
+   "etiqueta": "Día de mayor afluencia",
+   "fuente": "metro-afluencia",
+   "vigencia": "2026-04-30",
+   "estado": "observado"
+  }
+ },
+ "series": {
+  "afluencia_metro_mensual": {
+   "etiqueta": "Afluencia promedio en día hábil por mes",
+   "unidad": "entradas/día",
+   "fuente": "metro-afluencia",
+   "estado": "observado",
+   "vigencia": "2026-01 – 2026-07",
+   "puntos": [
+    [
+     "2026-01",
+     888413
+    ],
+    [
+     "2026-02",
+     1109037
+    ],
+    [
+     "2026-03",
+     1061311
+    ],
+    [
+     "2026-04",
+     1022001
+    ],
+    [
+     "2026-05",
+     1025965
+    ],
+    [
+     "2026-06",
+     943962
+    ],
+    [
+     "2026-07",
+     943891
+    ]
+   ],
+   "nota": "Promedio de lunes a viernes, festivos incluidos. Afluencia = entradas registradas por línea: un pasajero que transborda puede contarse en más de una línea."
+  }
+ },
+ "listas": {
+  "afluencia_por_linea": [
+   {
+    "nombre": "Línea A",
+    "valor": 119709152
+   },
+   {
+    "nombre": "Línea 1",
+    "valor": 18121969
+   },
+   {
+    "nombre": "Línea B",
+    "valor": 17244234
+   },
+   {
+    "nombre": "Línea T-A",
+    "valor": 10508486
+   },
+   {
+    "nombre": "Línea K",
+    "valor": 4400829
+   },
+   {
+    "nombre": "Línea P",
+    "valor": 3674306
+   },
+   {
+    "nombre": "Línea 2",
+    "valor": 3502718
+   },
+   {
+    "nombre": "Línea J",
+    "valor": 3056841
+   },
+   {
+    "nombre": "Línea O",
+    "valor": 2880810
+   },
+   {
+    "nombre": "Línea M",
+    "valor": 1902644
+   },
+   {
+    "nombre": "Línea H",
+    "valor": 511627
+   },
+   {
+    "nombre": "Línea L",
+    "valor": 401270
+   }
+  ]
+ }
+}

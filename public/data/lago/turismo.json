@@ -1,0 +1,236 @@
+{
+ "tema": "turismo",
+ "titulo": "Turismo",
+ "probado": "2026-09-26",
+ "ancla": [
+  "visitantes_extranjeros",
+  "pasajeros_aeropuerto"
+ ],
+ "fuentes": [
+  {
+   "id": "mincit-extranjeros",
+   "nombre": "Extranjeros no residentes por ciudad de destino",
+   "entidad": "Ministerio de Comercio, Industria y Turismo",
+   "url": "https://www.datos.gov.co/d/7wm8-w5ad",
+   "estado": "observado",
+   "probado": "2026-09-26"
+  },
+  {
+   "id": "aerocivil-origen-destino",
+   "nombre": "Transporte aéreo comercial · tráfico origen–destino",
+   "entidad": "Aeronáutica Civil de Colombia",
+   "url": "https://www.datos.gov.co/d/gb6w-ynu4",
+   "estado": "observado",
+   "probado": "2026-09-26"
+  }
+ ],
+ "cifras": {
+  "visitantes_extranjeros": {
+   "valor": 1143678,
+   "unidad": "personas",
+   "etiqueta": "Visitantes extranjeros 2025",
+   "fuente": "mincit-extranjeros",
+   "vigencia": "2025",
+   "estado": "observado",
+   "nota": "Extranjeros no residentes que declararon Medellín como destino."
+  },
+  "visitantes_extranjeros_anio_curso": {
+   "valor": 551226,
+   "unidad": "personas",
+   "etiqueta": "Visitantes extranjeros 2026",
+   "fuente": "mincit-extranjeros",
+   "vigencia": "ene–jun 2026",
+   "estado": "observado"
+  },
+  "visitantes_extranjeros_variacion": {
+   "valor": 0.9,
+   "unidad": "%",
+   "etiqueta": "Visitantes extranjeros: variación frente a 2025",
+   "fuente": "mincit-extranjeros",
+   "vigencia": "ene–jun 2026",
+   "estado": "derivado",
+   "decimales": 1,
+   "nota": "Mismos meses del año anterior."
+  },
+  "pasajeros_aeropuerto": {
+   "valor": 13261826,
+   "unidad": "pasajeros",
+   "etiqueta": "Pasajeros aeropuerto JMC 2025",
+   "fuente": "aerocivil-origen-destino",
+   "vigencia": "2025",
+   "estado": "observado",
+   "nota": "Pasajeros en vuelos con origen o destino en el aeropuerto José María Córdova (Rionegro)."
+  },
+  "pasajeros_aeropuerto_anio_curso": {
+   "valor": 6647480,
+   "unidad": "pasajeros",
+   "etiqueta": "Pasajeros aeropuerto JMC 2026",
+   "fuente": "aerocivil-origen-destino",
+   "vigencia": "ene–jun 2026",
+   "estado": "observado",
+   "nota": "Pasajeros en vuelos con origen o destino en el aeropuerto José María Córdova (Rionegro)."
+  }
+ },
+ "series": {
+  "visitantes_extranjeros_anual": {
+   "etiqueta": "Visitantes extranjeros por año",
+   "unidad": "personas",
+   "fuente": "mincit-extranjeros",
+   "estado": "observado",
+   "vigencia": "2015 – 2026",
+   "puntos": [
+    [
+     "2015",
+     241296
+    ],
+    [
+     "2016",
+     305695
+    ],
+    [
+     "2017",
+     321545
+    ],
+    [
+     "2018",
+     361533
+    ],
+    [
+     "2019",
+     417611
+    ],
+    [
+     "2020",
+     133391
+    ],
+    [
+     "2021",
+     264067
+    ],
+    [
+     "2022",
+     642036
+    ],
+    [
+     "2023",
+     790135
+    ],
+    [
+     "2024",
+     1048471
+    ],
+    [
+     "2025",
+     1143678
+    ],
+    [
+     "2026",
+     551226
+    ]
+   ],
+   "nota": "2026 parcial."
+  },
+  "pasajeros_aeropuerto_anual": {
+   "etiqueta": "Pasajeros del aeropuerto por año",
+   "unidad": "pasajeros",
+   "fuente": "aerocivil-origen-destino",
+   "estado": "observado",
+   "vigencia": "2020 – 2026",
+   "puntos": [
+    [
+     "2020",
+     2943568
+    ],
+    [
+     "2021",
+     7532344
+    ],
+    [
+     "2022",
+     11940673
+    ],
+    [
+     "2023",
+     11034352
+    ],
+    [
+     "2024",
+     12529912
+    ],
+    [
+     "2025",
+     13261826
+    ],
+    [
+     "2026",
+     6647480
+    ]
+   ],
+   "nota": "Pasajeros en vuelos con origen o destino en el aeropuerto José María Córdova (Rionegro)."
+  }
+ },
+ "listas": {
+  "paises_origen": [
+   {
+    "nombre": "Estados Unidos",
+    "valor": 378326
+   },
+   {
+    "nombre": "México",
+    "valor": 94288
+   },
+   {
+    "nombre": "Costa Rica",
+    "valor": 81319
+   },
+   {
+    "nombre": "Panamá",
+    "valor": 70848
+   },
+   {
+    "nombre": "Ecuador",
+    "valor": 60782
+   },
+   {
+    "nombre": "República Dominicana",
+    "valor": 59678
+   },
+   {
+    "nombre": "Perú",
+    "valor": 46641
+   },
+   {
+    "nombre": "Puerto Rico",
+    "valor": 45990
+   },
+   {
+    "nombre": "Venezuela",
+    "valor": 32373
+   },
+   {
+    "nombre": "España",
+    "valor": 26818
+   },
+   {
+    "nombre": "Canadá",
+    "valor": 22116
+   },
+   {
+    "nombre": "Países Bajos",
+    "valor": 20561
+   },
+   {
+    "nombre": "El Salvador",
+    "valor": 17843
+   },
+   {
+    "nombre": "Chile",
+    "valor": 17827
+   },
+   {
+    "nombre": "Guatemala",
+    "valor": 16700
+   }
+  ]
+ }
+}

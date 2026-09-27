@@ -1,0 +1,458 @@
+{
+ "tema": "demografia",
+ "titulo": "Demografía",
+ "probado": "2026-09-26",
+ "ancla": [
+  "poblacion",
+  "hogares"
+ ],
+ "fuentes": [
+  {
+   "id": "dane-proyecciones",
+   "nombre": "Proyecciones de población municipal 2020–2035 (post-COVID)",
+   "entidad": "DANE",
+   "url": "https://www.dane.gov.co/files/censo2018/proyecciones-de-poblacion/Municipal/DCD-area-proypoblacion-Mun-2020-2035-ActPostCOVID-19.xlsx",
+   "estado": "observado",
+   "probado": "2026-09-26"
+  },
+  {
+   "id": "dap-proyecciones",
+   "nombre": "Proyecciones de población, hogares y viviendas 2018–2030 por comuna y corregimiento",
+   "entidad": "Departamento Administrativo de Planeación · Alcaldía de Medellín",
+   "url": "https://www.medellin.gov.co/servidormapas/rest/services/mapas_nacionales/VC_Distribucion_Poblacional/MapServer",
+   "estado": "observado",
+   "probado": "2026-09-26"
+  }
+ ],
+ "cifras": {
+  "poblacion": {
+   "valor": 2650662,
+   "unidad": "habitantes",
+   "etiqueta": "Población proyectada",
+   "fuente": "dane-proyecciones",
+   "vigencia": "2026",
+   "estado": "observado",
+   "nota": "Proyección DANE con base en el CNPV 2018, ajustada por COVID-19. Cifra oficial del total municipal."
+  },
+  "poblacion_cabecera": {
+   "valor": 2609841,
+   "unidad": "habitantes",
+   "etiqueta": "Población urbana (cabecera)",
+   "fuente": "dane-proyecciones",
+   "vigencia": "2026",
+   "estado": "observado"
+  },
+  "poblacion_rural": {
+   "valor": 40821,
+   "unidad": "habitantes",
+   "etiqueta": "Población rural (corregimientos)",
+   "fuente": "dane-proyecciones",
+   "vigencia": "2026",
+   "estado": "observado"
+  },
+  "poblacion_dap": {
+   "valor": 2787912,
+   "unidad": "habitantes",
+   "etiqueta": "Población proyectada (DAP)",
+   "fuente": "dap-proyecciones",
+   "vigencia": "2026",
+   "estado": "observado",
+   "nota": "Proyección 2018–2030 del DAP, elaborada en 2018, antes del ajuste post-COVID del DANE. Úsese para repartir por territorio, no como total oficial."
+  },
+  "hogares": {
+   "valor": 1074266,
+   "unidad": "hogares",
+   "etiqueta": "Hogares proyectados",
+   "fuente": "dap-proyecciones",
+   "vigencia": "2026",
+   "estado": "observado",
+   "nota": "Proyección 2018–2030 del DAP, elaborada en 2018, antes del ajuste post-COVID del DANE. Úsese para repartir por territorio, no como total oficial."
+  },
+  "viviendas": {
+   "valor": 1159832,
+   "unidad": "viviendas",
+   "etiqueta": "Viviendas proyectadas",
+   "fuente": "dap-proyecciones",
+   "vigencia": "2026",
+   "estado": "observado",
+   "nota": "Proyección 2018–2030 del DAP, elaborada en 2018, antes del ajuste post-COVID del DANE. Úsese para repartir por territorio, no como total oficial."
+  },
+  "personas_por_hogar": {
+   "valor": 2.6,
+   "unidad": "personas",
+   "etiqueta": "Personas por hogar",
+   "fuente": "dap-proyecciones",
+   "vigencia": "2026",
+   "estado": "derivado",
+   "decimales": 2,
+   "nota": "Población DAP ÷ hogares DAP, ambos de la misma serie para que sean comparables."
+  }
+ },
+ "series": {
+  "poblacion_total": {
+   "etiqueta": "Población de Medellín 2020–2035",
+   "unidad": "habitantes",
+   "fuente": "dane-proyecciones",
+   "estado": "observado",
+   "vigencia": "2020 – 2035",
+   "puntos": [
+    [
+     2020,
+     2519592
+    ],
+    [
+     2021,
+     2549008
+    ],
+    [
+     2022,
+     2572350
+    ],
+    [
+     2023,
+     2595300
+    ],
+    [
+     2024,
+     2616335
+    ],
+    [
+     2025,
+     2634570
+    ],
+    [
+     2026,
+     2650662
+    ],
+    [
+     2027,
+     2665474
+    ],
+    [
+     2028,
+     2679376
+    ],
+    [
+     2029,
+     2692600
+    ],
+    [
+     2030,
+     2705382
+    ],
+    [
+     2031,
+     2717720
+    ],
+    [
+     2032,
+     2729504
+    ],
+    [
+     2033,
+     2740613
+    ],
+    [
+     2034,
+     2751052
+    ],
+    [
+     2035,
+     2760854
+    ]
+   ]
+  }
+ },
+ "listas": {
+  "poblacion_dap_por_territorio": [
+   {
+    "nombre": "Belén",
+    "valor": 224468
+   },
+   {
+    "nombre": "Robledo",
+    "valor": 219669
+   },
+   {
+    "nombre": "Manrique",
+    "valor": 188577
+   },
+   {
+    "nombre": "Doce de Octubre",
+    "valor": 187015
+   },
+   {
+    "nombre": "Buenos Aires",
+    "valor": 186832
+   },
+   {
+    "nombre": "San Javier",
+    "valor": 185812
+   },
+   {
+    "nombre": "Villa Hermosa",
+    "valor": 183078
+   },
+   {
+    "nombre": "San Cristóbal",
+    "valor": 177709
+   },
+   {
+    "nombre": "Popular",
+    "valor": 157097
+   },
+   {
+    "nombre": "Aranjuez",
+    "valor": 147680
+   },
+   {
+    "nombre": "San Antonio de Prado",
+    "valor": 131958
+   },
+   {
+    "nombre": "Castilla",
+    "valor": 128261
+   },
+   {
+    "nombre": "Santa Cruz",
+    "valor": 128072
+   },
+   {
+    "nombre": "El Poblado",
+    "valor": 114223
+   },
+   {
+    "nombre": "Laureles Estadio",
+    "valor": 101456
+   },
+   {
+    "nombre": "La América",
+    "valor": 88925
+   },
+   {
+    "nombre": "La Candelaria",
+    "valor": 80892
+   },
+   {
+    "nombre": "Guayabal",
+    "valor": 64052
+   },
+   {
+    "nombre": "Altavista",
+    "valor": 48379
+   },
+   {
+    "nombre": "Santa Elena",
+    "valor": 36606
+   },
+   {
+    "nombre": "San Sebastián de Palmitas",
+    "valor": 7151
+   }
+  ],
+  "hogares_por_territorio": [
+   {
+    "nombre": "Belén",
+    "valor": 88251
+   },
+   {
+    "nombre": "Robledo",
+    "valor": 83340
+   },
+   {
+    "nombre": "Villa Hermosa",
+    "valor": 72852
+   },
+   {
+    "nombre": "San Javier",
+    "valor": 72147
+   },
+   {
+    "nombre": "Buenos Aires",
+    "valor": 71341
+   },
+   {
+    "nombre": "Manrique",
+    "valor": 70958
+   },
+   {
+    "nombre": "Doce de Octubre",
+    "valor": 64621
+   },
+   {
+    "nombre": "Popular",
+    "valor": 58144
+   },
+   {
+    "nombre": "Aranjuez",
+    "valor": 57564
+   },
+   {
+    "nombre": "El Poblado",
+    "valor": 49864
+   },
+   {
+    "nombre": "San Cristóbal Urbano",
+    "valor": 49164
+   },
+   {
+    "nombre": "Castilla",
+    "valor": 47095
+   },
+   {
+    "nombre": "Santa Cruz",
+    "valor": 45523
+   },
+   {
+    "nombre": "Laureles Estadio",
+    "valor": 44364
+   },
+   {
+    "nombre": "San Antonio de Prado Urban",
+    "valor": 42690
+   },
+   {
+    "nombre": "La Candelaria",
+    "valor": 40492
+   },
+   {
+    "nombre": "La América",
+    "valor": 38108
+   },
+   {
+    "nombre": "Guayabal",
+    "valor": 24776
+   },
+   {
+    "nombre": "San Cristóbal",
+    "valor": 13439
+   },
+   {
+    "nombre": "Santa Elena",
+    "valor": 11914
+   },
+   {
+    "nombre": "Altavista Urbano",
+    "valor": 10313
+   },
+   {
+    "nombre": "Altavista",
+    "valor": 8162
+   },
+   {
+    "nombre": "San Antonio de Prado",
+    "valor": 4746
+   },
+   {
+    "nombre": "San Sebastián de Palmitas",
+    "valor": 2868
+   },
+   {
+    "nombre": "Santa Elena Urbano",
+    "valor": 1530
+   }
+  ],
+  "viviendas_por_territorio": [
+   {
+    "nombre": "Belén",
+    "valor": 98993
+   },
+   {
+    "nombre": "Robledo",
+    "valor": 84153
+   },
+   {
+    "nombre": "Villa Hermosa",
+    "valor": 80974
+   },
+   {
+    "nombre": "San Javier",
+    "valor": 74704
+   },
+   {
+    "nombre": "Buenos Aires",
+    "valor": 74473
+   },
+   {
+    "nombre": "Manrique",
+    "valor": 71029
+   },
+   {
+    "nombre": "Doce de Octubre",
+    "valor": 66653
+   },
+   {
+    "nombre": "El Poblado",
+    "valor": 59642
+   },
+   {
+    "nombre": "Popular",
+    "valor": 58480
+   },
+   {
+    "nombre": "Aranjuez",
+    "valor": 57922
+   },
+   {
+    "nombre": "Laureles Estadio",
+    "valor": 53943
+   },
+   {
+    "nombre": "San Cristóbal Urbano",
+    "valor": 52948
+   },
+   {
+    "nombre": "Castilla",
+    "valor": 49144
+   },
+   {
+    "nombre": "San Antonio de Prado Urban",
+    "valor": 46492
+   },
+   {
+    "nombre": "La Candelaria",
+    "valor": 45084
+   },
+   {
+    "nombre": "Santa Cruz",
+    "valor": 44644
+   },
+   {
+    "nombre": "La América",
+    "valor": 42097
+   },
+   {
+    "nombre": "Guayabal",
+    "valor": 25943
+   },
+   {
+    "nombre": "Santa Elena",
+    "valor": 18022
+   },
+   {
+    "nombre": "San Cristóbal",
+    "valor": 16981
+   },
+   {
+    "nombre": "Altavista Urbano",
+    "valor": 12846
+   },
+   {
+    "nombre": "Altavista",
+    "valor": 11944
+   },
+   {
+    "nombre": "San Antonio de Prado",
+    "valor": 6550
+   },
+   {
+    "nombre": "San Sebastián de Palmitas",
+    "valor": 4235
+   },
+   {
+    "nombre": "Santa Elena Urbano",
+    "valor": 1936
+   }
+  ]
+ }
+}

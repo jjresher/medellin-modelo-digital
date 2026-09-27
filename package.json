@@ -5,11 +5,14 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "ingesta": ".venv/bin/python ingesta/correr.py",
+    "verificar": ".venv/bin/python ingesta/verificar.py"
   },
   "dependencies": {
     "maplibre-gl": "^6.10.0",
     "next": "^16.3.5",
+    "pmtiles": "^4.5.0",
     "react": "^19.3.0",
     "react-dom": "^19.3.0"
   }

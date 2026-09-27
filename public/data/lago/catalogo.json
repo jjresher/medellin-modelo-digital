@@ -1,0 +1,218 @@
+{
+ "probado": "2026-09-26",
+ "n": 19,
+ "por_estado": {
+  "observado": 19
+ },
+ "datasets": [
+  {
+   "id": "dane-proyecciones",
+   "nombre": "Proyecciones de población municipal 2020–2035 (post-COVID)",
+   "entidad": "DANE",
+   "url": "https://www.dane.gov.co/files/censo2018/proyecciones-de-poblacion/Municipal/DCD-area-proypoblacion-Mun-2020-2035-ActPostCOVID-19.xlsx",
+   "estado": "observado",
+   "probado": "2026-09-26",
+   "tema": "demografia",
+   "vigencia": "2020 – 2035",
+   "uso": "Población proyectada, Población urbana (cabecera), Población rural (corregimientos)"
+  },
+  {
+   "id": "dap-proyecciones",
+   "nombre": "Proyecciones de población, hogares y viviendas 2018–2030 por comuna y corregimiento",
+   "entidad": "Departamento Administrativo de Planeación · Alcaldía de Medellín",
+   "url": "https://www.medellin.gov.co/servidormapas/rest/services/mapas_nacionales/VC_Distribucion_Poblacional/MapServer",
+   "estado": "observado",
+   "probado": "2026-09-26",
+   "tema": "demografia",
+   "vigencia": "2026",
+   "uso": "Población proyectada (DAP), Hogares proyectados, Viviendas proyectadas, Personas por hogar"
+  },
+  {
+   "id": "dane-geih",
+   "nombre": "Gran Encuesta Integrada de Hogares · anexo 23 ciudades",
+   "entidad": "DANE",
+   "url": "https://www.dane.gov.co/files/operaciones/GEIH/anex-GEIH-jul2026.xlsx",
+   "estado": "observado",
+   "probado": "2026-09-26",
+   "tema": "economia",
+   "vigencia": "ene–mar 2007 – may–jul 2026",
+   "uso": "Desempleo · Medellín A.M., Tasa de ocupación · Medellín A.M., Participación laboral · Medellín A.M., Subocupación · Medellín A.M."
+  },
+  {
+   "id": "policia-homicidios",
+   "nombre": "Homicidios · Policía Nacional",
+   "entidad": "Ministerio de Defensa Nacional · Policía Nacional",
+   "url": "https://www.datos.gov.co/d/m8fd-ahd9",
+   "estado": "observado",
+   "probado": "2026-09-26",
+   "tema": "seguridad",
+   "vigencia": "2024-01 – 2026-08",
+   "uso": "Homicidios 2025, Homicidios en 2026, Homicidios: variación frente a 2025, Tasa de homicidios 2025"
+  },
+  {
+   "id": "policia-hurto-personas",
+   "nombre": "Hurto a personas · Policía Nacional",
+   "entidad": "Ministerio de Defensa Nacional · Policía Nacional",
+   "url": "https://www.datos.gov.co/d/4rxi-8m8d",
+   "estado": "observado",
+   "probado": "2026-09-26",
+   "tema": "seguridad",
+   "vigencia": "2018 – 2026",
+   "uso": "Hurto a personas 2025, Hurto a personas en 2026, Hurto a personas: variación frente a 2025"
+  },
+  {
+   "id": "policia-hurto-vehiculos",
+   "nombre": "Hurto de vehículos · Policía Nacional",
+   "entidad": "Ministerio de Defensa Nacional · Policía Nacional",
+   "url": "https://www.datos.gov.co/d/csb4-y6v2",
+   "estado": "observado",
+   "probado": "2026-09-26",
+   "tema": "seguridad",
+   "vigencia": "2018 – 2026",
+   "uso": "Hurto de vehículos 2025, Hurto de vehículos en 2026, Hurto de vehículos: variación frente a 2025"
+  },
+  {
+   "id": "policia-extorsion",
+   "nombre": "Extorsión · Policía Nacional",
+   "entidad": "Ministerio de Defensa Nacional · Policía Nacional",
+   "url": "https://www.datos.gov.co/d/q2ib-t9am",
+   "estado": "observado",
+   "probado": "2026-09-26",
+   "tema": "seguridad",
+   "vigencia": "2018 – 2026",
+   "uso": "Extorsión 2025, Extorsión en 2026, Extorsión: variación frente a 2025"
+  },
+  {
+   "id": "policia-violencia-intrafamiliar",
+   "nombre": "Violencia intrafamiliar · Policía Nacional",
+   "entidad": "Ministerio de Defensa Nacional · Policía Nacional",
+   "url": "https://www.datos.gov.co/d/gepp-dxcs",
+   "estado": "observado",
+   "probado": "2026-09-26",
+   "tema": "seguridad",
+   "vigencia": "2018 – 2026",
+   "uso": "Violencia intrafamiliar 2025, Violencia intrafamiliar en 2026, Violencia intrafamiliar: variación frente a 2025"
+  },
+  {
+   "id": "policia-delitos-sexuales",
+   "nombre": "Delitos sexuales · Policía Nacional",
+   "entidad": "Ministerio de Defensa Nacional · Policía Nacional",
+   "url": "https://www.datos.gov.co/d/bz43-8ahq",
+   "estado": "observado",
+   "probado": "2026-09-26",
+   "tema": "seguridad",
+   "vigencia": "2018 – 2026",
+   "uso": "Delitos sexuales 2025, Delitos sexuales en 2026, Delitos sexuales: variación frente a 2025"
+  },
+  {
+   "id": "policia-lesiones-personales",
+   "nombre": "Lesiones personales · Policía Nacional",
+   "entidad": "Ministerio de Defensa Nacional · Policía Nacional",
+   "url": "https://www.datos.gov.co/d/jr6v-i33g",
+   "estado": "observado",
+   "probado": "2026-09-26",
+   "tema": "seguridad",
+   "vigencia": "2018 – 2026",
+   "uso": "Lesiones personales 2025, Lesiones personales en 2026, Lesiones personales: variación frente a 2025"
+  },
+  {
+   "id": "mincit-extranjeros",
+   "nombre": "Extranjeros no residentes por ciudad de destino",
+   "entidad": "Ministerio de Comercio, Industria y Turismo",
+   "url": "https://www.datos.gov.co/d/7wm8-w5ad",
+   "estado": "observado",
+   "probado": "2026-09-26",
+   "tema": "turismo",
+   "vigencia": "2015 – 2026",
+   "uso": "Visitantes extranjeros 2025, Visitantes extranjeros 2026, Visitantes extranjeros: variación frente a 2025"
+  },
+  {
+   "id": "aerocivil-origen-destino",
+   "nombre": "Transporte aéreo comercial · tráfico origen–destino",
+   "entidad": "Aeronáutica Civil de Colombia",
+   "url": "https://www.datos.gov.co/d/gb6w-ynu4",
+   "estado": "observado",
+   "probado": "2026-09-26",
+   "tema": "turismo",
+   "vigencia": "2020 – 2026",
+   "uso": "Pasajeros aeropuerto JMC 2025, Pasajeros aeropuerto JMC 2026"
+  },
+  {
+   "id": "metro-afluencia",
+   "nombre": "Afluencia Metro por línea y hora",
+   "entidad": "Metro de Medellín",
+   "url": "https://metrodemedellin.maps.arcgis.com/sharing/rest/content/items/47c841c020644d26ae54d4e0871df154/data",
+   "estado": "observado",
+   "probado": "2026-09-26",
+   "tema": "movilidad",
+   "vigencia": "2026-01 – 2026-07",
+   "uso": "Afluencia Metro · día hábil, Día de mayor afluencia"
+  },
+  {
+   "id": "idem-limites",
+   "nombre": "Comunas, corregimientos, barrios y veredas de Medellín",
+   "entidad": "Área Metropolitana del Valle de Aburrá · Portal IDEM (catastro del Distrito)",
+   "url": "https://portalidem.metropol.gov.co/server/rest/services/DISTRITO_MEDELLIN_CATASTRO/MapServer",
+   "estado": "observado",
+   "probado": "2026-09-26",
+   "tema": "gemelo",
+   "vigencia": "Límite vigente",
+   "uso": "Comunas urbanas, Corregimientos, Barrios, Veredas"
+  },
+  {
+   "id": "catastro-construcciones",
+   "nombre": "Construcciones urbanas y rurales del catastro distrital",
+   "entidad": "Área Metropolitana del Valle de Aburrá · Portal IDEM (catastro del Distrito)",
+   "url": "https://portalidem.metropol.gov.co/server/rest/services/DISTRITO_MEDELLIN_CATASTRO/MapServer/8",
+   "estado": "observado",
+   "probado": "2026-09-26",
+   "tema": "gemelo",
+   "vigencia": "Base catastral vigente",
+   "uso": "Construcciones en el catastro, Construcciones urbanas, Construcciones rurales, Pisos promedio por construcción…"
+  },
+  {
+   "id": "ortofoto-2024",
+   "nombre": "Ortofoto 2024 del Distrito",
+   "entidad": "Alcaldía de Medellín",
+   "url": "https://www.medellin.gov.co/servidormapas/rest/services/ServiciosCiudad/IMAGEN_WEBM_2024/MapServer",
+   "estado": "observado",
+   "probado": "2026-09-26",
+   "uso": "Mapa base de ortofoto 2024 (teselas hasta el nivel 23).",
+   "tema": "gemelo",
+   "vigencia": "Servicio vigente"
+  },
+  {
+   "id": "esri-imagery",
+   "nombre": "World Imagery",
+   "entidad": "Esri, Maxar, Earthstar Geographics",
+   "url": "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer",
+   "estado": "observado",
+   "probado": "2026-09-26",
+   "uso": "Mapa base satelital fuera de la cobertura de la ortofoto.",
+   "tema": "gemelo",
+   "vigencia": "Servicio vigente"
+  },
+  {
+   "id": "terreno-aws",
+   "nombre": "Terrain Tiles (Terrarium)",
+   "entidad": "Mapzen · AWS Open Data",
+   "url": "https://registry.opendata.aws/terrain-tiles/",
+   "estado": "observado",
+   "probado": "2026-09-26",
+   "uso": "Relieve 3D del valle (modelo de elevación global, ~30 m en Colombia).",
+   "tema": "gemelo",
+   "vigencia": "Servicio vigente"
+  },
+  {
+   "id": "openfreemap",
+   "nombre": "Cartografía base (OpenFreeMap · OpenMapTiles · OpenStreetMap)",
+   "entidad": "OpenFreeMap",
+   "url": "https://openfreemap.org/",
+   "estado": "observado",
+   "probado": "2026-09-26",
+   "uso": "Calles, lugares y etiquetas del mapa base oscuro.",
+   "tema": "gemelo",
+   "vigencia": "Servicio vigente"
+  }
+ ]
+}

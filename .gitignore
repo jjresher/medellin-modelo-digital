@@ -19,3 +19,18 @@ coverage/
 
 # TypeScript incremental build data
 *.tsbuildinfo
+
+# Entorno de Python de la ingesta
+.venv/
+__pycache__/
+
+# Herramientas compiladas localmente (tippecanoe) y datos crudos de la ingesta
+.herramientas/
+datos/crudos/
+
+# Teselas de edificios generadas por la ingesta (más de 100 MB; se regeneran con npm run ingesta)
+public/data/edificios.pmtiles
+public/data/*.tmp.pmtiles
+
+# Caché local de teselas de ortofoto (proxy /api/ortofoto)
+.cache/

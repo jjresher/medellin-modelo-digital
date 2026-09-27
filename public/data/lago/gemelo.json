@@ -1,0 +1,289 @@
+{
+ "tema": "gemelo",
+ "titulo": "Gemelo 3D",
+ "probado": "2026-09-26",
+ "ancla": [
+  "construcciones"
+ ],
+ "fuentes": [
+  {
+   "id": "idem-limites",
+   "nombre": "Comunas, corregimientos, barrios y veredas de Medellín",
+   "entidad": "Área Metropolitana del Valle de Aburrá · Portal IDEM (catastro del Distrito)",
+   "url": "https://portalidem.metropol.gov.co/server/rest/services/DISTRITO_MEDELLIN_CATASTRO/MapServer",
+   "estado": "observado",
+   "probado": "2026-09-26"
+  },
+  {
+   "id": "catastro-construcciones",
+   "nombre": "Construcciones urbanas y rurales del catastro distrital",
+   "entidad": "Área Metropolitana del Valle de Aburrá · Portal IDEM (catastro del Distrito)",
+   "url": "https://portalidem.metropol.gov.co/server/rest/services/DISTRITO_MEDELLIN_CATASTRO/MapServer/8",
+   "estado": "observado",
+   "probado": "2026-09-26"
+  },
+  {
+   "id": "ortofoto-2024",
+   "nombre": "Ortofoto 2024 del Distrito",
+   "entidad": "Alcaldía de Medellín",
+   "url": "https://www.medellin.gov.co/servidormapas/rest/services/ServiciosCiudad/IMAGEN_WEBM_2024/MapServer",
+   "estado": "observado",
+   "probado": "2026-09-26",
+   "uso": "Mapa base de ortofoto 2024 (teselas hasta el nivel 23)."
+  },
+  {
+   "id": "esri-imagery",
+   "nombre": "World Imagery",
+   "entidad": "Esri, Maxar, Earthstar Geographics",
+   "url": "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer",
+   "estado": "observado",
+   "probado": "2026-09-26",
+   "uso": "Mapa base satelital fuera de la cobertura de la ortofoto."
+  },
+  {
+   "id": "terreno-aws",
+   "nombre": "Terrain Tiles (Terrarium)",
+   "entidad": "Mapzen · AWS Open Data",
+   "url": "https://registry.opendata.aws/terrain-tiles/",
+   "estado": "observado",
+   "probado": "2026-09-26",
+   "uso": "Relieve 3D del valle (modelo de elevación global, ~30 m en Colombia)."
+  },
+  {
+   "id": "openfreemap",
+   "nombre": "Cartografía base (OpenFreeMap · OpenMapTiles · OpenStreetMap)",
+   "entidad": "OpenFreeMap",
+   "url": "https://openfreemap.org/",
+   "estado": "observado",
+   "probado": "2026-09-26",
+   "uso": "Calles, lugares y etiquetas del mapa base oscuro."
+  }
+ ],
+ "cifras": {
+  "comunas": {
+   "valor": 16,
+   "unidad": "comunas",
+   "etiqueta": "Comunas urbanas",
+   "fuente": "idem-limites",
+   "vigencia": "Límite vigente",
+   "estado": "observado"
+  },
+  "corregimientos": {
+   "valor": 5,
+   "unidad": "corregimientos",
+   "etiqueta": "Corregimientos",
+   "fuente": "idem-limites",
+   "vigencia": "Límite vigente",
+   "estado": "observado"
+  },
+  "barrios": {
+   "valor": 271,
+   "unidad": "barrios",
+   "etiqueta": "Barrios",
+   "fuente": "idem-limites",
+   "vigencia": "Límite vigente",
+   "estado": "observado",
+   "nota": "Incluye los barrios de las cabeceras de corregimiento."
+  },
+  "veredas": {
+   "valor": 79,
+   "unidad": "veredas",
+   "etiqueta": "Veredas",
+   "fuente": "idem-limites",
+   "vigencia": "Límite vigente",
+   "estado": "observado"
+  },
+  "construcciones": {
+   "valor": 1078553,
+   "unidad": "construcciones",
+   "etiqueta": "Construcciones en el catastro",
+   "fuente": "catastro-construcciones",
+   "vigencia": "Base catastral vigente",
+   "estado": "observado",
+   "nota": "Polígonos de construcción del catastro distrital, urbanos y rurales. Un predio puede tener varias construcciones (torres, bloques, mejoras). El campo ALTURA del catastro equivale a ≈ pisos × 2.3 m: se deriva del número de pisos, no es una medición del edificio."
+  },
+  "construcciones_urbanas": {
+   "valor": 1022432,
+   "unidad": "construcciones",
+   "etiqueta": "Construcciones urbanas",
+   "fuente": "catastro-construcciones",
+   "vigencia": "Base catastral vigente",
+   "estado": "observado"
+  },
+  "construcciones_rurales": {
+   "valor": 56121,
+   "unidad": "construcciones",
+   "etiqueta": "Construcciones rurales",
+   "fuente": "catastro-construcciones",
+   "vigencia": "Base catastral vigente",
+   "estado": "observado"
+  },
+  "pisos_promedio": {
+   "valor": 2.12,
+   "unidad": "pisos",
+   "etiqueta": "Pisos promedio por construcción",
+   "fuente": "catastro-construcciones",
+   "vigencia": "Base catastral vigente",
+   "estado": "derivado",
+   "decimales": 2
+  },
+  "pisos_maximo": {
+   "valor": 39,
+   "unidad": "pisos",
+   "etiqueta": "Construcción con más pisos",
+   "fuente": "catastro-construcciones",
+   "vigencia": "Base catastral vigente",
+   "estado": "observado"
+  },
+  "construcciones_10_pisos": {
+   "valor": 21458,
+   "unidad": "construcciones",
+   "etiqueta": "Construcciones de 10 pisos o más",
+   "fuente": "catastro-construcciones",
+   "vigencia": "Base catastral vigente",
+   "estado": "derivado"
+  },
+  "alturas_estimadas": {
+   "valor": 61633,
+   "unidad": "construcciones",
+   "etiqueta": "Construcciones sin altura en el catastro",
+   "fuente": "catastro-construcciones",
+   "vigencia": "Base catastral vigente",
+   "estado": "observado",
+   "nota": "Para estas construcciones el mapa estima la altura como pisos × 2.3 m (ALTURAPISO del catastro) y lo indica al consultarlas."
+  }
+ },
+ "series": {},
+ "listas": {
+  "construcciones_por_pisos": [
+   {
+    "nombre": "0",
+    "valor": 25564
+   },
+   {
+    "nombre": "1",
+    "valor": 490624
+   },
+   {
+    "nombre": "2",
+    "valor": 319695
+   },
+   {
+    "nombre": "3",
+    "valor": 148215
+   },
+   {
+    "nombre": "4–5",
+    "valor": 53250
+   },
+   {
+    "nombre": "6–9",
+    "valor": 19747
+   },
+   {
+    "nombre": "10–19",
+    "valor": 15957
+   },
+   {
+    "nombre": "20–29",
+    "valor": 5111
+   },
+   {
+    "nombre": "30 o más",
+    "valor": 390
+   }
+  ],
+  "construcciones_mas_altas": [
+   {
+    "cbml": "10190500002",
+    "pisos": 39,
+    "altura_m": 90.0,
+    "tipo": "N"
+   },
+   {
+    "cbml": "14120010048",
+    "pisos": 37,
+    "altura_m": 87.0,
+    "tipo": "N"
+   },
+   {
+    "cbml": "10190210010",
+    "pisos": 36,
+    "altura_m": 87.0,
+    "tipo": "N"
+   },
+   {
+    "cbml": "14110060124",
+    "pisos": 36,
+    "altura_m": 85.0,
+    "tipo": "N"
+   },
+   {
+    "cbml": "14110060124",
+    "pisos": 36,
+    "altura_m": 85.0,
+    "tipo": "N"
+   },
+   {
+    "cbml": "14110060124",
+    "pisos": 36,
+    "altura_m": 85.0,
+    "tipo": "N"
+   },
+   {
+    "cbml": "14120010048",
+    "pisos": 36,
+    "altura_m": 85.0,
+    "tipo": "N"
+   },
+   {
+    "cbml": "14110060124",
+    "pisos": 36,
+    "altura_m": 85.0,
+    "tipo": "N"
+   },
+   {
+    "cbml": "14110060124",
+    "pisos": 36,
+    "altura_m": 85.0,
+    "tipo": "N"
+   },
+   {
+    "cbml": "14110060124",
+    "pisos": 36,
+    "altura_m": 85.0,
+    "tipo": "N"
+   },
+   {
+    "cbml": "14110060124",
+    "pisos": 36,
+    "altura_m": 85.0,
+    "tipo": "N"
+   },
+   {
+    "cbml": "14120010048",
+    "pisos": 36,
+    "altura_m": 85.0,
+    "tipo": "N"
+   },
+   {
+    "cbml": "14170090045",
+    "pisos": 35,
+    "altura_m": 90.0,
+    "tipo": "N"
+   },
+   {
+    "cbml": "14170090045",
+    "pisos": 35,
+    "altura_m": 90.0,
+    "tipo": "N"
+   },
+   {
+    "cbml": "14170090045",
+    "pisos": 35,
+    "altura_m": 87.0,
+    "tipo": "N"
+   }
+  ]
+ }
+}
