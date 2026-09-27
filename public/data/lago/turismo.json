@@ -1,7 +1,7 @@
 {
  "tema": "turismo",
  "titulo": "Turismo",
- "probado": "2026-09-26",
+ "probado": "2026-09-27",
  "ancla": [
   "visitantes_extranjeros",
   "pasajeros_aeropuerto"
@@ -13,7 +13,7 @@
    "entidad": "Ministerio de Comercio, Industria y Turismo",
    "url": "https://www.datos.gov.co/d/7wm8-w5ad",
    "estado": "observado",
-   "probado": "2026-09-26"
+   "probado": "2026-09-27"
   },
   {
    "id": "aerocivil-origen-destino",
@@ -21,7 +21,47 @@
    "entidad": "Aeronáutica Civil de Colombia",
    "url": "https://www.datos.gov.co/d/gb6w-ynu4",
    "estado": "observado",
-   "probado": "2026-09-26"
+   "probado": "2026-09-27"
+  },
+  {
+   "id": "medata-ocupacion-hotelera",
+   "nombre": "Porcentaje de ocupación hotelera mensual de Medellín",
+   "entidad": "Secretaría de Turismo · Alcaldía de Medellín (MEData)",
+   "url": "http://medata.gov.co/sites/default/files/distribution/1-010-04-000201/porcentaje_ocupacion_hotelera_mensual_de_medellin.csv",
+   "estado": "observado",
+   "probado": "2026-09-27"
+  },
+  {
+   "id": "medata-museos",
+   "nombre": "Visitantes a museos",
+   "entidad": "Secretaría de Turismo · Alcaldía de Medellín (MEData)",
+   "url": "http://medata.gov.co/sites/default/files/distribution/1-010-04-000192/ingreso_mensual_de_visitantes_a_museos.csv",
+   "estado": "observado",
+   "probado": "2026-09-27"
+  },
+  {
+   "id": "medata-sitios",
+   "nombre": "Visitantes a sitios de interés",
+   "entidad": "Secretaría de Turismo · Alcaldía de Medellín (MEData)",
+   "url": "http://medata.gov.co/sites/default/files/distribution/1-010-04-000193/ingreso_mensual_de_visitantes_a_sitios_de_interes.csv",
+   "estado": "observado",
+   "probado": "2026-09-27"
+  },
+  {
+   "id": "alcaldia-turismo",
+   "nombre": "Atractivos turísticos y puntos de información turística",
+   "entidad": "Secretaría de Turismo · Alcaldía de Medellín",
+   "url": "https://www.medellin.gov.co/servidormapas/rest/services/ccio_ind_turism/VC_Turismo/MapServer",
+   "estado": "observado",
+   "probado": "2026-09-27"
+  },
+  {
+   "id": "osm-hospedajes",
+   "nombre": "Hoteles, hostales y otros hospedajes mapeados en OpenStreetMap",
+   "entidad": "Colaboradores de OpenStreetMap (ODbL)",
+   "url": "https://overpass-turbo.eu/?Q=nwr%5B%22tourism%22~%22%5E%28hotel%7Chostel%7Cguest_house%7Capartment%7Cmotel%29%24%22%5D%286.14%2C-75.72%2C6.4%2C-75.46%29%3Bout%20center%3B",
+   "estado": "observado",
+   "probado": "2026-09-27"
   }
  ],
  "cifras": {
@@ -32,7 +72,7 @@
    "fuente": "mincit-extranjeros",
    "vigencia": "2025",
    "estado": "observado",
-   "nota": "Extranjeros no residentes que declararon Medellín como destino."
+   "nota": "Extranjeros no residentes que declararon Medellín como destino al entrar al país."
   },
   "visitantes_extranjeros_anio_curso": {
    "valor": 551226,
@@ -40,7 +80,8 @@
    "etiqueta": "Visitantes extranjeros 2026",
    "fuente": "mincit-extranjeros",
    "vigencia": "ene–jun 2026",
-   "estado": "observado"
+   "estado": "observado",
+   "nota": "Extranjeros no residentes que declararon Medellín como destino al entrar al país."
   },
   "visitantes_extranjeros_variacion": {
    "valor": 0.9,
@@ -50,7 +91,7 @@
    "vigencia": "ene–jun 2026",
    "estado": "derivado",
    "decimales": 1,
-   "nota": "Mismos meses del año anterior."
+   "nota": "551.226 frente a 546.043 en los mismos meses de 2025."
   },
   "pasajeros_aeropuerto": {
    "valor": 13261826,
@@ -59,7 +100,25 @@
    "fuente": "aerocivil-origen-destino",
    "vigencia": "2025",
    "estado": "observado",
-   "nota": "Pasajeros en vuelos con origen o destino en el aeropuerto José María Córdova (Rionegro)."
+   "nota": "Pasajeros en vuelos comerciales que salen del aeropuerto José María Córdova (Rionegro) o llegan a él: cada viaje de ida o de vuelta cuenta una vez."
+  },
+  "pasajeros_internacionales": {
+   "valor": 4239173,
+   "unidad": "pasajeros",
+   "etiqueta": "Pasajeros internacionales JMC 2025",
+   "fuente": "aerocivil-origen-destino",
+   "vigencia": "2025",
+   "estado": "observado",
+   "nota": "Pasajeros en vuelos comerciales que salen del aeropuerto José María Córdova (Rionegro) o llegan a él: cada viaje de ida o de vuelta cuenta una vez. Tráfico internacionales según la Aerocivil."
+  },
+  "pasajeros_nacionales": {
+   "valor": 9022653,
+   "unidad": "pasajeros",
+   "etiqueta": "Pasajeros nacionales JMC 2025",
+   "fuente": "aerocivil-origen-destino",
+   "vigencia": "2025",
+   "estado": "observado",
+   "nota": "Pasajeros en vuelos comerciales que salen del aeropuerto José María Córdova (Rionegro) o llegan a él: cada viaje de ida o de vuelta cuenta una vez. Tráfico nacionales según la Aerocivil."
   },
   "pasajeros_aeropuerto_anio_curso": {
    "valor": 6647480,
@@ -68,7 +127,88 @@
    "fuente": "aerocivil-origen-destino",
    "vigencia": "ene–jun 2026",
    "estado": "observado",
-   "nota": "Pasajeros en vuelos con origen o destino en el aeropuerto José María Córdova (Rionegro)."
+   "nota": "Pasajeros en vuelos comerciales que salen del aeropuerto José María Córdova (Rionegro) o llegan a él: cada viaje de ida o de vuelta cuenta una vez."
+  },
+  "ocupacion_hotelera_ultima": {
+   "valor": 67.1,
+   "unidad": "%",
+   "etiqueta": "Ocupación hotelera, oct 2023",
+   "fuente": "medata-ocupacion-hotelera",
+   "vigencia": "oct 2023 (histórico)",
+   "estado": "observado",
+   "decimales": 1,
+   "nota": "Histórico: la serie abierta termina en oct 2023. El descenso de abril a septiembre de 2020 corresponde al cierre de hoteles por la pandemia."
+  },
+  "ocupacion_hotelera_anual": {
+   "valor": 77.0,
+   "unidad": "%",
+   "etiqueta": "Ocupación hotelera promedio 2022",
+   "fuente": "medata-ocupacion-hotelera",
+   "vigencia": "2022 (histórico)",
+   "estado": "derivado",
+   "decimales": 1,
+   "nota": "Promedio simple de los 12 meses de 2022. Histórico: la serie abierta termina en oct 2023. El descenso de abril a septiembre de 2020 corresponde al cierre de hoteles por la pandemia."
+  },
+  "ocupacion_zona_anio": {
+   "valor": 2022,
+   "unidad": "año",
+   "etiqueta": "Último año completo de ocupación por zona",
+   "fuente": "medata-ocupacion-hotelera",
+   "vigencia": "2022 (histórico)",
+   "estado": "observado",
+   "nota": "La serie por zona termina en mar 2023."
+  },
+  "museos_visitas": {
+   "valor": 839111,
+   "unidad": "visitas",
+   "etiqueta": "Visitantes a museos 2022",
+   "fuente": "medata-museos",
+   "vigencia": "2022 (histórico)",
+   "estado": "observado",
+   "nota": "11 lugares que reportaron en 2022. Histórico: la serie abierta termina en feb 2023. La suma es de los lugares que reportan cada año, y el conjunto cambia (algunos entran en 2012, 2016 o 2018), así que los años no son del todo comparables."
+  },
+  "sitios_visitas": {
+   "valor": 5263111,
+   "unidad": "visitas",
+   "etiqueta": "Visitantes a sitios de interés 2022",
+   "fuente": "medata-sitios",
+   "vigencia": "2022 (histórico)",
+   "estado": "observado",
+   "nota": "8 lugares que reportaron en 2022. Histórico: la serie abierta termina en feb 2023. La suma es de los lugares que reportan cada año, y el conjunto cambia (algunos entran en 2012, 2016 o 2018), así que los años no son del todo comparables."
+  },
+  "atractivos_turisticos": {
+   "valor": 92,
+   "unidad": "atractivos",
+   "etiqueta": "Atractivos turísticos registrados",
+   "fuente": "alcaldia-turismo",
+   "vigencia": "Actualizado el 2024-10-17",
+   "estado": "observado"
+  },
+  "atractivos_imperdibles": {
+   "valor": 13,
+   "unidad": "atractivos",
+   "etiqueta": "Atractivos marcados como \"imperdibles\"",
+   "fuente": "alcaldia-turismo",
+   "vigencia": "Actualizado el 2024-10-17",
+   "estado": "observado",
+   "nota": "Clasificación de la propia Secretaría de Turismo en su registro de atractivos."
+  },
+  "puntos_informacion": {
+   "valor": 3,
+   "unidad": "puntos",
+   "etiqueta": "Puntos de información turística",
+   "fuente": "alcaldia-turismo",
+   "vigencia": "Actualizado el 2024-10-17",
+   "estado": "observado"
+  },
+  "hospedajes_osm": {
+   "valor": 381,
+   "unidad": "hospedajes",
+   "etiqueta": "Hospedajes mapeados en OpenStreetMap",
+   "fuente": "osm-hospedajes",
+   "vigencia": "OpenStreetMap al 2026-06-01",
+   "estado": "observado",
+   "nota": "OpenStreetMap es un mapa colaborativo: cuenta lo que sus colaboradores han mapeado, no el Registro Nacional de Turismo. Incluye hoteles, hostales, casas de huéspedes, apartamentos turísticos y moteles."
   }
  },
  "series": {
@@ -128,7 +268,569 @@
      551226
     ]
    ],
-   "nota": "2026 parcial."
+   "nota": "2026 parcial: hasta jun."
+  },
+  "visitantes_extranjeros_mensual": {
+   "etiqueta": "Visitantes extranjeros por mes",
+   "unidad": "personas",
+   "fuente": "mincit-extranjeros",
+   "estado": "observado",
+   "vigencia": "ene 2015 – jun 2026",
+   "puntos": [
+    [
+     "ene 2015",
+     15250
+    ],
+    [
+     "feb 2015",
+     16078
+    ],
+    [
+     "mar 2015",
+     16837
+    ],
+    [
+     "abr 2015",
+     15364
+    ],
+    [
+     "may 2015",
+     17268
+    ],
+    [
+     "jun 2015",
+     19566
+    ],
+    [
+     "jul 2015",
+     24837
+    ],
+    [
+     "ago 2015",
+     23680
+    ],
+    [
+     "sep 2015",
+     20537
+    ],
+    [
+     "oct 2015",
+     20452
+    ],
+    [
+     "nov 2015",
+     22907
+    ],
+    [
+     "dic 2015",
+     28520
+    ],
+    [
+     "ene 2016",
+     22876
+    ],
+    [
+     "feb 2016",
+     23444
+    ],
+    [
+     "mar 2016",
+     24253
+    ],
+    [
+     "abr 2016",
+     21511
+    ],
+    [
+     "may 2016",
+     24857
+    ],
+    [
+     "jun 2016",
+     29289
+    ],
+    [
+     "jul 2016",
+     30899
+    ],
+    [
+     "ago 2016",
+     27654
+    ],
+    [
+     "sep 2016",
+     22179
+    ],
+    [
+     "oct 2016",
+     21711
+    ],
+    [
+     "nov 2016",
+     25856
+    ],
+    [
+     "dic 2016",
+     31166
+    ],
+    [
+     "ene 2017",
+     22994
+    ],
+    [
+     "feb 2017",
+     24764
+    ],
+    [
+     "mar 2017",
+     23565
+    ],
+    [
+     "abr 2017",
+     24929
+    ],
+    [
+     "may 2017",
+     24934
+    ],
+    [
+     "jun 2017",
+     25875
+    ],
+    [
+     "jul 2017",
+     31233
+    ],
+    [
+     "ago 2017",
+     29936
+    ],
+    [
+     "sep 2017",
+     24523
+    ],
+    [
+     "oct 2017",
+     24182
+    ],
+    [
+     "nov 2017",
+     30889
+    ],
+    [
+     "dic 2017",
+     33721
+    ],
+    [
+     "ene 2018",
+     28735
+    ],
+    [
+     "feb 2018",
+     29947
+    ],
+    [
+     "mar 2018",
+     30756
+    ],
+    [
+     "abr 2018",
+     27790
+    ],
+    [
+     "may 2018",
+     26950
+    ],
+    [
+     "jun 2018",
+     28093
+    ],
+    [
+     "jul 2018",
+     31563
+    ],
+    [
+     "ago 2018",
+     35060
+    ],
+    [
+     "sep 2018",
+     27355
+    ],
+    [
+     "oct 2018",
+     26387
+    ],
+    [
+     "nov 2018",
+     32757
+    ],
+    [
+     "dic 2018",
+     36140
+    ],
+    [
+     "ene 2019",
+     31489
+    ],
+    [
+     "feb 2019",
+     32493
+    ],
+    [
+     "mar 2019",
+     33140
+    ],
+    [
+     "abr 2019",
+     29691
+    ],
+    [
+     "may 2019",
+     32218
+    ],
+    [
+     "jun 2019",
+     35400
+    ],
+    [
+     "jul 2019",
+     40555
+    ],
+    [
+     "ago 2019",
+     41084
+    ],
+    [
+     "sep 2019",
+     33723
+    ],
+    [
+     "oct 2019",
+     32156
+    ],
+    [
+     "nov 2019",
+     35224
+    ],
+    [
+     "dic 2019",
+     40438
+    ],
+    [
+     "ene 2020",
+     38144
+    ],
+    [
+     "feb 2020",
+     42477
+    ],
+    [
+     "mar 2020",
+     17985
+    ],
+    [
+     "abr 2020",
+     1
+    ],
+    [
+     "may 2020",
+     8
+    ],
+    [
+     "jun 2020",
+     51
+    ],
+    [
+     "jul 2020",
+     38
+    ],
+    [
+     "ago 2020",
+     50
+    ],
+    [
+     "sep 2020",
+     1192
+    ],
+    [
+     "oct 2020",
+     6942
+    ],
+    [
+     "nov 2020",
+     10611
+    ],
+    [
+     "dic 2020",
+     15892
+    ],
+    [
+     "ene 2021",
+     11158
+    ],
+    [
+     "feb 2021",
+     10457
+    ],
+    [
+     "mar 2021",
+     15293
+    ],
+    [
+     "abr 2021",
+     10600
+    ],
+    [
+     "may 2021",
+     10810
+    ],
+    [
+     "jun 2021",
+     16617
+    ],
+    [
+     "jul 2021",
+     24013
+    ],
+    [
+     "ago 2021",
+     26050
+    ],
+    [
+     "sep 2021",
+     27421
+    ],
+    [
+     "oct 2021",
+     30643
+    ],
+    [
+     "nov 2021",
+     37706
+    ],
+    [
+     "dic 2021",
+     43299
+    ],
+    [
+     "ene 2022",
+     34973
+    ],
+    [
+     "feb 2022",
+     38018
+    ],
+    [
+     "mar 2022",
+     45148
+    ],
+    [
+     "abr 2022",
+     50970
+    ],
+    [
+     "may 2022",
+     47589
+    ],
+    [
+     "jun 2022",
+     50045
+    ],
+    [
+     "jul 2022",
+     63443
+    ],
+    [
+     "ago 2022",
+     64956
+    ],
+    [
+     "sep 2022",
+     56860
+    ],
+    [
+     "oct 2022",
+     55738
+    ],
+    [
+     "nov 2022",
+     64008
+    ],
+    [
+     "dic 2022",
+     70288
+    ],
+    [
+     "ene 2023",
+     64878
+    ],
+    [
+     "feb 2023",
+     65093
+    ],
+    [
+     "mar 2023",
+     61807
+    ],
+    [
+     "abr 2023",
+     63622
+    ],
+    [
+     "may 2023",
+     62473
+    ],
+    [
+     "jun 2023",
+     63307
+    ],
+    [
+     "jul 2023",
+     82835
+    ],
+    [
+     "ago 2023",
+     61979
+    ],
+    [
+     "sep 2023",
+     52446
+    ],
+    [
+     "oct 2023",
+     47587
+    ],
+    [
+     "nov 2023",
+     81743
+    ],
+    [
+     "dic 2023",
+     82365
+    ],
+    [
+     "ene 2024",
+     81070
+    ],
+    [
+     "feb 2024",
+     84179
+    ],
+    [
+     "mar 2024",
+     81633
+    ],
+    [
+     "abr 2024",
+     75877
+    ],
+    [
+     "may 2024",
+     85851
+    ],
+    [
+     "jun 2024",
+     79998
+    ],
+    [
+     "jul 2024",
+     103007
+    ],
+    [
+     "ago 2024",
+     102456
+    ],
+    [
+     "sep 2024",
+     80260
+    ],
+    [
+     "oct 2024",
+     79132
+    ],
+    [
+     "nov 2024",
+     91228
+    ],
+    [
+     "dic 2024",
+     103780
+    ],
+    [
+     "ene 2025",
+     98304
+    ],
+    [
+     "feb 2025",
+     92872
+    ],
+    [
+     "mar 2025",
+     88833
+    ],
+    [
+     "abr 2025",
+     90137
+    ],
+    [
+     "may 2025",
+     87514
+    ],
+    [
+     "jun 2025",
+     88383
+    ],
+    [
+     "jul 2025",
+     114573
+    ],
+    [
+     "ago 2025",
+     107447
+    ],
+    [
+     "sep 2025",
+     83470
+    ],
+    [
+     "oct 2025",
+     89062
+    ],
+    [
+     "nov 2025",
+     96378
+    ],
+    [
+     "dic 2025",
+     106705
+    ],
+    [
+     "ene 2026",
+     108273
+    ],
+    [
+     "feb 2026",
+     96048
+    ],
+    [
+     "mar 2026",
+     99574
+    ],
+    [
+     "abr 2026",
+     85002
+    ],
+    [
+     "may 2026",
+     83335
+    ],
+    [
+     "jun 2026",
+     78994
+    ]
+   ],
+   "nota": "Extranjeros no residentes que declararon Medellín como destino al entrar al país."
   },
   "pasajeros_aeropuerto_anual": {
    "etiqueta": "Pasajeros del aeropuerto por año",
@@ -166,7 +868,1295 @@
      6647480
     ]
    ],
-   "nota": "Pasajeros en vuelos con origen o destino en el aeropuerto José María Córdova (Rionegro)."
+   "nota": "Pasajeros en vuelos comerciales que salen del aeropuerto José María Córdova (Rionegro) o llegan a él: cada viaje de ida o de vuelta cuenta una vez."
+  },
+  "pasajeros_aeropuerto_mensual": {
+   "etiqueta": "Pasajeros del aeropuerto por mes",
+   "unidad": "pasajeros",
+   "fuente": "aerocivil-origen-destino",
+   "estado": "observado",
+   "vigencia": "ene 2020 – jun 2026",
+   "puntos": [
+    [
+     "ene 2020",
+     801832
+    ],
+    [
+     "feb 2020",
+     729101
+    ],
+    [
+     "mar 2020",
+     422442
+    ],
+    [
+     "abr 2020",
+     1782
+    ],
+    [
+     "may 2020",
+     1826
+    ],
+    [
+     "jun 2020",
+     1998
+    ],
+    [
+     "jul 2020",
+     864
+    ],
+    [
+     "ago 2020",
+     2233
+    ],
+    [
+     "sep 2020",
+     86405
+    ],
+    [
+     "oct 2020",
+     204438
+    ],
+    [
+     "nov 2020",
+     281922
+    ],
+    [
+     "dic 2020",
+     408725
+    ],
+    [
+     "ene 2021",
+     409160
+    ],
+    [
+     "feb 2021",
+     374228
+    ],
+    [
+     "mar 2021",
+     490344
+    ],
+    [
+     "abr 2021",
+     371417
+    ],
+    [
+     "may 2021",
+     413209
+    ],
+    [
+     "jun 2021",
+     624763
+    ],
+    [
+     "jul 2021",
+     728285
+    ],
+    [
+     "ago 2021",
+     738765
+    ],
+    [
+     "sep 2021",
+     739581
+    ],
+    [
+     "oct 2021",
+     788993
+    ],
+    [
+     "nov 2021",
+     862526
+    ],
+    [
+     "dic 2021",
+     991073
+    ],
+    [
+     "ene 2022",
+     944134
+    ],
+    [
+     "feb 2022",
+     746236
+    ],
+    [
+     "mar 2022",
+     977141
+    ],
+    [
+     "abr 2022",
+     987055
+    ],
+    [
+     "may 2022",
+     983976
+    ],
+    [
+     "jun 2022",
+     1037727
+    ],
+    [
+     "jul 2022",
+     1076697
+    ],
+    [
+     "ago 2022",
+     1067458
+    ],
+    [
+     "sep 2022",
+     955299
+    ],
+    [
+     "oct 2022",
+     1031743
+    ],
+    [
+     "nov 2022",
+     1025341
+    ],
+    [
+     "dic 2022",
+     1107866
+    ],
+    [
+     "ene 2023",
+     1056701
+    ],
+    [
+     "feb 2023",
+     900125
+    ],
+    [
+     "mar 2023",
+     866819
+    ],
+    [
+     "abr 2023",
+     804876
+    ],
+    [
+     "may 2023",
+     849747
+    ],
+    [
+     "jun 2023",
+     870740
+    ],
+    [
+     "jul 2023",
+     947355
+    ],
+    [
+     "ago 2023",
+     974549
+    ],
+    [
+     "sep 2023",
+     887520
+    ],
+    [
+     "oct 2023",
+     891437
+    ],
+    [
+     "nov 2023",
+     956470
+    ],
+    [
+     "dic 2023",
+     1028013
+    ],
+    [
+     "ene 2024",
+     965604
+    ],
+    [
+     "feb 2024",
+     880428
+    ],
+    [
+     "mar 2024",
+     945174
+    ],
+    [
+     "abr 2024",
+     937696
+    ],
+    [
+     "may 2024",
+     1011383
+    ],
+    [
+     "jun 2024",
+     1076289
+    ],
+    [
+     "jul 2024",
+     1117458
+    ],
+    [
+     "ago 2024",
+     1179637
+    ],
+    [
+     "sep 2024",
+     1037593
+    ],
+    [
+     "oct 2024",
+     1086909
+    ],
+    [
+     "nov 2024",
+     1068167
+    ],
+    [
+     "dic 2024",
+     1223574
+    ],
+    [
+     "ene 2025",
+     1154630
+    ],
+    [
+     "feb 2025",
+     955015
+    ],
+    [
+     "mar 2025",
+     1023384
+    ],
+    [
+     "abr 2025",
+     1028749
+    ],
+    [
+     "may 2025",
+     1015041
+    ],
+    [
+     "jun 2025",
+     1142604
+    ],
+    [
+     "jul 2025",
+     1169591
+    ],
+    [
+     "ago 2025",
+     1187523
+    ],
+    [
+     "sep 2025",
+     1045831
+    ],
+    [
+     "oct 2025",
+     1146913
+    ],
+    [
+     "nov 2025",
+     1110547
+    ],
+    [
+     "dic 2025",
+     1281998
+    ],
+    [
+     "ene 2026",
+     1308089
+    ],
+    [
+     "feb 2026",
+     1022197
+    ],
+    [
+     "mar 2026",
+     1135284
+    ],
+    [
+     "abr 2026",
+     1051774
+    ],
+    [
+     "may 2026",
+     1058503
+    ],
+    [
+     "jun 2026",
+     1071633
+    ]
+   ],
+   "nota": "Pasajeros en vuelos comerciales que salen del aeropuerto José María Córdova (Rionegro) o llegan a él: cada viaje de ida o de vuelta cuenta una vez."
+  },
+  "ocupacion_hotelera_mensual": {
+   "etiqueta": "Ocupación hotelera mensual",
+   "unidad": "%",
+   "fuente": "medata-ocupacion-hotelera",
+   "estado": "observado",
+   "vigencia": "ene 2007 – oct 2023",
+   "puntos": [
+    [
+     "ene 2007",
+     55.8
+    ],
+    [
+     "feb 2007",
+     57.6
+    ],
+    [
+     "mar 2007",
+     57.9
+    ],
+    [
+     "abr 2007",
+     59.3
+    ],
+    [
+     "may 2007",
+     60.0
+    ],
+    [
+     "jun 2007",
+     58.9
+    ],
+    [
+     "jul 2007",
+     65.5
+    ],
+    [
+     "ago 2007",
+     65.8
+    ],
+    [
+     "sep 2007",
+     58.1
+    ],
+    [
+     "oct 2007",
+     56.8
+    ],
+    [
+     "nov 2007",
+     58.2
+    ],
+    [
+     "dic 2007",
+     53.4
+    ],
+    [
+     "ene 2008",
+     55.5
+    ],
+    [
+     "feb 2008",
+     52.5
+    ],
+    [
+     "mar 2008",
+     49.1
+    ],
+    [
+     "abr 2008",
+     57.5
+    ],
+    [
+     "may 2008",
+     55.3
+    ],
+    [
+     "jun 2008",
+     51.0
+    ],
+    [
+     "jul 2008",
+     58.3
+    ],
+    [
+     "ago 2008",
+     67.0
+    ],
+    [
+     "sep 2008",
+     55.9
+    ],
+    [
+     "oct 2008",
+     54.1
+    ],
+    [
+     "nov 2008",
+     53.3
+    ],
+    [
+     "dic 2008",
+     54.0
+    ],
+    [
+     "ene 2009",
+     48.3
+    ],
+    [
+     "feb 2009",
+     39.9
+    ],
+    [
+     "mar 2009",
+     46.6
+    ],
+    [
+     "abr 2009",
+     42.4
+    ],
+    [
+     "may 2009",
+     38.6
+    ],
+    [
+     "jun 2009",
+     41.8
+    ],
+    [
+     "jul 2009",
+     51.7
+    ],
+    [
+     "ago 2009",
+     55.8
+    ],
+    [
+     "sep 2009",
+     54.5
+    ],
+    [
+     "oct 2009",
+     47.4
+    ],
+    [
+     "nov 2009",
+     50.5
+    ],
+    [
+     "dic 2009",
+     52.0
+    ],
+    [
+     "ene 2010",
+     51.8
+    ],
+    [
+     "feb 2010",
+     45.5
+    ],
+    [
+     "mar 2010",
+     51.8
+    ],
+    [
+     "abr 2010",
+     47.9
+    ],
+    [
+     "may 2010",
+     44.2
+    ],
+    [
+     "jun 2010",
+     44.2
+    ],
+    [
+     "jul 2010",
+     55.7
+    ],
+    [
+     "ago 2010",
+     54.4
+    ],
+    [
+     "sep 2010",
+     53.4
+    ],
+    [
+     "oct 2010",
+     57.8
+    ],
+    [
+     "nov 2010",
+     55.6
+    ],
+    [
+     "dic 2010",
+     45.4
+    ],
+    [
+     "ene 2011",
+     44.3
+    ],
+    [
+     "feb 2011",
+     44.4
+    ],
+    [
+     "mar 2011",
+     48.3
+    ],
+    [
+     "abr 2011",
+     41.5
+    ],
+    [
+     "may 2011",
+     47.7
+    ],
+    [
+     "jun 2011",
+     49.3
+    ],
+    [
+     "jul 2011",
+     51.8
+    ],
+    [
+     "ago 2011",
+     57.5
+    ],
+    [
+     "sep 2011",
+     52.2
+    ],
+    [
+     "oct 2011",
+     53.5
+    ],
+    [
+     "nov 2011",
+     56.8
+    ],
+    [
+     "dic 2011",
+     53.8
+    ],
+    [
+     "ene 2012",
+     48.9
+    ],
+    [
+     "feb 2012",
+     47.3
+    ],
+    [
+     "mar 2012",
+     48.7
+    ],
+    [
+     "abr 2012",
+     47.1
+    ],
+    [
+     "may 2012",
+     49.9
+    ],
+    [
+     "jun 2012",
+     50.2
+    ],
+    [
+     "jul 2012",
+     55.9
+    ],
+    [
+     "ago 2012",
+     63.5
+    ],
+    [
+     "sep 2012",
+     54.4
+    ],
+    [
+     "oct 2012",
+     57.4
+    ],
+    [
+     "nov 2012",
+     65.2
+    ],
+    [
+     "dic 2012",
+     60.8
+    ],
+    [
+     "ene 2013",
+     56.5
+    ],
+    [
+     "feb 2013",
+     50.5
+    ],
+    [
+     "mar 2013",
+     51.6
+    ],
+    [
+     "abr 2013",
+     52.7
+    ],
+    [
+     "may 2013",
+     52.2
+    ],
+    [
+     "jun 2013",
+     59.0
+    ],
+    [
+     "jul 2013",
+     58.6
+    ],
+    [
+     "ago 2013",
+     64.0
+    ],
+    [
+     "sep 2013",
+     57.4
+    ],
+    [
+     "oct 2013",
+     58.3
+    ],
+    [
+     "nov 2013",
+     65.1
+    ],
+    [
+     "dic 2013",
+     64.1
+    ],
+    [
+     "ene 2014",
+     55.8
+    ],
+    [
+     "feb 2014",
+     54.0
+    ],
+    [
+     "mar 2014",
+     55.4
+    ],
+    [
+     "abr 2014",
+     63.6
+    ],
+    [
+     "may 2014",
+     54.1
+    ],
+    [
+     "jun 2014",
+     54.9
+    ],
+    [
+     "jul 2014",
+     55.2
+    ],
+    [
+     "ago 2014",
+     67.5
+    ],
+    [
+     "sep 2014",
+     59.8
+    ],
+    [
+     "oct 2014",
+     62.3
+    ],
+    [
+     "nov 2014",
+     64.4
+    ],
+    [
+     "dic 2014",
+     71.6
+    ],
+    [
+     "ene 2015",
+     55.6
+    ],
+    [
+     "feb 2015",
+     56.9
+    ],
+    [
+     "mar 2015",
+     56.4
+    ],
+    [
+     "abr 2015",
+     56.8
+    ],
+    [
+     "may 2015",
+     58.4
+    ],
+    [
+     "jun 2015",
+     57.7
+    ],
+    [
+     "jul 2015",
+     63.7
+    ],
+    [
+     "ago 2015",
+     70.0
+    ],
+    [
+     "sep 2015",
+     72.4
+    ],
+    [
+     "oct 2015",
+     67.8
+    ],
+    [
+     "nov 2015",
+     69.9
+    ],
+    [
+     "dic 2015",
+     70.1
+    ],
+    [
+     "ene 2016",
+     64.1
+    ],
+    [
+     "feb 2016",
+     66.4
+    ],
+    [
+     "mar 2016",
+     64.6
+    ],
+    [
+     "abr 2016",
+     61.2
+    ],
+    [
+     "may 2016",
+     66.0
+    ],
+    [
+     "jun 2016",
+     62.5
+    ],
+    [
+     "jul 2016",
+     65.4
+    ],
+    [
+     "ago 2016",
+     71.8
+    ],
+    [
+     "sep 2016",
+     67.3
+    ],
+    [
+     "oct 2016",
+     62.9
+    ],
+    [
+     "nov 2016",
+     69.7
+    ],
+    [
+     "dic 2016",
+     63.8
+    ],
+    [
+     "ene 2017",
+     59.9
+    ],
+    [
+     "feb 2017",
+     62.0
+    ],
+    [
+     "mar 2017",
+     58.4
+    ],
+    [
+     "abr 2017",
+     56.7
+    ],
+    [
+     "may 2017",
+     61.8
+    ],
+    [
+     "jun 2017",
+     58.0
+    ],
+    [
+     "jul 2017",
+     60.8
+    ],
+    [
+     "ago 2017",
+     69.3
+    ],
+    [
+     "sep 2017",
+     60.9
+    ],
+    [
+     "oct 2017",
+     64.6
+    ],
+    [
+     "nov 2017",
+     66.6
+    ],
+    [
+     "dic 2017",
+     58.3
+    ],
+    [
+     "ene 2018",
+     57.3
+    ],
+    [
+     "feb 2018",
+     58.8
+    ],
+    [
+     "mar 2018",
+     56.9
+    ],
+    [
+     "abr 2018",
+     56.4
+    ],
+    [
+     "may 2018",
+     55.3
+    ],
+    [
+     "jun 2018",
+     55.3
+    ],
+    [
+     "jul 2018",
+     60.8
+    ],
+    [
+     "ago 2018",
+     67.2
+    ],
+    [
+     "sep 2018",
+     62.5
+    ],
+    [
+     "oct 2018",
+     62.7
+    ],
+    [
+     "nov 2018",
+     68.1
+    ],
+    [
+     "dic 2018",
+     61.8
+    ],
+    [
+     "ene 2019",
+     64.5
+    ],
+    [
+     "feb 2019",
+     63.7
+    ],
+    [
+     "mar 2019",
+     61.8
+    ],
+    [
+     "abr 2019",
+     57.5
+    ],
+    [
+     "may 2019",
+     60.5
+    ],
+    [
+     "jun 2019",
+     60.1
+    ],
+    [
+     "jul 2019",
+     66.7
+    ],
+    [
+     "ago 2019",
+     72.7
+    ],
+    [
+     "sep 2019",
+     68.7
+    ],
+    [
+     "oct 2019",
+     65.8
+    ],
+    [
+     "nov 2019",
+     70.3
+    ],
+    [
+     "dic 2019",
+     68.8
+    ],
+    [
+     "ene 2020",
+     65.3
+    ],
+    [
+     "feb 2020",
+     71.2
+    ],
+    [
+     "mar 2020",
+     35.8
+    ],
+    [
+     "abr 2020",
+     3.7
+    ],
+    [
+     "may 2020",
+     3.2
+    ],
+    [
+     "jun 2020",
+     4.6
+    ],
+    [
+     "jul 2020",
+     8.3
+    ],
+    [
+     "ago 2020",
+     10.3
+    ],
+    [
+     "sep 2020",
+     12.6
+    ],
+    [
+     "oct 2020",
+     26.9
+    ],
+    [
+     "nov 2020",
+     32.5
+    ],
+    [
+     "dic 2020",
+     40.5
+    ],
+    [
+     "ene 2021",
+     30.0
+    ],
+    [
+     "feb 2021",
+     36.6
+    ],
+    [
+     "mar 2021",
+     42.3
+    ],
+    [
+     "abr 2021",
+     30.4
+    ],
+    [
+     "may 2021",
+     27.8
+    ],
+    [
+     "jun 2021",
+     39.4
+    ],
+    [
+     "jul 2021",
+     54.9
+    ],
+    [
+     "ago 2021",
+     60.7
+    ],
+    [
+     "sep 2021",
+     65.2
+    ],
+    [
+     "oct 2021",
+     67.3
+    ],
+    [
+     "nov 2021",
+     75.9
+    ],
+    [
+     "dic 2021",
+     76.3
+    ],
+    [
+     "ene 2022",
+     72.1
+    ],
+    [
+     "feb 2022",
+     72.7
+    ],
+    [
+     "mar 2022",
+     77.6
+    ],
+    [
+     "abr 2022",
+     76.9
+    ],
+    [
+     "may 2022",
+     72.5
+    ],
+    [
+     "jun 2022",
+     74.9
+    ],
+    [
+     "jul 2022",
+     83.3
+    ],
+    [
+     "ago 2022",
+     81.8
+    ],
+    [
+     "sep 2022",
+     79.3
+    ],
+    [
+     "oct 2022",
+     75.8
+    ],
+    [
+     "nov 2022",
+     82.1
+    ],
+    [
+     "dic 2022",
+     75.6
+    ],
+    [
+     "ene 2023",
+     72.1
+    ],
+    [
+     "feb 2023",
+     75.0
+    ],
+    [
+     "mar 2023",
+     73.9
+    ],
+    [
+     "abr 2023",
+     66.0
+    ],
+    [
+     "may 2023",
+     71.5
+    ],
+    [
+     "jun 2023",
+     68.9
+    ],
+    [
+     "jul 2023",
+     77.9
+    ],
+    [
+     "ago 2023",
+     78.2
+    ],
+    [
+     "sep 2023",
+     71.7
+    ],
+    [
+     "oct 2023",
+     67.1
+    ]
+   ],
+   "nota": "Histórico: la serie abierta termina en oct 2023. El descenso de abril a septiembre de 2020 corresponde al cierre de hoteles por la pandemia."
+  },
+  "museos_anual": {
+   "etiqueta": "Visitantes a museos por año",
+   "unidad": "visitas",
+   "fuente": "medata-museos",
+   "estado": "observado",
+   "vigencia": "2007 – 2022",
+   "puntos": [
+    [
+     "2007",
+     367125
+    ],
+    [
+     "2008",
+     659155
+    ],
+    [
+     "2009",
+     718364
+    ],
+    [
+     "2010",
+     784264
+    ],
+    [
+     "2011",
+     738283
+    ],
+    [
+     "2012",
+     940270
+    ],
+    [
+     "2013",
+     688252
+    ],
+    [
+     "2014",
+     620264
+    ],
+    [
+     "2015",
+     696312
+    ],
+    [
+     "2016",
+     742137
+    ],
+    [
+     "2017",
+     721468
+    ],
+    [
+     "2018",
+     994556
+    ],
+    [
+     "2019",
+     1014883
+    ],
+    [
+     "2020",
+     417143
+    ],
+    [
+     "2021",
+     368791
+    ],
+    [
+     "2022",
+     839111
+    ]
+   ],
+   "nota": "Histórico: la serie abierta termina en feb 2023. La suma es de los lugares que reportan cada año, y el conjunto cambia (algunos entran en 2012, 2016 o 2018), así que los años no son del todo comparables."
+  },
+  "sitios_anual": {
+   "etiqueta": "Visitantes a sitios de interés por año",
+   "unidad": "visitas",
+   "fuente": "medata-sitios",
+   "estado": "observado",
+   "vigencia": "2007 – 2022",
+   "puntos": [
+    [
+     "2007",
+     705096
+    ],
+    [
+     "2008",
+     2810417
+    ],
+    [
+     "2009",
+     4186537
+    ],
+    [
+     "2010",
+     3812431
+    ],
+    [
+     "2011",
+     4058692
+    ],
+    [
+     "2012",
+     4171361
+    ],
+    [
+     "2013",
+     4501310
+    ],
+    [
+     "2014",
+     4775682
+    ],
+    [
+     "2015",
+     5163735
+    ],
+    [
+     "2016",
+     4247593
+    ],
+    [
+     "2017",
+     4665326
+    ],
+    [
+     "2018",
+     4584867
+    ],
+    [
+     "2019",
+     3797648
+    ],
+    [
+     "2020",
+     1280851
+    ],
+    [
+     "2021",
+     2522110
+    ],
+    [
+     "2022",
+     5263111
+    ]
+   ],
+   "nota": "Histórico: la serie abierta termina en feb 2023. La suma es de los lugares que reportan cada año, y el conjunto cambia (algunos entran en 2012, 2016 o 2018), así que los años no son del todo comparables."
   }
  },
  "listas": {
@@ -230,6 +2220,570 @@
    {
     "nombre": "Guatemala",
     "valor": 16700
+   }
+  ],
+  "ocupacion_por_zona": [
+   {
+    "zona": "Laureles",
+    "anio": 2022,
+    "promedio": 79.6
+   },
+   {
+    "zona": "Poblado",
+    "anio": 2022,
+    "promedio": 77.6
+   },
+   {
+    "zona": "Centro",
+    "anio": 2022,
+    "promedio": 55.1
+   }
+  ],
+  "museos_por_lugar": [
+   {
+    "nombre": "Museo de Antioquia",
+    "visitas": 183072,
+    "visitas_2019": 328648
+   },
+   {
+    "nombre": "Museo El Castillo",
+    "visitas": 136391,
+    "visitas_2019": 121119
+   },
+   {
+    "nombre": "Museo Universitario (U. de A.)",
+    "visitas": 118986,
+    "visitas_2019": 123788
+   },
+   {
+    "nombre": "Casa Museo Pedro Nel Gómez",
+    "visitas": 98349,
+    "visitas_2019": 54469
+   },
+   {
+    "nombre": "Museo de la Ciudad",
+    "visitas": 86619,
+    "visitas_2019": 108583
+   },
+   {
+    "nombre": "Museo de Arte Moderno",
+    "visitas": 56736,
+    "visitas_2019": 125553
+   },
+   {
+    "nombre": "Museo del Agua EPM",
+    "visitas": 48003,
+    "visitas_2019": 64553
+   },
+   {
+    "nombre": "Casa Gardeliana",
+    "visitas": 38469,
+    "visitas_2019": 31281
+   },
+   {
+    "nombre": "Museo Entomológico",
+    "visitas": 36127,
+    "visitas_2019": null
+   },
+   {
+    "nombre": "Museo Casa de la Memoria",
+    "visitas": 24259,
+    "visitas_2019": 42432
+   },
+   {
+    "nombre": "Museo Cementerio San Pedro",
+    "visitas": 12100,
+    "visitas_2019": 9987
+   }
+  ],
+  "sitios_por_lugar": [
+   {
+    "nombre": "Escaleras eléctricas Comuna 13",
+    "visitas": 2456359,
+    "visitas_2019": 445322
+   },
+   {
+    "nombre": "Parque Arví",
+    "visitas": 931779,
+    "visitas_2019": 1016903
+   },
+   {
+    "nombre": "Jardín Botánico",
+    "visitas": 537987,
+    "visitas_2019": 1180285
+   },
+   {
+    "nombre": "Parque Explora",
+    "visitas": 479001,
+    "visitas_2019": 414840
+   },
+   {
+    "nombre": "Parque Norte",
+    "visitas": 360744,
+    "visitas_2019": 218164
+   },
+   {
+    "nombre": "Zoológico Santa Fe",
+    "visitas": 257132,
+    "visitas_2019": 255764
+   },
+   {
+    "nombre": "Planetario de Medellín",
+    "visitas": 121836,
+    "visitas_2019": 140878
+   },
+   {
+    "nombre": "Aeroparque Juan Pablo II",
+    "visitas": 118273,
+    "visitas_2019": 105212
+   }
+  ],
+  "atractivos_por_tipo": [
+   {
+    "tipo": "Sector urbano o rural de interés",
+    "atractivos": 10
+   },
+   {
+    "tipo": "Museo",
+    "atractivos": 9
+   },
+   {
+    "tipo": "Otro",
+    "atractivos": 8
+   },
+   {
+    "tipo": "Parque urbano",
+    "atractivos": 8
+   },
+   {
+    "tipo": "Monumento",
+    "atractivos": 6
+   },
+   {
+    "tipo": "Teatro",
+    "atractivos": 5
+   },
+   {
+    "tipo": "Cerro",
+    "atractivos": 4
+   },
+   {
+    "tipo": "Escultura",
+    "atractivos": 4
+   },
+   {
+    "tipo": "Iglesia",
+    "atractivos": 4
+   },
+   {
+    "tipo": "Plaza",
+    "atractivos": 4
+   },
+   {
+    "tipo": "Parque temático y recreativo",
+    "atractivos": 3
+   },
+   {
+    "tipo": "Avenida y calle",
+    "atractivos": 3
+   },
+   {
+    "tipo": "Centro administrativo",
+    "atractivos": 2
+   },
+   {
+    "tipo": "Edificación comercial",
+    "atractivos": 2
+   },
+   {
+    "tipo": "Centro de formación cultural",
+    "atractivos": 2
+   },
+   {
+    "tipo": "Plaza de mercado",
+    "atractivos": 2
+   },
+   {
+    "tipo": "Aeropuerto de pasajeros",
+    "atractivos": 1
+   },
+   {
+    "tipo": "Basílica",
+    "atractivos": 1
+   },
+   {
+    "tipo": "Sala múltiple",
+    "atractivos": 1
+   },
+   {
+    "tipo": "Catedral",
+    "atractivos": 1
+   },
+   {
+    "tipo": "Cementerio",
+    "atractivos": 1
+   },
+   {
+    "tipo": "Plaza de toros",
+    "atractivos": 1
+   },
+   {
+    "tipo": "Claustro",
+    "atractivos": 1
+   },
+   {
+    "tipo": "Estación de ferrocarril",
+    "atractivos": 1
+   },
+   {
+    "tipo": "Estatua",
+    "atractivos": 1
+   },
+   {
+    "tipo": "Fuente",
+    "atractivos": 1
+   },
+   {
+    "tipo": "Jardín botánico",
+    "atractivos": 1
+   },
+   {
+    "tipo": "Biblioteca",
+    "atractivos": 1
+   },
+   {
+    "tipo": "Áreas con declaratorias departamentales",
+    "atractivos": 1
+   },
+   {
+    "tipo": "Planetario",
+    "atractivos": 1
+   },
+   {
+    "tipo": "Convento",
+    "atractivos": 1
+   },
+   {
+    "tipo": "Estadio",
+    "atractivos": 1
+   }
+  ],
+  "hospedajes_por_tipo": [
+   {
+    "tipo": "Hotel",
+    "hospedajes": 172
+   },
+   {
+    "tipo": "Hostal",
+    "hospedajes": 116
+   },
+   {
+    "tipo": "Apartamento turístico",
+    "hospedajes": 50
+   },
+   {
+    "tipo": "Casa de huéspedes",
+    "hospedajes": 41
+   },
+   {
+    "tipo": "Motel",
+    "hospedajes": 2
+   }
+  ],
+  "indicadores": [
+   {
+    "clave": "atractivos",
+    "etiqueta": "Atractivos turísticos",
+    "unidad": "atractivos",
+    "fuente": "alcaldia-turismo",
+    "estado": "observado",
+    "vigencia": "Actualizado el 2024-10-17",
+    "decimales": 0
+   },
+   {
+    "clave": "hospedajes_osm",
+    "etiqueta": "Hospedajes en OpenStreetMap",
+    "unidad": "hospedajes",
+    "fuente": "osm-hospedajes",
+    "estado": "observado",
+    "vigencia": "OpenStreetMap al 2026-06-01",
+    "decimales": 0,
+    "nota": "OpenStreetMap es un mapa colaborativo: cuenta lo que sus colaboradores han mapeado, no el Registro Nacional de Turismo. Incluye hoteles, hostales, casas de huéspedes, apartamentos turísticos y moteles."
+   }
+  ],
+  "territorios": [
+   {
+    "codigo": "01",
+    "nombre": "Popular",
+    "tipo": "Comuna",
+    "valores": {
+     "atractivos": {
+      "vigente": 1
+     },
+     "hospedajes_osm": {
+      "vigente": 0
+     }
+    }
+   },
+   {
+    "codigo": "02",
+    "nombre": "Santa Cruz",
+    "tipo": "Comuna",
+    "valores": {
+     "atractivos": {
+      "vigente": 0
+     },
+     "hospedajes_osm": {
+      "vigente": 2
+     }
+    }
+   },
+   {
+    "codigo": "03",
+    "nombre": "Manrique",
+    "tipo": "Comuna",
+    "valores": {
+     "atractivos": {
+      "vigente": 1
+     },
+     "hospedajes_osm": {
+      "vigente": 8
+     }
+    }
+   },
+   {
+    "codigo": "04",
+    "nombre": "Aranjuez",
+    "tipo": "Comuna",
+    "valores": {
+     "atractivos": {
+      "vigente": 9
+     },
+     "hospedajes_osm": {
+      "vigente": 5
+     }
+    }
+   },
+   {
+    "codigo": "05",
+    "nombre": "Castilla",
+    "tipo": "Comuna",
+    "valores": {
+     "atractivos": {
+      "vigente": 0
+     },
+     "hospedajes_osm": {
+      "vigente": 5
+     }
+    }
+   },
+   {
+    "codigo": "06",
+    "nombre": "Doce de Octubre",
+    "tipo": "Comuna",
+    "valores": {
+     "atractivos": {
+      "vigente": 0
+     },
+     "hospedajes_osm": {
+      "vigente": 1
+     }
+    }
+   },
+   {
+    "codigo": "07",
+    "nombre": "Robledo",
+    "tipo": "Comuna",
+    "valores": {
+     "atractivos": {
+      "vigente": 2
+     },
+     "hospedajes_osm": {
+      "vigente": 3
+     }
+    }
+   },
+   {
+    "codigo": "08",
+    "nombre": "Villa Hermosa",
+    "tipo": "Comuna",
+    "valores": {
+     "atractivos": {
+      "vigente": 0
+     },
+     "hospedajes_osm": {
+      "vigente": 4
+     }
+    }
+   },
+   {
+    "codigo": "09",
+    "nombre": "Buenos Aires",
+    "tipo": "Comuna",
+    "valores": {
+     "atractivos": {
+      "vigente": 1
+     },
+     "hospedajes_osm": {
+      "vigente": 5
+     }
+    }
+   },
+   {
+    "codigo": "10",
+    "nombre": "La Candelaria",
+    "tipo": "Comuna",
+    "valores": {
+     "atractivos": {
+      "vigente": 43
+     },
+     "hospedajes_osm": {
+      "vigente": 44
+     }
+    }
+   },
+   {
+    "codigo": "11",
+    "nombre": "Laureles Estadio",
+    "tipo": "Comuna",
+    "valores": {
+     "atractivos": {
+      "vigente": 5
+     },
+     "hospedajes_osm": {
+      "vigente": 99
+     }
+    }
+   },
+   {
+    "codigo": "12",
+    "nombre": "La América",
+    "tipo": "Comuna",
+    "valores": {
+     "atractivos": {
+      "vigente": 0
+     },
+     "hospedajes_osm": {
+      "vigente": 12
+     }
+    }
+   },
+   {
+    "codigo": "13",
+    "nombre": "San Javier",
+    "tipo": "Comuna",
+    "valores": {
+     "atractivos": {
+      "vigente": 5
+     },
+     "hospedajes_osm": {
+      "vigente": 3
+     }
+    }
+   },
+   {
+    "codigo": "14",
+    "nombre": "El Poblado",
+    "tipo": "Comuna",
+    "valores": {
+     "atractivos": {
+      "vigente": 11
+     },
+     "hospedajes_osm": {
+      "vigente": 147
+     }
+    }
+   },
+   {
+    "codigo": "15",
+    "nombre": "Guayabal",
+    "tipo": "Comuna",
+    "valores": {
+     "atractivos": {
+      "vigente": 6
+     },
+     "hospedajes_osm": {
+      "vigente": 8
+     }
+    }
+   },
+   {
+    "codigo": "16",
+    "nombre": "Belén",
+    "tipo": "Comuna",
+    "valores": {
+     "atractivos": {
+      "vigente": 5
+     },
+     "hospedajes_osm": {
+      "vigente": 23
+     }
+    }
+   },
+   {
+    "codigo": "50",
+    "nombre": "San Sebastián de Palmitas",
+    "tipo": "Corregimiento",
+    "valores": {
+     "atractivos": {
+      "vigente": 0
+     },
+     "hospedajes_osm": {
+      "vigente": 1
+     }
+    }
+   },
+   {
+    "codigo": "60",
+    "nombre": "San Cristóbal",
+    "tipo": "Corregimiento",
+    "valores": {
+     "atractivos": {
+      "vigente": 1
+     },
+     "hospedajes_osm": {
+      "vigente": 5
+     }
+    }
+   },
+   {
+    "codigo": "70",
+    "nombre": "Altavista",
+    "tipo": "Corregimiento",
+    "valores": {
+     "atractivos": {
+      "vigente": 0
+     },
+     "hospedajes_osm": {
+      "vigente": 0
+     }
+    }
+   },
+   {
+    "codigo": "80",
+    "nombre": "San Antonio de Prado",
+    "tipo": "Corregimiento",
+    "valores": {
+     "atractivos": {
+      "vigente": 0
+     },
+     "hospedajes_osm": {
+      "vigente": 3
+     }
+    }
+   },
+   {
+    "codigo": "90",
+    "nombre": "Santa Elena",
+    "tipo": "Corregimiento",
+    "valores": {
+     "atractivos": {
+      "vigente": 2
+     },
+     "hospedajes_osm": {
+      "vigente": 3
+     }
+    }
    }
   ]
  }

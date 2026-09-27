@@ -84,12 +84,14 @@ export const thematicLayers = {
   },
   turismo: {
     label: 'Turismo',
-    fuentes: ['alcaldia-turismo'],
-    archivos: ['turismo_atractivos'],
+    fuentes: ['alcaldia-turismo', 'osm-hospedajes'],
+    archivos: ['turismo_hospedajes', 'turismo_atractivos', 'turismo_informacion'],
     layers: [
-      { id: 'capa-atractivos', type: 'circle', source: 'turismo_atractivos', paint: { 'circle-radius': 5, 'circle-color': '#e6db74', 'circle-stroke-color': '#272822', 'circle-stroke-width': 1.5 } }
+      { id: 'capa-hospedajes', type: 'circle', source: 'turismo_hospedajes', minzoom: 11, paint: { 'circle-radius': ['interpolate', ['linear'], ['zoom'], 11, 2, 16, 5], 'circle-color': '#ae81ff', 'circle-opacity': 0.85, 'circle-stroke-color': '#272822', 'circle-stroke-width': 0.8 } },
+      { id: 'capa-atractivos', type: 'circle', source: 'turismo_atractivos', paint: { 'circle-radius': ['case', ['boolean', ['get', 'imperdible'], false], 7, 5], 'circle-color': '#e6db74', 'circle-stroke-color': '#272822', 'circle-stroke-width': 1.5 } },
+      { id: 'capa-informacion', type: 'circle', source: 'turismo_informacion', paint: { 'circle-radius': 7, 'circle-color': '#66d9ef', 'circle-stroke-color': '#f8f8f2', 'circle-stroke-width': 2 } }
     ],
-    legend: [['Atractivo turístico', '#e6db74']]
+    legend: [['Atractivo turístico (grande: imperdible)', '#e6db74'], ['Punto de información turística', '#66d9ef'], ['Hospedaje (OpenStreetMap)', '#ae81ff']]
   },
   verde: {
     label: 'Verde',

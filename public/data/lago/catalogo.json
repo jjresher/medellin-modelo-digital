@@ -1,8 +1,8 @@
 {
  "probado": "2026-09-27",
- "n": 55,
+ "n": 59,
  "por_estado": {
-  "observado": 53,
+  "observado": 57,
   "declarado": 2
  },
  "datasets": [
@@ -309,9 +309,9 @@
    "entidad": "Ministerio de Comercio, Industria y Turismo",
    "url": "https://www.datos.gov.co/d/7wm8-w5ad",
    "estado": "observado",
-   "probado": "2026-09-26",
+   "probado": "2026-09-27",
    "tema": "turismo",
-   "vigencia": "2015 – 2026",
+   "vigencia": "ene 2015 – jun 2026",
    "uso": "Visitantes extranjeros 2025, Visitantes extranjeros 2026, Visitantes extranjeros: variación frente a 2025"
   },
   {
@@ -320,10 +320,65 @@
    "entidad": "Aeronáutica Civil de Colombia",
    "url": "https://www.datos.gov.co/d/gb6w-ynu4",
    "estado": "observado",
-   "probado": "2026-09-26",
+   "probado": "2026-09-27",
    "tema": "turismo",
-   "vigencia": "2020 – 2026",
-   "uso": "Pasajeros aeropuerto JMC 2025, Pasajeros aeropuerto JMC 2026"
+   "vigencia": "ene 2020 – jun 2026",
+   "uso": "Pasajeros aeropuerto JMC 2025, Pasajeros internacionales JMC 2025, Pasajeros nacionales JMC 2025, Pasajeros aeropuerto JMC 2026"
+  },
+  {
+   "id": "medata-ocupacion-hotelera",
+   "nombre": "Porcentaje de ocupación hotelera mensual de Medellín",
+   "entidad": "Secretaría de Turismo · Alcaldía de Medellín (MEData)",
+   "url": "http://medata.gov.co/sites/default/files/distribution/1-010-04-000201/porcentaje_ocupacion_hotelera_mensual_de_medellin.csv",
+   "estado": "observado",
+   "probado": "2026-09-27",
+   "tema": "turismo",
+   "vigencia": "ene 2007 – oct 2023",
+   "uso": "Ocupación hotelera, oct 2023, Ocupación hotelera promedio 2022, Último año completo de ocupación por zona"
+  },
+  {
+   "id": "medata-museos",
+   "nombre": "Visitantes a museos",
+   "entidad": "Secretaría de Turismo · Alcaldía de Medellín (MEData)",
+   "url": "http://medata.gov.co/sites/default/files/distribution/1-010-04-000192/ingreso_mensual_de_visitantes_a_museos.csv",
+   "estado": "observado",
+   "probado": "2026-09-27",
+   "tema": "turismo",
+   "vigencia": "2007 – 2022",
+   "uso": "Visitantes a museos 2022"
+  },
+  {
+   "id": "medata-sitios",
+   "nombre": "Visitantes a sitios de interés",
+   "entidad": "Secretaría de Turismo · Alcaldía de Medellín (MEData)",
+   "url": "http://medata.gov.co/sites/default/files/distribution/1-010-04-000193/ingreso_mensual_de_visitantes_a_sitios_de_interes.csv",
+   "estado": "observado",
+   "probado": "2026-09-27",
+   "tema": "turismo",
+   "vigencia": "2007 – 2022",
+   "uso": "Visitantes a sitios de interés 2022"
+  },
+  {
+   "id": "alcaldia-turismo",
+   "nombre": "Atractivos turísticos y puntos de información turística",
+   "entidad": "Secretaría de Turismo · Alcaldía de Medellín",
+   "url": "https://www.medellin.gov.co/servidormapas/rest/services/ccio_ind_turism/VC_Turismo/MapServer",
+   "estado": "observado",
+   "probado": "2026-09-27",
+   "tema": "turismo",
+   "vigencia": "Actualizado el 2024-10-17",
+   "uso": "Atractivos turísticos registrados, Atractivos marcados como \"imperdibles\", Puntos de información turística"
+  },
+  {
+   "id": "osm-hospedajes",
+   "nombre": "Hoteles, hostales y otros hospedajes mapeados en OpenStreetMap",
+   "entidad": "Colaboradores de OpenStreetMap (ODbL)",
+   "url": "https://overpass-turbo.eu/?Q=nwr%5B%22tourism%22~%22%5E%28hotel%7Chostel%7Cguest_house%7Capartment%7Cmotel%29%24%22%5D%286.14%2C-75.72%2C6.4%2C-75.46%29%3Bout%20center%3B",
+   "estado": "observado",
+   "probado": "2026-09-27",
+   "tema": "turismo",
+   "vigencia": "OpenStreetMap al 2026-06-01",
+   "uso": "Hospedajes mapeados en OpenStreetMap"
   },
   {
    "id": "metro-afluencia",
@@ -419,7 +474,7 @@
    "entidad": "Área Metropolitana del Valle de Aburrá · Portal IDEM (datos de EPM)",
    "url": "https://portalidem.metropol.gov.co/server/rest/services/Hosted/Riesgo_Tecnol%C3%B3gico/FeatureServer",
    "estado": "observado",
-   "probado": "2026-09-26",
+   "probado": "2026-09-27",
    "tema": "lentes",
    "vigencia": "Red vigente",
    "uso": "Subestaciones de energía en Medellín, Red de media tensión en Medellín, Líneas de alta tensión en Medellín"
@@ -430,7 +485,7 @@
    "entidad": "Área Metropolitana del Valle de Aburrá · Portal IDEM (catastro del Distrito) · POT",
    "url": "https://portalidem.metropol.gov.co/server/rest/services/DISTRITO_MEDELLIN_CATASTRO/MapServer/8",
    "estado": "observado",
-   "probado": "2026-09-26",
+   "probado": "2026-09-27",
    "tema": "lentes",
    "vigencia": "Base catastral vigente",
    "uso": "Índice de construcción bruto (16 comunas)"
@@ -441,7 +496,7 @@
    "entidad": "Secretaría de Movilidad · Alcaldía de Medellín (MEData)",
    "url": "http://medata.gov.co/sites/default/files/distribution/1-023-25-000360/Mede_Victimas_inci.csv",
    "estado": "observado",
-   "probado": "2026-09-26",
+   "probado": "2026-09-27",
    "tema": "lentes",
    "vigencia": "2019–2021",
    "uso": "Víctimas en siniestros viales 2019–2021, Muertos en siniestros viales 2019–2021"
@@ -452,7 +507,7 @@
    "entidad": "Secretaría de Movilidad · Alcaldía de Medellín (MEData)",
    "url": "http://medata.gov.co/sites/default/files/distribution/1-023-25-000301/Aforos_Vehiculares.csv",
    "estado": "observado",
-   "probado": "2026-09-26",
+   "probado": "2026-09-27",
    "tema": "lentes",
    "vigencia": "2017–2019",
    "uso": "Intersecciones con aforo vehicular"
@@ -463,7 +518,7 @@
    "entidad": "Área Metropolitana del Valle de Aburrá · Portal IDEM",
    "url": "https://portalidem.metropol.gov.co/server/rest/services/DISTRITO_MEDELLIN_POT/MapServer",
    "estado": "observado",
-   "probado": "2026-09-26",
+   "probado": "2026-09-27",
    "tema": "lentes",
    "vigencia": "POT vigente (Acuerdo 48 de 2014)",
    "uso": "Zonas con condiciones de riesgo o alto riesgo (POT), Equipamientos del POT"
@@ -474,7 +529,7 @@
    "entidad": "Metro de Medellín · datos abiertos",
    "url": "https://utility.arcgis.com/usrsvcs/servers/b97b082ae9b44544b579f9e4d7a97d4c/rest/services/Hosted/ServiciosOpenData_gdb/FeatureServer/1",
    "estado": "observado",
-   "probado": "2026-09-26",
+   "probado": "2026-09-27",
    "tema": "lentes",
    "vigencia": "Red vigente",
    "uso": "Estaciones del Sistema Metro"
@@ -485,21 +540,10 @@
    "entidad": "Área Metropolitana del Valle de Aburrá · Portal IDEM",
    "url": "https://portalidem.metropol.gov.co/server/rest/services/Hosted/Ciclorrutas/FeatureServer/0",
    "estado": "observado",
-   "probado": "2026-09-26",
+   "probado": "2026-09-27",
    "tema": "lentes",
    "vigencia": "Red vigente",
    "uso": "Estaciones EnCicla, Ciclorrutas construidas"
-  },
-  {
-   "id": "alcaldia-turismo",
-   "nombre": "Atractivos turísticos y puntos de información turística",
-   "entidad": "Secretaría de Turismo · Alcaldía de Medellín",
-   "url": "https://www.medellin.gov.co/servidormapas/rest/services/ccio_ind_turism/VC_Turismo/MapServer/0",
-   "estado": "observado",
-   "probado": "2026-09-26",
-   "tema": "lentes",
-   "vigencia": "Registro vigente",
-   "uso": "Atractivos turísticos registrados"
   },
   {
    "id": "siata-pm25",

@@ -22,7 +22,7 @@ Hoja de ruta para llevar la app a la estructura de [Cerebro Lima](https://cerebr
 | 4 | [Ambiente y satélite](#4-ambiente-y-satélite) | 0 | ☑ |
 | 5 | [Gente](#5-gente) | 0 | ☑ |
 | 6 | [Economía y vivienda](#6-economía-y-vivienda) | 0 | ☑ |
-| 7 | [Turismo](#7-turismo) | 0 | ☐ |
+| 7 | [Turismo](#7-turismo) | 0 | ☑ |
 | 8 | [Municipio](#8-municipio) | 0 | ☐ |
 | 9 | [Servicios públicos](#9-servicios-públicos) | 0 | ☐ |
 | 10 | [Territorio y cultura](#10-territorio-y-cultura) | 0, 1 | ☐ |
@@ -280,13 +280,29 @@ Panorama va casi al final porque resume las cifras ancla de todas las demás sec
 ## 7. Turismo
 
 **Tareas**
-- [ ] Extranjeros no residentes por año y mes, 2015–2026 (MinCIT), con los países de origen principales.
-- [ ] Pasajeros del aeropuerto José María Córdova, 2020–2026 (Aerocivil).
-- [ ] Ocupación hotelera, museos y sitios de interés hasta octubre de 2023, rotulados como históricos.
-- [ ] Mapa de los 92 atractivos turísticos y los puntos de información turística.
-- [ ] Hoteles y hospedajes desde OSM, estado `observado`, con la fecha de consulta.
+- [x] Extranjeros no residentes por año y mes, 2015–2026 (MinCIT), con los países de origen principales.
+- [x] Pasajeros del aeropuerto José María Córdova, 2020–2026 (Aerocivil).
+- [x] Ocupación hotelera, museos y sitios de interés hasta octubre de 2023, rotulados como históricos.
+- [x] Mapa de los 92 atractivos turísticos y los puntos de información turística.
+- [x] Hoteles y hospedajes desde OSM, estado `observado`, con la fecha de consulta.
 
 **Datos:** [Turismo](fuentes-medellin.md#turismo).
+
+**Resultado (27 sep 2026)**
+- `pull_turismo.py` pasa de 2 a 7 fuentes. El tema tiene 16 cifras, 7 series (extranjeros y pasajeros por mes y por año, ocupación hotelera mensual, museos y sitios por año) y las listas `indicadores` y `territorios` (atractivos y hospedajes por comuna), con el contrato de Gente y Economía.
+- Nueva sección `Turismo` (`src/components/TurismoView.jsx`): visitantes extranjeros (por mes o por año, y países de residencia), aeropuerto (nacional e internacional), atractivos y hospedajes, ranking por territorio y el histórico de ocupación, museos y sitios, en un bloque aparte con aviso.
+- La capa Turismo del gemelo muestra ahora atractivos (los imperdibles más grandes), puntos de información y hospedajes de OSM, cada uno con su ficha y su fuente.
+- Decisiones de alcance:
+  - **Vigencias del histórico**, calculadas del dato: ocupación de la ciudad hasta octubre de 2023; por zona, hasta marzo de 2023; museos y sitios, hasta febrero de 2023. Los rankings usan 2022, último año completo, con 2019 al pasar el cursor.
+  - **Hospedajes de OSM:** 381 dentro de Medellín (la consulta usa una caja y se filtra con el límite del Distrito). La vigencia es la fecha de la copia de OSM del servidor que respondió (hoy, 1 de junio de 2026), no la de la consulta. Se explica que no es el Registro Nacional de Turismo.
+  - **Pasajeros:** se aclara en pantalla que cuentan cada viaje de ida o de vuelta y que no es turismo.
+- Correcciones que salieron al probar:
+  - Las fichas de MEData en datos.gov.co no se consultan por API; se descarga el CSV enlazado.
+  - Museos y sitios traían ceros antes de que el lugar existiera y un valor negativo; se descartan.
+  - Overpass rechazaba la consulta con 504 por pedir un timeout largo; con 25 s responde.
+  - `LineChart`: el último rótulo del eje X se pegaba al anterior porque se alinea a la derecha; ahora se calcula el tramo real de cada rótulo. En el panel por territorio, "Vigencia Actualizado el…" pasó a "Vigencia: actualizado el…".
+- La capa de atractivos pasó de `pull_lentes.py` a `pull_turismo.py` (al reingestar lentes, su cifra de atractivos desaparece de ese tema).
+- **Pendiente de revisar a mano:** la sección en un móvil real (se probó a 390 px sin desbordamiento horizontal).
 
 ---
 

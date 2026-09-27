@@ -358,3 +358,8 @@ h1 em { color: var(--green); font-family: Georgia, serif; font-weight: 400; }
 .economia-tabla td, .economia-tabla th { text-align: right; }
 .economia-tabla td:first-child, .economia-tabla th:first-child { text-align: left; }
 .economia-view .link-fuente { display: inline-block; margin-top: 4px; text-decoration: none; }
+
+/* ---- Turismo (issue #7) ---- */
+.turismo-view .card-controls { justify-content: space-between; align-items: center; }
+.turismo-view .card-controls h3 { margin: 0; }
+.turismo-view .link-fuente { display: inline-block; margin-top: 14px; text-decoration: none; }

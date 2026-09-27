@@ -343,17 +343,6 @@ def capas_bicicleta(t):
             nota='Suma del campo de longitud de los tramos en estado "Construida"; hay tramos proyectados que no se suman.')
 
 
-def capas_turismo(t):
-    t.fuente('alcaldia-turismo', 'Atractivos turísticos y puntos de información turística',
-             'Secretaría de Turismo · Alcaldía de Medellín', f'{ALC}/ccio_ind_turism/VC_Turismo/MapServer/0')
-    atractivos = geojson_arcgis(f'{ALC}/ccio_ind_turism/VC_Turismo/MapServer/0')
-    guardar_capa('turismo_atractivos', [punto(f['geometry'], {k.lower(): v for k, v in f['properties'].items()
-                                                              if isinstance(v, str) and v.strip()})
-                                        for f in atractivos['features'] if f.get('geometry')])
-    t.cifra('atractivos_turisticos', len(atractivos['features']), 'atractivos', 'Atractivos turísticos registrados',
-            'alcaldia-turismo', 'Registro vigente')
-
-
 # ---------------------------------------------------------------- índices y rejilla de análisis
 
 INDICADORES = {
@@ -427,8 +416,8 @@ def main():
         periodo_vial = victimas_viales(t, terr)
     with t.bloque('medata-aforos'):
         aforos(t, terr)
-    for fuente, funcion in (('idem-pot', capas_pot), ('metro-red', capas_movilidad), ('idem-bicicleta', capas_bicicleta),
-                            ('alcaldia-turismo', capas_turismo)):
+    # Los atractivos turísticos los genera pull_turismo (capa turismo_atractivos).
+    for fuente, funcion in (('idem-pot', capas_pot), ('metro-red', capas_movilidad), ('idem-bicicleta', capas_bicicleta)):
         with t.bloque(fuente):
             funcion(t)
     indices(t, terr)

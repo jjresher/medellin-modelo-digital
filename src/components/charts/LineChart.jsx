@@ -32,18 +32,28 @@ function escalaY(minDato, maxDato, desdeCero, pasos = 5) {
 }
 
 /**
- * Posiciones del eje X que caben sin encimarse: se reparte un rótulo cada tantos puntos según el ancho disponible,
- * siempre con el primero y el último, y se quita el regular que quedaría pegado al último.
+ * Posiciones del eje X que caben sin encimarse. El primer rótulo se alinea a la izquierda, el último a la derecha y
+ * los demás al centro, así que cada uno ocupa un tramo distinto alrededor de su punto: se reparte un rótulo cada tantos
+ * puntos y se descarta el que pisaría al anterior o al último, que siempre se muestra.
  */
 function ticksX(etiquetas, anchoPlot) {
   const n = etiquetas.length;
   if (n <= 1) return n ? [0] : [];
-  const hueco = Math.max(...etiquetas.map(anchoTexto)) + 18;
-  const caben = Math.max(2, Math.floor(anchoPlot / hueco) + 1);
-  const cada = Math.max(1, Math.ceil((n - 1) / (caben - 1)));
   const separacion = anchoPlot / (n - 1);
+  const tramo = (i) => {
+    const w = anchoTexto(etiquetas[i]);
+    const x = i * separacion;
+    return i === 0 ? [x, x + w] : i === n - 1 ? [x - w, x] : [x - w / 2, x + w / 2];
+  };
+  const hueco = Math.max(...etiquetas.map(anchoTexto)) + 18;
+  const cada = Math.max(1, Math.ceil(hueco / separacion));
+  const ultimo = tramo(n - 1);
   const marcas = [];
-  for (let i = 0; i < n - 1; i += cada) if ((n - 1 - i) * separacion >= hueco) marcas.push(i);
+  for (let i = 0; i < n - 1; i += cada) {
+    const [ini, fin] = tramo(i);
+    const previo = marcas.length ? tramo(marcas.at(-1))[1] : -Infinity;
+    if (ini >= previo + 12 && fin <= ultimo[0] - 12) marcas.push(i);
+  }
   return [...marcas, n - 1];
 }
 

@@ -142,10 +142,23 @@ Convenciones: `ALC` = `https://www.medellin.gov.co/servidormapas/rest/services`,
 
 | Dato | Endpoint | Vigencia | Valor clave |
 |---|---|---|---|
-| **Extranjeros no residentes en Medellín** | datos.gov.co `7wm8-w5ad` (MinCIT), filtro `ciudad='Medellín'` | Junio de 2026 | **2025: 1.143.678**; 2024: 1.048.471; enero–junio de 2026: 551.226 |
-| **Pasajeros del aeropuerto JMC** | datos.gov.co `gb6w-ynu4` (Aerocivil), `origen='MDE' or destino='MDE'` | Junio de 2026 | **2025: 13.261.826** |
-| Ocupación hotelera, museos y sitios de interés | MEData, tema Comercio, Industria y Turismo | **Hasta octubre de 2023** | Sirve solo como serie histórica |
-| Atractivos turísticos y puntos de información | `ALC/ccio_ind_turism/VC_Turismo/MapServer/0` y `/1` | Vigente | 92 atractivos |
+| **Extranjeros no residentes en Medellín** | datos.gov.co `7wm8-w5ad` (MinCIT), filtro `ciudad='Medellín'` | Junio de 2026 | **2025: 1.143.678**; enero–junio de 2026: 551.226. Por mes y país de residencia. **En uso.** |
+| **Pasajeros del aeropuerto JMC** | datos.gov.co `gb6w-ynu4` (Aerocivil), `origen='MDE' or destino='MDE'` | Junio de 2026 | **2025: 13.261.826** (9.022.653 nacionales y 4.239.173 internacionales, campo `tr_fico_n_i`). Por mes. **En uso.** |
+| Ocupación hotelera mensual | `MED/1-010-04-000201/porcentaje_ocupacion_hotelera_mensual_de_medellin.csv` (ficha datos.gov.co `9uyb-9tt4`) | **Enero de 2007 – octubre de 2023** | Octubre de 2023: 67,1 %; promedio 2022: 77,0 %. **En uso, rotulada como histórica.** |
+| Ocupación hotelera por zona | `MED/1-010-04-000202/porcentaje_ocupacion_hotelera_mensual_por_zona.csv` (`r4yu-zpf4`) | Hasta marzo de 2023 | Laureles, Poblado y Centro. **En uso.** |
+| Visitantes a museos | `MED/1-010-04-000192/ingreso_mensual_de_visitantes_a_museos.csv` (`ytmq-gp6n`) | Hasta febrero de 2023 | 12 museos; 839.111 visitas en 2022. **En uso.** |
+| Visitantes a sitios de interés | `MED/1-010-04-000193/ingreso_mensual_de_visitantes_a_sitios_de_interes.csv` (`pdym-a36z`) | Hasta febrero de 2023 | 9 sitios; 5,26 millones de visitas en 2022. **En uso.** |
+| Atractivos turísticos | `ALC/ccio_ind_turism/VC_Turismo/MapServer/0` | Actualizada el 17 de octubre de 2024 (`fecha_actualizacion`) | 92 atractivos, 13 marcados como "imperdibles", 32 tipos. **En uso.** |
+| Puntos de información turística | `.../VC_Turismo/MapServer/1` | Vigente | 3 puntos. **En uso.** |
+| Hoteles y otros hospedajes | OpenStreetMap vía Overpass, `tourism=hotel|hostel|guest_house|apartment|motel` | Fecha de la copia de OSM del servidor que responde | 381 dentro de Medellín. **En uso**, estado `observado`. |
+
+**Notas de uso en Turismo (issue #7, 27 sep 2026)**
+
+- Las fichas de MEData en datos.gov.co son enlaces, no tablas (la API responde "non-tabular"): el CSV real está en `metadata.accessPoints`.
+- **Los archivos de MEData no vienen ordenados** y su vigencia real no es la que parece al leer las primeras filas: la ocupación de la ciudad llega a octubre de 2023, pero la de zonas a marzo de 2023 y museos y sitios a febrero de 2023.
+- En museos y sitios, los ceros antes del primer mes con visitas son meses en que el lugar no existía o no reportaba (el Parque Arví abrió en 2010) y se descartan; también un valor negativo del Museo Madre Laura. Los ceros de 2020 (cierre por la pandemia) sí se conservan. El conjunto de lugares cambia entre años, así que la suma anual no es del todo comparable.
+- **Overpass:** con `[timeout:90]` o más, los servidores cargados rechazan la consulta con 504; con `[timeout:25]` responde en segundos. Los espejos (`kumi.systems`, `private.coffee`) pueden tener copias de OSM de meses atrás: la vigencia usa la fecha de la copia (`timestamp_osm_base`), no la de la consulta.
+- La capa de atractivos la generaba la ingesta de lentes; desde esta issue la genera `pull_turismo.py`.
 
 ### Municipio
 

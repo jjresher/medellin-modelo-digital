@@ -48,7 +48,9 @@ const popupFields = {
   'capa-ciclorrutas': ['Ciclorruta', [['estado', 'Estado'], ['tipo_via', 'Tipo'], ['longitud_m', 'Longitud (m)']], 'nombre'],
   'capa-encicla': ['Estación EnCicla', [['direccion', 'Dirección']], 'nombre'],
   'capa-equipamientos': ['Equipamiento', [['tipo', 'Tipo'], ['componente', 'Componente'], ['nivel', 'Nivel'], ['barrio', 'Barrio']], 'nombre'],
-  'capa-atractivos': ['Atractivo turístico', [], 'nombre'],
+  'capa-atractivos': ['Atractivo turístico', [['tipo', 'Tipo'], ['comuna', 'Comuna'], ['direccion', 'Dirección']], 'nombre'],
+  'capa-informacion': ['Punto de información turística', [['direccion', 'Dirección'], ['comuna', 'Comuna']], 'nombre'],
+  'capa-hospedajes': ['Hospedaje (OpenStreetMap)', [['tipo', 'Tipo'], ['estrellas', 'Estrellas']], 'nombre'],
   'capa-proteccion-fill': ['Suelo de protección', [['subcategoria', 'Subcategoría']], 'nombre'],
   'capa-tratamientos-fill': ['Tratamiento del POT', [['codigo', 'Código'], ['altura_normativa', 'Altura normativa (pisos)'], ['ic_max', 'Índice de construcción máx.'], ['densidad_max', 'Densidad máx. (viv/ha)']], 'tratamiento'],
   'capa-riesgo-fill': ['Zona de riesgo (POT)', [['riesgo', 'Condición'], ['amenaza', 'Amenaza']], 'nombre'],
@@ -61,6 +63,7 @@ const layerSource = {
   ...Object.fromEntries(Object.values(thematicLayers).flatMap((c) => c.layers.map((l) => [l.id, c.fuentes[0]]))),
   ...Object.fromEntries(Object.values(lenses).flatMap((l) => (l.layers ?? []).map((layer) => [layer.id, l.fuentes.at(-1)])))
 };
+layerSource['capa-hospedajes'] = 'osm-hospedajes';
 const clickable = Object.keys(popupFields);
 
 function featurePopup(layerId, props, fuente) {

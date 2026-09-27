@@ -24,7 +24,7 @@ export function Procedencia({ indicador, fuentes, onSource }) {
   const fuente = fuentes.find((f) => f.id === indicador.fuente);
   return (
     <p className="procedencia">
-      <span>Vigencia {indicador.vigencia}</span>
+      <span>Vigencia: {indicador.vigencia.charAt(0).toLowerCase() + indicador.vigencia.slice(1)}</span>
       <span className={`estado ${indicador.estado}`}>{indicador.estado}</span>
       {fuente && <button onClick={() => onSource(fuente.id)}>{fuente.entidad} ↗</button>}
     </p>

@@ -1,7 +1,7 @@
 {
  "tema": "lentes",
  "titulo": "Lentes del gemelo",
- "probado": "2026-09-26",
+ "probado": "2026-09-27",
  "ancla": [],
  "fuentes": [
   {
@@ -10,7 +10,7 @@
    "entidad": "Área Metropolitana del Valle de Aburrá · Portal IDEM (datos de EPM)",
    "url": "https://portalidem.metropol.gov.co/server/rest/services/Hosted/Riesgo_Tecnol%C3%B3gico/FeatureServer",
    "estado": "observado",
-   "probado": "2026-09-26"
+   "probado": "2026-09-27"
   },
   {
    "id": "catastro-puntos",
@@ -18,7 +18,7 @@
    "entidad": "Área Metropolitana del Valle de Aburrá · Portal IDEM (catastro del Distrito) · POT",
    "url": "https://portalidem.metropol.gov.co/server/rest/services/DISTRITO_MEDELLIN_CATASTRO/MapServer/8",
    "estado": "observado",
-   "probado": "2026-09-26"
+   "probado": "2026-09-27"
   },
   {
    "id": "medata-victimas-viales",
@@ -26,7 +26,7 @@
    "entidad": "Secretaría de Movilidad · Alcaldía de Medellín (MEData)",
    "url": "http://medata.gov.co/sites/default/files/distribution/1-023-25-000360/Mede_Victimas_inci.csv",
    "estado": "observado",
-   "probado": "2026-09-26"
+   "probado": "2026-09-27"
   },
   {
    "id": "medata-aforos",
@@ -34,7 +34,7 @@
    "entidad": "Secretaría de Movilidad · Alcaldía de Medellín (MEData)",
    "url": "http://medata.gov.co/sites/default/files/distribution/1-023-25-000301/Aforos_Vehiculares.csv",
    "estado": "observado",
-   "probado": "2026-09-26"
+   "probado": "2026-09-27"
   },
   {
    "id": "idem-pot",
@@ -42,7 +42,7 @@
    "entidad": "Área Metropolitana del Valle de Aburrá · Portal IDEM",
    "url": "https://portalidem.metropol.gov.co/server/rest/services/DISTRITO_MEDELLIN_POT/MapServer",
    "estado": "observado",
-   "probado": "2026-09-26"
+   "probado": "2026-09-27"
   },
   {
    "id": "metro-red",
@@ -50,7 +50,7 @@
    "entidad": "Metro de Medellín · datos abiertos",
    "url": "https://utility.arcgis.com/usrsvcs/servers/b97b082ae9b44544b579f9e4d7a97d4c/rest/services/Hosted/ServiciosOpenData_gdb/FeatureServer/1",
    "estado": "observado",
-   "probado": "2026-09-26"
+   "probado": "2026-09-27"
   },
   {
    "id": "idem-bicicleta",
@@ -58,15 +58,7 @@
    "entidad": "Área Metropolitana del Valle de Aburrá · Portal IDEM",
    "url": "https://portalidem.metropol.gov.co/server/rest/services/Hosted/Ciclorrutas/FeatureServer/0",
    "estado": "observado",
-   "probado": "2026-09-26"
-  },
-  {
-   "id": "alcaldia-turismo",
-   "nombre": "Atractivos turísticos y puntos de información turística",
-   "entidad": "Secretaría de Turismo · Alcaldía de Medellín",
-   "url": "https://www.medellin.gov.co/servidormapas/rest/services/ccio_ind_turism/VC_Turismo/MapServer/0",
-   "estado": "observado",
-   "probado": "2026-09-26"
+   "probado": "2026-09-27"
   }
  ],
  "cifras": {
@@ -174,14 +166,6 @@
    "vigencia": "Red vigente",
    "estado": "observado",
    "nota": "Suma del campo de longitud de los tramos en estado \"Construida\"; hay tramos proyectados que no se suman."
-  },
-  "atractivos_turisticos": {
-   "valor": 92,
-   "unidad": "atractivos",
-   "etiqueta": "Atractivos turísticos registrados",
-   "fuente": "alcaldia-turismo",
-   "vigencia": "Registro vigente",
-   "estado": "observado"
   }
  },
  "series": {},
