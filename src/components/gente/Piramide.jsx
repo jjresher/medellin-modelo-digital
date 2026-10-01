@@ -21,32 +21,78 @@ export default function Piramide({ filas }) {
   return (
     <div className="piramide">
       <div className="card-controls">
-        <div className="chips">{anios.map((a) => <button key={a} className={a === anio ? 'on' : ''} onClick={() => setAnio(a)}>{a}</button>)}</div>
-        <button className="table-toggle" onClick={() => setTabla((v) => !v)}>{tabla ? 'Ver como gráfica' : 'Ver como tabla'}</button>
+        <div className="chips">
+          {anios.map((a) => (
+            <button key={a} className={a === anio ? 'on' : ''} onClick={() => setAnio(a)}>
+              {a}
+            </button>
+          ))}
+        </div>
+        <button className="table-toggle" onClick={() => setTabla((v) => !v)}>
+          {tabla ? 'Ver como gráfica' : 'Ver como tabla'}
+        </button>
       </div>
       {tabla ? (
         <table className="chart-table">
-          <thead><tr><th>Edad</th><th>Hombres</th><th>Mujeres</th></tr></thead>
-          <tbody>{grupos.map((g) => <tr key={g.grupo}><td>{g.grupo}</td><td>{numero(g.hombres)}</td><td>{numero(g.mujeres)}</td></tr>)}</tbody>
+          <thead>
+            <tr>
+              <th>Edad</th>
+              <th>Hombres</th>
+              <th>Mujeres</th>
+            </tr>
+          </thead>
+          <tbody>
+            {grupos.map((g) => (
+              <tr key={g.grupo}>
+                <td>{g.grupo}</td>
+                <td>{numero(g.hombres)}</td>
+                <td>{numero(g.mujeres)}</td>
+              </tr>
+            ))}
+          </tbody>
         </table>
       ) : (
         <>
           <div className="chart-legend piramide-leyenda">
-            <span><i style={{ background: COLOR_SEXO.hombres }} />Hombres</span>
-            <span><i style={{ background: COLOR_SEXO.mujeres }} />Mujeres</span>
+            <span>
+              <i style={{ background: COLOR_SEXO.hombres }} />
+              Hombres
+            </span>
+            <span>
+              <i style={{ background: COLOR_SEXO.mujeres }} />
+              Mujeres
+            </span>
           </div>
           <div className="piramide-filas" role="img" aria-label={`Pirámide de población de Medellín, ${anio}`}>
             {grupos.map((g) => (
-              <button key={g.grupo} className="piramide-fila" onMouseEnter={() => setHover(g.grupo)} onMouseLeave={() => setHover(null)}
-                onFocus={() => setHover(g.grupo)} onBlur={() => setHover(null)}>
-                <span className="piramide-lado izq"><span style={{ width: `${(g.hombres / max) * 100}%`, background: COLOR_SEXO.hombres }} /></span>
+              <button
+                key={g.grupo}
+                className="piramide-fila"
+                onMouseEnter={() => setHover(g.grupo)}
+                onMouseLeave={() => setHover(null)}
+                onFocus={() => setHover(g.grupo)}
+                onBlur={() => setHover(null)}
+              >
+                <span className="piramide-lado izq">
+                  <span style={{ width: `${(g.hombres / max) * 100}%`, background: COLOR_SEXO.hombres }} />
+                </span>
                 <span className="piramide-grupo">{g.grupo}</span>
-                <span className="piramide-lado"><span style={{ width: `${(g.mujeres / max) * 100}%`, background: COLOR_SEXO.mujeres }} /></span>
+                <span className="piramide-lado">
+                  <span style={{ width: `${(g.mujeres / max) * 100}%`, background: COLOR_SEXO.mujeres }} />
+                </span>
                 {hover === g.grupo && (
                   <div className="chart-tooltip piramide-tooltip">
-                    <b>{g.grupo} años · {anio}</b>
-                    <span><i style={{ background: COLOR_SEXO.hombres }} />Hombres: <strong>{numero(g.hombres)}</strong> ({porcentaje((g.hombres / total) * 100)})</span>
-                    <span><i style={{ background: COLOR_SEXO.mujeres }} />Mujeres: <strong>{numero(g.mujeres)}</strong> ({porcentaje((g.mujeres / total) * 100)})</span>
+                    <b>
+                      {g.grupo} años · {anio}
+                    </b>
+                    <span>
+                      <i style={{ background: COLOR_SEXO.hombres }} />
+                      Hombres: <strong>{numero(g.hombres)}</strong> ({porcentaje((g.hombres / total) * 100)})
+                    </span>
+                    <span>
+                      <i style={{ background: COLOR_SEXO.mujeres }} />
+                      Mujeres: <strong>{numero(g.mujeres)}</strong> ({porcentaje((g.mujeres / total) * 100)})
+                    </span>
                   </div>
                 )}
               </button>

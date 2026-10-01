@@ -10,8 +10,13 @@ import path from 'node:path';
 const SIATA = 'https://geoportal.siata.gov.co/fastgeoapi';
 const USGS = 'https://earthquake.usgs.gov/fdsnws/event/1/query';
 const SISMOS = `${USGS}?${new URLSearchParams({
-  format: 'geojson', starttime: 'now-365days', latitude: '6.2476', longitude: '-75.5686',
-  maxradiuskm: '300', minmagnitude: '4', orderby: 'time'
+  format: 'geojson',
+  starttime: 'now-365days',
+  latitude: '6.2476',
+  longitude: '-75.5686',
+  maxradiuskm: '300',
+  minmagnitude: '4',
+  orderby: 'time'
 })}`;
 
 const RECURSOS = {
@@ -62,7 +67,9 @@ async function guardar(clave, copia) {
   try {
     await mkdir(CACHE_DIR, { recursive: true });
     await writeFile(path.join(CACHE_DIR, `${clave}.json`), JSON.stringify(copia));
-  } catch { /* sin disco: la caché vive lo que viva el proceso */ }
+  } catch {
+    /* sin disco: la caché vive lo que viva el proceso */
+  }
 }
 
 async function leerArriba(clave, url) {
@@ -97,7 +104,10 @@ export async function GET(request, { params }) {
   const { ruta } = await params;
   const objetivo = destino(ruta ?? []);
   if (!objetivo) {
-    return Response.json({ error: 'Recurso no válido', recursos: [...Object.keys(RECURSOS), ...Object.keys(SERIES).map((s) => `${s}/<código>`)] }, { status: 404 });
+    return Response.json(
+      { error: 'Recurso no válido', recursos: [...Object.keys(RECURSOS), ...Object.keys(SERIES).map((s) => `${s}/<código>`)] },
+      { status: 404 }
+    );
   }
   const { clave, url } = objetivo;
   const ttl = TTL[clave] ?? TTL_DEFECTO;
@@ -116,7 +126,9 @@ export async function GET(request, { params }) {
   } catch (error) {
     // Sin dato nuevo: se sirve la última copia, marcada como obsoleta, y solo se falla si nunca hubo una.
     if (guardada) return respuesta(recurso, guardada, ttl, error.message);
-    return Response.json({ recurso, error: `No se pudo leer ${recurso}: ${error.message}`, datos: null },
-      { status: 502, headers: { 'Cache-Control': 'no-store' } });
+    return Response.json(
+      { recurso, error: `No se pudo leer ${recurso}: ${error.message}`, datos: null },
+      { status: 502, headers: { 'Cache-Control': 'no-store' } }
+    );
   }
 }

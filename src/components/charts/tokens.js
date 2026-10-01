@@ -15,4 +15,8 @@ export const accent = { pink: '#f92672', green: '#a6e22e', cyan: '#66d9ef', yell
 // Rampa secuencial de magnitud para los coropléticos (mismo criterio que indexRamp del gemelo, issue #2):
 // un solo tono, de gris oscuro (sin datos / mínimo) a un acento saturado (máximo). No es una paleta
 // categórica, así que no le aplica el límite de "3 series en todos los pares" del validador.
-export const sequential = (huePrincipal = accent.pink) => [[0, '#3a3b33'], [50, accent.purple], [100, huePrincipal]];
+export const sequential = (huePrincipal = accent.pink) => [
+  [0, '#3a3b33'],
+  [50, accent.purple],
+  [100, huePrincipal]
+];

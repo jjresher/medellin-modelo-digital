@@ -15,14 +15,37 @@ export default function Estratos({ filas }) {
     <div className="estratos">
       <div className="card-controls">
         <div className="chart-legend">
-          {NOMBRES.map((n, i) => <span key={n}><i className="cuadro" style={{ background: RAMPA_ESTRATO[i] }} />{i + 1} · {n}</span>)}
+          {NOMBRES.map((n, i) => (
+            <span key={n}>
+              <i className="cuadro" style={{ background: RAMPA_ESTRATO[i] }} />
+              {i + 1} · {n}
+            </span>
+          ))}
         </div>
-        <button className="table-toggle" onClick={() => setTabla((v) => !v)}>{tabla ? 'Ver como gráfica' : 'Ver como tabla'}</button>
+        <button className="table-toggle" onClick={() => setTabla((v) => !v)}>
+          {tabla ? 'Ver como gráfica' : 'Ver como tabla'}
+        </button>
       </div>
       {tabla ? (
         <table className="chart-table estratos-tabla">
-          <thead><tr><th>Territorio</th>{NOMBRES.map((_, i) => <th key={i}>E{i + 1}</th>)}</tr></thead>
-          <tbody>{filas.map((f) => <tr key={f.nombre}><td>{f.nombre}</td>{f.valores.map((v, i) => <td key={i}>{pct(v)}</td>)}</tr>)}</tbody>
+          <thead>
+            <tr>
+              <th>Territorio</th>
+              {NOMBRES.map((_, i) => (
+                <th key={i}>E{i + 1}</th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {filas.map((f) => (
+              <tr key={f.nombre}>
+                <td>{f.nombre}</td>
+                {f.valores.map((v, i) => (
+                  <td key={i}>{pct(v)}</td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
         </table>
       ) : (
         <div className="estratos-filas" role="img" aria-label="Distribución de manzanas por estrato en cada territorio">
@@ -30,15 +53,29 @@ export default function Estratos({ filas }) {
             <div key={f.nombre} className={`estratos-fila ${f.ciudad ? 'ciudad' : ''}`}>
               <span className="bar-label">{f.nombre}</span>
               <span className="estratos-barra">
-                {f.valores.map((v, i) => v > 0 && (
-                  <button key={i} style={{ flexBasis: `${v}%`, background: RAMPA_ESTRATO[i] }} aria-label={`${f.nombre}, estrato ${i + 1}: ${pct(v)}`}
-                    onMouseEnter={() => setHover(`${f.nombre}-${i}`)} onMouseLeave={() => setHover(null)}
-                    onFocus={() => setHover(`${f.nombre}-${i}`)} onBlur={() => setHover(null)}>
-                    {hover === `${f.nombre}-${i}` && (
-                      <span className="chart-tooltip estratos-tooltip"><b>{f.nombre}</b><span>Estrato {i + 1} ({NOMBRES[i].toLowerCase()}): <strong>{pct(v)}</strong></span></span>
-                    )}
-                  </button>
-                ))}
+                {f.valores.map(
+                  (v, i) =>
+                    v > 0 && (
+                      <button
+                        key={i}
+                        style={{ flexBasis: `${v}%`, background: RAMPA_ESTRATO[i] }}
+                        aria-label={`${f.nombre}, estrato ${i + 1}: ${pct(v)}`}
+                        onMouseEnter={() => setHover(`${f.nombre}-${i}`)}
+                        onMouseLeave={() => setHover(null)}
+                        onFocus={() => setHover(`${f.nombre}-${i}`)}
+                        onBlur={() => setHover(null)}
+                      >
+                        {hover === `${f.nombre}-${i}` && (
+                          <span className="chart-tooltip estratos-tooltip">
+                            <b>{f.nombre}</b>
+                            <span>
+                              Estrato {i + 1} ({NOMBRES[i].toLowerCase()}): <strong>{pct(v)}</strong>
+                            </span>
+                          </span>
+                        )}
+                      </button>
+                    )
+                )}
               </span>
             </div>
           ))}

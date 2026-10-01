@@ -6,14 +6,24 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "postinstall": "node scripts/copiar-maplibre.mjs",
+    "lint": "eslint .",
+    "test": "NODE_OPTIONS=--disable-warning=MODULE_TYPELESS_PACKAGE_JSON node --test \"tests/*.test.mjs\" && .venv/bin/python -m unittest discover -s tests",
+    "check": "npm run lint && npm test && npm run verificar",
     "ingesta": ".venv/bin/python ingesta/correr.py",
-    "verificar": ".venv/bin/python ingesta/verificar.py"
+    "verificar": ".venv/bin/python ingesta/verificar.py",
+    "format": "prettier --write \"src/**/*.{js,jsx}\" \"tests/*.mjs\" \"scripts/*.mjs\""
   },
   "dependencies": {
     "maplibre-gl": "^6.10.0",
-    "next": "^16.3.5",
+    "next": "^16.3.8",
     "pmtiles": "^4.5.0",
     "react": "^19.3.0",
     "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.3.8",
+    "prettier": "^3.9.9"
   }
 }

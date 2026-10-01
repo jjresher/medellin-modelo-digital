@@ -18,24 +18,58 @@ export default function BarChart({ data, color, unit = '', formatValue = fmtDefa
 
   return (
     <div className="barchart">
-      <button className="table-toggle" onClick={() => setTable((v) => !v)}>{table ? 'Ver como gráfica' : 'Ver como tabla'}</button>
+      <button className="table-toggle" onClick={() => setTable((v) => !v)}>
+        {table ? 'Ver como gráfica' : 'Ver como tabla'}
+      </button>
       {table ? (
         <table className="chart-table">
-          <thead><tr><th>Territorio</th><th>Valor</th></tr></thead>
-          <tbody>{data.map((d) => <tr key={d.label}><td>{d.label}</td><td>{formatValue(d.value)}{unit && ` ${unit}`}</td></tr>)}</tbody>
+          <thead>
+            <tr>
+              <th>Territorio</th>
+              <th>Valor</th>
+            </tr>
+          </thead>
+          <tbody>
+            {data.map((d) => (
+              <tr key={d.label}>
+                <td>{d.label}</td>
+                <td>
+                  {formatValue(d.value)}
+                  {unit && ` ${unit}`}
+                </td>
+              </tr>
+            ))}
+          </tbody>
         </table>
       ) : (
         <div className="bar-rows" role="img" aria-label={ariaLabel}>
           {data.map((d, i) => (
-            <button key={d.label} className={`bar-row ${selected === d.label ? 'selected' : ''}`}
-              onMouseEnter={() => setHover(i)} onMouseLeave={() => setHover(null)} onFocus={() => setHover(i)} onBlur={() => setHover(null)}
-              onClick={() => onSelect?.(d)}>
+            <button
+              key={d.label}
+              className={`bar-row ${selected === d.label ? 'selected' : ''}`}
+              onMouseEnter={() => setHover(i)}
+              onMouseLeave={() => setHover(null)}
+              onFocus={() => setHover(i)}
+              onBlur={() => setHover(null)}
+              onClick={() => onSelect?.(d)}
+            >
               <span className="bar-label">{d.label}</span>
               <span className="bar-track">
                 <span className="bar-fill" style={{ width: `${(d.value / max) * 100}%`, background: color }} />
               </span>
               <span className="bar-value">{formatValue(d.value)}</span>
-              {hover === i && <div className="chart-tooltip bar-tooltip"><b>{d.label}</b><span><strong>{formatValue(d.value)}{unit && ` ${unit}`}</strong></span>{d.note && <small>{d.note}</small>}</div>}
+              {hover === i && (
+                <div className="chart-tooltip bar-tooltip">
+                  <b>{d.label}</b>
+                  <span>
+                    <strong>
+                      {formatValue(d.value)}
+                      {unit && ` ${unit}`}
+                    </strong>
+                  </span>
+                  {d.note && <small>{d.note}</small>}
+                </div>
+              )}
             </button>
           ))}
         </div>

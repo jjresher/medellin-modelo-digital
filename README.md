@@ -12,6 +12,17 @@ npm install      # solo la primera vez
 npm run dev      # abre http://localhost:3000
 ```
 
+## Calidad del código
+
+```bash
+npm run check    # lint + pruebas + verificación del lago (correr antes de cada commit)
+npm run lint     # ESLint (reglas de Next y de hooks de React)
+npm test         # pruebas de las utilidades del frontend (node:test) y de la ingesta (unittest), sin red
+npm run format   # Prettier sobre src/, tests/ y scripts/ (config en .prettierrc.json; twin/config.js queda fuera a propósito)
+```
+
+`tests/lago-frontend.test.mjs` comprueba que el código no pida cifras ni fuentes que el lago no tiene. `npm install` copia el worker de MapLibre a `public/maplibre/` (`scripts/copiar-maplibre.mjs`), así que siempre coincide con la versión instalada.
+
 ## Lago de datos
 
 La app no tiene cifras escritas a mano: todas salen de `public/data/lago/`, que generan los scripts de `ingesta/`. Cada tema es un JSON con este contrato:

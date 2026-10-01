@@ -43,7 +43,9 @@ export async function GET(request, { params }) {
     if (!respuesta.ok || !tipo.startsWith('image/')) throw new Error(`HTTP ${respuesta.status}`);
     const cuerpo = Buffer.from(await respuesta.arrayBuffer());
     // En un despliegue con disco de solo lectura la escritura falla; entonces solo queda la caché HTTP.
-    mkdir(path.dirname(archivo), { recursive: true }).then(() => writeFile(archivo, cuerpo)).catch(() => {});
+    mkdir(path.dirname(archivo), { recursive: true })
+      .then(() => writeFile(archivo, cuerpo))
+      .catch(() => {});
     return imagen(cuerpo, tipo);
   } catch (error) {
     // Sin tesela, MapLibre deja ver la capa satelital de debajo.

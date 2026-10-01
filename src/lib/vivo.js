@@ -16,11 +16,10 @@ export function useVivo(recurso) {
   const recargar = useCallback(() => setDisparo({ forzar: true }), []);
 
   useEffect(() => {
-    if (!recurso) {
-      setLectura({ estado: 'vacio' });
-      return undefined;
-    }
+    if (!recurso) return undefined;
     let activo = true;
+    // Marcar que empieza una lectura (nueva o de refresco) es parte de sincronizar con el proxy, no un estado derivado.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setLectura((previo) => (previo.recurso === recurso ? { ...previo, refrescando: true } : { estado: 'cargando', recurso }));
     fetch(`${BASE}/${recurso}${disparo.forzar ? '?forzar=1' : ''}`, { cache: 'no-store' })
       .then(async (respuesta) => {
@@ -30,12 +29,23 @@ export function useVivo(recurso) {
       })
       .then((cuerpo) => {
         if (activo) {
-          setLectura({ estado: 'listo', recurso, datos: cuerpo.datos, leido: cuerpo.leido,
-                       edad: cuerpo.edad_s, obsoleto: cuerpo.obsoleto, aviso: cuerpo.error });
+          setLectura({
+            estado: 'listo',
+            recurso,
+            datos: cuerpo.datos,
+            leido: cuerpo.leido,
+            edad: cuerpo.edad_s,
+            obsoleto: cuerpo.obsoleto,
+            aviso: cuerpo.error
+          });
         }
       })
-      .catch((error) => { if (activo) setLectura({ estado: 'error', recurso, error: error.message }); });
-    return () => { activo = false; };
+      .catch((error) => {
+        if (activo) setLectura({ estado: 'error', recurso, error: error.message });
+      });
+    return () => {
+      activo = false;
+    };
   }, [recurso, disparo]);
 
   useEffect(() => {
@@ -43,14 +53,17 @@ export function useVivo(recurso) {
     return () => window.clearInterval(id);
   }, []);
 
-  return { ...lectura, recargar };
+  // Sin recurso no hay nada que leer: el estado guardado (de una lectura anterior) no se muestra.
+  return recurso ? { ...lectura, recargar } : { estado: 'vacio', recargar };
 }
 
 export const rasgos = (lectura) => (lectura.datos?.features ?? []).map((f) => ({ ...f.properties, geometry: f.geometry }));
 
 export const hora = (iso) => (iso ? new Date(iso).toLocaleTimeString('es-CO', { hour: '2-digit', minute: '2-digit', hour12: false }) : '');
-export const numero = (valor, decimales = 0) => (valor == null || Number.isNaN(Number(valor)) ? '—'
-  : Number(valor).toLocaleString('es-CO', { minimumFractionDigits: decimales, maximumFractionDigits: decimales }));
+export const numero = (valor, decimales = 0) =>
+  valor == null || Number.isNaN(Number(valor))
+    ? '—'
+    : Number(valor).toLocaleString('es-CO', { minimumFractionDigits: decimales, maximumFractionDigits: decimales });
 
 // Las marcas de tiempo del SIATA vienen como "2026-09-26 22:18:03", en hora local y sin zona: se muestran
 // tal cual (sin los segundos) en vez de reinterpretarlas como una fecha con zona horaria.

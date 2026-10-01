@@ -421,3 +421,24 @@ h1 em { color: var(--green); font-family: Georgia, serif; font-weight: 400; }
 .tabla-scroll thead th { position: sticky; top: 0; background: var(--panel); }
 .buscador-tabla { width: min(100%, 280px); padding: 7px 10px; border: 1px solid var(--line); border-radius: 2px; color: var(--paper); background: transparent; font: 11px ui-monospace, SFMono-Regular, Menlo, monospace; }
 .buscador-tabla:focus { outline: 1px solid var(--yellow); }
+
+/* ---- Rejillas sin huecos ni desniveles ---- */
+/* Una tabla dentro de una rejilla de tarjetas no lleva el margen superior que tiene cuando va sola: quedaba 14 px más
+   abajo (y más corta) que la tarjeta de al lado. */
+.chart-grid > .tabla-card { margin-top: 0; }
+@media (min-width: 901px) {
+  /* Número impar de tarjetas (3, 5…): la última va centrada bajo las demás, no sola a la izquierda. */
+  .chart-grid > :last-child:nth-child(odd):not(:first-child) { grid-column: 1 / -1; width: calc(50% - 7px); justify-self: center; }
+  /* Tarjetas de cifras de a tres por fila sobre seis columnas, para que la última fila siempre se llene:
+     si sobran dos, van a media fila cada una; si sobra una (4, 7…), las cuatro últimas van de a dos. */
+  .metrics-grid.compact { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .metrics-grid.compact > * { grid-column: span 2; }
+  .metrics-grid.compact > :nth-child(3n + 1):nth-last-child(2),
+  .metrics-grid.compact > :nth-child(3n + 1):nth-last-child(2) ~ *,
+  .metrics-grid.compact > :nth-child(3n + 1):nth-last-child(4),
+  .metrics-grid.compact > :nth-child(3n + 1):nth-last-child(4) ~ * { grid-column: span 3; }
+}
+@media (max-width: 900px) {
+  /* A dos columnas, una tarjeta impar al final ocupa la fila entera. */
+  .metrics-grid.compact > :last-child:nth-child(odd) { grid-column: 1 / -1; }
+}

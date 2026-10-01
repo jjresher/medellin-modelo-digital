@@ -4,8 +4,8 @@ import { useEffect, useRef, useState } from 'react';
 import { grid, textMuted, textPrimary, textSecondary } from './tokens';
 
 const H = 220;
-const FUENTE = 11;          // px: el texto del eje se dibuja en píxeles reales, no escalado con la tarjeta
-const ANCHO_LETRA = 6.2;    // px por carácter a 11 px; alcanza para reservar márgenes sin medir el DOM
+const FUENTE = 11; // px: el texto del eje se dibuja en píxeles reales, no escalado con la tarjeta
+const ANCHO_LETRA = 6.2; // px por carácter a 11 px; alcanza para reservar márgenes sin medir el DOM
 const PAD_TOP = 14;
 const PAD_BOTTOM = 26;
 
@@ -20,7 +20,10 @@ const anchoTexto = (texto) => String(texto).length * ANCHO_LETRA;
 function escalaY(minDato, maxDato, desdeCero, pasos = 5) {
   let bajo = desdeCero ? Math.min(0, minDato) : minDato;
   let alto = Math.max(maxDato, desdeCero ? 0 : maxDato);
-  if (alto === bajo) { alto += Math.abs(alto) * 0.1 || 1; bajo -= desdeCero ? 0 : Math.abs(bajo) * 0.1 || 1; }
+  if (alto === bajo) {
+    alto += Math.abs(alto) * 0.1 || 1;
+    bajo -= desdeCero ? 0 : Math.abs(bajo) * 0.1 || 1;
+  }
   const crudo = (alto - bajo) / pasos;
   const magnitud = Math.pow(10, Math.floor(Math.log10(crudo)));
   const paso = [1, 2, 5, 10].find((m) => m * magnitud >= crudo) * magnitud;
@@ -102,12 +105,18 @@ export default function LineChart({ series, unit = '', formatValue = fmtDefault,
   // (las series en vivo del SIATA traen días sin medición y la GEIH no midió la subocupación a mediados de 2020).
   const path = (points) => {
     let comando = 'M';
-    return points.map(([, v], i) => {
-      if (v == null) { comando = 'M'; return ''; }
-      const trazo = `${comando}${x(i).toFixed(1)},${y(v).toFixed(1)}`;
-      comando = 'L';
-      return trazo;
-    }).filter(Boolean).join(' ');
+    return points
+      .map(([, v], i) => {
+        if (v == null) {
+          comando = 'M';
+          return '';
+        }
+        const trazo = `${comando}${x(i).toFixed(1)},${y(v).toFixed(1)}`;
+        comando = 'L';
+        return trazo;
+      })
+      .filter(Boolean)
+      .join(' ');
   };
   const marcasX = ticksX(labels, anchoPlot);
 
@@ -124,25 +133,53 @@ export default function LineChart({ series, unit = '', formatValue = fmtDefault,
       {series.length > 1 && (
         <div className="chart-legend">
           {series.map((s) => (
-            <span key={s.label}><i className={s.dashed ? 'dashed' : ''} style={{ borderTopColor: s.color }} />{s.label}</span>
+            <span key={s.label}>
+              <i className={s.dashed ? 'dashed' : ''} style={{ borderTopColor: s.color }} />
+              {s.label}
+            </span>
           ))}
         </div>
       )}
-      <svg width={ancho} height={height} viewBox={`0 0 ${ancho} ${height}`} onMouseMove={onMove} onMouseLeave={() => setHover(null)}
-        onTouchMove={(e) => onMove(e.touches[0] ?? e)}>
+      <svg
+        width={ancho}
+        height={height}
+        viewBox={`0 0 ${ancho} ${height}`}
+        onMouseMove={onMove}
+        onMouseLeave={() => setHover(null)}
+        onTouchMove={(e) => onMove(e.touches[0] ?? e)}
+      >
         {ticks.map((t) => (
           <g key={t}>
             <line x1={padLeft} x2={padLeft + anchoPlot} y1={y(t)} y2={y(t)} stroke={grid} strokeWidth="1" />
-            <text x={padLeft - 8} y={y(t)} dy="4" textAnchor="end" fontSize={FUENTE} fill={textMuted}>{formatValue(t)}</text>
+            <text x={padLeft - 8} y={y(t)} dy="4" textAnchor="end" fontSize={FUENTE} fill={textMuted}>
+              {formatValue(t)}
+            </text>
           </g>
         ))}
         {marcasX.map((i) => (
-          <text key={i} x={x(i)} y={height - 8} fontSize={FUENTE} fill={textMuted}
-            textAnchor={n === 1 ? 'middle' : i === 0 ? 'start' : i === n - 1 ? 'end' : 'middle'}>{labels[i]}</text>
+          <text
+            key={i}
+            x={x(i)}
+            y={height - 8}
+            fontSize={FUENTE}
+            fill={textMuted}
+            textAnchor={n === 1 ? 'middle' : i === 0 ? 'start' : i === n - 1 ? 'end' : 'middle'}
+          >
+            {labels[i]}
+          </text>
         ))}
         {series.map((s) => (
-          <path key={s.label} d={path(s.points)} fill="none" stroke={s.color} strokeWidth="2" strokeLinejoin="round" strokeLinecap="round"
-            strokeDasharray={s.dashed ? '5 4' : undefined} opacity={s.dashed ? 0.85 : 1} />
+          <path
+            key={s.label}
+            d={path(s.points)}
+            fill="none"
+            stroke={s.color}
+            strokeWidth="2"
+            strokeLinejoin="round"
+            strokeLinecap="round"
+            strokeDasharray={s.dashed ? '5 4' : undefined}
+            opacity={s.dashed ? 0.85 : 1}
+          />
         ))}
         {series.map((s) => {
           const last = [...s.points].reverse().find((p) => p[1] != null);
@@ -151,16 +188,21 @@ export default function LineChart({ series, unit = '', formatValue = fmtDefault,
           return (
             <g key={`${s.label}-end`}>
               <circle cx={x(i)} cy={y(last[1])} r="4" fill={s.color} stroke="#272822" strokeWidth="2" />
-              <text x={x(i) + 8} y={y(last[1])} dy="4" fontSize={FUENTE} fontFamily="ui-monospace, Menlo, monospace" fill={textPrimary}>{formatValue(last[1])}</text>
+              <text x={x(i) + 8} y={y(last[1])} dy="4" fontSize={FUENTE} fontFamily="ui-monospace, Menlo, monospace" fill={textPrimary}>
+                {formatValue(last[1])}
+              </text>
             </g>
           );
         })}
         {hover != null && (
           <g>
             <line x1={x(hover)} x2={x(hover)} y1={PAD_TOP} y2={height - PAD_BOTTOM} stroke={textSecondary} strokeWidth="1" strokeDasharray="2 2" />
-            {series.map((s) => s.points[hover]?.[1] != null && (
-              <circle key={s.label} cx={x(hover)} cy={y(s.points[hover][1])} r="4" fill={s.color} stroke="#272822" strokeWidth="2" />
-            ))}
+            {series.map(
+              (s) =>
+                s.points[hover]?.[1] != null && (
+                  <circle key={s.label} cx={x(hover)} cy={y(s.points[hover][1])} r="4" fill={s.color} stroke="#272822" strokeWidth="2" />
+                )
+            )}
           </g>
         )}
       </svg>
@@ -168,7 +210,10 @@ export default function LineChart({ series, unit = '', formatValue = fmtDefault,
         <div className="chart-tooltip" style={{ left: `${tooltipLeft}px` }}>
           <b>{labels[hover]}</b>
           {series.map((s) => (
-            <span key={s.label}><i style={{ background: s.color }} />{s.label}: <strong>{s.points[hover]?.[1] == null ? 'sin dato' : `${formatValue(s.points[hover][1])}${unit ? ` ${unit}` : ''}`}</strong></span>
+            <span key={s.label}>
+              <i style={{ background: s.color }} />
+              {s.label}: <strong>{s.points[hover]?.[1] == null ? 'sin dato' : `${formatValue(s.points[hover][1])}${unit ? ` ${unit}` : ''}`}</strong>
+            </span>
           ))}
         </div>
       )}

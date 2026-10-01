@@ -6,8 +6,10 @@ import { useEffect, useState } from 'react';
 // si un tema o una cifra no está en el lago, simplemente no se muestra.
 const BASE = '/data/lago';
 
+// `no-cache` revalida con el servidor en cada carga (responde 304 si el archivo no cambió) en vez de bajar el lago entero,
+// y aun así muestra la ingesta nueva en cuanto se genera.
 async function leer(archivo) {
-  const respuesta = await fetch(`${BASE}/${archivo}`, { cache: 'no-store' });
+  const respuesta = await fetch(`${BASE}/${archivo}`, { cache: 'no-cache' });
   if (!respuesta.ok) throw new Error(`${archivo}: ${respuesta.status}`);
   return respuesta.json();
 }
@@ -20,10 +22,7 @@ export function useLago() {
     (async () => {
       try {
         const indice = await leer('indice.json');
-        const [catalogo, ...temas] = await Promise.allSettled([
-          leer('catalogo.json'),
-          ...indice.temas.map(({ tema }) => leer(`${tema}.json`))
-        ]);
+        const [catalogo, ...temas] = await Promise.allSettled([leer('catalogo.json'), ...indice.temas.map(({ tema }) => leer(`${tema}.json`))]);
         if (!activo) return;
         const cargados = Object.fromEntries(temas.filter((t) => t.status === 'fulfilled').map((t) => [t.value.tema, t.value]));
         setLago({
@@ -37,7 +36,9 @@ export function useLago() {
         if (activo) setLago((actual) => ({ ...actual, estado: 'error', error: error.message }));
       }
     })();
-    return () => { activo = false; };
+    return () => {
+      activo = false;
+    };
   }, []);
 
   return lago;
@@ -49,10 +50,17 @@ export function useJsonEstatico(ruta) {
   const [estado, setEstado] = useState({ estado: 'cargando', datos: null });
   useEffect(() => {
     let activo = true;
-    fetch(ruta).then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
-      .then((datos) => { if (activo) setEstado({ estado: 'listo', datos }); })
-      .catch((error) => { if (activo) setEstado({ estado: 'error', datos: null, error: error.message }); });
-    return () => { activo = false; };
+    fetch(ruta)
+      .then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))))
+      .then((datos) => {
+        if (activo) setEstado({ estado: 'listo', datos });
+      })
+      .catch((error) => {
+        if (activo) setEstado({ estado: 'error', datos: null, error: error.message });
+      });
+    return () => {
+      activo = false;
+    };
   }, [ruta]);
   return estado;
 }
@@ -65,10 +73,11 @@ export function cifrasAncla(lago) {
   });
 }
 
-const numero = (valor, decimales = 0) => valor.toLocaleString('es-CO', {
-  minimumFractionDigits: decimales,
-  maximumFractionDigits: decimales
-});
+const numero = (valor, decimales = 0) =>
+  valor.toLocaleString('es-CO', {
+    minimumFractionDigits: decimales,
+    maximumFractionDigits: decimales
+  });
 
 export function formatoValor(cifra) {
   const { valor, unidad, decimales } = cifra;

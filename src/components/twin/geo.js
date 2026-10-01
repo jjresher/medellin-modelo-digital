@@ -8,10 +8,16 @@ export function featureBounds(geometry) {
   };
 
   collect(geometry.coordinates);
-  return points.reduce((bounds, [longitude, latitude]) => [
-    [Math.min(bounds[0][0], longitude), Math.min(bounds[0][1], latitude)],
-    [Math.max(bounds[1][0], longitude), Math.max(bounds[1][1], latitude)]
-  ], [[Infinity, Infinity], [-Infinity, -Infinity]]);
+  return points.reduce(
+    (bounds, [longitude, latitude]) => [
+      [Math.min(bounds[0][0], longitude), Math.min(bounds[0][1], latitude)],
+      [Math.max(bounds[1][0], longitude), Math.max(bounds[1][1], latitude)]
+    ],
+    [
+      [Infinity, Infinity],
+      [-Infinity, -Infinity]
+    ]
+  );
 }
 
 // Un punto de etiqueta por territorio. Si las etiquetas salen del polígono, MapLibre repite el nombre
@@ -33,7 +39,7 @@ function interiorPoint(geometry) {
     for (let i = 0, j = ring.length - 1; i < ring.length; j = i++) {
       const [x1, y1] = ring[j];
       const [x2, y2] = ring[i];
-      if ((y1 > y) !== (y2 > y)) crossings.push(x1 + ((y - y1) / (y2 - y1)) * (x2 - x1));
+      if (y1 > y !== y2 > y) crossings.push(x1 + ((y - y1) / (y2 - y1)) * (x2 - x1));
     }
   });
   crossings.sort((a, b) => a - b);
@@ -47,11 +53,13 @@ function interiorPoint(geometry) {
 export function labelPoints(collection, field) {
   return {
     type: 'FeatureCollection',
-    features: collection.features.filter((f) => f.properties[field]).map((f) => ({
-      type: 'Feature',
-      properties: { name: String(f.properties[field]).trim() },
-      geometry: { type: 'Point', coordinates: interiorPoint(f.geometry) }
-    }))
+    features: collection.features
+      .filter((f) => f.properties[field])
+      .map((f) => ({
+        type: 'Feature',
+        properties: { name: String(f.properties[field]).trim() },
+        geometry: { type: 'Point', coordinates: interiorPoint(f.geometry) }
+      }))
   };
 }
 
