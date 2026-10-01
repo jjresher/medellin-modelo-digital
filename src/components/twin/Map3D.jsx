@@ -55,6 +55,9 @@ const popupFields = {
   'capa-tratamientos-fill': ['Tratamiento del POT', [['codigo', 'Código'], ['altura_normativa', 'Altura normativa (pisos)'], ['ic_max', 'Índice de construcción máx.'], ['densidad_max', 'Densidad máx. (viv/ha)']], 'tratamiento'],
   'capa-riesgo-fill': ['Zona de riesgo (POT)', [['riesgo', 'Condición'], ['amenaza', 'Amenaza']], 'nombre'],
   'capa-suelo-fill': ['Valor catastral del suelo', [['valor_m2', 'Pesos por m²']]],
+  'capa-patrimonio': ['Bien de interés cultural', [['grupo', 'Grupo'], ['tipo', 'Tipo'], ['direccion', 'Dirección'], ['sector', 'Sector']], 'nombre'],
+  'capa-bibliotecas': ['Biblioteca', [['tipo', 'Tipo'], ['direccion', 'Ubicación'], ['horario', 'Horario']], 'nombre'],
+  'capa-sedes': ['Sede educativa', [['establecimiento', 'Establecimiento'], ['sector', 'Sector'], ['direccion', 'Dirección']], 'nombre'],
   'lente-subestaciones': ['Subestación de energía', [['estado', 'Estado'], ['clasificacion', 'Clasificación'], ['direccion', 'Dirección']], 'nombre'],
   'lente-alta-tension': ['Línea de alta tensión', [['tension_kv', 'Tensión (kV)'], ['circuito', 'Circuito']]],
   'lente-aforos': ['Intersección aforada', [['veh_eq_hora_pico', 'Veh. equivalentes en hora pico'], ['anios', 'Años del aforo']], 'interseccion']
@@ -64,6 +67,8 @@ const layerSource = {
   ...Object.fromEntries(Object.values(lenses).flatMap((l) => (l.layers ?? []).map((layer) => [layer.id, l.fuentes.at(-1)])))
 };
 layerSource['capa-hospedajes'] = 'osm-hospedajes';
+layerSource['capa-bibliotecas'] = 'alc-bibliotecas';
+layerSource['capa-sedes'] = 'alc-sedes-educativas';
 const clickable = Object.keys(popupFields);
 
 function featurePopup(layerId, props, fuente) {

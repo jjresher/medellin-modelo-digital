@@ -93,6 +93,17 @@ export const thematicLayers = {
     ],
     legend: [['Atractivo turístico (grande: imperdible)', '#e6db74'], ['Punto de información turística', '#66d9ef'], ['Hospedaje (OpenStreetMap)', '#ae81ff']]
   },
+  cultura: {
+    label: 'Cultura y educación',
+    fuentes: ['alc-bic', 'alc-bibliotecas', 'alc-sedes-educativas'],
+    archivos: ['educacion_sedes', 'cultura_patrimonio', 'cultura_bibliotecas'],
+    layers: [
+      { id: 'capa-sedes', type: 'circle', source: 'educacion_sedes', minzoom: 11, paint: { 'circle-radius': ['interpolate', ['linear'], ['zoom'], 11, 2, 16, 5], 'circle-color': ['match', ['get', 'sector'], 'Oficial', '#66d9ef', '#b9b9ac'], 'circle-opacity': 0.85, 'circle-stroke-color': '#272822', 'circle-stroke-width': 0.8 } },
+      { id: 'capa-patrimonio', type: 'circle', source: 'cultura_patrimonio', paint: { 'circle-radius': ['interpolate', ['linear'], ['zoom'], 11, 2.5, 16, 6], 'circle-color': '#ae81ff', 'circle-stroke-color': '#272822', 'circle-stroke-width': 1 } },
+      { id: 'capa-bibliotecas', type: 'circle', source: 'cultura_bibliotecas', paint: { 'circle-radius': 6.5, 'circle-color': '#e6db74', 'circle-stroke-color': '#272822', 'circle-stroke-width': 1.5 } }
+    ],
+    legend: [['Bien de interés cultural', '#ae81ff'], ['Biblioteca de la Red', '#e6db74'], ['Sede educativa oficial', '#66d9ef'], ['Sede educativa no oficial', '#b9b9ac']]
+  },
   verde: {
     label: 'Verde',
     fuentes: ['idem-pot'],

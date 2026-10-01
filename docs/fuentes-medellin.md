@@ -262,19 +262,26 @@ Tasa de homicidios derivada con la población del DANE: **13,17 por 100.000 habi
 
 ### Territorio, POT y cultura
 
-| Dato | Endpoint | Notas |
-|---|---|---|
-| Amenaza por movimientos en masa | `ALC/ordenamiento_ter/VM_05_Amenazas_Movimientos_Masa/MapServer/2` | 2.376 polígonos |
-| Inundaciones, avenidas torrenciales y zonas de alto riesgo no mitigable | `VM_06_...`, `VM_07_...`, `VM_08_...` | Lente de riesgo |
-| Altura normativa | `VM_28_Altura_Normativa/MapServer/1` | 386 polígonos. Permite comparar la altura permitida con la construida, que es la lente de densificación. |
-| Tratamientos urbanos, usos del suelo, densidad e índice de construcción | `VM_22` a `VM_27` | |
-| Capa "POT 2025" | `VM_34_POT_2025` | Hay que confirmar su estado normativo frente al Acuerdo 48 de 2014 |
-| Equipamientos del POT | `IDEM/DISTRITO_MEDELLIN_POT/MapServer/7` | 2.139 |
-| Bienes de interés cultural | `ALC/cultura/VC_BIC_Patrimonial/MapServer/0` | 397 |
-| Red de bibliotecas | `ALC/cultura/VM_Red_Bibliotecas/MapServer/0` | 32 |
-| Sedes educativas | `ALC/educacion/VC_Sedes/MapServer/0` | 779 |
-| Espacio verde urbano | `ALC/ambiente_dllo_sost/VA_SistemaArbolUrbano_Base/MapServer/5` | 194.916 polígonos |
-| Coberturas terrestres 2021 | `ALC/ambiente_dllo_sost/VM_CoberturasTerrestres2021` | |
+| Dato | Endpoint | Vigencia | Notas |
+|---|---|---|---|
+| **Amenazas y zonas de riesgo** | `ALC/ambiente_dllo_sost/VC_Gestion_Riesgo/MapServer`: amenaza por avenidas torrenciales `/0`, inundaciones `/1` y movimientos en masa `/2`; zonas de riesgo `/3`, `/4` y `/5` | POT de 2014, capas actualizadas al 17/07/2026 (`fecha_actualizacion`) | 2.376, 716 y 115 polígonos de amenaza; 305 zonas de alto riesgo no mitigable. Amenaza alta: 2.951 ha por movimientos en masa, 453 por inundaciones y 395 por avenidas torrenciales. **En uso.** |
+| Amenaza por movimientos en masa, inundaciones y avenidas torrenciales (mapas protocolizados) | `ALC/ordenamiento_ter/VM_05_...`, `VM_06_...`, `VM_07_...`, `VM_08_...` | 2014 | **`VM_06_Amenazas_Inundaciones` ya no trae la capa de inundaciones**: solo la de avenidas torrenciales. Se usa `VC_Gestion_Riesgo`. |
+| **Usos generales del suelo urbano** | `ALC/ordenamiento_ter/VM_POT48_Tematicos/MapServer/5` | Adoptado el 17/12/2014 | 25.446 polígonos. La misma capa en `VM_23_Uso_General_Suelo_Urbano/MapServer/2` **responde 400 cuando se le piden geometrías**. **En uso.** |
+| **Tratamientos urbanos y altura normativa** | `ALC/ordenamiento_ter/VM_22_Tratamientos_Urbanos/MapServer/0` (`alturanormativa` va en la misma capa; `VM_28_Altura_Normativa/1` es igual) | Adoptado el 17/12/2014 | 386 polígonos, 14 tratamientos. Fechas de tipo `DateOnly`: llegan como texto ISO, no en milisegundos. **En uso.** |
+| **Capa "POT 2025"** | `ALC/ordenamiento_ter/VM_34_POT_2025/MapServer` | — | Según su descripción, es un **mapa provisional** con las capas del Acuerdo 48 de 2014 que no se actualizan en la revisión de mediano plazo de 2025; se reestructurará cuando esa revisión se adopte. El POT vigente sigue siendo el Acuerdo 48 de 2014. **En uso** (estado `declarado`). |
+| **Equipamientos del POT** | `IDEM/DISTRITO_MEDELLIN_POT/MapServer/7` | Capa vigente | 2.139, en 22 componentes. **En uso** (también en el gemelo, capa Servicios). |
+| **Bienes de interés cultural** | `ALC/cultura/VC_BIC_Patrimonial/MapServer/0` | Listado del POT, 17/12/2014 | 397 polígonos: 389 arquitectónicos, 5 arqueológicos y 3 urbanísticos ("Arquitectonico" sin tilde en 2). 369 están en La Candelaria. **En uso.** |
+| **Red de bibliotecas** | `ALC/cultura/VM_Red_Bibliotecas/MapServer/0` | Red vigente | 32. **En uso.** |
+| **Sedes educativas** | `ALC/educacion/VC_Sedes/MapServer/0` | Directorio 2024 (`vigencia`) | 779 sedes activas: 423 oficiales y 356 no oficiales. **En uso.** |
+| **Espacio verde urbano** | `ALC/ambiente_dllo_sost/VA_SistemaArbolUrbano_Base/MapServer/5` | Inventario de 2019 (AMVA y Universidad Nacional; ortofotos de 2016 a 2019) | 194.916 polígonos de **todo el Valle de Aburrá**, sin campo de municipio; 3.737 ha en Medellín. Con geometría es muy lento: se leen los atributos `area_ha`, `coord_x_mb` y `coord_y_mb` (EPSG:3116, MAGNA-SIRGAS Bogotá) y se ubican en los límites de la capa `/4` pedidos en ese sistema. Solo suelo urbano. **En uso.** |
+| **Espacio público efectivo** | `ALC/ordenamiento_ter/VM_Espacio_Publico/MapServer/0` | Inventario 2023 (lo dice la descripción de la capa) | 1.507 polígonos con `cod_comuna` (dos códigos `SN` sin comuna); 1.296 ha. **En uso.** |
+| Coberturas terrestres 2021 | `ALC/ambiente_dllo_sost/VM_CoberturasTerrestres2021` | 2021 | No se usa. |
+
+**Notas de uso en Territorio y cultura (issue #10, 30 sep 2026)**
+
+- **IPv6:** `www.medellin.gov.co` publica una dirección IPv6 que a ratos no responde. `curl` pasa a IPv4 enseguida, pero `urllib` esperaba el tiempo máximo en cada intento. `lago.py` prueba primero las direcciones IPv4.
+- **Generalización:** con `maxAllowableOffset` cada página de estas capas tarda unos 90 s en vez de 4 s. Las geometrías se piden completas y se simplifican en la ingesta (~1 m).
+- **Cruces:** las hectáreas por territorio recortan los polígonos con los límites del gemelo; las construcciones, bienes, sedes y equipamientos se asignan por su punto (o el punto representativo de su polígono). Todo lo recortado o dividido por población es `derivado`.
 
 ### Ambiente y satélite
 

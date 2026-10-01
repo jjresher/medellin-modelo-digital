@@ -1,9 +1,9 @@
 {
- "probado": "2026-09-27",
- "n": 79,
+ "probado": "2026-09-30",
+ "n": 89,
  "por_estado": {
-  "observado": 75,
-  "declarado": 3,
+  "observado": 84,
+  "declarado": 4,
   "candidato": 1
  },
  "datasets": [
@@ -765,6 +765,116 @@
    "tema": "lentes",
    "vigencia": "Red vigente",
    "uso": "Estaciones EnCicla, Ciclorrutas construidas"
+  },
+  {
+   "id": "alc-gestion-riesgo",
+   "nombre": "Amenazas y zonas de riesgo por movimientos en masa, inundaciones y avenidas torrenciales",
+   "entidad": "Alcaldía de Medellín · capas protocolizadas del POT (Acuerdo 48 de 2014)",
+   "url": "https://www.medellin.gov.co/servidormapas/rest/services/ambiente_dllo_sost/VC_Gestion_Riesgo/MapServer",
+   "estado": "observado",
+   "probado": "2026-09-30",
+   "tema": "territorio",
+   "vigencia": "POT (Acuerdo 48 de 2014), capas actualizadas al 17 de julio de 2026",
+   "uso": "Área en amenaza alta por movimientos en masa, Construcciones en amenaza alta por movimientos en masa, Área en amenaza alta por inundaciones, Construcciones en amenaza alta por inundaciones…"
+  },
+  {
+   "id": "alc-usos-suelo",
+   "nombre": "Usos generales del suelo urbano",
+   "entidad": "Departamento Administrativo de Planeación · Alcaldía de Medellín",
+   "url": "https://www.medellin.gov.co/servidormapas/rest/services/ordenamiento_ter/VM_POT48_Tematicos/MapServer/5",
+   "estado": "observado",
+   "probado": "2026-09-30",
+   "tema": "territorio",
+   "vigencia": "POT (Acuerdo 48 de 2014), adoptado el 17 de diciembre de 2014",
+   "uso": "Suelo urbano con uso general asignado, Suelo urbano en áreas de baja mixtura"
+  },
+  {
+   "id": "alc-tratamientos",
+   "nombre": "Tratamientos urbanos y altura normativa",
+   "entidad": "Departamento Administrativo de Planeación · Alcaldía de Medellín",
+   "url": "https://www.medellin.gov.co/servidormapas/rest/services/ordenamiento_ter/VM_22_Tratamientos_Urbanos/MapServer/0",
+   "estado": "observado",
+   "probado": "2026-09-30",
+   "tema": "territorio",
+   "vigencia": "POT (Acuerdo 48 de 2014), adoptado el 17 de diciembre de 2014",
+   "uso": "Polígonos de tratamiento urbano, Suelo con altura normativa en pisos"
+  },
+  {
+   "id": "alc-pot-2025",
+   "nombre": "Capa \"POT 2025\" (mapa provisional de la revisión de mediano plazo)",
+   "entidad": "Departamento Administrativo de Planeación · Alcaldía de Medellín",
+   "url": "https://www.medellin.gov.co/servidormapas/rest/services/ordenamiento_ter/VM_34_POT_2025/MapServer",
+   "estado": "declarado",
+   "probado": "2026-09-30",
+   "tema": "territorio",
+   "vigencia": "Consultado el 30 de septiembre de 2026",
+   "uso": "POT vigente"
+  },
+  {
+   "id": "alc-bic",
+   "nombre": "Bienes de interés cultural (BIC)",
+   "entidad": "Secretaría de Cultura Ciudadana · Alcaldía de Medellín",
+   "url": "https://www.medellin.gov.co/servidormapas/rest/services/cultura/VC_BIC_Patrimonial/MapServer/0",
+   "estado": "observado",
+   "probado": "2026-09-30",
+   "tema": "territorio",
+   "vigencia": "Listado del POT (Acuerdo 48 de 2014), actualizado al 17 de diciembre de 2014",
+   "uso": "Bienes de interés cultural"
+  },
+  {
+   "id": "alc-bibliotecas",
+   "nombre": "Red de Bibliotecas de Medellín",
+   "entidad": "Secretaría de Cultura Ciudadana · Alcaldía de Medellín",
+   "url": "https://www.medellin.gov.co/servidormapas/rest/services/cultura/VM_Red_Bibliotecas/MapServer/0",
+   "estado": "observado",
+   "probado": "2026-09-30",
+   "tema": "territorio",
+   "vigencia": "Red vigente",
+   "uso": "Bibliotecas de la Red de Bibliotecas"
+  },
+  {
+   "id": "alc-sedes-educativas",
+   "nombre": "Sedes educativas",
+   "entidad": "Secretaría de Educación · Alcaldía de Medellín",
+   "url": "https://www.medellin.gov.co/servidormapas/rest/services/educacion/VC_Sedes/MapServer/0",
+   "estado": "observado",
+   "probado": "2026-09-30",
+   "tema": "territorio",
+   "vigencia": "Directorio 2024",
+   "uso": "Sedes educativas activas"
+  },
+  {
+   "id": "idem-pot-equipamientos",
+   "nombre": "Equipamientos del POT",
+   "entidad": "Área Metropolitana del Valle de Aburrá · Portal IDEM (POT de Medellín)",
+   "url": "https://portalidem.metropol.gov.co/server/rest/services/DISTRITO_MEDELLIN_POT/MapServer/7",
+   "estado": "observado",
+   "probado": "2026-09-30",
+   "tema": "territorio",
+   "vigencia": "POT (Acuerdo 48 de 2014), capa vigente",
+   "uso": "Equipamientos del POT"
+  },
+  {
+   "id": "amva-espacio-verde",
+   "nombre": "Espacio verde urbano (EVU) del Sistema Árbol Urbano",
+   "entidad": "Área Metropolitana del Valle de Aburrá y Universidad Nacional (Alcaldía de Medellín)",
+   "url": "https://www.medellin.gov.co/servidormapas/rest/services/ambiente_dllo_sost/VA_SistemaArbolUrbano_Base/MapServer/5",
+   "estado": "observado",
+   "probado": "2026-09-30",
+   "tema": "territorio",
+   "vigencia": "Inventario de 2019 (ortofotos de 2016 a 2019) · Inventario de 2019 (ortofotos de 2016 a 2019); población 2026",
+   "uso": "Espacio verde urbano, Espacio verde urbano por habitante, Espacio verde público por habitante"
+  },
+  {
+   "id": "alc-espacio-publico",
+   "nombre": "Inventario de espacio público de esparcimiento y encuentro (espacio público efectivo)",
+   "entidad": "Departamento Administrativo de Planeación · Alcaldía de Medellín",
+   "url": "https://www.medellin.gov.co/servidormapas/rest/services/ordenamiento_ter/VM_Espacio_Publico/MapServer/0",
+   "estado": "observado",
+   "probado": "2026-09-30",
+   "tema": "territorio",
+   "vigencia": "Inventario 2023 · Inventario 2023; población 2026",
+   "uso": "Espacio público efectivo, Espacio público efectivo por habitante"
   },
   {
    "id": "siata-pm25",

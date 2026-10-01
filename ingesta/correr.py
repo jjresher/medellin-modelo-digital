@@ -15,8 +15,9 @@ import traceback
 from lago import DIR_LAGO, hoy
 
 # demografia va primero: seguridad usa su población para calcular tasas.
-# lentes y ambiente van después de gemelo: usan sus límites (ambiente, para recortar el mapa de ruido).
-TEMAS = ['demografia', 'economia', 'seguridad', 'turismo', 'municipio', 'servicios', 'movilidad', 'gemelo', 'lentes', 'ambiente']
+# lentes, territorio y ambiente van después de gemelo: usan sus límites (ambiente, para recortar el mapa de ruido) y
+# territorio además sus construcciones y la población de demografia.
+TEMAS = ['demografia', 'economia', 'seguridad', 'turismo', 'municipio', 'servicios', 'movilidad', 'gemelo', 'lentes', 'territorio', 'ambiente']
 
 
 def vigencia_de(tema, fuente_id):

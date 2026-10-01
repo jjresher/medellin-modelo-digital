@@ -79,6 +79,9 @@ def verificar_tema(ruta, inf):
     for clave, c in tema['cifras'].items():
         lugar = f'{donde} › cifra {clave}'
         faltan = [k for k in CAMPOS_CIFRA if k not in c or c[k] in (None, '')]
+        # Una cifra de texto (por ejemplo, la norma vigente) no tiene unidad.
+        if isinstance(c.get('valor'), str) and 'unidad' in faltan and c.get('unidad') == '':
+            faltan.remove('unidad')
         if c.get('estado') == 'candidato' and faltan == ['valor']:
             faltan = []
         if faltan:

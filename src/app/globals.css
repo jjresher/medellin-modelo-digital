@@ -402,3 +402,22 @@ h1 em { color: var(--green); font-family: Georgia, serif; font-weight: 400; }
 .lista-organizaciones li { break-inside: avoid; padding: 6px 0; border-bottom: 1px solid color-mix(in srgb, var(--line) 60%, transparent); color: var(--paper); font-size: 11px; line-height: 1.4; }
 .lista-organizaciones small { display: block; color: var(--dim); font: 9px ui-monospace, SFMono-Regular, Menlo, monospace; }
 .servicios-ecas td:first-child, .servicios-ecas td:nth-child(2) { min-width: 170px; }
+
+/* ---- Territorio y cultura (issue #10) ---- */
+.metric-card strong.texto { font-size: 17px; letter-spacing: -.6px; line-height: 1.15; }
+.territorio-view .card-controls { justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px; }
+.territorio-view .card-controls h3 { margin: 0; }
+.territorio-view .chart-card .procedencia { margin: 6px 0 10px; }
+.territorio-view .chart-card .metrics-grid { grid-template-columns: minmax(0, 1fr); margin: 0 0 14px; }
+.territorio-view .tabla-card .link-fuente, .territorio-view .chart-fuente .link-fuente { display: inline-block; margin: 10px 0 4px; }
+.territorio-tabla td, .territorio-tabla th { text-align: right; }
+.territorio-tabla td:first-child, .territorio-tabla th:first-child { text-align: left; }
+.territorio-zonas td { vertical-align: top; line-height: 1.45; }
+.territorio-zonas td:first-child { min-width: 170px; color: var(--paper); }
+.territorio-usos th { white-space: normal; min-width: 88px; vertical-align: bottom; }
+.territorio-usos td, .territorio-usos th { text-align: right; }
+.territorio-usos td:first-child, .territorio-usos th:first-child { text-align: left; white-space: nowrap; }
+.tabla-scroll { max-height: 420px; overflow: auto; }
+.tabla-scroll thead th { position: sticky; top: 0; background: var(--panel); }
+.buscador-tabla { width: min(100%, 280px); padding: 7px 10px; border: 1px solid var(--line); border-radius: 2px; color: var(--paper); background: transparent; font: 11px ui-monospace, SFMono-Regular, Menlo, monospace; }
+.buscador-tabla:focus { outline: 1px solid var(--yellow); }

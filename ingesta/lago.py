@@ -18,6 +18,7 @@ import http.client
 import io
 import json
 import re
+import socket
 import time
 import unicodedata
 import urllib.error
@@ -30,6 +31,17 @@ DIR_LAGO = RAIZ / 'public' / 'data' / 'lago'
 ESTADOS = ('observado', 'declarado', 'derivado', 'candidato')
 UA = 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/128 Safari/537.36 medellin-modelo-digital'
 MESES = ('ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic')
+
+
+def _ipv4_primero(getaddrinfo):
+    """El servidor de mapas de la Alcaldía publica una dirección IPv6 que a ratos no responde: urllib la prueba primero
+    y espera el tiempo máximo en cada intento, mientras que por IPv4 contesta enseguida. Se prueban antes las IPv4."""
+    def ordenado(*args, **kwargs):
+        return sorted(getaddrinfo(*args, **kwargs), key=lambda d: d[0] != socket.AF_INET)
+    return ordenado
+
+
+socket.getaddrinfo = _ipv4_primero(socket.getaddrinfo)
 
 
 def hoy():

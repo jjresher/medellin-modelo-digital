@@ -82,6 +82,6 @@ export function formatoValor(cifra) {
 
 // La unidad se muestra aparte del valor, salvo el porcentaje, que ya va pegado a la cifra.
 export function formatoUnidad(cifra) {
-  if (cifra.valor == null) return '';
+  if (cifra.valor == null || typeof cifra.valor === 'string') return '';
   return cifra.unidad === '%' ? '' : cifra.unidad;
 }

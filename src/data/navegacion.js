@@ -26,5 +26,6 @@ export const accentByTheme = {
   movilidad: 'orange',
   gemelo: 'purple',
   lentes: 'purple',
+  territorio: 'orange',
   ambiente: 'cyan'
 };

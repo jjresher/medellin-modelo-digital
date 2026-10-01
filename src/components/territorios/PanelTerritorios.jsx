@@ -20,11 +20,14 @@ function ultimoAnio(territorios, clave) {
   return anios.sort().at(-1);
 }
 
+// "Directorio 2024" → "directorio 2024", pero una sigla ("POT (Acuerdo 48…") se deja como está.
+const minusculaInicial = (texto) => (/^.[a-záéíóúñ]/.test(texto) ? texto.charAt(0).toLowerCase() + texto.slice(1) : texto);
+
 export function Procedencia({ indicador, fuentes, onSource }) {
   const fuente = fuentes.find((f) => f.id === indicador.fuente);
   return (
     <p className="procedencia">
-      <span>Vigencia: {indicador.vigencia.charAt(0).toLowerCase() + indicador.vigencia.slice(1)}</span>
+      <span>Vigencia: {minusculaInicial(indicador.vigencia)}</span>
       <span className={`estado ${indicador.estado}`}>{indicador.estado}</span>
       {fuente && <button onClick={() => onSource(fuente.id)}>{fuente.entidad} ↗</button>}
     </p>

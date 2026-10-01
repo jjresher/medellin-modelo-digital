@@ -25,7 +25,7 @@ Hoja de ruta para llevar la app a la estructura de [Cerebro Lima](https://cerebr
 | 7 | [Turismo](#7-turismo) | 0 | ☑ |
 | 8 | [Municipio](#8-municipio) | 0 | ☑ |
 | 9 | [Servicios públicos](#9-servicios-públicos) | 0 | ☑ |
-| 10 | [Territorio y cultura](#10-territorio-y-cultura) | 0, 1 | ☐ |
+| 10 | [Territorio y cultura](#10-territorio-y-cultura) | 0, 1 | ☑ |
 | 11 | [Atlas de comunas y barrios](#11-atlas-de-comunas-y-barrios) | 3, 5, 6, 9 | ☐ |
 | 12 | [Correlaciones](#12-correlaciones) | 11 | ☐ |
 | 13 | [Escucha social](#13-escucha-social) | 0 | ☐ |
@@ -368,14 +368,28 @@ Panorama va casi al final porque resume las cifras ancla de todas las demás sec
 ## 10. Territorio y cultura
 
 **Tareas**
-- [ ] Amenazas del POT: movimientos en masa, inundaciones, avenidas torrenciales y zonas de alto riesgo no mitigable. Indicador: hectáreas y construcciones expuestas por comuna.
-- [ ] Usos del suelo, tratamientos y altura normativa.
-- [ ] Patrimonio: 397 bienes de interés cultural.
-- [ ] Equipamientos: 32 bibliotecas, 779 sedes educativas y 2.139 equipamientos del POT.
-- [ ] Espacio verde urbano en m² por habitante y por comuna (estado `derivado`).
-- [ ] Confirmar el estado normativo de la capa "POT 2025" frente al Acuerdo 48 de 2014.
+- [x] Amenazas del POT: movimientos en masa, inundaciones, avenidas torrenciales y zonas de alto riesgo no mitigable. Indicador: hectáreas y construcciones expuestas por comuna.
+- [x] Usos del suelo, tratamientos y altura normativa.
+- [x] Patrimonio: 397 bienes de interés cultural.
+- [x] Equipamientos: 32 bibliotecas, 779 sedes educativas y 2.139 equipamientos del POT.
+- [x] Espacio verde urbano en m² por habitante y por comuna (estado `derivado`).
+- [x] Confirmar el estado normativo de la capa "POT 2025" frente al Acuerdo 48 de 2014.
 
 **Datos:** [Territorio, POT y cultura](fuentes-medellin.md#territorio-pot-y-cultura).
+
+**Resultado (30 sep 2026)**
+- Nuevo tema `territorio` con `ingesta/pull_territorio.py` y 10 fuentes: amenazas y zonas de riesgo (Alcaldía, capas del POT), usos generales del suelo, tratamientos y altura normativa, la capa "POT 2025", bienes de interés cultural, Red de Bibliotecas, sedes educativas, equipamientos del POT (IDEM), espacio verde urbano (AMVA y Universidad Nacional) y espacio público efectivo. 25 cifras y 21 indicadores por territorio. Cifras ancla del Panorama: construcciones en amenaza alta (41.219), bienes de interés cultural (397) y espacio verde urbano por habitante (14,8 m²).
+- Nueva sección `Territorio y cultura` (`src/components/TerritorioView.jsx`): amenazas y riesgo (mapa por territorio, hectáreas por amenaza y grado y las 305 zonas de alto riesgo no mitigable), usos del suelo, tratamientos y altura normativa (con el porcentaje de construcciones por encima de la norma que ya calcula la lente de densificación), patrimonio (mapa y listado con buscador), equipamientos, espacio verde y espacio público, y el ranking y la ficha por territorio.
+- Nueva capa "Cultura y educación" en el panel Explorar del gemelo: bienes de interés cultural, bibliotecas y sedes educativas (oficiales y no oficiales).
+- Decisiones de alcance:
+  - **"POT 2025":** la descripción del servicio `VM_34_POT_2025` dice que es un mapa provisional con las capas del Acuerdo 48 de 2014 que no se actualizan en la revisión de mediano plazo de 2025, y que se reestructurará cuando esa revisión se adopte. El POT vigente sigue siendo el Acuerdo 48 de 2014 (cifra `declarado`). La ingesta falla, y conserva el dato anterior, si esa descripción cambia.
+  - **Amenazas:** la capa de inundaciones de `VM_06_Amenazas_Inundaciones` ya no se publica (el servicio solo trae la de avenidas torrenciales). Se usa `VC_Gestion_Riesgo`, que reúne las tres amenazas y sus zonas de riesgo, actualizadas al 17 de julio de 2026.
+  - **Construcciones expuestas:** son las del catastro (las del gemelo) cuyo punto representativo cae en un polígono de amenaza alta o de alto riesgo no mitigable. Una construcción expuesta a dos amenazas cuenta una vez en el total.
+  - **Usos del suelo:** `VM_23_Uso_General_Suelo_Urbano/2` responde 400 cuando se le piden geometrías; se usa la misma capa en `VM_POT48_Tematicos/5`.
+  - **Espacio verde:** la capa cubre todo el Valle de Aburrá y sus 195.000 polígonos tardan mucho con geometría. Se leen solo sus atributos (área y coordenadas, en EPSG:3116) y se ubican en los límites de la misma capa base. El inventario es de 2019 y la población, la proyección del DANE para 2026: la nota lo dice. Cubre solo suelo urbano, así que en los corregimientos cuenta solo sus centros poblados (Palmitas da 0).
+  - **Espacio público efectivo:** además del espacio verde, se agrega el inventario de 2023 de Planeación (m² por habitante), que es el indicador que usa el POT. Son dos medidas distintas y la sección lo explica.
+- Correcciones que salieron al probar: el servidor de la Alcaldía publica una dirección IPv6 que a ratos no responde y `urllib` esperaba el tiempo máximo en cada intento; `lago.py` ahora prueba primero IPv4. Pedirle al servidor que generalice las geometrías (`maxAllowableOffset`) multiplica por veinte el tiempo de cada página, así que se simplifican en la ingesta. Algunas capas dan sus fechas como texto ISO y no en milisegundos. La vigencia en la ficha de procedencia ya no pasa a minúscula una sigla ("pOT").
+- Probada a 1400 y a 390 px, sin desbordamiento horizontal: las tablas anchas se desplazan dentro de su tarjeta.
 
 ---
 
