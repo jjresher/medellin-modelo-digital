@@ -5,7 +5,7 @@ export const escapar = (texto) =>
   String(texto ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
 
 // Contenido de los popups de capas temáticas y de lentes: dato crudo, sin valoraciones.
-const popupFields = {
+export const popupFields = {
   'capa-metro-estaciones': [
     'Estación',
     [

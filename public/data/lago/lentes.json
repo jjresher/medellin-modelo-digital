@@ -48,7 +48,7 @@
    "id": "metro-red",
    "nombre": "Estaciones y líneas del Sistema Metro",
    "entidad": "Metro de Medellín · datos abiertos",
-   "url": "https://utility.arcgis.com/usrsvcs/servers/b97b082ae9b44544b579f9e4d7a97d4c/rest/services/Hosted/ServiciosOpenData_gdb/FeatureServer/1",
+   "url": "https://datosabiertos-metrodemedellin.opendata.arcgis.com/",
    "estado": "observado",
    "probado": "2026-10-01"
   },

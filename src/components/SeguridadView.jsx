@@ -3,10 +3,11 @@
 import { useMemo, useState } from 'react';
 import BarChart from './charts/BarChart';
 import LineChart from './charts/LineChart';
-import { accent } from './charts/tokens';
+import { accent, textSecondary } from './charts/tokens';
 import MetricCard from './MetricCard';
 import BarrioMap from './seguridad/BarrioMap';
 import { useJsonEstatico } from '../lib/lago';
+import { compararAnios } from '../lib/series';
 
 // Un arreglo estable: con `?? []` en el cuerpo del componente, los useMemo que dependen de él se recalcularían en cada render.
 const VACIO = [];
@@ -40,6 +41,8 @@ function PoliciaSection({ tema, onSource }) {
   const anuales = [pick(c, `${clave.v}_anio_curso`), pick(c, `${clave.v}_variacion`), pick(c, `${clave.v}_tasa`)].filter(Boolean);
   const anual = tema.series[`${clave.v}_anual`];
   const mensual = tema.series[`${clave.v}_mensual`];
+  // El año en curso frente al anterior, mes a mes (la serie mensual trae los dos).
+  const comparacion = compararAnios(mensual?.puntos);
   return (
     <section className="sec-block">
       <div className="section-heading">
@@ -70,11 +73,30 @@ function PoliciaSection({ tema, onSource }) {
             <p className="chart-fuente">{anual.nota}</p>
           </div>
         )}
-        {mensual && (
+        {comparacion ? (
           <div className="chart-card">
-            <h3>{nombre} por mes (últimos 2 años)</h3>
-            <LineChart series={[{ label: nombre, color: accent.pink, points: mensual.puntos }]} formatValue={numero} />
+            <h3>
+              {nombre} por mes: {comparacion.actual.anio} frente a {comparacion.anterior.anio}
+            </h3>
+            <LineChart
+              series={[
+                { label: comparacion.actual.anio, color: accent.pink, points: comparacion.actual.puntos },
+                { label: comparacion.anterior.anio, color: textSecondary, dashed: true, points: comparacion.anterior.puntos }
+              ]}
+              formatValue={numero}
+              ariaLabel={`${nombre} por mes: ${comparacion.actual.anio} frente a ${comparacion.anterior.anio}`}
+            />
+            <p className="chart-fuente">
+              La línea punteada es el mismo mes de {comparacion.anterior.anio}. {comparacion.actual.anio} llega hasta el último mes publicado.
+            </p>
           </div>
+        ) : (
+          mensual && (
+            <div className="chart-card">
+              <h3>{nombre} por mes</h3>
+              <LineChart series={[{ label: nombre, color: accent.pink, points: mensual.puntos }]} formatValue={numero} />
+            </div>
+          )
         )}
       </div>
     </section>
@@ -94,7 +116,7 @@ function SiscSection({ tema }) {
   const barData = useMemo(
     () =>
       ranking.map((r) => ({
-        label: r.nombre,
+        label: r.nombre.replace(/^Corregimiento de /, ''),
         value: r.casos,
         note: r.tasa_x10mil != null ? `${r.tasa_x10mil} por 10.000 hab. (DAP)` : 'población no disponible para esta comuna'
       })),

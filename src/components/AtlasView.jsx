@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from 'react';
 import { accentByTheme } from '../data/navegacion';
-import { GRUPOS, construirAtlas, construirBarrios, lugaresDeBarrios, puestos, ranking } from '../lib/atlas';
+import { GRUPOS, construirAtlas, construirBarrios, lugaresDeBarrios, puestos, ranking, repartirEnColumnas } from '../lib/atlas';
 import { useJsonEstatico } from '../lib/lago';
 import BarChart from './charts/BarChart';
 import LineChart from './charts/LineChart';
@@ -56,43 +56,51 @@ function Cabecera({ metrica, fuentes, onSource }) {
   );
 }
 
-// Ficha: una tarjeta por tema, con el año, el valor y el puesto del territorio elegido en cada métrica.
-function Fichas({ grupos, titulos, metricas, codigo, activa, onMetrica, children }) {
+// Altura estimada de una tarjeta de la ficha, en filas: el título y el encabezado, más cada métrica (una etiqueta larga
+// ocupa dos o tres líneas).
+const pesoFicha = (metricas) => 2.2 + metricas.reduce((s, m) => s + 1 + 0.45 * (Math.ceil((m.ind.etiqueta.length + 12) / 34) - 1), 0);
+
+// Ficha: una tarjeta por tema, con el año, el valor y el puesto del territorio elegido en cada métrica. Las tarjetas se
+// reparten en dos columnas de altura parecida para que ninguna quede con espacio vacío por dentro.
+function Fichas({ grupos, titulos, metricas, codigo, activa, onMetrica }) {
+  const porGrupo = grupos.map((g) => metricas.filter((m) => m.grupo === g));
+  const columnas = repartirEnColumnas(porGrupo.map(pesoFicha)).filter((columna) => columna.length);
   return (
-    <div className="chart-grid atlas-fichas">
-      {children}
-      {grupos.map((g) => (
-        <div key={g} className="chart-card tabla-card">
-          <h3>{titulos[g]}</h3>
-          <table className="chart-table ficha-tabla atlas-ficha">
-            <thead>
-              <tr>
-                <th>Indicador</th>
-                <th>Año</th>
-                <th>Valor</th>
-                <th>Puesto</th>
-              </tr>
-            </thead>
-            <tbody>
-              {metricas
-                .filter((m) => m.grupo === g)
-                .map((m) => {
-                  const valor = m.valores[codigo];
-                  const { de, puesto } = puestos(m.valores);
-                  return (
-                    <tr key={m.id} className={m.id === activa ? 'activo' : ''}>
-                      <td>
-                        <button onClick={() => onMetrica(m)}>{m.ind.etiqueta}</button>{' '}
-                        <span className={`estado ${m.ind.estado}`}>{m.ind.estado}</span>
-                      </td>
-                      <td>{m.anio}</td>
-                      <td>{valor == null ? 'sin dato' : conUnidad(valor, m.ind)}</td>
-                      <td>{valor == null ? '—' : `${puesto[codigo]} de ${de}`}</td>
-                    </tr>
-                  );
-                })}
-            </tbody>
-          </table>
+    <div className="atlas-fichas">
+      {columnas.map((columna) => (
+        <div key={columna[0]} className="atlas-columna">
+          {columna.map((i) => (
+            <div key={grupos[i]} className="chart-card">
+              <h3>{titulos[grupos[i]]}</h3>
+              <table className="chart-table ficha-tabla atlas-ficha">
+                <thead>
+                  <tr>
+                    <th>Indicador</th>
+                    <th>Año</th>
+                    <th>Valor</th>
+                    <th>Puesto</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {porGrupo[i].map((m) => {
+                    const valor = m.valores[codigo];
+                    const { de, puesto } = puestos(m.valores);
+                    return (
+                      <tr key={m.id} className={m.id === activa ? 'activo' : ''}>
+                        <td>
+                          <button onClick={() => onMetrica(m)}>{m.ind.etiqueta}</button>{' '}
+                          <span className={`estado ${m.ind.estado}`}>{m.ind.estado}</span>
+                        </td>
+                        <td>{m.anio}</td>
+                        <td>{valor == null ? 'sin dato' : conUnidad(valor, m.ind)}</td>
+                        <td>{valor == null ? '—' : `${puesto[codigo]} de ${de}`}</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          ))}
         </div>
       ))}
     </div>
@@ -142,6 +150,7 @@ function NivelComunas({ atlas, fuentes, onSource }) {
             <MapaTerritorios
               valores={metrica.valores}
               etiqueta={ind.unidad}
+              rotulo={metrica.corto}
               formatValue={(v) => conUnidad(v, ind)}
               formatLegend={(v) => formatoIndicador(v, ind)}
               color={color}
@@ -254,7 +263,10 @@ function NivelBarrios({ atlas, fuentes, onSource }) {
   const { ind } = metrica;
   const color = colorDe(TEMA_BARRIO[metrica.grupo]);
   const elegido = lugares.find((l) => l.codigo === (codigo ?? filas[0]?.codigo));
-  const visibles = todos ? filas : filas.slice(0, TOPE_BARRIOS);
+  // Los primeros del ranking y, si quedó fuera de ellos, el barrio elegido en su propio puesto.
+  const primeros = filas.slice(0, TOPE_BARRIOS);
+  const fueraDelTope = !todos && elegido && !primeros.some((f) => f.codigo === elegido.codigo) && filas.find((f) => f.codigo === elegido.codigo);
+  const visibles = todos ? filas : fueraDelTope ? [...primeros, fueraDelTope] : primeros;
   const sinDato = lugares.length - filas.length;
 
   return (
@@ -291,6 +303,7 @@ function NivelBarrios({ atlas, fuentes, onSource }) {
               nivel="barrios"
               valores={metrica.valores}
               etiqueta={ind.unidad}
+              rotulo={metrica.corto}
               formatValue={(v) => conUnidad(v, ind)}
               formatLegend={(v) => formatoIndicador(v, ind)}
               color={color}
@@ -328,6 +341,11 @@ function NivelBarrios({ atlas, fuentes, onSource }) {
                 onSelect={(d) => setCodigo(d.id)}
               />
             </div>
+            {fueraDelTope && (
+              <p className="chart-fuente">
+                La última fila es {elegido.nombre}, el {elegido.tipo.toLowerCase()} elegido (puesto {fueraDelTope.puesto} de {filas.length}).
+              </p>
+            )}
             {sinDato > 0 && <p className="chart-fuente">{formato(sinDato)} barrios o veredas no tienen dato en esta métrica.</p>}
           </div>
         </div>

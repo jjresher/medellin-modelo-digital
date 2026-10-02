@@ -266,17 +266,6 @@ function Empresas({ tema, onSource }) {
               height={160}
               ariaLabel="Empresas matriculadas por año"
             />
-            {sectores.length > 0 && (
-              <>
-                <h3 className="subtitulo">Por sector (secciones de la CIIU), {tema.cifras.empresas_camara?.vigencia}</h3>
-                <BarChart
-                  data={sectores.map((s) => ({ label: s.sector, value: s.empresas }))}
-                  color={accent.cyan}
-                  formatValue={(v) => formato(v)}
-                  ariaLabel="Empresas por sector"
-                />
-              </>
-            )}
             <p className="chart-fuente">{serie.nota}</p>
           </div>
         )}
@@ -293,6 +282,17 @@ function Empresas({ tema, onSource }) {
               {tema.cifras.establecimientos_ica?.nota} Los grupos se rotulan a partir del código CIIU que predomina en cada uno: el servicio no
               publica su diccionario.
             </p>
+          </div>
+        )}
+        {sectores.length > 0 && (
+          <div className="chart-card">
+            <h3>Cámara de Comercio: empresas por sector (secciones de la CIIU), {tema.cifras.empresas_camara?.vigencia}</h3>
+            <BarChart
+              data={sectores.map((s) => ({ label: s.sector, value: s.empresas }))}
+              color={accent.cyan}
+              formatValue={(v) => formato(v)}
+              ariaLabel="Empresas por sector"
+            />
           </div>
         )}
       </div>

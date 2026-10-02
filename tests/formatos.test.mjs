@@ -76,3 +76,46 @@ test('geometría del gemelo: distancia, círculo y escala', () => {
   assert.equal(plano(formatDistance(1500)), '1,5 km');
   assert.equal(plano(formatNumber(1234.5, 1)), '1.234,5');
 });
+
+test('sinCentinelas cambia el -999 del SIATA por null en cualquier nivel de la respuesta', async () => {
+  const { decibeles, sinCentinelas } = await import('../src/lib/vivo.js');
+  const crudo = {
+    features: [{ properties: { Datos_Ruido_7D_prom: -999, nombre: 'USB', nivel: -3.2 }, geometry: { coordinates: [-75.5, 6.3] } }],
+    info: { PM25: [12, -999, 9] }
+  };
+  assert.deepEqual(sinCentinelas(crudo), {
+    features: [{ properties: { Datos_Ruido_7D_prom: null, nombre: 'USB', nivel: -3.2 }, geometry: { coordinates: [-75.5, 6.3] } }],
+    info: { PM25: [12, null, 9] }
+  });
+  assert.equal(decibeles(null), 'sin dato');
+  assert.equal(plano(decibeles(72.2)), '72,2 dB(A)');
+});
+
+test('compararAnios separa el año en curso del anterior y deja en null los meses sin publicar', async () => {
+  const { compararAnios } = await import('../src/lib/series.js');
+  const puntos = [
+    ['2024-12', 9],
+    ['2025-01', 10],
+    ['2025-02', 11],
+    ['2025-12', 20],
+    ['2026-01', 5],
+    ['2026-02', 7]
+  ];
+  const r = compararAnios(puntos);
+  assert.equal(r.actual.anio, '2026');
+  assert.equal(r.anterior.anio, '2025');
+  assert.deepEqual(r.actual.puntos.slice(0, 3), [
+    ['ene', 5],
+    ['feb', 7],
+    ['mar', null]
+  ]);
+  assert.deepEqual(r.anterior.puntos.slice(0, 3), [
+    ['ene', 10],
+    ['feb', 11],
+    ['mar', null]
+  ]);
+  assert.equal(r.anterior.puntos.at(-1)[1], 20);
+  assert.equal(r.actual.puntos.length, 12);
+  assert.equal(compararAnios([['2026-01', 5]]), null);
+  assert.equal(compararAnios(undefined), null);
+});

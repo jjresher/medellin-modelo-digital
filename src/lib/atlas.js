@@ -243,3 +243,23 @@ export function ranking(metrica, lugares) {
     .map((l) => ({ ...l, valor: metrica.valores[l.codigo], puesto: puesto[l.codigo] }))
     .sort((a, b) => a.puesto - b.puesto || a.nombre.localeCompare(b.nombre, 'es'));
 }
+
+/**
+ * Reparte las tarjetas de la ficha en dos columnas de altura parecida, sin cambiar el orden dentro de cada columna.
+ * `pesos` es la altura estimada de cada tarjeta. Devuelve [[índices de la columna izquierda], [índices de la derecha]].
+ */
+export function repartirEnColumnas(pesos) {
+  const n = pesos.length;
+  if (n < 2) return [pesos.map((_, i) => i), []];
+  const total = pesos.reduce((s, p) => s + p, 0);
+  let mejor = null;
+  // Con 8 tarjetas son 256 repartos: se prueban todos. La primera tarjeta va siempre a la izquierda.
+  for (let mascara = 1; mascara < 1 << n; mascara += 2) {
+    const izquierda = pesos.reduce((s, p, i) => s + (mascara & (1 << i) ? p : 0), 0);
+    const diferencia = Math.abs(total - 2 * izquierda);
+    if (!mejor || diferencia < mejor.diferencia) mejor = { mascara, diferencia };
+  }
+  const columnas = [[], []];
+  pesos.forEach((_, i) => columnas[mejor.mascara & (1 << i) ? 0 : 1].push(i));
+  return columnas;
+}

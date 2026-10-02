@@ -80,6 +80,7 @@ function MapaIndicador({ tema, opciones, color, onSource, nota }) {
       <MapaTerritorios
         valores={valores}
         etiqueta={ind.unidad}
+        rotulo={disponibles.find(([k]) => k === clave)?.[1]}
         formatValue={fmt}
         formatLegend={fmtLeyenda}
         color={color}

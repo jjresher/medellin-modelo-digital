@@ -35,6 +35,7 @@ IDEM = 'https://portalidem.metropol.gov.co/server/rest/services'
 POT = f'{IDEM}/DISTRITO_MEDELLIN_POT/MapServer'
 ENERGIA = f'{IDEM}/Hosted/{urllib.parse.quote("Riesgo_Tecnológico")}/FeatureServer'
 METRO = 'https://utility.arcgis.com/usrsvcs/servers'
+METRO_PORTAL = 'https://datosabiertos-metrodemedellin.opendata.arcgis.com/'
 METRO_ESTACIONES = f'{METRO}/b97b082ae9b44544b579f9e4d7a97d4c/rest/services/Hosted/ServiciosOpenData_gdb/FeatureServer/1'
 METRO_LINEAS = f'{METRO}/0fe716dbf9ce4c2ebd63d56810b4c61b/rest/services/Hosted/ServiciosOpenData_gdb/FeatureServer/3'
 ALC = 'https://www.medellin.gov.co/servidormapas/rest/services'
@@ -366,7 +367,9 @@ def capas_pot(t):
 
 
 def capas_movilidad(t):
-    t.fuente('metro-red', 'Estaciones y líneas del Sistema Metro', 'Metro de Medellín · datos abiertos', METRO_ESTACIONES)
+    # La URL de la fuente es el portal de datos abiertos del Metro: el servicio que se consulta (METRO_ESTACIONES) responde
+    # 403 a quien lo abre en el navegador y solo atiende su ruta /query.
+    t.fuente('metro-red', 'Estaciones y líneas del Sistema Metro', 'Metro de Medellín · datos abiertos', METRO_PORTAL)
     est = geojson_arcgis(METRO_ESTACIONES, 'label,linea,sistema')
     guardar_capa('movilidad_metro_estaciones', [{'type': 'Feature', 'geometry': f['geometry'], 'properties': limpiar(
         f['properties'], {'label': 'nombre', 'linea': 'linea', 'sistema': 'sistema'})} for f in est['features'] if f.get('geometry')])

@@ -16,6 +16,8 @@ export default function BarChart({ data, color, unit = '', formatValue = fmtDefa
   const [table, setTable] = useState(false);
   const [hover, setHover] = useState(null);
   const max = Math.max(...data.map((d) => d.value), 1);
+  // La columna del valor mide lo que el valor más largo ("$845,2 mil millones"), para que ninguno se parta en dos líneas.
+  const anchoValor = Math.max(...data.map((d) => String(formatValue(d.value)).length), 6);
 
   return (
     <div className="barchart">
@@ -46,7 +48,7 @@ export default function BarChart({ data, color, unit = '', formatValue = fmtDefa
           </tbody>
         </table>
       ) : (
-        <div className="bar-rows" role="img" aria-label={ariaLabel}>
+        <div className="bar-rows" role="img" aria-label={ariaLabel} style={{ '--ancho-valor': `${anchoValor}ch` }}>
           {data.map((d, i) => (
             <button
               key={d.id ?? d.label}

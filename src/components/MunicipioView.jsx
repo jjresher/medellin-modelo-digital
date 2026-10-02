@@ -85,40 +85,41 @@ function Presupuesto({ tema, onSource }) {
         ])}
         onSource={onSource}
       />
-      <div className="chart-card tabla-card">
-        <h3>Presupuesto por año (billones de pesos)</h3>
-        <table className="chart-table municipio-tabla">
-          <thead>
-            <tr>
-              <th>Año</th>
-              <th>Inicial</th>
-              <th>Definitivo</th>
-              <th>Comprometido</th>
-              <th>Pagado</th>
-              <th>Inversión comprometida</th>
-              <th>Ingresos recaudados</th>
-            </tr>
-          </thead>
-          <tbody>
-            {anual.map((a) => (
-              <tr key={a.anio}>
-                <td>
-                  {a.anio}
-                  {!a.completo && <small> · hasta {a.corte}</small>}
-                </td>
-                {[a.gastos_inicial, a.gastos_definitivo, a.compromisos, a.pagos, a.inversion_compromisos, a.recaudo].map((v, i) => (
-                  <td key={i}>{formato(v / 1e12, 2)}</td>
-                ))}
+      <div className="pila-tarjetas">
+        <div className="chart-card tabla-card">
+          <h3>Presupuesto por año (billones de pesos)</h3>
+          <table className="chart-table municipio-tabla">
+            <thead>
+              <tr>
+                <th>Año</th>
+                <th>Inicial</th>
+                <th>Definitivo</th>
+                <th>Comprometido</th>
+                <th>Pagado</th>
+                <th>Inversión comprometida</th>
+                <th>Ingresos recaudados</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
-        <p className="chart-fuente">
-          El año en curso es acumulado de enero al último trimestre reportado. El recaudo puede superar el presupuesto inicial porque incluye recursos
-          de capital (crédito, excedentes de EPM, rendimientos) que se adicionan durante el año.
-        </p>
-      </div>
-      <div className="chart-grid">
+            </thead>
+            <tbody>
+              {anual.map((a) => (
+                <tr key={a.anio}>
+                  <td>
+                    {a.anio}
+                    {!a.completo && <small> · hasta {a.corte}</small>}
+                  </td>
+                  {[a.gastos_inicial, a.gastos_definitivo, a.compromisos, a.pagos, a.inversion_compromisos, a.recaudo].map((v, i) => (
+                    <td key={i}>{formato(v / 1e12, 2)}</td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <p className="chart-fuente">
+            El año en curso es acumulado de enero al último trimestre reportado. El recaudo puede superar el presupuesto inicial porque incluye
+            recursos de capital (crédito, excedentes de EPM, rendimientos) que se adicionan durante el año.
+          </p>
+        </div>
+
         {composicion.length > 0 && (
           <div className="chart-card">
             <h3>Ingresos recaudados por tipo, {completo?.anio}</h3>

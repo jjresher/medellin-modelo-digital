@@ -219,7 +219,7 @@ h1 em { color: var(--green); font-family: Georgia, serif; font-weight: 400; }
 .sec-block:first-of-type { border-top: 0; }
 .sec-note { max-width: 720px; margin: -4px 0 14px; color: var(--muted); font-size: 12px; line-height: 1.6; }
 .warning-note { display: flex; gap: 12px; max-width: 780px; margin: 0 0 26px; padding: 12px 14px; border: 1px solid color-mix(in srgb, var(--orange) 55%, var(--line)); border-radius: 3px; background: color-mix(in srgb, var(--orange) 8%, transparent); }
-.warning-note span { flex: none; color: var(--orange); font-size: 15px; }
+.warning-note > span { flex: none; color: var(--orange); font-size: 15px; }
 .warning-note p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
 .metrics-grid.compact { grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 4px 0 22px; }
 .chart-grid, .sisc-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 8px; }
@@ -227,8 +227,9 @@ h1 em { color: var(--green); font-family: Georgia, serif; font-weight: 400; }
 .chart-card h3 { margin: 0 0 10px; color: var(--paper); font-size: 13px; font-weight: 600; letter-spacing: -.1px; }
 .chart-fuente { margin: 6px 0 0; color: var(--dim); font-size: 10px; }
 
-.linechart { position: relative; }
-.linechart svg { display: block; width: 100%; height: auto; }
+.linechart { position: relative; display: flex; flex-direction: column; }
+.linechart-lienzo { position: relative; flex: 1; }
+.linechart-lienzo svg { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
 .chart-legend { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 6px; color: var(--muted); font: 10px ui-monospace, SFMono-Regular, Menlo, monospace; }
 .chart-legend span { display: flex; align-items: center; gap: 6px; }
 .chart-legend i { display: inline-block; width: 14px; height: 2px; border-radius: 1px; }
@@ -242,12 +243,13 @@ h1 em { color: var(--green); font-family: Georgia, serif; font-weight: 400; }
 .barchart { display: grid; gap: 10px; }
 .table-toggle { justify-self: end; padding: 0; border: 0; color: var(--cyan); background: transparent; font: 10px ui-monospace, SFMono-Regular, Menlo, monospace; }
 .bar-rows { display: grid; gap: 5px; }
-.bar-row { position: relative; display: grid; grid-template-columns: 150px 1fr 64px; align-items: center; gap: 8px; padding: 3px 0; border: 0; background: transparent; text-align: left; cursor: pointer; }
+.bar-row { position: relative; display: grid; grid-template-columns: 150px 1fr max(56px, var(--ancho-valor, 56px)); align-items: center; gap: 8px; padding: 3px 0; border: 0; background: transparent; text-align: left; cursor: pointer; }
 .bar-row.selected .bar-label { color: var(--paper); }
-.bar-label { overflow: hidden; color: var(--muted); font-size: 10.5px; text-overflow: ellipsis; white-space: nowrap; }
+/* Un nombre largo ("San Sebastián de Palmitas") pasa a dos líneas en vez de cortarse. */
+.bar-label { display: flex; align-items: baseline; overflow: hidden; color: var(--muted); font-size: 10.5px; line-height: 1.2; overflow-wrap: anywhere; }
 .bar-track { height: 14px; border-radius: 3px; background: color-mix(in srgb, var(--line) 55%, transparent); overflow: hidden; }
 .bar-fill { display: block; height: 100%; border-radius: 3px 0 0 3px; }
-.bar-value { color: var(--paper); font: 10.5px ui-monospace, SFMono-Regular, Menlo, monospace; text-align: right; }
+.bar-value { color: var(--paper); font: 10.5px ui-monospace, SFMono-Regular, Menlo, monospace; text-align: right; white-space: nowrap; }
 .bar-tooltip { top: -6px; left: 152px; transform: translateY(-100%); }
 .chart-table { width: 100%; border-collapse: collapse; font-size: 11px; }
 .chart-table th, .chart-table td { padding: 5px 8px; border-bottom: 1px solid color-mix(in srgb, var(--line) 60%, transparent); text-align: left; color: var(--muted); }
@@ -292,8 +294,9 @@ h1 em { color: var(--green); font-family: Georgia, serif; font-weight: 400; }
 .ambiente-legend { right: 10px; bottom: 26px; width: 208px; max-height: 60%; overflow: auto; pointer-events: auto; }
 .comuna-card.ambiente-ficha { top: 12px; right: auto; left: 12px; z-index: 3; max-width: 262px; }
 .ficha-nota { display: block; margin-top: 7px; color: var(--dim); font: 9.5px/1.5 Arial, Helvetica, sans-serif; letter-spacing: 0; }
-.ambiente-view .chart-card { min-width: 0; }
+.ambiente-view .chart-card { min-width: 0; overflow-x: auto; }
 .ambiente-view .chart-table td { white-space: nowrap; }
+.ambiente-view .chart-table td:nth-child(2) { white-space: normal; }
 
 @media (max-width: 900px) {
   .comuna-card.ambiente-ficha { top: auto; right: 10px; bottom: 34px; left: 10px; max-width: none; max-height: 45%; overflow: auto; }
@@ -374,6 +377,9 @@ h1 em { color: var(--green); font-family: Georgia, serif; font-weight: 400; }
 .municipio-contratos td, .municipio-acuerdos td { vertical-align: top; line-height: 1.45; }
 .municipio-contratos td:first-child, .municipio-acuerdos td:nth-child(2) { min-width: 260px; }
 .municipio-contratos td:not(:first-child), .municipio-acuerdos td:first-child, .municipio-acuerdos td:last-child { white-space: nowrap; }
+/* El contratista puede ocupar dos líneas: en una sola, la tabla no cabía en su tarjeta. */
+.municipio-contratos td:nth-child(3) { white-space: normal; }
+.municipio-tabla th { white-space: normal; vertical-align: bottom; }
 .municipio-contratos a { color: var(--paper); text-decoration-color: var(--line); }
 .municipio-contratos a:hover { color: var(--cyan); }
 .municipio-view .card-controls { justify-content: space-between; align-items: center; }
@@ -393,7 +399,7 @@ h1 em { color: var(--green); font-family: Georgia, serif; font-weight: 400; }
 .servicios-view .card-controls h3 { margin: 0; }
 .servicios-tabla td, .servicios-tabla th { text-align: right; }
 .servicios-tabla td:first-child, .servicios-tabla th:first-child { text-align: left; }
-.servicios-tabla thead tr:first-child th { white-space: normal; vertical-align: bottom; min-width: 90px; }
+.servicios-tabla thead tr:first-child th { white-space: normal; vertical-align: bottom; min-width: 72px; }
 .servicios-tabla tr.periodos th { padding-top: 0; color: var(--muted); font-size: 9px; }
 .servicios-ecas td { vertical-align: top; line-height: 1.45; }
 .servicios-ecas td:nth-child(3), .servicios-ecas td:nth-child(4), .servicios-ecas td:last-child { white-space: nowrap; }
@@ -414,7 +420,7 @@ h1 em { color: var(--green); font-family: Georgia, serif; font-weight: 400; }
 .territorio-tabla td:first-child, .territorio-tabla th:first-child { text-align: left; }
 .territorio-zonas td { vertical-align: top; line-height: 1.45; }
 .territorio-zonas td:first-child { min-width: 170px; color: var(--paper); }
-.territorio-usos th { white-space: normal; min-width: 88px; vertical-align: bottom; }
+.territorio-usos th { white-space: normal; min-width: 64px; vertical-align: bottom; }
 .territorio-usos td, .territorio-usos th { text-align: right; }
 .territorio-usos td:first-child, .territorio-usos th:first-child { text-align: left; white-space: nowrap; }
 .tabla-scroll { max-height: 420px; overflow: auto; }
@@ -443,6 +449,43 @@ h1 em { color: var(--green); font-family: Georgia, serif; font-weight: 400; }
   .metrics-grid.compact > :last-child:nth-child(odd) { grid-column: 1 / -1; }
 }
 
+/* Las tarjetas de cifras de a cuatro (Panorama y cabeceras de sección) tampoco dejan huecos: sobre doce columnas, si
+   sobran tres van a un tercio; si sobran dos, a media fila; una sola ocupa la fila, y con cinco quedan tres y dos. */
+@media (min-width: 901px) {
+  :is(.view, .sec-block) > .metrics-grid:not(.compact) { grid-template-columns: repeat(12, minmax(0, 1fr)); }
+  :is(.view, .sec-block) > .metrics-grid:not(.compact) > * { grid-column: span 3; }
+  :is(.view, .sec-block) > .metrics-grid:not(.compact) > :nth-child(4n + 1):nth-last-child(3),
+  :is(.view, .sec-block) > .metrics-grid:not(.compact) > :nth-child(4n + 1):nth-last-child(3) ~ *,
+  :is(.view, .sec-block) > .metrics-grid:not(.compact) > :nth-child(4n + 1):nth-last-child(5),
+  :is(.view, .sec-block) > .metrics-grid:not(.compact) > :nth-child(4n + 1):nth-last-child(5) ~ * { grid-column: span 4; }
+  :is(.view, .sec-block) > .metrics-grid:not(.compact) > :nth-child(4n + 1):nth-last-child(2),
+  :is(.view, .sec-block) > .metrics-grid:not(.compact) > :nth-child(4n + 1):nth-last-child(2) ~ *,
+  :is(.view, .sec-block) > .metrics-grid:not(.compact) > :nth-child(4n + 1):nth-last-child(5) ~ :nth-last-child(-n + 2) { grid-column: span 6; }
+  :is(.view, .sec-block) > .metrics-grid:not(.compact) > :only-child { grid-column: 1 / -1; }
+}
+@media (max-width: 900px) {
+  :is(.view, .sec-block) > .metrics-grid:not(.compact) > :last-child:nth-child(odd) { grid-column: 1 / -1; }
+}
+/* La misma separación entre una fila de cifras y la tarjeta que le sigue, sea cual sea la rejilla. */
+.metrics-grid + .chart-card, .metrics-grid + .chart-grid, .metrics-grid + .tabla-card { margin-top: 14px; }
+
+/* Tarjetas a ancho completo, una debajo de otra, con la misma separación que una rejilla (para gráficas de tamaños muy
+   distintos, que lado a lado dejarían media tarjeta vacía). */
+.pila-tarjetas { display: grid; gap: 14px; margin-top: 14px; }
+.pila-tarjetas > .tabla-card { margin-top: 0; }
+
+/* ---- Tarjetas que llenan su altura ---- */
+/* Cuando una tarjeta queda más alta que su contenido porque la de al lado lo es, la gráfica de línea o el mapa crecen
+   hasta llenarla en vez de dejar un espacio vacío debajo. */
+.chart-card:has(> .linechart), .chart-card:has(> .barrio-map) { display: flex; flex-direction: column; }
+.chart-card:has(> .linechart) > *, .chart-card:has(> .barrio-map) > * { flex: none; }
+.chart-card:has(> .linechart) > .linechart, .chart-card:has(> .barrio-map) > .barrio-map { flex: 1 0 auto; }
+.chart-card:has(> .linechart) > button, .chart-card:has(> .barrio-map) > button { align-self: flex-start; }
+
+/* Barras de desplazamiento del color de la interfaz (las del sistema salen blancas sobre el fondo oscuro). */
+html { scrollbar-color: var(--line) var(--ink); }
+.chart-card, .tabla-card, .tabla-scroll { scrollbar-color: var(--line) transparent; scrollbar-width: thin; }
+
 /* ---- Atlas de comunas y barrios (issue #11) ---- */
 .atlas-niveles { margin: -14px 0 6px; }
 .atlas-niveles button { padding: 8px 12px; font-size: 11px; }
@@ -452,7 +495,7 @@ h1 em { color: var(--green); font-family: Georgia, serif; font-weight: 400; }
 .atlas-view .card-controls h3 { margin: 0; }
 .atlas-view .card-controls .link-fuente { margin: 0; }
 .atlas-tipo { margin-left: 6px; color: var(--dim); font: 400 11px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .4px; }
-.bar-rank { display: inline-block; min-width: 20px; margin-right: 4px; color: var(--dim); font: normal 9px ui-monospace, SFMono-Regular, Menlo, monospace; }
+.bar-rank { flex: none; min-width: 20px; margin-right: 4px; color: var(--dim); font: normal 9px ui-monospace, SFMono-Regular, Menlo, monospace; }
 .atlas-ficha td, .atlas-ficha th { white-space: nowrap; }
 .atlas-ficha td:first-child { white-space: normal; }
 .atlas-ficha td:nth-child(3) { color: var(--paper); text-align: right; }
@@ -462,10 +505,22 @@ h1 em { color: var(--green); font-family: Georgia, serif; font-weight: 400; }
 .atlas-ficha td button:hover, .atlas-ficha td button:focus-visible { color: var(--paper); text-decoration: underline; }
 .atlas-territorio { margin: 0 0 10px; }
 .atlas-evolucion { margin-bottom: 6px; }
+.atlas-fichas { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin-top: 8px; }
+.atlas-columna { display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.atlas-columna > .chart-card { overflow-x: auto; }
+/* La última tarjeta de cada columna crece lo que falte para que las dos columnas terminen a la misma altura. */
+.atlas-columna > .chart-card:last-child { flex: 1; }
+@media (max-width: 900px) { .atlas-fichas { grid-template-columns: 1fr; } }
 .atlas-ranking-largo { max-height: 640px; }
 .atlas-amva td, .atlas-amva th { text-align: right; }
 .atlas-amva td:first-child, .atlas-amva th:first-child { text-align: left; }
 .atlas-amva tr.activo td { color: var(--paper); background: color-mix(in srgb, var(--green) 8%, transparent); }
+@media (max-width: 600px) {
+  /* En el celular un valor largo ("$845,2 mil millones") vuelve a partirse en dos líneas: en una sola no dejaba
+     espacio para la barra. */
+  .bar-row { grid-template-columns: minmax(84px, 36%) 1fr min(var(--ancho-valor, 56px), 78px); }
+  .bar-value { white-space: normal; }
+}
 @media (max-width: 600px) {
   /* En el celular el valor puede partirse en dos líneas para que el puesto quede a la vista sin desplazar la tabla. */
   .atlas-ficha td, .atlas-ficha th { padding: 5px 4px; white-space: normal; }

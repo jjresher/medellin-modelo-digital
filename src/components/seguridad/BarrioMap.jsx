@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import { maplibregl, prepararMaplibre } from '../../lib/maplibre';
+import { ajustesComunes, maplibregl, prepararMaplibre } from '../../lib/maplibre';
 
 // Coropletico por barrio y vereda: no es un mapa de calor de puntos (kernel de densidad), sino el
 // conteo SISC de la ventana reciente agregado al polígono de cada barrio/vereda del catastro. Se
@@ -45,6 +45,10 @@ export default function BarrioMap({ datos, categoria, height = 420 }) {
     map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
     // Abajo a la izquierda: la leyenda del coropletico va abajo a la derecha (ver .barrio-legend).
     map.addControl(new maplibregl.AttributionControl({ compact: true }), 'bottom-left');
+    ajustesComunes(map);
+    // El mapa llena su tarjeta: si esta crece o se reacomoda (grilla en móvil), se reajusta.
+    const observador = new ResizeObserver(() => map.resize());
+    observador.observe(container.current);
 
     map.once('style.load', async () => {
       try {
@@ -98,6 +102,7 @@ export default function BarrioMap({ datos, categoria, height = 420 }) {
     });
     return () => {
       activo = false;
+      observador.disconnect();
       map.remove();
       mapRef.current = null;
     };
@@ -129,7 +134,7 @@ export default function BarrioMap({ datos, categoria, height = 420 }) {
   }, [ready, categoria, datos]);
 
   return (
-    <div className="barrio-map" style={{ height }}>
+    <div className="barrio-map" style={{ minHeight: height }}>
       <div ref={container} className="barrio-map-canvas" />
       {popup && (
         <div className="comuna-card barrio-popup">

@@ -35,6 +35,19 @@ Hoja de ruta para llevar la app a la estructura de [Cerebro Lima](https://cerebr
 
 Panorama va casi al final porque resume las cifras ancla de todas las demás secciones.
 
+### Revisión general de las issues 0 a 11 (1 oct 2026)
+
+Se probó cada sección en un Chrome sin ventana, a 1400 y a 390 px, haciendo clic en todos sus controles (`npm run qa`, ver README). Lo que salió y se corrigió:
+
+- **Gemelo 3D:** al tocar el mapa saltaba `popupFields is not defined` y no abría ninguna ficha de capa ni de construcción. Venía de dividir `Map3D.jsx` en la auditoría (commit "fix small detaills"). ESLint no lo veía porque la configuración de Next no incluye `no-undef`; ahora está activa.
+- **Ambiente:** una estación de ruido sin lectura mostraba "-999,0 dB(A)" (el valor con que el SIATA marca "sin dato") y habría entrado a los promedios; ahora ese valor se descarta en toda lectura en vivo y se rotula "sin dato". La tarjeta de sismos de 12 meses decía 101 (última ingesta) junto a una tabla que decía 106 (en vivo): la tarjeta usa la lectura en vivo.
+- **Rejillas:** las tarjetas de cifras de a cuatro dejaban huecos con 1, 2, 3 o 5 tarjetas (Municipio); ahora llenan su fila. Las gráficas de línea y los mapas crecen hasta llenar su tarjeta cuando la de al lado es más alta. En Economía y Municipio se reorganizaron dos pares de gráficas que dejaban media tarjeta vacía.
+- **Tablas que se salían de su tarjeta** en escritorio (contratos de Municipio, sismos, cobertura por estrato, espacio verde por territorio).
+- **Detalles:** barras de desplazamiento blancas sobre el fondo oscuro; la atribución del mapa tapaba la leyenda en Seguridad y Ambiente; valores largos de las barras partidos en dos líneas; nombres largos cortados en los rankings; la serie sólida sin muestra de color en la leyenda de las gráficas de dos series; el aviso de consola `wood-pattern` de cada mapa; la etiqueta "derivado" más grande dentro de los avisos; nombres de corregimientos con y sin "Corregimiento de" en Seguridad.
+- **Lo que se dejó igual:** una tarjeta con una tabla o unas pocas barras al lado de otra más alta conserva espacio libre debajo (por ejemplo, la ficha por territorio cuando el indicador tiene un solo año).
+- **Sigue pendiente de revisar a mano:** la fluidez del gemelo en un portátil normal (issues 1, 2 y 4).
+
+
 ---
 
 ## 0. Lago de datos, ingesta y verificación
@@ -169,7 +182,7 @@ Panorama va casi al final porque resume las cifras ancla de todas las demás sec
 - Dos componentes de gráficas nuevos y reutilizables para las issues siguientes: `LineChart` y `BarChart` (`src/components/charts/`), siguiendo la skill de dataviz: un acento por gráfica (nunca dos acentos saturados compitiendo en una misma serie), leyenda solo con 2+ series, tooltip por hover/foco y vista de tabla en el ranking.
 - **Decisión de diseño, documentada en `fuentes-medellin.md`:** el "mapa de calor por barrio" se implementó como un coropletico (casos agregados al polígono del barrio, coloreados con la misma rampa secuencial de los índices del gemelo), no como un mapa de calor de puntos (kernel de densidad). Reutiliza los polígonos que ya existían del catastro y no exige generar un PMTiles nuevo.
 - **Corrección encontrada al probar:** el mapa por barrio se veía negro por completo. Faltaba `maplibregl.setWorkerUrl(...)`, la misma corrección para Next/Turbopack que ya tiene `Map3D.jsx`; sin ella, ni el estilo base ni las fuentes GeoJSON se procesan. Quedó igual en `BarrioMap.jsx`.
-- **Pendiente:** no hay gráfica de "año en curso vs. año anterior" mes a mes con dos líneas (actual sólida, anterior punteada) como se planeó al inicio; los datos que ya se ingestan no traen esa serie pareada. En su lugar, la comparación queda en la cifra de variación % (exacta) y en la gráfica mensual de 24 meses, que muestra el mismo periodo del año anterior en la misma línea.
+- **Año en curso frente al anterior (1 oct 2026):** la gráfica mensual dibuja ahora dos líneas, el año en curso (sólida) y el mismo mes del año anterior (punteada). La serie mensual que ya se ingestaba trae los dos años; se separan en `src/lib/series.js`. La cifra de variación % sigue al lado.
 
 ---
 
@@ -205,7 +218,7 @@ Panorama va casi al final porque resume las cifras ancla de todas las demás sec
   - `alerts/` devuelve avisos de prueba con texto *lorem ipsum*; las alertas reales están en `alerts/active/citizen`.
   - `verificar.py --red` daba por caídas todas las fuentes del SIATA: su API responde 405 a `HEAD`. `lago.existe()` ahora reintenta con un `GET` del primer byte.
   - `LineChart` hundía hasta cero los puntos sin dato; ahora corta la línea y deja el hueco, que es lo que hace falta con series en vivo (días sin medición).
-- **Pendiente externo:** `verificar.py --red` sigue marcando `metro-red` (fuente de la issue #2): ese proxy de ArcGIS responde 403 a cualquier petición directa y solo atiende su ruta `/query`. No afecta la ingesta ni `npm run verificar`.
+- **`metro-red` (resuelto el 1 oct 2026):** el servicio de ArcGIS del Metro responde 403 a quien lo abre directo y solo atiende su ruta `/query`. La fuente enlaza ahora al portal de datos abiertos del Metro; la ingesta sigue consultando el servicio. Con eso `verificar.py --red` pasa completo.
 - **Pendiente de revisar a mano:** la fluidez del mapa con las isófonas de ruido encendidas (la sección ya se revisó en un celular real). Chrome sin GPU dibuja las estaciones y la leyenda, pero no alcanza a pintar el mapa base vectorial.
 
 ## 5. Gente
@@ -424,7 +437,8 @@ Panorama va casi al final porque resume las cifras ancla de todas las demás sec
   - **Índices 0–100 de las lentes:** no entran al Atlas. Son posiciones relativas calculadas a partir de las mismas métricas que sí están.
 - Correcciones que salieron al probar: la vereda Piedras Blancas Represa viene partida en dos polígonos con el mismo código (hay 79 polígonos y 78 veredas); se unen en la ingesta y cuentan una vez en el ranking. Si una categoría del SISC fallaba, su ranking por comuna se perdía en vez de conservarse de la ingesta anterior; ahora se hereda.
 - Pruebas: `tests/atlas.test.mjs` comprueba el cálculo de puestos y que todas las métricas elegidas existan en el lago con sus 21 territorios y su fuente en el catálogo.
-- Probada a 1400 y a 390 px, en los dos niveles, sin desbordamiento horizontal ni errores en consola.
+- La ficha reparte sus tarjetas en dos columnas de altura parecida; el popup del mapa nombra la métrica y no repite la unidad; si el barrio elegido queda fuera de los 25 primeros, se agrega al ranking con su puesto.
+- Probada a 1400 y a 390 px, en los dos niveles, con clics en el mapa, el ranking, la ficha y los selectores, sin desbordamiento horizontal ni errores en consola.
 
 ---
 

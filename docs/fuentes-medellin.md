@@ -316,6 +316,7 @@ y conserva la última copia (ver `src/app/api/ambiente`).
 
 **Correcciones al probar los endpoints (26 de septiembre de 2026)**
 
+- **Valor centinela:** el SIATA marca una lectura sin dato con `-999` (por ejemplo, una estación de ruido fuera de servicio). La app lo cambia por "sin dato" en toda lectura en vivo y no lo promedia.
 - La ruta de las series era `geographJson/1/pm25_30d/`; la buena es `geodata/geographJson/1/pm25_30d/{código}`, con el código de la estación. Sin él responde 404.
 - Los días sin medición llegan como `null` dentro de `PM25_Diario`, así que la gráfica los deja como hueco y no como caída a cero.
 - El campo del municipio cambia de nombre en cada capa (`Municipio`, `municipio`, `ubicacion`, `Ciudad`) y viene con tildes y espacios inconsistentes ("Medellín ", "Medellin").

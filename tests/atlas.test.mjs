@@ -146,3 +146,16 @@ test('el Área Metropolitana trae sus 10 municipios y la participación suma 100
   assert.ok(Math.abs(amva.reduce((s, m) => s + m.participacion, 0) - 100) < 0.5);
   assert.equal(amva.find((m) => m.codigo === '05001').poblacion, temas.demografia.cifras.poblacion.valor);
 });
+
+test('repartirEnColumnas equilibra las dos columnas y conserva el orden dentro de cada una', async () => {
+  const { repartirEnColumnas } = await import('../src/lib/atlas.js');
+  assert.deepEqual(repartirEnColumnas([5]), [[0], []]);
+  assert.deepEqual(repartirEnColumnas([8, 5]), [[0], [1]]);
+  const pesos = [12, 9, 7, 3, 4, 8, 7, 2];
+  const [izquierda, derecha] = repartirEnColumnas(pesos);
+  const suma = (indices) => indices.reduce((s, i) => s + pesos[i], 0);
+  assert.equal(suma(izquierda), suma(derecha));
+  assert.deepEqual([...izquierda, ...derecha].sort(), [0, 1, 2, 3, 4, 5, 6, 7]);
+  assert.deepEqual(izquierda, [...izquierda].sort());
+  assert.equal(izquierda[0], 0);
+});

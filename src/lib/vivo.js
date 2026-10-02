@@ -8,6 +8,16 @@ import { useCallback, useEffect, useState } from 'react';
 const BASE = '/api/ambiente';
 const REFRESCO_MS = 10 * 60 * 1000; // la misma ventana de caché del proxy
 
+// El SIATA marca una lectura sin dato con -999 (por ejemplo, una estación de ruido fuera de servicio). Se cambia por null
+// en toda la respuesta para que no se muestre ni se promedie como si fuera una medición.
+const SIN_DATO_SIATA = -999;
+export function sinCentinelas(valor) {
+  if (valor === SIN_DATO_SIATA) return null;
+  if (Array.isArray(valor)) return valor.map(sinCentinelas);
+  if (valor && typeof valor === 'object') return Object.fromEntries(Object.entries(valor).map(([k, v]) => [k, sinCentinelas(v)]));
+  return valor;
+}
+
 export function useVivo(recurso) {
   const [lectura, setLectura] = useState({ estado: 'cargando' });
   // Cada disparo es un objeto nuevo: `forzar` distingue el botón (pide un dato nuevo al proxy) del refresco
@@ -32,7 +42,7 @@ export function useVivo(recurso) {
           setLectura({
             estado: 'listo',
             recurso,
-            datos: cuerpo.datos,
+            datos: sinCentinelas(cuerpo.datos),
             leido: cuerpo.leido,
             edad: cuerpo.edad_s,
             obsoleto: cuerpo.obsoleto,
@@ -64,6 +74,9 @@ export const numero = (valor, decimales = 0) =>
   valor == null || Number.isNaN(Number(valor))
     ? '—'
     : Number(valor).toLocaleString('es-CO', { minimumFractionDigits: decimales, maximumFractionDigits: decimales });
+
+// Una estación de ruido sin lectura en la ventana (null tras quitar el -999) se rotula, no se muestra como un número.
+export const decibeles = (valor) => (valor == null ? 'sin dato' : `${numero(valor, 1)} dB(A)`);
 
 // Las marcas de tiempo del SIATA vienen como "2026-09-26 22:18:03", en hora local y sin zona: se muestran
 // tal cual (sin los segundos) en vez de reinterpretarlas como una fecha con zona horaria.

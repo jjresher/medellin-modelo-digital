@@ -68,20 +68,25 @@ function ticksX(etiquetas, anchoPlot) {
  * series: [{ label, color, dashed?, points: [[etiquetaX, valor | null], ...] }] — null deja un hueco en la línea.
  */
 export default function LineChart({ series, unit = '', formatValue = fmtDefault, height = H, ariaLabel, desdeCero = true }) {
-  const caja = useRef(null);
+  const lienzo = useRef(null);
   const [ancho, setAncho] = useState(560);
+  const [altoMedido, setAltoMedido] = useState(0);
   const [hover, setHover] = useState(null);
 
+  // El lienzo mide lo que le deja la tarjeta: su ancho siempre y, si la tarjeta es más alta que la gráfica (porque la
+  // de al lado lo es), también ese alto de sobra. El svg va en posición absoluta, así que no empuja la medida.
   useEffect(() => {
-    const nodo = caja.current;
+    const nodo = lienzo.current;
     if (!nodo) return undefined;
     const observador = new ResizeObserver(([entrada]) => {
       const medido = Math.round(entrada.contentRect.width);
       if (medido > 0) setAncho(medido);
+      setAltoMedido(Math.round(entrada.contentRect.height));
     });
     observador.observe(nodo);
     return () => observador.disconnect();
   }, []);
+  const alto = Math.max(height, altoMedido);
 
   const labels = series[0]?.points.map((p) => String(p[0])) ?? [];
   const n = labels.length;
@@ -90,7 +95,7 @@ export default function LineChart({ series, unit = '', formatValue = fmtDefault,
 
   const ticks = escalaY(Math.min(...valores), Math.max(...valores), desdeCero);
   const bajo = ticks[0];
-  const alto = ticks[ticks.length - 1];
+  const tope = ticks[ticks.length - 1];
   const finales = series.map((s) => [...s.points].reverse().find((p) => p[1] != null)).filter(Boolean);
 
   // Márgenes a la medida de los rótulos: los del eje Y a la izquierda, el valor final a la derecha.
@@ -99,7 +104,7 @@ export default function LineChart({ series, unit = '', formatValue = fmtDefault,
   const anchoPlot = Math.max(40, ancho - padLeft - padRight);
 
   const x = (i) => padLeft + (n <= 1 ? anchoPlot / 2 : (i / (n - 1)) * anchoPlot);
-  const y = (v) => height - PAD_BOTTOM - ((v - bajo) / (alto - bajo || 1)) * (height - PAD_TOP - PAD_BOTTOM);
+  const y = (v) => alto - PAD_BOTTOM - ((v - bajo) / (tope - bajo || 1)) * (alto - PAD_TOP - PAD_BOTTOM);
 
   // Un punto sin dato corta la línea: la serie sigue en el siguiente valor con un hueco, en vez de caer al eje
   // (las series en vivo del SIATA traen días sin medición y la GEIH no midió la subocupación a mediados de 2020).
@@ -129,83 +134,85 @@ export default function LineChart({ series, unit = '', formatValue = fmtDefault,
   const tooltipLeft = hover == null ? 0 : Math.min(Math.max(x(hover), 80), ancho - 80);
 
   return (
-    <div ref={caja} className="linechart" role="img" aria-label={ariaLabel ?? series.map((s) => s.label).join(' vs ')}>
+    <div className="linechart" role="img" aria-label={ariaLabel ?? series.map((s) => s.label).join(' vs ')}>
       {series.length > 1 && (
         <div className="chart-legend">
           {series.map((s) => (
             <span key={s.label}>
-              <i className={s.dashed ? 'dashed' : ''} style={{ borderTopColor: s.color }} />
+              <i className={s.dashed ? 'dashed' : ''} style={s.dashed ? { borderTopColor: s.color } : { background: s.color }} />
               {s.label}
             </span>
           ))}
         </div>
       )}
-      <svg
-        width={ancho}
-        height={height}
-        viewBox={`0 0 ${ancho} ${height}`}
-        onMouseMove={onMove}
-        onMouseLeave={() => setHover(null)}
-        onTouchMove={(e) => onMove(e.touches[0] ?? e)}
-      >
-        {ticks.map((t) => (
-          <g key={t}>
-            <line x1={padLeft} x2={padLeft + anchoPlot} y1={y(t)} y2={y(t)} stroke={grid} strokeWidth="1" />
-            <text x={padLeft - 8} y={y(t)} dy="4" textAnchor="end" fontSize={FUENTE} fill={textMuted}>
-              {formatValue(t)}
-            </text>
-          </g>
-        ))}
-        {marcasX.map((i) => (
-          <text
-            key={i}
-            x={x(i)}
-            y={height - 8}
-            fontSize={FUENTE}
-            fill={textMuted}
-            textAnchor={n === 1 ? 'middle' : i === 0 ? 'start' : i === n - 1 ? 'end' : 'middle'}
-          >
-            {labels[i]}
-          </text>
-        ))}
-        {series.map((s) => (
-          <path
-            key={s.label}
-            d={path(s.points)}
-            fill="none"
-            stroke={s.color}
-            strokeWidth="2"
-            strokeLinejoin="round"
-            strokeLinecap="round"
-            strokeDasharray={s.dashed ? '5 4' : undefined}
-            opacity={s.dashed ? 0.85 : 1}
-          />
-        ))}
-        {series.map((s) => {
-          const last = [...s.points].reverse().find((p) => p[1] != null);
-          if (!last) return null;
-          const i = s.points.indexOf(last);
-          return (
-            <g key={`${s.label}-end`}>
-              <circle cx={x(i)} cy={y(last[1])} r="4" fill={s.color} stroke="#272822" strokeWidth="2" />
-              <text x={x(i) + 8} y={y(last[1])} dy="4" fontSize={FUENTE} fontFamily="ui-monospace, Menlo, monospace" fill={textPrimary}>
-                {formatValue(last[1])}
+      <div ref={lienzo} className="linechart-lienzo" style={{ minHeight: height }}>
+        <svg
+          width={ancho}
+          height={alto}
+          viewBox={`0 0 ${ancho} ${alto}`}
+          onMouseMove={onMove}
+          onMouseLeave={() => setHover(null)}
+          onTouchMove={(e) => onMove(e.touches[0] ?? e)}
+        >
+          {ticks.map((t) => (
+            <g key={t}>
+              <line x1={padLeft} x2={padLeft + anchoPlot} y1={y(t)} y2={y(t)} stroke={grid} strokeWidth="1" />
+              <text x={padLeft - 8} y={y(t)} dy="4" textAnchor="end" fontSize={FUENTE} fill={textMuted}>
+                {formatValue(t)}
               </text>
             </g>
-          );
-        })}
-        {hover != null && (
-          <g>
-            <line x1={x(hover)} x2={x(hover)} y1={PAD_TOP} y2={height - PAD_BOTTOM} stroke={textSecondary} strokeWidth="1" strokeDasharray="2 2" />
-            {series.map(
-              (s) =>
-                s.points[hover]?.[1] != null && (
-                  <circle key={s.label} cx={x(hover)} cy={y(s.points[hover][1])} r="4" fill={s.color} stroke="#272822" strokeWidth="2" />
-                )
-            )}
-          </g>
-        )}
-      </svg>
+          ))}
+          {marcasX.map((i) => (
+            <text
+              key={i}
+              x={x(i)}
+              y={alto - 8}
+              fontSize={FUENTE}
+              fill={textMuted}
+              textAnchor={n === 1 ? 'middle' : i === 0 ? 'start' : i === n - 1 ? 'end' : 'middle'}
+            >
+              {labels[i]}
+            </text>
+          ))}
+          {series.map((s) => (
+            <path
+              key={s.label}
+              d={path(s.points)}
+              fill="none"
+              stroke={s.color}
+              strokeWidth="2"
+              strokeLinejoin="round"
+              strokeLinecap="round"
+              strokeDasharray={s.dashed ? '5 4' : undefined}
+              opacity={s.dashed ? 0.85 : 1}
+            />
+          ))}
+          {series.map((s) => {
+            const last = [...s.points].reverse().find((p) => p[1] != null);
+            if (!last) return null;
+            const i = s.points.indexOf(last);
+            return (
+              <g key={`${s.label}-end`}>
+                <circle cx={x(i)} cy={y(last[1])} r="4" fill={s.color} stroke="#272822" strokeWidth="2" />
+                <text x={x(i) + 8} y={y(last[1])} dy="4" fontSize={FUENTE} fontFamily="ui-monospace, Menlo, monospace" fill={textPrimary}>
+                  {formatValue(last[1])}
+                </text>
+              </g>
+            );
+          })}
+          {hover != null && (
+            <g>
+              <line x1={x(hover)} x2={x(hover)} y1={PAD_TOP} y2={alto - PAD_BOTTOM} stroke={textSecondary} strokeWidth="1" strokeDasharray="2 2" />
+              {series.map(
+                (s) =>
+                  s.points[hover]?.[1] != null && (
+                    <circle key={s.label} cx={x(hover)} cy={y(s.points[hover][1])} r="4" fill={s.color} stroke="#272822" strokeWidth="2" />
+                  )
+              )}
+            </g>
+          )}
+        </svg>
+      </div>
       {hover != null && (
         <div className="chart-tooltip" style={{ left: `${tooltipLeft}px` }}>
           <b>{labels[hover]}</b>

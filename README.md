@@ -19,7 +19,10 @@ npm run check    # lint + pruebas + verificación del lago (correr antes de cada
 npm run lint     # ESLint (reglas de Next y de hooks de React)
 npm test         # pruebas de las utilidades del frontend (node:test) y de la ingesta (unittest), sin red
 npm run format   # Prettier sobre src/, tests/ y scripts/ (config en .prettierrc.json; twin/config.js queda fuera a propósito)
+npm run qa       # prueba cada sección en un Chrome sin ventana (necesita la app corriendo: npm run build && npm start)
 ```
+
+`npm run qa` abre cada sección, hace clic en sus controles y avisa de errores de consola, peticiones fallidas, desbordes, huecos en las rejillas, tarjetas desniveladas y textos cortados; deja una captura por sección en `.cache/qa/`. Acepta el ancho y las secciones (`npm run qa -- 390 atlas,services`) y otra dirección con `QA_URL`. Los cambios que mueven código entre archivos se prueban así, con clics: el lint y las pruebas unitarias no ejecutan la interfaz.
 
 `tests/lago-frontend.test.mjs` comprueba que el código no pida cifras ni fuentes que el lago no tiene. `npm install` copia el worker de MapLibre a `public/maplibre/` (`scripts/copiar-maplibre.mjs`), así que siempre coincide con la versión instalada.
 

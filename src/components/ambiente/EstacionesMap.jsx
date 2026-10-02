@@ -1,8 +1,8 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { maplibregl, prepararMaplibre } from '../../lib/maplibre';
-import { ESCALA_ICA, categoriaIca, marcaSiata, municipioVisible, numero } from '../../lib/vivo';
+import { ajustesComunes, maplibregl, prepararMaplibre } from '../../lib/maplibre';
+import { ESCALA_ICA, categoriaIca, decibeles, marcaSiata, municipioVisible, numero } from '../../lib/vivo';
 
 // Mapa de la sección Ambiente: las estaciones del SIATA en vivo, el mapa de ruido del AMVA y dos capas
 // satelitales. Los círculos usan el color que publica el propio SIATA para cada estación (el del ICA en aire y
@@ -88,9 +88,9 @@ function fichaDe(tipo, p) {
     titulo: (p.nombreLargo || p.nombreEstacion || '').trim(),
     subtitulo: municipioVisible(p),
     filas: [
-      ['Promedio 7 días', `${numero(p.Datos_Ruido_7D_prom, 1)} dB(A)`],
-      ['Día', `${numero(p.Datos_Ruido_7D_prom_dia, 1)} dB(A)`],
-      ['Noche', `${numero(p.Datos_Ruido_7D_prom_noche, 1)} dB(A)`],
+      ['Promedio 7 días', decibeles(p.Datos_Ruido_7D_prom)],
+      ['Día', decibeles(p.Datos_Ruido_7D_prom_dia)],
+      ['Noche', decibeles(p.Datos_Ruido_7D_prom_noche)],
       ['Ventana', `${marcaSiata(p.fechaInicio)} → ${marcaSiata(p.fechaFin)}`]
     ]
   };
@@ -127,6 +127,7 @@ export default function EstacionesMap({ aire, niveles, pluvios, ruido, height = 
     });
     mapRef.current = map;
     map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
+    ajustesComunes(map);
 
     map.once('style.load', () => {
       if (!activo) return;

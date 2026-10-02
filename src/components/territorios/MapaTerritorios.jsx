@@ -1,20 +1,16 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { maplibregl, prepararMaplibre } from '../../lib/maplibre';
+import { ajustesComunes, maplibregl, prepararMaplibre } from '../../lib/maplibre';
 import { accent, sequential } from '../charts/tokens';
 
 // Coroplético de las 16 comunas y 5 corregimientos con los límites del gemelo (comunas.geojson). Recibe los valores ya
 // calculados por código de territorio, así que sirve para cualquier indicador de lago.Territorios (Municipio, Atlas…).
+// `etiqueta` titula la leyenda (suele ser la unidad) y `rotulo`, el valor del popup (por defecto, la misma etiqueta).
 // Los territorios sin dato quedan en gris oscuro, fuera de la rampa, y la leyenda lo dice.
 // Con `nivel="barrios"` dibuja los 271 barrios y las 79 veredas (Atlas); el nivel se lee al montar el mapa, así que para
 // cambiarlo hay que montar otro (key distinta).
 const SIN_DATO = '#23241f';
-
-const titulo = (texto) =>
-  String(texto ?? '')
-    .toLowerCase()
-    .replace(/(^|\s)\p{L}/gu, (c) => c.toUpperCase());
 
 const NIVELES = {
   comunas: {
@@ -28,18 +24,26 @@ const NIVELES = {
   barrios: {
     archivos: ['/data/geo/barrios.geojson', '/data/geo/veredas.geojson'],
     borde: 0.35,
-    propiedades: (p, archivo) => ({
+    // El nombre de la comuna se toma de comunas.geojson (con tildes); el de los barrios viene en mayúsculas y sin ellas.
+    propiedades: (p, archivo, comunas) => ({
       codigo: p.CODIGO,
       nombre: p.NOMBRE_BARRIO,
       tipo: archivo === 0 ? 'Barrio' : 'Vereda',
-      comuna: titulo(p.NOMBRE_COMUNA)
+      comuna: comunas[p.COMUNA] ?? p.NOMBRE_COMUNA
     })
   }
 };
 
+// comunas.geojson trae dos polígonos sin nombre (no son comunas ni corregimientos): se omiten.
+const nombresDeComunas = (limites) =>
+  Object.fromEntries(
+    limites.features.filter((f) => f.properties.NOMBRE).map((f) => [f.properties.CODIGO, f.properties.NOMBRE.replace(/^Corregimiento de /, '')])
+  );
+
 export default function MapaTerritorios({
   valores,
   etiqueta,
+  rotulo = etiqueta,
   formatValue = (v) => v,
   formatLegend = formatValue,
   color = accent.orange,
@@ -75,8 +79,7 @@ export default function MapaTerritorios({
     mapRef.current = map;
     map.addControl(new maplibregl.NavigationControl({ showCompass: false }), 'top-right');
     map.addControl(new maplibregl.AttributionControl({ compact: true }), 'bottom-left');
-    // La atribución compacta arranca desplegada y en una tarjeta angosta tapa la leyenda: se pliega al cargar.
-    map.once('load', () => map.getContainer().querySelector('.maplibregl-compact-show')?.classList.remove('maplibregl-compact-show'));
+    ajustesComunes(map);
     // El mapa toma su tamaño al crearse; si la tarjeta termina de maquetarse después (grilla en móvil), se reajusta.
     const observador = new ResizeObserver(() => map.resize());
     observador.observe(container.current);
@@ -84,9 +87,10 @@ export default function MapaTerritorios({
       try {
         const { archivos, propiedades, borde } = NIVELES[nivelInicial.current];
         const colecciones = await Promise.all(archivos.map((url) => fetch(url).then((r) => r.json())));
+        const comunas = nivelInicial.current === 'barrios' ? nombresDeComunas(await fetch('/data/geo/comunas.geojson').then((r) => r.json())) : {};
         if (!activo) return;
         const features = colecciones.flatMap((coleccion, archivo) =>
-          coleccion.features.map((f) => ({ ...f, properties: propiedades(f.properties, archivo) })).filter((f) => f.properties)
+          coleccion.features.map((f) => ({ ...f, properties: propiedades(f.properties, archivo, comunas) })).filter((f) => f.properties)
         );
         geoRef.current = { type: 'FeatureCollection', features };
         map.addSource('territorios', { type: 'geojson', data: geoRef.current });
@@ -163,14 +167,14 @@ export default function MapaTerritorios({
   }, [ready, seleccionado]);
 
   return (
-    <div className="barrio-map territorios-map" style={{ height }}>
+    <div className="barrio-map territorios-map" style={{ minHeight: height }}>
       <div ref={container} className="barrio-map-canvas" />
       {popup && (
         <div className="comuna-card barrio-popup">
           <span>{popup.comuna ? `${popup.tipo} · ${popup.comuna}` : popup.tipo}</span>
           <strong>{popup.nombre}</strong>
           <dl>
-            <dt>{etiqueta}</dt>
+            <dt>{rotulo}</dt>
             <dd>{popup.valor == null ? 'sin dato' : formatValue(popup.valor)}</dd>
           </dl>
           <button onClick={() => setPopup(null)}>Cerrar</button>

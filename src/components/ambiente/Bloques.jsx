@@ -5,7 +5,7 @@ import LineChart from '../charts/LineChart';
 import { accent } from '../charts/tokens';
 import MetricCard from '../MetricCard';
 import { distance } from '../twin/geo';
-import { categoriaIca, esMedellin, hora, marcaSiata, municipioVisible, numero, rasgos, useVivo } from '../../lib/vivo';
+import { categoriaIca, decibeles, esMedellin, hora, marcaSiata, municipioVisible, numero, rasgos, useVivo } from '../../lib/vivo';
 
 const CENTRO = [-75.5686, 6.2476];
 
@@ -301,9 +301,9 @@ export function BloqueRuido({ ruido, tema, onSource }) {
                 [
                   (e.nombreLargo || e.nombreEstacion || '').trim(),
                   municipioVisible(e),
-                  `${numero(e.Datos_Ruido_7D_prom, 1)} dB(A)`,
-                  `${numero(e.Datos_Ruido_7D_prom_dia, 1)} dB(A)`,
-                  `${numero(e.Datos_Ruido_7D_prom_noche, 1)} dB(A)`
+                  decibeles(e.Datos_Ruido_7D_prom),
+                  decibeles(e.Datos_Ruido_7D_prom_dia),
+                  decibeles(e.Datos_Ruido_7D_prom_noche)
                 ]
               ])}
               nota="Promedio de los últimos 7 días publicado por el SIATA."
@@ -343,9 +343,22 @@ export function BloqueSismos({ sismos, tema, onSource }) {
     [sismos]
   );
   const serie = tema.series?.sismos_anual;
+  // La tarjeta de los últimos 12 meses usa la lectura en vivo (la misma de la tabla); si el USGS no responde, queda la
+  // cifra de la última ingesta, con su propia vigencia.
   const cifras = ['sismos_12m', 'sismo_magnitud_maxima']
     .filter((k) => tema.cifras[k])
-    .map((k) => ({ ...tema.cifras[k], clave: k, tema: 'ambiente' }));
+    .map((k) =>
+      k === 'sismos_12m' && eventos.length
+        ? cifraViva(
+            k,
+            tema.cifras[k].etiqueta,
+            eventos.length,
+            tema.cifras[k].unidad,
+            tema.cifras[k].fuente,
+            `Últimos 12 meses · lectura ${hora(sismos.leido)}`
+          )
+        : { ...tema.cifras[k], clave: k, tema: 'ambiente' }
+    );
 
   return (
     <section className="sec-block">
@@ -388,7 +401,7 @@ export function BloqueSismos({ sismos, tema, onSource }) {
                 .map((e) => [
                   e.id,
                   [
-                    e.fecha ? e.fecha.toLocaleDateString('es-CO', { day: '2-digit', month: 'short', year: 'numeric' }) : '—',
+                    e.fecha ? e.fecha.toLocaleDateString('es-CO', { day: '2-digit', month: '2-digit', year: 'numeric' }) : '—',
                     e.lugar,
                     `${numero(e.profundidad, 0)} km`,
                     `${numero(e.km)} km`,

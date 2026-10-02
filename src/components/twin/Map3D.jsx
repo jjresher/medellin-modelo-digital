@@ -1,7 +1,7 @@
 'use client';
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { maplibregl, prepararMaplibre } from '../../lib/maplibre';
+import { maplibregl, prepararMaplibre, silenciarImagenesFaltantes } from '../../lib/maplibre';
 import { Protocol } from 'pmtiles';
 import {
   ANIOS_ORTOFOTO,
@@ -23,7 +23,7 @@ import {
 import { cargarDatosAnalisis, resumenAnalisis } from './analisis';
 import { defaultLayers, readSharedView } from './compartir';
 import { circle, distance, featureBounds, formatNumber, labelPoints, metersPerPixel } from './geo';
-import { buildingPopup, clickable, featurePopup, layerSource } from './popups';
+import { buildingPopup, clickable, featurePopup, layerSource, popupFields } from './popups';
 import {
   AnalysisPanel,
   ExplorePanel,
@@ -233,6 +233,7 @@ export default function Map3D({ gemelo, lentes, catalogo }) {
         attributionControl: { compact: true }
       });
       mapRef.current = map;
+      silenciarImagenesFaltantes(map);
       const fitInitialView = () => {
         if (!active || mapRef.current !== map) return;
         map.resize();
