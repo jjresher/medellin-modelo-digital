@@ -1,7 +1,7 @@
 {
  "tema": "lentes",
  "titulo": "Lentes del gemelo",
- "probado": "2026-09-27",
+ "probado": "2026-10-01",
  "ancla": [],
  "fuentes": [
   {
@@ -10,7 +10,7 @@
    "entidad": "Área Metropolitana del Valle de Aburrá · Portal IDEM (datos de EPM)",
    "url": "https://portalidem.metropol.gov.co/server/rest/services/Hosted/Riesgo_Tecnol%C3%B3gico/FeatureServer",
    "estado": "observado",
-   "probado": "2026-09-27"
+   "probado": "2026-10-01"
   },
   {
    "id": "catastro-puntos",
@@ -18,7 +18,7 @@
    "entidad": "Área Metropolitana del Valle de Aburrá · Portal IDEM (catastro del Distrito) · POT",
    "url": "https://portalidem.metropol.gov.co/server/rest/services/DISTRITO_MEDELLIN_CATASTRO/MapServer/8",
    "estado": "observado",
-   "probado": "2026-09-27"
+   "probado": "2026-10-01"
   },
   {
    "id": "medata-victimas-viales",
@@ -26,7 +26,7 @@
    "entidad": "Secretaría de Movilidad · Alcaldía de Medellín (MEData)",
    "url": "http://medata.gov.co/sites/default/files/distribution/1-023-25-000360/Mede_Victimas_inci.csv",
    "estado": "observado",
-   "probado": "2026-09-27"
+   "probado": "2026-10-01"
   },
   {
    "id": "medata-aforos",
@@ -34,7 +34,7 @@
    "entidad": "Secretaría de Movilidad · Alcaldía de Medellín (MEData)",
    "url": "http://medata.gov.co/sites/default/files/distribution/1-023-25-000301/Aforos_Vehiculares.csv",
    "estado": "observado",
-   "probado": "2026-09-27"
+   "probado": "2026-10-01"
   },
   {
    "id": "idem-pot",
@@ -42,7 +42,7 @@
    "entidad": "Área Metropolitana del Valle de Aburrá · Portal IDEM",
    "url": "https://portalidem.metropol.gov.co/server/rest/services/DISTRITO_MEDELLIN_POT/MapServer",
    "estado": "observado",
-   "probado": "2026-09-27"
+   "probado": "2026-10-01"
   },
   {
    "id": "metro-red",
@@ -50,7 +50,7 @@
    "entidad": "Metro de Medellín · datos abiertos",
    "url": "https://utility.arcgis.com/usrsvcs/servers/b97b082ae9b44544b579f9e4d7a97d4c/rest/services/Hosted/ServiciosOpenData_gdb/FeatureServer/1",
    "estado": "observado",
-   "probado": "2026-09-27"
+   "probado": "2026-10-01"
   },
   {
    "id": "idem-bicicleta",
@@ -58,7 +58,7 @@
    "entidad": "Área Metropolitana del Valle de Aburrá · Portal IDEM",
    "url": "https://portalidem.metropol.gov.co/server/rest/services/Hosted/Ciclorrutas/FeatureServer/0",
    "estado": "observado",
-   "probado": "2026-09-27"
+   "probado": "2026-10-01"
   }
  ],
  "cifras": {
@@ -260,6 +260,113 @@
     "valor": 1
    }
   ],
+  "indicadores": [
+   {
+    "clave": "construcciones",
+    "etiqueta": "Construcciones del catastro",
+    "unidad": "construcciones",
+    "fuente": "catastro-puntos",
+    "vigencia": "Base catastral vigente",
+    "estado": "derivado",
+    "decimales": 0
+   },
+   {
+    "clave": "area_construida_ha",
+    "etiqueta": "Área construida",
+    "unidad": "ha",
+    "fuente": "catastro-puntos",
+    "vigencia": "Base catastral vigente",
+    "estado": "derivado",
+    "decimales": 1,
+    "nota": "Suma del área construida de todos los pisos."
+   },
+   {
+    "clave": "indice_construccion_bruto",
+    "etiqueta": "Índice de construcción bruto",
+    "unidad": "m²/m²",
+    "fuente": "catastro-puntos",
+    "vigencia": "Base catastral vigente",
+    "estado": "derivado",
+    "decimales": 2,
+    "nota": "Área construida ÷ área total del territorio (incluye vías, espacio público y, en los corregimientos, suelo rural)."
+   },
+   {
+    "clave": "pisos_promedio",
+    "etiqueta": "Pisos promedio por construcción",
+    "unidad": "pisos",
+    "fuente": "catastro-puntos",
+    "vigencia": "Base catastral vigente",
+    "estado": "derivado",
+    "decimales": 2
+   },
+   {
+    "clave": "pct_sobre_altura_normativa",
+    "etiqueta": "Construcciones por encima de la altura normativa",
+    "unidad": "% de construcciones",
+    "fuente": "catastro-puntos",
+    "vigencia": "Base catastral vigente",
+    "estado": "derivado",
+    "decimales": 1,
+    "nota": "Pisos del catastro frente a la altura normativa del POT, solo donde la norma la fija en pisos. Es un cruce geométrico: no considera licencias ni normas anteriores."
+   },
+   {
+    "clave": "victimas_viales",
+    "etiqueta": "Víctimas en siniestros viales",
+    "unidad": "víctimas",
+    "fuente": "medata-victimas-viales",
+    "vigencia": "2019–2021",
+    "estado": "derivado",
+    "decimales": 0,
+    "nota": "Heridos y muertos con coordenadas dentro del territorio."
+   },
+   {
+    "clave": "victimas_por_km2_anio",
+    "etiqueta": "Víctimas viales por km² al año",
+    "unidad": "víctimas/km²·año",
+    "fuente": "medata-victimas-viales",
+    "vigencia": "2019–2021",
+    "estado": "derivado",
+    "decimales": 1
+   },
+   {
+    "clave": "km_mt_por_km2",
+    "etiqueta": "Red de media tensión",
+    "unidad": "km/km²",
+    "fuente": "epm-red-electrica",
+    "vigencia": "Red vigente",
+    "estado": "derivado",
+    "decimales": 2,
+    "nota": "Longitud de los tramos que tocan el territorio ÷ su área; un tramo en el límite cuenta en ambos territorios."
+   },
+   {
+    "clave": "km_at_por_km2",
+    "etiqueta": "Líneas de alta tensión",
+    "unidad": "km/km²",
+    "fuente": "epm-red-electrica",
+    "vigencia": "Red vigente",
+    "estado": "derivado",
+    "decimales": 3
+   },
+   {
+    "clave": "subestaciones",
+    "etiqueta": "Subestaciones de energía",
+    "unidad": "subestaciones",
+    "fuente": "epm-red-electrica",
+    "vigencia": "Red vigente",
+    "estado": "derivado",
+    "decimales": 0
+   },
+   {
+    "clave": "veh_eq_hora_pico",
+    "etiqueta": "Volumen en hora pico (aforos)",
+    "unidad": "veh. eq./hora",
+    "fuente": "medata-aforos",
+    "vigencia": "2017–2019",
+    "estado": "derivado",
+    "decimales": 0,
+    "nota": "Promedio de las intersecciones aforadas del territorio; los territorios sin aforos no tienen dato."
+   }
+  ],
   "territorios": [
    {
     "codigo": "01",
@@ -284,7 +391,39 @@
     "indice_energia": 65.3,
     "indice_densificacion": 35.1,
     "indice_vial": 30.4,
-    "indice_cruce": 43.6
+    "indice_cruce": 43.6,
+    "valores": {
+     "construcciones": {
+      "2026": 53461
+     },
+     "area_construida_ha": {
+      "2026": 222.4
+     },
+     "indice_construccion_bruto": {
+      "2026": 0.718
+     },
+     "pisos_promedio": {
+      "2026": 1.59
+     },
+     "pct_sobre_altura_normativa": {
+      "2026": 13.0
+     },
+     "victimas_viales": {
+      "2019–2021": 1585
+     },
+     "victimas_por_km2_anio": {
+      "2019–2021": 170.6
+     },
+     "km_mt_por_km2": {
+      "2026": 18.7
+     },
+     "km_at_por_km2": {
+      "2026": 1.195
+     },
+     "subestaciones": {
+      "2026": 0
+     }
+    }
    },
    {
     "codigo": "02",
@@ -309,7 +448,42 @@
     "indice_energia": 52.5,
     "indice_densificacion": 46.4,
     "indice_vial": 36.0,
-    "indice_cruce": 45.0
+    "indice_cruce": 45.0,
+    "valores": {
+     "construcciones": {
+      "2026": 44091
+     },
+     "area_construida_ha": {
+      "2026": 206.9
+     },
+     "indice_construccion_bruto": {
+      "2026": 0.943
+     },
+     "pisos_promedio": {
+      "2026": 1.74
+     },
+     "pct_sobre_altura_normativa": {
+      "2026": 4.1
+     },
+     "victimas_viales": {
+      "2019–2021": 1245
+     },
+     "victimas_por_km2_anio": {
+      "2019–2021": 189.2
+     },
+     "km_mt_por_km2": {
+      "2026": 19.64
+     },
+     "km_at_por_km2": {
+      "2026": 0.169
+     },
+     "subestaciones": {
+      "2026": 0
+     },
+     "veh_eq_hora_pico": {
+      "2017–2019": 2174
+     }
+    }
    },
    {
     "codigo": "03",
@@ -334,7 +508,42 @@
     "indice_energia": 60.4,
     "indice_densificacion": 34.2,
     "indice_vial": 31.7,
-    "indice_cruce": 42.1
+    "indice_cruce": 42.1,
+    "valores": {
+     "construcciones": {
+      "2026": 70709
+     },
+     "area_construida_ha": {
+      "2026": 337.2
+     },
+     "indice_construccion_bruto": {
+      "2026": 0.662
+     },
+     "pisos_promedio": {
+      "2026": 1.67
+     },
+     "pct_sobre_altura_normativa": {
+      "2026": 6.7
+     },
+     "victimas_viales": {
+      "2019–2021": 2844
+     },
+     "victimas_por_km2_anio": {
+      "2019–2021": 186.1
+     },
+     "km_mt_por_km2": {
+      "2026": 16.84
+     },
+     "km_at_por_km2": {
+      "2026": 1.199
+     },
+     "subestaciones": {
+      "2026": 1
+     },
+     "veh_eq_hora_pico": {
+      "2017–2019": 1804
+     }
+    }
    },
    {
     "codigo": "04",
@@ -359,7 +568,42 @@
     "indice_energia": 34.8,
     "indice_densificacion": 43.8,
     "indice_vial": 29.0,
-    "indice_cruce": 35.9
+    "indice_cruce": 35.9,
+    "valores": {
+     "construcciones": {
+      "2026": 61598
+     },
+     "area_construida_ha": {
+      "2026": 411.5
+     },
+     "indice_construccion_bruto": {
+      "2026": 0.843
+     },
+     "pisos_promedio": {
+      "2026": 1.83
+     },
+     "pct_sobre_altura_normativa": {
+      "2026": 2.0
+     },
+     "victimas_viales": {
+      "2019–2021": 4765
+     },
+     "victimas_por_km2_anio": {
+      "2019–2021": 325.3
+     },
+     "km_mt_por_km2": {
+      "2026": 14.03
+     },
+     "km_at_por_km2": {
+      "2026": 0.0
+     },
+     "subestaciones": {
+      "2026": 0
+     },
+     "veh_eq_hora_pico": {
+      "2017–2019": 437
+     }
+    }
    },
    {
     "codigo": "05",
@@ -384,7 +628,42 @@
     "indice_energia": 87.2,
     "indice_densificacion": 35.0,
     "indice_vial": 55.0,
-    "indice_cruce": 59.1
+    "indice_cruce": 59.1,
+    "valores": {
+     "construcciones": {
+      "2026": 57497
+     },
+     "area_construida_ha": {
+      "2026": 366.5
+     },
+     "indice_construccion_bruto": {
+      "2026": 0.605
+     },
+     "pisos_promedio": {
+      "2026": 1.87
+     },
+     "pct_sobre_altura_normativa": {
+      "2026": 2.9
+     },
+     "victimas_viales": {
+      "2019–2021": 6241
+     },
+     "victimas_por_km2_anio": {
+      "2019–2021": 343.2
+     },
+     "km_mt_por_km2": {
+      "2026": 14.9
+     },
+     "km_at_por_km2": {
+      "2026": 3.334
+     },
+     "subestaciones": {
+      "2026": 1
+     },
+     "veh_eq_hora_pico": {
+      "2017–2019": 2649
+     }
+    }
    },
    {
     "codigo": "06",
@@ -409,7 +688,42 @@
     "indice_energia": 64.5,
     "indice_densificacion": 46.9,
     "indice_vial": 26.9,
-    "indice_cruce": 46.1
+    "indice_cruce": 46.1,
+    "valores": {
+     "construcciones": {
+      "2026": 69850
+     },
+     "area_construida_ha": {
+      "2026": 364.3
+     },
+     "indice_construccion_bruto": {
+      "2026": 0.947
+     },
+     "pisos_promedio": {
+      "2026": 1.76
+     },
+     "pct_sobre_altura_normativa": {
+      "2026": 8.0
+     },
+     "victimas_viales": {
+      "2019–2021": 2321
+     },
+     "victimas_por_km2_anio": {
+      "2019–2021": 201.1
+     },
+     "km_mt_por_km2": {
+      "2026": 18.14
+     },
+     "km_at_por_km2": {
+      "2026": 1.234
+     },
+     "subestaciones": {
+      "2026": 0
+     },
+     "veh_eq_hora_pico": {
+      "2017–2019": 1252
+     }
+    }
    },
    {
     "codigo": "07",
@@ -434,7 +748,42 @@
     "indice_energia": 52.9,
     "indice_densificacion": 35.1,
     "indice_vial": 30.9,
-    "indice_cruce": 39.6
+    "indice_cruce": 39.6,
+    "valores": {
+     "construcciones": {
+      "2026": 76656
+     },
+     "area_construida_ha": {
+      "2026": 537.7
+     },
+     "indice_construccion_bruto": {
+      "2026": 0.569
+     },
+     "pisos_promedio": {
+      "2026": 1.97
+     },
+     "pct_sobre_altura_normativa": {
+      "2026": 12.7
+     },
+     "victimas_viales": {
+      "2019–2021": 5492
+     },
+     "victimas_por_km2_anio": {
+      "2019–2021": 193.6
+     },
+     "km_mt_por_km2": {
+      "2026": 12.45
+     },
+     "km_at_por_km2": {
+      "2026": 1.494
+     },
+     "subestaciones": {
+      "2026": 1
+     },
+     "veh_eq_hora_pico": {
+      "2017–2019": 1675
+     }
+    }
    },
    {
     "codigo": "08",
@@ -459,7 +808,42 @@
     "indice_energia": 47.9,
     "indice_densificacion": 31.6,
     "indice_vial": 29.5,
-    "indice_cruce": 36.3
+    "indice_cruce": 36.3,
+    "valores": {
+     "construcciones": {
+      "2026": 64327
+     },
+     "area_construida_ha": {
+      "2026": 342.8
+     },
+     "indice_construccion_bruto": {
+      "2026": 0.6
+     },
+     "pisos_promedio": {
+      "2026": 1.66
+     },
+     "pct_sobre_altura_normativa": {
+      "2026": 14.3
+     },
+     "victimas_viales": {
+      "2019–2021": 2612
+     },
+     "victimas_por_km2_anio": {
+      "2019–2021": 152.4
+     },
+     "km_mt_por_km2": {
+      "2026": 13.16
+     },
+     "km_at_por_km2": {
+      "2026": 1.033
+     },
+     "subestaciones": {
+      "2026": 1
+     },
+     "veh_eq_hora_pico": {
+      "2017–2019": 1877
+     }
+    }
    },
    {
     "codigo": "09",
@@ -484,7 +868,42 @@
     "indice_energia": 52.1,
     "indice_densificacion": 42.6,
     "indice_vial": 25.8,
-    "indice_cruce": 40.2
+    "indice_cruce": 40.2,
+    "valores": {
+     "construcciones": {
+      "2026": 64570
+     },
+     "area_construida_ha": {
+      "2026": 433.9
+     },
+     "indice_construccion_bruto": {
+      "2026": 0.717
+     },
+     "pisos_promedio": {
+      "2026": 2.07
+     },
+     "pct_sobre_altura_normativa": {
+      "2026": 19.2
+     },
+     "victimas_viales": {
+      "2019–2021": 3170
+     },
+     "victimas_por_km2_anio": {
+      "2019–2021": 174.7
+     },
+     "km_mt_por_km2": {
+      "2026": 12.51
+     },
+     "km_at_por_km2": {
+      "2026": 1.435
+     },
+     "subestaciones": {
+      "2026": 1
+     },
+     "veh_eq_hora_pico": {
+      "2017–2019": 1359
+     }
+    }
    },
    {
     "codigo": "10",
@@ -509,7 +928,42 @@
     "indice_energia": 29.8,
     "indice_densificacion": 74.5,
     "indice_vial": 70.8,
-    "indice_cruce": 58.4
+    "indice_cruce": 58.4,
+    "valores": {
+     "construcciones": {
+      "2026": 46380
+     },
+     "area_construida_ha": {
+      "2026": 929.6
+     },
+     "indice_construccion_bruto": {
+      "2026": 1.264
+     },
+     "pisos_promedio": {
+      "2026": 2.73
+     },
+     "pct_sobre_altura_normativa": {
+      "2026": 1.8
+     },
+     "victimas_viales": {
+      "2019–2021": 12370
+     },
+     "victimas_por_km2_anio": {
+      "2019–2021": 560.5
+     },
+     "km_mt_por_km2": {
+      "2026": 10.03
+     },
+     "km_at_por_km2": {
+      "2026": 0.398
+     },
+     "subestaciones": {
+      "2026": 1
+     },
+     "veh_eq_hora_pico": {
+      "2017–2019": 2312
+     }
+    }
    },
    {
     "codigo": "11",
@@ -534,7 +988,42 @@
     "indice_energia": 49.9,
     "indice_densificacion": 71.3,
     "indice_vial": 53.0,
-    "indice_cruce": 58.1
+    "indice_cruce": 58.1,
+    "valores": {
+     "construcciones": {
+      "2026": 60835
+     },
+     "area_construida_ha": {
+      "2026": 799.1
+     },
+     "indice_construccion_bruto": {
+      "2026": 1.08
+     },
+     "pisos_promedio": {
+      "2026": 3.0
+     },
+     "pct_sobre_altura_normativa": {
+      "2026": 37.7
+     },
+     "victimas_viales": {
+      "2019–2021": 5950
+     },
+     "victimas_por_km2_anio": {
+      "2019–2021": 268.1
+     },
+     "km_mt_por_km2": {
+      "2026": 14.65
+     },
+     "km_at_por_km2": {
+      "2026": 0.895
+     },
+     "subestaciones": {
+      "2026": 1
+     },
+     "veh_eq_hora_pico": {
+      "2017–2019": 3066
+     }
+    }
    },
    {
     "codigo": "12",
@@ -559,7 +1048,42 @@
     "indice_energia": 45.2,
     "indice_densificacion": 60.4,
     "indice_vial": 52.9,
-    "indice_cruce": 52.8
+    "indice_cruce": 52.8,
+    "valores": {
+     "construcciones": {
+      "2026": 42043
+     },
+     "area_construida_ha": {
+      "2026": 425.9
+     },
+     "indice_construccion_bruto": {
+      "2026": 1.073
+     },
+     "pisos_promedio": {
+      "2026": 2.31
+     },
+     "pct_sobre_altura_normativa": {
+      "2026": 63.0
+     },
+     "victimas_viales": {
+      "2019–2021": 2365
+     },
+     "victimas_por_km2_anio": {
+      "2019–2021": 198.5
+     },
+     "km_mt_por_km2": {
+      "2026": 17.28
+     },
+     "km_at_por_km2": {
+      "2026": 0.111
+     },
+     "subestaciones": {
+      "2026": 1
+     },
+     "veh_eq_hora_pico": {
+      "2017–2019": 3622
+     }
+    }
    },
    {
     "codigo": "13",
@@ -584,7 +1108,42 @@
     "indice_energia": 54.8,
     "indice_densificacion": 39.0,
     "indice_vial": 17.8,
-    "indice_cruce": 37.2
+    "indice_cruce": 37.2,
+    "valores": {
+     "construcciones": {
+      "2026": 60314
+     },
+     "area_construida_ha": {
+      "2026": 361.0
+     },
+     "indice_construccion_bruto": {
+      "2026": 0.745
+     },
+     "pisos_promedio": {
+      "2026": 1.77
+     },
+     "pct_sobre_altura_normativa": {
+      "2026": 8.2
+     },
+     "victimas_viales": {
+      "2019–2021": 1530
+     },
+     "victimas_por_km2_anio": {
+      "2019–2021": 105.2
+     },
+     "km_mt_por_km2": {
+      "2026": 15.62
+     },
+     "km_at_por_km2": {
+      "2026": 1.044
+     },
+     "subestaciones": {
+      "2026": 0
+     },
+     "veh_eq_hora_pico": {
+      "2017–2019": 1198
+     }
+    }
    },
    {
     "codigo": "14",
@@ -609,7 +1168,42 @@
     "indice_energia": 35.9,
     "indice_densificacion": 85.5,
     "indice_vial": 23.3,
-    "indice_cruce": 48.2
+    "indice_cruce": 48.2,
+    "valores": {
+     "construcciones": {
+      "2026": 66815
+     },
+     "area_construida_ha": {
+      "2026": 1293.1
+     },
+     "indice_construccion_bruto": {
+      "2026": 0.898
+     },
+     "pisos_promedio": {
+      "2026": 4.38
+     },
+     "pct_sobre_altura_normativa": {
+      "2026": 7.0
+     },
+     "victimas_viales": {
+      "2019–2021": 4102
+     },
+     "victimas_por_km2_anio": {
+      "2019–2021": 94.9
+     },
+     "km_mt_por_km2": {
+      "2026": 10.48
+     },
+     "km_at_por_km2": {
+      "2026": 0.717
+     },
+     "subestaciones": {
+      "2026": 1
+     },
+     "veh_eq_hora_pico": {
+      "2017–2019": 1781
+     }
+    }
    },
    {
     "codigo": "15",
@@ -634,7 +1228,42 @@
     "indice_energia": 46.0,
     "indice_densificacion": 33.8,
     "indice_vial": 68.7,
-    "indice_cruce": 49.5
+    "indice_cruce": 49.5,
+    "valores": {
+     "construcciones": {
+      "2026": 39564
+     },
+     "area_construida_ha": {
+      "2026": 434.9
+     },
+     "indice_construccion_bruto": {
+      "2026": 0.597
+     },
+     "pisos_promedio": {
+      "2026": 1.81
+     },
+     "pct_sobre_altura_normativa": {
+      "2026": 3.3
+     },
+     "victimas_viales": {
+      "2019–2021": 4581
+     },
+     "victimas_por_km2_anio": {
+      "2019–2021": 209.7
+     },
+     "km_mt_por_km2": {
+      "2026": 12.08
+     },
+     "km_at_por_km2": {
+      "2026": 1.104
+     },
+     "subestaciones": {
+      "2026": 1
+     },
+     "veh_eq_hora_pico": {
+      "2017–2019": 4960
+     }
+    }
    },
    {
     "codigo": "16",
@@ -659,7 +1288,42 @@
     "indice_energia": 43.5,
     "indice_densificacion": 52.8,
     "indice_vial": 38.5,
-    "indice_cruce": 44.9
+    "indice_cruce": 44.9,
+    "valores": {
+     "construcciones": {
+      "2026": 88925
+     },
+     "area_construida_ha": {
+      "2026": 781.4
+     },
+     "indice_construccion_bruto": {
+      "2026": 0.883
+     },
+     "pisos_promedio": {
+      "2026": 2.31
+     },
+     "pct_sobre_altura_normativa": {
+      "2026": 17.3
+     },
+     "victimas_viales": {
+      "2019–2021": 4063
+     },
+     "victimas_por_km2_anio": {
+      "2019–2021": 153.0
+     },
+     "km_mt_por_km2": {
+      "2026": 14.38
+     },
+     "km_at_por_km2": {
+      "2026": 0.517
+     },
+     "subestaciones": {
+      "2026": 1
+     },
+     "veh_eq_hora_pico": {
+      "2017–2019": 2688
+     }
+    }
    },
    {
     "codigo": "50",
@@ -684,7 +1348,36 @@
     "indice_energia": 1.8,
     "indice_densificacion": 0.0,
     "indice_vial": 0.0,
-    "indice_cruce": 0.6
+    "indice_cruce": 0.6,
+    "valores": {
+     "construcciones": {
+      "2026": 2118
+     },
+     "area_construida_ha": {
+      "2026": 13.4
+     },
+     "indice_construccion_bruto": {
+      "2026": 0.002
+     },
+     "pisos_promedio": {
+      "2026": 1.15
+     },
+     "victimas_viales": {
+      "2019–2021": 10
+     },
+     "victimas_por_km2_anio": {
+      "2019–2021": 0.1
+     },
+     "km_mt_por_km2": {
+      "2026": 1.22
+     },
+     "km_at_por_km2": {
+      "2026": 0.121
+     },
+     "subestaciones": {
+      "2026": 0
+     }
+    }
    },
    {
     "codigo": "60",
@@ -709,7 +1402,42 @@
     "indice_energia": 14.2,
     "indice_densificacion": 12.0,
     "indice_vial": 0.7,
-    "indice_cruce": 9.0
+    "indice_cruce": 9.0,
+    "valores": {
+     "construcciones": {
+      "2026": 33184
+     },
+     "area_construida_ha": {
+      "2026": 295.1
+     },
+     "indice_construccion_bruto": {
+      "2026": 0.055
+     },
+     "pisos_promedio": {
+      "2026": 1.79
+     },
+     "pct_sobre_altura_normativa": {
+      "2026": 11.8
+     },
+     "victimas_viales": {
+      "2019–2021": 1105
+     },
+     "victimas_por_km2_anio": {
+      "2019–2021": 6.8
+     },
+     "km_mt_por_km2": {
+      "2026": 3.4
+     },
+     "km_at_por_km2": {
+      "2026": 0.549
+     },
+     "subestaciones": {
+      "2026": 1
+     },
+     "veh_eq_hora_pico": {
+      "2017–2019": 445
+     }
+    }
    },
    {
     "codigo": "70",
@@ -734,7 +1462,39 @@
     "indice_energia": 11.7,
     "indice_densificacion": 14.0,
     "indice_vial": 0.5,
-    "indice_cruce": 8.7
+    "indice_cruce": 8.7,
+    "valores": {
+     "construcciones": {
+      "2026": 12806
+     },
+     "area_construida_ha": {
+      "2026": 120.3
+     },
+     "indice_construccion_bruto": {
+      "2026": 0.042
+     },
+     "pisos_promedio": {
+      "2026": 1.95
+     },
+     "pct_sobre_altura_normativa": {
+      "2026": 12.3
+     },
+     "victimas_viales": {
+      "2019–2021": 238
+     },
+     "victimas_por_km2_anio": {
+      "2019–2021": 2.8
+     },
+     "km_mt_por_km2": {
+      "2026": 1.99
+     },
+     "km_at_por_km2": {
+      "2026": 0.636
+     },
+     "subestaciones": {
+      "2026": 0
+     }
+    }
    },
    {
     "codigo": "80",
@@ -759,7 +1519,39 @@
     "indice_energia": 8.2,
     "indice_densificacion": 11.3,
     "indice_vial": 0.9,
-    "indice_cruce": 6.8
+    "indice_cruce": 6.8,
+    "valores": {
+     "construcciones": {
+      "2026": 40028
+     },
+     "area_construida_ha": {
+      "2026": 271.3
+     },
+     "indice_construccion_bruto": {
+      "2026": 0.045
+     },
+     "pisos_promedio": {
+      "2026": 1.77
+     },
+     "pct_sobre_altura_normativa": {
+      "2026": 14.2
+     },
+     "victimas_viales": {
+      "2019–2021": 965
+     },
+     "victimas_por_km2_anio": {
+      "2019–2021": 5.3
+     },
+     "km_mt_por_km2": {
+      "2026": 2.0
+     },
+     "km_at_por_km2": {
+      "2026": 0.411
+     },
+     "subestaciones": {
+      "2026": 1
+     }
+    }
    },
    {
     "codigo": "90",
@@ -784,7 +1576,39 @@
     "indice_energia": 9.1,
     "indice_densificacion": 2.8,
     "indice_vial": 0.2,
-    "indice_cruce": 4.0
+    "indice_cruce": 4.0,
+    "valores": {
+     "construcciones": {
+      "2026": 17499
+     },
+     "area_construida_ha": {
+      "2026": 142.7
+     },
+     "indice_construccion_bruto": {
+      "2026": 0.019
+     },
+     "pisos_promedio": {
+      "2026": 1.29
+     },
+     "pct_sobre_altura_normativa": {
+      "2026": 13.8
+     },
+     "victimas_viales": {
+      "2019–2021": 259
+     },
+     "victimas_por_km2_anio": {
+      "2019–2021": 1.2
+     },
+     "km_mt_por_km2": {
+      "2026": 2.34
+     },
+     "km_at_por_km2": {
+      "2026": 0.4
+     },
+     "subestaciones": {
+      "2026": 0
+     }
+    }
    }
   ],
   "metodo_indices": [

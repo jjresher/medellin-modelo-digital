@@ -39,6 +39,10 @@ const ServiciosView = dynamic(() => import('../components/ServiciosView'), {
   ssr: false,
   loading: () => <div className="view-loading">Cargando servicios públicos…</div>
 });
+const AtlasView = dynamic(() => import('../components/AtlasView'), {
+  ssr: false,
+  loading: () => <div className="view-loading">Cargando el atlas…</div>
+});
 const TerritorioView = dynamic(() => import('../components/TerritorioView'), {
   ssr: false,
   loading: () => <div className="view-loading">Cargando territorio y cultura…</div>
@@ -52,6 +56,7 @@ const vistas = {
   tourism: ({ lago, onSource }) => <TurismoView tema={lago.temas.turismo} onSource={onSource} />,
   municipality: ({ lago, onSource }) => <MunicipioView tema={lago.temas.municipio} onSource={onSource} />,
   services: ({ lago, onSource }) => <ServiciosView tema={lago.temas.servicios} onSource={onSource} />,
+  atlas: ({ lago, onSource }) => <AtlasView lago={lago} onSource={onSource} />,
   culture: ({ lago, onSource }) => <TerritorioView tema={lago.temas.territorio} lentes={lago.temas.lentes} onSource={onSource} />,
   safety: ({ lago, onSource }) => <SeguridadView tema={lago.temas.seguridad} onSource={onSource} />,
   environment: ({ lago, onSource }) => <AmbienteView tema={lago.temas.ambiente} onSource={onSource} />,

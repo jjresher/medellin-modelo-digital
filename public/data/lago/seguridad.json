@@ -1,7 +1,7 @@
 {
  "tema": "seguridad",
  "titulo": "Seguridad",
- "probado": "2026-09-27",
+ "probado": "2026-10-01",
  "ancla": [
   "homicidios_anio_curso",
   "homicidios_tasa"
@@ -13,7 +13,7 @@
    "entidad": "Ministerio de Defensa Nacional · Policía Nacional",
    "url": "https://www.datos.gov.co/d/m8fd-ahd9",
    "estado": "observado",
-   "probado": "2026-09-27"
+   "probado": "2026-10-01"
   },
   {
    "id": "policia-hurto-personas",
@@ -21,7 +21,7 @@
    "entidad": "Ministerio de Defensa Nacional · Policía Nacional",
    "url": "https://www.datos.gov.co/d/4rxi-8m8d",
    "estado": "observado",
-   "probado": "2026-09-27"
+   "probado": "2026-10-01"
   },
   {
    "id": "policia-hurto-vehiculos",
@@ -29,7 +29,7 @@
    "entidad": "Ministerio de Defensa Nacional · Policía Nacional",
    "url": "https://www.datos.gov.co/d/csb4-y6v2",
    "estado": "observado",
-   "probado": "2026-09-27"
+   "probado": "2026-10-01"
   },
   {
    "id": "policia-extorsion",
@@ -37,7 +37,7 @@
    "entidad": "Ministerio de Defensa Nacional · Policía Nacional",
    "url": "https://www.datos.gov.co/d/q2ib-t9am",
    "estado": "observado",
-   "probado": "2026-09-27"
+   "probado": "2026-10-01"
   },
   {
    "id": "policia-violencia-intrafamiliar",
@@ -45,7 +45,7 @@
    "entidad": "Ministerio de Defensa Nacional · Policía Nacional",
    "url": "https://www.datos.gov.co/d/gepp-dxcs",
    "estado": "observado",
-   "probado": "2026-09-27"
+   "probado": "2026-10-01"
   },
   {
    "id": "policia-delitos-sexuales",
@@ -53,7 +53,7 @@
    "entidad": "Ministerio de Defensa Nacional · Policía Nacional",
    "url": "https://www.datos.gov.co/d/bz43-8ahq",
    "estado": "observado",
-   "probado": "2026-09-27"
+   "probado": "2026-10-01"
   },
   {
    "id": "policia-lesiones-personales",
@@ -61,7 +61,7 @@
    "entidad": "Ministerio de Defensa Nacional · Policía Nacional",
    "url": "https://www.datos.gov.co/d/jr6v-i33g",
    "estado": "observado",
-   "probado": "2026-09-27"
+   "probado": "2026-10-01"
   },
   {
    "id": "sisc-homicidio",
@@ -69,7 +69,7 @@
    "entidad": "Secretaría de Seguridad y Convivencia · Alcaldía de Medellín (SISC / MEData)",
    "url": "http://medata.gov.co/sites/default/files/distribution/1-027-23-000008/homicidio.csv",
    "estado": "observado",
-   "probado": "2026-09-27"
+   "probado": "2026-10-01"
   },
   {
    "id": "sisc-hurto-persona",
@@ -77,7 +77,7 @@
    "entidad": "Secretaría de Seguridad y Convivencia · Alcaldía de Medellín (SISC / MEData)",
    "url": "http://medata.gov.co/sites/default/files/distribution/1-027-23-000011/hurto_a_persona.csv",
    "estado": "observado",
-   "probado": "2026-09-27"
+   "probado": "2026-10-01"
   },
   {
    "id": "sisc-hurto-carro",
@@ -85,7 +85,7 @@
    "entidad": "Secretaría de Seguridad y Convivencia · Alcaldía de Medellín (SISC / MEData)",
    "url": "http://medata.gov.co/sites/default/files/distribution/1-027-23-000013/hurto_de_carro.csv",
    "estado": "observado",
-   "probado": "2026-09-27"
+   "probado": "2026-10-01"
   },
   {
    "id": "sisc-hurto-moto",
@@ -93,7 +93,7 @@
    "entidad": "Secretaría de Seguridad y Convivencia · Alcaldía de Medellín (SISC / MEData)",
    "url": "http://medata.gov.co/sites/default/files/distribution/1-027-23-000014/hurto_de_moto.csv",
    "estado": "observado",
-   "probado": "2026-09-27"
+   "probado": "2026-10-01"
   },
   {
    "id": "sisc-hurto-residencia",
@@ -101,7 +101,7 @@
    "entidad": "Secretaría de Seguridad y Convivencia · Alcaldía de Medellín (SISC / MEData)",
    "url": "http://medata.gov.co/sites/default/files/distribution/1-027-23-000012/hurto_a_residencia.csv",
    "estado": "observado",
-   "probado": "2026-09-27"
+   "probado": "2026-10-01"
   },
   {
    "id": "sisc-hurto-comercio",
@@ -109,7 +109,7 @@
    "entidad": "Secretaría de Seguridad y Convivencia · Alcaldía de Medellín (SISC / MEData)",
    "url": "http://medata.gov.co/sites/default/files/distribution/1-027-23-000010/hurto_a_establecimiento_comercial.csv",
    "estado": "observado",
-   "probado": "2026-09-27"
+   "probado": "2026-10-01"
   },
   {
    "id": "sisc-extorsion-sisc",
@@ -117,7 +117,7 @@
    "entidad": "Secretaría de Seguridad y Convivencia · Alcaldía de Medellín (SISC / MEData)",
    "url": "http://medata.gov.co/sites/default/files/distribution/1-027-23-000007/extorsion.csv",
    "estado": "observado",
-   "probado": "2026-09-27"
+   "probado": "2026-10-01"
   },
   {
    "id": "sisc-lesion-dolosa",
@@ -125,7 +125,7 @@
    "entidad": "Secretaría de Seguridad y Convivencia · Alcaldía de Medellín (SISC / MEData)",
    "url": "http://medata.gov.co/sites/default/files/distribution/1-027-23-000002/lesion_no_fatal_dolosa_segun_policia.csv",
    "estado": "observado",
-   "probado": "2026-09-27"
+   "probado": "2026-10-01"
   }
  ],
  "cifras": {
@@ -3519,6 +3519,1325 @@
     "nombre": "Corregimiento de San Sebastián de Palmitas",
     "casos": 21,
     "tasa_x10mil": 29.37
+   }
+  ],
+  "indicadores": [
+   {
+    "clave": "sisc_homicidio",
+    "etiqueta": "Homicidio (SISC)",
+    "unidad": "casos",
+    "fuente": "sisc-homicidio",
+    "estado": "observado",
+    "vigencia": "2021–2023 (histórico)",
+    "decimales": 0,
+    "nota": "Casos registrados por el SISC entre 2021 y 2023, con comuna diligenciada."
+   },
+   {
+    "clave": "sisc_homicidio_tasa",
+    "etiqueta": "Homicidio por 10.000 habitantes (SISC)",
+    "unidad": "por 10.000 hab.",
+    "fuente": "sisc-homicidio",
+    "estado": "derivado",
+    "vigencia": "2021–2023 (histórico)",
+    "decimales": 2,
+    "nota": "Casos de 2021–2023 (los 3 años sumados) ÷ población proyectada por el DAP × 10.000. No es una tasa anual."
+   },
+   {
+    "clave": "sisc_hurto_persona",
+    "etiqueta": "Hurto a persona (SISC)",
+    "unidad": "casos",
+    "fuente": "sisc-hurto-persona",
+    "estado": "observado",
+    "vigencia": "2021–2023 (histórico)",
+    "decimales": 0,
+    "nota": "Casos registrados por el SISC entre 2021 y 2023, con comuna diligenciada."
+   },
+   {
+    "clave": "sisc_hurto_persona_tasa",
+    "etiqueta": "Hurto a persona por 10.000 habitantes (SISC)",
+    "unidad": "por 10.000 hab.",
+    "fuente": "sisc-hurto-persona",
+    "estado": "derivado",
+    "vigencia": "2021–2023 (histórico)",
+    "decimales": 2,
+    "nota": "Casos de 2021–2023 (los 3 años sumados) ÷ población proyectada por el DAP × 10.000. No es una tasa anual."
+   },
+   {
+    "clave": "sisc_hurto_carro",
+    "etiqueta": "Hurto de carro (SISC)",
+    "unidad": "casos",
+    "fuente": "sisc-hurto-carro",
+    "estado": "observado",
+    "vigencia": "2021–2023 (histórico)",
+    "decimales": 0,
+    "nota": "Casos registrados por el SISC entre 2021 y 2023, con comuna diligenciada."
+   },
+   {
+    "clave": "sisc_hurto_carro_tasa",
+    "etiqueta": "Hurto de carro por 10.000 habitantes (SISC)",
+    "unidad": "por 10.000 hab.",
+    "fuente": "sisc-hurto-carro",
+    "estado": "derivado",
+    "vigencia": "2021–2023 (histórico)",
+    "decimales": 2,
+    "nota": "Casos de 2021–2023 (los 3 años sumados) ÷ población proyectada por el DAP × 10.000. No es una tasa anual."
+   },
+   {
+    "clave": "sisc_hurto_moto",
+    "etiqueta": "Hurto de moto (SISC)",
+    "unidad": "casos",
+    "fuente": "sisc-hurto-moto",
+    "estado": "observado",
+    "vigencia": "2021–2023 (histórico)",
+    "decimales": 0,
+    "nota": "Casos registrados por el SISC entre 2021 y 2023, con comuna diligenciada."
+   },
+   {
+    "clave": "sisc_hurto_moto_tasa",
+    "etiqueta": "Hurto de moto por 10.000 habitantes (SISC)",
+    "unidad": "por 10.000 hab.",
+    "fuente": "sisc-hurto-moto",
+    "estado": "derivado",
+    "vigencia": "2021–2023 (histórico)",
+    "decimales": 2,
+    "nota": "Casos de 2021–2023 (los 3 años sumados) ÷ población proyectada por el DAP × 10.000. No es una tasa anual."
+   },
+   {
+    "clave": "sisc_hurto_residencia",
+    "etiqueta": "Hurto a residencia (SISC)",
+    "unidad": "casos",
+    "fuente": "sisc-hurto-residencia",
+    "estado": "observado",
+    "vigencia": "2021–2023 (histórico)",
+    "decimales": 0,
+    "nota": "Casos registrados por el SISC entre 2021 y 2023, con comuna diligenciada."
+   },
+   {
+    "clave": "sisc_hurto_residencia_tasa",
+    "etiqueta": "Hurto a residencia por 10.000 habitantes (SISC)",
+    "unidad": "por 10.000 hab.",
+    "fuente": "sisc-hurto-residencia",
+    "estado": "derivado",
+    "vigencia": "2021–2023 (histórico)",
+    "decimales": 2,
+    "nota": "Casos de 2021–2023 (los 3 años sumados) ÷ población proyectada por el DAP × 10.000. No es una tasa anual."
+   },
+   {
+    "clave": "sisc_hurto_comercio",
+    "etiqueta": "Hurto a establecimiento comercial (SISC)",
+    "unidad": "casos",
+    "fuente": "sisc-hurto-comercio",
+    "estado": "observado",
+    "vigencia": "2021–2023 (histórico)",
+    "decimales": 0,
+    "nota": "Casos registrados por el SISC entre 2021 y 2023, con comuna diligenciada."
+   },
+   {
+    "clave": "sisc_hurto_comercio_tasa",
+    "etiqueta": "Hurto a establecimiento comercial por 10.000 habitantes (SISC)",
+    "unidad": "por 10.000 hab.",
+    "fuente": "sisc-hurto-comercio",
+    "estado": "derivado",
+    "vigencia": "2021–2023 (histórico)",
+    "decimales": 2,
+    "nota": "Casos de 2021–2023 (los 3 años sumados) ÷ población proyectada por el DAP × 10.000. No es una tasa anual."
+   },
+   {
+    "clave": "sisc_extorsion_sisc",
+    "etiqueta": "Extorsión (SISC)",
+    "unidad": "casos",
+    "fuente": "sisc-extorsion-sisc",
+    "estado": "observado",
+    "vigencia": "2021–2023 (histórico)",
+    "decimales": 0,
+    "nota": "Casos registrados por el SISC entre 2021 y 2023, con comuna diligenciada."
+   },
+   {
+    "clave": "sisc_extorsion_sisc_tasa",
+    "etiqueta": "Extorsión por 10.000 habitantes (SISC)",
+    "unidad": "por 10.000 hab.",
+    "fuente": "sisc-extorsion-sisc",
+    "estado": "derivado",
+    "vigencia": "2021–2023 (histórico)",
+    "decimales": 2,
+    "nota": "Casos de 2021–2023 (los 3 años sumados) ÷ población proyectada por el DAP × 10.000. No es una tasa anual."
+   },
+   {
+    "clave": "sisc_lesion_dolosa",
+    "etiqueta": "Lesión no fatal dolosa (SISC)",
+    "unidad": "casos",
+    "fuente": "sisc-lesion-dolosa",
+    "estado": "observado",
+    "vigencia": "2021–2023 (histórico)",
+    "decimales": 0,
+    "nota": "Casos registrados por el SISC entre 2021 y 2023, con comuna diligenciada."
+   },
+   {
+    "clave": "sisc_lesion_dolosa_tasa",
+    "etiqueta": "Lesión no fatal dolosa por 10.000 habitantes (SISC)",
+    "unidad": "por 10.000 hab.",
+    "fuente": "sisc-lesion-dolosa",
+    "estado": "derivado",
+    "vigencia": "2021–2023 (histórico)",
+    "decimales": 2,
+    "nota": "Casos de 2021–2023 (los 3 años sumados) ÷ población proyectada por el DAP × 10.000. No es una tasa anual."
+   }
+  ],
+  "territorios": [
+   {
+    "codigo": "01",
+    "nombre": "Popular",
+    "tipo": "Comuna",
+    "valores": {
+     "sisc_homicidio": {
+      "2021–2023": 37
+     },
+     "sisc_homicidio_tasa": {
+      "2021–2023": 2.36
+     },
+     "sisc_hurto_persona": {
+      "2021–2023": 1009
+     },
+     "sisc_hurto_persona_tasa": {
+      "2021–2023": 64.23
+     },
+     "sisc_hurto_carro": {
+      "2021–2023": 27
+     },
+     "sisc_hurto_carro_tasa": {
+      "2021–2023": 1.72
+     },
+     "sisc_hurto_moto": {
+      "2021–2023": 486
+     },
+     "sisc_hurto_moto_tasa": {
+      "2021–2023": 30.94
+     },
+     "sisc_hurto_residencia": {
+      "2021–2023": 192
+     },
+     "sisc_hurto_residencia_tasa": {
+      "2021–2023": 12.22
+     },
+     "sisc_hurto_comercio": {
+      "2021–2023": 178
+     },
+     "sisc_hurto_comercio_tasa": {
+      "2021–2023": 11.33
+     },
+     "sisc_extorsion_sisc": {
+      "2021–2023": 52
+     },
+     "sisc_extorsion_sisc_tasa": {
+      "2021–2023": 3.31
+     },
+     "sisc_lesion_dolosa": {
+      "2021–2023": 746
+     },
+     "sisc_lesion_dolosa_tasa": {
+      "2021–2023": 47.49
+     }
+    }
+   },
+   {
+    "codigo": "02",
+    "nombre": "Santa Cruz",
+    "tipo": "Comuna",
+    "valores": {
+     "sisc_homicidio": {
+      "2021–2023": 38
+     },
+     "sisc_homicidio_tasa": {
+      "2021–2023": 2.97
+     },
+     "sisc_hurto_persona": {
+      "2021–2023": 862
+     },
+     "sisc_hurto_persona_tasa": {
+      "2021–2023": 67.31
+     },
+     "sisc_hurto_carro": {
+      "2021–2023": 29
+     },
+     "sisc_hurto_carro_tasa": {
+      "2021–2023": 2.26
+     },
+     "sisc_hurto_moto": {
+      "2021–2023": 417
+     },
+     "sisc_hurto_moto_tasa": {
+      "2021–2023": 32.56
+     },
+     "sisc_hurto_residencia": {
+      "2021–2023": 105
+     },
+     "sisc_hurto_residencia_tasa": {
+      "2021–2023": 8.2
+     },
+     "sisc_hurto_comercio": {
+      "2021–2023": 95
+     },
+     "sisc_hurto_comercio_tasa": {
+      "2021–2023": 7.42
+     },
+     "sisc_extorsion_sisc": {
+      "2021–2023": 46
+     },
+     "sisc_extorsion_sisc_tasa": {
+      "2021–2023": 3.59
+     },
+     "sisc_lesion_dolosa": {
+      "2021–2023": 474
+     },
+     "sisc_lesion_dolosa_tasa": {
+      "2021–2023": 37.01
+     }
+    }
+   },
+   {
+    "codigo": "03",
+    "nombre": "Manrique",
+    "tipo": "Comuna",
+    "valores": {
+     "sisc_homicidio": {
+      "2021–2023": 55
+     },
+     "sisc_homicidio_tasa": {
+      "2021–2023": 2.92
+     },
+     "sisc_hurto_persona": {
+      "2021–2023": 1684
+     },
+     "sisc_hurto_persona_tasa": {
+      "2021–2023": 89.3
+     },
+     "sisc_hurto_carro": {
+      "2021–2023": 69
+     },
+     "sisc_hurto_carro_tasa": {
+      "2021–2023": 3.66
+     },
+     "sisc_hurto_moto": {
+      "2021–2023": 947
+     },
+     "sisc_hurto_moto_tasa": {
+      "2021–2023": 50.22
+     },
+     "sisc_hurto_residencia": {
+      "2021–2023": 246
+     },
+     "sisc_hurto_residencia_tasa": {
+      "2021–2023": 13.05
+     },
+     "sisc_hurto_comercio": {
+      "2021–2023": 213
+     },
+     "sisc_hurto_comercio_tasa": {
+      "2021–2023": 11.3
+     },
+     "sisc_extorsion_sisc": {
+      "2021–2023": 59
+     },
+     "sisc_extorsion_sisc_tasa": {
+      "2021–2023": 3.13
+     },
+     "sisc_lesion_dolosa": {
+      "2021–2023": 849
+     },
+     "sisc_lesion_dolosa_tasa": {
+      "2021–2023": 45.02
+     }
+    }
+   },
+   {
+    "codigo": "04",
+    "nombre": "Aranjuez",
+    "tipo": "Comuna",
+    "valores": {
+     "sisc_homicidio": {
+      "2021–2023": 97
+     },
+     "sisc_homicidio_tasa": {
+      "2021–2023": 6.57
+     },
+     "sisc_hurto_persona": {
+      "2021–2023": 5526
+     },
+     "sisc_hurto_persona_tasa": {
+      "2021–2023": 374.19
+     },
+     "sisc_hurto_carro": {
+      "2021–2023": 227
+     },
+     "sisc_hurto_carro_tasa": {
+      "2021–2023": 15.37
+     },
+     "sisc_hurto_moto": {
+      "2021–2023": 1606
+     },
+     "sisc_hurto_moto_tasa": {
+      "2021–2023": 108.75
+     },
+     "sisc_hurto_residencia": {
+      "2021–2023": 293
+     },
+     "sisc_hurto_residencia_tasa": {
+      "2021–2023": 19.84
+     },
+     "sisc_hurto_comercio": {
+      "2021–2023": 586
+     },
+     "sisc_hurto_comercio_tasa": {
+      "2021–2023": 39.68
+     },
+     "sisc_extorsion_sisc": {
+      "2021–2023": 109
+     },
+     "sisc_extorsion_sisc_tasa": {
+      "2021–2023": 7.38
+     },
+     "sisc_lesion_dolosa": {
+      "2021–2023": 887
+     },
+     "sisc_lesion_dolosa_tasa": {
+      "2021–2023": 60.06
+     }
+    }
+   },
+   {
+    "codigo": "05",
+    "nombre": "Castilla",
+    "tipo": "Comuna",
+    "valores": {
+     "sisc_homicidio": {
+      "2021–2023": 56
+     },
+     "sisc_homicidio_tasa": {
+      "2021–2023": 4.37
+     },
+     "sisc_hurto_persona": {
+      "2021–2023": 5293
+     },
+     "sisc_hurto_persona_tasa": {
+      "2021–2023": 412.67
+     },
+     "sisc_hurto_carro": {
+      "2021–2023": 234
+     },
+     "sisc_hurto_carro_tasa": {
+      "2021–2023": 18.24
+     },
+     "sisc_hurto_moto": {
+      "2021–2023": 1162
+     },
+     "sisc_hurto_moto_tasa": {
+      "2021–2023": 90.6
+     },
+     "sisc_hurto_residencia": {
+      "2021–2023": 227
+     },
+     "sisc_hurto_residencia_tasa": {
+      "2021–2023": 17.7
+     },
+     "sisc_hurto_comercio": {
+      "2021–2023": 570
+     },
+     "sisc_hurto_comercio_tasa": {
+      "2021–2023": 44.44
+     },
+     "sisc_extorsion_sisc": {
+      "2021–2023": 103
+     },
+     "sisc_extorsion_sisc_tasa": {
+      "2021–2023": 8.03
+     },
+     "sisc_lesion_dolosa": {
+      "2021–2023": 741
+     },
+     "sisc_lesion_dolosa_tasa": {
+      "2021–2023": 57.77
+     }
+    }
+   },
+   {
+    "codigo": "06",
+    "nombre": "Doce de Octubre",
+    "tipo": "Comuna",
+    "valores": {
+     "sisc_homicidio": {
+      "2021–2023": 49
+     },
+     "sisc_homicidio_tasa": {
+      "2021–2023": 2.62
+     },
+     "sisc_hurto_persona": {
+      "2021–2023": 1595
+     },
+     "sisc_hurto_persona_tasa": {
+      "2021–2023": 85.29
+     },
+     "sisc_hurto_carro": {
+      "2021–2023": 93
+     },
+     "sisc_hurto_carro_tasa": {
+      "2021–2023": 4.97
+     },
+     "sisc_hurto_moto": {
+      "2021–2023": 825
+     },
+     "sisc_hurto_moto_tasa": {
+      "2021–2023": 44.11
+     },
+     "sisc_hurto_residencia": {
+      "2021–2023": 148
+     },
+     "sisc_hurto_residencia_tasa": {
+      "2021–2023": 7.91
+     },
+     "sisc_hurto_comercio": {
+      "2021–2023": 286
+     },
+     "sisc_hurto_comercio_tasa": {
+      "2021–2023": 15.29
+     },
+     "sisc_extorsion_sisc": {
+      "2021–2023": 62
+     },
+     "sisc_extorsion_sisc_tasa": {
+      "2021–2023": 3.32
+     },
+     "sisc_lesion_dolosa": {
+      "2021–2023": 663
+     },
+     "sisc_lesion_dolosa_tasa": {
+      "2021–2023": 35.45
+     }
+    }
+   },
+   {
+    "codigo": "07",
+    "nombre": "Robledo",
+    "tipo": "Comuna",
+    "valores": {
+     "sisc_homicidio": {
+      "2021–2023": 81
+     },
+     "sisc_homicidio_tasa": {
+      "2021–2023": 3.69
+     },
+     "sisc_hurto_persona": {
+      "2021–2023": 4497
+     },
+     "sisc_hurto_persona_tasa": {
+      "2021–2023": 204.72
+     },
+     "sisc_hurto_carro": {
+      "2021–2023": 177
+     },
+     "sisc_hurto_carro_tasa": {
+      "2021–2023": 8.06
+     },
+     "sisc_hurto_moto": {
+      "2021–2023": 1439
+     },
+     "sisc_hurto_moto_tasa": {
+      "2021–2023": 65.51
+     },
+     "sisc_hurto_residencia": {
+      "2021–2023": 452
+     },
+     "sisc_hurto_residencia_tasa": {
+      "2021–2023": 20.58
+     },
+     "sisc_hurto_comercio": {
+      "2021–2023": 509
+     },
+     "sisc_hurto_comercio_tasa": {
+      "2021–2023": 23.17
+     },
+     "sisc_extorsion_sisc": {
+      "2021–2023": 102
+     },
+     "sisc_extorsion_sisc_tasa": {
+      "2021–2023": 4.64
+     },
+     "sisc_lesion_dolosa": {
+      "2021–2023": 840
+     },
+     "sisc_lesion_dolosa_tasa": {
+      "2021–2023": 38.24
+     }
+    }
+   },
+   {
+    "codigo": "08",
+    "nombre": "Villa Hermosa",
+    "tipo": "Comuna",
+    "valores": {
+     "sisc_homicidio": {
+      "2021–2023": 63
+     },
+     "sisc_homicidio_tasa": {
+      "2021–2023": 3.44
+     },
+     "sisc_hurto_persona": {
+      "2021–2023": 2701
+     },
+     "sisc_hurto_persona_tasa": {
+      "2021–2023": 147.53
+     },
+     "sisc_hurto_carro": {
+      "2021–2023": 131
+     },
+     "sisc_hurto_carro_tasa": {
+      "2021–2023": 7.16
+     },
+     "sisc_hurto_moto": {
+      "2021–2023": 1054
+     },
+     "sisc_hurto_moto_tasa": {
+      "2021–2023": 57.57
+     },
+     "sisc_hurto_residencia": {
+      "2021–2023": 281
+     },
+     "sisc_hurto_residencia_tasa": {
+      "2021–2023": 15.35
+     },
+     "sisc_hurto_comercio": {
+      "2021–2023": 244
+     },
+     "sisc_hurto_comercio_tasa": {
+      "2021–2023": 13.33
+     },
+     "sisc_extorsion_sisc": {
+      "2021–2023": 72
+     },
+     "sisc_extorsion_sisc_tasa": {
+      "2021–2023": 3.93
+     },
+     "sisc_lesion_dolosa": {
+      "2021–2023": 749
+     },
+     "sisc_lesion_dolosa_tasa": {
+      "2021–2023": 40.91
+     }
+    }
+   },
+   {
+    "codigo": "09",
+    "nombre": "Buenos Aires",
+    "tipo": "Comuna",
+    "valores": {
+     "sisc_homicidio": {
+      "2021–2023": 45
+     },
+     "sisc_homicidio_tasa": {
+      "2021–2023": 2.41
+     },
+     "sisc_hurto_persona": {
+      "2021–2023": 3697
+     },
+     "sisc_hurto_persona_tasa": {
+      "2021–2023": 197.88
+     },
+     "sisc_hurto_carro": {
+      "2021–2023": 206
+     },
+     "sisc_hurto_carro_tasa": {
+      "2021–2023": 11.03
+     },
+     "sisc_hurto_moto": {
+      "2021–2023": 1467
+     },
+     "sisc_hurto_moto_tasa": {
+      "2021–2023": 78.52
+     },
+     "sisc_hurto_residencia": {
+      "2021–2023": 401
+     },
+     "sisc_hurto_residencia_tasa": {
+      "2021–2023": 21.46
+     },
+     "sisc_hurto_comercio": {
+      "2021–2023": 395
+     },
+     "sisc_hurto_comercio_tasa": {
+      "2021–2023": 21.14
+     },
+     "sisc_extorsion_sisc": {
+      "2021–2023": 103
+     },
+     "sisc_extorsion_sisc_tasa": {
+      "2021–2023": 5.51
+     },
+     "sisc_lesion_dolosa": {
+      "2021–2023": 685
+     },
+     "sisc_lesion_dolosa_tasa": {
+      "2021–2023": 36.66
+     }
+    }
+   },
+   {
+    "codigo": "10",
+    "nombre": "La Candelaria",
+    "tipo": "Comuna",
+    "valores": {
+     "sisc_homicidio": {
+      "2021–2023": 225
+     },
+     "sisc_homicidio_tasa": {
+      "2021–2023": 27.81
+     },
+     "sisc_hurto_persona": {
+      "2021–2023": 25089
+     },
+     "sisc_hurto_persona_tasa": {
+      "2021–2023": 3101.54
+     },
+     "sisc_hurto_carro": {
+      "2021–2023": 237
+     },
+     "sisc_hurto_carro_tasa": {
+      "2021–2023": 29.3
+     },
+     "sisc_hurto_moto": {
+      "2021–2023": 1630
+     },
+     "sisc_hurto_moto_tasa": {
+      "2021–2023": 201.5
+     },
+     "sisc_hurto_residencia": {
+      "2021–2023": 501
+     },
+     "sisc_hurto_residencia_tasa": {
+      "2021–2023": 61.93
+     },
+     "sisc_hurto_comercio": {
+      "2021–2023": 2609
+     },
+     "sisc_hurto_comercio_tasa": {
+      "2021–2023": 322.53
+     },
+     "sisc_extorsion_sisc": {
+      "2021–2023": 346
+     },
+     "sisc_extorsion_sisc_tasa": {
+      "2021–2023": 42.77
+     },
+     "sisc_lesion_dolosa": {
+      "2021–2023": 2404
+     },
+     "sisc_lesion_dolosa_tasa": {
+      "2021–2023": 297.19
+     }
+    }
+   },
+   {
+    "codigo": "11",
+    "nombre": "Laureles Estadio",
+    "tipo": "Comuna",
+    "valores": {
+     "sisc_homicidio": {
+      "2021–2023": 51
+     },
+     "sisc_homicidio_tasa": {
+      "2021–2023": 5.03
+     },
+     "sisc_hurto_persona": {
+      "2021–2023": 12346
+     },
+     "sisc_hurto_persona_tasa": {
+      "2021–2023": 1216.88
+     },
+     "sisc_hurto_carro": {
+      "2021–2023": 397
+     },
+     "sisc_hurto_carro_tasa": {
+      "2021–2023": 39.13
+     },
+     "sisc_hurto_moto": {
+      "2021–2023": 670
+     },
+     "sisc_hurto_moto_tasa": {
+      "2021–2023": 66.04
+     },
+     "sisc_hurto_residencia": {
+      "2021–2023": 1219
+     },
+     "sisc_hurto_residencia_tasa": {
+      "2021–2023": 120.15
+     },
+     "sisc_hurto_comercio": {
+      "2021–2023": 1492
+     },
+     "sisc_hurto_comercio_tasa": {
+      "2021–2023": 147.06
+     },
+     "sisc_extorsion_sisc": {
+      "2021–2023": 120
+     },
+     "sisc_extorsion_sisc_tasa": {
+      "2021–2023": 11.83
+     },
+     "sisc_lesion_dolosa": {
+      "2021–2023": 769
+     },
+     "sisc_lesion_dolosa_tasa": {
+      "2021–2023": 75.8
+     }
+    }
+   },
+   {
+    "codigo": "12",
+    "nombre": "La América",
+    "tipo": "Comuna",
+    "valores": {
+     "sisc_homicidio": {
+      "2021–2023": 16
+     },
+     "sisc_homicidio_tasa": {
+      "2021–2023": 1.8
+     },
+     "sisc_hurto_persona": {
+      "2021–2023": 3942
+     },
+     "sisc_hurto_persona_tasa": {
+      "2021–2023": 443.29
+     },
+     "sisc_hurto_carro": {
+      "2021–2023": 167
+     },
+     "sisc_hurto_carro_tasa": {
+      "2021–2023": 18.78
+     },
+     "sisc_hurto_moto": {
+      "2021–2023": 579
+     },
+     "sisc_hurto_moto_tasa": {
+      "2021–2023": 65.11
+     },
+     "sisc_hurto_residencia": {
+      "2021–2023": 549
+     },
+     "sisc_hurto_residencia_tasa": {
+      "2021–2023": 61.74
+     },
+     "sisc_hurto_comercio": {
+      "2021–2023": 426
+     },
+     "sisc_hurto_comercio_tasa": {
+      "2021–2023": 47.91
+     },
+     "sisc_extorsion_sisc": {
+      "2021–2023": 84
+     },
+     "sisc_extorsion_sisc_tasa": {
+      "2021–2023": 9.45
+     },
+     "sisc_lesion_dolosa": {
+      "2021–2023": 387
+     },
+     "sisc_lesion_dolosa_tasa": {
+      "2021–2023": 43.52
+     }
+    }
+   },
+   {
+    "codigo": "13",
+    "nombre": "San Javier",
+    "tipo": "Comuna",
+    "valores": {
+     "sisc_homicidio": {
+      "2021–2023": 61
+     },
+     "sisc_homicidio_tasa": {
+      "2021–2023": 3.28
+     },
+     "sisc_hurto_persona": {
+      "2021–2023": 1783
+     },
+     "sisc_hurto_persona_tasa": {
+      "2021–2023": 95.96
+     },
+     "sisc_hurto_carro": {
+      "2021–2023": 105
+     },
+     "sisc_hurto_carro_tasa": {
+      "2021–2023": 5.65
+     },
+     "sisc_hurto_moto": {
+      "2021–2023": 674
+     },
+     "sisc_hurto_moto_tasa": {
+      "2021–2023": 36.27
+     },
+     "sisc_hurto_residencia": {
+      "2021–2023": 245
+     },
+     "sisc_hurto_residencia_tasa": {
+      "2021–2023": 13.19
+     },
+     "sisc_hurto_comercio": {
+      "2021–2023": 222
+     },
+     "sisc_hurto_comercio_tasa": {
+      "2021–2023": 11.95
+     },
+     "sisc_extorsion_sisc": {
+      "2021–2023": 95
+     },
+     "sisc_extorsion_sisc_tasa": {
+      "2021–2023": 5.11
+     },
+     "sisc_lesion_dolosa": {
+      "2021–2023": 629
+     },
+     "sisc_lesion_dolosa_tasa": {
+      "2021–2023": 33.85
+     }
+    }
+   },
+   {
+    "codigo": "14",
+    "nombre": "El Poblado",
+    "tipo": "Comuna",
+    "valores": {
+     "sisc_homicidio": {
+      "2021–2023": 23
+     },
+     "sisc_homicidio_tasa": {
+      "2021–2023": 2.01
+     },
+     "sisc_hurto_persona": {
+      "2021–2023": 12295
+     },
+     "sisc_hurto_persona_tasa": {
+      "2021–2023": 1076.4
+     },
+     "sisc_hurto_carro": {
+      "2021–2023": 78
+     },
+     "sisc_hurto_carro_tasa": {
+      "2021–2023": 6.83
+     },
+     "sisc_hurto_moto": {
+      "2021–2023": 225
+     },
+     "sisc_hurto_moto_tasa": {
+      "2021–2023": 19.7
+     },
+     "sisc_hurto_residencia": {
+      "2021–2023": 980
+     },
+     "sisc_hurto_residencia_tasa": {
+      "2021–2023": 85.8
+     },
+     "sisc_hurto_comercio": {
+      "2021–2023": 1738
+     },
+     "sisc_hurto_comercio_tasa": {
+      "2021–2023": 152.16
+     },
+     "sisc_extorsion_sisc": {
+      "2021–2023": 88
+     },
+     "sisc_extorsion_sisc_tasa": {
+      "2021–2023": 7.7
+     },
+     "sisc_lesion_dolosa": {
+      "2021–2023": 567
+     },
+     "sisc_lesion_dolosa_tasa": {
+      "2021–2023": 49.64
+     }
+    }
+   },
+   {
+    "codigo": "15",
+    "nombre": "Guayabal",
+    "tipo": "Comuna",
+    "valores": {
+     "sisc_homicidio": {
+      "2021–2023": 38
+     },
+     "sisc_homicidio_tasa": {
+      "2021–2023": 5.93
+     },
+     "sisc_hurto_persona": {
+      "2021–2023": 3979
+     },
+     "sisc_hurto_persona_tasa": {
+      "2021–2023": 621.21
+     },
+     "sisc_hurto_carro": {
+      "2021–2023": 124
+     },
+     "sisc_hurto_carro_tasa": {
+      "2021–2023": 19.36
+     },
+     "sisc_hurto_moto": {
+      "2021–2023": 408
+     },
+     "sisc_hurto_moto_tasa": {
+      "2021–2023": 63.7
+     },
+     "sisc_hurto_residencia": {
+      "2021–2023": 203
+     },
+     "sisc_hurto_residencia_tasa": {
+      "2021–2023": 31.69
+     },
+     "sisc_hurto_comercio": {
+      "2021–2023": 613
+     },
+     "sisc_hurto_comercio_tasa": {
+      "2021–2023": 95.7
+     },
+     "sisc_extorsion_sisc": {
+      "2021–2023": 54
+     },
+     "sisc_extorsion_sisc_tasa": {
+      "2021–2023": 8.43
+     },
+     "sisc_lesion_dolosa": {
+      "2021–2023": 411
+     },
+     "sisc_lesion_dolosa_tasa": {
+      "2021–2023": 64.17
+     }
+    }
+   },
+   {
+    "codigo": "16",
+    "nombre": "Belén",
+    "tipo": "Comuna",
+    "valores": {
+     "sisc_homicidio": {
+      "2021–2023": 70
+     },
+     "sisc_homicidio_tasa": {
+      "2021–2023": 3.12
+     },
+     "sisc_hurto_persona": {
+      "2021–2023": 7744
+     },
+     "sisc_hurto_persona_tasa": {
+      "2021–2023": 344.99
+     },
+     "sisc_hurto_carro": {
+      "2021–2023": 210
+     },
+     "sisc_hurto_carro_tasa": {
+      "2021–2023": 9.36
+     },
+     "sisc_hurto_moto": {
+      "2021–2023": 897
+     },
+     "sisc_hurto_moto_tasa": {
+      "2021–2023": 39.96
+     },
+     "sisc_hurto_residencia": {
+      "2021–2023": 977
+     },
+     "sisc_hurto_residencia_tasa": {
+      "2021–2023": 43.53
+     },
+     "sisc_hurto_comercio": {
+      "2021–2023": 815
+     },
+     "sisc_hurto_comercio_tasa": {
+      "2021–2023": 36.31
+     },
+     "sisc_extorsion_sisc": {
+      "2021–2023": 160
+     },
+     "sisc_extorsion_sisc_tasa": {
+      "2021–2023": 7.13
+     },
+     "sisc_lesion_dolosa": {
+      "2021–2023": 852
+     },
+     "sisc_lesion_dolosa_tasa": {
+      "2021–2023": 37.96
+     }
+    }
+   },
+   {
+    "codigo": "50",
+    "nombre": "San Sebastián de Palmitas",
+    "tipo": "Corregimiento",
+    "valores": {
+     "sisc_homicidio": {
+      "2021–2023": 4
+     },
+     "sisc_homicidio_tasa": {
+      "2021–2023": 5.59
+     },
+     "sisc_hurto_persona": {
+      "2021–2023": 35
+     },
+     "sisc_hurto_persona_tasa": {
+      "2021–2023": 48.94
+     },
+     "sisc_hurto_carro": {
+      "2021–2023": 7
+     },
+     "sisc_hurto_carro_tasa": {
+      "2021–2023": 9.79
+     },
+     "sisc_hurto_moto": {
+      "2021–2023": 7
+     },
+     "sisc_hurto_moto_tasa": {
+      "2021–2023": 9.79
+     },
+     "sisc_hurto_residencia": {
+      "2021–2023": 8
+     },
+     "sisc_hurto_residencia_tasa": {
+      "2021–2023": 11.19
+     },
+     "sisc_hurto_comercio": {
+      "2021–2023": 10
+     },
+     "sisc_hurto_comercio_tasa": {
+      "2021–2023": 13.98
+     },
+     "sisc_extorsion_sisc": {
+      "2021–2023": 0
+     },
+     "sisc_extorsion_sisc_tasa": {
+      "2021–2023": 0.0
+     },
+     "sisc_lesion_dolosa": {
+      "2021–2023": 21
+     },
+     "sisc_lesion_dolosa_tasa": {
+      "2021–2023": 29.37
+     }
+    }
+   },
+   {
+    "codigo": "60",
+    "nombre": "San Cristóbal",
+    "tipo": "Corregimiento",
+    "valores": {
+     "sisc_homicidio": {
+      "2021–2023": 69
+     },
+     "sisc_homicidio_tasa": {
+      "2021–2023": 3.88
+     },
+     "sisc_hurto_persona": {
+      "2021–2023": 1384
+     },
+     "sisc_hurto_persona_tasa": {
+      "2021–2023": 77.88
+     },
+     "sisc_hurto_carro": {
+      "2021–2023": 79
+     },
+     "sisc_hurto_carro_tasa": {
+      "2021–2023": 4.45
+     },
+     "sisc_hurto_moto": {
+      "2021–2023": 534
+     },
+     "sisc_hurto_moto_tasa": {
+      "2021–2023": 30.05
+     },
+     "sisc_hurto_residencia": {
+      "2021–2023": 218
+     },
+     "sisc_hurto_residencia_tasa": {
+      "2021–2023": 12.27
+     },
+     "sisc_hurto_comercio": {
+      "2021–2023": 122
+     },
+     "sisc_hurto_comercio_tasa": {
+      "2021–2023": 6.87
+     },
+     "sisc_extorsion_sisc": {
+      "2021–2023": 62
+     },
+     "sisc_extorsion_sisc_tasa": {
+      "2021–2023": 3.49
+     },
+     "sisc_lesion_dolosa": {
+      "2021–2023": 430
+     },
+     "sisc_lesion_dolosa_tasa": {
+      "2021–2023": 24.2
+     }
+    }
+   },
+   {
+    "codigo": "70",
+    "nombre": "Altavista",
+    "tipo": "Corregimiento",
+    "valores": {
+     "sisc_homicidio": {
+      "2021–2023": 23
+     },
+     "sisc_homicidio_tasa": {
+      "2021–2023": 4.75
+     },
+     "sisc_hurto_persona": {
+      "2021–2023": 280
+     },
+     "sisc_hurto_persona_tasa": {
+      "2021–2023": 57.88
+     },
+     "sisc_hurto_carro": {
+      "2021–2023": 7
+     },
+     "sisc_hurto_carro_tasa": {
+      "2021–2023": 1.45
+     },
+     "sisc_hurto_moto": {
+      "2021–2023": 56
+     },
+     "sisc_hurto_moto_tasa": {
+      "2021–2023": 11.58
+     },
+     "sisc_hurto_residencia": {
+      "2021–2023": 63
+     },
+     "sisc_hurto_residencia_tasa": {
+      "2021–2023": 13.02
+     },
+     "sisc_hurto_comercio": {
+      "2021–2023": 25
+     },
+     "sisc_hurto_comercio_tasa": {
+      "2021–2023": 5.17
+     },
+     "sisc_extorsion_sisc": {
+      "2021–2023": 11
+     },
+     "sisc_extorsion_sisc_tasa": {
+      "2021–2023": 2.27
+     },
+     "sisc_lesion_dolosa": {
+      "2021–2023": 83
+     },
+     "sisc_lesion_dolosa_tasa": {
+      "2021–2023": 17.16
+     }
+    }
+   },
+   {
+    "codigo": "80",
+    "nombre": "San Antonio de Prado",
+    "tipo": "Corregimiento",
+    "valores": {
+     "sisc_homicidio": {
+      "2021–2023": 19
+     },
+     "sisc_homicidio_tasa": {
+      "2021–2023": 1.44
+     },
+     "sisc_hurto_persona": {
+      "2021–2023": 786
+     },
+     "sisc_hurto_persona_tasa": {
+      "2021–2023": 59.56
+     },
+     "sisc_hurto_carro": {
+      "2021–2023": 45
+     },
+     "sisc_hurto_carro_tasa": {
+      "2021–2023": 3.41
+     },
+     "sisc_hurto_moto": {
+      "2021–2023": 298
+     },
+     "sisc_hurto_moto_tasa": {
+      "2021–2023": 22.58
+     },
+     "sisc_hurto_residencia": {
+      "2021–2023": 150
+     },
+     "sisc_hurto_residencia_tasa": {
+      "2021–2023": 11.37
+     },
+     "sisc_hurto_comercio": {
+      "2021–2023": 143
+     },
+     "sisc_hurto_comercio_tasa": {
+      "2021–2023": 10.84
+     },
+     "sisc_extorsion_sisc": {
+      "2021–2023": 64
+     },
+     "sisc_extorsion_sisc_tasa": {
+      "2021–2023": 4.85
+     },
+     "sisc_lesion_dolosa": {
+      "2021–2023": 338
+     },
+     "sisc_lesion_dolosa_tasa": {
+      "2021–2023": 25.61
+     }
+    }
+   },
+   {
+    "codigo": "90",
+    "nombre": "Santa Elena",
+    "tipo": "Corregimiento",
+    "valores": {
+     "sisc_homicidio": {
+      "2021–2023": 19
+     },
+     "sisc_homicidio_tasa": {
+      "2021–2023": 5.19
+     },
+     "sisc_hurto_persona": {
+      "2021–2023": 707
+     },
+     "sisc_hurto_persona_tasa": {
+      "2021–2023": 193.14
+     },
+     "sisc_hurto_carro": {
+      "2021–2023": 33
+     },
+     "sisc_hurto_carro_tasa": {
+      "2021–2023": 9.01
+     },
+     "sisc_hurto_moto": {
+      "2021–2023": 79
+     },
+     "sisc_hurto_moto_tasa": {
+      "2021–2023": 21.58
+     },
+     "sisc_hurto_residencia": {
+      "2021–2023": 120
+     },
+     "sisc_hurto_residencia_tasa": {
+      "2021–2023": 32.78
+     },
+     "sisc_hurto_comercio": {
+      "2021–2023": 90
+     },
+     "sisc_hurto_comercio_tasa": {
+      "2021–2023": 24.59
+     },
+     "sisc_extorsion_sisc": {
+      "2021–2023": 6
+     },
+     "sisc_extorsion_sisc_tasa": {
+      "2021–2023": 1.64
+     },
+     "sisc_lesion_dolosa": {
+      "2021–2023": 116
+     },
+     "sisc_lesion_dolosa_tasa": {
+      "2021–2023": 31.69
+     }
+    }
    }
   ]
  }

@@ -1,7 +1,7 @@
 {
  "tema": "demografia",
  "titulo": "Gente",
- "probado": "2026-09-27",
+ "probado": "2026-10-01",
  "ancla": [
   "poblacion",
   "hogares"
@@ -13,7 +13,7 @@
    "entidad": "DANE",
    "url": "https://www.dane.gov.co/files/censo2018/proyecciones-de-poblacion/Municipal/PPED-AreaMun-2018-2042_VP.xlsx",
    "estado": "observado",
-   "probado": "2026-09-27"
+   "probado": "2026-10-01"
   },
   {
    "id": "dane-pped-edad",
@@ -21,7 +21,7 @@
    "entidad": "DANE",
    "url": "https://www.dane.gov.co/files/censo2018/proyecciones-de-poblacion/Municipal/PPED-AreaSexoEdadMun-2018-2042_VP.xlsx",
    "estado": "observado",
-   "probado": "2026-09-27"
+   "probado": "2026-10-01"
   },
   {
    "id": "dap-proyecciones",
@@ -29,7 +29,7 @@
    "entidad": "Departamento Administrativo de Planeación · Alcaldía de Medellín",
    "url": "https://www.medellin.gov.co/servidormapas/rest/services/mapas_nacionales/VC_Distribucion_Poblacional/MapServer",
    "estado": "observado",
-   "probado": "2026-09-27"
+   "probado": "2026-10-01"
   },
   {
    "id": "alc-ecv",
@@ -37,7 +37,7 @@
    "entidad": "Departamento Administrativo de Planeación · Alcaldía de Medellín",
    "url": "https://www.medellin.gov.co/servidormapas/rest/services/estadisticas/VC_Indicadores_ECV/MapServer",
    "estado": "observado",
-   "probado": "2026-09-27"
+   "probado": "2026-10-01"
   },
   {
    "id": "catastro-estratos",
@@ -45,7 +45,7 @@
    "entidad": "Subsecretaría de Catastro · Alcaldía de Medellín",
    "url": "https://www.medellin.gov.co/servidormapas/rest/services/ServiciosCatastro/ConsultaOperadorCatastral_geo/MapServer/23",
    "estado": "observado",
-   "probado": "2026-09-27"
+   "probado": "2026-10-01"
   },
   {
    "id": "sivigila-salud",
@@ -53,7 +53,7 @@
    "entidad": "Secretaría de Salud · Alcaldía de Medellín",
    "url": "https://www.medellin.gov.co/servidormapas/rest/services/salud_protec_soc/VC_Datos_Enfermedades/MapServer",
    "estado": "observado",
-   "probado": "2026-09-27"
+   "probado": "2026-10-01"
   }
  ],
  "cifras": {
@@ -81,6 +81,24 @@
    "fuente": "dane-pped",
    "vigencia": "2026",
    "estado": "observado"
+  },
+  "poblacion_amva": {
+   "valor": 4212261,
+   "unidad": "habitantes",
+   "etiqueta": "Población del Área Metropolitana del Valle de Aburrá",
+   "fuente": "dane-pped",
+   "vigencia": "2026",
+   "estado": "derivado",
+   "nota": "Suma de las proyecciones del DANE para los 10 municipios del Área Metropolitana."
+  },
+  "participacion_medellin_amva": {
+   "valor": 60.0,
+   "unidad": "%",
+   "etiqueta": "Medellín en la población del Área Metropolitana",
+   "fuente": "dane-pped",
+   "vigencia": "2026",
+   "estado": "derivado",
+   "nota": "2.526.795 de 4.212.261 habitantes."
   },
   "mujeres": {
    "valor": 1331925,
@@ -167,7 +185,7 @@
    "unidad": "%",
    "etiqueta": "Manzanas de estrato 1 (bajo-bajo)",
    "fuente": "catastro-estratos",
-   "vigencia": "Base catastral consultada el 2026-09-27",
+   "vigencia": "Base catastral consultada el 2026-10-01",
    "estado": "derivado",
    "nota": "7.008 de 32.384 manzanas. Cuenta manzanas según su estrato socioeconómico, no viviendas ni personas: una manzana grande y una pequeña pesan lo mismo."
   },
@@ -176,7 +194,7 @@
    "unidad": "%",
    "etiqueta": "Manzanas de estrato 2 (bajo)",
    "fuente": "catastro-estratos",
-   "vigencia": "Base catastral consultada el 2026-09-27",
+   "vigencia": "Base catastral consultada el 2026-10-01",
    "estado": "derivado",
    "nota": "10.905 de 32.384 manzanas. Cuenta manzanas según su estrato socioeconómico, no viviendas ni personas: una manzana grande y una pequeña pesan lo mismo."
   },
@@ -185,7 +203,7 @@
    "unidad": "%",
    "etiqueta": "Manzanas de estrato 3 (medio-bajo)",
    "fuente": "catastro-estratos",
-   "vigencia": "Base catastral consultada el 2026-09-27",
+   "vigencia": "Base catastral consultada el 2026-10-01",
    "estado": "derivado",
    "nota": "9.329 de 32.384 manzanas. Cuenta manzanas según su estrato socioeconómico, no viviendas ni personas: una manzana grande y una pequeña pesan lo mismo."
   },
@@ -194,7 +212,7 @@
    "unidad": "%",
    "etiqueta": "Manzanas de estrato 4 (medio)",
    "fuente": "catastro-estratos",
-   "vigencia": "Base catastral consultada el 2026-09-27",
+   "vigencia": "Base catastral consultada el 2026-10-01",
    "estado": "derivado",
    "nota": "2.848 de 32.384 manzanas. Cuenta manzanas según su estrato socioeconómico, no viviendas ni personas: una manzana grande y una pequeña pesan lo mismo."
   },
@@ -203,7 +221,7 @@
    "unidad": "%",
    "etiqueta": "Manzanas de estrato 5 (medio-alto)",
    "fuente": "catastro-estratos",
-   "vigencia": "Base catastral consultada el 2026-09-27",
+   "vigencia": "Base catastral consultada el 2026-10-01",
    "estado": "derivado",
    "nota": "1.438 de 32.384 manzanas. Cuenta manzanas según su estrato socioeconómico, no viviendas ni personas: una manzana grande y una pequeña pesan lo mismo."
   },
@@ -212,7 +230,7 @@
    "unidad": "%",
    "etiqueta": "Manzanas de estrato 6 (alto)",
    "fuente": "catastro-estratos",
-   "vigencia": "Base catastral consultada el 2026-09-27",
+   "vigencia": "Base catastral consultada el 2026-10-01",
    "estado": "derivado",
    "nota": "856 de 32.384 manzanas. Cuenta manzanas según su estrato socioeconómico, no viviendas ni personas: una manzana grande y una pequeña pesan lo mismo."
   },
@@ -221,7 +239,7 @@
    "unidad": "manzanas",
    "etiqueta": "Manzanas con estrato asignado",
    "fuente": "catastro-estratos",
-   "vigencia": "Base catastral consultada el 2026-09-27",
+   "vigencia": "Base catastral consultada el 2026-10-01",
    "estado": "observado"
   },
   "natalidad_total": {
@@ -365,6 +383,98 @@
   }
  },
  "listas": {
+  "amva": [
+   {
+    "codigo": "05079",
+    "nombre": "Barbosa",
+    "anio": 2026,
+    "poblacion": 64314,
+    "cabecera": 27477,
+    "rural": 36837,
+    "participacion": 1.5
+   },
+   {
+    "codigo": "05308",
+    "nombre": "Girardota",
+    "anio": 2026,
+    "poblacion": 62138,
+    "cabecera": 34131,
+    "rural": 28007,
+    "participacion": 1.5
+   },
+   {
+    "codigo": "05212",
+    "nombre": "Copacabana",
+    "anio": 2026,
+    "poblacion": 92069,
+    "cabecera": 73753,
+    "rural": 18316,
+    "participacion": 2.2
+   },
+   {
+    "codigo": "05088",
+    "nombre": "Bello",
+    "anio": 2026,
+    "poblacion": 609168,
+    "cabecera": 587840,
+    "rural": 21328,
+    "participacion": 14.5
+   },
+   {
+    "codigo": "05001",
+    "nombre": "Medellín",
+    "anio": 2026,
+    "poblacion": 2526795,
+    "cabecera": 2478217,
+    "rural": 48578,
+    "participacion": 60.0
+   },
+   {
+    "codigo": "05266",
+    "nombre": "Envigado",
+    "anio": 2026,
+    "poblacion": 268381,
+    "cabecera": 257546,
+    "rural": 10835,
+    "participacion": 6.4
+   },
+   {
+    "codigo": "05360",
+    "nombre": "Itagüí",
+    "anio": 2026,
+    "poblacion": 306397,
+    "cabecera": 277025,
+    "rural": 29372,
+    "participacion": 7.3
+   },
+   {
+    "codigo": "05631",
+    "nombre": "Sabaneta",
+    "anio": 2026,
+    "poblacion": 109260,
+    "cabecera": 94532,
+    "rural": 14728,
+    "participacion": 2.6
+   },
+   {
+    "codigo": "05380",
+    "nombre": "La Estrella",
+    "anio": 2026,
+    "poblacion": 84068,
+    "cabecera": 71815,
+    "rural": 12253,
+    "participacion": 2.0
+   },
+   {
+    "codigo": "05129",
+    "nombre": "Caldas",
+    "anio": 2026,
+    "poblacion": 89671,
+    "cabecera": 70829,
+    "rural": 18842,
+    "participacion": 2.1
+   }
+  ],
   "piramide": [
    {
     "anio": 2018,
@@ -1015,6 +1125,16 @@
     "nota": "Total DANE 2026 (2.526.795) × la proporción de cada territorio en la proyección del DAP (2.787.912 en total, 10,3 % más que el DANE)."
    },
    {
+    "clave": "densidad",
+    "etiqueta": "Densidad de población",
+    "unidad": "hab./km²",
+    "fuente": "dap-proyecciones",
+    "estado": "derivado",
+    "vigencia": "2026",
+    "decimales": 0,
+    "nota": "Población del territorio ÷ su área según los límites del catastro. En los corregimientos el área incluye el suelo rural."
+   },
+   {
     "clave": "hogares",
     "etiqueta": "Hogares proyectados",
     "unidad": "hogares",
@@ -1070,7 +1190,7 @@
     "unidad": "% de manzanas",
     "fuente": "catastro-estratos",
     "estado": "derivado",
-    "vigencia": "Base catastral consultada el 2026-09-27",
+    "vigencia": "Base catastral consultada el 2026-10-01",
     "decimales": 1,
     "nota": "Cuenta manzanas según su estrato socioeconómico, no viviendas ni personas: una manzana grande y una pequeña pesan lo mismo."
    },
@@ -1080,7 +1200,7 @@
     "unidad": "% de manzanas",
     "fuente": "catastro-estratos",
     "estado": "derivado",
-    "vigencia": "Base catastral consultada el 2026-09-27",
+    "vigencia": "Base catastral consultada el 2026-10-01",
     "decimales": 1,
     "nota": "Cuenta manzanas según su estrato socioeconómico, no viviendas ni personas: una manzana grande y una pequeña pesan lo mismo."
    },
@@ -1090,7 +1210,7 @@
     "unidad": "% de manzanas",
     "fuente": "catastro-estratos",
     "estado": "derivado",
-    "vigencia": "Base catastral consultada el 2026-09-27",
+    "vigencia": "Base catastral consultada el 2026-10-01",
     "decimales": 1,
     "nota": "Cuenta manzanas según su estrato socioeconómico, no viviendas ni personas: una manzana grande y una pequeña pesan lo mismo."
    },
@@ -1100,7 +1220,7 @@
     "unidad": "% de manzanas",
     "fuente": "catastro-estratos",
     "estado": "derivado",
-    "vigencia": "Base catastral consultada el 2026-09-27",
+    "vigencia": "Base catastral consultada el 2026-10-01",
     "decimales": 1,
     "nota": "Cuenta manzanas según su estrato socioeconómico, no viviendas ni personas: una manzana grande y una pequeña pesan lo mismo."
    },
@@ -1110,7 +1230,7 @@
     "unidad": "% de manzanas",
     "fuente": "catastro-estratos",
     "estado": "derivado",
-    "vigencia": "Base catastral consultada el 2026-09-27",
+    "vigencia": "Base catastral consultada el 2026-10-01",
     "decimales": 1,
     "nota": "Cuenta manzanas según su estrato socioeconómico, no viviendas ni personas: una manzana grande y una pequeña pesan lo mismo."
    },
@@ -1120,7 +1240,7 @@
     "unidad": "% de manzanas",
     "fuente": "catastro-estratos",
     "estado": "derivado",
-    "vigencia": "Base catastral consultada el 2026-09-27",
+    "vigencia": "Base catastral consultada el 2026-10-01",
     "decimales": 1,
     "nota": "Cuenta manzanas según su estrato socioeconómico, no viviendas ni personas: una manzana grande y una pequeña pesan lo mismo."
    },
@@ -1193,6 +1313,9 @@
     "valores": {
      "poblacion": {
       "2026": 142383
+     },
+     "densidad": {
+      "2026": 45976
      },
      "hogares": {
       "2026": 58144
@@ -1348,6 +1471,9 @@
      "poblacion": {
       "2026": 116077
      },
+     "densidad": {
+      "2026": 52896
+     },
      "hogares": {
       "2026": 45523
      },
@@ -1501,6 +1627,9 @@
     "valores": {
      "poblacion": {
       "2026": 170915
+     },
+     "densidad": {
+      "2026": 33554
      },
      "hogares": {
       "2026": 70958
@@ -1656,6 +1785,9 @@
      "poblacion": {
       "2026": 133848
      },
+     "densidad": {
+      "2026": 27411
+     },
      "hogares": {
       "2026": 57564
      },
@@ -1809,6 +1941,9 @@
     "valores": {
      "poblacion": {
       "2026": 116248
+     },
+     "densidad": {
+      "2026": 19179
      },
      "hogares": {
       "2026": 47095
@@ -1964,6 +2099,9 @@
      "poblacion": {
       "2026": 169499
      },
+     "densidad": {
+      "2026": 44053
+     },
      "hogares": {
       "2026": 64621
      },
@@ -2117,6 +2255,9 @@
     "valores": {
      "poblacion": {
       "2026": 199095
+     },
+     "densidad": {
+      "2026": 21052
      },
      "hogares": {
       "2026": 83340
@@ -2272,6 +2413,9 @@
      "poblacion": {
       "2026": 165931
      },
+     "densidad": {
+      "2026": 29041
+     },
      "hogares": {
       "2026": 72852
      },
@@ -2425,6 +2569,9 @@
     "valores": {
      "poblacion": {
       "2026": 169333
+     },
+     "densidad": {
+      "2026": 27989
      },
      "hogares": {
       "2026": 71341
@@ -2580,6 +2727,9 @@
      "poblacion": {
       "2026": 73316
      },
+     "densidad": {
+      "2026": 9965
+     },
      "hogares": {
       "2026": 40492
      },
@@ -2733,6 +2883,9 @@
     "valores": {
      "poblacion": {
       "2026": 91954
+     },
+     "densidad": {
+      "2026": 12429
      },
      "hogares": {
       "2026": 44364
@@ -2888,6 +3041,9 @@
      "poblacion": {
       "2026": 80596
      },
+     "densidad": {
+      "2026": 20296
+     },
      "hogares": {
       "2026": 38108
      },
@@ -3041,6 +3197,9 @@
     "valores": {
      "poblacion": {
       "2026": 168409
+     },
+     "densidad": {
+      "2026": 34753
      },
      "hogares": {
       "2026": 72147
@@ -3196,6 +3355,9 @@
      "poblacion": {
       "2026": 103525
      },
+     "densidad": {
+      "2026": 7186
+     },
      "hogares": {
       "2026": 49864
      },
@@ -3349,6 +3511,9 @@
     "valores": {
      "poblacion": {
       "2026": 58053
+     },
+     "densidad": {
+      "2026": 7972
      },
      "hogares": {
       "2026": 24776
@@ -3504,6 +3669,9 @@
      "poblacion": {
       "2026": 203444
      },
+     "densidad": {
+      "2026": 22985
+     },
      "hogares": {
       "2026": 88251
      },
@@ -3657,6 +3825,9 @@
     "valores": {
      "poblacion": {
       "2026": 6481
+     },
+     "densidad": {
+      "2026": 112
      },
      "hogares": {
       "2026": 2868
@@ -3812,6 +3983,9 @@
      "poblacion": {
       "2026": 161065
      },
+     "densidad": {
+      "2026": 2978
+     },
      "hogares": {
       "2026": 62603
      },
@@ -3965,6 +4139,9 @@
     "valores": {
      "poblacion": {
       "2026": 43848
+     },
+     "densidad": {
+      "2026": 1528
      },
      "hogares": {
       "2026": 18475
@@ -4120,6 +4297,9 @@
      "poblacion": {
       "2026": 119599
      },
+     "densidad": {
+      "2026": 1976
+     },
      "hogares": {
       "2026": 47436
      },
@@ -4273,6 +4453,9 @@
     "valores": {
      "poblacion": {
       "2026": 33177
+     },
+     "densidad": {
+      "2026": 448
      },
      "hogares": {
       "2026": 13444

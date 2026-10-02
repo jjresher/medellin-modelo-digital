@@ -4,12 +4,15 @@ del SISC (MEData, Secretaría de Seguridad y Convivencia · Alcaldía de Medell�
 Son dos fuentes que **no se mezclan en una misma serie**: la Policía cubre 2018 al último mes publicado,
 solo a nivel de ciudad; el SISC llega hasta noviembre de 2023, con coordenadas, barrio y comuna, y sirve
 para el ranking por comuna y el mapa por barrio, siempre rotulado como histórico.
+
+Por territorio, el SISC se guarda además con el contrato de lago.Territorios (listas `indicadores` y `territorios`),
+que es el que lee el Atlas (#11): casos de la ventana reciente y casos por 10.000 habitantes de cada categoría.
 """
 
 import datetime as dt
 import json
 
-from lago import DIR_LAGO, RAIZ, MESES, Tema, leer_csv, numero, socrata
+from lago import DIR_LAGO, RAIZ, MESES, Tema, Territorios, leer_csv, numero, socrata
 
 MUNICIPIO = "cod_muni='05001'"
 DESDE = 2018
@@ -167,9 +170,10 @@ def procesar_categoria(url):
             'anio_max': anio_max, 'desde_ventana': desde_ventana, 'total_filas': len(filas)}
 
 
-def sisc(t, terr):
+def sisc(t, terr, tt):
     barrios_json = {}
     vigencias = []
+    indicadores_barrio = []
     for clave, nombre, url in SISC:
         fuente = f'sisc-{clave}'.replace('_', '-')
         with t.bloque(fuente):
@@ -197,12 +201,31 @@ def sisc(t, terr):
                     nota='Suma de las 21 comunas y corregimientos con comuna diligenciada en el registro; '
                          'excluye registros sin comuna asignada.')
 
+            # El mismo dato con el contrato de lago.Territorios, para el Atlas.
+            ventana = f'{r["desde_ventana"]}–{r["anio_max"]}'
+            tt.indicador(f'sisc_{clave}', f'{nombre} (SISC)', 'casos', fuente, vigencia_ventana,
+                         nota=f'Casos registrados por el SISC entre {r["desde_ventana"]} y {r["anio_max"]}, con comuna diligenciada.')
+            tt.indicador(f'sisc_{clave}_tasa', f'{nombre} por 10.000 habitantes (SISC)', 'por 10.000 hab.', fuente,
+                         vigencia_ventana, estado='derivado', decimales=2,
+                         nota=f'Casos de {ventana} (los {ANIOS_VENTANA_SISC} años sumados) ÷ población proyectada por el DAP '
+                              f'× 10.000. No es una tasa anual.')
+            for fila in ranking:
+                if fila['codigo'] in tt.filas:
+                    tt.valor(fila['codigo'], f'sisc_{clave}', ventana, fila['casos'])
+                    tt.valor(fila['codigo'], f'sisc_{clave}_tasa', ventana, fila.get('tasa_x10mil'))
+
             for barrio, casos in r['por_barrio'].items():
                 barrios_json.setdefault(barrio, {})[clave] = int(casos)
+            indicadores_barrio.append({'clave': clave, 'etiqueta': f'{nombre} (SISC)', 'unidad': 'casos', 'fuente': fuente,
+                                       'vigencia': vigencia_ventana, 'estado': 'observado', 'decimales': 0,
+                                       # Un barrio que no aparece en el archivo no tuvo registros en la ventana.
+                                       'faltante': 0})
 
     (DIR_GEO / 'seguridad_barrios.json').write_text(json.dumps({
         'vigencia': f'{min(vigencias) - ANIOS_VENTANA_SISC + 1}–{max(vigencias)} (histórico, SISC)',
         'categorias': [{'clave': c, 'nombre': n} for c, n, _ in SISC],
+        # Contrato del nivel barrio del Atlas: cada indicador con su fuente, vigencia y estado.
+        'indicadores': indicadores_barrio,
         'barrios': barrios_json
     }, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
     print(f'  · mapa por barrio: {len(barrios_json):,} barrios y veredas con al menos un registro reciente')
@@ -213,7 +236,15 @@ def main():
     poblacion = poblacion_por_anio()
     policia(t, poblacion)
     terr = territorios_con_poblacion()
-    sisc(t, terr)
+    tt = Territorios()
+    sisc(t, terr, tt)
+    # Las listas no se heredan solas como las cifras: una categoría del SISC caída conserva sus valores por territorio.
+    for fuente in t.fallos:
+        tt.heredar(t.previo, fuente)
+        clave = fuente.removeprefix('sisc-').replace('-', '_')
+        if t.previo and f'sisc_ranking_{clave}' in t.previo['listas']:
+            t.lista(f'sisc_ranking_{clave}', t.previo['listas'][f'sisc_ranking_{clave}'])
+    tt.escribir(t)
     t.escribir()
     return t
 

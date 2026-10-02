@@ -1,5 +1,5 @@
 {
- "probado": "2026-09-30",
+ "probado": "2026-10-01",
  "n": 89,
  "por_estado": {
   "observado": 84,
@@ -13,10 +13,10 @@
    "entidad": "DANE",
    "url": "https://www.dane.gov.co/files/censo2018/proyecciones-de-poblacion/Municipal/PPED-AreaMun-2018-2042_VP.xlsx",
    "estado": "observado",
-   "probado": "2026-09-27",
+   "probado": "2026-10-01",
    "tema": "demografia",
    "vigencia": "2018 – 2042",
-   "uso": "Población proyectada, Población urbana (cabecera), Población rural (centros poblados y rural disperso)"
+   "uso": "Población proyectada, Población urbana (cabecera), Población rural (centros poblados y rural disperso), Población del Área Metropolitana del Valle de Aburrá…"
   },
   {
    "id": "dane-pped-edad",
@@ -24,7 +24,7 @@
    "entidad": "DANE",
    "url": "https://www.dane.gov.co/files/censo2018/proyecciones-de-poblacion/Municipal/PPED-AreaSexoEdadMun-2018-2042_VP.xlsx",
    "estado": "observado",
-   "probado": "2026-09-27",
+   "probado": "2026-10-01",
    "tema": "demografia",
    "vigencia": "2026",
    "uso": "Mujeres, Hombres, Edad mediana, Población de 60 años o más…"
@@ -35,7 +35,7 @@
    "entidad": "Departamento Administrativo de Planeación · Alcaldía de Medellín",
    "url": "https://www.medellin.gov.co/servidormapas/rest/services/mapas_nacionales/VC_Distribucion_Poblacional/MapServer",
    "estado": "observado",
-   "probado": "2026-09-27",
+   "probado": "2026-10-01",
    "tema": "demografia",
    "vigencia": "2026",
    "uso": "Población proyectada (DAP), Hogares proyectados, Viviendas proyectadas, Personas por hogar"
@@ -46,7 +46,7 @@
    "entidad": "Departamento Administrativo de Planeación · Alcaldía de Medellín",
    "url": "https://www.medellin.gov.co/servidormapas/rest/services/estadisticas/VC_Indicadores_ECV/MapServer",
    "estado": "observado",
-   "probado": "2026-09-27",
+   "probado": "2026-10-01",
    "tema": "demografia",
    "vigencia": "Servicio vigente",
    "uso": ""
@@ -57,9 +57,9 @@
    "entidad": "Subsecretaría de Catastro · Alcaldía de Medellín",
    "url": "https://www.medellin.gov.co/servidormapas/rest/services/ServiciosCatastro/ConsultaOperadorCatastral_geo/MapServer/23",
    "estado": "observado",
-   "probado": "2026-09-27",
+   "probado": "2026-10-01",
    "tema": "demografia",
-   "vigencia": "Base catastral consultada el 2026-09-27",
+   "vigencia": "Base catastral consultada el 2026-10-01",
    "uso": "Manzanas de estrato 1 (bajo-bajo), Manzanas de estrato 2 (bajo), Manzanas de estrato 3 (medio-bajo), Manzanas de estrato 4 (medio)…"
   },
   {
@@ -68,7 +68,7 @@
    "entidad": "Secretaría de Salud · Alcaldía de Medellín",
    "url": "https://www.medellin.gov.co/servidormapas/rest/services/salud_protec_soc/VC_Datos_Enfermedades/MapServer",
    "estado": "observado",
-   "probado": "2026-09-27",
+   "probado": "2026-10-01",
    "tema": "demografia",
    "vigencia": "2022",
    "uso": "Natalidad en Medellín (nacidos vivos), Mortalidad general en Medellín (defunciones), Dengue en Medellín (casos)"
@@ -145,7 +145,7 @@
    "entidad": "Ministerio de Defensa Nacional · Policía Nacional",
    "url": "https://www.datos.gov.co/d/m8fd-ahd9",
    "estado": "observado",
-   "probado": "2026-09-27",
+   "probado": "2026-10-01",
    "tema": "seguridad",
    "vigencia": "2024-01 – 2026-08",
    "uso": "Homicidios 2025, Homicidios en 2026, Homicidios: variación frente a 2025, Tasa de homicidios 2025"
@@ -156,7 +156,7 @@
    "entidad": "Ministerio de Defensa Nacional · Policía Nacional",
    "url": "https://www.datos.gov.co/d/4rxi-8m8d",
    "estado": "observado",
-   "probado": "2026-09-27",
+   "probado": "2026-10-01",
    "tema": "seguridad",
    "vigencia": "2024-01 – 2026-08",
    "uso": "Hurto a personas 2025, Hurto a personas en 2026, Hurto a personas: variación frente a 2025, Tasa de hurto a personas 2025"
@@ -167,7 +167,7 @@
    "entidad": "Ministerio de Defensa Nacional · Policía Nacional",
    "url": "https://www.datos.gov.co/d/csb4-y6v2",
    "estado": "observado",
-   "probado": "2026-09-27",
+   "probado": "2026-10-01",
    "tema": "seguridad",
    "vigencia": "2024-01 – 2026-08",
    "uso": "Hurto de vehículos 2025, Hurto de vehículos en 2026, Hurto de vehículos: variación frente a 2025, Tasa de hurto de vehículos 2025"
@@ -178,7 +178,7 @@
    "entidad": "Ministerio de Defensa Nacional · Policía Nacional",
    "url": "https://www.datos.gov.co/d/q2ib-t9am",
    "estado": "observado",
-   "probado": "2026-09-27",
+   "probado": "2026-10-01",
    "tema": "seguridad",
    "vigencia": "2024-01 – 2026-08",
    "uso": "Extorsión 2025, Extorsión en 2026, Extorsión: variación frente a 2025, Tasa de extorsión 2025"
@@ -189,7 +189,7 @@
    "entidad": "Ministerio de Defensa Nacional · Policía Nacional",
    "url": "https://www.datos.gov.co/d/gepp-dxcs",
    "estado": "observado",
-   "probado": "2026-09-27",
+   "probado": "2026-10-01",
    "tema": "seguridad",
    "vigencia": "2024-01 – 2026-08",
    "uso": "Violencia intrafamiliar 2025, Violencia intrafamiliar en 2026, Violencia intrafamiliar: variación frente a 2025, Tasa de violencia intrafamiliar 2025"
@@ -200,7 +200,7 @@
    "entidad": "Ministerio de Defensa Nacional · Policía Nacional",
    "url": "https://www.datos.gov.co/d/bz43-8ahq",
    "estado": "observado",
-   "probado": "2026-09-27",
+   "probado": "2026-10-01",
    "tema": "seguridad",
    "vigencia": "2024-01 – 2026-08",
    "uso": "Delitos sexuales 2025, Delitos sexuales en 2026, Delitos sexuales: variación frente a 2025, Tasa de delitos sexuales 2025"
@@ -211,7 +211,7 @@
    "entidad": "Ministerio de Defensa Nacional · Policía Nacional",
    "url": "https://www.datos.gov.co/d/jr6v-i33g",
    "estado": "observado",
-   "probado": "2026-09-27",
+   "probado": "2026-10-01",
    "tema": "seguridad",
    "vigencia": "2024-01 – 2026-08",
    "uso": "Lesiones personales 2025, Lesiones personales en 2026, Lesiones personales: variación frente a 2025, Tasa de lesiones personales 2025"
@@ -222,7 +222,7 @@
    "entidad": "Secretaría de Seguridad y Convivencia · Alcaldía de Medellín (SISC / MEData)",
    "url": "http://medata.gov.co/sites/default/files/distribution/1-027-23-000008/homicidio.csv",
    "estado": "observado",
-   "probado": "2026-09-27",
+   "probado": "2026-10-01",
    "tema": "seguridad",
    "vigencia": "2003 – 2023",
    "uso": "Homicidio, 2021–2023 (histórico)"
@@ -233,7 +233,7 @@
    "entidad": "Secretaría de Seguridad y Convivencia · Alcaldía de Medellín (SISC / MEData)",
    "url": "http://medata.gov.co/sites/default/files/distribution/1-027-23-000011/hurto_a_persona.csv",
    "estado": "observado",
-   "probado": "2026-09-27",
+   "probado": "2026-10-01",
    "tema": "seguridad",
    "vigencia": "2003 – 2023",
    "uso": "Hurto a persona, 2021–2023 (histórico)"
@@ -244,7 +244,7 @@
    "entidad": "Secretaría de Seguridad y Convivencia · Alcaldía de Medellín (SISC / MEData)",
    "url": "http://medata.gov.co/sites/default/files/distribution/1-027-23-000013/hurto_de_carro.csv",
    "estado": "observado",
-   "probado": "2026-09-27",
+   "probado": "2026-10-01",
    "tema": "seguridad",
    "vigencia": "2003 – 2023",
    "uso": "Hurto de carro, 2021–2023 (histórico)"
@@ -255,7 +255,7 @@
    "entidad": "Secretaría de Seguridad y Convivencia · Alcaldía de Medellín (SISC / MEData)",
    "url": "http://medata.gov.co/sites/default/files/distribution/1-027-23-000014/hurto_de_moto.csv",
    "estado": "observado",
-   "probado": "2026-09-27",
+   "probado": "2026-10-01",
    "tema": "seguridad",
    "vigencia": "2003 – 2023",
    "uso": "Hurto de moto, 2021–2023 (histórico)"
@@ -266,7 +266,7 @@
    "entidad": "Secretaría de Seguridad y Convivencia · Alcaldía de Medellín (SISC / MEData)",
    "url": "http://medata.gov.co/sites/default/files/distribution/1-027-23-000012/hurto_a_residencia.csv",
    "estado": "observado",
-   "probado": "2026-09-27",
+   "probado": "2026-10-01",
    "tema": "seguridad",
    "vigencia": "2003 – 2023",
    "uso": "Hurto a residencia, 2021–2023 (histórico)"
@@ -277,7 +277,7 @@
    "entidad": "Secretaría de Seguridad y Convivencia · Alcaldía de Medellín (SISC / MEData)",
    "url": "http://medata.gov.co/sites/default/files/distribution/1-027-23-000010/hurto_a_establecimiento_comercial.csv",
    "estado": "observado",
-   "probado": "2026-09-27",
+   "probado": "2026-10-01",
    "tema": "seguridad",
    "vigencia": "2003 – 2023",
    "uso": "Hurto a establecimiento comercial, 2021–2023 (histórico)"
@@ -288,7 +288,7 @@
    "entidad": "Secretaría de Seguridad y Convivencia · Alcaldía de Medellín (SISC / MEData)",
    "url": "http://medata.gov.co/sites/default/files/distribution/1-027-23-000007/extorsion.csv",
    "estado": "observado",
-   "probado": "2026-09-27",
+   "probado": "2026-10-01",
    "tema": "seguridad",
    "vigencia": "2003 – 2023",
    "uso": "Extorsión, 2021–2023 (histórico)"
@@ -299,7 +299,7 @@
    "entidad": "Secretaría de Seguridad y Convivencia · Alcaldía de Medellín (SISC / MEData)",
    "url": "http://medata.gov.co/sites/default/files/distribution/1-027-23-000002/lesion_no_fatal_dolosa_segun_policia.csv",
    "estado": "observado",
-   "probado": "2026-09-27",
+   "probado": "2026-10-01",
    "tema": "seguridad",
    "vigencia": "2003 – 2023",
    "uso": "Lesión no fatal dolosa, 2021–2023 (histórico)"
@@ -695,7 +695,7 @@
    "entidad": "Área Metropolitana del Valle de Aburrá · Portal IDEM (datos de EPM)",
    "url": "https://portalidem.metropol.gov.co/server/rest/services/Hosted/Riesgo_Tecnol%C3%B3gico/FeatureServer",
    "estado": "observado",
-   "probado": "2026-09-27",
+   "probado": "2026-10-01",
    "tema": "lentes",
    "vigencia": "Red vigente",
    "uso": "Subestaciones de energía en Medellín, Red de media tensión en Medellín, Líneas de alta tensión en Medellín"
@@ -706,7 +706,7 @@
    "entidad": "Área Metropolitana del Valle de Aburrá · Portal IDEM (catastro del Distrito) · POT",
    "url": "https://portalidem.metropol.gov.co/server/rest/services/DISTRITO_MEDELLIN_CATASTRO/MapServer/8",
    "estado": "observado",
-   "probado": "2026-09-27",
+   "probado": "2026-10-01",
    "tema": "lentes",
    "vigencia": "Base catastral vigente",
    "uso": "Índice de construcción bruto (16 comunas)"
@@ -717,7 +717,7 @@
    "entidad": "Secretaría de Movilidad · Alcaldía de Medellín (MEData)",
    "url": "http://medata.gov.co/sites/default/files/distribution/1-023-25-000360/Mede_Victimas_inci.csv",
    "estado": "observado",
-   "probado": "2026-09-27",
+   "probado": "2026-10-01",
    "tema": "lentes",
    "vigencia": "2019–2021",
    "uso": "Víctimas en siniestros viales 2019–2021, Muertos en siniestros viales 2019–2021"
@@ -728,7 +728,7 @@
    "entidad": "Secretaría de Movilidad · Alcaldía de Medellín (MEData)",
    "url": "http://medata.gov.co/sites/default/files/distribution/1-023-25-000301/Aforos_Vehiculares.csv",
    "estado": "observado",
-   "probado": "2026-09-27",
+   "probado": "2026-10-01",
    "tema": "lentes",
    "vigencia": "2017–2019",
    "uso": "Intersecciones con aforo vehicular"
@@ -739,7 +739,7 @@
    "entidad": "Área Metropolitana del Valle de Aburrá · Portal IDEM",
    "url": "https://portalidem.metropol.gov.co/server/rest/services/DISTRITO_MEDELLIN_POT/MapServer",
    "estado": "observado",
-   "probado": "2026-09-27",
+   "probado": "2026-10-01",
    "tema": "lentes",
    "vigencia": "POT vigente (Acuerdo 48 de 2014)",
    "uso": "Zonas con condiciones de riesgo o alto riesgo (POT), Equipamientos del POT"
@@ -750,7 +750,7 @@
    "entidad": "Metro de Medellín · datos abiertos",
    "url": "https://utility.arcgis.com/usrsvcs/servers/b97b082ae9b44544b579f9e4d7a97d4c/rest/services/Hosted/ServiciosOpenData_gdb/FeatureServer/1",
    "estado": "observado",
-   "probado": "2026-09-27",
+   "probado": "2026-10-01",
    "tema": "lentes",
    "vigencia": "Red vigente",
    "uso": "Estaciones del Sistema Metro"
@@ -761,7 +761,7 @@
    "entidad": "Área Metropolitana del Valle de Aburrá · Portal IDEM",
    "url": "https://portalidem.metropol.gov.co/server/rest/services/Hosted/Ciclorrutas/FeatureServer/0",
    "estado": "observado",
-   "probado": "2026-09-27",
+   "probado": "2026-10-01",
    "tema": "lentes",
    "vigencia": "Red vigente",
    "uso": "Estaciones EnCicla, Ciclorrutas construidas"

@@ -7,7 +7,35 @@ import { accent, sequential } from '../charts/tokens';
 // Coroplético de las 16 comunas y 5 corregimientos con los límites del gemelo (comunas.geojson). Recibe los valores ya
 // calculados por código de territorio, así que sirve para cualquier indicador de lago.Territorios (Municipio, Atlas…).
 // Los territorios sin dato quedan en gris oscuro, fuera de la rampa, y la leyenda lo dice.
+// Con `nivel="barrios"` dibuja los 271 barrios y las 79 veredas (Atlas); el nivel se lee al montar el mapa, así que para
+// cambiarlo hay que montar otro (key distinta).
 const SIN_DATO = '#23241f';
+
+const titulo = (texto) =>
+  String(texto ?? '')
+    .toLowerCase()
+    .replace(/(^|\s)\p{L}/gu, (c) => c.toUpperCase());
+
+const NIVELES = {
+  comunas: {
+    archivos: ['/data/geo/comunas.geojson'],
+    borde: 0.6,
+    propiedades: (p) =>
+      p.NOMBRE && /^\d+$/.test(p.CODIGO)
+        ? { codigo: p.CODIGO, nombre: p.NOMBRE.replace(/^Corregimiento de /, ''), tipo: Number(p.CODIGO) >= 50 ? 'Corregimiento' : 'Comuna' }
+        : null
+  },
+  barrios: {
+    archivos: ['/data/geo/barrios.geojson', '/data/geo/veredas.geojson'],
+    borde: 0.35,
+    propiedades: (p, archivo) => ({
+      codigo: p.CODIGO,
+      nombre: p.NOMBRE_BARRIO,
+      tipo: archivo === 0 ? 'Barrio' : 'Vereda',
+      comuna: titulo(p.NOMBRE_COMUNA)
+    })
+  }
+};
 
 export default function MapaTerritorios({
   valores,
@@ -17,8 +45,10 @@ export default function MapaTerritorios({
   color = accent.orange,
   seleccionado,
   onSelect,
-  height = 420
+  height = 420,
+  nivel = 'comunas'
 }) {
+  const nivelInicial = useRef(nivel);
   const container = useRef(null);
   const mapRef = useRef(null);
   const geoRef = useRef(null);
@@ -52,18 +82,12 @@ export default function MapaTerritorios({
     observador.observe(container.current);
     map.once('style.load', async () => {
       try {
-        const limites = await fetch('/data/geo/comunas.geojson').then((r) => r.json());
+        const { archivos, propiedades, borde } = NIVELES[nivelInicial.current];
+        const colecciones = await Promise.all(archivos.map((url) => fetch(url).then((r) => r.json())));
         if (!activo) return;
-        const features = limites.features
-          .filter((f) => f.properties.NOMBRE && /^\d+$/.test(f.properties.CODIGO))
-          .map((f) => ({
-            ...f,
-            properties: {
-              codigo: f.properties.CODIGO,
-              nombre: f.properties.NOMBRE.replace(/^Corregimiento de /, ''),
-              tipo: Number(f.properties.CODIGO) >= 50 ? 'Corregimiento' : 'Comuna'
-            }
-          }));
+        const features = colecciones.flatMap((coleccion, archivo) =>
+          coleccion.features.map((f) => ({ ...f, properties: propiedades(f.properties, archivo) })).filter((f) => f.properties)
+        );
         geoRef.current = { type: 'FeatureCollection', features };
         map.addSource('territorios', { type: 'geojson', data: geoRef.current });
         map.addLayer({ id: 'territorios-fill', type: 'fill', source: 'territorios', paint: { 'fill-color': SIN_DATO, 'fill-opacity': 0.8 } });
@@ -71,7 +95,7 @@ export default function MapaTerritorios({
           id: 'territorios-line',
           type: 'line',
           source: 'territorios',
-          paint: { 'line-color': '#f8f8f2', 'line-width': 0.6, 'line-opacity': 0.45 }
+          paint: { 'line-color': '#f8f8f2', 'line-width': borde, 'line-opacity': 0.45 }
         });
         map.addLayer({
           id: 'territorios-sel',
@@ -143,7 +167,7 @@ export default function MapaTerritorios({
       <div ref={container} className="barrio-map-canvas" />
       {popup && (
         <div className="comuna-card barrio-popup">
-          <span>{popup.tipo}</span>
+          <span>{popup.comuna ? `${popup.tipo} · ${popup.comuna}` : popup.tipo}</span>
           <strong>{popup.nombre}</strong>
           <dl>
             <dt>{etiqueta}</dt>

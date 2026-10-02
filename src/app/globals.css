@@ -442,3 +442,33 @@ h1 em { color: var(--green); font-family: Georgia, serif; font-weight: 400; }
   /* A dos columnas, una tarjeta impar al final ocupa la fila entera. */
   .metrics-grid.compact > :last-child:nth-child(odd) { grid-column: 1 / -1; }
 }
+
+/* ---- Atlas de comunas y barrios (issue #11) ---- */
+.atlas-niveles { margin: -14px 0 6px; }
+.atlas-niveles button { padding: 8px 12px; font-size: 11px; }
+.atlas-selector { display: grid; gap: 8px; margin: 4px 0 2px; }
+.atlas-metricas { padding-top: 8px; border-top: 1px solid color-mix(in srgb, var(--line) 60%, transparent); }
+.atlas-view .card-controls { justify-content: space-between; align-items: center; }
+.atlas-view .card-controls h3 { margin: 0; }
+.atlas-view .card-controls .link-fuente { margin: 0; }
+.atlas-tipo { margin-left: 6px; color: var(--dim); font: 400 11px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .4px; }
+.bar-rank { display: inline-block; min-width: 20px; margin-right: 4px; color: var(--dim); font: normal 9px ui-monospace, SFMono-Regular, Menlo, monospace; }
+.atlas-ficha td, .atlas-ficha th { white-space: nowrap; }
+.atlas-ficha td:first-child { white-space: normal; }
+.atlas-ficha td:nth-child(3) { color: var(--paper); text-align: right; }
+.atlas-ficha th:nth-child(3) { text-align: right; }
+.atlas-ficha td:last-child { color: var(--muted); font: 10px ui-monospace, SFMono-Regular, Menlo, monospace; }
+.atlas-ficha td button { padding: 0; border: 0; color: inherit; background: transparent; font: inherit; text-align: left; cursor: pointer; }
+.atlas-ficha td button:hover, .atlas-ficha td button:focus-visible { color: var(--paper); text-decoration: underline; }
+.atlas-territorio { margin: 0 0 10px; }
+.atlas-evolucion { margin-bottom: 6px; }
+.atlas-ranking-largo { max-height: 640px; }
+.atlas-amva td, .atlas-amva th { text-align: right; }
+.atlas-amva td:first-child, .atlas-amva th:first-child { text-align: left; }
+.atlas-amva tr.activo td { color: var(--paper); background: color-mix(in srgb, var(--green) 8%, transparent); }
+@media (max-width: 600px) {
+  /* En el celular el valor puede partirse en dos líneas para que el puesto quede a la vista sin desplazar la tabla. */
+  .atlas-ficha td, .atlas-ficha th { padding: 5px 4px; white-space: normal; }
+  .atlas-ficha td:last-child, .atlas-ficha th:last-child { white-space: nowrap; }
+  .atlas-ficha td:nth-child(2) { font-size: 9px; }
+}

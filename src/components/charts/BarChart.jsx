@@ -9,7 +9,8 @@ const fmtDefault = (v) => Number(v).toLocaleString('es-CO', { maximumFractionDig
  * ordenado por quien llama. Cada barra es su propio objetivo de hover/foco. Incluye una vista de
  * tabla, siempre disponible, para que ningún valor dependa de pasar el mouse.
  *
- * data: [{ label, value, note? }]
+ * data: [{ label, value, note?, id?, rank? }]. `id` distingue filas con la misma etiqueta (barrios homónimos) y es lo que
+ * se compara con `selected`; `rank` muestra el puesto delante de la etiqueta.
  */
 export default function BarChart({ data, color, unit = '', formatValue = fmtDefault, ariaLabel, onSelect, selected }) {
   const [table, setTable] = useState(false);
@@ -31,8 +32,11 @@ export default function BarChart({ data, color, unit = '', formatValue = fmtDefa
           </thead>
           <tbody>
             {data.map((d) => (
-              <tr key={d.label}>
-                <td>{d.label}</td>
+              <tr key={d.id ?? d.label}>
+                <td>
+                  {d.rank != null && `${d.rank}. `}
+                  {d.label}
+                </td>
                 <td>
                   {formatValue(d.value)}
                   {unit && ` ${unit}`}
@@ -45,15 +49,18 @@ export default function BarChart({ data, color, unit = '', formatValue = fmtDefa
         <div className="bar-rows" role="img" aria-label={ariaLabel}>
           {data.map((d, i) => (
             <button
-              key={d.label}
-              className={`bar-row ${selected === d.label ? 'selected' : ''}`}
+              key={d.id ?? d.label}
+              className={`bar-row ${selected === (d.id ?? d.label) ? 'selected' : ''}`}
               onMouseEnter={() => setHover(i)}
               onMouseLeave={() => setHover(null)}
               onFocus={() => setHover(i)}
               onBlur={() => setHover(null)}
               onClick={() => onSelect?.(d)}
             >
-              <span className="bar-label">{d.label}</span>
+              <span className="bar-label">
+                {d.rank != null && <i className="bar-rank">{d.rank}</i>}
+                {d.label}
+              </span>
               <span className="bar-track">
                 <span className="bar-fill" style={{ width: `${(d.value / max) * 100}%`, background: color }} />
               </span>

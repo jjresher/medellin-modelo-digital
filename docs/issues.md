@@ -26,7 +26,7 @@ Hoja de ruta para llevar la app a la estructura de [Cerebro Lima](https://cerebr
 | 8 | [Municipio](#8-municipio) | 0 | ☑ |
 | 9 | [Servicios públicos](#9-servicios-públicos) | 0 | ☑ |
 | 10 | [Territorio y cultura](#10-territorio-y-cultura) | 0, 1 | ☑ |
-| 11 | [Atlas de comunas y barrios](#11-atlas-de-comunas-y-barrios) | 3, 5, 6, 9 | ☐ |
+| 11 | [Atlas de comunas y barrios](#11-atlas-de-comunas-y-barrios) | 3, 5, 6, 9 | ☑ |
 | 12 | [Correlaciones](#12-correlaciones) | 11 | ☐ |
 | 13 | [Escucha social](#13-escucha-social) | 0 | ☐ |
 | 14 | [Panorama y diagnóstico territorial](#14-panorama-y-diagnóstico-territorial) | 1–12 | ☐ |
@@ -398,12 +398,33 @@ Panorama va casi al final porque resume las cifras ancla de todas las demás sec
 **Objetivo:** equivale al "Atlas 43 distritos" de Lima. Es un mapa coroplético que compara territorios con cualquier métrica.
 
 **Tareas**
-- [ ] Nivel comuna (21 unidades) y nivel barrio (271 barrios urbanos) cuando haya dato disponible.
-- [ ] Selector de métrica: población, IMCV, pobreza, homicidios, precio por m², inversión, verde por habitante, pisos promedio, cobertura de acueducto y aseo, etc.
-- [ ] Ranking y ficha de cada comuna con su puesto en cada métrica.
-- [ ] Comparación regional con los 10 municipios del Área Metropolitana (población DANE).
+- [x] Nivel comuna (21 unidades) y nivel barrio (271 barrios urbanos) cuando haya dato disponible.
+- [x] Selector de métrica: población, IMCV, pobreza, homicidios, precio por m², inversión, verde por habitante, pisos promedio, cobertura de acueducto y aseo, etc.
+- [x] Ranking y ficha de cada comuna con su puesto en cada métrica.
+- [x] Comparación regional con los 10 municipios del Área Metropolitana (población DANE).
 
 **Datos:** secciones [Gente](fuentes-medellin.md#gente), [Seguridad](fuentes-medellin.md#seguridad), [Economía](fuentes-medellin.md#economía-y-vivienda), [Municipio](fuentes-medellin.md#municipio) y [Servicios públicos](fuentes-medellin.md#servicios-públicos).
+
+**Resultado (1 oct 2026)**
+- Nueva sección `Atlas de comunas` (`src/components/AtlasView.jsx`). El Atlas no tiene un tema propio en el lago: junta las métricas por territorio que ya publica cada tema con el contrato de `lago.Territorios` (listas `indicadores` y `territorios`). Cuáles entran y con qué rótulo se elige en `src/lib/atlas.js`; una métrica que no esté en el lago no se muestra.
+- **Nivel comuna:** 52 métricas de 8 temas (Gente, Seguridad, Economía y vivienda, Municipio, Servicios públicos, Territorio y cultura, Construcción y redes, Turismo) para las 16 comunas y los 5 corregimientos. Selector por tema y por métrica, mapa coroplético, ranking con el puesto de cada territorio y ficha por territorio: una tarjeta por tema con el año, el valor y el puesto ("3 de 21") de cada métrica, y la evolución de la métrica elegida cuando tiene más de un año.
+- **Nivel barrio:** 13 métricas para los 271 barrios y las 78 veredas: los 8 conteos del SISC (2021–2023, histórico) y 5 medidas del catastro (construcciones, área construida, índice de construcción, pisos promedio y construcciones por encima de la altura normativa). Mapa, ranking (los 25 primeros o todos) y ficha del barrio con su puesto.
+- **Comparación regional:** población proyectada por el DANE para los 10 municipios del Área Metropolitana (2026: 4.212.261 habitantes; Medellín es el 60,0 %), con cabecera y rural de cada uno.
+- Cambios en la ingesta para que todos los temas hablen el mismo contrato:
+  - `pull_seguridad.py`: el SISC por comuna pasa también a `indicadores` y `territorios` (casos y casos por 10.000 habitantes de las 8 categorías); `seguridad_barrios.json` trae ahora la fuente, la vigencia y el estado de cada categoría.
+  - `pull_lentes.py`: 11 indicadores por territorio (construcciones, pisos promedio, índice de construcción, víctimas viales, redes eléctricas y aforos) con el contrato, sin quitar los campos que lee el gemelo. Genera además `public/data/geo/construcciones_barrios.json`.
+  - `pull_demografia.py`: lista `amva`, dos cifras nuevas (población del Área Metropolitana y participación de Medellín) y el indicador de densidad de población (hab./km²) por territorio.
+  - Se reingestaron los tres temas; ninguna cifra existente cambió. El lago queda en 199 cifras.
+- `MapaTerritorios` acepta `nivel="barrios"` y `BarChart` muestra el puesto y admite etiquetas repetidas (hay barrios homónimos).
+- Decisiones de alcance:
+  - **Puesto:** ordena de mayor a menor valor y los empates comparten puesto. Es una posición, no una calificación, y así se dice en pantalla.
+  - **Tasas del SISC:** son los casos de los tres años de la ventana por 10.000 habitantes (población del DAP), la misma definición de la sección Seguridad. No es una tasa anual; la nota del indicador lo dice.
+  - **Barrios sin tasas:** el lago no tiene población por barrio, así que a ese nivel solo hay conteos y medidas físicas. Un barrio que no aparece en un archivo del SISC cuenta como 0 casos; uno sin construcciones queda "sin dato".
+  - **Códigos del SISC fuera de los límites:** 9 códigos de barrio del SISC (368 de 141.313 registros de la ventana, el 0,26 %) no existen en los límites del catastro y no se dibujan.
+  - **Índices 0–100 de las lentes:** no entran al Atlas. Son posiciones relativas calculadas a partir de las mismas métricas que sí están.
+- Correcciones que salieron al probar: la vereda Piedras Blancas Represa viene partida en dos polígonos con el mismo código (hay 79 polígonos y 78 veredas); se unen en la ingesta y cuentan una vez en el ranking. Si una categoría del SISC fallaba, su ranking por comuna se perdía en vez de conservarse de la ingesta anterior; ahora se hereda.
+- Pruebas: `tests/atlas.test.mjs` comprueba el cálculo de puestos y que todas las métricas elegidas existan en el lago con sus 21 territorios y su fuente en el catálogo.
+- Probada a 1400 y a 390 px, en los dos niveles, sin desbordamiento horizontal ni errores en consola.
 
 ---
 

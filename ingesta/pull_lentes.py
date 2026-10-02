@@ -7,6 +7,10 @@ Genera:
   public/data/siniestros.pmtiles      víctimas en siniestros viales georreferenciadas (mapa de calor)
   public/data/geo/analisis.json       rejilla de ~110 m para "Analizar punto"
   public/data/lago/lentes.json        indicadores por comuna y corregimiento, e índices 0–100 de cada lente
+  public/data/geo/construcciones_barrios.json   construcciones del catastro por barrio y vereda (nivel barrio del Atlas)
+
+Las filas de `territorios` conservan sus campos planos (los lee el gemelo) y llevan además `valores` con el contrato de
+lago.Territorios, que junto con la lista `indicadores` es lo que lee el Atlas (#11).
 
 Índices: cada indicador se escala de 0 a 100 entre las 21 comunas y corregimientos (0 = valor mínimo observado,
 100 = máximo). El índice de una lente es el promedio de sus indicadores disponibles y el cruce urbano es el
@@ -18,13 +22,14 @@ import csv
 import io
 import json
 import math
+import re
 import subprocess
 import urllib.parse
 
 import shapely
 from shapely.geometry import mapping, shape
 
-from lago import RAIZ, Tema, arcgis_geojson as geojson_arcgis, descargar, json_url, leer_csv, numero
+from lago import RAIZ, Tema, arcgis_geojson as geojson_arcgis, descargar, hoy, json_url, leer_csv, numero
 
 IDEM = 'https://portalidem.metropol.gov.co/server/rest/services'
 POT = f'{IDEM}/DISTRITO_MEDELLIN_POT/MapServer'
@@ -185,6 +190,56 @@ def densificacion(t, terr):
             'm²/m²', 'Índice de construcción bruto (16 comunas)', 'catastro-puntos', 'Base catastral vigente',
             estado='derivado', decimales=2,
             nota='Área construida del catastro dividida por el área total de las comunas (incluye vías y espacio público).')
+
+
+def barrios_y_veredas():
+    """Los 271 barrios y las 79 veredas del gemelo, con su geometría y su área. Una vereda (Piedras Blancas Represa)
+    viene partida en dos polígonos con el mismo código: se unen."""
+    partes = collections.defaultdict(list)
+    for archivo in ('barrios.geojson', 'veredas.geojson'):
+        for f in json.loads((DIR_GEO / archivo).read_text(encoding='utf-8'))['features']:
+            partes[f['properties']['CODIGO']].append(shape(f['geometry']))
+    salida = {}
+    for codigo, geometrias in partes.items():
+        geom = geometrias[0] if len(geometrias) == 1 else shapely.union_all([shapely.make_valid(g) for g in geometrias])
+        salida[codigo] = {'geom': geom, 'area_km2': area_km2(geom)}
+    return salida
+
+
+def densificacion_barrios(t):
+    """Las mismas medidas de la lente, por barrio y vereda: cada construcción se asigna al polígono donde cae su punto."""
+    barrios = barrios_y_veredas()
+    xs, ys, filas = [], [], []
+    with PUNTOS.open(encoding='utf-8') as archivo:
+        for fila in csv.DictReader(archivo):
+            xs.append(float(fila['x']))
+            ys.append(float(fila['y']))
+            filas.append((int(fila['p']), float(fila['a']), int(fila['n']) if fila['n'] else None))
+    agregado = collections.defaultdict(lambda: {'n': 0, 'area': 0.0, 'pisos': 0, 'con_norma': 0, 'sobre_norma': 0})
+    for codigo, (pisos, area, norma) in zip(ubicar(xs, ys, barrios), filas):
+        if codigo is None:
+            continue
+        a = agregado[codigo]
+        a['n'] += 1
+        a['area'] += area
+        a['pisos'] += pisos
+        if norma is not None:
+            a['con_norma'] += 1
+            a['sobre_norma'] += pisos > norma
+    por_barrio = {}
+    for codigo, a in agregado.items():
+        por_barrio[codigo] = {'construcciones': a['n'], 'area_construida_ha': round(a['area'] / 1e4, 1),
+                              'indice_construccion_bruto': round(a['area'] / (barrios[codigo]['area_km2'] * 1e6), 3),
+                              'pisos_promedio': round(a['pisos'] / a['n'], 2)}
+        if a['con_norma']:
+            por_barrio[codigo]['pct_sobre_altura_normativa'] = round(a['sobre_norma'] / a['con_norma'] * 100, 1)
+    vigencia = t.cifras['indice_construccion_urbano']['vigencia']
+    indicadores = [{'clave': campo, 'etiqueta': etiqueta, 'unidad': unidad, 'fuente': fuente, 'vigencia': vigencia,
+                    'estado': 'derivado', 'decimales': decimales, **({'nota': nota} if nota else {})}
+                   for campo, etiqueta, unidad, fuente, decimales, nota in POR_TERRITORIO if fuente == 'catastro-puntos']
+    (DIR_GEO / 'construcciones_barrios.json').write_text(json.dumps(
+        {'indicadores': indicadores, 'barrios': por_barrio}, ensure_ascii=False, separators=(',', ':')), encoding='utf-8')
+    print(f'  · construcciones por barrio: {len(por_barrio):,} barrios y veredas con construcciones')
 
 
 # ---------------------------------------------------------------- lente de presión vial
@@ -353,6 +408,53 @@ INDICADORES = {
 }
 
 
+# Indicadores por territorio con el contrato de lago.Territorios: (campo, etiqueta, unidad, fuente, decimales, nota).
+# Todos salen de cruzar datos con los límites de cada comuna y corregimiento, así que su estado es `derivado`.
+POR_TERRITORIO = [
+    ('construcciones', 'Construcciones del catastro', 'construcciones', 'catastro-puntos', 0, None),
+    ('area_construida_ha', 'Área construida', 'ha', 'catastro-puntos', 1, 'Suma del área construida de todos los pisos.'),
+    ('indice_construccion_bruto', 'Índice de construcción bruto', 'm²/m²', 'catastro-puntos', 2,
+     'Área construida ÷ área total del territorio (incluye vías, espacio público y, en los corregimientos, suelo rural).'),
+    ('pisos_promedio', 'Pisos promedio por construcción', 'pisos', 'catastro-puntos', 2, None),
+    ('pct_sobre_altura_normativa', 'Construcciones por encima de la altura normativa', '% de construcciones', 'catastro-puntos', 1,
+     'Pisos del catastro frente a la altura normativa del POT, solo donde la norma la fija en pisos. Es un cruce geométrico: '
+     'no considera licencias ni normas anteriores.'),
+    ('victimas_viales', 'Víctimas en siniestros viales', 'víctimas', 'medata-victimas-viales', 0,
+     'Heridos y muertos con coordenadas dentro del territorio.'),
+    ('victimas_por_km2_anio', 'Víctimas viales por km² al año', 'víctimas/km²·año', 'medata-victimas-viales', 1, None),
+    ('km_mt_por_km2', 'Red de media tensión', 'km/km²', 'epm-red-electrica', 2,
+     'Longitud de los tramos que tocan el territorio ÷ su área; un tramo en el límite cuenta en ambos territorios.'),
+    ('km_at_por_km2', 'Líneas de alta tensión', 'km/km²', 'epm-red-electrica', 3, None),
+    ('subestaciones', 'Subestaciones de energía', 'subestaciones', 'epm-red-electrica', 0, None),
+    ('veh_eq_hora_pico', 'Volumen en hora pico (aforos)', 'veh. eq./hora', 'medata-aforos', 0,
+     'Promedio de las intersecciones aforadas del territorio; los territorios sin aforos no tienen dato.'),
+]
+# Una cifra de cada fuente, de la que se toma la vigencia de sus indicadores por territorio.
+CIFRA_DE_FUENTE = {'catastro-puntos': 'indice_construccion_urbano', 'medata-victimas-viales': 'victimas_viales',
+                   'epm-red-electrica': 'subestaciones_medellin', 'medata-aforos': 'intersecciones_aforadas'}
+
+
+def contrato_territorios(t, terr):
+    """Agrega a cada territorio `valores` ({clave: {año: valor}}) y devuelve la lista de indicadores con dato."""
+    indicadores = []
+    for ter in terr.values():
+        ter['valores'] = {}
+    for campo, etiqueta, unidad, fuente, decimales, nota in POR_TERRITORIO:
+        cifra = t.cifras.get(CIFRA_DE_FUENTE[fuente])
+        con_dato = [ter for ter in terr.values() if ter.get(campo) is not None]
+        if not cifra or not con_dato:
+            continue
+        vigencia = cifra['vigencia']
+        # Una vigencia con años ("2019–2021") es la llave del valor; "Red vigente" o "Base catastral vigente" usan el año
+        # de la ingesta.
+        anio = vigencia if re.fullmatch(r'\d{4}(–\d{4})?', vigencia) else str(hoy().year)
+        indicadores.append({'clave': campo, 'etiqueta': etiqueta, 'unidad': unidad, 'fuente': fuente, 'vigencia': vigencia,
+                            'estado': 'derivado', 'decimales': decimales, **({'nota': nota} if nota else {})})
+        for ter in con_dato:
+            ter['valores'][campo] = {anio: ter[campo]}
+    return indicadores
+
+
 def escalar(valores):
     presentes = [v for v in valores.values() if v is not None]
     if not presentes:
@@ -371,6 +473,7 @@ def indices(t, terr):
     for ter in terr.values():
         lentes = [ter[f'indice_{l}'] for l in INDICADORES if ter.get(f'indice_{l}') is not None]
         ter['indice_cruce'] = round(sum(lentes) / len(lentes), 1) if lentes else None
+    t.lista('indicadores', contrato_territorios(t, terr))
     t.lista('territorios', [{k: v for k, v in ter.items() if k != 'geom'} for ter in
                             sorted(terr.values(), key=lambda x: x['codigo'])])
     t.lista('metodo_indices', [{'lente': lente, 'indicadores': [{'campo': c, 'etiqueta': e, 'unidad': u} for c, e, u in ind]}
@@ -411,6 +514,7 @@ def main():
         energia(t, terr)
     with t.bloque('catastro-puntos'):
         densificacion(t, terr)
+        densificacion_barrios(t)
     periodo_vial = None
     with t.bloque('medata-victimas-viales'):
         periodo_vial = victimas_viales(t, terr)

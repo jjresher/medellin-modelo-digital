@@ -24,6 +24,9 @@ ESTRATOS = f'{ALC}/ServiciosCatastro/ConsultaOperadorCatastral_geo/MapServer/23'
 SALUD = f'{ALC}/salud_protec_soc/VC_Datos_Enfermedades/MapServer'
 DIR_CRUDOS = RAIZ / 'datos' / 'crudos'
 MEDELLIN = '05001'
+# Los 10 municipios del Área Metropolitana del Valle de Aburrá, de norte a sur (código DANE).
+AMVA = {'05079': 'Barbosa', '05308': 'Girardota', '05212': 'Copacabana', '05088': 'Bello', '05001': 'Medellín',
+        '05266': 'Envigado', '05360': 'Itagüí', '05631': 'Sabaneta', '05380': 'La Estrella', '05129': 'Caldas'}
 ESTRATO_NOMBRE = {1: 'Bajo-bajo', 2: 'Bajo', 3: 'Medio-bajo', 4: 'Medio', 5: 'Medio-alto', 6: 'Alto'}
 
 
@@ -43,14 +46,14 @@ def archivo_dane(url):
     return destino.read_bytes()
 
 
-def filas_medellin(libro):
-    """Filas de Medellín de la hoja de datos (la última del libro), más la fila de encabezados de columna."""
+def filas_municipios(libro, codigos=(MEDELLIN,)):
+    """Filas de los municipios pedidos en la hoja de datos (la última del libro), más la fila de encabezados de columna."""
     hoja = libro.worksheets[-1]
     encabezado, filas = None, []
     for fila in hoja.iter_rows(values_only=True):
         if encabezado is None and len(fila) > 6 and fila[6] == 'Total':
             encabezado = fila
-        if len(fila) > 6 and str(fila[2]).strip() == MEDELLIN and isinstance(fila[4], int):
+        if len(fila) > 6 and str(fila[2]).strip() in codigos and isinstance(fila[4], int):
             filas.append(fila)
     return encabezado, filas
 
@@ -58,7 +61,8 @@ def filas_medellin(libro):
 def poblacion_dane(t, anio):
     t.fuente('dane-pped', 'Proyecciones de población municipal por área 2018–2042 (PPED, actualización de julio de 2025)',
              'DANE', DANE_AREA)
-    _, filas = filas_medellin(excel(descargar(DANE_AREA, timeout=300)))
+    _, filas_amva = filas_municipios(excel(descargar(DANE_AREA, timeout=300)), AMVA)
+    filas = [f for f in filas_amva if str(f[2]).strip() == MEDELLIN]
     por = {(f[4], str(f[5]).strip()): f[6] for f in filas}
     if (anio, 'Total') not in por:
         raise RuntimeError(f'El archivo PPED del DANE no trae {anio} para Medellín')
@@ -73,7 +77,27 @@ def poblacion_dane(t, anio):
     t.serie('poblacion_total', [[a, v] for (a, area), v in sorted(por.items()) if area == 'Total'],
             'habitantes', 'Población de Medellín 2018–2042', 'dane-pped',
             nota='DANE, PPED (julio de 2025). 2018 es el año base del censo; el resto son proyecciones.')
+    area_metropolitana(t, anio, filas_amva)
     return {a: v for (a, area), v in por.items() if area == 'Total'}
+
+
+def area_metropolitana(t, anio, filas):
+    """Población de los 10 municipios del Área Metropolitana, para la comparación regional del Atlas (#11)."""
+    por = {(str(f[2]).strip(), str(f[5]).strip()): f[6] for f in filas if f[4] == anio}
+    faltan = [nombre for codigo, nombre in AMVA.items() if (codigo, 'Total') not in por]
+    if faltan:
+        raise RuntimeError(f'El archivo PPED del DANE no trae {anio} para {", ".join(faltan)}')
+    total = sum(por[(codigo, 'Total')] for codigo in AMVA)
+    t.lista('amva', [{'codigo': codigo, 'nombre': nombre, 'anio': anio, 'poblacion': por[(codigo, 'Total')],
+                      'cabecera': por[(codigo, 'Cabecera Municipal')],
+                      'rural': por[(codigo, 'Centros Poblados y Rural Disperso')],
+                      'participacion': round(por[(codigo, 'Total')] / total * 100, 1)}
+                     for codigo, nombre in AMVA.items()])
+    t.cifra('poblacion_amva', total, 'habitantes', 'Población del Área Metropolitana del Valle de Aburrá', 'dane-pped',
+            str(anio), estado='derivado', nota='Suma de las proyecciones del DANE para los 10 municipios del Área Metropolitana.')
+    t.cifra('participacion_medellin_amva', round(por[(MEDELLIN, 'Total')] / total * 100, 1), '%',
+            'Medellín en la población del Área Metropolitana', 'dane-pped', str(anio), estado='derivado',
+            nota=f'{miles(por[(MEDELLIN, "Total")])} de {miles(total)} habitantes.')
 
 
 def grupo_quinquenal(edad):
@@ -83,7 +107,7 @@ def grupo_quinquenal(edad):
 def piramide_dane(t, anio):
     t.fuente('dane-pped-edad', 'Proyecciones de población municipal por área, sexo y edad 2018–2042 (PPED)', 'DANE',
              DANE_EDAD)
-    encabezado, filas = filas_medellin(excel(archivo_dane(DANE_EDAD)))
+    encabezado, filas = filas_municipios(excel(archivo_dane(DANE_EDAD)))
     columnas = []
     for i, nombre in enumerate(encabezado or ()):
         m = re.fullmatch(r'(Hombres|Mujeres) (\d+) años?( y más)?', str(nombre or '').strip())
@@ -163,6 +187,14 @@ def proyeccion_dap(t, terr, anio, dane_total):
         if not codigo:
             raise RuntimeError(f'Sin código para el territorio del DAP "{f["nombre"]}"')
         terr.valor(codigo, 'poblacion', anio, round(dane_total * f[campo] / total_dap))
+    areas = terr.areas_km2()
+    terr.indicador('densidad', 'Densidad de población', 'hab./km²', 'dap-proyecciones', str(anio), estado='derivado',
+                   nota='Población del territorio ÷ su área según los límites del catastro. En los corregimientos el área '
+                        'incluye el suelo rural.')
+    for codigo, fila in terr.filas.items():
+        poblacion_territorio = fila['valores'].get('poblacion', {}).get(str(anio))
+        if poblacion_territorio:
+            terr.valor(codigo, 'densidad', anio, round(poblacion_territorio / areas[codigo]))
 
     # Hogares y viviendas parten San Cristóbal, Altavista, San Antonio de Prado y Santa Elena en su parte urbana y
     # rural (mismo código): se suman para tener un valor por corregimiento.
@@ -288,6 +320,8 @@ def main():
     # Las listas no se heredan solas como las cifras: una fuente caída conserva sus valores por territorio aquí.
     for fuente in t.fallos:
         terr.heredar(t.previo, fuente)
+        if fuente == 'dane-pped' and t.previo and 'amva' in t.previo['listas']:
+            t.lista('amva', t.previo['listas']['amva'])
         if fuente == 'dane-pped-edad' and t.previo and 'piramide' in t.previo['listas']:
             t.lista('piramide', t.previo['listas']['piramide'])
         if fuente == 'dap-proyecciones' and t.previo:

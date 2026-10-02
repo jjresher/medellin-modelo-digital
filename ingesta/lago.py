@@ -17,6 +17,7 @@ import datetime as dt
 import http.client
 import io
 import json
+import math
 import re
 import socket
 import time
@@ -210,16 +211,26 @@ def normalizar_nombre(nombre):
     return re.sub(r'\s+', ' ', re.sub(r'^CORREGIMIENTO DE ', '', texto)).strip()
 
 
+def area_km2(geometria):
+    """Área en km² de una geometría GeoJSON en grados, con una proyección equirectangular local (latitud de Medellín):
+    suficiente para áreas urbanas. Es la misma que usan las lentes del gemelo."""
+    import shapely  # dependencia de ingesta/requirements.txt
+    from shapely.geometry import shape
+    k = math.cos(math.radians(6.25))
+    return shapely.transform(shape(geometria), lambda c: c * [111_320 * k, 110_574]).area / 1e6
+
+
 class Territorios:
     """Acumula por código de comuna o corregimiento los valores de cada indicador, con su definición. Los 21
     territorios y sus nombres salen de los límites del gemelo (comunas.geojson), no de cada fuente."""
 
     def __init__(self):
-        self.filas, self.indicadores, self._por_nombre = {}, {}, {}
+        self.filas, self.indicadores, self._por_nombre, self._geometrias = {}, {}, {}, {}
         limites = json.loads((RAIZ / 'public' / 'data' / 'geo' / 'comunas.geojson').read_text(encoding='utf-8'))
         for f in limites['features']:
             p = f['properties']
             if p.get('NOMBRE') and p['CODIGO'].isdigit():
+                self._geometrias[p['CODIGO']] = f['geometry']
                 self.filas[p['CODIGO']] = {'codigo': p['CODIGO'],
                                            'nombre': re.sub(r'^Corregimiento de ', '', p['NOMBRE']),
                                            'tipo': 'Corregimiento' if int(p['CODIGO']) >= 50 else 'Comuna',
@@ -234,6 +245,10 @@ class Territorios:
             self._por_nombre = {normalizar_nombre(f['nombre']): c for c, f in self.filas.items()}
             self._por_nombre.update({normalizar_nombre(alias): c for alias, c in ALIAS_TERRITORIO.items()})
         return self._por_nombre.get(normalizar_nombre(nombre))
+
+    def areas_km2(self):
+        """{código: km²} según los límites del gemelo; en los corregimientos incluye el suelo rural."""
+        return {codigo: area_km2(g) for codigo, g in self._geometrias.items()}
 
     def indicador(self, clave, etiqueta, unidad, fuente, vigencia, estado='observado', decimales=0, nota=None):
         self.indicadores[clave] = {'clave': clave, 'etiqueta': etiqueta, 'unidad': unidad, 'fuente': fuente,

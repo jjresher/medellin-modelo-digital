@@ -116,6 +116,13 @@ Convenciones: `ALC` = `https://www.medellin.gov.co/servidormapas/rest/services`,
 - **Estratos:** la unidad es la manzana, no la vivienda. Una manzana grande y una pequeña pesan lo mismo, y así se rotula en pantalla.
 - **El servidor de la Alcaldía** responde a veces `200` con `{"error": "Unable to complete operation"}` (fallo pasajero de su base de datos). `lago.consulta_arcgis` reintenta hasta 4 veces antes de dar la capa por caída.
 
+### Notas de uso en el Atlas (issue #11, 1 oct 2026)
+
+- **Área Metropolitana:** el archivo PPED por área del DANE (el mismo de la población de Medellín) trae los 10 municipios: Barbosa `05079`, Girardota `05308`, Copacabana `05212`, Bello `05088`, Medellín `05001`, Envigado `05266`, Itagüí `05360`, Sabaneta `05631`, La Estrella `05380` y Caldas `05129`. Para 2026 suman 4.212.261 habitantes.
+- **Densidad de población:** población por territorio ÷ área según los límites del gemelo (`derivado`). En los corregimientos el área incluye el suelo rural.
+- **Sin población por barrio:** no hay en el lago una proyección abierta por barrio, así que el nivel barrio del Atlas no calcula tasas por habitante.
+- **Barrios y veredas:** los límites traen 271 barrios y 79 polígonos de vereda, pero 78 veredas: Piedras Blancas Represa (`9011`) viene en dos polígonos. Nueve códigos de barrio del SISC (`5008`, `7003` a `7008`, `9009` y `9010`) no existen en los límites.
+
 ### Economía y vivienda
 
 | Dato | Endpoint | Vigencia | Valor clave |
