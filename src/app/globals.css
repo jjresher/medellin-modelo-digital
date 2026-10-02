@@ -481,6 +481,26 @@ h1 em { color: var(--green); font-family: Georgia, serif; font-weight: 400; }
 .chart-card:has(> .linechart) > *, .chart-card:has(> .barrio-map) > * { flex: none; }
 .chart-card:has(> .linechart) > .linechart, .chart-card:has(> .barrio-map) > .barrio-map { flex: 1 0 auto; }
 .chart-card:has(> .linechart) > button, .chart-card:has(> .barrio-map) > button { align-self: flex-start; }
+/* Lo mismo con las barras y las tablas: si la tarjeta de al lado es más alta, las barras se reparten en la altura que
+   sobra y las filas de la tabla crecen por igual. Sin altura de sobra, quedan como siempre. */
+.chart-card:has(> .barchart) { display: flex; flex-direction: column; }
+.chart-card:has(> .barchart) > * { flex: none; }
+.chart-card:has(> .barchart) > .barchart { flex: 1 0 auto; }
+.chart-card:has(> .barchart) > button { align-self: flex-start; }
+.barchart { grid-template-rows: auto 1fr; }
+.bar-rows { align-content: space-around; }
+/* (:where no suma especificidad: una gráfica de línea o un mapa en la misma tarjeta conservan su propia regla.) */
+:where(.chart-grid) > .chart-card:has(> .chart-table) { display: flex; flex-direction: column; }
+:where(.chart-grid) > .chart-card:has(> .chart-table) > * { flex: none; }
+:where(.chart-grid) > .chart-card:has(> .chart-table) > .chart-table { flex: 1 0 auto; }
+:where(.chart-grid) > .chart-card:has(> .chart-table) > button { align-self: flex-start; }
+/* Una tabla con desplazamiento propio dentro de una rejilla ocupa la altura que le deje la tarjeta de al lado. */
+:where(.chart-grid) > .chart-card:has(> .tabla-scroll) { display: flex; flex-direction: column; }
+:where(.chart-grid) > .chart-card:has(> .tabla-scroll) > * { flex: none; }
+:where(.chart-grid) > .chart-card:has(> .tabla-scroll) > .tabla-scroll { flex: 1 1 420px; max-height: none; }
+:where(.chart-grid) > .chart-card:has(> .tabla-scroll) > button { align-self: flex-start; }
+/* Si la tarjeta trae además una gráfica de línea (la ficha de un territorio con evolución), crece solo la gráfica. */
+.chart-grid > .chart-card:has(> .linechart) > .chart-table { flex: none; }
 
 /* Barras de desplazamiento del color de la interfaz (las del sistema salen blancas sobre el fondo oscuro). */
 html { scrollbar-color: var(--line) var(--ink); }
@@ -526,4 +546,91 @@ html { scrollbar-color: var(--line) var(--ink); }
   .atlas-ficha td, .atlas-ficha th { padding: 5px 4px; white-space: normal; }
   .atlas-ficha td:last-child, .atlas-ficha th:last-child { white-space: nowrap; }
   .atlas-ficha td:nth-child(2) { font-size: 9px; }
+}
+
+/* ---- Correlaciones (issue #12) ---- */
+/* Las tres advertencias van a la vista antes de la matriz, con el mismo tono de .warning-note. */
+.avisos-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; margin: 0 0 8px; }
+.avisos-grid > div { padding: 12px 14px 14px; border: 1px solid color-mix(in srgb, var(--orange) 55%, var(--line)); border-radius: 3px; background: color-mix(in srgb, var(--orange) 8%, transparent); }
+.avisos-grid b { display: block; color: var(--paper); font-size: 13px; letter-spacing: -.1px; }
+.avisos-grid b span { margin-right: 8px; color: var(--orange); font: 400 10px ui-monospace, SFMono-Regular, Menlo, monospace; }
+.avisos-grid p { margin: 7px 0 0; color: var(--muted); font-size: 12px; line-height: 1.6; }
+
+.matriz-card { min-width: 0; }
+.matriz-barra { display: flex; align-items: flex-start; justify-content: space-between; gap: 14px; margin-bottom: 10px; }
+.matriz-barra .table-toggle { flex: none; }
+.matriz-lectura { display: grid; gap: 3px; min-height: 31px; margin: 0; color: var(--muted); font: 11px/1.3 ui-monospace, SFMono-Regular, Menlo, monospace; }
+.matriz-lectura b { color: var(--paper); font-weight: 400; }
+.matriz-lectura strong { color: var(--paper); }
+/* La matriz no se encoge por debajo de una celda donde quepa el coeficiente: en pantallas angostas se desplaza dentro de
+   su tarjeta y el nombre de la fila se queda fijo a la izquierda. */
+.matriz-scroll { overflow-x: auto; scrollbar-color: var(--line) transparent; scrollbar-width: thin; }
+/* El ancho es el de su contenido (o el de la tarjeta, si sobra): con el ancho de la tarjeta, el nombre fijo de la fila
+   se iría con el desplazamiento al pasar ese ancho. */
+.matriz { --rotulo: 150px; --celda: 30px; --separador: 4px; display: grid; gap: 1px; width: max-content; min-width: 100%; }
+.matriz-columna { display: grid; place-items: center; color: var(--dim); font: 9px ui-monospace, SFMono-Regular, Menlo, monospace; }
+.matriz-fila { position: sticky; left: 0; z-index: 1; display: flex; align-items: center; gap: 6px; padding-right: 8px; background: var(--panel); color: var(--muted); font-size: 10.5px; line-height: 1.15; }
+.matriz-esquina { position: sticky; left: 0; z-index: 1; grid-area: 1 / 1; background: var(--panel); }
+.matriz-fila i { flex: none; width: 15px; color: var(--dim); font: normal 9px ui-monospace, SFMono-Regular, Menlo, monospace; text-align: right; }
+.matriz-fila.activa, .matriz-columna.activa, .matriz-fila.activa i { color: var(--paper); }
+.matriz-celda { position: relative; min-width: 0; padding: 0; border: 0; border-radius: 2px; color: var(--paper); background: var(--raised); font: 9.5px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: -.3px; }
+.matriz-celda:hover, .matriz-celda:focus-visible { outline: 1px solid var(--paper); outline-offset: -1px; }
+.matriz-celda.elegida { outline: 2px solid var(--paper); outline-offset: -2px; }
+/* Esquina marcada: el par se calculó con menos territorios que el total. */
+.matriz-celda.parcial::after, .matriz-marca i::after { content: ''; position: absolute; top: 0; left: 0; border: 3px solid; border-color: currentColor transparent transparent currentColor; border-radius: 2px 0 0; }
+.matriz-pie { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px 18px; margin-top: 12px; }
+.matriz-pie .link-fuente { margin: 0; }
+.matriz-leyenda { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 8px; color: var(--muted); font: 10px ui-monospace, SFMono-Regular, Menlo, monospace; }
+.matriz-leyenda > i { width: 150px; height: 8px; border-radius: 1px; }
+.matriz-marca { display: flex; align-items: center; gap: 6px; margin-left: 10px; }
+.matriz-marca i { position: relative; width: 13px; height: 13px; border-radius: 2px; color: var(--paper); background: var(--raised); }
+.matriz-tabla { max-height: 520px; }
+.matriz-tabla td:nth-child(n + 5), .matriz-tabla th:nth-child(n + 5) { color: var(--paper); text-align: right; white-space: nowrap; }
+.matriz-tabla td:nth-child(2), .matriz-tabla td:nth-child(4) { color: var(--dim); font: 10px ui-monospace, SFMono-Regular, Menlo, monospace; white-space: nowrap; }
+.matriz-tabla td button, .par-tabla td button { padding: 0; border: 0; color: inherit; background: transparent; font: inherit; text-align: left; cursor: pointer; }
+.matriz-tabla td button:hover, .matriz-tabla td button:focus-visible, .par-tabla td button:hover, .par-tabla td button:focus-visible { color: var(--paper); text-decoration: underline; }
+.matriz-tabla tr.activo td, .par-tabla tr.activo td { color: var(--paper); background: color-mix(in srgb, var(--green) 8%, transparent); }
+
+.fuera-matriz { margin-top: 14px; color: var(--muted); font-size: 12px; line-height: 1.6; }
+.fuera-matriz summary { width: fit-content; color: var(--cyan); font: 10px ui-monospace, SFMono-Regular, Menlo, monospace; cursor: pointer; list-style: none; }
+.fuera-matriz summary::-webkit-details-marker { display: none; }
+.fuera-matriz[open] summary span { display: inline-block; transform: rotate(180deg); }
+.fuera-matriz > div { max-width: 780px; margin-top: 14px; }
+.fuera-matriz b { color: var(--paper); }
+.fuera-matriz p { margin: 2px 0 4px; }
+.fuera-matriz ul { margin: 0; padding: 0; list-style: none; }
+.fuera-matriz li span { color: var(--dim); }
+
+.par-controles { display: flex; flex-wrap: wrap; gap: 10px 18px; margin: 4px 0 14px; }
+.par-resumen { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.par-resumen > div { display: grid; align-content: start; gap: 7px; padding: 14px 16px; border: 1px solid var(--line); border-radius: 3px; background: var(--panel); }
+.par-resumen > div > span { color: var(--muted); font-size: 11px; }
+.par-resumen strong { font: 24px/1.1 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: -1.4px; }
+.par-resumen strong.texto { font-size: 18px; letter-spacing: -.6px; line-height: 1.35; }
+.par-resumen strong i { color: var(--dim); font-size: 13px; font-style: normal; letter-spacing: 0; }
+.par-resumen small { color: var(--dim); font-size: 10.5px; line-height: 1.5; }
+.par-metricas { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 28px; margin-bottom: 14px; }
+.par-metricas .eje { margin-right: 4px; color: var(--dim); font: 400 10px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .6px; text-transform: uppercase; }
+.correlaciones-view .chart-card .card-controls { justify-content: space-between; align-items: center; }
+.correlaciones-view .chart-card .card-controls h3 { margin: 0; }
+/* En el celular el nombre de la entidad ocupa dos líneas: se alinea a la izquierda, como el resto de la ficha. */
+.correlaciones-view .procedencia button { text-align: left; }
+.par-tabla td, .par-tabla th { text-align: right; }
+.par-tabla td:first-child, .par-tabla th:first-child { text-align: left; }
+.par-tabla td:nth-child(n + 2) { color: var(--paper); white-space: nowrap; }
+.par-tabla th { vertical-align: bottom; }
+.par-tabla th:last-child, .matriz-tabla th:last-child { color: var(--dim); }
+.par-tabla th small { display: block; margin-top: 2px; font-size: 9px; letter-spacing: 0; }
+.par-tabla tr.fuera td { color: var(--dim); }
+
+.eje-titulo { margin: 0 0 4px; color: var(--muted); font: 10px/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; }
+.eje-titulo.eje-x { margin: 4px 0 0; text-align: right; }
+.chart-legend i.punto { width: 8px; height: 8px; border-radius: 50%; }
+.chart-legend i.rombo { width: 7px; height: 7px; border-radius: 0; transform: rotate(45deg); }
+.scatterchart .chart-tooltip { min-width: 150px; white-space: nowrap; }
+.scatterchart .chart-tooltip span { display: block; }
+
+@media (max-width: 900px) {
+  .avisos-grid, .par-resumen, .par-metricas { grid-template-columns: 1fr; }
+  .matriz { --rotulo: 112px; }
 }

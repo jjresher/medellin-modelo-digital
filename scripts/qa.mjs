@@ -20,7 +20,21 @@ const SALIDA = '.cache/qa';
 mkdirSync(SALIDA, { recursive: true });
 const SECCIONES = lista
   ? lista.split(',')
-  : ['panorama', 'twin', 'people', 'economy', 'tourism', 'municipality', 'services', 'safety', 'culture', 'atlas', 'environment', 'sources'];
+  : [
+      'panorama',
+      'twin',
+      'people',
+      'economy',
+      'tourism',
+      'municipality',
+      'services',
+      'safety',
+      'culture',
+      'correlations',
+      'atlas',
+      'environment',
+      'sources'
+    ];
 const port = 9300 + Math.floor(Math.random() * 500);
 // Perfil temporal de Chrome, fuera del proyecto.
 const perfil = mkdtempSync(join(tmpdir(), 'qa-chrome-'));
@@ -98,7 +112,7 @@ const REVISAR = `(() => {
   for (const malo of ['undefined', 'NaN', '[object', 'Invalid Date', 'null ', ' null']) { const i = txt.indexOf(malo); if (i >= 0) out.texto.push(malo.trim() + ' → …' + txt.slice(Math.max(0, i - 50), i + 30).replace(/\\n/g, ' ') + '…'); }
   const visible = (e) => { const r = e.getBoundingClientRect(); return r.width > 0 && r.height > 0; };
   const nombre = (e) => (e.className && typeof e.className === 'string' ? '.' + e.className.trim().split(/\\s+/).join('.') : e.tagName.toLowerCase());
-  for (const g of vista.querySelectorAll('.metrics-grid, .chart-grid, .sisc-grid, .atlas-fichas, .source-list')) {
+  for (const g of vista.querySelectorAll('.metrics-grid, .chart-grid, .sisc-grid, .atlas-fichas, .source-list, .avisos-grid, .par-resumen, .par-metricas')) {
     if (!visible(g)) continue;
     const hijos = [...g.children].filter(visible);
     if (!hijos.length) continue;
@@ -126,7 +140,7 @@ const REVISAR = `(() => {
     if (r.bottom - fin > 90) out.vacias.push((c.querySelector('h3, .metric-label')?.innerText ?? nombre(c)).slice(0, 50) + ': ' + Math.round(r.bottom - fin) + 'px vacíos');
   }
   out.scroll = [];
-  for (const e of vista.querySelectorAll('.chart-card, .tabla-scroll, .tabla-card')) {
+  for (const e of vista.querySelectorAll('.chart-card, .tabla-scroll, .tabla-card, .matriz-scroll')) {
     if (!visible(e)) continue;
     const cs = getComputedStyle(e);
     if (['auto', 'scroll'].includes(cs.overflowX) && e.scrollWidth > e.clientWidth + 2) out.scroll.push((e.querySelector('h3')?.innerText ?? nombre(e)).slice(0, 50) + ': ' + e.scrollWidth + '/' + e.clientWidth);
@@ -137,7 +151,9 @@ const REVISAR = `(() => {
     if (!visible(c)) continue;
     const cs = getComputedStyle(c); if (cs.overflowX !== 'visible') continue;
     const r = c.getBoundingClientRect();
-    const fuera = [...c.querySelectorAll('*')].find((h) => visible(h) && !h.closest('.maplibregl-map, .chart-tooltip') && h.getBoundingClientRect().right > r.right + 2);
+    // Lo que está dentro de un contenedor con desplazamiento propio (una matriz ancha en el celular) no se sale: se desplaza.
+    const recortado = (h) => { for (let p = h.parentElement; p && p !== c; p = p.parentElement) if (getComputedStyle(p).overflowX !== 'visible') return true; return false; };
+    const fuera = [...c.querySelectorAll('*')].find((h) => visible(h) && !h.closest('.maplibregl-map, .chart-tooltip') && h.getBoundingClientRect().right > r.right + 2 && !recortado(h));
     if (fuera) out.salidos.push((c.querySelector('h3, .metric-label')?.innerText ?? nombre(c)).slice(0, 40) + ' ← ' + nombre(fuera).slice(0, 40));
   }
   out.cortados = [...new Set(out.cortados)].slice(0, 12);

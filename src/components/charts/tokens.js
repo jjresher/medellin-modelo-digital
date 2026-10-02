@@ -20,3 +20,10 @@ export const sequential = (huePrincipal = accent.pink) => [
   [50, accent.purple],
   [100, huePrincipal]
 ];
+
+// Rampa divergente para una medida con signo (un coeficiente entre −1 y +1): dos tonos, uno frío y uno cálido, y el gris
+// oscuro de "sin magnitud" en el centro. La claridad crece igual hacia los dos extremos, así que la intensidad se lee
+// aunque no se distingan los tonos. No usa rosa y verde: se leerían como "malo" y "bueno".
+export const diverging = { negative: accent.cyan, neutral: '#3a3b33', positive: accent.orange };
+export const divergingColor = (valor) =>
+  `color-mix(in oklab, ${valor < 0 ? diverging.negative : diverging.positive} ${Math.round(Math.min(1, Math.abs(valor)) * 100)}%, ${diverging.neutral})`;

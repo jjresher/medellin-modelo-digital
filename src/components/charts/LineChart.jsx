@@ -17,7 +17,7 @@ const anchoTexto = (texto) => String(texto).length * ANCHO_LETRA;
  * empieza en 0; si no, cerca del mínimo: una tasa que se mueve entre 58 y 68 % se vería plana contra un eje desde 0.
  * Empezar lejos de cero es válido en líneas (no en barras), y el rótulo del eje deja ver dónde empieza.
  */
-function escalaY(minDato, maxDato, desdeCero, pasos = 5) {
+export function escalaY(minDato, maxDato, desdeCero, pasos = 5) {
   let bajo = desdeCero ? Math.min(0, minDato) : minDato;
   let alto = Math.max(maxDato, desdeCero ? 0 : maxDato);
   if (alto === bajo) {

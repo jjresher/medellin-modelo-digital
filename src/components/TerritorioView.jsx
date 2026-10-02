@@ -103,6 +103,28 @@ function Riesgo({ tema, onSource }) {
   if (!cifras.length) return null;
   const visibles = todas ? zonas : zonas.slice(0, 12);
   const grado = (amenaza, g) => grados.find((x) => x.amenaza === amenaza && x.grado === g);
+  const tablaZonas = (
+    <table className="chart-table territorio-zonas">
+      <thead>
+        <tr>
+          <th>Zona</th>
+          <th>Amenaza</th>
+          <th>Territorio</th>
+          <th>Área (ha)</th>
+        </tr>
+      </thead>
+      <tbody>
+        {visibles.map((z, i) => (
+          <tr key={i}>
+            <td>{z.nombre}</td>
+            <td>{z.amenaza}</td>
+            <td>{z.territorio}</td>
+            <td>{formato(z.hectareas, 2)}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
   return (
     <section className="sec-block">
       <Encabezado
@@ -132,67 +154,49 @@ function Riesgo({ tema, onSource }) {
             ['construcciones_riesgo_no_mitigable', 'Alto riesgo no mitigable']
           ]}
         />
-        {grados.length > 0 && (
+        {zonas.length > 0 && (
           <div className="chart-card tabla-card">
-            <h3>Hectáreas por amenaza y grado</h3>
-            <table className="chart-table territorio-tabla">
-              <thead>
-                <tr>
-                  <th>Grado</th>
-                  {AMENAZAS.map(([, l]) => (
-                    <th key={l}>{l}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {['Alta', 'Media', 'Baja', 'Muy Baja'].map((g) => (
-                  <tr key={g}>
-                    <td>{g}</td>
-                    {AMENAZAS.map(([, l]) => {
-                      const x = grado(l, g);
-                      return <td key={l}>{x ? `${formato(x.hectareas, 1)} ha` : '—'}</td>;
-                    })}
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+            <h3>Zonas de alto riesgo no mitigable, por área</h3>
+            {/* Con las 305 zonas, la tabla se desplaza dentro de su tarjeta para no estirar el mapa de al lado. */}
+            {todas ? <div className="tabla-scroll">{tablaZonas}</div> : tablaZonas}
+            {zonas.length > 12 && (
+              <button className="link-fuente" onClick={() => setTodas((v) => !v)}>
+                {todas ? 'Ver solo las 12 de mayor área' : `Ver las ${zonas.length}`}
+              </button>
+            )}
             <p className="chart-fuente">
-              Suma del área de los polígonos de cada grado. El POT no clasifica todo el suelo para las tres amenazas: las inundaciones y las avenidas
-              torrenciales se delimitan solo cerca de los cauces.
+              Cada zona se asigna al territorio donde cae su punto representativo. Una zona se nombra por el barrio o la vereda donde está.
             </p>
           </div>
         )}
       </div>
-      {zonas.length > 0 && (
+      {grados.length > 0 && (
         <div className="chart-card tabla-card">
-          <h3>Zonas de alto riesgo no mitigable, por área</h3>
-          <table className="chart-table territorio-zonas">
+          <h3>Hectáreas por amenaza y grado</h3>
+          <table className="chart-table territorio-tabla">
             <thead>
               <tr>
-                <th>Zona</th>
-                <th>Amenaza</th>
-                <th>Territorio</th>
-                <th>Área (ha)</th>
+                <th>Grado</th>
+                {AMENAZAS.map(([, l]) => (
+                  <th key={l}>{l}</th>
+                ))}
               </tr>
             </thead>
             <tbody>
-              {visibles.map((z, i) => (
-                <tr key={i}>
-                  <td>{z.nombre}</td>
-                  <td>{z.amenaza}</td>
-                  <td>{z.territorio}</td>
-                  <td>{formato(z.hectareas, 2)}</td>
+              {['Alta', 'Media', 'Baja', 'Muy Baja'].map((g) => (
+                <tr key={g}>
+                  <td>{g}</td>
+                  {AMENAZAS.map(([, l]) => {
+                    const x = grado(l, g);
+                    return <td key={l}>{x ? `${formato(x.hectareas, 1)} ha` : '—'}</td>;
+                  })}
                 </tr>
               ))}
             </tbody>
           </table>
-          {zonas.length > 12 && (
-            <button className="link-fuente" onClick={() => setTodas((v) => !v)}>
-              {todas ? 'Ver solo las 12 de mayor área' : `Ver las ${zonas.length}`}
-            </button>
-          )}
           <p className="chart-fuente">
-            Cada zona se asigna al territorio donde cae su punto representativo. Una zona se nombra por el barrio o la vereda donde está.
+            Suma del área de los polígonos de cada grado. El POT no clasifica todo el suelo para las tres amenazas: las inundaciones y las avenidas
+            torrenciales se delimitan solo cerca de los cauces.
           </p>
         </div>
       )}

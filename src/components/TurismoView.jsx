@@ -5,7 +5,7 @@ import BarChart from './charts/BarChart';
 import LineChart from './charts/LineChart';
 import { accent } from './charts/tokens';
 import MetricCard from './MetricCard';
-import PanelTerritorios, { formato } from './territorios/PanelTerritorios';
+import { Procedencia, formato, formatoIndicador, unidadCorta } from './territorios/PanelTerritorios';
 
 // Sección Turismo. Todo sale del tema `turismo` del lago. Lo vigente (MinCIT, Aerocivil, Alcaldía y OSM) va arriba; el
 // histórico de MEData (ocupación hotelera, museos y sitios, que dejaron de publicarse en 2023) va aparte y rotulado.
@@ -183,6 +183,60 @@ function Oferta({ tema, onSource }) {
   );
 }
 
+// Atractivos y hospedajes por territorio: los dos rankings lado a lado. Con solo dos indicadores, la ficha por territorio
+// serían dos filas; así el territorio elegido se resalta en las dos listas.
+const POR_TERRITORIO = ['atractivos', 'hospedajes_osm'];
+
+function Territorios({ tema, onSource }) {
+  const { indicadores = [], territorios = [] } = tema.listas;
+  const [codigo, setCodigo] = useState(null);
+  const rankings = POR_TERRITORIO.map((clave) => {
+    const ind = indicadores.find((i) => i.clave === clave);
+    const anio = territorios
+      .flatMap((t) => Object.keys(t.valores[clave] ?? {}))
+      .sort()
+      .at(-1);
+    const filas = territorios
+      .filter((t) => t.valores[clave]?.[anio] != null)
+      .map((t) => ({ id: t.codigo, label: t.nombre, value: t.valores[clave][anio], note: `${t.tipo} · ${anio}` }))
+      .sort((a, b) => b.value - a.value);
+    const sinDato = territorios.filter((t) => t.valores[clave]?.[anio] == null).map((t) => t.nombre);
+    return { clave, ind, anio, filas, sinDato };
+  }).filter((r) => r.ind && r.filas.length);
+  if (!rankings.length) return null;
+  return (
+    <section className="sec-block">
+      <Encabezado eyebrow="16 COMUNAS Y 5 CORREGIMIENTOS" titulo="Atractivos y hospedajes por territorio" />
+      <p className="sec-note">Cada indicador conserva su fuente y su vigencia. Toca un territorio para resaltarlo en las dos listas.</p>
+      <div className="chart-grid">
+        {rankings.map(({ clave, ind, anio, filas, sinDato }) => (
+          <div key={clave} className="chart-card">
+            <h3>
+              {ind.etiqueta} ({ind.unidad}), {anio}
+            </h3>
+            <Procedencia indicador={ind} fuentes={tema.fuentes} onSource={onSource} />
+            <BarChart
+              data={filas}
+              color={accent.yellow}
+              unit={unidadCorta(ind)}
+              formatValue={(v) => formatoIndicador(v, ind)}
+              ariaLabel={`${ind.etiqueta} por territorio`}
+              selected={codigo}
+              onSelect={(d) => setCodigo(d.id)}
+            />
+            {ind.nota && <p className="chart-fuente">{ind.nota}</p>}
+            {sinDato.length > 0 && (
+              <p className="chart-fuente">
+                Sin dato en {anio}: {sinDato.join(', ')}.
+              </p>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function Historico({ tema, onSource }) {
   const ocupacion = tema.series.ocupacion_hotelera_mensual;
   const zonas = tema.listas.ocupacion_por_zona ?? [];
@@ -230,7 +284,6 @@ function Historico({ tema, onSource }) {
             <BarChart
               data={zonas.map((z) => ({ label: z.zona, value: z.promedio }))}
               color={accent.yellow}
-              unit="%"
               formatValue={(v) => `${formato(v, 1)} %`}
               ariaLabel="Ocupación hotelera por zona"
             />
@@ -278,16 +331,7 @@ export default function TurismoView({ tema, onSource }) {
       <Visitantes tema={tema} onSource={onSource} />
       <Aeropuerto tema={tema} onSource={onSource} />
       <Oferta tema={tema} onSource={onSource} />
-      <PanelTerritorios
-        tema={tema}
-        onSource={onSource}
-        color={accent.yellow}
-        titulo="Atractivos y hospedajes por territorio"
-        selector={[
-          ['atractivos', 'Atractivos'],
-          ['hospedajes_osm', 'Hospedajes (OSM)']
-        ]}
-      />
+      <Territorios tema={tema} onSource={onSource} />
       <Historico tema={tema} onSource={onSource} />
     </section>
   );

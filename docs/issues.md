@@ -27,7 +27,7 @@ Hoja de ruta para llevar la app a la estructura de [Cerebro Lima](https://cerebr
 | 9 | [Servicios públicos](#9-servicios-públicos) | 0 | ☑ |
 | 10 | [Territorio y cultura](#10-territorio-y-cultura) | 0, 1 | ☑ |
 | 11 | [Atlas de comunas y barrios](#11-atlas-de-comunas-y-barrios) | 3, 5, 6, 9 | ☑ |
-| 12 | [Correlaciones](#12-correlaciones) | 11 | ☐ |
+| 12 | [Correlaciones](#12-correlaciones) | 11 | ☑ |
 | 13 | [Escucha social](#13-escucha-social) | 0 | ☐ |
 | 14 | [Panorama y diagnóstico territorial](#14-panorama-y-diagnóstico-territorial) | 1–12 | ☐ |
 | 15 | [Fuentes y método](#15-fuentes-y-método) | 0 | ☐ |
@@ -44,7 +44,12 @@ Se probó cada sección en un Chrome sin ventana, a 1400 y a 390 px, haciendo cl
 - **Rejillas:** las tarjetas de cifras de a cuatro dejaban huecos con 1, 2, 3 o 5 tarjetas (Municipio); ahora llenan su fila. Las gráficas de línea y los mapas crecen hasta llenar su tarjeta cuando la de al lado es más alta. En Economía y Municipio se reorganizaron dos pares de gráficas que dejaban media tarjeta vacía.
 - **Tablas que se salían de su tarjeta** en escritorio (contratos de Municipio, sismos, cobertura por estrato, espacio verde por territorio).
 - **Detalles:** barras de desplazamiento blancas sobre el fondo oscuro; la atribución del mapa tapaba la leyenda en Seguridad y Ambiente; valores largos de las barras partidos en dos líneas; nombres largos cortados en los rankings; la serie sólida sin muestra de color en la leyenda de las gráficas de dos series; el aviso de consola `wood-pattern` de cada mapa; la etiqueta "derivado" más grande dentro de los avisos; nombres de corregimientos con y sin "Corregimiento de" en Seguridad.
-- **Lo que se dejó igual:** una tarjeta con una tabla o unas pocas barras al lado de otra más alta conserva espacio libre debajo (por ejemplo, la ficha por territorio cuando el indicador tiene un solo año).
+- **Lo que se dejó igual:** una tarjeta con una tabla o unas pocas barras al lado de otra más alta conserva espacio libre debajo (por ejemplo, la ficha por territorio cuando el indicador tiene un solo año). *Corregido el 2 de octubre; ver abajo.*
+- **Tarjetas con espacio vacío (2 oct 2026):** `npm run qa` avisaba de 11 tarjetas con más de 90 px vacíos a 1400 px, en Gente, Economía, Turismo, Servicios y Territorio. Ya no queda ninguna, tampoco después de hacer clic en cada control:
+  - Regla general en `globals.css`, la misma que ya tenían las gráficas de línea y los mapas: cuando la tarjeta de al lado es más alta, las barras de un ranking se reparten en la altura que sobra y las filas de una tabla crecen por igual. Sin altura de sobra, nada cambia; en el celular, a una columna, tampoco.
+  - **Turismo:** el bloque por territorio tenía una ficha de solo dos filas junto a un ranking de 21. Ahora son los dos rankings lado a lado (atractivos y hospedajes), cada uno con su vigencia, su estado y su fuente; el territorio que se toca se resalta en los dos.
+  - **Territorio:** la tabla de hectáreas por amenaza y grado (4 filas) estaba junto al mapa. Ahora el mapa va junto a las zonas de alto riesgo no mitigable y las hectáreas, debajo, a lo ancho. Con "Ver las 305", las zonas se desplazan dentro de su tarjeta para no estirar el mapa.
+  - De paso: la tabla de ocupación hotelera por zona decía "79,6 % %".
 - **Sigue pendiente de revisar a mano:** la fluidez del gemelo en un portátil normal (issues 1, 2 y 4).
 
 
@@ -445,11 +450,38 @@ Se probó cada sección en un Chrome sin ventana, a 1400 y a 390 px, haciendo cl
 ## 12. Correlaciones
 
 **Tareas**
-- [ ] Matriz de correlación entre las métricas del atlas (21 unidades).
-- [ ] Diagrama de dispersión interactivo al elegir dos métricas, con la comuna resaltada.
-- [ ] Advertencias visibles: con n = 21, correlación no implica causalidad y las vigencias pueden diferir entre métricas.
+- [x] Matriz de correlación entre las métricas del atlas (21 unidades).
+- [x] Diagrama de dispersión interactivo al elegir dos métricas, con la comuna resaltada.
+- [x] Advertencias visibles: con n = 21, correlación no implica causalidad y las vigencias pueden diferir entre métricas.
 
 **Datos:** derivado de la issue #11.
+
+**Resultado (2 oct 2026)**
+- Nueva sección `Correlaciones` (`src/components/CorrelacionesView.jsx`). No tiene tema en el lago ni toca la ingesta: toma las 52 métricas del nivel comuna del Atlas (`construirAtlas`) y calcula cada coeficiente en el navegador; por eso todo va rotulado `derivado`. El cálculo está en `src/lib/correlaciones.js` (módulo puro) y la sección solo muestra el coeficiente, el n y el periodo de cada métrica, sin calificarlo.
+- **Advertencias:** tres tarjetas antes de la matriz: son 21 territorios (16 comunas y 5 corregimientos, contados del lago) y un solo territorio puede cambiar el coeficiente; correlación no implica causalidad (y las cifras son por territorio, no describen hogares ni personas); las vigencias difieren (las de la matriz van de 2019 a 2026).
+- **Matriz:** 24 métricas, 276 pares. Cada celda trae el coeficiente escrito y un color (cian si es negativo, naranja si es positivo, más intenso cuanto mayor la magnitud); al pasar por ella, la franja de arriba dice el par, el periodo de cada métrica, ρ y n. Un clic elige el par. "Ver como tabla" lista los 276 pares con sus dos periodos, ρ y n, sin depender del cursor. Las columnas llevan el número de su fila para que quepa.
+- **Diagrama de dispersión** (`src/components/charts/ScatterChart.jsx`, nuevo): un punto por territorio, círculo si es comuna y rombo si es corregimiento, todos grises y el elegido en verde con su nombre. Se elige con el selector, con un clic en el punto o en la tabla de al lado, que trae los 21 territorios con sus dos valores. Dos selectores de métrica (elegir en un eje la que ya está en el otro los intercambia) y un conmutador `Valores` / `Orden`: en `Orden` cada territorio va en su rango de menor a mayor, que es lo que compara el coeficiente.
+- Decisiones de alcance:
+  - **Coeficiente: Spearman, no Pearson.** Compara el orden de los territorios, no sus valores. Con 21 unidades y tasas por residente muy desiguales, un solo territorio domina el de Pearson: entre el IMCV y el hurto a persona, Pearson da 0,53 con los 21 y 0,90 sin La Candelaria (3.102 hurtos por 10.000 habitantes; el siguiente tiene 1.217); Spearman da 0,71 y 0,69. Además es coherente con el Atlas, que ya compara por puesto. Se calcula como el Pearson de los rangos, con rango medio en los empates.
+  - **Subconjunto de la matriz (24 de 52):** Gente (densidad, IMCV, pobreza multidimensional, estrato 1, natalidad, mortalidad, dengue), Seguridad (tasas de homicidio, hurto a persona, hurto a residencia, extorsión y lesiones dolosas), Economía (precio de venta por m², valor del suelo), Servicios (cobertura de acueducto), Territorio (área en amenaza alta, espacio público por habitante, equipamientos y sedes educativas por 10.000 habitantes) y Construcción (pisos promedio, índice de construcción, construcciones sobre la altura normativa, víctimas viales por km² y red de media tensión por km²). Con 24 el coeficiente cabe escrito en cada celda a 1400 px; una prueba falla si la matriz pasa de ahí.
+  - **Fuera, 28 métricas** (la sección las lista con su motivo en un desplegable bajo la matriz):
+    - 17 conteos, montos y participaciones en un total, que crecen con el tamaño del territorio: población, hogares, viviendas, homicidios (casos), licencias, contratos de Industria y Comercio, empresas, inversión pública y su participación, predial facturado, suscriptores de acueducto, construcciones en amenaza alta y en alto riesgo no mitigable, bienes de interés cultural, construcciones, atractivos y hospedajes. Por eso Municipio y Turismo no tienen ninguna métrica en la matriz.
+    - 2 que no se miden igual en todos los territorios: el volumen en hora pico (promedio de las intersecciones aforadas, 16 territorios) y el verde por habitante (el inventario cubre solo suelo urbano; ver issue 10).
+    - 1 compuesta: la rentabilidad bruta es arriendo ÷ venta.
+    - 1 por empates: el estrato 6 vale 0 % en 13 de los 21 territorios. Esta regla no es una lista: se calcula (más de la mitad de los territorios con el mismo valor).
+    - 7 que tienen otra métrica de su misma familia en la matriz: IDH (queda el IMCV, de la misma encuesta y más reciente), hurto de carro, de moto y a comercio (queda hurto a persona), arriendo por m² (queda venta) y cobertura de alcantarillado y de aseo (queda acueducto). Su coeficiente con la que queda va de 0,68 a 0,97. **No se descartan:** se pueden elegir en el diagrama de dispersión, que ofrece 31 métricas.
+  - **Métricas sin dato en los 21:** cada par se calcula con los territorios que tienen dato en las dos métricas y dice con cuántos. En la matriz son 45 pares con menos de 21 (el precio de venta por m² tiene 18 territorios y las construcciones sobre la altura normativa, 20): llevan una esquina marcada, y el n aparece en la franja de lectura y en la tabla. El par elegido muestra "n = 18 de 21", qué territorios faltan en cada métrica, y la tabla los atenúa. Con menos de 3 territorios en común, o si una métrica no varía, no hay coeficiente y se muestra "—".
+  - **Periodo de cada métrica:** el último con dato de cada una (el mismo `anio` del Atlas: "2024", "2021–2023", "vigente"). Va en la franja de lectura, en la tabla de pares, en el resumen del par, en los ejes y en las fichas de procedencia, que traen la fuente, la vigencia, el estado y la nota de cada una de las dos métricas.
+  - **Sin intervalos ni valores p:** los 21 territorios son toda la ciudad, no una muestra, y la issue pide coeficiente, n y años.
+  - **Par inicial:** las dos primeras métricas de la matriz (densidad e IMCV), sin elegir un par "interesante".
+- `LineChart` exporta su escala de ejes para el diagrama; `tokens.js` suma la rampa divergente. `CorrelationMatrix` queda en `charts/` como componente aparte.
+- `scripts/qa.mjs`: la sección entra a la lista por defecto; revisa las tres rejillas nuevas (advertencias, resumen y fichas del par), y ya no cuenta como "salido" lo que está dentro de un contenedor con desplazamiento propio (la matriz en el celular).
+- Correcciones que salieron al probar:
+  - Los pisos promedio se habían dejado fuera como repetidos del índice de construcción, pero su coeficiente con él es 0,53: no ordenan igual a los territorios. Entraron a la matriz y salió la cobertura de alcantarillado (0,91 con la de acueducto).
+  - En el celular, al desplazar la matriz, el nombre fijo de la fila desaparecía pasado el ancho de la tarjeta, y los números de columna asomaban sobre la columna fija.
+  - Los ejes del diagrama mostraban los decimales del indicador en marcas redondas ("4.000,00"); la tabla del par repetía la unidad en cada fila (ahora va en el encabezado); el número oscuro no se leía sobre el naranja a media intensidad.
+- Pruebas: `tests/correlaciones.test.mjs` (12): rangos con empates, Spearman contra valores calculados a mano, que un valor extremo no lo cambie y sí al de Pearson, pares con territorios sin dato y, contra el lago real, que cada métrica del Atlas esté en la matriz o fuera con un motivo, que ninguna regla nombre una métrica que ya no existe y que los 276 pares tengan coeficiente, n y periodo.
+- Probada a 1400 y a 390 px con clics reales (pasar por una celda y elegirla, par con territorios sin dato, selectores, punto del diagrama, fila de la tabla, selector de territorio, `Valores`/`Orden`, matriz como tabla, desplegable, enlace a la fuente), sin desbordamiento horizontal ni errores en consola. `npm run qa` sale sin hallazgos en las 13 secciones y en los dos anchos, una vez corregidas las tarjetas con espacio vacío que ya traían otras secciones (ver la revisión general).
 
 ---
 
