@@ -54,11 +54,11 @@ python3 -m venv .venv
 ingesta/instalar_tippecanoe.sh
 ```
 
-**Gemelo 3D.** Las construcciones del catastro (más de un millón) se descargan a `datos/crudos/` y se convierten a `public/data/edificios.pmtiles` (unos 57 MB). Ni los datos crudos ni el PMTiles se guardan en git: después de clonar el proyecto hay que generarlos con `npm run ingesta` (o solo `.venv/bin/python ingesta/correr.py gemelo`, unos 6 minutos). Sin ese archivo, el mapa muestra los límites y avisa que faltan los edificios.
+**Gemelo 3D.** Las construcciones del catastro (más de un millón) se descargan a `datos/crudos/` y se convierten a `public/data/edificios.pmtiles` (unos 57 MB). Los datos crudos no se guardan en git; el PMTiles sí, porque el despliegue (Vercel) sirve lo que hay en el repositorio y no corre la ingesta. Para regenerarlo: `npm run ingesta` (o solo `.venv/bin/python ingesta/correr.py gemelo`, unos 6 minutos). Sin ese archivo, el mapa muestra los límites y avisa que faltan los edificios.
 
 **Lentes y capas temáticas.** `ingesta/pull_lentes.py` depende de lo que genera el gemelo: los límites y el cruce espacial de las construcciones. Por eso `correr.py` lo ejecuta después de `gemelo`. Produce:
 - las capas del panel Explorar, en `public/data/geo/capas/`;
-- el mapa de calor de siniestros viales, en `public/data/siniestros.pmtiles` (no se guarda en git);
+- el mapa de calor de siniestros viales, en `public/data/siniestros.pmtiles`;
 - la rejilla para "Analizar punto", en `public/data/geo/analisis.json`;
 - los índices 0–100 por comuna, en el tema `lentes` del lago.
 

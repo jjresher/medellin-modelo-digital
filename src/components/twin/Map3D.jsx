@@ -734,7 +734,8 @@ export default function Map3D({ gemelo, lentes, catalogo }) {
         />
       )}
       <div className="map-bottom-left">
-        <LensMethod lens={lens} periodos={periodos} />
+        {/* Con Explorar abierto el panel ocupa esa esquina: el método de la lente quedaba medio tapado debajo. */}
+        {panel !== 'explorar' && <LensMethod lens={lens} periodos={periodos} />}
         <WhatYouSee items={whatItems} open={whatOpen} onToggle={() => setWhatOpen((v) => !v)} />
         <div className="map-tools">
           <button onClick={resetView}>Restablecer vista</button>

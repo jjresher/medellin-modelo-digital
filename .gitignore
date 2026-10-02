@@ -28,9 +28,6 @@ __pycache__/
 .herramientas/
 datos/crudos/
 
-# Teselas generadas por la ingesta (edificios ~57 MB, siniestros); se regeneran con npm run ingesta
-public/data/*.pmtiles
-
 # Caché local de teselas de ortofoto (proxy /api/ortofoto)
 .cache/
 
