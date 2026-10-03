@@ -58,7 +58,7 @@ h1 em { color: var(--green); font-family: Georgia, serif; font-weight: 400; }
 .primary-action { flex: none; padding: 13px 16px; border: 1px solid var(--green); color: var(--ink); background: var(--green); font-size: 12px; font-weight: 700; }
 .primary-action span { margin-left: 15px; font-size: 15px; }
 .primary-action:hover { background: var(--yellow); border-color: var(--yellow); }
-.section-heading { display: flex; align-items: end; justify-content: space-between; padding: 41px 0 17px; }
+.section-heading { display: flex; align-items: end; justify-content: space-between; gap: 14px; padding: 41px 0 17px; }
 .section-heading h2 { margin: 5px 0 0; font-size: 23px; letter-spacing: -.8px; }
 .section-heading > span { color: var(--yellow); font: 10px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .8px; }
 .metrics-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
@@ -634,3 +634,14 @@ html { scrollbar-color: var(--line) var(--ink); }
   .avisos-grid, .par-resumen, .par-metricas { grid-template-columns: 1fr; }
   .matriz { --rotulo: 112px; }
 }
+
+/* Escucha social */
+.enlace-articulo { color: var(--paper); text-decoration: none; }
+.enlace-articulo:hover, .enlace-articulo:focus-visible { color: var(--cyan); text-decoration: underline; }
+.escucha-titulares td:first-child { min-width: 180px; white-space: normal; }
+.escucha-titulares td small { display: block; margin-top: 3px; color: var(--dim); font-size: 10px; }
+.escucha-titulares td:last-child { width: 30%; min-width: 110px; white-space: normal; overflow-wrap: anywhere; }
+.escucha-titulares th:last-child { text-align: right; }
+.escucha-view .ficha-tabla td:last-child { white-space: nowrap; }
+.chart-table tr.fila-total td { color: var(--paper); border-top: 1px solid var(--line); }
+.palabras-tema { margin: 0 0 10px; }

@@ -28,7 +28,7 @@ Hoja de ruta para llevar la app a la estructura de [Cerebro Lima](https://cerebr
 | 10 | [Territorio y cultura](#10-territorio-y-cultura) | 0, 1 | ☑ |
 | 11 | [Atlas de comunas y barrios](#11-atlas-de-comunas-y-barrios) | 3, 5, 6, 9 | ☑ |
 | 12 | [Correlaciones](#12-correlaciones) | 11 | ☑ |
-| 13 | [Escucha social](#13-escucha-social) | 0 | ☐ |
+| 13 | [Escucha social](#13-escucha-social) | 0 | ☑ |
 | 14 | [Panorama y diagnóstico territorial](#14-panorama-y-diagnóstico-territorial) | 1–12 | ☐ |
 | 15 | [Fuentes y método](#15-fuentes-y-método) | 0 | ☐ |
 | 16 | [Experiencia general: buscador, clima y presentación](#16-experiencia-general-buscador-clima-y-presentación) | 14 | ☐ |
@@ -488,11 +488,34 @@ Se probó cada sección en un Chrome sin ventana, a 1400 y a 390 px, haciendo cl
 ## 13. Escucha social
 
 **Tareas**
-- [ ] Visitas mensuales en Wikipedia a los artículos de Medellín, sus comunas y sus lugares emblemáticos, y su tendencia a 12 meses.
-- [ ] Cobertura de prensa desde GDELT: volumen y temas dominantes de los últimos 90 días, con caché en el servidor.
-- [ ] Filtro de ruido para titulares irrelevantes.
+- [x] Visitas mensuales en Wikipedia a los artículos de Medellín, sus comunas y sus lugares emblemáticos, y su tendencia a 12 meses.
+- [x] Cobertura de prensa desde GDELT: volumen y temas dominantes de los últimos 90 días, con caché en el servidor.
+- [x] Filtro de ruido para titulares irrelevantes.
 
 **Datos:** [Escucha social](fuentes-medellin.md#escucha-social).
+
+**Resultado (2 oct 2026)**
+- Nueva sección `Escucha social` (`src/components/EscuchaView.jsx`) y nuevo tema `escucha` del lago (`ingesta/pull_escucha.py`, 14 cifras, 7 series). Mide dos cosas y lo dice: cuánto se busca Medellín (Wikipedia) y cuánto se publica sobre ella (GDELT). Ninguna mide opinión ni tono, y la sección no califica ninguna cifra.
+- **Wikipedia (Wikimedia Pageviews):**
+  - Artículo de Medellín en español (230.067 vistas entre oct 2025 y sep 2026) y en inglés (438.660). Serie mensual desde julio de 2015 y la comparación mes a mes de los últimos 12 meses con los 12 anteriores, en vistas o por millón de vistas del sitio.
+  - **Tendencia a 12 meses:** variación de los últimos 12 meses frente a los 12 anteriores, en bruto y por millón de vistas de toda la Wikipedia en español (−28,6 % y −10,2 % para Medellín). La normalización es necesaria: la Wikipedia en español entera tuvo un 20,5 % menos vistas de personas en el mismo periodo, y la sección muestra esa serie.
+  - **Comunas y corregimientos:** ranking de los 21 artículos por vistas de 12 meses y la ficha de cada uno con sus dos ventanas, las dos variaciones, las redirecciones sumadas y la gráfica de 12 meses contra 12.
+  - **Lugares:** los 15 con más vistas de los 53 artículos de la categoría «Turismo en Medellín» y de sus subcategorías directas (museos, parques, plazas, edificios y estructuras, centros comerciales), con la misma ficha.
+- **Prensa (GDELT DOC 2.0):**
+  - **Volumen:** 9.674 artículos que nombran a Medellín entre el 5 de julio y el 2 de octubre de 2026 (117 por día), con la serie diaria en artículos o por millón de artículos monitoreados. GDELT no publica 7 días de esa ventana: van como hueco y la nota los nombra.
+  - **Filtro de ruido:** GDELT busca en el texto completo, así que casi todo lo que encuentra nombra a Medellín de pasada. Se revisan los titulares de los 250 artículos más relevantes de cada corte de 30 días (739) con cuatro reglas, en orden: el titular no nombra a Medellín (219), otra Medellín (Cebú, Veracruz o Badajoz: 7), la Lotería de Medellín (21) y titulares repetidos entre medios (47). Quedan 445 titulares; la sección muestra la tabla con cada regla y lo que saca.
+  - **Temas dominantes:** clasificación por palabras clave del titular en 10 temas que siguen las secciones de la app (movilidad, seguridad, deporte, turismo y cultura, gobierno, ambiente, economía, servicios, educación, salud). Un titular puede tener varios o ninguno (70 sin tema). Va rotulada `derivado` y la lista de titulares, que se filtra por tema, muestra las palabras de cada uno.
+  - **Titulares:** los 445, con enlace a la nota, medio, fecha, país e idioma.
+- Decisiones de alcance:
+  - **Caché en el servidor:** GDELT no se consulta desde el navegador ni desde una ruta en vivo. La ingesta lo lee y el lago es la copia en el servidor; además, cada respuesta buena se guarda en `datos/crudos/gdelt/` con la fecha del día, y una nueva corrida ese día solo pide lo que falta. Una ruta en vivo no sirve: GDELT respondió 429 a la gran mayoría de las consultas de hoy, también a consultas separadas por 7 minutos, y desde un despliegue con IP compartida sería peor. La ingesta reintenta cada consulta con esperas de hasta 5 minutos; volumen y titulares son dos fuentes con su propio bloque, así que una puede conservar la ingesta anterior sin arrastrar a la otra.
+  - **Temas por palabras clave y no por los temas GKG de GDELT:** los temas GKG se asignan sobre el texto completo, que casi nunca trata de Medellín, no tienen deporte y exigían una consulta más por tema a una API que rechaza la mayoría. Las palabras clave son una clasificación gruesa, publicada para que se pueda revisar.
+  - **Vistas con redirecciones:** quien llega por «Popular (Medellín)» queda registrado con ese título, no con el de «Comuna 1 Popular». Sumarlas cambia del 1 al 12 % según el artículo.
+  - **Lugares por categoría y no por una lista propia:** "emblemático" sería una elección de la app. Se usa una categoría que mantienen los editores de Wikipedia; quedan fuera «Festivales y ferias», que son eventos. El Metro y el Metrocable no están en esa categoría.
+  - **Medellín en inglés** solo para el artículo de la ciudad: las comunas casi no tienen artículo en inglés.
+  - **El orden por relevancia de GDELT** (`hybridrel`) deja un 60 % de titulares que nombran a Medellín, frente a un 17 % del orden por fecha. El operador `repeat3:` (la palabra tres veces) dejaba cerca de un artículo por día y se descartó.
+- Correcciones que salieron al probar: GDELT separa la puntuación con espacios ("30 . 000", "Medellín : imágenes") y se limpia; las palabras clave daban falsos positivos ("Buenos Aires" como ambiente, "Policía Nacional" como deporte, "vs." en una nota judicial) y ahora admiten palabra completa; los encabezados de sección no dejaban espacio entre un título largo y su vigencia en el celular (regla general en `globals.css`).
+- Pruebas: `tests/test_escucha.py` (12): ventanas de 12 y 24 meses, variación, limpieza de titulares, las cuatro reglas de ruido en orden, que el filtro conserve el primer titular que vio GDELT, temas por comienzo y por palabra completa, y los 21 artículos de territorio. `tests/lago-frontend.test.mjs` revisa también las cifras que pide la nueva vista.
+- Probada con `npm run qa` a 1400 y a 390 px con clics en todos sus controles (idioma, medida y periodo de la gráfica de Medellín, rankings y selectores de territorio y de lugar, medida del volumen, filtro de titulares por tema, vistas como tabla), sin hallazgos.
 
 ---
 

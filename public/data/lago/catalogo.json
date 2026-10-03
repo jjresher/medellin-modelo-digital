@@ -1,8 +1,8 @@
 {
- "probado": "2026-10-01",
- "n": 89,
+ "probado": "2026-10-02",
+ "n": 92,
  "por_estado": {
-  "observado": 84,
+  "observado": 87,
   "declarado": 4,
   "candidato": 1
  },
@@ -985,6 +985,39 @@
    "uso": "Capa satelital del mapa de Ambiente. Licencia CC BY-NC-SA: solo uso no comercial",
    "tema": "ambiente",
    "vigencia": "Servicio vigente"
+  },
+  {
+   "id": "wikimedia-pageviews",
+   "nombre": "Vistas mensuales de artículos (Pageviews API, agent=user)",
+   "entidad": "Wikimedia Foundation",
+   "url": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/es.wikipedia/all-access/user/Medell%C3%ADn/monthly/2015070100/2026093000",
+   "estado": "observado",
+   "probado": "2026-10-02",
+   "tema": "escucha",
+   "vigencia": "jul 2015 – sep 2026",
+   "uso": "Vistas del artículo Medellín · Wikipedia en español, Variación de las vistas · Wikipedia en español, Vistas del artículo Medellín · Wikipedia en inglés, Variación de las vistas · Wikipedia en inglés…"
+  },
+  {
+   "id": "gdelt-volumen",
+   "nombre": "Artículos que nombran a Medellín por día (DOC API 2.0, timelinevolraw)",
+   "entidad": "GDELT Project",
+   "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%28medell%C3%ADn+OR+medellin%29&mode=timelinevolraw&timespan=3m",
+   "estado": "observado",
+   "probado": "2026-10-02",
+   "tema": "escucha",
+   "vigencia": "5 jul 2026 – 2 oct 2026",
+   "uso": "Artículos de prensa que nombran a Medellín · 90 días, Promedio diario de artículos"
+  },
+  {
+   "id": "gdelt-titulares",
+   "nombre": "Artículos más relevantes que nombran a Medellín (DOC API 2.0, artlist)",
+   "entidad": "GDELT Project",
+   "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%28medell%C3%ADn+OR+medellin%29&mode=artlist&sort=hybridrel&maxrecords=250&timespan=1m",
+   "estado": "observado",
+   "probado": "2026-10-02",
+   "tema": "escucha",
+   "vigencia": "5 jul 2026 – 2 oct 2026",
+   "uso": "Artículos revisados por su titular, Titulares que nombran a Medellín, Artículos de la muestra cuyo titular nombra a Medellín"
   }
  ]
 }

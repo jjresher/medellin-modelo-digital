@@ -329,6 +329,17 @@ y conserva la última copia (ver `src/app/api/ambiente`).
 | Visitas en Wikipedia | `https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/es.wikipedia/all-access/user/Medell%C3%ADn/monthly/...` | Agosto de 2026: 19.552 visitas |
 | Cobertura de prensa | GDELT DOC API | Devuelve 429 si se consulta seguido; hay que cachear en el servidor |
 
+### Notas de uso en la sección Escucha social (issue #13, 2 oct 2026)
+
+- **Pageviews:** se piden con `agent=user` (sin bots identificados) y se suman las vistas de las redirecciones del artículo: quien llega por «Popular (Medellín)» queda registrado con ese título. Las redirecciones aportan del 1 al 12 % según el artículo (2 % en el de Medellín; 12 % en el de Popular).
+- **Títulos de los territorios:** el nombre del límite no sirve como título ("Popular", "Santa Cruz", "San Javier" o "Altavista" son desambiguaciones). Los 21 títulos están en `pull_escucha.py` y la ingesta falla si alguno deja de existir o pasa a ser una desambiguación.
+- **Wikimedia limita a los clientes sin User-Agent propio** (respondió 429 a la segunda consulta con un User-Agent genérico): se usa uno con el repositorio como contacto, como pide su política.
+- **El uso de Wikipedia cae:** la Wikipedia en español tuvo un 20,5 % menos vistas de personas entre oct 2025 y sep 2026 que en los 12 meses anteriores. Por eso cada variación se da también por millón de vistas del sitio.
+- **GDELT busca en el texto completo:** de 250 artículos recientes que "nombran a Medellín", solo 42 lo hacían en el titular; el resto la menciona de pasada (la ciudad de la agencia, un menú del sitio, notas de farándula). El operador `repeat3:` (la palabra 3 veces) es demasiado estricto: deja cerca de un artículo por día. El filtro de ruido se aplica al titular.
+- **GDELT responde 429 al azar**, no solo cuando se le consulta seguido: hubo consultas rechazadas tras 7 minutos sin preguntar nada y otras aceptadas 25 segundos después de un rechazo. La ingesta reintenta con esperas de hasta 5 minutos.
+- **Huecos de GDELT:** en la ventana del 5 de julio al 2 de octubre de 2026 no publica datos del 14 al 19 de septiembre ni del 26 de septiembre (tampoco su total de artículos monitoreados): es una falla de la fuente, no días sin noticias.
+- **El GKG de GDELT no tiene un tema de deporte**, y sus temas se asignan sobre el texto completo, que en estos artículos casi nunca trata de Medellín. Los temas se clasifican por palabras clave del titular.
+
 ## 5. Discrepancias y lectura responsable
 
 1. **Población.** La proyección de Planeación por comuna suma 2.787.912 habitantes en 2026, y el DANE vigente (PPED, julio de 2025) da 2.526.795 (−9,4 %; con la serie post-COVID anterior eran 2.650.662). Se propone usar el total del DANE como cifra oficial y la serie de Planeación solo como proporción para repartirlo por comuna, marcando el resultado como `derivado`.

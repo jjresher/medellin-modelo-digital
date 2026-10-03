@@ -33,6 +33,7 @@ const SECCIONES = lista
       'correlations',
       'atlas',
       'environment',
+      'social',
       'sources'
     ];
 const port = 9300 + Math.floor(Math.random() * 500);

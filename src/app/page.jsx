@@ -47,6 +47,10 @@ const CorrelacionesView = dynamic(() => import('../components/CorrelacionesView'
   ssr: false,
   loading: () => <div className="view-loading">Cargando las correlaciones…</div>
 });
+const EscuchaView = dynamic(() => import('../components/EscuchaView'), {
+  ssr: false,
+  loading: () => <div className="view-loading">Cargando la escucha social…</div>
+});
 const TerritorioView = dynamic(() => import('../components/TerritorioView'), {
   ssr: false,
   loading: () => <div className="view-loading">Cargando territorio y cultura…</div>
@@ -65,6 +69,7 @@ const vistas = {
   culture: ({ lago, onSource }) => <TerritorioView tema={lago.temas.territorio} lentes={lago.temas.lentes} onSource={onSource} />,
   safety: ({ lago, onSource }) => <SeguridadView tema={lago.temas.seguridad} onSource={onSource} />,
   environment: ({ lago, onSource }) => <AmbienteView tema={lago.temas.ambiente} onSource={onSource} />,
+  social: ({ lago, onSource }) => <EscuchaView tema={lago.temas.escucha} onSource={onSource} />,
   sources: ({ lago, focusId }) => <SourcesView catalogo={lago.catalogo} focusId={focusId} />
 };
 

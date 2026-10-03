@@ -73,7 +73,8 @@ test('las claves de cifra que las vistas piden por nombre existen en su tema', (
     'src/components/TurismoView.jsx': 'turismo',
     'src/components/EconomiaView.jsx': 'economia',
     'src/components/GenteView.jsx': 'demografia',
-    'src/components/SeguridadView.jsx': 'seguridad'
+    'src/components/SeguridadView.jsx': 'seguridad',
+    'src/components/EscuchaView.jsx': 'escucha'
   };
   for (const [archivo, tema] of Object.entries(vistas)) {
     const texto = readFileSync(archivo, 'utf8');
