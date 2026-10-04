@@ -25,7 +25,11 @@ def vigencia_de(tema, fuente_id):
     if series:
         return max(series, key=len)
     cifras = sorted({c['vigencia'] for c in tema['cifras'].values() if c['fuente'] == fuente_id})
-    return ' · '.join(cifras)
+    if cifras:
+        return ' · '.join(cifras)
+    # Una fuente que solo aporta indicadores por territorio (la ECV, por ejemplo) toma la vigencia de esos indicadores.
+    indicadores = sorted({i['vigencia'] for i in tema['listas'].get('indicadores', []) if i['fuente'] == fuente_id})
+    return ' · '.join(indicadores)
 
 
 def construir_catalogo(temas):

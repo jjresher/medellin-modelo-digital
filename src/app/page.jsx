@@ -73,7 +73,8 @@ const vistas = {
   safety: ({ lago, onSource }) => <SeguridadView tema={lago.temas.seguridad} onSource={onSource} />,
   environment: ({ lago, onSource }) => <AmbienteView tema={lago.temas.ambiente} onSource={onSource} />,
   social: ({ lago, onSource }) => <EscuchaView tema={lago.temas.escucha} onSource={onSource} />,
-  sources: ({ lago, focusId }) => <SourcesView catalogo={lago.catalogo} focusId={focusId} />
+  // La clave remonta la vista al pedir otra fuente: entra sin filtros, así la fila elegida siempre está a la vista.
+  sources: ({ lago, focusId }) => <SourcesView key={focusId ?? 'todas'} lago={lago} focusId={focusId} />
 };
 
 function LakeStatus({ lago }) {

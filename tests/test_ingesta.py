@@ -12,6 +12,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'ingesta'))
 
+import correr  # noqa: E402
 import lago  # noqa: E402
 import verificar  # noqa: E402
 
@@ -117,6 +118,23 @@ class Contrato(unittest.TestCase):
 
     def test_ancla_inexistente_falla(self):
         self.assertTrue(self.errores(tema_valido(ancla=['no-existe'])))
+
+
+
+class VigenciaDelCatalogo(unittest.TestCase):
+    def test_las_series_mandan_luego_las_cifras(self):
+        tema = tema_valido(series={'s': {'fuente': 'f1', 'vigencia': '2015 – 2026'}})
+        self.assertEqual(correr.vigencia_de(tema, 'f1'), '2015 – 2026')
+        self.assertEqual(correr.vigencia_de(tema_valido(), 'f1'), '2026')
+
+    def test_una_fuente_con_solo_indicadores_toma_su_vigencia(self):
+        tema = tema_valido(cifras={}, listas={'indicadores': [{'fuente': 'f1', 'vigencia': '2014–2024'},
+                                                              {'fuente': 'f1', 'vigencia': '2014–2021'},
+                                                              {'fuente': 'otra', 'vigencia': '1990'}]})
+        self.assertEqual(correr.vigencia_de(tema, 'f1'), '2014–2021 · 2014–2024')
+
+    def test_una_capa_sin_datos_no_tiene_vigencia(self):
+        self.assertEqual(correr.vigencia_de(tema_valido(cifras={}), 'f1'), '')
 
 
 if __name__ == '__main__':

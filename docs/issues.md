@@ -30,7 +30,7 @@ Hoja de ruta para llevar la app a la estructura de [Cerebro Lima](https://cerebr
 | 12 | [Correlaciones](#12-correlaciones) | 11 | ☑ |
 | 13 | [Escucha social](#13-escucha-social) | 0 | ☑ |
 | 14 | [Panorama y diagnóstico territorial](#14-panorama-y-diagnóstico-territorial) | 1–12 | ☑ |
-| 15 | [Fuentes y método](#15-fuentes-y-método) | 0 | ☐ |
+| 15 | [Fuentes y método](#15-fuentes-y-método) | 0 | ☑ |
 | 16 | [Experiencia general: buscador, clima y presentación](#16-experiencia-general-buscador-clima-y-presentación) | 14 | ☐ |
 
 Panorama va casi al final porque resume las cifras ancla de todas las demás secciones.
@@ -565,12 +565,31 @@ Se probó cada sección en un Chrome sin ventana, a 1400 y a 390 px, haciendo cl
 ## 15. Fuentes y método
 
 **Tareas**
-- [ ] Tabla generada desde `catalogo.json`: dataset, entidad, tema, vigencia, estado, uso y URL.
-- [ ] Filtros por tema y conteo de datasets por estado.
-- [ ] Explicación del método: ingesta reproducible, verificación antes de cada despliegue y significado de cada estado.
-- [ ] Mantener el enlace "Ver fuente" desde cada tarjeta, como funciona hoy.
+- [x] Tabla generada desde `catalogo.json`: dataset, entidad, tema, vigencia, estado, uso y URL.
+- [x] Filtros por tema y conteo de datasets por estado.
+- [x] Explicación del método: ingesta reproducible, verificación antes de cada despliegue y significado de cada estado.
+- [x] Mantener el enlace "Ver fuente" desde cada tarjeta, como funciona hoy.
 
 **Datos:** [fuentes-medellin.md](fuentes-medellin.md) completo.
+
+**Resultado (4 oct 2026)**
+- La sección `Fuentes` (`src/components/SourcesView.jsx`) pasa de una lista a **Fuentes y método**: primero el método y después el catálogo completo. Los filtros y conteos están en `src/lib/fuentes.js` (módulo puro).
+- **Método:**
+  - Tres pasos tal como ocurren hoy: la ingesta (un script por tema, sin llaves; si una fuente falla, el tema conserva la ingesta anterior y la corrida termina con error), la verificación (lo que revisa `verificar.py`, que corre al final de cada ingesta y en `npm run check`) y la publicación (el lago son archivos JSON públicos, con enlace a cada uno; el despliegue sirve los del repositorio).
+  - Qué significa cada estado, con cuántos datasets, cifras, series e indicadores por territorio hay en cada uno: 87 datasets observados, 4 declarados y 1 candidato; ningún dataset es `derivado`, porque derivado es lo que la app calcula (72 cifras, 3 series y 48 indicadores por territorio).
+  - Cómo leer la vigencia y la fecha de prueba.
+- **Catálogo:** la tabla de los 92 datasets con número, dataset (nombre e id), entidad, tema, vigencia (con la fecha de prueba), estado, uso en la app y la URL (se muestra el dominio y enlaza a la dirección completa). El uso dice cuántas cifras, series e indicadores por territorio toma la app de esa fuente, contados en el lago, y debajo lo que declara el catálogo. Las 7 fuentes que no aportan datos dicen "Capa del mapa o lectura en vivo" y para qué se usan.
+- **Filtros:** estado y tema, cada opción con su conteo, y una búsqueda por texto (nombre, entidad, id, uso o dominio, sin tildes ni mayúsculas). Los tres se combinan, y cada conteo dice cuántas filas quedan al elegir esa opción con los otros filtros puestos. "Quitar filtros" los limpia.
+- **"Ver fuente":** sigue funcionando desde cada tarjeta. Abre la sección sin filtros (la vista se monta de nuevo con cada fuente pedida), baja hasta la fila y la resalta.
+- **En el celular** cada fila es una ficha con el rótulo de cada campo, sin la lista larga de usos (queda el conteo) ni el número.
+- Decisiones de alcance:
+  - **"Verificación antes de cada despliegue":** la sección dice lo que pasa de verdad. `verificar.py` corre al final de cada ingesta y en `npm run check`, antes de cada commit. El despliegue (Vercel) sirve los archivos del repositorio y no la corre de nuevo, porque no corre la ingesta.
+  - **Método antes que la tabla,** para que los estados estén explicados antes de aparecer en ella.
+- Correcciones que salieron al probar:
+  - La vigencia de la Encuesta de Calidad de Vida decía "Servicio vigente": `correr.py` tomaba la vigencia de cada fuente solo de sus cifras y series, y esa fuente aporta solo indicadores por territorio. Ahora la toma también de ellos ("2014–2021 · 2014–2024"). El catálogo se regeneró a partir del lago (sin correr la ingesta), y no cambió nada más que esa vigencia y su fecha.
+  - Se quitó el CSS de la lista anterior, que ya no usaba nada.
+- Pruebas: `tests/fuentes.test.mjs` (5): filtros combinados y sin tildes, conteos, dominio y texto de uso; contra el catálogo real, que cada dataset tenga sus campos, un tema del índice, un estado conocido y una URL válida, que el conteo por estado cuadre, que toda fuente que el lago usa esté en el catálogo y que una fuente sin datos diga para qué se usa. `tests/test_ingesta.py` suma 3 pruebas de la vigencia del catálogo.
+- `scripts/qa.mjs` revisa las dos rejillas nuevas del método. `npm run qa` no tiene hallazgos en las 14 secciones a 1400 y a 390 px. Además se probó con clics: el filtro por tema y por estado, los dos combinados con la búsqueda, el estado vacío, "Quitar filtros" y "Ver fuente" desde dos tarjetas de Economía, en escritorio y en el celular.
 
 ---
 
