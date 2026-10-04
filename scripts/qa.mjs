@@ -113,7 +113,7 @@ const REVISAR = `(() => {
   for (const malo of ['undefined', 'NaN', '[object', 'Invalid Date', 'null ', ' null']) { const i = txt.indexOf(malo); if (i >= 0) out.texto.push(malo.trim() + ' → …' + txt.slice(Math.max(0, i - 50), i + 30).replace(/\\n/g, ' ') + '…'); }
   const visible = (e) => { const r = e.getBoundingClientRect(); return r.width > 0 && r.height > 0; };
   const nombre = (e) => (e.className && typeof e.className === 'string' ? '.' + e.className.trim().split(/\\s+/).join('.') : e.tagName.toLowerCase());
-  for (const g of vista.querySelectorAll('.metrics-grid, .chart-grid, .sisc-grid, .atlas-fichas, .source-list, .avisos-grid, .par-resumen, .par-metricas')) {
+  for (const g of vista.querySelectorAll('.metrics-grid, .chart-grid, .sisc-grid, .atlas-fichas, .source-list, .avisos-grid, .par-resumen, .par-metricas, .diagnostico-resumen, .diagnostico-evidencias')) {
     if (!visible(g)) continue;
     const hijos = [...g.children].filter(visible);
     if (!hijos.length) continue;

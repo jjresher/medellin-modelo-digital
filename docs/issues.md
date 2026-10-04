@@ -29,7 +29,7 @@ Hoja de ruta para llevar la app a la estructura de [Cerebro Lima](https://cerebr
 | 11 | [Atlas de comunas y barrios](#11-atlas-de-comunas-y-barrios) | 3, 5, 6, 9 | ☑ |
 | 12 | [Correlaciones](#12-correlaciones) | 11 | ☑ |
 | 13 | [Escucha social](#13-escucha-social) | 0 | ☑ |
-| 14 | [Panorama y diagnóstico territorial](#14-panorama-y-diagnóstico-territorial) | 1–12 | ☐ |
+| 14 | [Panorama y diagnóstico territorial](#14-panorama-y-diagnóstico-territorial) | 1–12 | ☑ |
 | 15 | [Fuentes y método](#15-fuentes-y-método) | 0 | ☐ |
 | 16 | [Experiencia general: buscador, clima y presentación](#16-experiencia-general-buscador-clima-y-presentación) | 14 | ☐ |
 
@@ -524,13 +524,41 @@ Se probó cada sección en un Chrome sin ventana, a 1400 y a 390 px, haciendo cl
 **Objetivo:** la portada. Equivale al "¿Qué ocurre en esta parte de Miraflores?" de Lima.
 
 **Tareas**
-- [ ] Cifras ancla de cada tema, tomadas del lago.
-- [ ] **Diagnóstico de las 21 comunas y corregimientos:** combina energía, densificación y presión vial, y agrega riesgo y condiciones de vida.
-- [ ] Selector de prioridad: Equilibrio, Infraestructura, Densificación o Movilidad. La conclusión se recalcula con la prioridad elegida.
-- [ ] Opción de comparar dos zonas y de buscar un lugar en el mapa.
-- [ ] Enlace "Ver cifras generales de Medellín".
+- [x] Cifras ancla de cada tema, tomadas del lago.
+- [x] **Diagnóstico de las 21 comunas y corregimientos:** combina energía, densificación y presión vial, y agrega riesgo y condiciones de vida.
+- [x] Selector de prioridad: Equilibrio, Infraestructura, Densificación o Movilidad. La conclusión se recalcula con la prioridad elegida.
+- [x] Opción de comparar dos zonas y de buscar un lugar en el mapa.
+- [x] Enlace "Ver cifras generales de Medellín".
 
 **Datos:** todas las secciones anteriores.
+
+**Resultado (4 oct 2026)**
+- El Panorama sale de `page.jsx` a su propia vista (`src/components/PanoramaView.jsx`), que se carga como las demás secciones. No hay tema nuevo en el lago ni cambios en la ingesta: el diagnóstico se calcula en el navegador (`src/lib/diagnostico.js`) con los índices que ya publica `lentes`, y por eso va rotulado `derivado`.
+- **Diagnóstico "¿Qué ocurre en esta parte de Medellín?":**
+  - **Índice combinado:** promedio ponderado de los índices 0–100 de energía, densificación y presión vial de las lentes del gemelo. Cada índice ubica al territorio entre el valor mínimo (0) y el máximo (100) de los 21, y sus indicadores los declara el lago (`lentes.metodo_indices`). Con Equilibrio pesan lo mismo y el resultado es el de la lente "Cruce urbano"; con Infraestructura, Densificación o Movilidad, la dimensión elegida pesa 60 % y las otras dos, 20 % cada una. La sección dice que los pesos son una decisión de lectura, no un dato.
+  - **Lectura:** el índice de la zona, su puesto de 21, la dimensión con el índice mayor y la de menor, el rango de puestos que ocupa con las cuatro prioridades y, fuera del índice, el riesgo y las condiciones de vida con su puesto. Son frases armadas con las cifras, sin adjetivos.
+  - **Riesgo y condiciones de vida, como contexto:** área en amenaza alta y construcciones en amenaza alta (POT), IMCV y pobreza multidimensional (ECV 2024). Se muestran con su valor, su puesto y su distancia a la mediana, pero **no entran al índice**.
+  - **Mapa y ranking** de los 21 territorios por índice combinado, con la zona principal resaltada; un clic en el mapa o en una barra la elige.
+  - **Evidencia por dimensión:** cinco tarjetas (las tres del índice y las dos de contexto). Cada indicador de origen trae su valor, su distancia a la mediana de los 21 ("42 % sobre la mediana"), su puesto, su vigencia, su estado y el enlace a la fuente. Un territorio sin aforos dice que su índice de presión vial usa solo las víctimas viales.
+  - **"Ver … en el gemelo 3D"** abre el gemelo centrado en la zona, con la lente "Cruce urbano" (el mismo formato de "Compartir vista"). "Copiar diagnóstico" copia la lectura con la fecha del lago.
+- **Selector de prioridad:** al cambiarla se recalculan el índice, el puesto, la lectura, el mapa y el ranking. Debajo, la tabla "¿Cambia el puesto con la prioridad?" da el índice y el puesto de las dos zonas con cada prioridad (18 de los 21 territorios cambian de puesto; el que más, en 11 puestos). Con Equilibrio e Infraestructura el primero es Castilla; con Densificación y Movilidad, La Candelaria.
+- **Comparar dos zonas:** selectores "Zona principal" y "Comparar con" (con botón para intercambiarlas; elegir en uno la zona del otro también las intercambia), barras de los cuatro índices de las dos y la tabla "Indicadores de origen" con los dos valores y la mediana de los 21. El par inicial son los dos primeros territorios por código (Popular y Santa Cruz), sin elegir uno "interesante".
+- **Buscar un lugar** (`src/lib/lugares.js`): 3.934 nombres, que son los 21 territorios, 271 barrios, 78 veredas y 3.564 puntos de las capas del gemelo (estaciones del Sistema Metro, atractivos turísticos, bibliotecas, bienes de interés cultural, equipamientos del POT y sedes educativas). Busca sin tildes ni mayúsculas y por varias palabras; cada resultado dice en qué comuna o corregimiento está (un punto se ubica por su polígono). Elegirlo fija esa zona como principal y marca el lugar en el mapa. Los 12 puntos que caen fuera de Medellín (estaciones de Bello, Envigado, Itagüí…) no aparecen. Los archivos (1,9 MB) se descargan la primera vez que se usa el buscador, no al abrir la portada.
+- **Cifras ancla:** las 18 cifras que declaran 11 temas del lago, cada tarjeta rotulada con su tema. `lentes` no declara ancla: sus cifras son el diagnóstico. El enlace "Ver cifras generales de Medellín ↓", junto al selector de prioridad, baja hasta ellas.
+- Decisiones de alcance:
+  - **Sin las frases de Cerebro Lima que califican** ("concentración urbana muy alta", "intensidad relativa baja"): la regla de cero juicios de valor las excluye. La lectura dice puesto, índice y distancia a la mediana.
+  - **Riesgo y condiciones de vida fuera del índice:** sumarlos obligaría a decidir si un IMCV mayor suma o resta al índice, y eso sería una valoración. La sección lo explica en "Cómo se calcula".
+  - **Energía como infraestructura, no demanda:** Lima usa demanda eléctrica (kW/ha). No hay demanda abierta por comuna en Medellín (issue #2), así que la dimensión es la red de media y alta tensión por km², y la sección lo dice.
+  - **Sin los deslizadores de pesos de Lima:** la issue pide el selector de cuatro prioridades; la tabla de sensibilidad responde a la misma pregunta ("¿se sostiene la conclusión?") sin pesos inventados por quien mira.
+  - **Empates:** el puesto se calcula con el índice a un decimal, el mismo que se ve; dos índices iguales comparten puesto (con Movilidad, Popular y El Poblado dan 38,3 y los dos quedan en el 9).
+- Correcciones que salieron al probar:
+  - Las tarjetas de cifras de los temas con acento morado (Gemelo 3D, Escucha social) no tenían punto de color: faltaba `.metric-dot.purple`.
+  - Al abrir el gemelo desde el diagnóstico, el botón atrás del navegador dejaba la app en el gemelo con la dirección de la portada. Ahora una dirección sin `#` es el Panorama.
+  - El buscador no cargaba los lugares si se enfocaba antes de que llegaran los límites de las comunas; ahora carga todo lo que necesita al enfocarlo o al escribir, y reintenta si falla.
+  - En el celular, la tabla de indicadores de origen se salía de su tarjeta por unidades largas ("víctimas/km²·año"): la unidad va una vez bajo el nombre del indicador y, en el celular, la vigencia queda en las tarjetas de evidencia.
+- `MapaTerritorios` acepta un `lugar` que marca un punto o un polígono y lo encuadra. `MetricCard` acepta `seccion` para rotular la tarjeta con su tema.
+- Pruebas: `tests/diagnostico.test.mjs` (12): pesos de las prioridades, índice ponderado y reparto del peso cuando falta una dimensión, empates a un decimal, mediana y distancia a la mediana, que con Equilibrio el índice sea el "Cruce urbano" del lago en los 21 territorios, que las métricas de contexto existan, que la lectura cambie con la prioridad y no contenga palabras que califiquen, punto en polígono con huecos y la búsqueda contra los límites y capas reales (territorio primero, puntos fuera de Medellín excluidos, cada barrio y vereda una vez).
+- `scripts/qa.mjs` revisa también las dos rejillas nuevas (lectura y evidencia). `npm run qa` sale sin hallazgos en las 14 secciones a 1400 y a 390 px. Además se probó con clics reales: las cuatro prioridades, el intercambio de zonas, elegir en "Comparar con" la zona principal, una barra del ranking, una fila de la tabla de sensibilidad, el buscador ("estadio" → la estación Estadio deja Laureles Estadio como zona principal y la marca en el mapa), "Ver … en el gemelo 3D" y el botón atrás.
 
 ---
 

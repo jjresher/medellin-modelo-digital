@@ -123,6 +123,11 @@ Convenciones: `ALC` = `https://www.medellin.gov.co/servidormapas/rest/services`,
 - **Sin población por barrio:** no hay en el lago una proyección abierta por barrio, así que el nivel barrio del Atlas no calcula tasas por habitante.
 - **Barrios y veredas:** los límites traen 271 barrios y 79 polígonos de vereda, pero 78 veredas: Piedras Blancas Represa (`9011`) viene en dos polígonos. Nueve códigos de barrio del SISC (`5008`, `7003` a `7008`, `9009` y `9010`) no existen en los límites.
 
+### Notas de uso en el Panorama (issue #14, 4 oct 2026)
+
+- **Sin fuentes nuevas.** El diagnóstico usa los índices de las lentes (`lentes.json`) y, como contexto, cuatro métricas del Atlas: área y construcciones en amenaza alta (POT, `territorio.json`), IMCV y pobreza multidimensional (ECV, `demografia.json`). Cada indicador conserva su vigencia: la red eléctrica y el catastro son vigentes, las víctimas viales llegan a 2021, los aforos a 2019 y la ECV a 2024.
+- **Buscador de lugares:** usa los límites del gemelo (`barrios.geojson`, `veredas.geojson`) y seis capas puntuales del panel Explorar. La capa del Sistema Metro incluye estaciones de otros municipios del Valle de Aburrá (12 puntos de las seis capas caen fuera de Medellín); el buscador las omite porque no tienen comuna ni corregimiento.
+
 ### Economía y vivienda
 
 | Dato | Endpoint | Vigencia | Valor clave |
@@ -345,7 +350,7 @@ y conserva la última copia (ver `src/app/api/ambiente`).
 1. **Población.** La proyección de Planeación por comuna suma 2.787.912 habitantes en 2026, y el DANE vigente (PPED, julio de 2025) da 2.526.795 (−9,4 %; con la serie post-COVID anterior eran 2.650.662). Se propone usar el total del DANE como cifra oficial y la serie de Planeación solo como proporción para repartirlo por comuna, marcando el resultado como `derivado`.
 2. **Homicidios 2023.** El SISC registra 343, pero su serie se corta el 29 de noviembre; la Policía registra 359 para el año completo. Cada gráfica debe usar una sola fuente.
 3. **Fechas de MEData.** El portal marca varios datasets como actualizados en 2025, pero los datos llegan hasta 2021–2023. La vigencia debe calcularse a partir del dato mismo, no de los metadatos.
-4. **Afluencia del Metro.** No equivale a viajes únicos. No debe compararse con la cifra de "1,16 M viajes SITVA/día" que muestra hoy el Panorama.
+4. **Afluencia del Metro.** No equivale a viajes únicos. No debe compararse con la cifra de "1,16 M viajes SITVA/día" que mostraba el Panorama antes del lago (issue #0).
 5. **Cifras actuales de la app.** El desempleo "6,5 %, último trimestre de 2024" ya tiene dato más reciente: **6,97 % en mayo–julio de 2026**.
 
 ## 6. Arquitectura propuesta

@@ -645,3 +645,118 @@ html { scrollbar-color: var(--line) var(--ink); }
 .escucha-view .ficha-tabla td:last-child { white-space: nowrap; }
 .chart-table tr.fila-total td { color: var(--paper); border-top: 1px solid var(--line); }
 .palabras-tema { margin: 0 0 10px; }
+
+/* ---- Panorama y diagnóstico territorial (issue #14) ---- */
+.metric-dot.purple { background: var(--purple); }
+.metric-seccion { display: flex; align-items: center; gap: 7px; color: var(--dim); font: 9px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .7px; text-transform: uppercase; }
+.metric-seccion .metric-dot { flex: none; }
+.panorama-mensaje { margin-top: 24px; }
+#cifras-generales { scroll-margin-top: 16px; }
+.diagnostico > .section-heading { padding-top: 34px; }
+.diagnostico-controles { position: relative; z-index: 3; display: flex; flex-wrap: wrap; align-items: center; gap: 10px 14px; margin: 4px 0 10px; }
+.diagnostico-controles .selector-estacion select { max-width: 215px; }
+.diagnostico-intercambiar { width: 30px; height: 26px; padding: 0; border: 1px solid var(--line); border-radius: 2px; color: var(--yellow); background: transparent; font-size: 14px; }
+.diagnostico-intercambiar:hover, .diagnostico-intercambiar:focus-visible { border-color: var(--yellow); }
+.buscador-lugar { position: relative; display: flex; align-items: center; gap: 7px; margin-left: auto; }
+.buscador-lugar input { width: 205px; padding: 5px 8px; border: 1px solid var(--line); border-radius: 2px; color: var(--paper); background: var(--ink); font: 11px ui-monospace, SFMono-Regular, Menlo, monospace; }
+.buscador-lugar input:focus { border-color: var(--cyan); outline: none; }
+.buscador-resultados { position: absolute; top: calc(100% + 4px); right: 0; width: 340px; max-width: calc(100vw - 40px); border: 1px solid var(--line); border-radius: 3px; background: var(--ink); box-shadow: 0 12px 30px rgba(0, 0, 0, .45); }
+.buscador-resultados p { margin: 0; padding: 10px 12px; color: var(--muted); font-size: 11px; line-height: 1.5; }
+.buscador-resultados ul { margin: 0; padding: 4px 0; list-style: none; }
+.buscador-resultados li { display: grid; gap: 2px; padding: 6px 12px; cursor: pointer; }
+.buscador-resultados li span { color: var(--paper); font-size: 12px; }
+.buscador-resultados li small { color: var(--dim); font: 9.5px ui-monospace, SFMono-Regular, Menlo, monospace; }
+.buscador-resultados li.activo { background: color-mix(in srgb, var(--cyan) 12%, transparent); }
+.diagnostico-lugar { margin: 0 0 10px; color: var(--muted); font-size: 12px; }
+.diagnostico-lugar b { color: var(--paper); font-weight: 600; }
+.diagnostico-lugar span { color: var(--dim); font: 10px ui-monospace, SFMono-Regular, Menlo, monospace; }
+.diagnostico-lugar button { margin-left: 10px; padding: 0; border: 0; color: var(--cyan); background: transparent; font: 10px ui-monospace, SFMono-Regular, Menlo, monospace; }
+.diagnostico-prioridad { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 12px; margin: 0 0 16px; }
+.diagnostico-pesos { color: var(--muted); font: 10px ui-monospace, SFMono-Regular, Menlo, monospace; }
+.diagnostico-prioridad .link-fuente { margin: 0 0 0 auto; }
+.diagnostico-resumen { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 14px; }
+.diagnostico-resumen > .chart-card { display: flex; flex-direction: column; gap: 10px; padding: 16px 18px 18px; }
+.diagnostico-resumen .eyebrow { color: var(--yellow); }
+.diagnostico-cifra { display: grid; gap: 4px; }
+.diagnostico-cifra strong { color: var(--paper); font: 40px/1 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: -2.4px; }
+.diagnostico-cifra strong small { color: var(--dim); font-size: 14px; letter-spacing: 0; }
+.diagnostico-cifra > span { color: var(--muted); font: 10.5px ui-monospace, SFMono-Regular, Menlo, monospace; }
+.diagnostico-lectura > p:not(.eyebrow) { max-width: 760px; margin: 0; color: var(--paper); font-size: 13.5px; line-height: 1.65; }
+.diagnostico-lectura > p.diagnostico-fuera { color: var(--muted); font-size: 12px; }
+.diagnostico-acciones { display: grid; justify-items: start; gap: 12px; margin-top: auto; }
+.diagnostico-acciones .primary-action { text-align: left; }
+.diagnostico-acciones .link-fuente { margin: 0; }
+.diagnostico-resumen + .chart-grid { margin-top: 14px; }
+.diagnostico-evidencias { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 14px; margin-top: 14px; }
+.diagnostico-evidencias > * { grid-column: span 2; }
+.diagnostico-evidencias > :nth-child(3n + 1):nth-last-child(2),
+.diagnostico-evidencias > :nth-child(3n + 1):nth-last-child(2) ~ * { grid-column: span 3; }
+.diagnostico-evidencias > :nth-child(3n + 1):last-child { grid-column: 1 / -1; }
+.evidencia { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.evidencia header { display: flex; align-items: baseline; justify-content: space-between; gap: 10px; }
+.evidencia header h3 { margin: 0; }
+.evidencia header span { color: var(--dim); font: 9.5px ui-monospace, SFMono-Regular, Menlo, monospace; white-space: nowrap; }
+.evidencia-indice { display: flex; align-items: baseline; gap: 8px; margin: 0; padding-bottom: 10px; border-bottom: 1px solid color-mix(in srgb, var(--line) 60%, transparent); }
+.evidencia-indice strong { color: var(--orange); font: 26px/1 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: -1.4px; }
+.evidencia-indice span { color: var(--muted); font: 10px ui-monospace, SFMono-Regular, Menlo, monospace; }
+.evidencia-indicador { display: grid; gap: 3px; }
+.evidencia-indicador > span { color: var(--muted); font-size: 11.5px; }
+.evidencia-indicador > b { color: var(--paper); font: 17px/1.2 ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: -.6px; }
+.evidencia-indicador > small { color: var(--dim); font-size: 10.5px; line-height: 1.45; }
+.evidencia-indicador .procedencia { margin: 2px 0 0; font-size: 9.5px; }
+.evidencia-indicador .procedencia button { text-align: left; }
+.diagnostico-evidencias + .chart-grid { margin-top: 14px; }
+.comparacion-barras { display: grid; gap: 12px; margin-top: 6px; }
+.comparacion-barras > div { display: grid; gap: 4px; }
+.comparacion-barras > div > span { color: var(--muted); font-size: 11.5px; }
+.comparacion-barras > div.combinado > span { color: var(--paper); font-weight: 600; }
+.comparacion-barras p { display: grid; grid-template-columns: minmax(0, 1fr) 42px; align-items: center; gap: 10px; margin: 0; }
+.comparacion-barras p > i { display: block; height: 9px; border-radius: 1px; background: color-mix(in srgb, var(--line) 45%, transparent); }
+.comparacion-barras p > i > i { display: block; height: 100%; border-radius: 1px; }
+.comparacion-barras b { color: var(--paper); font: 400 11px ui-monospace, SFMono-Regular, Menlo, monospace; text-align: right; }
+.sensibilidad-tabla th small { display: block; margin-top: 2px; color: var(--dim); font-size: 9px; letter-spacing: 0; text-transform: none; }
+.sensibilidad-tabla td, .sensibilidad-tabla th { text-align: right; white-space: nowrap; }
+.sensibilidad-tabla td:first-child, .sensibilidad-tabla th:first-child { text-align: left; }
+.sensibilidad-tabla th { vertical-align: bottom; }
+.sensibilidad-tabla td:nth-child(2) { color: var(--dim); font: 10px ui-monospace, SFMono-Regular, Menlo, monospace; }
+.sensibilidad-tabla td:nth-child(n + 3) { color: var(--paper); }
+.sensibilidad-tabla td small { margin-left: 4px; color: var(--dim); font-size: 10px; }
+.sensibilidad-tabla td button { padding: 0; border: 0; color: inherit; background: transparent; font: inherit; cursor: pointer; }
+.sensibilidad-tabla td button:hover, .sensibilidad-tabla td button:focus-visible { color: var(--paper); text-decoration: underline; }
+.sensibilidad-tabla tr.activo td { color: var(--paper); background: color-mix(in srgb, var(--yellow) 8%, transparent); }
+.origen-card { margin-top: 14px; }
+.origen-card .tabla-scroll { max-height: none; }
+.origen-tabla td, .origen-tabla th { white-space: nowrap; }
+.origen-tabla td:nth-child(n + 3), .origen-tabla th:nth-child(n + 3) { text-align: right; }
+.origen-tabla td:nth-child(n + 3) { color: var(--paper); }
+.origen-tabla td:nth-child(2) { color: var(--dim); font: 10px ui-monospace, SFMono-Regular, Menlo, monospace; white-space: normal; min-width: 150px; }
+.origen-tabla td:first-child { color: var(--muted); }
+.origen-tabla .estado { margin-left: 4px; }
+.origen-tabla td small { display: block; margin-top: 2px; color: var(--dim); font: 9.5px ui-monospace, SFMono-Regular, Menlo, monospace; }
+.origen-tabla tr.origen-grupo td { padding-top: 12px; text-align: left; color: var(--yellow); font: 9.5px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .7px; text-transform: uppercase; }
+.diagnostico-metodo { max-width: 860px; margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--line); }
+.diagnostico-metodo b { font-size: 12px; }
+.diagnostico-metodo > p { margin: 7px 0 0; color: var(--muted); font-size: 12px; line-height: 1.65; }
+.diagnostico-metodo > p.procedencia { margin-top: 12px; }
+.diagnostico-metodo .procedencia button { text-align: left; }
+@media (max-width: 900px) {
+  .diagnostico-resumen { grid-template-columns: 1fr; }
+  .diagnostico-evidencias { grid-template-columns: 1fr; }
+  .diagnostico-evidencias > * { grid-column: auto !important; }
+  .buscador-lugar { flex-wrap: wrap; width: 100%; margin-left: 0; }
+  .buscador-lugar input { flex: 1; width: auto; min-width: 0; }
+  .buscador-resultados { left: 0; right: auto; width: 100%; }
+  .diagnostico-prioridad .link-fuente { margin-left: 0; }
+}
+@media (max-width: 600px) {
+  .diagnostico-controles .selector-estacion { flex-wrap: wrap; }
+  .diagnostico-controles .selector-estacion select { max-width: 100%; }
+  .diagnostico-cifra strong { font-size: 32px; }
+  .buscador-lugar label { flex-basis: 100%; }
+  /* En el celular la vigencia de cada indicador queda en su tarjeta de evidencia: sin esa columna, los valores caben sin
+     desplazar la tabla. */
+  .origen-tabla th:nth-child(2), .origen-tabla td:nth-child(2) { display: none; }
+  .origen-tabla td, .origen-tabla th { padding-right: 4px; padding-left: 4px; white-space: normal; }
+  .origen-tabla td:first-child { min-width: 0; }
+  .origen-tabla td:nth-child(n + 3) { font-size: 10px; }
+}

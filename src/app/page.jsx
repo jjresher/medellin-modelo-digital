@@ -2,11 +2,14 @@
 
 import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
-import MetricCard from '../components/MetricCard';
 import SourcesView from '../components/SourcesView';
 import { navigation } from '../data/navegacion';
-import { cifrasAncla, useLago } from '../lib/lago';
+import { useLago } from '../lib/lago';
 
+const PanoramaView = dynamic(() => import('../components/PanoramaView'), {
+  ssr: false,
+  loading: () => <div className="view-loading">Cargando el panorama…</div>
+});
 const DigitalTwinView = dynamic(() => import('../components/DigitalTwinView'), {
   ssr: false,
   loading: () => <div className="view-loading">Preparando el gemelo 3D…</div>
@@ -127,59 +130,6 @@ function Sidebar({ active, onNavigate, isOpen, onClose, lago }) {
   );
 }
 
-function Panorama({ lago, onSource, onTwin }) {
-  const cifras = lago.estado === 'listo' ? cifrasAncla(lago) : [];
-  const anios = cifras
-    .map((cifra) => cifra.vigencia.match(/\d{4}/)?.[0])
-    .filter(Boolean)
-    .sort();
-  return (
-    <section className="view panorama-view">
-      <div className="hero">
-        <div>
-          <p className="eyebrow">MODELO DIGITAL · MEDELLÍN</p>
-          <h1>
-            La ciudad,
-            <br />
-            <em>en perspectiva.</em>
-          </h1>
-          <p>Indicadores urbanos verificables y una lectura espacial de Medellín para explorar el territorio con contexto.</p>
-        </div>
-        <button className="primary-action" onClick={onTwin}>
-          Explorar gemelo 3D <span>→</span>
-        </button>
-      </div>
-      <div className="section-heading">
-        <div>
-          <p className="eyebrow">CORTE VERIFICABLE</p>
-          <h2>Medellín en cifras</h2>
-        </div>
-        {anios.length > 0 && <span>{anios[0] === anios.at(-1) ? anios[0] : `${anios[0]}—${anios.at(-1)}`}</span>}
-      </div>
-      {lago.estado === 'cargando' && <p className="lake-message">Cargando el lago de datos…</p>}
-      {lago.estado === 'error' && (
-        <p className="lake-message">No se pudo leer el lago de datos ({lago.error}). Genera el lago con la ingesta (ver README).</p>
-      )}
-      <div className="metrics-grid">
-        {cifras.map((cifra) => (
-          <MetricCard key={`${cifra.tema}-${cifra.clave}`} cifra={cifra} onSource={onSource} />
-        ))}
-      </div>
-      <section className="method-note">
-        <span>01</span>
-        <div>
-          <b>Lectura responsable</b>
-          <p>
-            Cada cifra conserva su vigencia real y su estado: <span className="estado observado">observado</span> es un dato abierto descargado;{' '}
-            <span className="estado derivado">derivado</span> se calcula a partir de otros datos. Las cifras de series distintas no deben
-            interpretarse como una misma actualización temporal.
-          </p>
-        </div>
-      </section>
-    </section>
-  );
-}
-
 function ComingSoon({ label }) {
   return (
     <section className="view upcoming-view">
@@ -199,7 +149,8 @@ export default function Home() {
   // La sección activa vive en el #hash para poder enlazarla (por ejemplo, /#twin).
   useEffect(() => {
     const fromHash = () => {
-      const id = window.location.hash.slice(1).split('?')[0];
+      // Sin hash es el Panorama: así el botón atrás vuelve a la portada después de abrir el gemelo desde el diagnóstico.
+      const id = window.location.hash.slice(1).split('?')[0] || 'panorama';
       if (navigation.some(([navId]) => navId === id)) setActive(id);
     };
     fromHash();
@@ -231,7 +182,7 @@ export default function Home() {
             Fuentes <span>↗</span>
           </button>
         </header>
-        {active === 'panorama' && <Panorama lago={lago} onSource={openSource} onTwin={() => navigate('twin')} />}
+        {active === 'panorama' && <PanoramaView lago={lago} onSource={openSource} onTwin={() => navigate('twin')} />}
         {Vista && <Vista lago={lago} onSource={openSource} focusId={focusSource} />}
         {active !== 'panorama' && !Vista && <ComingSoon label={current} />}
       </main>

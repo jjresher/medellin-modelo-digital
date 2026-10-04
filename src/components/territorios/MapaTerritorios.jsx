@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { limites } from '../../lib/lugares';
 import { ajustesComunes, maplibregl, prepararMaplibre } from '../../lib/maplibre';
 import { accent, sequential } from '../charts/tokens';
 
@@ -10,7 +11,9 @@ import { accent, sequential } from '../charts/tokens';
 // Los territorios sin dato quedan en gris oscuro, fuera de la rampa, y la leyenda lo dice.
 // Con `nivel="barrios"` dibuja los 271 barrios y las 79 veredas (Atlas); el nivel se lee al montar el mapa, así que para
 // cambiarlo hay que montar otro (key distinta).
+// `lugar` ({nombre, geometry}) marca un punto o un polígono encima de los territorios y lo encuadra (buscador del Panorama).
 const SIN_DATO = '#23241f';
+const VACIO = { type: 'FeatureCollection', features: [] };
 
 const NIVELES = {
   comunas: {
@@ -50,7 +53,8 @@ export default function MapaTerritorios({
   seleccionado,
   onSelect,
   height = 420,
-  nivel = 'comunas'
+  nivel = 'comunas',
+  lugar = null
 }) {
   const nivelInicial = useRef(nivel);
   const container = useRef(null);
@@ -107,6 +111,21 @@ export default function MapaTerritorios({
           source: 'territorios',
           filter: ['==', ['get', 'codigo'], ''],
           paint: { 'line-color': accent.yellow, 'line-width': 2.4 }
+        });
+        map.addSource('lugar', { type: 'geojson', data: VACIO });
+        map.addLayer({
+          id: 'lugar-borde',
+          type: 'line',
+          source: 'lugar',
+          filter: ['!=', ['geometry-type'], 'Point'],
+          paint: { 'line-color': '#f8f8f2', 'line-width': 1.8, 'line-dasharray': [2, 1.5] }
+        });
+        map.addLayer({
+          id: 'lugar-punto',
+          type: 'circle',
+          source: 'lugar',
+          filter: ['==', ['geometry-type'], 'Point'],
+          paint: { 'circle-radius': 6, 'circle-color': '#f8f8f2', 'circle-stroke-color': '#272822', 'circle-stroke-width': 2 }
         });
         map.on('click', 'territorios-fill', (event) => {
           const p = event.features?.[0]?.properties;
@@ -165,6 +184,15 @@ export default function MapaTerritorios({
   useEffect(() => {
     if (ready) mapRef.current.setFilter('territorios-sel', ['==', ['get', 'codigo'], seleccionado ?? '']);
   }, [ready, seleccionado]);
+
+  useEffect(() => {
+    const map = mapRef.current;
+    if (!ready) return;
+    map.getSource('lugar').setData(lugar ? { type: 'Feature', properties: { nombre: lugar.nombre }, geometry: lugar.geometry } : VACIO);
+    if (!lugar) return;
+    if (lugar.geometry.type === 'Point') map.flyTo({ center: lugar.geometry.coordinates, zoom: Math.max(map.getZoom(), 13), duration: 800 });
+    else map.fitBounds(limites(lugar.geometry), { padding: 50, maxZoom: 14.5, duration: 800 });
+  }, [ready, lugar]);
 
   return (
     <div className="barrio-map territorios-map" style={{ minHeight: height }}>
