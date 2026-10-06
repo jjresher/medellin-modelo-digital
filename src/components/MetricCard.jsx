@@ -6,7 +6,13 @@ export default function MetricCard({ cifra, onSource, seccion }) {
   const unidad = formatoUnidad(cifra);
   const punto = <span className={`metric-dot ${accentByTheme[cifra.tema] ?? 'green'}`} aria-hidden="true" />;
   return (
-    <button className="metric-card" onClick={() => onSource(cifra.fuente)} title={cifra.nota || ''}>
+    <button
+      className="metric-card"
+      // El buscador general (⌘K) encuentra la tarjeta de una cifra por su tema y su clave.
+      data-cifra={cifra.tema && cifra.clave ? `${cifra.tema}/${cifra.clave}` : undefined}
+      onClick={() => onSource(cifra.fuente)}
+      title={cifra.nota || ''}
+    >
       {seccion ? (
         <span className="metric-seccion">
           {punto}

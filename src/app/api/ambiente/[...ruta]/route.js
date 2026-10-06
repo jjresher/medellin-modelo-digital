@@ -1,10 +1,11 @@
 import { mkdir, readFile, writeFile } from 'node:fs/promises';
 import path from 'node:path';
 
-// Proxy con caché para los datos ambientales en vivo. El SIATA no envía cabeceras CORS, así que el navegador
-// no puede llamarlo directo; y su geoportal se cae a ratos. Cada recurso se guarda en memoria y en disco con
-// la hora de la lectura: si el SIATA falla, se responde con la última copia y `obsoleto: true`, para que la
-// interfaz pueda decir de cuándo es el dato en vez de quedarse vacía.
+// Proxy con caché para los datos en vivo (SIATA, USGS y el clima de Open-Meteo). El SIATA no envía cabeceras CORS,
+// así que el navegador no puede llamarlo directo; y su geoportal se cae a ratos. Cada recurso se guarda en memoria y en
+// disco con la hora de la lectura: si la fuente falla, se responde con la última copia y `obsoleto: true`, para que la
+// interfaz pueda decir de cuándo es el dato en vez de quedarse vacía. El clima pasa por aquí para que todos los
+// visitantes compartan una lectura cada 15 minutos en vez de pedirle cada uno a Open-Meteo.
 //
 // Los identificadores de recurso son los mismos que usa ingesta/pull_ambiente.py.
 const SIATA = 'https://geoportal.siata.gov.co/fastgeoapi';
@@ -19,6 +20,15 @@ const SISMOS = `${USGS}?${new URLSearchParams({
   orderby: 'time'
 })}`;
 
+// Clima actual de la cabecera (issue #16). Open-Meteo responde con su modelo meteorológico para el punto pedido, el
+// mismo centro de Medellín de los sismos; no es la lectura de una estación.
+const CLIMA = `https://api.open-meteo.com/v1/forecast?${new URLSearchParams({
+  latitude: '6.2476',
+  longitude: '-75.5686',
+  current: 'temperature_2m,relative_humidity_2m,apparent_temperature,is_day,precipitation,weather_code,wind_speed_10m',
+  timezone: 'America/Bogota'
+})}`;
+
 const RECURSOS = {
   pm25: `${SIATA}/geodata/geodataJson/1/pm25_minio`,
   pluvios: `${SIATA}/geodata/geodataJson/3/pluvios_v2`,
@@ -26,7 +36,8 @@ const RECURSOS = {
   meteo: `${SIATA}/geodata/geodataJson/3/tempVient`,
   ruido: `${SIATA}/geodata/geodataJson/1/ruido_oficial`,
   alertas: `${SIATA}/alerts/active/citizen`,
-  sismos: SISMOS
+  sismos: SISMOS,
+  clima: CLIMA
 };
 
 // Recursos con el código de una estación: /api/ambiente/pm25-serie/81
@@ -36,7 +47,8 @@ const SERIES = {
   'lluvia-dia': (codigo) => `${SIATA}/geodata/geographJson/2/pluvio_24h/${codigo}`
 };
 
-const TTL = { sismos: 1800 }; // segundos; el resto son lecturas del SIATA, que se refrescan cada 10 minutos
+// Segundos. Las lecturas del SIATA se refrescan cada 10 minutos; el clima de Open-Meteo, cada 15.
+const TTL = { sismos: 1800, clima: 900 };
 const TTL_DEFECTO = 600;
 const CACHE_DIR = path.join(process.cwd(), '.cache', 'ambiente');
 const UA = 'Mozilla/5.0 (X11; Linux x86_64) Chrome/128 medellin-modelo-digital';

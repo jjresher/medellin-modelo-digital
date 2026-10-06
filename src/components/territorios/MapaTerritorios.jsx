@@ -70,7 +70,18 @@ export default function MapaTerritorios({
     onSelectRef.current = onSelect;
   }, [valores, onSelect]);
 
+  // El mapa (WebGL, estilo y teselas) se crea cuando la tarjeta está a menos de 300 px de verse: en el celular casi todos
+  // los mapas quedan más abajo, y crearlos al abrir la sección ocupaba el hilo principal mientras la página cargaba
+  // (issue #16).
+  const [cerca, setCerca] = useState(false);
   useEffect(() => {
+    const observador = new IntersectionObserver(([entrada]) => entrada.isIntersecting && setCerca(true), { rootMargin: '300px 0px' });
+    observador.observe(container.current);
+    return () => observador.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!cerca) return undefined;
     let activo = true;
     prepararMaplibre();
     const map = new maplibregl.Map({
@@ -150,7 +161,7 @@ export default function MapaTerritorios({
       map.remove();
       mapRef.current = null;
     };
-  }, []);
+  }, [cerca]);
 
   // Mínimo, punto medio y máximo de los valores, con la rampa de color del mapa y de la leyenda.
   const rango = useMemo(() => {

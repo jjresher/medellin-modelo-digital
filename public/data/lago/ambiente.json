@@ -64,6 +64,15 @@
    "probado": "2026-09-26"
   },
   {
+   "id": "open-meteo",
+   "nombre": "Clima actual en el centro de Medellín (modelo meteorológico, no estación)",
+   "entidad": "Open-Meteo · API de pronóstico",
+   "url": "https://api.open-meteo.com/v1/forecast?latitude=6.2476&longitude=-75.5686&current=temperature_2m%2Crelative_humidity_2m%2Capparent_temperature%2Cis_day%2Cprecipitation%2Cweather_code%2Cwind_speed_10m&timezone=America%2FBogota",
+   "estado": "observado",
+   "probado": "2026-10-06",
+   "uso": "Reloj y clima de la cabecera (lectura en vivo). Es la salida de modelos meteorológicos para la celda del centro de Medellín, actualizada cada 15 minutos; las mediciones de estaciones están en Ambiente y satélite (SIATA)."
+  },
+  {
    "id": "amva-ruido",
    "nombre": "Mapa de ruido del Valle de Aburrá (isófonas de ruido total, día y noche)",
    "entidad": "Área Metropolitana del Valle de Aburrá · Portal IDEM",

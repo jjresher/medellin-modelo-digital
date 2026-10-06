@@ -7,7 +7,8 @@
   --line: #56574d;
   --paper: #f8f8f2;
   --muted: #b9b9ac;
-  --dim: #898a7d;
+  /* Gris de texto secundario: contraste de 4,5:1 o más sobre --ink y --panel (WCAG AA, issue #16). */
+  --dim: #a4a598;
   --pink: #f92672;
   --green: #a6e22e;
   --cyan: #66d9ef;
@@ -42,9 +43,9 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--cyan); outline-
 
 .workspace { min-height: 100vh; margin-left: 246px; padding: 0 clamp(24px, 5.3vw, 96px) 60px; }
 .topbar { display: flex; align-items: center; justify-content: space-between; gap: 14px; height: 78px; border-bottom: 1px solid var(--line); color: var(--dim); font: 10px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .55px; }
-.topbar span { padding: 0 7px; color: #64655c; }
+.topbar-sep { padding: 0 7px; color: var(--dim); }
 .topbar strong { color: var(--paper); font-weight: 500; }
-.topbar > div { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.topbar-ruta { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .source-shortcut { flex: none; }
 .menu-button { display: none; padding: 7px; border: 0; color: var(--paper); background: transparent; font-size: 20px; }
 .source-shortcut { padding: 0; border: 0; color: var(--yellow); background: transparent; font: 10px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .4px; }
@@ -718,9 +719,10 @@ html { scrollbar-color: var(--line) var(--ink); }
 .sensibilidad-tabla td:nth-child(2) { color: var(--dim); font: 10px ui-monospace, SFMono-Regular, Menlo, monospace; }
 .sensibilidad-tabla td:nth-child(n + 3) { color: var(--paper); }
 .sensibilidad-tabla td small { margin-left: 4px; color: var(--dim); font-size: 10px; }
-.sensibilidad-tabla td button { padding: 0; border: 0; color: inherit; background: transparent; font: inherit; cursor: pointer; }
+.sensibilidad-tabla td button { min-height: 24px; padding: 0; border: 0; color: inherit; background: transparent; font: inherit; cursor: pointer; }
 .sensibilidad-tabla td button:hover, .sensibilidad-tabla td button:focus-visible { color: var(--paper); text-decoration: underline; }
 .sensibilidad-tabla tr.activo td { color: var(--paper); background: color-mix(in srgb, var(--yellow) 8%, transparent); }
+.sensibilidad-tabla tr.activo td small { color: var(--muted); }
 .origen-card { margin-top: 14px; }
 .origen-card .tabla-scroll { max-height: none; }
 .origen-tabla td, .origen-tabla th { white-space: nowrap; }
@@ -836,3 +838,121 @@ html { scrollbar-color: var(--line) var(--ink); }
   .catalogo-tabla tr.focused { box-shadow: inset 2px 0 0 var(--yellow); background: color-mix(in srgb, var(--yellow) 9%, transparent); }
   .catalogo-tabla tr.focused td { background: transparent; }
 }
+
+/* ---------------------------------------------------------------- Experiencia general (issue #16) */
+/* Saltar al contenido: invisible hasta recibir el foco con el teclado. */
+.saltar { position: fixed; top: 8px; left: 8px; z-index: 100; padding: 10px 14px; border: 1px solid var(--cyan); border-radius: 4px; color: var(--paper); background: var(--ink); font: 12px ui-monospace, SFMono-Regular, Menlo, monospace; transform: translateY(-200%); }
+.saltar:focus-visible { transform: none; }
+.workspace:focus, .view:focus { outline: none; }
+.sidebar { overflow-y: auto; scrollbar-width: thin; }
+
+/* Cabecera: buscador, reloj y clima, presentación y fuentes. */
+.topbar-acciones { display: flex; flex: none; align-items: center; gap: 18px; }
+.topbar-buscar, .topbar-presentar, .source-shortcut, .reloj-clima-boton { min-height: 32px; }
+.topbar-buscar { display: flex; align-items: center; gap: 8px; padding: 0 7px 0 10px; border: 1px solid var(--line); border-radius: 4px; color: var(--muted); background: transparent; font: 10px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .4px; }
+.topbar-buscar:hover { border-color: var(--cyan); color: var(--paper); }
+.topbar-buscar > span { color: var(--cyan); font-size: 15px; line-height: 1; }
+.topbar-buscar b, .topbar-presentar b { font-weight: 400; }
+kbd { padding: 2px 5px; border: 1px solid var(--line); border-radius: 3px; color: var(--muted); background: var(--panel); font: 9px/1.3 ui-monospace, SFMono-Regular, Menlo, monospace; }
+.topbar-presentar { display: flex; align-items: center; gap: 6px; padding: 0; border: 0; color: var(--muted); background: transparent; font: 10px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .4px; }
+.topbar-presentar:hover { color: var(--paper); }
+.topbar-presentar > span { color: var(--green); font-size: 9px; }
+.reloj-clima { position: relative; }
+.reloj-clima-boton { display: flex; align-items: center; gap: 10px; padding: 0; border: 0; color: var(--paper); background: transparent; font: 11px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .4px; font-variant-numeric: tabular-nums; }
+.reloj-clima-boton time { min-width: 5ch; }
+.reloj-clima-temp { color: var(--muted); white-space: nowrap; }
+.reloj-clima-temp > span { color: var(--yellow); }
+.clima-detalle { position: absolute; top: calc(100% + 10px); right: 0; z-index: 40; width: 310px; padding: 16px 18px; border: 1px solid var(--line); border-radius: 6px; color: var(--paper); background: var(--panel); box-shadow: 0 18px 40px rgba(0, 0, 0, .45); font: 12px/1.5 Arial, Helvetica, sans-serif; letter-spacing: 0; }
+.clima-hora { margin: 6px 0 12px; color: var(--muted); }
+.clima-hora strong { margin-right: 6px; color: var(--paper); font: 500 15px ui-monospace, SFMono-Regular, Menlo, monospace; }
+.clima-principal { display: flex; align-items: baseline; gap: 10px; margin: 0 0 12px; color: var(--muted); }
+.clima-principal > span { color: var(--yellow); font-size: 20px; }
+.clima-principal strong { color: var(--paper); font-size: 28px; font-weight: 500; }
+.clima-datos { display: grid; grid-template-columns: 1fr auto; gap: 4px 12px; margin: 0 0 12px; }
+.clima-datos dt { color: var(--muted); }
+.clima-datos dd { margin: 0; text-align: right; font: 12px ui-monospace, SFMono-Regular, Menlo, monospace; font-variant-numeric: tabular-nums; }
+.clima-nota { margin: 0 0 12px; color: var(--muted); font-size: 11px; }
+.clima-pie { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; margin: 0; }
+.clima-pie .link-fuente { min-height: 24px; margin: 0; }
+
+/* Estado del lago: al abrirlo, cada tema con su fecha de prueba. */
+details.sidebar-status summary { cursor: pointer; list-style: none; border-radius: 3px; }
+details.sidebar-status summary::-webkit-details-marker { display: none; }
+details.sidebar-status summary::after { content: ' ▸'; color: var(--dim); }
+details.sidebar-status[open] summary::after { content: ' ▾'; }
+details.sidebar-status summary:focus-visible { outline: 2px solid var(--cyan); outline-offset: 3px; }
+.sidebar-status small { color: var(--dim); }
+.lago-temas { margin: 8px 0 4px; padding: 0; list-style: none; }
+.lago-temas li { display: flex; justify-content: space-between; gap: 10px; color: var(--muted); line-height: 1.75; }
+.lago-temas time { color: var(--dim); white-space: nowrap; }
+.lago-temas li.falla time { color: var(--pink); }
+.lago-fuentes { min-height: 24px; padding: 0; border: 0; color: var(--yellow); background: transparent; font: 10px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: .3px; }
+
+/* Buscador general (⌘K). */
+.buscador-general { width: min(640px, calc(100vw - 32px)); max-height: min(580px, calc(100dvh - 24vh)); margin: 12vh auto auto; padding: 0; border: 1px solid var(--line); border-radius: 8px; color: var(--paper); background: var(--panel); box-shadow: 0 30px 80px rgba(0, 0, 0, .55); }
+.buscador-general[open] { display: flex; flex-direction: column; }
+.buscador-general::backdrop { background: rgba(20, 21, 17, .74); }
+.buscador-caja { display: flex; flex: 1; min-height: 0; flex-direction: column; }
+.buscador-campo { display: flex; align-items: center; gap: 10px; padding: 12px 14px 12px 16px; border-bottom: 1px solid var(--line); }
+.buscador-campo > span { color: var(--cyan); font-size: 18px; }
+.buscador-campo input { flex: 1; min-width: 0; padding: 4px 0; border: 0; outline: none; color: var(--paper); background: transparent; font: 16px Arial, Helvetica, sans-serif; }
+.buscador-campo input::placeholder { color: var(--dim); }
+.buscador-campo input::-webkit-search-cancel-button { display: none; }
+.buscador-lista { flex: 1; min-height: 0; overflow-y: auto; padding: 4px 8px 8px; }
+.buscador-grupo { margin: 10px 8px 4px; color: var(--dim); font: 10px ui-monospace, SFMono-Regular, Menlo, monospace; letter-spacing: 1.2px; text-transform: uppercase; }
+.buscador-op { display: flex; align-items: center; gap: 12px; min-height: 40px; padding: 7px 10px; border-radius: 5px; cursor: pointer; }
+.buscador-op.activo { background: var(--raised); box-shadow: inset 2px 0 var(--cyan); }
+.buscador-icono { flex: none; width: 16px; color: var(--dim); text-align: center; font: 12px ui-monospace, SFMono-Regular, Menlo, monospace; }
+.buscador-op.activo .buscador-icono { color: var(--cyan); }
+.buscador-nombre { flex: 1; min-width: 0; font-size: 14px; line-height: 1.35; }
+.buscador-nombre small { display: block; margin-top: 2px; color: var(--dim); font-size: 11px; }
+.buscador-nombre .estado { padding: 0 4px; font-size: 8px; line-height: 14px; }
+.buscador-op > small { flex: none; color: var(--dim); font: 10px ui-monospace, SFMono-Regular, Menlo, monospace; }
+.buscador-op > strong { flex: none; max-width: 42%; color: var(--paper); font: 500 14px ui-monospace, SFMono-Regular, Menlo, monospace; text-align: right; font-variant-numeric: tabular-nums; }
+.buscador-op > strong small { color: var(--muted); font-size: 10px; font-weight: 400; }
+.buscador-vacio { margin: 16px 10px; color: var(--muted); font-size: 13px; }
+.buscador-pie { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 6px 14px; margin: 0; padding: 10px 16px; border-top: 1px solid var(--line); color: var(--dim); font-size: 11px; line-height: 1.6; }
+.buscador-teclas { margin-left: auto; white-space: nowrap; }
+
+/* La tarjeta de una cifra elegida en el buscador. */
+.metric-card.resaltada { outline: 2px solid var(--yellow); outline-offset: 3px; }
+
+/* Modo presentación: sin barra lateral ni cabecera, y una barra de control abajo. */
+.app-shell.presentando .sidebar, .app-shell.presentando .topbar, .app-shell.presentando .saltar { display: none; }
+.app-shell.presentando .workspace { margin-left: 0; padding-bottom: 110px; }
+.presentacion { position: fixed; bottom: 18px; left: 50%; z-index: 60; display: flex; align-items: center; gap: 4px; padding: 8px 10px 13px; border: 1px solid var(--line); border-radius: 8px; background: color-mix(in srgb, var(--panel) 94%, transparent); box-shadow: 0 16px 40px rgba(0, 0, 0, .5); transform: translateX(-50%); backdrop-filter: blur(6px); }
+.presentacion button { display: grid; width: 38px; height: 38px; place-items: center; padding: 0; border: 1px solid transparent; border-radius: 5px; color: var(--paper); background: transparent; font: 14px ui-monospace, SFMono-Regular, Menlo, monospace; }
+.presentacion button:hover { border-color: var(--line); background: var(--raised); }
+.presentacion p { display: grid; min-width: 190px; margin: 0 8px; text-align: center; }
+.presentacion strong { font-size: 13px; font-weight: 500; white-space: nowrap; }
+.presentacion p span { color: var(--dim); font: 10px ui-monospace, SFMono-Regular, Menlo, monospace; }
+.presentacion-progreso { position: absolute; right: 10px; bottom: 5px; left: 10px; height: 2px; overflow: hidden; border-radius: 2px; background: var(--line); }
+.presentacion-progreso b { display: block; height: 100%; background: var(--green); transform-origin: left; animation-name: presentacion-avance; animation-timing-function: linear; animation-fill-mode: forwards; }
+@keyframes presentacion-avance { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+/* Con "reducir movimiento", sin transiciones ni desplazamiento animado (la barra de la presentación es su temporizador y se queda). */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, ::before, ::after { transition-duration: .01ms !important; }
+}
+
+@media (max-width: 600px) {
+  /* En el celular la cabecera deja el nombre de la sección, el buscador, el reloj y la presentación; Fuentes sigue en el menú. */
+  .topbar-modelo, .topbar-sep, .topbar-buscar b, .topbar-buscar kbd, .topbar-presentar b, .topbar-acciones .source-shortcut, .reloj-clima-temp > span { display: none; }
+  .topbar-acciones { gap: 12px; }
+  .topbar-buscar { width: 34px; justify-content: center; padding: 0; }
+  .topbar-presentar { width: 26px; justify-content: center; }
+  .topbar-presentar > span { font-size: 12px; }
+  .clima-detalle { position: fixed; top: 64px; right: 16px; left: 16px; width: auto; }
+  .buscador-general { max-height: calc(100dvh - 32px); margin-top: 16px; }
+  .buscador-teclas, .buscador-op > small, .buscador-pie.sin-nota { display: none; }
+  .presentacion { bottom: 10px; padding-right: 6px; padding-left: 6px; }
+  .presentacion p { min-width: 0; width: 132px; margin: 0 2px; }
+  .presentacion strong { overflow: hidden; text-overflow: ellipsis; }
+}
+
+/* Aviso de una cifra elegida en el buscador que su sección no muestra en una tarjeta. */
+.aviso-cifra { position: fixed; bottom: 22px; left: 50%; z-index: 55; display: flex; align-items: flex-start; gap: 12px; width: min(560px, calc(100vw - 32px)); padding: 12px 12px 12px 16px; border: 1px solid var(--line); border-left: 3px solid var(--yellow); border-radius: 6px; color: var(--muted); background: var(--panel); box-shadow: 0 16px 40px rgba(0, 0, 0, .5); font-size: 12px; line-height: 1.55; transform: translateX(-50%); }
+.aviso-cifra p { margin: 0; }
+.aviso-cifra strong { color: var(--paper); font-weight: 500; }
+.aviso-cifra button { flex: none; width: 28px; height: 28px; padding: 0; border: 0; color: var(--paper); background: transparent; font-size: 18px; }

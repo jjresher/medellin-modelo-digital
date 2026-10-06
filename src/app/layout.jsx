@@ -6,6 +6,12 @@ export const metadata = {
   description: 'Métricas urbanas y gemelo digital explorables de Medellín.'
 };
 
+// Barra del navegador del color de fondo y controles nativos (selectores, barras de desplazamiento) en oscuro.
+export const viewport = {
+  themeColor: '#272822',
+  colorScheme: 'dark'
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="es">

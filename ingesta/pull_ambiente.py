@@ -157,6 +157,26 @@ def sismos(t):
                 nota=f'{mayor["fecha"].isoformat()}, {mayor["lugar"]}, a {mayor["profundidad_km"]} km de profundidad.')
 
 
+# ---------------------------------------------------------------- clima de la cabecera (Open-Meteo)
+
+OPEN_METEO = 'https://api.open-meteo.com/v1/forecast'
+# Las mismas variables que pide el proxy /api/ambiente/clima (src/app/api/ambiente/[...ruta]/route.js).
+CLIMA_ACTUAL = 'temperature_2m,relative_humidity_2m,apparent_temperature,is_day,precipitation,weather_code,wind_speed_10m'
+
+
+def clima(t):
+    """El clima de la cabecera se lee en vivo y no se guarda en el lago; aquí solo se declara y se prueba la fuente."""
+    with t.bloque('open-meteo'):
+        params = {'latitude': CENTRO[0], 'longitude': CENTRO[1], 'current': CLIMA_ACTUAL, 'timezone': 'America/Bogota'}
+        t.fuente('open-meteo', 'Clima actual en el centro de Medellín (modelo meteorológico, no estación)',
+                 'Open-Meteo · API de pronóstico', f'{OPEN_METEO}?{urllib.parse.urlencode(params)}',
+                 uso='Reloj y clima de la cabecera (lectura en vivo). Es la salida de modelos meteorológicos para la '
+                     'celda del centro de Medellín, actualizada cada 15 minutos; las mediciones de estaciones están '
+                     'en Ambiente y satélite (SIATA).')
+        if json_url(OPEN_METEO, params).get('current', {}).get('temperature_2m') is None:
+            raise RuntimeError('Open-Meteo respondió sin temperatura actual')
+
+
 # ---------------------------------------------------------------- mapa de ruido del AMVA
 
 def limite_medellin():
@@ -247,6 +267,7 @@ def main():
     t = Tema('ambiente', 'Ambiente y satélite')
     redes(t)
     sismos(t)
+    clima(t)
     ruido_amva(t, limite_medellin())
     satelite(t)
     t.escribir()

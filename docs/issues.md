@@ -31,7 +31,7 @@ Hoja de ruta para llevar la app a la estructura de [Cerebro Lima](https://cerebr
 | 13 | [Escucha social](#13-escucha-social) | 0 | ☑ |
 | 14 | [Panorama y diagnóstico territorial](#14-panorama-y-diagnóstico-territorial) | 1–12 | ☑ |
 | 15 | [Fuentes y método](#15-fuentes-y-método) | 0 | ☑ |
-| 16 | [Experiencia general: buscador, clima y presentación](#16-experiencia-general-buscador-clima-y-presentación) | 14 | ☐ |
+| 16 | [Experiencia general: buscador, clima y presentación](#16-experiencia-general-buscador-clima-y-presentación) | 14 | ☑ |
 
 Panorama va casi al final porque resume las cifras ancla de todas las demás secciones.
 
@@ -596,10 +596,43 @@ Se probó cada sección en un Chrome sin ventana, a 1400 y a 390 px, haciendo cl
 ## 16. Experiencia general: buscador, clima y presentación
 
 **Tareas**
-- [ ] Buscador `⌘K` / `Ctrl+K` que encuentre secciones, cifras y lugares del mapa.
-- [ ] Reloj y clima actual de Medellín en la cabecera (Open-Meteo).
-- [ ] Estado del lago en la barra lateral, con temas cargados y fecha de prueba.
-- [ ] Modo presentación que recorra las secciones a pantalla completa.
-- [ ] Navegación con `#hash` por sección y botón atrás funcional.
-- [ ] Revisión de accesibilidad y rendimiento en móvil.
-- [ ] Cerebro Lima tiene una pantalla de clave de acceso. Decidir si se quiere una; por ahora no se implementa.
+- [x] Buscador `⌘K` / `Ctrl+K` que encuentre secciones, cifras y lugares del mapa.
+- [x] Reloj y clima actual de Medellín en la cabecera (Open-Meteo).
+- [x] Estado del lago en la barra lateral, con temas cargados y fecha de prueba.
+- [x] Modo presentación que recorra las secciones a pantalla completa.
+- [x] Navegación con `#hash` por sección y botón atrás funcional.
+- [x] Revisión de accesibilidad y rendimiento en móvil.
+- [x] Cerebro Lima tiene una pantalla de clave de acceso. Decidir si se quiere una; por ahora no se implementa.
+
+**Resultado (6 oct 2026)**
+- La cabecera, la barra lateral y la navegación salen de `page.jsx` a `src/components/shell/` (buscador, reloj y clima, estado del lago y presentación). La lógica sin interfaz está en tres módulos puros: `src/lib/ruta.js` (hash ↔ sección), `src/lib/buscador.js` (índice de secciones y cifras) y `src/lib/clima.js` (códigos de la OMM, hora de Medellín).
+- **Buscador (`⌘K` / `Ctrl+K`, o el botón "Buscar" de la cabecera):**
+  - Busca en tres grupos: las 14 secciones (por su nombre o por palabras de su contenido: "aire" lleva a Ambiente, "presupuesto" a Municipio), las 213 cifras de los 12 temas del lago (por su etiqueta, su tema o su sección; cada resultado trae su valor, su unidad, su vigencia y su estado) y los 3.934 lugares del buscador del Panorama. Sin tildes ni mayúsculas y por varias palabras. Sin texto, lista las secciones.
+  - Los lugares se descargan la primera vez que se abre (1,9 MB) y quedan para el buscador del Panorama, y al revés: `cargarLugares()` en `lugares.js` guarda una sola descarga.
+  - Al elegir una **sección**, va a ella. Una **cifra** abre su sección, baja hasta su tarjeta y la resalta; 131 de las 213 cifras tienen tarjeta. Las demás titulan una gráfica, están detrás de un selector (los delitos de Seguridad distintos del que está elegido) o son del gemelo: en ese caso la sección se abre arriba y un aviso repite la cifra con su vigencia y su estado. Un **lugar** abre el gemelo 3D: un punto queda marcado con su nombre, un barrio o una vereda enciende la capa de sus límites y una comuna o un corregimiento se encuadra.
+  - Es un `<dialog>` nativo (el foco queda adentro y vuelve al cerrarlo) con la lista como `combobox`/`listbox`: ↑ ↓ eligen, Enter abre, Esc o un clic afuera cierran.
+- **Reloj y clima:** la hora es la de Medellín aunque quien mira esté en otra zona horaria. El clima es Open-Meteo pedido por el proxy en vivo (`/api/ambiente/clima`, caché de 15 minutos, la frecuencia del modelo), así que todos los visitantes comparten una lectura. En la cabecera van la hora, un símbolo y la temperatura; al tocarla se abre el detalle: tiempo (código de la OMM), sensación térmica, humedad, viento, precipitación de los 15 minutos previos, la hora del valor, la celda del modelo (6,221° N, 75,552° O, 1.486 m), que es un modelo meteorológico y no una estación, su estado, "Ver fuente" y un enlace a las estaciones del SIATA en Ambiente. Si Open-Meteo no responde, se ve la última lectura guardada y lo dice.
+  - Open-Meteo entra al catálogo como fuente de Ambiente (`open-meteo`, `observado`, con su uso): ahora son 93 datasets, 88 observados. `pull_ambiente.py` la declara y prueba que responda con temperatura. Para no correr toda la ingesta de Ambiente (que habría cambiado todas sus cifras en vivo) se corrió solo ese bloque, se agregó la fuente a `ambiente.json` y se regeneró el catálogo con `construir_catalogo`; la próxima ingesta completa la produce igual.
+- **Estado del lago:** al pie de la barra lateral sigue el resumen (temas cargados de los del índice y el rango de fechas de prueba); al tocarlo se despliega cada tema con la fecha de prueba del archivo que llegó, o "no cargó" en rosa, y un enlace a "93 fuentes · método". Si el lago no carga, dice por qué. En el celular está en el menú.
+- **Modo presentación ("▶ Presentar"):** recorre las 14 secciones, 25 segundos cada una, y vuelve a empezar. Pide pantalla completa (donde el navegador no la permite, como Safari en el iPhone, sigue sin ella) y esconde la barra lateral y la cabecera. Abajo queda una barra con anterior, la sección y su número, pausa, siguiente, salir y el avance. Teclas: ← → (y Av Pág / Re Pág, las de un control de diapositivas), P para pausar y Esc para salir; salir de la pantalla completa también sale de la presentación. Se pausa sola si alguien toca la pantalla o se desplaza, para no cambiarle la sección mientras la mira. No llena el historial.
+- **Navegación con `#hash`:** cada sección es una entrada del historial (antes se reemplazaba la dirección y el botón atrás salía de la app). Atrás y adelante vuelven a la sección y a la altura donde se dejó, también después de "Ver fuente", que ahora es `#sources?fuente=<id>`. El "Ver … en el gemelo 3D" del Panorama usa la misma navegación, la pestaña lleva el nombre de la sección y una dirección como `/#tourism` abre esa sección.
+  - Next.js guarda su propio estado en cada entrada del historial y recarga la página si al volver encuentra un estado que no es suyo: la altura se guarda junto al de Next, nunca en su lugar.
+- **Accesibilidad y rendimiento en móvil** (Lighthouse 13, emulación de celular, antes → después):
+
+  | Sección | Rendimiento | Accesibilidad | Bloqueo del hilo principal |
+  |---|---|---|---|
+  | Panorama | 57 → 79 | 92 → 100 | 1.260 → 160 ms |
+  | Gente | 92 → 91 | 91 → 96 | 40 → 40 ms |
+  | Municipio | 77 (después) | 100 (después) | 220 ms (después) |
+
+  - **Contraste:** el gris de texto secundario (`--dim`) pasa de `#898a7d` a `#a4a598`: tenía 3,7:1 sobre las tarjetas y ahora pasa de 4,5:1 sobre el fondo y las tarjetas. Las gráficas usan el mismo gris. En la fila elegida de la tabla de sensibilidad el texto chico tampoco llegaba.
+  - **Mapas de territorios:** se crean cuando su tarjeta está a menos de 300 px de verse. En el celular casi todos quedan más abajo, y crearlos al abrir la sección era lo que bloqueaba el Panorama. Se probó que los mapas de Panorama, Municipio, Servicios, Territorio (4) y Atlas se crean al bajar y se dibujan.
+  - **Teclado y lectores de pantalla:** enlace "Saltar al contenido", la sección activa marcada con `aria-current`, el foco pasa al contenido al cambiar de sección, botones de la cabecera con nombre accesible, botones de la tabla de sensibilidad de 24 px de alto, `prefers-reduced-motion` sin transiciones, y `viewport` con el color del tema y esquema oscuro (controles nativos oscuros).
+  - **Lo que queda:** las filas de la pirámide de Gente miden 12 px (Lighthouse pide 24); la misma información está en "Ver como tabla", que es la excepción de control equivalente de WCAG 2.5.8. El LCP sigue en unos 5 s en la emulación de 4G lento: las secciones se arman en el navegador después de leer el índice del lago y luego sus 12 temas y el catálogo (160 KB comprimidos). Bajarlo pide armar la portada en el servidor o partir el lago, y no se hizo en esta issue.
+- **Clave de acceso: no se implementa.** Todo lo que muestra la app son datos abiertos, y el lago son archivos públicos (`/data/lago/*.json`): una clave en la interfaz no protegería nada, porque los archivos se pueden abrir sin pasar por ella. Si alguna vez hace falta restringir el acceso, la forma que sí protege es la del despliegue (la protección por contraseña de Vercel o un proxy con autenticación), no una pantalla dentro de la app.
+- Correcciones que salieron al probar:
+  - En el buscador, Esc solo borraba el texto: un campo de búsqueda usa la primera Esc para eso. Ahora cierra de una vez.
+  - En el celular el nombre de la sección quedaba cortado ("Panor…"): la cabecera del celular deja el nombre, el buscador, la hora con la temperatura y la presentación; "Fuentes" sigue en el menú.
+- Pruebas: `tests/buscador.test.mjs` (7): leer y escribir la ruta (incluido un `?` dentro de la consulta y un hash desconocido), la fuente pedida y el título; que cada tema del lago tenga sección y cada cifra entre al índice con sus campos; la búsqueda sin tildes, por palabra clave, con varias palabras y su orden; la consulta del gemelo para un punto, un barrio y una comuna; los códigos de la OMM, la hora de Medellín desde UTC y la lectura de una respuesta de Open-Meteo.
+- `npm run qa` sale sin hallazgos en las 14 secciones a 1400 y a 390 px. Además se probó con clics y teclas reales, en las dos anchuras: `Ctrl+K`, buscar y elegir con flechas y Enter una cifra con tarjeta (desempleo: baja hasta la tarjeta y la resalta) y una sin tarjeta (homicidios 2025: aviso), un lugar (la estación Estadio: el gemelo la marca), una búsqueda sin resultados y Esc; el detalle del clima y Esc; abrir el estado del lago (en el celular, desde el menú); Gente → Economía, bajar, "Ver fuente", atrás (vuelve a Economía a la misma altura), atrás, atrás y adelante; una dirección directa (`/#tourism`); la presentación con pantalla completa, → ←, P, el avance automático y Esc. También en modo desarrollo, sin avisos de React.
+- Visto una vez al probar: el aviso `wood-pattern` de MapLibre puede salir si el gemelo se cierra antes de terminar de cargar su estilo (la presentación pasa por él en un segundo y medio en la prueba). No afecta lo que se ve y no siempre sale.

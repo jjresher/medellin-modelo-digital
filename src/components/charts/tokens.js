@@ -7,7 +7,7 @@ export const surface = '#30312b';
 export const line = '#56574d';
 export const textPrimary = '#f8f8f2';
 export const textSecondary = '#b9b9ac';
-export const textMuted = '#898a7d';
+export const textMuted = '#a4a598'; // el mismo --dim de globals.css
 export const grid = '#454640';
 
 export const accent = { pink: '#f92672', green: '#a6e22e', cyan: '#66d9ef', yellow: '#e6db74', orange: '#fd971f', purple: '#ae81ff' };

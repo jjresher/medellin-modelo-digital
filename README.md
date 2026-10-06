@@ -12,6 +12,8 @@ npm install      # solo la primera vez
 npm run dev      # abre http://localhost:3000
 ```
 
+En la app: **⌘K / Ctrl+K** busca secciones, cifras del lago y lugares del mapa; cada sección tiene su dirección (`/#people`, `/#twin?v=…`) y el botón atrás del navegador vuelve a la anterior; **▶ Presentar** recorre las secciones a pantalla completa (← →, P para pausar, Esc para salir).
+
 ## Calidad del código
 
 ```bash

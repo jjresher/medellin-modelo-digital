@@ -2,7 +2,8 @@
 // los puntos de las capas del mapa (estaciones, atractivos, bibliotecas, patrimonio, equipamientos y sedes educativas).
 // Cada resultado dice en qué comuna o corregimiento está; un punto fuera de los 21 territorios no aparece.
 //
-// Este módulo no importa nada: lo usan la vista del Panorama y las pruebas (tests/diagnostico.test.mjs).
+// Este módulo no importa nada: lo usan la vista del Panorama, el buscador general (⌘K) y las pruebas
+// (tests/diagnostico.test.mjs).
 
 // Capas puntuales de public/data/geo/capas que entran al buscador, con el tipo que se muestra junto al nombre.
 export const CAPAS_LUGARES = [
@@ -154,4 +155,28 @@ export function buscarLugares(indice, texto, limite = 8) {
     if (resultados.length === limite) break;
   }
   return resultados;
+}
+
+// Una sola descarga de los límites y las capas (1,9 MB) para el Panorama y el buscador general: la promesa se guarda y
+// la comparten los dos. Si falla, se olvida para que el siguiente intento la pida de nuevo.
+let cargando = null;
+export function cargarLugares() {
+  if (!cargando) {
+    const leer = (ruta) => fetch(ruta).then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))));
+    // Una capa que falte no impide buscar en las demás.
+    cargando = Promise.all([
+      leer('/data/geo/comunas.geojson'),
+      leer('/data/geo/barrios.geojson'),
+      leer('/data/geo/veredas.geojson'),
+      ...CAPAS_LUGARES.map(([archivo]) => leer(`/data/geo/capas/${archivo}.geojson`).catch(() => null))
+    ])
+      .then(([comunas, barrios, veredas, ...capas]) =>
+        indiceDeLugares({ comunas, barrios, veredas, capas: CAPAS_LUGARES.map(([archivo], i) => [archivo, capas[i]]) })
+      )
+      .catch((error) => {
+        cargando = null;
+        throw error;
+      });
+  }
+  return cargando;
 }

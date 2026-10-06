@@ -315,7 +315,7 @@ y conserva la última copia (ver `src/app/api/ambiente`).
 | Luces nocturnas VIIRS | `https://gibs.earthdata.nasa.gov/wmts/epsg3857/best/VIIRS_SNPP_DayNightBand_At_Sensor_Radiance/default/{fecha}/GoogleMapsCompatible_Level8/{z}/{y}/{x}.png` | Diaria | Con CORS. Solo hay teselas hasta el nivel 8 (~2 km por píxel): se lee a escala del valle, no de barrio |
 | Sentinel-2 sin nubes | `https://tiles.maps.eox.at/wmts/1.0.0/s2cloudless-2023_3857/default/g/{z}/{y}/{x}.jpg` | 2023 | Con CORS. Licencia **CC BY-NC-SA**: solo uso no comercial |
 | Sismos | USGS FDSN `https://earthquake.usgs.gov/fdsnws/event/1/query` | En vivo | Con CORS. `latitude`/`longitude`/`maxradiuskm` para el radio y `minmagnitude`; 1.533 eventos de magnitud 4 o más a 300 km desde 2000. La web del SGC devuelve 403 a clientes automáticos |
-| Clima actual | Open-Meteo | En vivo | Sin llave |
+| **Clima actual (cabecera)** | `https://api.open-meteo.com/v1/forecast?latitude=6.2476&longitude=-75.5686&current=…&timezone=America/Bogota` | **En vivo**, cada 15 min | Sin llave y con CORS, pero se pide por el proxy (`/api/ambiente/clima`, caché de 15 minutos) para que todos los visitantes compartan una lectura. Es la **salida de modelos meteorológicos** para la celda que contiene el punto (responde 6,221° N, 75,552° O, a 1.486 m), no una estación: la cabecera lo dice. Trae temperatura, sensación térmica, humedad, viento a 10 m, precipitación de los 15 minutos previos y el código de tiempo de la OMM. Estado `observado` (dato abierto consultado en vivo). **En uso** (issue #16) |
 
 **No usar** `siata.gov.co/EntregaData1/*.json`: aunque sigue en línea, el histórico termina el 31 de julio de 2024 y el archivo "Last" el 4 de septiembre de 2024.
 

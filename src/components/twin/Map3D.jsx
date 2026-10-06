@@ -234,6 +234,13 @@ export default function Map3D({ gemelo, lentes, catalogo }) {
       });
       mapRef.current = map;
       silenciarImagenesFaltantes(map);
+      // Un lugar elegido en el buscador general: marca con su nombre (texto plano, no HTML).
+      if (shared.punto) {
+        const marca = new maplibregl.Marker({ color: '#e6db74' }).setLngLat(shared.punto);
+        if (shared.lugar) marca.setPopup(new maplibregl.Popup({ offset: 30, closeButton: false, closeOnClick: false }).setText(shared.lugar));
+        marca.addTo(map);
+        if (shared.lugar) marca.togglePopup();
+      }
       const fitInitialView = () => {
         if (!active || mapRef.current !== map) return;
         map.resize();

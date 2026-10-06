@@ -3,7 +3,7 @@
 import { useMemo, useRef, useState } from 'react';
 import { PRIORIDADES, clasificar, conclusion, construirDiagnostico, frenteAMediana, mediana, proporciones, sensibilidad } from '../lib/diagnostico';
 import { cifrasAncla, useJsonEstatico } from '../lib/lago';
-import { CAPAS_LUGARES, buscarLugares, indiceDeLugares, limites } from '../lib/lugares';
+import { buscarLugares, cargarLugares, limites } from '../lib/lugares';
 import { puestos } from '../lib/atlas';
 import BarChart from './charts/BarChart';
 import { accent, textMuted } from './charts/tokens';
@@ -22,12 +22,12 @@ const decimal = (valor, decimales = 1) =>
 const conUnidad = (valor, ind) => `${formatoIndicador(valor, ind)} ${unidadCorta(ind)}`.trim();
 const porcentaje = (p) => `${Math.round(p * 100)} %`;
 
-// Cámara del gemelo encuadrada en un territorio, con la lente "Cruce urbano" (formato de compartir vista: #twin?v=…).
+// Consulta del gemelo encuadrada en un territorio, con la lente "Cruce urbano" (formato de compartir vista: #twin?v=…).
 function vistaEnGemelo(geometria) {
   const [[o, s], [e, n]] = limites(geometria);
   const lado = Math.max(e - o, n - s);
   const zoom = Math.min(14.5, Math.max(11.5, Math.log2(360 / lado)));
-  return `twin?v=${((o + e) / 2).toFixed(5)},${((s + n) / 2).toFixed(5)},${zoom.toFixed(2)},-18,55&lente=cruce`;
+  return `v=${((o + e) / 2).toFixed(5)},${((s + n) / 2).toFixed(5)},${zoom.toFixed(2)},-18,55&lente=cruce`;
 }
 
 function Selector({ rotulo, zonas, valor, onChange }) {
@@ -58,18 +58,7 @@ function BuscadorLugar({ zonas, onElegir }) {
     if (indice.estado === 'cargando' || indice.estado === 'listo') return;
     setIndice({ estado: 'cargando', datos: null });
     try {
-      const leer = (ruta) => fetch(ruta).then((r) => (r.ok ? r.json() : Promise.reject(new Error(String(r.status)))));
-      // Una capa que falte no impide buscar en las demás.
-      const [comunas, barrios, veredas, ...capas] = await Promise.all([
-        leer('/data/geo/comunas.geojson'),
-        leer('/data/geo/barrios.geojson'),
-        leer('/data/geo/veredas.geojson'),
-        ...CAPAS_LUGARES.map(([archivo]) => leer(`/data/geo/capas/${archivo}.geojson`).catch(() => null))
-      ]);
-      setIndice({
-        estado: 'listo',
-        datos: indiceDeLugares({ comunas, barrios, veredas, capas: CAPAS_LUGARES.map(([archivo], i) => [archivo, capas[i]]) })
-      });
+      setIndice({ estado: 'listo', datos: await cargarLugares() });
     } catch {
       setIndice({ estado: 'error', datos: null });
     }
@@ -262,9 +251,7 @@ function Diagnostico({ diagnostico, lago, onSource, onTwin, onCifras }) {
     setLugar(l);
   };
   const irAlGemelo = () => {
-    if (!geometriaA) return onTwin();
-    window.location.hash = vistaEnGemelo(geometriaA);
-    window.scrollTo({ top: 0 });
+    onTwin(geometriaA ? vistaEnGemelo(geometriaA) : '');
   };
   const copiar = async () => {
     const texto = `${lectura.frases.join(' ')} Diagnóstico derivado de los índices de las lentes del gemelo (lago ${lago.temas.lentes.probado}); fuentes y método en el Modelo Digital de Medellín.`;
@@ -616,7 +603,7 @@ export default function PanoramaView({ lago, onSource, onTwin }) {
             dónde sale cada cifra.
           </p>
         </div>
-        <button className="primary-action" onClick={onTwin}>
+        <button className="primary-action" onClick={() => onTwin()}>
           Explorar gemelo 3D <span>→</span>
         </button>
       </div>
