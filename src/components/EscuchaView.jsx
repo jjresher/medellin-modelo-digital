@@ -179,6 +179,14 @@ function RankingArticulos({ filas, definicion, fuente, tema, onSource, titulo, a
           </a>
         </h3>
         <table className="chart-table ficha-tabla">
+          {/* Encabezados para lectores de pantalla: la tabla se lee como ficha y no los muestra. */}
+          <thead className="solo-lector">
+            <tr>
+              <th>Medida</th>
+              <th>Periodo</th>
+              <th>Valor</th>
+            </tr>
+          </thead>
           <tbody>
             <tr>
               <td>Vistas</td>

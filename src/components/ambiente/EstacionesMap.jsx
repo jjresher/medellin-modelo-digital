@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCerca } from '../../lib/cerca';
 import { ajustesComunes, maplibregl, prepararMaplibre } from '../../lib/maplibre';
 import { ESCALA_ICA, categoriaIca, decibeles, marcaSiata, municipioVisible, numero } from '../../lib/vivo';
 
@@ -113,7 +114,11 @@ export default function EstacionesMap({ aire, niveles, pluvios, ruido, height = 
     [aire, niveles, pluvios, ruido]
   );
 
+  // El mapa se crea al acercarse a la pantalla (src/lib/cerca.js).
+  const cerca = useCerca(container);
+
   useEffect(() => {
+    if (!cerca) return undefined;
     let activo = true;
     prepararMaplibre();
     const map = new maplibregl.Map({
@@ -229,7 +234,7 @@ export default function EstacionesMap({ aire, niveles, pluvios, ruido, height = 
       map.remove();
       mapRef.current = null;
     };
-  }, [diaViirs]);
+  }, [diaViirs, cerca]);
 
   // Cada lectura en vivo se vuelca en su fuente cuando llega o se refresca.
   useEffect(() => {

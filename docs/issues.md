@@ -52,6 +52,33 @@ Se probó cada sección en un Chrome sin ventana, a 1400 y a 390 px, haciendo cl
   - De paso: la tabla de ocupación hotelera por zona decía "79,6 % %".
 - **Sigue pendiente de revisar a mano:** la fluidez del gemelo en un portátil normal (issues 1, 2 y 4).
 
+### Auditoría final (6 oct 2026)
+
+Con las 16 issues hechas se revisó el proyecto entero. `npm run qa` se corrió en las 14 secciones a 1400, 1200, 1180, 1024, 768 y 390 px; antes solo se probaba a 1400 y 390. Además se recorrieron con clics las funciones de la issue 16 y se midió cada sección con Lighthouse en emulación de celular. Lo que salió y se corrigió:
+
+- **Anchuras de tableta y portátil chico (900–1280 px), que nunca se habían probado:**
+  - En Fuentes, la tabla del catálogo medía 94.000 px de alto a 1024 px: con anchos fijos en porcentaje, la columna "Uso en la app" quedaba de 27 px y el texto caía letra por letra. Ahora la tabla pasa a fichas cuando su tarjeta mide menos de 900 px (una consulta de contenedor, no de pantalla), y a 1024 px mide 20.900 px.
+  - Entre 900 y 1180 px la barra lateral completa dejaba 620–800 px de contenido y las tarjetas de a dos quedaban de ~320 px: la tabla de sensibilidad del Panorama se salía de su tarjeta, las fichas del Atlas recortaban la columna "Puesto" y un selector de Municipio se salía. La barra lateral queda de solo íconos hasta 1180 px (antes, hasta 900), con el nombre de cada sección al pasar el puntero.
+  - En el Atlas, la última ficha de cada columna se estiraba para igualar las columnas y dejaba 94–154 px vacíos al pie. Ahora las filas de su tabla se reparten ese alto, como en las demás rejillas.
+- **Gemelo 3D:**
+  - Después de "Compartir vista" (que reescribe la dirección sin navegar), abrir el buscador o el menú recargaba el mapa entero y se perdía lo que se estaba mirando. El gemelo se vuelve a montar solo al navegar a una vista nueva (un lugar del buscador, el Panorama, atrás o adelante); se probó que esas tres siguen moviendo el mapa.
+  - En el celular, la atribución de MapLibre arrancaba desplegada debajo de "Restablecer vista" y "Ayuda", y plegada, su botón quedaba detrás de "Ayuda". Ahora se pliega al cargar, como en los otros mapas, y la columna de herramientas sube 12 px.
+- **Accesibilidad (Lighthouse):**
+  - Los números de la matriz de Correlaciones tenían 3,8:1 sobre las celdas de intensidad media. Se calculó el contraste contra la mezcla real de cada celda: con blanco hasta el 53 % de intensidad en naranja (44 % en cian) y negro desde ahí, todas pasan de 4,5:1.
+  - El rosa de la paleta tiene 3,5:1 como texto chico sobre las tarjetas. Los textos rosados (números de los pasos del método, número de fila del catálogo, rótulos del gemelo, temas que no cargaron) usan una variante de rosa para texto (`--pink-texto`, 4,9:1); el rosa original se queda en bordes, fondos e íconos.
+  - Botones de las tablas de Correlaciones y enlaces a los archivos del lago de al menos 24 px de alto; la ficha de un artículo en Escucha social tiene encabezados para lectores de pantalla.
+- **Rendimiento en el celular:** los mapas de Seguridad y de Ambiente también se crean al acercarse a la pantalla, como los de territorios (un solo hook, `src/lib/cerca.js`). Seguridad pasa de 56 a 78 en rendimiento (bloqueo del hilo principal de 1.320 a 190 ms) y Ambiente de 34 a 56 (de 1.100 a 160 ms). Accesibilidad en Lighthouse: 100 en las 14 secciones salvo Gente (96, por la pirámide).
+- **Build y despliegue:** las rutas `/api/ortofoto` y `/api/ambiente` metían en su paquete de servidor la caché local (1.571 teselas de ortofoto), de donde salían dos avisos en cada `npm run build`. Un comentario `turbopackIgnore` en la ruta de la caché lo evita y el build sale sin avisos. En Vercel no pasaba (la caché no está en git), pero un despliegue desde esta carpeta la habría subido.
+- **Dependencias:** `npm audit fix` actualizó `sharp` (0.35.5) y `source-map-js` (1.2.2), que trae Next, por dos vulnerabilidades altas; `next` sigue en 16.3.8 y `package.json` no cambia. Lo que se despliega queda sin vulnerabilidades. Quedan 5 en `eslint-config-next`, que solo se usa en desarrollo, y su arreglo pide un cambio mayor (`--force`).
+- **Limpieza:** se quitó la vista "módulo en preparación", que ya no podía aparecer porque las 14 secciones existen. En Patrimonio, "el barrio Prado concentra buena parte" pasa a "266 de los 397 pertenecen al sector declarado del barrio Prado", contado en el lago.
+- **`npm run qa`** pasa sin hallazgos en las 14 secciones a 1400, 768 y 390 px con el build final, y a 1200, 1180 y 1024 px con el anterior a los últimos ajustes de accesibilidad y de mapas, y avisa también de franjas vacías de más de 160 px entre bloques. En todas las secciones y anchuras la mayor es la que el diseño deja después de la introducción (118 px en escritorio, 100 px en el celular).
+- **Revisado sin hallazgos:** los 93 enlaces "Ver fuente" responden (los de GDELT limitan las consultas seguidas; con pausa responden 200). Todo el CSS se usa, no hay notas pendientes ni `console.log`, y no hay frases que califiquen los datos.
+- **Lo que queda, sabido:**
+  - Las filas de la pirámide de Gente miden 12 px; la misma información está en "Ver como tabla" (excepción de control equivalente de WCAG 2.5.8).
+  - En emulación de 4G lento, el LCP es de 3,5–5 s (6,8 s en Ambiente, que espera las lecturas en vivo del SIATA), porque las secciones se arman en el navegador después de leer el lago.
+  - El gemelo 3D pesa en un celular de gama media (1.078.553 construcciones en 3D) y el Atlas tiene su mapa arriba de todo.
+  - La fluidez del gemelo en un portátil normal se revisa a mano.
+
 
 ---
 

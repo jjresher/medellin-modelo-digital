@@ -234,6 +234,9 @@ export default function Map3D({ gemelo, lentes, catalogo }) {
       });
       mapRef.current = map;
       silenciarImagenesFaltantes(map);
+      // La atribución compacta arranca desplegada y su texto pasaba por debajo de los botones de abajo: se pliega al
+      // cargar, como en los mapas de las secciones (sigue a un toque en «i»).
+      map.once('load', () => map.getContainer().querySelector('.maplibregl-compact-show')?.classList.remove('maplibregl-compact-show'));
       // Un lugar elegido en el buscador general: marca con su nombre (texto plano, no HTML).
       if (shared.punto) {
         const marca = new maplibregl.Marker({ color: '#e6db74' }).setLngLat(shared.punto);

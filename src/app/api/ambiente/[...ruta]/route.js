@@ -50,7 +50,8 @@ const SERIES = {
 // Segundos. Las lecturas del SIATA se refrescan cada 10 minutos; el clima de Open-Meteo, cada 15.
 const TTL = { sismos: 1800, clima: 900 };
 const TTL_DEFECTO = 600;
-const CACHE_DIR = path.join(process.cwd(), '.cache', 'ambiente');
+// La caché es local (fuera de git): el comentario evita que el build la meta en el paquete de la ruta.
+const CACHE_DIR = path.join(/* turbopackIgnore: true */ process.cwd(), '.cache', 'ambiente');
 const UA = 'Mozilla/5.0 (X11; Linux x86_64) Chrome/128 medellin-modelo-digital';
 
 const memoria = new Map();

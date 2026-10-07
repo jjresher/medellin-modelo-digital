@@ -6,7 +6,8 @@ import path from 'node:path';
 // se guarda en disco y se sirve con caché larga: una ortofoto publicada no cambia.
 const SERVICIO = (anio) => `https://www.medellin.gov.co/servidormapas/rest/services/ServiciosCiudad/IMAGEN_WEBM_${anio}/MapServer/tile`;
 const ANIOS = new Set(['2016', '2019', '2021', '2024']);
-const CACHE = path.join(process.cwd(), '.cache', 'ortofoto');
+// La caché es local (fuera de git): el comentario evita que el build la meta en el paquete de la ruta.
+const CACHE = path.join(/* turbopackIgnore: true */ process.cwd(), '.cache', 'ortofoto');
 const UN_ANIO = 60 * 60 * 24 * 365;
 
 const entero = (valor) => /^\d{1,8}$/.test(valor);

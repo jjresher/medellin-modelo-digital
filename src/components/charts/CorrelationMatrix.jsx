@@ -1,11 +1,13 @@
 'use client';
 
 import { Fragment, useState } from 'react';
-import { diverging, divergingColor, ink, textPrimary } from './tokens';
+import { diverging, divergingColor } from './tokens';
 
-// Sobre un fondo ya claro el número va en tinta oscura; si no, en claro. El naranja a media intensidad es más oscuro
-// que el cian, así que cambia de tinta más tarde.
-const colorTexto = (valor) => (Math.abs(valor) >= (valor < 0 ? 0.5 : 0.62) ? ink : textPrimary);
+// Sobre un fondo ya claro el número va en negro; si no, en blanco. Los umbrales salen de calcular el contraste contra la
+// mezcla de divergingColor: con blanco y negro puros todas las celdas llegan a 4,5:1 (WCAG AA); con la tinta y el papel
+// de la paleta, las de intensidad media no llegaban. El naranja a media intensidad es más oscuro que el cian, así que
+// cambia de color más tarde.
+const colorTexto = (valor) => (Math.min(1, Math.abs(valor)) >= (valor < 0 ? 0.44 : 0.53) ? '#000' : '#fff');
 
 /**
  * Matriz simétrica de coeficientes entre −1 y +1. Cada celda es su propio botón: muestra el coeficiente, se colorea con

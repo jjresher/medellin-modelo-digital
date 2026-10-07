@@ -357,12 +357,15 @@ function Patrimonio({ tema, onSource }) {
   if (!cifras.length) return null;
   const texto = filtro.trim().toLowerCase();
   const visibles = bienes.filter((b) => !texto || `${b.nombre} ${b.direccion} ${b.territorio} ${b.sector} ${b.tipo}`.toLowerCase().includes(texto));
+  // Cuántos bienes pertenecen al sector declarado del barrio Prado, contados en el lago.
+  const enPrado = bienes.filter((b) => b.sector === 'Barrio Prado').length;
   return (
     <section className="sec-block">
       <Encabezado eyebrow="SECRETARÍA DE CULTURA CIUDADANA" titulo="Patrimonio" vigencia={tema.cifras.bic?.vigencia} />
       <p className="sec-note">
-        Bienes de interés cultural (BIC) declarados que recoge el POT: edificaciones, conjuntos, espacios públicos y zonas arqueológicas. El barrio
-        Prado concentra buena parte de ellos por su declaratoria como sector.
+        Bienes de interés cultural (BIC) declarados que recoge el POT: edificaciones, conjuntos, espacios públicos y zonas arqueológicas.
+        {enPrado > 0 &&
+          ` ${enPrado.toLocaleString('es-CO')} de los ${bienes.length.toLocaleString('es-CO')} pertenecen al sector declarado del barrio Prado.`}
       </p>
       <div className="chart-grid">
         <MapaIndicador tema={tema} onSource={onSource} color={accent.purple} opciones={[['bic', 'Bienes']]} />

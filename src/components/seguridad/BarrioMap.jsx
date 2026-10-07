@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { useCerca } from '../../lib/cerca';
 import { ajustesComunes, maplibregl, prepararMaplibre } from '../../lib/maplibre';
 
 // Coropletico por barrio y vereda: no es un mapa de calor de puntos (kernel de densidad), sino el
@@ -29,7 +30,11 @@ export default function BarrioMap({ datos, categoria, height = 420 }) {
     categoriaRef.current = categoria;
   }, [datos, categoria]);
 
+  // El mapa se crea al acercarse a la pantalla (src/lib/cerca.js).
+  const cerca = useCerca(container);
+
   useEffect(() => {
+    if (!cerca) return undefined;
     let activo = true;
     prepararMaplibre();
     const map = new maplibregl.Map({
@@ -106,7 +111,7 @@ export default function BarrioMap({ datos, categoria, height = 420 }) {
       map.remove();
       mapRef.current = null;
     };
-  }, []);
+  }, [cerca]);
 
   useEffect(() => {
     const map = mapRef.current;

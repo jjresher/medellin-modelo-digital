@@ -65,11 +65,14 @@ const TerritorioView = dynamic(() => import('../components/TerritorioView'), {
   loading: () => <div className="view-loading">Cargando territorio y cultura…</div>
 });
 
-// Cada sección implementada recibe del lago el tema (o temas) que necesita. Las que no están aquí muestran "en preparación".
+// Cada sección recibe del lago el tema (o temas) que necesita. El Panorama se arma aparte (necesita navegar al gemelo).
 const vistas = {
-  // La clave monta otro gemelo cuando cambia la vista pedida (un lugar del buscador, el botón atrás): el mapa lee la
-  // cámara y las capas del hash solo al montarse.
-  twin: ({ lago, ruta }) => <DigitalTwinView key={ruta.query} gemelo={lago.temas.gemelo} lentes={lago.temas.lentes} catalogo={lago.catalogo} />,
+  // El mapa lee la cámara y las capas del hash solo al montarse: la clave monta otro gemelo cuando se navega a una vista
+  // (un lugar del buscador, el Panorama, atrás o adelante). No sale del hash, porque "Compartir vista" lo reescribe sin
+  // navegar y cualquier otro cambio de la página habría recargado el mapa.
+  twin: ({ lago, vistaGemelo }) => (
+    <DigitalTwinView key={vistaGemelo} gemelo={lago.temas.gemelo} lentes={lago.temas.lentes} catalogo={lago.catalogo} />
+  ),
   people: ({ lago, onSource }) => <GenteView tema={lago.temas.demografia} onSource={onSource} />,
   economy: ({ lago, onSource }) => <EconomiaView tema={lago.temas.economia} onSource={onSource} />,
   tourism: ({ lago, onSource }) => <TurismoView tema={lago.temas.turismo} onSource={onSource} />,
@@ -122,6 +125,8 @@ function Sidebar({ active, onNavigate, isOpen, onClose, lago }) {
             key={id}
             className={`nav-item ${active === id ? 'active' : ''}`}
             aria-current={active === id ? 'page' : undefined}
+            // Con la barra de solo íconos (tableta), el nombre aparece al pasar el puntero.
+            title={label}
             onClick={() => {
               onNavigate(id);
               onClose();
@@ -140,16 +145,6 @@ function Sidebar({ active, onNavigate, isOpen, onClose, lago }) {
         }}
       />
     </aside>
-  );
-}
-
-function ComingSoon({ label }) {
-  return (
-    <section className="view upcoming-view">
-      <p className="eyebrow">MÓDULO EN PREPARACIÓN</p>
-      <h1>{label}</h1>
-      <p>Este espacio se integrará al modelo digital en una siguiente entrega.</p>
-    </section>
   );
 }
 
@@ -199,6 +194,7 @@ export default function Home() {
   const [buscando, setBuscando] = useState(false);
   const [presentando, setPresentando] = useState(false);
   const [sinTarjeta, setSinTarjeta] = useState(null);
+  const [vistaGemelo, setVistaGemelo] = useState(0);
   const main = useRef(null);
   const resaltado = useRef(null);
   const active = ruta.id;
@@ -211,6 +207,7 @@ export default function Home() {
     setSinTarjeta(null);
     const destino = hashDe(id, query);
     if (destino !== window.location.hash) {
+      if (id === 'twin') setVistaGemelo((v) => v + 1);
       const url = destino || window.location.pathname;
       if (replace) window.history.replaceState(null, '', url);
       else {
@@ -232,6 +229,7 @@ export default function Home() {
     let espera;
     const alVolver = (e) => {
       window.clearTimeout(espera);
+      setVistaGemelo((v) => v + 1);
       const y = e.state?.scroll ?? 0;
       let intentos = 0;
       const restaurar = () => {
@@ -241,9 +239,13 @@ export default function Home() {
       };
       espera = window.setTimeout(restaurar, 50);
     };
+    // Un hash escrito a mano también es una vista nueva del gemelo.
+    const alEscribir = () => setVistaGemelo((v) => v + 1);
     window.addEventListener('popstate', alVolver);
+    window.addEventListener('hashchange', alEscribir);
     return () => {
       window.removeEventListener('popstate', alVolver);
+      window.removeEventListener('hashchange', alEscribir);
       window.clearTimeout(espera);
     };
   }, []);
@@ -329,8 +331,7 @@ export default function Home() {
           </div>
         </header>
         {active === 'panorama' && <PanoramaView lago={lago} onSource={openSource} onTwin={(query = '') => navigate('twin', { query })} />}
-        {Vista && <Vista lago={lago} ruta={ruta} onSource={openSource} focusId={fuenteDe(ruta)} />}
-        {active !== 'panorama' && !Vista && <ComingSoon label={current} />}
+        {Vista && <Vista lago={lago} vistaGemelo={vistaGemelo} onSource={openSource} focusId={fuenteDe(ruta)} />}
       </main>
       {sinTarjeta && <AvisoCifra cifra={sinTarjeta} onCerrar={() => setSinTarjeta(null)} />}
       {buscando && <Buscador lago={lago} onCerrar={() => setBuscando(false)} onElegir={elegir} />}

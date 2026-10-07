@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCerca } from '../../lib/cerca';
 import { limites } from '../../lib/lugares';
 import { ajustesComunes, maplibregl, prepararMaplibre } from '../../lib/maplibre';
 import { accent, sequential } from '../charts/tokens';
@@ -70,15 +71,8 @@ export default function MapaTerritorios({
     onSelectRef.current = onSelect;
   }, [valores, onSelect]);
 
-  // El mapa (WebGL, estilo y teselas) se crea cuando la tarjeta está a menos de 300 px de verse: en el celular casi todos
-  // los mapas quedan más abajo, y crearlos al abrir la sección ocupaba el hilo principal mientras la página cargaba
-  // (issue #16).
-  const [cerca, setCerca] = useState(false);
-  useEffect(() => {
-    const observador = new IntersectionObserver(([entrada]) => entrada.isIntersecting && setCerca(true), { rootMargin: '300px 0px' });
-    observador.observe(container.current);
-    return () => observador.disconnect();
-  }, []);
+  // El mapa se crea al acercarse a la pantalla (src/lib/cerca.js).
+  const cerca = useCerca(container);
 
   useEffect(() => {
     if (!cerca) return undefined;

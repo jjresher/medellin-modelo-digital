@@ -24,7 +24,7 @@ npm run format   # Prettier sobre src/, tests/ y scripts/ (config en .prettierrc
 npm run qa       # prueba cada sección en un Chrome sin ventana (necesita la app corriendo: npm run build && npm start)
 ```
 
-`npm run qa` abre cada sección, hace clic en sus controles y avisa de errores de consola, peticiones fallidas, desbordes, huecos en las rejillas, tarjetas desniveladas y textos cortados; deja una captura por sección en `.cache/qa/`. Acepta el ancho y las secciones (`npm run qa -- 390 atlas,services`) y otra dirección con `QA_URL`. Los cambios que mueven código entre archivos se prueban así, con clics: el lint y las pruebas unitarias no ejecutan la interfaz.
+`npm run qa` abre cada sección, hace clic en sus controles y avisa de errores de consola, peticiones fallidas, desbordes, huecos en las rejillas, tarjetas desniveladas, textos cortados, tarjetas con mucho espacio vacío y franjas vacías de más de 160 px entre bloques; deja una captura por sección en `.cache/qa/`. Acepta el ancho y las secciones (`npm run qa -- 390 atlas,services`; conviene pasar por 1400, 1024, 768 y 390, porque la barra lateral se pliega a íconos hasta 1180 px y se esconde en el celular) y otra dirección con `QA_URL`. Los cambios que mueven código entre archivos se prueban así, con clics: el lint y las pruebas unitarias no ejecutan la interfaz.
 
 `tests/lago-frontend.test.mjs` comprueba que el código no pida cifras ni fuentes que el lago no tiene. `npm install` copia el worker de MapLibre a `public/maplibre/` (`scripts/copiar-maplibre.mjs`), así que siempre coincide con la versión instalada.
 

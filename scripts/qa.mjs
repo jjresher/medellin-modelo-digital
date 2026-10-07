@@ -1,7 +1,7 @@
 // Prueba de humo visual de todas las secciones en un Chrome sin ventana (protocolo DevTools, sin dependencias).
 // Abre cada sección, hace clic en sus controles uno por uno y avisa de: errores de consola, peticiones fallidas, desborde
 // horizontal, textos rotos ("undefined", "NaN"), rejillas con huecos o tarjetas desniveladas, textos cortados, tablas con
-// desplazamiento y tarjetas con mucho espacio vacío. Deja una captura por sección en .cache/qa/.
+// desplazamiento, tarjetas con mucho espacio vacío y franjas vacías entre bloques. Deja una captura por sección en .cache/qa/.
 //
 //   npm run build && npm start            (en otra terminal)
 //   npm run qa                            escritorio (1400 px), todas las secciones
@@ -132,7 +132,7 @@ const REVISAR = `(() => {
   for (const e of vista.querySelectorAll('*')) {
     if (!visible(e) || e.children.length > 2) continue;
     const cs = getComputedStyle(e);
-    if (e.scrollWidth > e.clientWidth + 1 && (cs.textOverflow === 'ellipsis' || cs.overflowX === 'hidden') && e.innerText?.trim() && !e.closest('.maplibregl-map')) out.cortados.push(nombre(e) + ': ' + e.innerText.trim().slice(0, 50));
+    if (e.scrollWidth > e.clientWidth + 1 && (cs.textOverflow === 'ellipsis' || cs.overflowX === 'hidden') && e.innerText?.trim() && !e.closest('.maplibregl-map, .solo-lector')) out.cortados.push(nombre(e) + ': ' + e.innerText.trim().slice(0, 50));
   }
   // Tarjetas con mucho espacio vacío por dentro: el último hijo termina muy por encima del borde inferior.
   for (const c of vista.querySelectorAll('.chart-card, .metric-card')) {
@@ -158,6 +158,26 @@ const REVISAR = `(() => {
     if (fuera) out.salidos.push((c.querySelector('h3, .metric-label')?.innerText ?? nombre(c)).slice(0, 40) + ' ← ' + nombre(fuera).slice(0, 40));
   }
   out.cortados = [...new Set(out.cortados)].slice(0, 12);
+  // Franjas vacías: tramos de la sección, de lado a lado, sin texto, imagen, control ni caja con borde o fondo. Entre
+  // bloques el diseño deja hasta ~120 px; más de 160 px es un espacio raro (un bloque que no se dibujó, un margen de más).
+  const cajas = [];
+  const vr = vista.getBoundingClientRect();
+  const tw = document.createTreeWalker(vista, NodeFilter.SHOW_TEXT);
+  for (let n = tw.nextNode(); n; n = tw.nextNode()) {
+    if (!n.textContent.trim() || !n.parentElement || getComputedStyle(n.parentElement).visibility === 'hidden') continue;
+    const rg = document.createRange(); rg.selectNodeContents(n);
+    for (const r of rg.getClientRects()) if (r.width > 0 && r.height > 0) cajas.push([r.top, r.bottom]);
+  }
+  for (const e of vista.querySelectorAll('*')) {
+    if (!visible(e)) continue;
+    const cs = getComputedStyle(e);
+    const caja = (cs.borderTopStyle !== 'none' && cs.borderTopWidth !== '0px') || !['rgba(0, 0, 0, 0)', 'transparent'].includes(cs.backgroundColor);
+    if (caja || /^(svg|canvas|img|input|select|button|textarea|hr)$/i.test(e.tagName)) { const r = e.getBoundingClientRect(); cajas.push([r.top, r.bottom]); }
+  }
+  cajas.sort((a, b) => a[0] - b[0]);
+  out.franjas = [];
+  let fin = vr.top;
+  for (const [t, b] of [...cajas, [vr.bottom, vr.bottom]]) { if (t - fin > 160) out.franjas.push(Math.round(t - fin) + ' px vacíos a ' + Math.round(fin - vr.top) + ' px del inicio'); fin = Math.max(fin, b); }
   return JSON.stringify(out);
 })()`;
 
@@ -201,11 +221,16 @@ for (const sec of SECCIONES) {
   const i0 = r.inicio;
   console.log(`\n=== ${sec} @${w} · alto ${alto}px · ${controles.length} controles`);
   if (i0.desborde > 0) console.log('  DESBORDE horizontal', i0.desborde);
-  for (const k of ['texto', 'huecos', 'desnivel', 'cortados', 'scroll', 'salidos', 'vacias'])
+  for (const k of ['texto', 'huecos', 'desnivel', 'cortados', 'scroll', 'salidos', 'vacias', 'franjas'])
     if (i0[k].length) console.log(`  ${k}:`, i0[k].join('\n      '));
   if (r.trasClic.length) console.log('  tras clic:', JSON.stringify(r.trasClic, null, 1).slice(0, 1800));
   if (r.logs.length) console.log('  logs:', r.logs.join('\n      '));
-  if (!i0.desborde && !['texto', 'huecos', 'desnivel', 'cortados', 'vacias'].some((k) => i0[k].length) && !r.trasClic.length && !r.logs.length)
+  if (
+    !i0.desborde &&
+    !['texto', 'huecos', 'desnivel', 'cortados', 'vacias', 'franjas'].some((k) => i0[k].length) &&
+    !r.trasClic.length &&
+    !r.logs.length
+  )
     console.log('  sin hallazgos');
 }
 writeFileSync(`${SALIDA}/informe-${w}.json`, JSON.stringify(informe, null, 1));
