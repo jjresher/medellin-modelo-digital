@@ -16,6 +16,7 @@ from lago import DIR_LAGO, RAIZ, MESES, Tema, Territorios, leer_csv, numero, soc
 
 MUNICIPIO = "cod_muni='05001'"
 DESDE = 2018
+MIN_BARRIO = 5  # menos casos que esto en un barrio no se publican: en una zona pequeña, 1 o 2 casos señalan a alguien
 ANIOS_VENTANA_SISC = 3  # años recientes de cada archivo SISC usados en el ranking y el mapa por barrio
 DELITOS = [
     # (clave, recurso Socrata, nombre)
@@ -119,20 +120,21 @@ def policia(t, poblacion):
 # ---------------------------------------------------------------- SISC (histórico georreferenciado)
 
 def territorios_con_poblacion():
-    """Código y nombre de las 21 comunas/corregimientos, con su población proyectada (DAP) cuando exista."""
+    """Código y nombre de las 21 comunas/corregimientos, con su población año por año (total DANE del año repartido
+    según la proyección del DAP de ese año; ver `poblacion_anual_por_territorio` en demografia.json)."""
     comunas = json.loads((DIR_GEO / 'comunas.geojson').read_text(encoding='utf-8'))['features']
     demografia_ruta = DIR_LAGO / 'demografia.json'
-    poblacion_por_nombre = {}
+    poblacion_por_codigo = {}
     if demografia_ruta.exists():
         listas = json.loads(demografia_ruta.read_text(encoding='utf-8'))['listas']
-        poblacion_por_nombre = {f['nombre']: f['valor'] for f in listas.get('poblacion_dap_por_territorio', [])}
+        poblacion_por_codigo = {f['codigo']: {int(a): v for a, v in f['valores'].items()}
+                                for f in listas.get('poblacion_anual_por_territorio', [])}
     terr = {}
     for f in comunas:
         p = f['properties']
         if not p.get('NOMBRE'):
             continue
-        nombre_dap = p['NOMBRE'].removeprefix('Corregimiento de ')
-        terr[p['CODIGO']] = {'codigo': p['CODIGO'], 'nombre': p['NOMBRE'], 'poblacion': poblacion_por_nombre.get(nombre_dap)}
+        terr[p['CODIGO']] = {'codigo': p['CODIGO'], 'nombre': p['NOMBRE'], 'poblacion': poblacion_por_codigo.get(p['CODIGO'], {})}
     return terr
 
 
@@ -143,16 +145,19 @@ def bbox_valido(lat, lon):
 def procesar_categoria(url):
     """Una pasada por el CSV: cuenta por año (serie completa), y por comuna/barrio en la ventana reciente."""
     filas = leer_csv(url, timeout=400)
-    por_anio, por_comuna, por_barrio = {}, {}, {}
-    anio_max = 0
+    por_anio, por_comuna, por_barrio, por_comuna_anio = {}, {}, {}, {}
+    anio_max, ultimo_dia = 0, ''
     for f in filas:
         anio_texto = (f.get('fecha_hecho') or '')[:4]
         if not anio_texto.isdigit():
             continue
         anio = int(anio_texto)
         anio_max = max(anio_max, anio)
+        ultimo_dia = max(ultimo_dia, (f.get('fecha_hecho') or '')[:10])
         cantidad = numero(f.get('cantidad')) or 0
         por_anio[anio] = por_anio.get(anio, 0) + cantidad
+    # El último año del archivo está incompleto si no llega a diciembre: una tasa anual solo es honesta con un año entero.
+    anio_completo = anio_max if ultimo_dia[5:7] == '12' else anio_max - 1
     desde_ventana = anio_max - ANIOS_VENTANA_SISC + 1
     for f in filas:
         anio_texto = (f.get('fecha_hecho') or '')[:4]
@@ -164,10 +169,13 @@ def procesar_categoria(url):
         if comuna.isdigit():
             codigo = comuna.zfill(2)
             por_comuna[codigo] = por_comuna.get(codigo, 0) + cantidad
+            if int(anio_texto) == anio_completo:
+                por_comuna_anio[codigo] = por_comuna_anio.get(codigo, 0) + cantidad
         if barrio.isdigit() and len(barrio) == 4:
             por_barrio[barrio] = por_barrio.get(barrio, 0) + cantidad
-    return {'por_anio': por_anio, 'por_comuna': por_comuna, 'por_barrio': por_barrio,
-            'anio_max': anio_max, 'desde_ventana': desde_ventana, 'total_filas': len(filas)}
+    return {'por_anio': por_anio, 'por_comuna': por_comuna, 'por_barrio': por_barrio, 'por_comuna_anio': por_comuna_anio,
+            'anio_max': anio_max, 'ultimo_dia': ultimo_dia, 'anio_completo': anio_completo,
+            'desde_ventana': desde_ventana, 'total_filas': len(filas)}
 
 
 def sisc(t, terr, tt):
@@ -187,43 +195,50 @@ def sisc(t, terr, tt):
             t.serie(f'sisc_{clave}_anual', [[str(a), int(v)] for a, v in sorted(r['por_anio'].items())], 'casos',
                     f'{nombre} por año (SISC)', fuente, nota=f'Serie histórica; el SISC llega hasta {r["anio_max"]}.')
 
+            # Un solo año completo: casos de ese año ÷ habitantes de ese mismo año. Sumar tres años (el último a medias)
+            # y dividir entre la población de otro no da una tasa, da un número que nadie sabe leer.
+            A = r['anio_completo']
             ranking = []
             for codigo, info in terr.items():
-                casos = int(r['por_comuna'].get(codigo, 0))
+                casos = int(r['por_comuna_anio'].get(codigo, 0))
                 fila = {'codigo': codigo, 'nombre': info['nombre'], 'casos': casos}
-                if info['poblacion']:
-                    fila['tasa_x10mil'] = round(casos / info['poblacion'] * 1e4, 2)
+                if info['poblacion'].get(A):
+                    fila['tasa_x10mil'] = round(casos / info['poblacion'][A] * 1e4, 2)
                 ranking.append(fila)
             ranking.sort(key=lambda x: -x['casos'])
             t.lista(f'sisc_ranking_{clave}', ranking)
-            t.cifra(f'sisc_{clave}_ventana', int(sum(r['por_comuna'].values())), 'casos',
-                    f'{nombre}, {vigencia_ventana}', fuente, vigencia_ventana,
-                    nota='Suma de las 21 comunas y corregimientos con comuna diligenciada en el registro; '
-                         'excluye registros sin comuna asignada.')
+            nota_anio = (f'Casos de {A} con comuna diligenciada. El archivo llega hasta el {r["ultimo_dia"]}, así que {A} es el último '
+                         f'año completo.' if A < r['anio_max'] else f'Casos de {A} con comuna diligenciada.')
+            t.cifra(f'sisc_{clave}_anio', int(sum(r['por_comuna_anio'].values())), 'casos',
+                    f'{nombre}, {A}', fuente, str(A), nota=nota_anio + ' Suma de las 21 comunas y corregimientos; '
+                    'excluye registros sin comuna asignada.')
 
             # El mismo dato con el contrato de lago.Territorios, para el Atlas.
-            ventana = f'{r["desde_ventana"]}–{r["anio_max"]}'
-            tt.indicador(f'sisc_{clave}', f'{nombre} (SISC)', 'casos', fuente, vigencia_ventana,
-                         nota=f'Casos registrados por el SISC entre {r["desde_ventana"]} y {r["anio_max"]}, con comuna diligenciada.')
+            tt.indicador(f'sisc_{clave}', f'{nombre} (SISC)', 'casos', fuente, str(A), nota=nota_anio)
             tt.indicador(f'sisc_{clave}_tasa', f'{nombre} por 10.000 habitantes (SISC)', 'por 10.000 hab.', fuente,
-                         vigencia_ventana, estado='derivado', decimales=2,
-                         nota=f'Casos de {ventana} (los {ANIOS_VENTANA_SISC} años sumados) ÷ población proyectada por el DAP '
-                              f'× 10.000. No es una tasa anual.')
+                         str(A), estado='derivado', decimales=2,
+                         nota=f'Casos de {A} (año completo) ÷ población de {A} del territorio × 10.000. La población es el total '
+                              f'DANE de {A} repartido según la proyección del DAP para {A}.',
+                         proxy='la incidencia por habitante: la población de cada comuna es una estimación')
             for fila in ranking:
                 if fila['codigo'] in tt.filas:
-                    tt.valor(fila['codigo'], f'sisc_{clave}', ventana, fila['casos'])
-                    tt.valor(fila['codigo'], f'sisc_{clave}_tasa', ventana, fila.get('tasa_x10mil'))
+                    tt.valor(fila['codigo'], f'sisc_{clave}', A, fila['casos'])
+                    tt.valor(fila['codigo'], f'sisc_{clave}_tasa', A, fila.get('tasa_x10mil'))
 
             for barrio, casos in r['por_barrio'].items():
-                barrios_json.setdefault(barrio, {})[clave] = int(casos)
+                # null = menos de MIN_BARRIO casos (suprimido); un barrio que no aparece no tuvo registros (0).
+                barrios_json.setdefault(barrio, {})[clave] = int(casos) if casos >= MIN_BARRIO else None
             indicadores_barrio.append({'clave': clave, 'etiqueta': f'{nombre} (SISC)', 'unidad': 'casos', 'fuente': fuente,
                                        'vigencia': vigencia_ventana, 'estado': 'observado', 'decimales': 0,
                                        # Un barrio que no aparece en el archivo no tuvo registros en la ventana.
-                                       'faltante': 0})
+                                       'faltante': 0,
+                                       'nota': f'Los barrios con menos de {MIN_BARRIO} casos en la ventana no se publican (sin dato): '
+                                               'en una zona pequeña, uno o dos casos señalan a una persona.'})
 
     (DIR_GEO / 'seguridad_barrios.json').write_text(json.dumps({
         'vigencia': f'{min(vigencias) - ANIOS_VENTANA_SISC + 1}–{max(vigencias)} (histórico, SISC)',
         'categorias': [{'clave': c, 'nombre': n} for c, n, _ in SISC],
+        'minimo_publicable': MIN_BARRIO,
         # Contrato del nivel barrio del Atlas: cada indicador con su fuente, vigencia y estado.
         'indicadores': indicadores_barrio,
         'barrios': barrios_json

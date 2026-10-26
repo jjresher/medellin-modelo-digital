@@ -1,0 +1,22 @@
+codigo,territorio,tipo,hurto_persona_por_10mil_2022,hurto_persona_casos_2022,verde_m2_por_habitante_2019,venta_pesos_m2_2024_2025,arriendo_pesos_m2_mes_2024_2025,rentabilidad_bruta_apartamentos_2024_2025
+01,Popular,Comuna,27.5,390,5.6,,,
+02,Santa Cruz,Comuna,26.54,309,2.7,,,
+03,Manrique,Comuna,39.46,673,9.2,1462755,17241,8.01
+04,Aranjuez,Comuna,156.44,2188,6.0,1982799,17949,7.11
+05,Castilla,Comuna,178.12,2176,12.5,1846360,18333,8.06
+06,Doce de Octubre,Comuna,36.22,638,3.5,1392535,16279,7.89
+07,Robledo,Comuna,82.54,1628,23.2,4101223,27071,7.82
+08,Villa Hermosa,Comuna,61.27,993,14.4,1531267,20227,11.16
+09,Buenos Aires,Comuna,87.53,1444,14.3,2865646,24000,7.74
+10,La Candelaria,Comuna,1353.18,10280,12.6,3583333,24638,8.26
+11,Laureles Estadio,Comuna,557.61,5454,13.9,4521277,30612,7.2
+12,La América,Comuna,188.18,1591,8.5,4014540,25833,7.17
+13,San Javier,Comuna,37.67,623,9.4,3478261,22097,7.75
+14,El Poblado,Comuna,449.53,4817,57.8,6779206,44828,7.62
+15,Guayabal,Comuna,259.22,1618,30.8,3720930,24000,7.36
+16,Belén,Comuna,144.86,2997,11.2,4175824,28956,7.63
+50,San Sebastián de Palmitas,Corregimiento,26.47,16,0.0,,,
+60,San Cristóbal,Corregimiento,33.34,463,38.9,4562500,26876,7.09
+70,Altavista,Corregimiento,36.26,152,16.2,5675676,40200,8.5
+80,San Antonio de Prado,Corregimiento,24.42,264,20.7,2685185,21429,7.5
+90,Santa Elena,Corregimiento,132.12,374,13.2,2909660,,

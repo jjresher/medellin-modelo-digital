@@ -1,5 +1,6 @@
 export const navigation = [
   ['panorama', '◎', 'Panorama'],
+  ['questions', '?', 'Preguntas'],
   ['twin', '△', 'Gemelo 3D'],
   ['people', '●', 'Gente'],
   ['economy', '$', 'Economía y vivienda'],

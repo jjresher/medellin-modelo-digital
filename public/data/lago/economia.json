@@ -1,7 +1,7 @@
 {
  "tema": "economia",
  "titulo": "Economía y vivienda",
- "probado": "2026-09-27",
+ "probado": "2026-10-24",
  "ancla": [
   "desempleo",
   "venta_m2"
@@ -11,9 +11,9 @@
    "id": "dane-geih",
    "nombre": "Gran Encuesta Integrada de Hogares · anexo 23 ciudades",
    "entidad": "DANE",
-   "url": "https://www.dane.gov.co/files/operaciones/GEIH/anex-GEIH-jul2026.xlsx",
+   "url": "https://www.dane.gov.co/files/operaciones/GEIH/anex-GEIH-ago2026.xlsx",
    "estado": "observado",
-   "probado": "2026-09-27"
+   "probado": "2026-10-24"
   },
   {
    "id": "oime-ofertas",
@@ -21,7 +21,7 @@
    "entidad": "Subsecretaría de Catastro · Alcaldía de Medellín",
    "url": "https://www.medellin.gov.co/servidormapas/rest/services/vivienda_ciudad_terri/VM_Oferta_Comercial_Oime/MapServer/0",
    "estado": "observado",
-   "probado": "2026-09-27"
+   "probado": "2026-10-24"
   },
   {
    "id": "idem-valor-suelo",
@@ -37,7 +37,7 @@
    "entidad": "Departamento Administrativo de Planeación · Alcaldía de Medellín",
    "url": "https://www.medellin.gov.co/servidormapas/rest/services/vivienda_ciudad_terri/VM_Licencias/MapServer/2",
    "estado": "observado",
-   "probado": "2026-09-27"
+   "probado": "2026-10-24"
   },
   {
    "id": "alc-industria-comercio",
@@ -45,7 +45,7 @@
    "entidad": "Secretaría de Hacienda · Alcaldía de Medellín",
    "url": "https://www.medellin.gov.co/servidormapas/rest/services/ccio_ind_turism/VC_Act_Comercial_Empresarial/MapServer/0",
    "estado": "observado",
-   "probado": "2026-09-27"
+   "probado": "2026-10-24"
   },
   {
    "id": "camara-estructura",
@@ -53,43 +53,43 @@
    "entidad": "Cámara de Comercio de Medellín para Antioquia",
    "url": "https://www.datos.gov.co/d/pb3w-3vmc",
    "estado": "observado",
-   "probado": "2026-09-27"
+   "probado": "2026-10-24"
   }
  ],
  "cifras": {
   "desempleo": {
-   "valor": 6.97,
+   "valor": 7.47,
    "unidad": "%",
    "etiqueta": "Desempleo · Medellín A.M.",
    "fuente": "dane-geih",
-   "vigencia": "may–jul 2026 (trimestre móvil)",
+   "vigencia": "jun–ago 2026 (trimestre móvil)",
    "estado": "observado",
    "decimales": 2
   },
   "ocupacion": {
-   "valor": 62.66,
+   "valor": 62.04,
    "unidad": "%",
    "etiqueta": "Tasa de ocupación · Medellín A.M.",
    "fuente": "dane-geih",
-   "vigencia": "may–jul 2026 (trimestre móvil)",
+   "vigencia": "jun–ago 2026 (trimestre móvil)",
    "estado": "observado",
    "decimales": 2
   },
   "participacion": {
-   "valor": 67.35,
+   "valor": 67.05,
    "unidad": "%",
    "etiqueta": "Participación laboral · Medellín A.M.",
    "fuente": "dane-geih",
-   "vigencia": "may–jul 2026 (trimestre móvil)",
+   "vigencia": "jun–ago 2026 (trimestre móvil)",
    "estado": "observado",
    "decimales": 2
   },
   "subocupacion": {
-   "valor": 6.1,
+   "valor": 6.13,
    "unidad": "%",
    "etiqueta": "Subocupación · Medellín A.M.",
    "fuente": "dane-geih",
-   "vigencia": "may–jul 2026 (trimestre móvil)",
+   "vigencia": "jun–ago 2026 (trimestre móvil)",
    "estado": "observado",
    "decimales": 2
   },
@@ -112,14 +112,14 @@
    "nota": "Mediana del precio de oferta por m² de área privada de apartamentos y casas, investigados por el Catastro. Se excluyen los registros que el Catastro marca como atípicos y las áreas fuera de 20–500 m². Pesos corrientes, sin ajustar por inflación. Es precio de oferta, no de cierre. 5.751 ofertas en 2024–2025."
   },
   "rentabilidad_bruta": {
-   "valor": 8.88,
+   "valor": 7.58,
    "unidad": "%",
-   "etiqueta": "Rentabilidad bruta del arriendo",
+   "etiqueta": "Rentabilidad bruta del arriendo (apartamentos)",
    "fuente": "oime-ofertas",
    "vigencia": "2024–2025",
    "estado": "derivado",
    "decimales": 1,
-   "nota": "Arriendo mensual por m² × 12 ÷ precio de venta por m², con las medianas de oferta del mismo periodo. Es un cociente de medianas, no la rentabilidad de un mismo inmueble, y no descuenta administración, impuestos ni vacancia."
+   "nota": "Arriendo mensual por m² × 12 ÷ precio de venta por m², con las medianas de oferta de APARTAMENTOS del mismo periodo (4.801 de venta y 5.305 de arriendo). Es un cociente de medianas, no la rentabilidad de un mismo inmueble, y no descuenta administración, impuestos ni vacancia. Solo se publica con al menos 30 ofertas de cada lado."
   },
   "valor_suelo_mediana": {
    "valor": 705000,
@@ -160,7 +160,7 @@
    "unidad": "contratos",
    "etiqueta": "Contribuyentes activos de Industria y Comercio",
    "fuente": "alc-industria-comercio",
-   "vigencia": "Registro activo consultado el 2026-09-27",
+   "vigencia": "Registro activo consultado el 2026-10-24",
    "estado": "observado",
    "nota": "Contratos activos del impuesto de Industria y Comercio. Incluye contribuyentes registrados sin establecimiento físico (63.897 dicen \"No posee establecimientos\"). No es el número de empresas de la Cámara de Comercio, que cuenta matrículas mercantiles."
   },
@@ -180,7 +180,7 @@
    "unidad": "%",
    "fuente": "dane-geih",
    "estado": "observado",
-   "vigencia": "ene–mar 2007 – may–jul 2026",
+   "vigencia": "ene–mar 2007 – jun–ago 2026",
    "puntos": [
     [
      "ene–mar 2007",
@@ -1113,6 +1113,10 @@
     [
      "may–jul 2026",
      6.97
+    ],
+    [
+     "jun–ago 2026",
+     7.47
     ]
    ],
    "nota": ""
@@ -1122,7 +1126,7 @@
    "unidad": "%",
    "fuente": "dane-geih",
    "estado": "observado",
-   "vigencia": "ene–mar 2007 – may–jul 2026",
+   "vigencia": "ene–mar 2007 – jun–ago 2026",
    "puntos": [
     [
      "ene–mar 2007",
@@ -2055,6 +2059,10 @@
     [
      "may–jul 2026",
      62.66
+    ],
+    [
+     "jun–ago 2026",
+     62.04
     ]
    ],
    "nota": ""
@@ -2064,7 +2072,7 @@
    "unidad": "%",
    "fuente": "dane-geih",
    "estado": "observado",
-   "vigencia": "ene–mar 2007 – may–jul 2026",
+   "vigencia": "ene–mar 2007 – jun–ago 2026",
    "puntos": [
     [
      "ene–mar 2007",
@@ -2997,6 +3005,10 @@
     [
      "may–jul 2026",
      67.35
+    ],
+    [
+     "jun–ago 2026",
+     67.05
     ]
    ],
    "nota": ""
@@ -3006,7 +3018,7 @@
    "unidad": "%",
    "fuente": "dane-geih",
    "estado": "observado",
-   "vigencia": "ene–mar 2007 – may–jul 2026",
+   "vigencia": "ene–mar 2007 – jun–ago 2026",
    "puntos": [
     [
      "ene–mar 2007",
@@ -3939,6 +3951,10 @@
     [
      "may–jul 2026",
      6.1
+    ],
+    [
+     "jun–ago 2026",
+     6.13
     ]
    ],
    "nota": "7 trimestres de 2020 sin dato: por el cambio de operativo de la pandemia, el DANE no pudo medir la población subocupada entre marzo y julio de 2020."
@@ -4228,7 +4244,9 @@
     "ofertas_venta": 366,
     "arriendo_m2": 17949,
     "ofertas_arriendo": 31,
-    "rentabilidad_bruta": 18.16
+    "rentabilidad_bruta": null,
+    "ofertas_venta_apto": 63,
+    "ofertas_arriendo_apto": 29
    },
    {
     "estrato": 2,
@@ -4236,7 +4254,9 @@
     "ofertas_venta": 1038,
     "arriendo_m2": 17273,
     "ofertas_arriendo": 325,
-    "rentabilidad_bruta": 12.78
+    "rentabilidad_bruta": 8.0,
+    "ofertas_venta_apto": 295,
+    "ofertas_arriendo_apto": 285
    },
    {
     "estrato": 3,
@@ -4244,7 +4264,9 @@
     "ofertas_venta": 2460,
     "arriendo_m2": 22000,
     "ofertas_arriendo": 1888,
-    "rentabilidad_bruta": 8.61
+    "rentabilidad_bruta": 7.5,
+    "ofertas_venta_apto": 1497,
+    "ofertas_arriendo_apto": 1729
    },
    {
     "estrato": 4,
@@ -4252,7 +4274,9 @@
     "ofertas_venta": 1644,
     "arriendo_m2": 28868,
     "ofertas_arriendo": 1538,
-    "rentabilidad_bruta": 8.05
+    "rentabilidad_bruta": 7.43,
+    "ofertas_venta_apto": 1190,
+    "ofertas_arriendo_apto": 1412
    },
    {
     "estrato": 5,
@@ -4260,7 +4284,9 @@
     "ofertas_venta": 1625,
     "arriendo_m2": 31746,
     "ofertas_arriendo": 1323,
-    "rentabilidad_bruta": 7.77
+    "rentabilidad_bruta": 7.08,
+    "ofertas_venta_apto": 1139,
+    "ofertas_arriendo_apto": 1216
    },
    {
     "estrato": 6,
@@ -4268,7 +4294,9 @@
     "ofertas_venta": 596,
     "arriendo_m2": 44762,
     "ofertas_arriendo": 631,
-    "rentabilidad_bruta": 7.78
+    "rentabilidad_bruta": 7.77,
+    "ofertas_venta_apto": 571,
+    "ofertas_arriendo_apto": 622
    }
   ],
   "licencias_por_objeto": [
@@ -4424,23 +4452,13 @@
    },
    {
     "clave": "rentabilidad_bruta",
-    "etiqueta": "Rentabilidad bruta del arriendo",
+    "etiqueta": "Rentabilidad bruta del arriendo (apartamentos)",
     "unidad": "%",
     "fuente": "oime-ofertas",
     "estado": "derivado",
     "vigencia": "2024–2025",
     "decimales": 1,
-    "nota": "Arriendo mensual por m² × 12 ÷ precio de venta por m², con las medianas de oferta del mismo periodo. Es un cociente de medianas, no la rentabilidad de un mismo inmueble, y no descuenta administración, impuestos ni vacancia."
-   },
-   {
-    "clave": "valor_suelo",
-    "etiqueta": "Valor catastral del suelo (promedio por área)",
-    "unidad": "$/m²",
-    "fuente": "idem-valor-suelo",
-    "estado": "derivado",
-    "vigencia": "Base catastral consultada el 2026-09-27",
-    "decimales": 0,
-    "nota": "Valor catastral del suelo por m² de cada zona geoeconómica homogénea; no es precio de mercado. El servicio no publica el año de la base catastral. Promedio de las zonas que tocan el territorio, ponderado por el área de cada una dentro de él. Solo territorios cubiertos al menos en un 50 %."
+    "nota": "Arriendo mensual por m² × 12 ÷ precio de venta por m², con las medianas de oferta de APARTAMENTOS del mismo periodo (4.801 de venta y 5.305 de arriendo). Es un cociente de medianas, no la rentabilidad de un mismo inmueble, y no descuenta administración, impuestos ni vacancia. Solo se publica con al menos 30 ofertas de cada lado."
    },
    {
     "clave": "licencias",
@@ -4468,7 +4486,7 @@
     "unidad": "contratos",
     "fuente": "alc-industria-comercio",
     "estado": "observado",
-    "vigencia": "Registro activo consultado el 2026-09-27",
+    "vigencia": "Registro activo consultado el 2026-10-24",
     "decimales": 0,
     "nota": "Contratos activos del impuesto de Industria y Comercio. Incluye contribuyentes registrados sin establecimiento físico (63.897 dicen \"No posee establecimientos\"). No es el número de empresas de la Cámara de Comercio, que cuenta matrículas mercantiles. 49.757 contratos no tienen comuna y no se asignan. Los grupos de actividad se rotulan a partir del código CIIU que predomina en cada uno; el servicio no publica su diccionario."
    },
@@ -4481,6 +4499,16 @@
     "vigencia": "2022",
     "decimales": 0,
     "nota": "Empresas con matrícula mercantil en la Cámara de Comercio. Hasta 2020 cerca de 18.000 empresas quedaban \"sin georreferenciar\" por año; desde 2021 son unas pocas centenas, así que el conteo por comuna no es comparable antes y después de 2021. El total de la ciudad sí lo es."
+   },
+   {
+    "clave": "valor_suelo",
+    "etiqueta": "Valor catastral del suelo (promedio por área)",
+    "unidad": "$/m²",
+    "fuente": "idem-valor-suelo",
+    "estado": "derivado",
+    "vigencia": "Base catastral consultada el 2026-09-27",
+    "decimales": 0,
+    "nota": "Valor catastral del suelo por m² de cada zona geoeconómica homogénea; no es precio de mercado. El servicio no publica el año de la base catastral. Promedio de las zonas que tocan el territorio, ponderado por el área de cada una dentro de él. Solo territorios cubiertos al menos en un 50 %."
    }
   ],
   "territorios": [
@@ -4489,9 +4517,6 @@
     "nombre": "Popular",
     "tipo": "Comuna",
     "valores": {
-     "valor_suelo": {
-      "vigente": 323107
-     },
      "licencias": {
       "2016–2020": 591
      },
@@ -4503,6 +4528,9 @@
      },
      "empresas_camara": {
       "2022": 1416
+     },
+     "valor_suelo": {
+      "vigente": 323107
      }
     }
    },
@@ -4511,9 +4539,6 @@
     "nombre": "Santa Cruz",
     "tipo": "Comuna",
     "valores": {
-     "valor_suelo": {
-      "vigente": 422262
-     },
      "licencias": {
       "2016–2020": 705
      },
@@ -4525,6 +4550,9 @@
      },
      "empresas_camara": {
       "2022": 1637
+     },
+     "valor_suelo": {
+      "vigente": 422262
      }
     }
    },
@@ -4540,10 +4568,7 @@
       "2024–2025": 17241
      },
      "rentabilidad_bruta": {
-      "2024–2025": 14.14
-     },
-     "valor_suelo": {
-      "vigente": 391382
+      "2024–2025": 8.01
      },
      "licencias": {
       "2016–2020": 1191
@@ -4556,6 +4581,9 @@
      },
      "empresas_camara": {
       "2022": 2271
+     },
+     "valor_suelo": {
+      "vigente": 391382
      }
     }
    },
@@ -4571,10 +4599,7 @@
       "2024–2025": 17949
      },
      "rentabilidad_bruta": {
-      "2024–2025": 10.86
-     },
-     "valor_suelo": {
-      "vigente": 693539
+      "2024–2025": 7.11
      },
      "licencias": {
       "2016–2020": 1224
@@ -4587,6 +4612,9 @@
      },
      "empresas_camara": {
       "2022": 4330
+     },
+     "valor_suelo": {
+      "vigente": 693539
      }
     }
    },
@@ -4602,10 +4630,7 @@
       "2024–2025": 18333
      },
      "rentabilidad_bruta": {
-      "2024–2025": 11.92
-     },
-     "valor_suelo": {
-      "vigente": 840101
+      "2024–2025": 8.06
      },
      "licencias": {
       "2016–2020": 1001
@@ -4618,6 +4643,9 @@
      },
      "empresas_camara": {
       "2022": 3396
+     },
+     "valor_suelo": {
+      "vigente": 840101
      }
     }
    },
@@ -4633,10 +4661,7 @@
       "2024–2025": 16279
      },
      "rentabilidad_bruta": {
-      "2024–2025": 14.03
-     },
-     "valor_suelo": {
-      "vigente": 505524
+      "2024–2025": 7.89
      },
      "licencias": {
       "2016–2020": 1777
@@ -4649,6 +4674,9 @@
      },
      "empresas_camara": {
       "2022": 2490
+     },
+     "valor_suelo": {
+      "vigente": 505524
      }
     }
    },
@@ -4664,10 +4692,7 @@
       "2024–2025": 27071
      },
      "rentabilidad_bruta": {
-      "2024–2025": 7.92
-     },
-     "valor_suelo": {
-      "vigente": 756911
+      "2024–2025": 7.82
      },
      "licencias": {
       "2016–2020": 1063
@@ -4680,6 +4705,9 @@
      },
      "empresas_camara": {
       "2022": 3604
+     },
+     "valor_suelo": {
+      "vigente": 756911
      }
     }
    },
@@ -4695,10 +4723,7 @@
       "2024–2025": 20227
      },
      "rentabilidad_bruta": {
-      "2024–2025": 15.85
-     },
-     "valor_suelo": {
-      "vigente": 514083
+      "2024–2025": 11.16
      },
      "licencias": {
       "2016–2020": 818
@@ -4711,6 +4736,9 @@
      },
      "empresas_camara": {
       "2022": 3052
+     },
+     "valor_suelo": {
+      "vigente": 514083
      }
     }
    },
@@ -4726,10 +4754,7 @@
       "2024–2025": 24000
      },
      "rentabilidad_bruta": {
-      "2024–2025": 10.05
-     },
-     "valor_suelo": {
-      "vigente": 860342
+      "2024–2025": 7.74
      },
      "licencias": {
       "2016–2020": 949
@@ -4742,6 +4767,9 @@
      },
      "empresas_camara": {
       "2022": 3977
+     },
+     "valor_suelo": {
+      "vigente": 860342
      }
     }
    },
@@ -4757,10 +4785,7 @@
       "2024–2025": 24638
      },
      "rentabilidad_bruta": {
-      "2024–2025": 8.25
-     },
-     "valor_suelo": {
-      "vigente": 2892423
+      "2024–2025": 8.26
      },
      "licencias": {
       "2016–2020": 680
@@ -4773,6 +4798,9 @@
      },
      "empresas_camara": {
       "2022": 22912
+     },
+     "valor_suelo": {
+      "vigente": 2892423
      }
     }
    },
@@ -4788,10 +4816,7 @@
       "2024–2025": 30612
      },
      "rentabilidad_bruta": {
-      "2024–2025": 8.12
-     },
-     "valor_suelo": {
-      "vigente": 1935018
+      "2024–2025": 7.2
      },
      "licencias": {
       "2016–2020": 832
@@ -4804,6 +4829,9 @@
      },
      "empresas_camara": {
       "2022": 11247
+     },
+     "valor_suelo": {
+      "vigente": 1935018
      }
     }
    },
@@ -4819,10 +4847,7 @@
       "2024–2025": 25833
      },
      "rentabilidad_bruta": {
-      "2024–2025": 7.72
-     },
-     "valor_suelo": {
-      "vigente": 1521121
+      "2024–2025": 7.17
      },
      "licencias": {
       "2016–2020": 671
@@ -4835,6 +4860,9 @@
      },
      "empresas_camara": {
       "2022": 4713
+     },
+     "valor_suelo": {
+      "vigente": 1521121
      }
     }
    },
@@ -4850,10 +4878,7 @@
       "2024–2025": 22097
      },
      "rentabilidad_bruta": {
-      "2024–2025": 7.62
-     },
-     "valor_suelo": {
-      "vigente": 597376
+      "2024–2025": 7.75
      },
      "licencias": {
       "2016–2020": 671
@@ -4866,6 +4891,9 @@
      },
      "empresas_camara": {
       "2022": 2440
+     },
+     "valor_suelo": {
+      "vigente": 597376
      }
     }
    },
@@ -4881,10 +4909,7 @@
       "2024–2025": 44828
      },
      "rentabilidad_bruta": {
-      "2024–2025": 7.94
-     },
-     "valor_suelo": {
-      "vigente": 1947763
+      "2024–2025": 7.62
      },
      "licencias": {
       "2016–2020": 633
@@ -4897,6 +4922,9 @@
      },
      "empresas_camara": {
       "2022": 20550
+     },
+     "valor_suelo": {
+      "vigente": 1947763
      }
     }
    },
@@ -4912,10 +4940,7 @@
       "2024–2025": 24000
      },
      "rentabilidad_bruta": {
-      "2024–2025": 7.74
-     },
-     "valor_suelo": {
-      "vigente": 1513161
+      "2024–2025": 7.36
      },
      "licencias": {
       "2016–2020": 672
@@ -4928,6 +4953,9 @@
      },
      "empresas_camara": {
       "2022": 5884
+     },
+     "valor_suelo": {
+      "vigente": 1513161
      }
     }
    },
@@ -4943,10 +4971,7 @@
       "2024–2025": 28956
      },
      "rentabilidad_bruta": {
-      "2024–2025": 8.32
-     },
-     "valor_suelo": {
-      "vigente": 1288738
+      "2024–2025": 7.63
      },
      "licencias": {
       "2016–2020": 1221
@@ -4959,6 +4984,9 @@
      },
      "empresas_camara": {
       "2022": 10090
+     },
+     "valor_suelo": {
+      "vigente": 1288738
      }
     }
    },
@@ -4967,9 +4995,6 @@
     "nombre": "San Sebastián de Palmitas",
     "tipo": "Corregimiento",
     "valores": {
-     "valor_suelo": {
-      "vigente": 9536
-     },
      "licencias": {
       "2016–2020": 4
      },
@@ -4981,6 +5006,9 @@
      },
      "empresas_camara": {
       "2022": 55
+     },
+     "valor_suelo": {
+      "vigente": 9536
      }
     }
    },
@@ -4996,10 +5024,7 @@
       "2024–2025": 26876
      },
      "rentabilidad_bruta": {
-      "2024–2025": 7.07
-     },
-     "valor_suelo": {
-      "vigente": 88275
+      "2024–2025": 7.09
      },
      "licencias": {
       "2016–2020": 133
@@ -5012,6 +5037,9 @@
      },
      "empresas_camara": {
       "2022": 1325
+     },
+     "valor_suelo": {
+      "vigente": 88275
      }
     }
    },
@@ -5029,9 +5057,6 @@
      "rentabilidad_bruta": {
       "2024–2025": 8.5
      },
-     "valor_suelo": {
-      "vigente": 43369
-     },
      "licencias": {
       "2016–2020": 28
      },
@@ -5043,6 +5068,9 @@
      },
      "empresas_camara": {
       "2022": 1029
+     },
+     "valor_suelo": {
+      "vigente": 43369
      }
     }
    },
@@ -5058,10 +5086,7 @@
       "2024–2025": 21429
      },
      "rentabilidad_bruta": {
-      "2024–2025": 9.58
-     },
-     "valor_suelo": {
-      "vigente": 56128
+      "2024–2025": 7.5
      },
      "licencias": {
       "2016–2020": 503
@@ -5074,6 +5099,9 @@
      },
      "empresas_camara": {
       "2022": 1873
+     },
+     "valor_suelo": {
+      "vigente": 56128
      }
     }
    },
@@ -5084,9 +5112,6 @@
     "valores": {
      "venta_m2": {
       "2024–2025": 2909660
-     },
-     "valor_suelo": {
-      "vigente": 40062
      },
      "licencias": {
       "2016–2020": 117
@@ -5099,6 +5124,9 @@
      },
      "empresas_camara": {
       "2022": 1412
+     },
+     "valor_suelo": {
+      "vigente": 40062
      }
     }
    }

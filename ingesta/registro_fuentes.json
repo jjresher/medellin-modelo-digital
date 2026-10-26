@@ -1,0 +1,1081 @@
+{
+ "aerocivil-origen-destino": {
+  "codigo": "F029",
+  "ficha": {
+   "actualizado": "2026-08-06",
+   "categoria": "Transporte",
+   "publicador": "Unidad Administrativa Especial de Aeronáutica Civil - AEROCIVIL, Bogotá D.C."
+  },
+  "licencia": "Creative Commons Attribution | Share Alike 4.0 International",
+  "licencia_origen": "Ficha del conjunto en datos.gov.co (API)",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "http://creativecommons.org/licenses/by-sa/4.0/legalcode",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "alc-bibliotecas": {
+  "codigo": "F075",
+  "licencia": "No declarada en la fuente. El servicio solo trae un crédito (copyrightText): «Red de Bibliotecas- Fundación EPM»",
+  "licencia_origen": "Servicio ArcGIS REST (copyrightText)",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://www.medellin.gov.co/servidormapas/rest/services/cultura/VM_Red_Bibliotecas/MapServer",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "alc-bic": {
+  "codigo": "F074",
+  "licencia": "No declarada en la fuente. El servicio solo trae un crédito (copyrightText): «Grupo Geografico»",
+  "licencia_origen": "Servicio ArcGIS REST (copyrightText)",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://www.medellin.gov.co/servidormapas/rest/services/cultura/VC_BIC_Patrimonial/MapServer",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "alc-ecv": {
+  "codigo": "F004",
+  "licencia": "No declarada en la fuente. El servicio solo trae un crédito (copyrightText): «Alcaldía de Medellín - Departamento Administrativo de Planeación - Subdirección de Prospectiva, Información y Evaluación Estratégica - Unidad de Producción de la Información»",
+  "licencia_origen": "Servicio ArcGIS REST (copyrightText)",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://www.medellin.gov.co/servidormapas/rest/services/estadisticas/VC_Indicadores_ECV/MapServer",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "alc-espacio-publico": {
+  "codigo": "F079",
+  "licencia": "No declarada en la fuente. El servicio solo trae un crédito (copyrightText): «Departamento Administrativo de Planeación (DAP), Alcaldía de Medellín.»",
+  "licencia_origen": "Servicio ArcGIS REST (copyrightText)",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://www.medellin.gov.co/servidormapas/rest/services/ordenamiento_ter/VM_Espacio_Publico/MapServer",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "alc-gestion-riesgo": {
+  "codigo": "F070",
+  "licencia": "No declarada en la fuente. El servicio ArcGIS tiene el campo copyrightText vacío",
+  "licencia_origen": "Servicio ArcGIS REST (copyrightText)",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://www.medellin.gov.co/servidormapas/rest/services/ambiente_dllo_sost/VC_Gestion_Riesgo/MapServer",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "alc-industria-comercio": {
+  "codigo": "F011",
+  "licencia": "No declarada en la fuente. El servicio solo trae un crédito (copyrightText): «Secretaria de Hacienda»",
+  "licencia_origen": "Servicio ArcGIS REST (copyrightText)",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://www.medellin.gov.co/servidormapas/rest/services/ccio_ind_turism/VC_Act_Comercial_Empresarial/MapServer",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "alc-pot-2025": {
+  "codigo": "F073",
+  "licencia": "No declarada en la fuente. El servicio solo trae un crédito (copyrightText): «Alcaldía de Medellín - Departamento Administrativo de Planeación - Subdirección de Planeación Territorial y Estratégica de Ciudad - Unidad de Planificación Territorial.»",
+  "licencia_origen": "Servicio ArcGIS REST (copyrightText)",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://www.medellin.gov.co/servidormapas/rest/services/ordenamiento_ter/VM_34_POT_2025/MapServer",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "alc-sedes-educativas": {
+  "codigo": "F076",
+  "licencia": "No declarada en la fuente. El servicio solo trae un crédito (copyrightText): «Secretaria de Educación»",
+  "licencia_origen": "Servicio ArcGIS REST (copyrightText)",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://www.medellin.gov.co/servidormapas/rest/services/educacion/VC_Sedes/MapServer",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "alc-tratamientos": {
+  "codigo": "F072",
+  "licencia": "No declarada en la fuente. El servicio solo trae un crédito (copyrightText): «Alcaldía de Medellín - Departamento Administrativo de Planeación - Subdirección de Planeación Territorial y Estratégica de Ciudad - Unidad de Planificación Territorial.»",
+  "licencia_origen": "Servicio ArcGIS REST (copyrightText)",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://www.medellin.gov.co/servidormapas/rest/services/ordenamiento_ter/VM_22_Tratamientos_Urbanos/MapServer",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "alc-usos-suelo": {
+  "codigo": "F071",
+  "licencia": "No declarada en la fuente. El servicio solo trae un crédito (copyrightText): «Departamento Administrativo de Planeación -Subdirección Planeacion Territorial y Estratégica de Ciudad- Subdirección de Información Seguimiento y Evaluación.»",
+  "licencia_origen": "Servicio ArcGIS REST (copyrightText)",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://www.medellin.gov.co/servidormapas/rest/services/ordenamiento_ter/VM_POT48_Tematicos/MapServer",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "alcaldia-inversion-comunas": {
+  "codigo": "F039",
+  "licencia": "No declarada en la fuente. El servicio ArcGIS tiene el campo copyrightText vacío",
+  "licencia_origen": "Servicio ArcGIS REST (copyrightText)",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://www.medellin.gov.co/servidormapas/rest/services/hacienda_credi_publ/VM_Inversion_Publica/MapServer",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "alcaldia-turismo": {
+  "codigo": "F033",
+  "licencia": "No declarada en la fuente. El servicio solo trae un crédito (copyrightText): «Sec. De Desarrollo Económico - Subsecretaría de Creación y Fortalecimiento Empresarial»",
+  "licencia_origen": "Servicio ArcGIS REST (copyrightText)",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://www.medellin.gov.co/servidormapas/rest/services/ccio_ind_turism/VC_Turismo/MapServer",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "amva-espacio-verde": {
+  "codigo": "F078",
+  "licencia": "No declarada en la fuente. El servicio solo trae un crédito (copyrightText): «ÁREA METROPOLITANA DEL VALLE DE ABURRÁ & UNIVERSIDAD NACIONAL DE COLOMBIA, SEDE MEDELLÍN, 2019. ANÁLISIS DE LA CONECTIVIDAD ECOLÓGICA FUNCIONAL Y ESTRUCTURAL EN EL ÁREA METROPOLITANA DEL VALLE DE ABURRÁ. CONTRATO 1344 DE 2018.»",
+  "licencia_origen": "Servicio ArcGIS REST (copyrightText)",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://www.medellin.gov.co/servidormapas/rest/services/ambiente_dllo_sost/VA_SistemaArbolUrbano_Base/MapServer",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "amva-ruido": {
+  "codigo": "F087",
+  "licencia": "Sin verificar: la fuente no respondió al consultarla (No se pudo descargar https://portalidem.metropol.gov.co/server/rest/services/Hosted/AMVA_GESTION_DEL_RUIDO/FeatureServer?f=json: HTTP Error )",
+  "licencia_origen": "Consulta fallida",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://portalidem.metropol.gov.co/server/rest/services/Hosted/AMVA_GESTION_DEL_RUIDO/FeatureServer",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "camara-estructura": {
+  "codigo": "F012",
+  "ficha": {
+   "actualizado": "2023-05-08",
+   "categoria": "Comercio, Industria y Turismo",
+   "publicador": "Cámara de Comercio de Medellín, Antioquia"
+  },
+  "licencia": "Creative Commons Attribution | Share Alike 4.0 International",
+  "licencia_origen": "Ficha del conjunto en datos.gov.co (API)",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "http://creativecommons.org/licenses/by-sa/4.0/legalcode",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "catastro-construcciones": {
+  "codigo": "F057",
+  "licencia": "Sin verificar: la fuente no respondió al consultarla (No se pudo descargar https://portalidem.metropol.gov.co/server/rest/services/DISTRITO_MEDELLIN_CATASTRO/MapServer?f=json: HTTP Error 502: Ba)",
+  "licencia_origen": "Consulta fallida",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://portalidem.metropol.gov.co/server/rest/services/DISTRITO_MEDELLIN_CATASTRO/MapServer/8",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "catastro-estratos": {
+  "codigo": "F005",
+  "licencia": "No declarada en la fuente. El servicio solo trae un crédito (copyrightText): «Subsecretaria de Catastro,  Equipo de Geodatabase»",
+  "licencia_origen": "Servicio ArcGIS REST (copyrightText)",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://www.medellin.gov.co/servidormapas/rest/services/ServiciosCatastro/ConsultaOperadorCatastral_geo/MapServer",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "catastro-puntos": {
+  "codigo": "F064",
+  "licencia": "Sin verificar: la fuente no respondió al consultarla (No se pudo descargar https://portalidem.metropol.gov.co/server/rest/services/DISTRITO_MEDELLIN_CATASTRO/MapServer?f=json: HTTP Error 502: Ba)",
+  "licencia_origen": "Consulta fallida",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://portalidem.metropol.gov.co/server/rest/services/DISTRITO_MEDELLIN_CATASTRO/MapServer/8",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "concejo-acuerdos": {
+  "codigo": "F037",
+  "ficha": {
+   "actualizado": "2026-10-21",
+   "categoria": "Función pública",
+   "publicador": "Concejo de Medellín, Antioquia"
+  },
+  "licencia": "Creative Commons Attribution | Share Alike 4.0 International",
+  "licencia_origen": "Ficha del conjunto en datos.gov.co (API)",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "http://creativecommons.org/licenses/by-sa/4.0/legalcode",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "concejo-proyectos": {
+  "codigo": "F038",
+  "ficha": {
+   "actualizado": "2026-10-21",
+   "categoria": "Función pública",
+   "publicador": "Concejo de Medellín, Antioquia"
+  },
+  "licencia": "Creative Commons Attribution | Share Alike 4.0 International",
+  "licencia_origen": "Ficha del conjunto en datos.gov.co (API)",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "http://creativecommons.org/licenses/by-sa/4.0/legalcode",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "cuipo-gastos": {
+  "codigo": "F036",
+  "ficha": {
+   "actualizado": "2026-08-18",
+   "categoria": "Gastos Gubernamentales",
+   "publicador": "Contraloría General de la República, Bogotá D.C."
+  },
+  "licencia": "Creative Commons Attribution | Share Alike 4.0 International",
+  "licencia_origen": "Ficha del conjunto en datos.gov.co (API)",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "http://creativecommons.org/licenses/by-sa/4.0/legalcode",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "cuipo-ingresos": {
+  "codigo": "F035",
+  "ficha": {
+   "actualizado": "2026-08-18",
+   "categoria": "Gastos Gubernamentales",
+   "publicador": "Contraloría General de la República, Bogotá D.C."
+  },
+  "licencia": "Creative Commons Attribution | Share Alike 4.0 International",
+  "licencia_origen": "Ficha del conjunto en datos.gov.co (API)",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "http://creativecommons.org/licenses/by-sa/4.0/legalcode",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "curadurias-licencias": {
+  "codigo": "F010",
+  "licencia": "No declarada en la fuente. El servicio ArcGIS tiene el campo copyrightText vacío",
+  "licencia_origen": "Servicio ArcGIS REST (copyrightText)",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://www.medellin.gov.co/servidormapas/rest/services/vivienda_ciudad_terri/VM_Licencias/MapServer",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "dane-geih": {
+  "codigo": "F007",
+  "licencia": "Se autoriza el uso, aprovechamiento, transformación y análisis de la información contenida en esta portal, siempre y cuando se haga la siguiente cita textual: “Fuente: Departamento Administrativo Nacional de Estadística: www.dane.gov.co”",
+  "licencia_origen": "Texto de la fuente, leído a mano",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://www.dane.gov.co/index.php/terminos-y-condiciones",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "dane-pped": {
+  "codigo": "F001",
+  "licencia": "Se autoriza el uso, aprovechamiento, transformación y análisis de la información contenida en esta portal, siempre y cuando se haga la siguiente cita textual: “Fuente: Departamento Administrativo Nacional de Estadística: www.dane.gov.co”",
+  "licencia_origen": "Texto de la fuente, leído a mano",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://www.dane.gov.co/index.php/terminos-y-condiciones",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "dane-pped-edad": {
+  "codigo": "F002",
+  "licencia": "Se autoriza el uso, aprovechamiento, transformación y análisis de la información contenida en esta portal, siempre y cuando se haga la siguiente cita textual: “Fuente: Departamento Administrativo Nacional de Estadística: www.dane.gov.co”",
+  "licencia_origen": "Texto de la fuente, leído a mano",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://www.dane.gov.co/index.php/terminos-y-condiciones",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "dap-proyecciones": {
+  "codigo": "F003",
+  "licencia": "No declarada en la fuente. El servicio ArcGIS tiene el campo copyrightText vacío",
+  "licencia_origen": "Servicio ArcGIS REST (copyrightText)",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://www.medellin.gov.co/servidormapas/rest/services/mapas_nacionales/VC_Distribucion_Poblacional/MapServer",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "eox-sentinel2": {
+  "codigo": "F089",
+  "licencia": "Do you want to use our maps as part of your application? Just feel free to use them. We just ask for a link back to EOX::Maps as well as appropriate attribution.",
+  "licencia_origen": "Texto de la fuente, leído a mano",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://maps.eox.at/",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "epm-red-electrica": {
+  "codigo": "F063",
+  "licencia": "Sin verificar: la fuente no respondió al consultarla (No se pudo descargar https://portalidem.metropol.gov.co/server/rest/services/Hosted/Riesgo_Tecnol%C3%B3gico/FeatureServer?f=json: HTTP Error)",
+  "licencia_origen": "Consulta fallida",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://portalidem.metropol.gov.co/server/rest/services/Hosted/Riesgo_Tecnol%C3%B3gico/FeatureServer",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "epm-tarifas-agua": {
+  "codigo": "F048",
+  "ficha": {
+   "actualizado": "2026-10-08",
+   "categoria": "Minas y Energía",
+   "publicador": "EPM"
+  },
+  "licencia": "Creative Commons Attribution | Share Alike 4.0 International",
+  "licencia_origen": "Ficha del conjunto en datos.gov.co (API)",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "http://creativecommons.org/licenses/by-sa/4.0/legalcode",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "epm-tarifas-energia": {
+  "codigo": "F050",
+  "licencia": "No declarada para los datos. El pie del sitio de EPM dice «EPM © Todos los derechos reservados 2026» y remite a un «Manual de Derechos de Autor y/o autorización de uso sobre los contenidos».",
+  "licencia_origen": "Texto de la fuente, leído a mano",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://www.epm.com.co/clientesyusuarios/energia/tarifas-energia/",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "epm-tarifas-gas": {
+  "codigo": "F049",
+  "ficha": {
+   "actualizado": "2026-09-17",
+   "categoria": "Minas y Energía",
+   "publicador": "E.S.P. Empresas Públicas de Medellín - EPM, Antioquia"
+  },
+  "licencia": "Creative Commons Attribution | Share Alike 4.0 International",
+  "licencia_origen": "Ficha del conjunto en datos.gov.co (API)",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "http://creativecommons.org/licenses/by-sa/4.0/legalcode",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "esri-imagery": {
+  "codigo": "F060",
+  "licencia": "This work is licensed under the Esri Master License Agreement.",
+  "licencia_origen": "Texto de la fuente, leído a mano",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://www.arcgis.com/home/item.html?id=10df2279f9684e4a9f6a7f08febac2a9",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "gdelt-titulares": {
+  "codigo": "F092",
+  "licencia": "All datasets released by the GDELT Project are available for unlimited and unrestricted use for any academic, commercial, or governmental use of any kind without fee. Any use or redistribution of the data must include a citation to the GDELT Project and a link to this website (https://www.gdeltproject.org/).",
+  "licencia_origen": "Texto de la fuente, leído a mano",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://www.gdeltproject.org/about.html",
+  "personas": "Posible: un titular de prensa puede nombrar a una persona.",
+  "proteccion": "Abierto, con filtro: se excluyen los titulares sobre fallecimientos y hechos violentos y no se guarda el texto del artículo, solo título, medio, fecha y enlace."
+ },
+ "gdelt-volumen": {
+  "codigo": "F091",
+  "licencia": "All datasets released by the GDELT Project are available for unlimited and unrestricted use for any academic, commercial, or governmental use of any kind without fee. Any use or redistribution of the data must include a citation to the GDELT Project and a link to this website (https://www.gdeltproject.org/).",
+  "licencia_origen": "Texto de la fuente, leído a mano",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://www.gdeltproject.org/about.html",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "idem-bicicleta": {
+  "codigo": "F069",
+  "licencia": "Sin verificar: la fuente no respondió al consultarla (No se pudo descargar https://portalidem.metropol.gov.co/server/rest/services/Hosted/Ciclorrutas/FeatureServer?f=json: HTTP Error 502: Bad Ga)",
+  "licencia_origen": "Consulta fallida",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://portalidem.metropol.gov.co/server/rest/services/Hosted/Ciclorrutas/FeatureServer/0",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "idem-limites": {
+  "codigo": "F056",
+  "licencia": "Sin verificar: la fuente no respondió al consultarla (No se pudo descargar https://portalidem.metropol.gov.co/server/rest/services/DISTRITO_MEDELLIN_CATASTRO/MapServer?f=json: HTTP Error 502: Ba)",
+  "licencia_origen": "Consulta fallida",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://portalidem.metropol.gov.co/server/rest/services/DISTRITO_MEDELLIN_CATASTRO/MapServer",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "idem-pot": {
+  "codigo": "F067",
+  "licencia": "Sin verificar: la fuente no respondió al consultarla (No se pudo descargar https://portalidem.metropol.gov.co/server/rest/services/DISTRITO_MEDELLIN_POT/MapServer?f=json: HTTP Error 502: Bad Gat)",
+  "licencia_origen": "Consulta fallida",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://portalidem.metropol.gov.co/server/rest/services/DISTRITO_MEDELLIN_POT/MapServer",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "idem-pot-equipamientos": {
+  "codigo": "F077",
+  "licencia": "Sin verificar: la fuente no respondió al consultarla (No se pudo descargar https://portalidem.metropol.gov.co/server/rest/services/DISTRITO_MEDELLIN_POT/MapServer?f=json: HTTP Error 502: Bad Gat)",
+  "licencia_origen": "Consulta fallida",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://portalidem.metropol.gov.co/server/rest/services/DISTRITO_MEDELLIN_POT/MapServer/7",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "idem-valor-suelo": {
+  "codigo": "F009",
+  "licencia": "Sin verificar: la fuente no respondió al consultarla (No se pudo descargar https://portalidem.metropol.gov.co/server/rest/services/MEDELLIN_Uso_y_Valores_Suelo/MapServer?f=json: HTTP Error 502: )",
+  "licencia_origen": "Consulta fallida",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://portalidem.metropol.gov.co/server/rest/services/MEDELLIN_Uso_y_Valores_Suelo/MapServer/0",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "internet-fijo-comuna": {
+  "codigo": "F054",
+  "ficha": {
+   "actualizado": "2026-07-24",
+   "categoria": null,
+   "publicador": null
+  },
+  "licencia": "No declarada en la fuente",
+  "licencia_origen": "Ficha del conjunto en datos.gov.co (API)",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://www.datos.gov.co/d/fwe6-d4hc",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "medata-aforos": {
+  "codigo": "F066",
+  "ficha": {
+   "cobertura_declarada": "2020-08-01T00:00:00Z",
+   "frecuencia": "Anual",
+   "modificacion_declarada": "01-02-2025",
+   "nivel_de_acceso": "Público",
+   "publicador": "Movilidad"
+  },
+  "licencia": "Atribución 4.0 Internacional (CC BY 4.0)",
+  "licencia_origen": "Ficha técnica del conjunto en MEData",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://medata.app.medellin.gov.co/dataset/1-023-25-000301",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "medata-cobertura-servicios": {
+  "codigo": "F042",
+  "ficha": {
+   "cobertura_declarada": "2017-12-31T00:00:00Z",
+   "frecuencia": "Anual",
+   "modificacion_declarada": "10-08-2021",
+   "nivel_de_acceso": "Público",
+   "publicador": "Gestión y Control Territorial"
+  },
+  "licencia": "Atribución 4.0 Internacional (CC BY 4.0)",
+  "licencia_origen": "Ficha técnica del conjunto en MEData",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://medata.app.medellin.gov.co/dataset/1-014-26-000256",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "medata-museos": {
+  "codigo": "F031",
+  "ficha": {
+   "cobertura_declarada": "2019-12-31T00:00:00Z",
+   "frecuencia": "Mensual",
+   "modificacion_declarada": "15-12-2023",
+   "nivel_de_acceso": "Público",
+   "publicador": "Desarrollo Económico"
+  },
+  "licencia": "Atribución 4.0 Internacional (CC BY 4.0)",
+  "licencia_origen": "Ficha técnica del conjunto en MEData",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://medata.app.medellin.gov.co/dataset/1-010-04-000192",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "medata-ocupacion-hotelera": {
+  "codigo": "F030",
+  "ficha": {
+   "cobertura_declarada": "2019-12-31T00:00:00Z",
+   "frecuencia": "Mensual",
+   "modificacion_declarada": "14-12-2023",
+   "nivel_de_acceso": "Público",
+   "publicador": "Desarrollo Económico"
+  },
+  "licencia": "Atribución 4.0 Internacional (CC BY 4.0)",
+  "licencia_origen": "Ficha técnica del conjunto en MEData",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://medata.app.medellin.gov.co/dataset/1-010-04-000201",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "medata-pequenos-prestadores": {
+  "codigo": "F044",
+  "ficha": {
+   "cobertura_declarada": "2017-12-01T00:00:00Z",
+   "frecuencia": "Anual",
+   "modificacion_declarada": "01-02-2025",
+   "nivel_de_acceso": "Público",
+   "publicador": "Gestión y Control Territorial"
+  },
+  "licencia": "Atribución 4.0 Internacional (CC BY 4.0)",
+  "licencia_origen": "Ficha técnica del conjunto en MEData",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://medata.app.medellin.gov.co/dataset/1-014-26-000262",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "medata-predial-comunas": {
+  "codigo": "F041",
+  "ficha": {
+   "cobertura_declarada": "2019-01-01T00:00:00Z",
+   "frecuencia": "Trimestral",
+   "modificacion_declarada": "11-12-2023",
+   "nivel_de_acceso": "Público",
+   "publicador": "Hacienda"
+  },
+  "licencia": "Atribución 4.0 Internacional (CC BY 4.0)",
+  "licencia_origen": "Ficha técnica del conjunto en MEData",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://medata.app.medellin.gov.co/dataset/1-016-12-000302",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "medata-recicladoras": {
+  "codigo": "F052",
+  "ficha": {
+   "cobertura_declarada": "2023-11-30T00:00:00Z",
+   "frecuencia": "Anual",
+   "modificacion_declarada": "01-02-2025",
+   "nivel_de_acceso": "Público",
+   "publicador": "Gestión y Control Territorial"
+  },
+  "licencia": "Atribución 4.0 Internacional (CC BY 4.0)",
+  "licencia_origen": "Ficha técnica del conjunto en MEData",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://medata.app.medellin.gov.co/dataset/1-014-26-000593",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "medata-sitios": {
+  "codigo": "F032",
+  "ficha": {
+   "cobertura_declarada": "2019-12-31T00:00:00Z",
+   "frecuencia": "Mensual",
+   "modificacion_declarada": "15-12-2023",
+   "nivel_de_acceso": "Público",
+   "publicador": "Desarrollo Económico"
+  },
+  "licencia": "Atribución 4.0 Internacional (CC BY 4.0)",
+  "licencia_origen": "Ficha técnica del conjunto en MEData",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://medata.app.medellin.gov.co/dataset/1-010-04-000193",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "medata-subsidios-aseo": {
+  "codigo": "F047",
+  "ficha": {
+   "cobertura_declarada": "2017-12-01T00:00:00Z",
+   "frecuencia": "Anual",
+   "modificacion_declarada": "01-02-2025",
+   "nivel_de_acceso": "Público",
+   "publicador": "Gestión y Control Territorial"
+  },
+  "licencia": "Atribución 4.0 Internacional (CC BY 4.0)",
+  "licencia_origen": "Ficha técnica del conjunto en MEData",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://medata.app.medellin.gov.co/dataset/1-014-26-000257",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "medata-subsidios-epm": {
+  "codigo": "F046",
+  "ficha": {
+   "cobertura_declarada": "2017-12-01T00:00:00Z",
+   "frecuencia": "Anual",
+   "modificacion_declarada": "01-02-2025",
+   "nivel_de_acceso": "Público",
+   "publicador": "Gestión y Control Territorial"
+  },
+  "licencia": "Atribución 4.0 Internacional (CC BY 4.0)",
+  "licencia_origen": "Ficha técnica del conjunto en MEData",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://medata.app.medellin.gov.co/dataset/1-014-26-000258",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "medata-suscriptores-aseo": {
+  "codigo": "F045",
+  "ficha": {
+   "cobertura_declarada": "2017-12-01T00:00:00Z",
+   "frecuencia": "Anual",
+   "modificacion_declarada": "01-02-2025",
+   "nivel_de_acceso": "Público",
+   "publicador": "Gestión y Control Territorial"
+  },
+  "licencia": "Atribución 4.0 Internacional (CC BY 4.0)",
+  "licencia_origen": "Ficha técnica del conjunto en MEData",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://medata.app.medellin.gov.co/dataset/1-014-26-000260",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "medata-suscriptores-epm": {
+  "codigo": "F043",
+  "ficha": {
+   "cobertura_declarada": "2017-12-01T00:00:00Z",
+   "frecuencia": "Anual",
+   "modificacion_declarada": "01-02-2025",
+   "nivel_de_acceso": "Público",
+   "publicador": "Gestión y Control Territorial"
+  },
+  "licencia": "Atribución 4.0 Internacional (CC BY 4.0)",
+  "licencia_origen": "Ficha técnica del conjunto en MEData",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://medata.app.medellin.gov.co/dataset/1-014-26-000261",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "medata-victimas-viales": {
+  "codigo": "F065",
+  "ficha": {
+   "cobertura_declarada": "2014-01-01T00:00:00Z",
+   "frecuencia": "Mensual",
+   "modificacion_declarada": "02-03-2025",
+   "nivel_de_acceso": "Público",
+   "publicador": "Movilidad"
+  },
+  "licencia": "Atribución 4.0 Internacional (CC BY 4.0)",
+  "licencia_origen": "Ficha técnica del conjunto en MEData",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://medata.app.medellin.gov.co/dataset/1-023-25-000360",
+  "personas": "Sí: cada fila es una víctima con sexo, edad, condición, dirección, número de radicado, fecha, hora y coordenadas.",
+  "proteccion": "Abierto, solo agregados: el crudo queda fuera de git; el lago guarda conteos por comuna y el mapa de calor usa celdas de ~110 m con el año, sin sexo, edad, dirección ni gravedad."
+ },
+ "metro-afluencia": {
+  "codigo": "F055",
+  "licencia": "No declarada en la fuente: el elemento «Afluencia_Metro_2026» de ArcGIS Online tiene el campo licenseInfo vacío.",
+  "licencia_origen": "Texto de la fuente, leído a mano",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://metrodemedellin.maps.arcgis.com/sharing/rest/content/items/47c841c020644d26ae54d4e0871df154?f=json",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "metro-red": {
+  "codigo": "F068",
+  "licencia": "No declarada en la fuente: el portal de datos abiertos del Metro no mostró texto de licencia al consultarlo.",
+  "licencia_origen": "Texto de la fuente, leído a mano",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://datosabiertos-metrodemedellin.opendata.arcgis.com/",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "mincit-extranjeros": {
+  "codigo": "F028",
+  "ficha": {
+   "actualizado": "2026-08-18",
+   "categoria": "Comercio, Industria y Turismo",
+   "publicador": "Ministerio de Comercio, Industria y Turismo - MinCIT, Bogotá D.C."
+  },
+  "licencia": "Creative Commons Attribution | Share Alike 4.0 International",
+  "licencia_origen": "Ficha del conjunto en datos.gov.co (API)",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "http://creativecommons.org/licenses/by-sa/4.0/legalcode",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "mintic-internet-fijo": {
+  "codigo": "F053",
+  "licencia": "No declarada en la fuente: la ficha del conjunto en datos.gov.co (fwe6-d4hc), que enlaza este CSV, tiene el campo de licencia vacío, y Postdata (CRC), donde está el archivo, no mostró una página de términos.",
+  "licencia_origen": "Texto de la fuente, leído a mano",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://www.datos.gov.co/d/fwe6-d4hc",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "nasa-gibs-viirs": {
+  "codigo": "F088",
+  "licencia": "NASA's free and open data use guidance states that data and information generated under NASA sponsorship are available to all users.",
+  "licencia_origen": "Texto de la fuente, leído a mano",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://earthdata.nasa.gov/engage/open-data-services-software-policies",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "oime-ofertas": {
+  "codigo": "F008",
+  "licencia": "No declarada en la fuente. El servicio ArcGIS tiene el campo copyrightText vacío",
+  "licencia_origen": "Servicio ArcGIS REST (copyrightText)",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://www.medellin.gov.co/servidormapas/rest/services/vivienda_ciudad_terri/VM_Oferta_Comercial_Oime/MapServer",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "open-meteo": {
+  "codigo": "F093",
+  "licencia": "API data are offered under Attribution 4.0 International (CC BY 4.0). You may only use the free API services for non-commercial purposes.",
+  "licencia_origen": "Texto de la fuente, leído a mano",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://open-meteo.com/en/license",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "openfreemap": {
+  "codigo": "F062",
+  "licencia": "The license of this project is MIT. Map data is from OpenStreetMap.",
+  "licencia_origen": "Texto de la fuente, leído a mano",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://openfreemap.org/",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "ortofoto-2024": {
+  "codigo": "F059",
+  "licencia": "No declarada en la fuente. El servicio solo trae un crédito (copyrightText): «Alcaldia de Medellin»",
+  "licencia_origen": "Servicio ArcGIS REST (copyrightText)",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://www.medellin.gov.co/servidormapas/rest/services/ServiciosCiudad/IMAGEN_WEBM_2024/MapServer",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "osm-hospedajes": {
+  "codigo": "F034",
+  "licencia": "OpenStreetMap es un sistema de datos abiertos, licenciado bajo la Licencia de Base de Datos Abierta de Open Data Commons (ODbL) por la Fundación OpenStreetMap.",
+  "licencia_origen": "Texto de la fuente, leído a mano",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://www.openstreetmap.org/copyright",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "policia-delitos-sexuales": {
+  "codigo": "F018",
+  "ficha": {
+   "actualizado": "2026-10-21",
+   "categoria": "Seguridad y Defensa",
+   "publicador": "Ministerio de Defensa Nacional - MinDefensa, Bogotá D.C."
+  },
+  "licencia": "Creative Commons Attribution | Share Alike 4.0 International",
+  "licencia_origen": "Ficha del conjunto en datos.gov.co (API)",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "http://creativecommons.org/licenses/by-sa/4.0/legalcode",
+  "personas": "Sí: algunas tablas traen el sexo de la víctima por evento, sin un lugar más fino que el municipio.",
+  "proteccion": "Abierto, solo agregados: solo se piden sumas por año; el sexo no se guarda ni se muestra."
+ },
+ "policia-extorsion": {
+  "codigo": "F016",
+  "ficha": {
+   "actualizado": "2026-10-21",
+   "categoria": "Seguridad y Defensa",
+   "publicador": "Ministerio de Defensa Nacional - MinDefensa, Bogotá D.C."
+  },
+  "licencia": "Creative Commons Attribution | Share Alike 4.0 International",
+  "licencia_origen": "Ficha del conjunto en datos.gov.co (API)",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "http://creativecommons.org/licenses/by-sa/4.0/legalcode",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "policia-homicidios": {
+  "codigo": "F013",
+  "ficha": {
+   "actualizado": "2026-10-21",
+   "categoria": "Seguridad y Defensa",
+   "publicador": "Ministerio de Defensa Nacional - MinDefensa, Bogotá D.C."
+  },
+  "licencia": "Creative Commons Attribution | Share Alike 4.0 International",
+  "licencia_origen": "Ficha del conjunto en datos.gov.co (API)",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "http://creativecommons.org/licenses/by-sa/4.0/legalcode",
+  "personas": "Sí: algunas tablas traen el sexo de la víctima por evento, sin un lugar más fino que el municipio.",
+  "proteccion": "Abierto, solo agregados: solo se piden sumas por año; el sexo no se guarda ni se muestra."
+ },
+ "policia-hurto-personas": {
+  "codigo": "F014",
+  "ficha": {
+   "actualizado": "2026-10-21",
+   "categoria": "Seguridad y Defensa",
+   "publicador": "Ministerio de Defensa Nacional - MinDefensa, Bogotá D.C."
+  },
+  "licencia": "Creative Commons Attribution | Share Alike 4.0 International",
+  "licencia_origen": "Ficha del conjunto en datos.gov.co (API)",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "http://creativecommons.org/licenses/by-sa/4.0/legalcode",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "policia-hurto-vehiculos": {
+  "codigo": "F015",
+  "ficha": {
+   "actualizado": "2026-10-21",
+   "categoria": "Seguridad y Defensa",
+   "publicador": "Ministerio de Defensa Nacional - MinDefensa, Bogotá D.C."
+  },
+  "licencia": "Creative Commons Attribution | Share Alike 4.0 International",
+  "licencia_origen": "Ficha del conjunto en datos.gov.co (API)",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "http://creativecommons.org/licenses/by-sa/4.0/legalcode",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "policia-lesiones-personales": {
+  "codigo": "F019",
+  "ficha": {
+   "actualizado": "2026-10-21",
+   "categoria": null,
+   "publicador": "Ministerio de Defensa Nacional - MinDefensa, Bogotá D.C."
+  },
+  "licencia": "Creative Commons Attribution | Share Alike 4.0 International",
+  "licencia_origen": "Ficha del conjunto en datos.gov.co (API)",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "http://creativecommons.org/licenses/by-sa/4.0/legalcode",
+  "personas": "Sí: algunas tablas traen el sexo de la víctima por evento, sin un lugar más fino que el municipio.",
+  "proteccion": "Abierto, solo agregados: solo se piden sumas por año; el sexo no se guarda ni se muestra."
+ },
+ "policia-violencia-intrafamiliar": {
+  "codigo": "F017",
+  "ficha": {
+   "actualizado": "2026-10-21",
+   "categoria": "Seguridad y Defensa",
+   "publicador": "Ministerio de Defensa Nacional - MinDefensa, Bogotá D.C."
+  },
+  "licencia": "Creative Commons Attribution | Share Alike 4.0 International",
+  "licencia_origen": "Ficha del conjunto en datos.gov.co (API)",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "http://creativecommons.org/licenses/by-sa/4.0/legalcode",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "pot-tratamientos": {
+  "codigo": "F058",
+  "licencia": "Sin verificar: la fuente no respondió al consultarla (No se pudo descargar https://portalidem.metropol.gov.co/server/rest/services/DISTRITO_MEDELLIN_POT/MapServer?f=json: HTTP Error 502: Bad Gat)",
+  "licencia_origen": "Consulta fallida",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://portalidem.metropol.gov.co/server/rest/services/DISTRITO_MEDELLIN_POT/MapServer/5",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "secop2-distrito": {
+  "codigo": "F040",
+  "ficha": {
+   "actualizado": "2026-10-24",
+   "categoria": "Estadísticas Nacionales",
+   "publicador": "Agencia Nacional de Contratación Pública - Colombia Compra Eficiente, Bogotá D.C."
+  },
+  "licencia": "Creative Commons Attribution | Share Alike 4.0 International",
+  "licencia_origen": "Ficha del conjunto en datos.gov.co (API)",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "http://creativecommons.org/licenses/by-sa/4.0/legalcode",
+  "personas": "Posible: el proveedor de un contrato puede ser una persona natural.",
+  "proteccion": "Abierto, solo agregados: se publican totales por tipo y año y los 10 contratos de mayor valor, que son de empresas; no se guarda ningún documento de proveedores."
+ },
+ "siata-alertas": {
+  "codigo": "F085",
+  "licencia": "No declarada en la fuente: ni siata.gov.co ni el geoportal publican licencia ni términos de uso de los datos que se consultaron.",
+  "licencia_origen": "Texto de la fuente, leído a mano",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://siata.gov.co/siata_nuevo/",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "siata-meteo": {
+  "codigo": "F083",
+  "licencia": "No declarada en la fuente: ni siata.gov.co ni el geoportal publican licencia ni términos de uso de los datos que se consultaron.",
+  "licencia_origen": "Texto de la fuente, leído a mano",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://siata.gov.co/siata_nuevo/",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "siata-niveles": {
+  "codigo": "F082",
+  "licencia": "No declarada en la fuente: ni siata.gov.co ni el geoportal publican licencia ni términos de uso de los datos que se consultaron.",
+  "licencia_origen": "Texto de la fuente, leído a mano",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://siata.gov.co/siata_nuevo/",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "siata-pluvios": {
+  "codigo": "F081",
+  "licencia": "No declarada en la fuente: ni siata.gov.co ni el geoportal publican licencia ni términos de uso de los datos que se consultaron.",
+  "licencia_origen": "Texto de la fuente, leído a mano",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://siata.gov.co/siata_nuevo/",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "siata-pm25": {
+  "codigo": "F080",
+  "licencia": "No declarada en la fuente: ni siata.gov.co ni el geoportal publican licencia ni términos de uso de los datos que se consultaron.",
+  "licencia_origen": "Texto de la fuente, leído a mano",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://siata.gov.co/siata_nuevo/",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "siata-ruido": {
+  "codigo": "F084",
+  "licencia": "No declarada en la fuente: ni siata.gov.co ni el geoportal publican licencia ni términos de uso de los datos que se consultaron.",
+  "licencia_origen": "Texto de la fuente, leído a mano",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://siata.gov.co/siata_nuevo/",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "sisc-extorsion-sisc": {
+  "codigo": "F026",
+  "ficha": {
+   "cobertura_declarada": "2003-01-01T00:00:00Z",
+   "frecuencia": "Mensual",
+   "modificacion_declarada": "06-03-2025",
+   "nivel_de_acceso": "Público",
+   "publicador": "Seguridad"
+  },
+  "licencia": "Atribución 4.0 Internacional (CC BY 4.0)",
+  "licencia_origen": "Ficha técnica del conjunto en MEData",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://medata.app.medellin.gov.co/dataset/1-027-23-000007",
+  "personas": "Sí: cada fila es un evento con sexo, edad, estado civil, ocupación, discapacidad, grupo especial y coordenadas de la víctima.",
+  "proteccion": "Abierto, solo agregados: el crudo se descarga a datos/crudos/ (fuera de git y del despliegue) y el lago guarda solo conteos por comuna y por barrio."
+ },
+ "sisc-homicidio": {
+  "codigo": "F020",
+  "ficha": {
+   "cobertura_declarada": "2003-01-01T00:00:00Z",
+   "frecuencia": "Mensual",
+   "modificacion_declarada": "06-03-2025",
+   "nivel_de_acceso": "Público",
+   "publicador": "Seguridad"
+  },
+  "licencia": "Atribución 4.0 Internacional (CC BY 4.0)",
+  "licencia_origen": "Ficha técnica del conjunto en MEData",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://medata.app.medellin.gov.co/dataset/1-027-23-000008",
+  "personas": "Sí: cada fila es un evento con sexo, edad, estado civil, ocupación, discapacidad, grupo especial y coordenadas de la víctima.",
+  "proteccion": "Abierto, solo agregados: el crudo se descarga a datos/crudos/ (fuera de git y del despliegue) y el lago guarda solo conteos por comuna y por barrio."
+ },
+ "sisc-hurto-carro": {
+  "codigo": "F022",
+  "ficha": {
+   "cobertura_declarada": "2003-01-01T00:00:00Z",
+   "frecuencia": "Mensual",
+   "modificacion_declarada": "06-03-2025",
+   "nivel_de_acceso": "Público",
+   "publicador": "Seguridad"
+  },
+  "licencia": "Atribución 4.0 Internacional (CC BY 4.0)",
+  "licencia_origen": "Ficha técnica del conjunto en MEData",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://medata.app.medellin.gov.co/dataset/1-027-23-000013",
+  "personas": "Sí: cada fila es un evento con sexo, edad, estado civil, ocupación, discapacidad, grupo especial y coordenadas de la víctima.",
+  "proteccion": "Abierto, solo agregados: el crudo se descarga a datos/crudos/ (fuera de git y del despliegue) y el lago guarda solo conteos por comuna y por barrio."
+ },
+ "sisc-hurto-comercio": {
+  "codigo": "F025",
+  "ficha": {
+   "cobertura_declarada": "2003-01-01T00:00:00Z",
+   "frecuencia": "Mensual",
+   "modificacion_declarada": "06-03-2025",
+   "nivel_de_acceso": "Público",
+   "publicador": "Seguridad"
+  },
+  "licencia": "Atribución 4.0 Internacional (CC BY 4.0)",
+  "licencia_origen": "Ficha técnica del conjunto en MEData",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://medata.app.medellin.gov.co/dataset/1-027-23-000010",
+  "personas": "Sí: cada fila es un evento con sexo, edad, estado civil, ocupación, discapacidad, grupo especial y coordenadas de la víctima.",
+  "proteccion": "Abierto, solo agregados: el crudo se descarga a datos/crudos/ (fuera de git y del despliegue) y el lago guarda solo conteos por comuna y por barrio."
+ },
+ "sisc-hurto-moto": {
+  "codigo": "F023",
+  "ficha": {
+   "cobertura_declarada": "2003-01-01T00:00:00Z",
+   "frecuencia": "Mensual",
+   "modificacion_declarada": "06-03-2025",
+   "nivel_de_acceso": "Público",
+   "publicador": "Seguridad"
+  },
+  "licencia": "Atribución 4.0 Internacional (CC BY 4.0)",
+  "licencia_origen": "Ficha técnica del conjunto en MEData",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://medata.app.medellin.gov.co/dataset/1-027-23-000014",
+  "personas": "Sí: cada fila es un evento con sexo, edad, estado civil, ocupación, discapacidad, grupo especial y coordenadas de la víctima.",
+  "proteccion": "Abierto, solo agregados: el crudo se descarga a datos/crudos/ (fuera de git y del despliegue) y el lago guarda solo conteos por comuna y por barrio."
+ },
+ "sisc-hurto-persona": {
+  "codigo": "F021",
+  "ficha": {
+   "cobertura_declarada": "2003-01-01T00:00:00Z",
+   "frecuencia": "Mensual",
+   "modificacion_declarada": "06-03-2025",
+   "nivel_de_acceso": "Público",
+   "publicador": "Seguridad"
+  },
+  "licencia": "Atribución 4.0 Internacional (CC BY 4.0)",
+  "licencia_origen": "Ficha técnica del conjunto en MEData",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://medata.app.medellin.gov.co/dataset/1-027-23-000011",
+  "personas": "Sí: cada fila es un evento con sexo, edad, estado civil, ocupación, discapacidad, grupo especial y coordenadas de la víctima.",
+  "proteccion": "Abierto, solo agregados: el crudo se descarga a datos/crudos/ (fuera de git y del despliegue) y el lago guarda solo conteos por comuna y por barrio."
+ },
+ "sisc-hurto-residencia": {
+  "codigo": "F024",
+  "ficha": {
+   "cobertura_declarada": "2003-01-01T00:00:00Z",
+   "frecuencia": "Mensual",
+   "modificacion_declarada": "06-03-2025",
+   "nivel_de_acceso": "Público",
+   "publicador": "Seguridad"
+  },
+  "licencia": "Atribución 4.0 Internacional (CC BY 4.0)",
+  "licencia_origen": "Ficha técnica del conjunto en MEData",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://medata.app.medellin.gov.co/dataset/1-027-23-000012",
+  "personas": "Sí: cada fila es un evento con sexo, edad, estado civil, ocupación, discapacidad, grupo especial y coordenadas de la víctima.",
+  "proteccion": "Abierto, solo agregados: el crudo se descarga a datos/crudos/ (fuera de git y del despliegue) y el lago guarda solo conteos por comuna y por barrio."
+ },
+ "sisc-lesion-dolosa": {
+  "codigo": "F027",
+  "ficha": {
+   "cobertura_declarada": "2003-01-01T00:00:00Z",
+   "frecuencia": "Mensual",
+   "modificacion_declarada": "06-03-2025",
+   "nivel_de_acceso": "Público",
+   "publicador": "Seguridad"
+  },
+  "licencia": "Atribución 4.0 Internacional (CC BY 4.0)",
+  "licencia_origen": "Ficha técnica del conjunto en MEData",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://medata.app.medellin.gov.co/dataset/1-027-23-000002",
+  "personas": "Sí: cada fila es un evento con sexo, edad, estado civil, ocupación, discapacidad, grupo especial y coordenadas de la víctima.",
+  "proteccion": "Abierto, solo agregados: el crudo se descarga a datos/crudos/ (fuera de git y del despliegue) y el lago guarda solo conteos por comuna y por barrio."
+ },
+ "sivigila-salud": {
+  "codigo": "F006",
+  "licencia": "No declarada en la fuente. El servicio solo trae un crédito (copyrightText): «Grupo Geográfico»",
+  "licencia_origen": "Servicio ArcGIS REST (copyrightText)",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://www.medellin.gov.co/servidormapas/rest/services/salud_protec_soc/VC_Datos_Enfermedades/MapServer",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "superservicios-ecas": {
+  "codigo": "F051",
+  "ficha": {
+   "actualizado": "2024-10-17",
+   "categoria": "Hacienda y Crédito Público",
+   "publicador": "Superintendencia de Servicios Públicos Domiciliarios - SUPERSERVICIOS, Bogotá D.C."
+  },
+  "licencia": "Creative Commons Attribution | Share Alike 4.0 International",
+  "licencia_origen": "Ficha del conjunto en datos.gov.co (API)",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "http://creativecommons.org/licenses/by-sa/4.0/legalcode",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "terreno-aws": {
+  "codigo": "F061",
+  "licencia": "License: https://github.com/tilezen/joerd/blob/master/docs/attribution.md (campo «License» del registro de AWS Open Data; ese documento exige atribución por cada proveedor de datos de terreno).",
+  "licencia_origen": "Texto de la fuente, leído a mano",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://registry.opendata.aws/terrain-tiles/",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "usgs-sismos": {
+  "codigo": "F086",
+  "licencia": "USGS-authored or produced data and information are considered to be in the U.S. Public Domain.",
+  "licencia_origen": "Texto de la fuente, leído a mano",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://www.usgs.gov/information-policies-and-instructions/copyrights-and-credits",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ },
+ "wikimedia-pageviews": {
+  "codigo": "F090",
+  "licencia": "All Analytics datasets are available under the Creative Commons CC0 dedication.",
+  "licencia_origen": "Texto de la fuente, leído a mano",
+  "licencia_probada": "2026-10-24",
+  "licencia_url": "https://dumps.wikimedia.org/other/pageview_complete/readme.html",
+  "personas": "No: la fuente no trae datos de personas.",
+  "proteccion": "Abierto"
+ }
+}

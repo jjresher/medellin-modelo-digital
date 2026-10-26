@@ -47,9 +47,18 @@ class Titulares(unittest.TestCase):
             articulo('Resultados Lotería de Medellín: último sorteo del viernes'),  # nombre propio
             articulo('Gasolina sube: así queda el precio en Medellín'),
         ])
-        self.assertEqual(sacados, {'sin_mencion': 1, 'homonimo': 1, 'otro_sujeto': 1, 'duplicado': 1})
+        self.assertEqual(sacados, {'sin_mencion': 1, 'homonimo': 1, 'otro_sujeto': 1, 'persona': 0, 'duplicado': 1})
         self.assertEqual([q['titulo'] for q in quedan],
                          ['Capturan a dos hombres en Medellín – Publinews', 'Gasolina sube: así queda el precio en Medellín'])
+
+    def test_no_publica_hechos_que_le_pasaron_a_una_persona(self):
+        quedan, sacados = pe.filtrar_titulares([
+            articulo('Falleció joven de 20 años tras la Maratón Medellín 2026'),
+            articulo('El capo que se escondía en un gimnasio de Medellín: así fue la captura de alias Gillani'),
+            articulo('Medellín logra su menor tasa de homicidios en 40 años: alcalde'),
+        ])
+        self.assertEqual(sacados['persona'], 2)
+        self.assertEqual([q['titulo'] for q in quedan], ['Medellín logra su menor tasa de homicidios en 40 años: alcalde'])
 
     def test_conserva_el_primero_que_vio_gdelt(self):
         quedan, _ = pe.filtrar_titulares([articulo('Lluvias en Medellín', '20261002T000000Z', 'https://b.co'),

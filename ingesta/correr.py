@@ -12,6 +12,7 @@ import json
 import sys
 import traceback
 
+import registro
 from lago import DIR_LAGO, hoy
 
 # demografia va primero: seguridad usa su población para calcular tasas.
@@ -40,6 +41,7 @@ def construir_catalogo(temas):
             uso = f.get('uso') or ', '.join(etiquetas[:4]) + ('…' if len(etiquetas) > 4 else '')
             datasets.append({**f, 'tema': tema['tema'], 'vigencia': vigencia_de(tema, f['id']) or 'Servicio vigente',
                              'uso': uso})
+    datasets = registro.unir(datasets)
     por_estado = {}
     for d in datasets:
         por_estado[d['estado']] = por_estado.get(d['estado'], 0) + 1

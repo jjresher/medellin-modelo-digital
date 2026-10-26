@@ -24,7 +24,7 @@ const normalizar = (texto) =>
 
 /**
  * Datasets que cumplen los tres filtros: tema (o null), estado (o null) y un texto que debe aparecer, palabra por palabra,
- * en el nombre, la entidad, el id, el uso o la URL.
+ * en el código (F001…), el nombre, la entidad, el id, el uso, la URL o la licencia.
  */
 export function filtrarCatalogo(datasets, { tema = null, estado = null, texto = '' } = {}) {
   const palabras = normalizar(texto).split(/\s+/).filter(Boolean);
@@ -32,7 +32,7 @@ export function filtrarCatalogo(datasets, { tema = null, estado = null, texto = 
     if (tema && d.tema !== tema) return false;
     if (estado && d.estado !== estado) return false;
     if (!palabras.length) return true;
-    const pajar = normalizar([d.nombre, d.entidad, d.id, d.uso, d.url].join(' '));
+    const pajar = normalizar([d.codigo, d.nombre, d.entidad, d.id, d.uso, d.url, d.licencia].join(' '));
     return palabras.every((p) => pajar.includes(p));
   });
 }

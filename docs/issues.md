@@ -80,6 +80,30 @@ Con las 16 issues hechas se revisó el proyecto entero. `npm run qa` se corrió 
   - La fluidez del gemelo en un portátil normal se revisa a mano.
 
 
+### Entrega 2 · visualización (24 oct 2026)
+
+Lo que pidió la retroalimentación de la entrega 1 y el enunciado de la parte 2. El detalle de cada decisión está en el [README](../README.md).
+
+- **IDs de fuente:** cada fuente lleva el ID del Excel de la entrega 1 (F001–F092). Open-Meteo, que faltaba, entra como F093. Se ven en cada tarjeta («F020 · probada … · Ver fuente»), en cada gráfico de Preguntas y en el catálogo. Los guarda `ingesta/registro_fuentes.json`.
+- **Licencias leídas en la fuente:** `ingesta/licencias.py` las lee en datos.gov.co (API), MEData (ficha, con Chrome sin ventana) y los servidores ArcGIS (`copyrightText`, que es un crédito y no una licencia). Para el resto se usa `ingesta/licencias_manuales.json`, con el texto copiado. Quedan 83 leídas y 10 sin verificar porque el portal del Área Metropolitana respondía 502.
+- **Cifras que mezclaban años:**
+  - La tasa del SISC ahora usa un año completo sobre la población de ese mismo año (`poblacion_anual_por_territorio` en demografía).
+  - El verde por habitante usa la población de 2019, el año del inventario.
+  - El espacio público efectivo usa la población del año de su inventario.
+- **Rentabilidad:** compara apartamentos con apartamentos, con 30 ofertas o más de cada lado. Antes, estrato 1 salía en 18 %.
+- **PROXY:** campo `proxy` en el contrato del lago y rótulo PROXY en la app (población por comuna, estratos por manzana, precios de oferta, rentabilidad, tasas del SISC, vistas de Wikipedia, volumen de prensa e índices de las lentes).
+- **Personas:**
+  - El mapa por barrio no publica conteos menores de 5.
+  - Los siniestros viales van en celdas de ~110 m, sin la marca de muerte.
+  - Se filtran los titulares sobre personas (regla `persona`).
+  - `verificar.py` falla si un campo de persona llega a `public/data` o si una fuente con personas queda «Abierto» a secas.
+  - `scripts/prueba-terminal.sh` prueba lo mismo desde afuera.
+- **Sección Preguntas:** las preguntas 2 (homicidios) y 3 (natalidad) de la entrega 1, más el verde por habitante; la 1 (ICA) queda pendiente con su razón.
+- **Nombres del grupo** en la barra lateral y al pie de cada sección.
+- **Excel del diccionario actualizado:** `ingesta/diccionario.py` parte del Excel de la entrega 1 y escribe `docs/Diccionario_de_datos_TallerDatos_entrega2.xlsx`.
+- **Exploración de herramientas:** Streamlit, Observable Framework y kepler.gl (sin terminar), con la misma tabla, en `exploracion/`.
+- **Pendiente:** desplegar en Vercel y correr las pruebas de terminal contra el enlace; terminar a mano la prueba de kepler.gl; la revisión cruzada con otro grupo; volver a leer las 10 licencias del Área Metropolitana cuando su portal responda.
+
 ---
 
 ## 0. Lago de datos, ingesta y verificación

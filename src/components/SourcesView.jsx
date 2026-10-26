@@ -2,6 +2,7 @@
 
 import { Fragment, useEffect, useMemo, useState } from 'react';
 import { DEFINICION_ESTADO, ESTADOS, contarPor, dominio, estadosDelLago, filtrarCatalogo, textoUso, usoPorFuente } from '../lib/fuentes';
+import Estado from './Estado';
 
 // Fuentes y método (issue #15). La tabla sale de catalogo.json, que genera la ingesta (ingesta/correr.py) con todas las
 // fuentes de todos los temas; lo que la app toma de cada una se cuenta en los temas del lago. "Ver fuente" en una tarjeta
@@ -77,9 +78,10 @@ function Metodo({ lago, catalogo }) {
           <p>
             <code>ingesta/verificar.py</code> revisa el lago completo: que cada cifra tenga valor, unidad, fuente, vigencia y estado; que los
             porcentajes estén entre 0 y 100 (salvo las variaciones) y no haya valores negativos; que cada serie tenga al menos dos puntos; que cada
-            fuente tenga URL y fecha de prueba (avisa si pasan más de 45 días), y que el índice y este catálogo coincidan con los temas. Con{' '}
-            <code>--red</code> comprueba además que cada URL responda. Corre al final de cada ingesta y en <code>npm run check</code>, antes de cada
-            commit; un error la hace fallar.
+            fuente tenga URL y fecha de prueba (avisa si pasan más de 45 días), su código F, su licencia leída en la fuente y una nota sobre datos de
+            personas; que ningún campo de persona (sexo, edad, radicado…) llegue al lago ni a las capas del mapa, y que el índice y este catálogo
+            coincidan con los temas. Con <code>--red</code> comprueba además que cada URL responda. Corre al final de cada ingesta y en{' '}
+            <code>npm run check</code>, antes de cada commit; un error la hace fallar.
           </p>
         </div>
         <div>
@@ -149,7 +151,6 @@ export default function SourcesView({ lago, focusId }) {
 
   const titulo = Object.fromEntries((lago.indice?.temas ?? []).map((t) => [t.tema, t.titulo]));
   const uso = useMemo(() => usoPorFuente(lago.temas), [lago.temas]);
-  const numero = Object.fromEntries(datasets.map((d, i) => [d.id, String(i + 1).padStart(2, '0')]));
   const visibles = filtrarCatalogo(datasets, { tema, estado, texto });
   // Cada grupo de filtros cuenta con los otros dos aplicados: el número dice cuántas filas quedan al elegirlo.
   const porTema = contarPor(filtrarCatalogo(datasets, { estado, texto }), 'tema');
@@ -200,7 +201,7 @@ export default function SourcesView({ lago, focusId }) {
             />
             <label className="catalogo-buscar selector-estacion">
               Buscar
-              <input type="search" value={texto} onChange={(e) => setTexto(e.target.value)} placeholder="Nombre, entidad, id o dominio" />
+              <input type="search" value={texto} onChange={(e) => setTexto(e.target.value)} placeholder="F021, nombre, entidad, licencia o dominio" />
             </label>
           </div>
           <div className="chart-card catalogo-card">
@@ -223,12 +224,14 @@ export default function SourcesView({ lago, focusId }) {
               <table className="chart-table catalogo-tabla">
                 <thead>
                   <tr>
-                    <th>N.º</th>
+                    <th>ID</th>
                     <th>Dataset</th>
                     <th>Entidad</th>
                     <th>Tema</th>
                     <th>Vigencia</th>
                     <th>Estado</th>
+                    <th>Licencia, tal como la dice la fuente</th>
+                    <th>Personas y protección</th>
                     <th>Uso en la app</th>
                     <th>Fuente</th>
                   </tr>
@@ -238,7 +241,9 @@ export default function SourcesView({ lago, focusId }) {
                     const cuenta = textoUso(uso[d.id]);
                     return (
                       <tr key={d.id} id={`source-${d.id}`} className={focusId === d.id ? 'focused' : ''}>
-                        <td data-rotulo="N.º">{numero[d.id]}</td>
+                        <td data-rotulo="ID">
+                          <b className="codigo-fuente">{d.codigo}</b>
+                        </td>
                         <td data-rotulo="Dataset">
                           <b>{d.nombre}</b>
                           <small>{d.id}</small>
@@ -250,7 +255,20 @@ export default function SourcesView({ lago, focusId }) {
                           {d.probado && <small>probado {d.probado}</small>}
                         </td>
                         <td data-rotulo="Estado">
-                          <span className={`estado ${d.estado}`}>{d.estado}</span>
+                          <Estado item={d} />
+                        </td>
+                        <td data-rotulo="Licencia">
+                          {d.licencia}
+                          <small>
+                            leída el {d.licencia_probada} en{' '}
+                            <a href={d.licencia_url} target="_blank" rel="noreferrer">
+                              {dominio(d.licencia_url)}&nbsp;↗
+                            </a>
+                          </small>
+                        </td>
+                        <td data-rotulo="Personas">
+                          {d.personas}
+                          <small>{d.proteccion}</small>
                         </td>
                         <td data-rotulo="Uso">
                           {cuenta || 'Capa del mapa o lectura en vivo'}

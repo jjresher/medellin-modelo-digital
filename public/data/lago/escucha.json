@@ -1,7 +1,7 @@
 {
  "tema": "escucha",
  "titulo": "Escucha social",
- "probado": "2026-10-02",
+ "probado": "2026-10-25",
  "ancla": [
   "wiki_medellin_es_12m",
   "prensa_menciones_90d"
@@ -13,7 +13,7 @@
    "entidad": "Wikimedia Foundation",
    "url": "https://wikimedia.org/api/rest_v1/metrics/pageviews/per-article/es.wikipedia/all-access/user/Medell%C3%ADn/monthly/2015070100/2026093000",
    "estado": "observado",
-   "probado": "2026-10-02"
+   "probado": "2026-10-25"
   },
   {
    "id": "gdelt-volumen",
@@ -21,7 +21,7 @@
    "entidad": "GDELT Project",
    "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%28medell%C3%ADn+OR+medellin%29&mode=timelinevolraw&timespan=3m",
    "estado": "observado",
-   "probado": "2026-10-02"
+   "probado": "2026-10-25"
   },
   {
    "id": "gdelt-titulares",
@@ -29,7 +29,7 @@
    "entidad": "GDELT Project",
    "url": "https://api.gdeltproject.org/api/v2/doc/doc?query=%28medell%C3%ADn+OR+medellin%29&mode=artlist&sort=hybridrel&maxrecords=250&timespan=1m",
    "estado": "observado",
-   "probado": "2026-10-02"
+   "probado": "2026-10-25"
   }
  ],
  "cifras": {
@@ -40,7 +40,8 @@
    "fuente": "wikimedia-pageviews",
    "vigencia": "oct 2025 – sep 2026",
    "estado": "observado",
-   "nota": "Vistas de personas (sin bots identificados) desde cualquier plataforma al artículo y a sus redirecciones. Mide cuántas veces se abrió el artículo, no cuántas personas distintas lo leyeron. Artículo «Medellín» de Wikipedia en español y 15 redirecciones."
+   "nota": "Vistas de personas (sin bots identificados) desde cualquier plataforma al artículo y a sus redirecciones. Mide cuántas veces se abrió el artículo, no cuántas personas distintas lo leyeron. Artículo «Medellín» de Wikipedia en español y 15 redirecciones.",
+   "proxy": "el interés de las personas por la ciudad"
   },
   "wiki_medellin_es_variacion_12m": {
    "valor": -28.6,
@@ -59,7 +60,8 @@
    "fuente": "wikimedia-pageviews",
    "vigencia": "oct 2025 – sep 2026",
    "estado": "observado",
-   "nota": "Vistas de personas (sin bots identificados) desde cualquier plataforma al artículo y a sus redirecciones. Mide cuántas veces se abrió el artículo, no cuántas personas distintas lo leyeron. Artículo «Medellín» de Wikipedia en inglés y 25 redirecciones."
+   "nota": "Vistas de personas (sin bots identificados) desde cualquier plataforma al artículo y a sus redirecciones. Mide cuántas veces se abrió el artículo, no cuántas personas distintas lo leyeron. Artículo «Medellín» de Wikipedia en inglés y 25 redirecciones.",
+   "proxy": "el interés de las personas por la ciudad"
   },
   "wiki_medellin_en_variacion_12m": {
    "valor": -8.4,
@@ -120,47 +122,48 @@
    "nota": "Vistas de personas (sin bots identificados) desde cualquier plataforma al artículo y a sus redirecciones. Mide cuántas veces se abrió el artículo, no cuántas personas distintas lo leyeron. Artículos de la categoría «Turismo en Medellín» y de sus subcategorías directas, salvo festivales y ferias."
   },
   "prensa_menciones_90d": {
-   "valor": 9674,
+   "valor": 8133,
    "unidad": "artículos",
    "etiqueta": "Artículos de prensa que nombran a Medellín · 90 días",
    "fuente": "gdelt-volumen",
-   "vigencia": "5 jul 2026 – 2 oct 2026",
+   "vigencia": "27 jul 2026 – 24 oct 2026",
    "estado": "observado",
-   "nota": "Artículos de prensa en línea, de cualquier país e idioma, que nombran a Medellín en algún lugar del texto, según el monitoreo de GDELT. Incluye notas que solo la mencionan de pasada. GDELT no publica datos de 7 días de la ventana (14 sep 2026, 15 sep 2026, 16 sep 2026, 17 sep 2026, 18 sep 2026, 19 sep 2026, 26 sep 2026); se muestran como hueco."
+   "nota": "Artículos de prensa en línea, de cualquier país e idioma, que nombran a Medellín en algún lugar del texto, según el monitoreo de GDELT. Incluye notas que solo la mencionan de pasada. GDELT no publica datos de 16 días de la ventana (14 sep 2026, 15 sep 2026, 16 sep 2026, 17 sep 2026, 18 sep 2026, 19 sep 2026, 26 sep 2026, 3 oct 2026, 4 oct 2026, 5 oct 2026, 7 oct 2026, 9 oct 2026, 11 oct 2026, 12 oct 2026, 13 oct 2026, 14 oct 2026); se muestran como hueco.",
+   "proxy": "la atención de los medios sobre la ciudad"
   },
   "prensa_menciones_dia": {
-   "valor": 117,
+   "valor": 110,
    "unidad": "artículos/día",
    "etiqueta": "Promedio diario de artículos",
    "fuente": "gdelt-volumen",
-   "vigencia": "5 jul 2026 – 2 oct 2026",
+   "vigencia": "27 jul 2026 – 24 oct 2026",
    "estado": "derivado",
-   "nota": "Total de la ventana dividido por los 83 días con dato."
+   "nota": "Total de la ventana dividido por los 74 días con dato."
   },
   "prensa_titulares_muestra": {
-   "valor": 739,
+   "valor": 730,
    "unidad": "artículos",
    "etiqueta": "Artículos revisados por su titular",
    "fuente": "gdelt-titulares",
-   "vigencia": "5 jul 2026 – 2 oct 2026",
+   "vigencia": "27 jul 2026 – 24 oct 2026",
    "estado": "observado",
    "nota": "Los 250 más relevantes según GDELT en cada uno de 3 cortes de 30 días. Es una muestra, no el total de la ventana."
   },
   "prensa_titulares_medellin": {
-   "valor": 445,
+   "valor": 396,
    "unidad": "titulares",
    "etiqueta": "Titulares que nombran a Medellín",
    "fuente": "gdelt-titulares",
-   "vigencia": "5 jul 2026 – 2 oct 2026",
+   "vigencia": "27 jul 2026 – 24 oct 2026",
    "estado": "derivado",
    "nota": "Lo que queda de la muestra tras el filtro de ruido: sin titulares que no nombran a Medellín, sin homónimos y sin repetidos."
   },
   "prensa_titulares_pct": {
-   "valor": 60.2,
+   "valor": 54.2,
    "unidad": "%",
    "etiqueta": "Artículos de la muestra cuyo titular nombra a Medellín",
    "fuente": "gdelt-titulares",
-   "vigencia": "5 jul 2026 – 2 oct 2026",
+   "vigencia": "27 jul 2026 – 24 oct 2026",
    "estado": "derivado",
    "decimales": 1,
    "nota": "Titulares que quedan tras el filtro de ruido sobre los artículos revisados."
@@ -715,7 +718,8 @@
      14021
     ]
    ],
-   "nota": "Vistas de personas (sin bots identificados) desde cualquier plataforma al artículo y a sus redirecciones. Mide cuántas veces se abrió el artículo, no cuántas personas distintas lo leyeron. Artículo «Medellín» de Wikipedia en español y 15 redirecciones."
+   "nota": "Vistas de personas (sin bots identificados) desde cualquier plataforma al artículo y a sus redirecciones. Mide cuántas veces se abrió el artículo, no cuántas personas distintas lo leyeron. Artículo «Medellín» de Wikipedia en español y 15 redirecciones.",
+   "proxy": "el interés de las personas por la ciudad"
   },
   "wiki_medellin_es_por_millon": {
    "etiqueta": "Vistas del artículo Medellín por millón de vistas de Wikipedia en español",
@@ -1816,7 +1820,8 @@
      27340
     ]
    ],
-   "nota": "Vistas de personas (sin bots identificados) desde cualquier plataforma al artículo y a sus redirecciones. Mide cuántas veces se abrió el artículo, no cuántas personas distintas lo leyeron. Artículo «Medellín» de Wikipedia en inglés y 25 redirecciones."
+   "nota": "Vistas de personas (sin bots identificados) desde cualquier plataforma al artículo y a sus redirecciones. Mide cuántas veces se abrió el artículo, no cuántas personas distintas lo leyeron. Artículo «Medellín» de Wikipedia en inglés y 25 redirecciones.",
+   "proxy": "el interés de las personas por la ciudad"
   },
   "wiki_medellin_en_por_millon": {
    "etiqueta": "Vistas del artículo Medellín por millón de vistas de Wikipedia en inglés",
@@ -2925,96 +2930,8 @@
    "unidad": "artículos",
    "fuente": "gdelt-volumen",
    "estado": "observado",
-   "vigencia": "5 jul 2026 – 2 oct 2026",
+   "vigencia": "27 jul 2026 – 24 oct 2026",
    "puntos": [
-    [
-     "5 jul 2026",
-     47
-    ],
-    [
-     "6 jul 2026",
-     85
-    ],
-    [
-     "7 jul 2026",
-     86
-    ],
-    [
-     "8 jul 2026",
-     117
-    ],
-    [
-     "9 jul 2026",
-     130
-    ],
-    [
-     "10 jul 2026",
-     157
-    ],
-    [
-     "11 jul 2026",
-     80
-    ],
-    [
-     "12 jul 2026",
-     66
-    ],
-    [
-     "13 jul 2026",
-     82
-    ],
-    [
-     "14 jul 2026",
-     126
-    ],
-    [
-     "15 jul 2026",
-     140
-    ],
-    [
-     "16 jul 2026",
-     151
-    ],
-    [
-     "17 jul 2026",
-     115
-    ],
-    [
-     "18 jul 2026",
-     70
-    ],
-    [
-     "19 jul 2026",
-     65
-    ],
-    [
-     "20 jul 2026",
-     68
-    ],
-    [
-     "21 jul 2026",
-     184
-    ],
-    [
-     "22 jul 2026",
-     217
-    ],
-    [
-     "23 jul 2026",
-     190
-    ],
-    [
-     "24 jul 2026",
-     125
-    ],
-    [
-     "25 jul 2026",
-     107
-    ],
-    [
-     "26 jul 2026",
-     76
-    ],
     [
      "27 jul 2026",
      132
@@ -3286,105 +3203,106 @@
     [
      "2 oct 2026",
      28
+    ],
+    [
+     "3 oct 2026",
+     null
+    ],
+    [
+     "4 oct 2026",
+     null
+    ],
+    [
+     "5 oct 2026",
+     null
+    ],
+    [
+     "6 oct 2026",
+     1
+    ],
+    [
+     "7 oct 2026",
+     null
+    ],
+    [
+     "8 oct 2026",
+     0
+    ],
+    [
+     "9 oct 2026",
+     null
+    ],
+    [
+     "10 oct 2026",
+     3
+    ],
+    [
+     "11 oct 2026",
+     null
+    ],
+    [
+     "12 oct 2026",
+     null
+    ],
+    [
+     "13 oct 2026",
+     null
+    ],
+    [
+     "14 oct 2026",
+     null
+    ],
+    [
+     "15 oct 2026",
+     91
+    ],
+    [
+     "16 oct 2026",
+     106
+    ],
+    [
+     "17 oct 2026",
+     92
+    ],
+    [
+     "18 oct 2026",
+     63
+    ],
+    [
+     "19 oct 2026",
+     99
+    ],
+    [
+     "20 oct 2026",
+     130
+    ],
+    [
+     "21 oct 2026",
+     135
+    ],
+    [
+     "22 oct 2026",
+     123
+    ],
+    [
+     "23 oct 2026",
+     54
+    ],
+    [
+     "24 oct 2026",
+     46
     ]
    ],
-   "nota": "Artículos de prensa en línea, de cualquier país e idioma, que nombran a Medellín en algún lugar del texto, según el monitoreo de GDELT. Incluye notas que solo la mencionan de pasada. GDELT no publica datos de 7 días de la ventana (14 sep 2026, 15 sep 2026, 16 sep 2026, 17 sep 2026, 18 sep 2026, 19 sep 2026, 26 sep 2026); se muestran como hueco."
+   "nota": "Artículos de prensa en línea, de cualquier país e idioma, que nombran a Medellín en algún lugar del texto, según el monitoreo de GDELT. Incluye notas que solo la mencionan de pasada. GDELT no publica datos de 16 días de la ventana (14 sep 2026, 15 sep 2026, 16 sep 2026, 17 sep 2026, 18 sep 2026, 19 sep 2026, 26 sep 2026, 3 oct 2026, 4 oct 2026, 5 oct 2026, 7 oct 2026, 9 oct 2026, 11 oct 2026, 12 oct 2026, 13 oct 2026, 14 oct 2026); se muestran como hueco.",
+   "proxy": "la atención de los medios sobre la ciudad"
   },
   "prensa_menciones_por_millon": {
    "etiqueta": "Artículos que nombran a Medellín por millón de artículos monitoreados",
    "unidad": "por millón",
    "fuente": "gdelt-volumen",
    "estado": "derivado",
-   "vigencia": "5 jul 2026 – 2 oct 2026",
+   "vigencia": "27 jul 2026 – 24 oct 2026",
    "puntos": [
-    [
-     "5 jul 2026",
-     474
-    ],
-    [
-     "6 jul 2026",
-     751
-    ],
-    [
-     "7 jul 2026",
-     585
-    ],
-    [
-     "8 jul 2026",
-     741
-    ],
-    [
-     "9 jul 2026",
-     784
-    ],
-    [
-     "10 jul 2026",
-     1024
-    ],
-    [
-     "11 jul 2026",
-     692
-    ],
-    [
-     "12 jul 2026",
-     593
-    ],
-    [
-     "13 jul 2026",
-     501
-    ],
-    [
-     "14 jul 2026",
-     742
-    ],
-    [
-     "15 jul 2026",
-     817
-    ],
-    [
-     "16 jul 2026",
-     820
-    ],
-    [
-     "17 jul 2026",
-     670
-    ],
-    [
-     "18 jul 2026",
-     563
-    ],
-    [
-     "19 jul 2026",
-     655
-    ],
-    [
-     "20 jul 2026",
-     524
-    ],
-    [
-     "21 jul 2026",
-     995
-    ],
-    [
-     "22 jul 2026",
-     1216
-    ],
-    [
-     "23 jul 2026",
-     1167
-    ],
-    [
-     "24 jul 2026",
-     857
-    ],
-    [
-     "25 jul 2026",
-     1160
-    ],
-    [
-     "26 jul 2026",
-     769
-    ],
     [
      "27 jul 2026",
      958
@@ -3655,7 +3573,95 @@
     ],
     [
      "2 oct 2026",
-     597
+     454
+    ],
+    [
+     "3 oct 2026",
+     null
+    ],
+    [
+     "4 oct 2026",
+     null
+    ],
+    [
+     "5 oct 2026",
+     null
+    ],
+    [
+     "6 oct 2026",
+     253
+    ],
+    [
+     "7 oct 2026",
+     null
+    ],
+    [
+     "8 oct 2026",
+     0
+    ],
+    [
+     "9 oct 2026",
+     null
+    ],
+    [
+     "10 oct 2026",
+     1634
+    ],
+    [
+     "11 oct 2026",
+     null
+    ],
+    [
+     "12 oct 2026",
+     null
+    ],
+    [
+     "13 oct 2026",
+     null
+    ],
+    [
+     "14 oct 2026",
+     null
+    ],
+    [
+     "15 oct 2026",
+     955
+    ],
+    [
+     "16 oct 2026",
+     705
+    ],
+    [
+     "17 oct 2026",
+     978
+    ],
+    [
+     "18 oct 2026",
+     827
+    ],
+    [
+     "19 oct 2026",
+     678
+    ],
+    [
+     "20 oct 2026",
+     831
+    ],
+    [
+     "21 oct 2026",
+     809
+    ],
+    [
+     "22 oct 2026",
+     993
+    ],
+    [
+     "23 oct 2026",
+     779
+    ],
+    [
+     "24 oct 2026",
+     593
     ]
    ],
    "nota": "Artículos que nombran a Medellín divididos por todos los que GDELT monitoreó ese día. Separa la atención a Medellín de los cambios en el tamaño del monitoreo."
@@ -7658,25 +7664,31 @@
     "regla": "sin_mencion",
     "etiqueta": "El titular no nombra a Medellín",
     "motivo": "la ciudad aparece solo en el cuerpo de la nota o en el sitio",
-    "articulos": 219
+    "articulos": 217
    },
    {
     "regla": "homonimo",
     "etiqueta": "Otra Medellín",
     "motivo": "el titular habla de Medellín (Cebú, Filipinas), Medellín de Bravo (Veracruz, México) o Medellín (Badajoz, España)",
-    "articulos": 7
+    "articulos": 4
    },
    {
     "regla": "otro_sujeto",
     "etiqueta": "Medellín como nombre propio",
     "motivo": "el titular habla de la Lotería de Medellín o de los resultados de las loterías, no de la ciudad",
-    "articulos": 21
+    "articulos": 16
+   },
+   {
+    "regla": "persona",
+    "etiqueta": "Hechos que le ocurrieron a una persona",
+    "motivo": "el titular cuenta una muerte, una captura, un ataque o una desaparición de alguien: es el dato de una persona, y no se publica",
+    "articulos": 49
    },
    {
     "regla": "duplicado",
     "etiqueta": "Titular repetido",
     "motivo": "el mismo titular ya está en la lista, publicado por otro medio o en otra fecha",
-    "articulos": 47
+    "articulos": 48
    }
   ],
   "prensa_temas": [
@@ -7716,47 +7728,8 @@
      "airport",
      "flight"
     ],
-    "titulares": 89,
-    "pct": 20.0
-   },
-   {
-    "tema": "deporte",
-    "etiqueta": "Deporte",
-    "palabras": [
-     "fútbol",
-     "futbol",
-     "atlético nacional",
-     "atletico nacional",
-     "independiente medell",
-     "dim$",
-     "gol$",
-     "goles",
-     "liga$",
-     "betplay",
-     "torneo",
-     "copa$",
-     "empate",
-     "estadio",
-     "ciclis",
-     "sudamericana",
-     "sul-americana",
-     "libertadores",
-     "bmx",
-     "maratón",
-     "maraton",
-     "corredor",
-     "atleta",
-     "debut",
-     "expulsi",
-     "jugar",
-     "empata",
-     "carrera",
-     "selección colombia",
-     "football",
-     "soccer"
-    ],
-    "titulares": 79,
-    "pct": 17.8
+    "titulares": 83,
+    "pct": 21.0
    },
    {
     "tema": "seguridad",
@@ -7802,8 +7775,47 @@
      "killed",
      "drug"
     ],
-    "titulares": 74,
-    "pct": 16.6
+    "titulares": 64,
+    "pct": 16.2
+   },
+   {
+    "tema": "deporte",
+    "etiqueta": "Deporte",
+    "palabras": [
+     "fútbol",
+     "futbol",
+     "atlético nacional",
+     "atletico nacional",
+     "independiente medell",
+     "dim$",
+     "gol$",
+     "goles",
+     "liga$",
+     "betplay",
+     "torneo",
+     "copa$",
+     "empate",
+     "estadio",
+     "ciclis",
+     "sudamericana",
+     "sul-americana",
+     "libertadores",
+     "bmx",
+     "maratón",
+     "maraton",
+     "corredor",
+     "atleta",
+     "debut",
+     "expulsi",
+     "jugar",
+     "empata",
+     "carrera",
+     "selección colombia",
+     "football",
+     "soccer"
+    ],
+    "titulares": 57,
+    "pct": 14.4
    },
    {
     "tema": "turismo",
@@ -7840,8 +7852,37 @@
      "music",
      "film"
     ],
-    "titulares": 59,
-    "pct": 13.3
+    "titulares": 51,
+    "pct": 12.9
+   },
+   {
+    "tema": "ambiente",
+    "etiqueta": "Ambiente y riesgo",
+    "palabras": [
+     "lluvia",
+     "aguacero",
+     "inundaci",
+     "deslizamiento",
+     "calidad del aire",
+     "contamina",
+     "clima",
+     "calor",
+     "árbol",
+     "arbol",
+     "quebrada",
+     "incendio",
+     "sismo",
+     "temblor",
+     "terremoto",
+     "ambient",
+     "el niño",
+     "riesgo",
+     "rain",
+     "flood",
+     "climate"
+    ],
+    "titulares": 33,
+    "pct": 8.3
    },
    {
     "tema": "gobierno",
@@ -7870,36 +7911,7 @@
      "politica",
      "election"
     ],
-    "titulares": 39,
-    "pct": 8.8
-   },
-   {
-    "tema": "ambiente",
-    "etiqueta": "Ambiente y riesgo",
-    "palabras": [
-     "lluvia",
-     "aguacero",
-     "inundaci",
-     "deslizamiento",
-     "calidad del aire",
-     "contamina",
-     "clima",
-     "calor",
-     "árbol",
-     "arbol",
-     "quebrada",
-     "incendio",
-     "sismo",
-     "temblor",
-     "terremoto",
-     "ambient",
-     "el niño",
-     "riesgo",
-     "rain",
-     "flood",
-     "climate"
-    ],
-    "titulares": 34,
+    "titulares": 30,
     "pct": 7.6
    },
    {
@@ -7936,8 +7948,8 @@
      "business",
      "invest"
     ],
-    "titulares": 22,
-    "pct": 4.9
+    "titulares": 23,
+    "pct": 5.8
    },
    {
     "tema": "servicios",
@@ -7956,27 +7968,8 @@
      "aseo",
      "servicios públicos"
     ],
-    "titulares": 14,
-    "pct": 3.1
-   },
-   {
-    "tema": "educacion",
-    "etiqueta": "Educación y ciencia",
-    "palabras": [
-     "colegio",
-     "universidad",
-     "estudiant",
-     "educa",
-     "escuela",
-     "ciencia",
-     "investigador",
-     "innovaci",
-     "tecnolog",
-     "school",
-     "university"
-    ],
-    "titulares": 14,
-    "pct": 3.1
+    "titulares": 13,
+    "pct": 3.3
    },
    {
     "tema": "salud",
@@ -7998,11 +7991,872 @@
      "cardi",
      "health"
     ],
-    "titulares": 13,
-    "pct": 2.9
+    "titulares": 10,
+    "pct": 2.5
+   },
+   {
+    "tema": "educacion",
+    "etiqueta": "Educación y ciencia",
+    "palabras": [
+     "colegio",
+     "universidad",
+     "estudiant",
+     "educa",
+     "escuela",
+     "ciencia",
+     "investigador",
+     "innovaci",
+     "tecnolog",
+     "school",
+     "university"
+    ],
+    "titulares": 10,
+    "pct": 2.5
    }
   ],
   "prensa_titulares": [
+   {
+    "fecha": "2026-10-24",
+    "titulo": "Somos Belisario cumple 9 años: la historia del mexicano que se enamoró de Medellín y transformó a Provenza",
+    "medio": "minuto30.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.minuto30.com/somos-belisario-cumple-9-anos-la-historia-del-mexicano-que-se-enamoro-de-medellin-y-transformo-a-provenza/1723849/",
+    "temas": []
+   },
+   {
+    "fecha": "2026-10-24",
+    "titulo": "Atención, conductores: cierres viales en Medellín este domingo por dos carreras",
+    "medio": "minuto30.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.minuto30.com/cierres-viales-medellin-domingo-25-octubre/1723851/",
+    "temas": [
+     "movilidad",
+     "deporte"
+    ]
+   },
+   {
+    "fecha": "2026-10-24",
+    "titulo": "Medellín se ubicó como la segunda ciudad del país con más casos de extorsión en los últimos tres años: aumentaron las capturas pero hay subregistro",
+    "medio": "eltiempo.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.eltiempo.com/colombia/medellin/medellin-se-ubico-como-la-segunda-ciudad-del-pais-con-mas-casos-de-extorsion-en-los-ultimos-15-anos-aumentaron-las-capturas-pero-hay-subregistro-3595947",
+    "temas": [
+     "seguridad"
+    ]
+   },
+   {
+    "fecha": "2026-10-24",
+    "titulo": "Un lujoso Lamborghini que cayó en un operativo contra los piques en Medellín fue enviado a los patios",
+    "medio": "semana.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.semana.com/nacion/medellin/articulo/lujoso-lamborghini-que-cayo-en-un-operativo-contra-los-piques-en-medellin-fue-enviado-a-los-patios/202624/",
+    "temas": []
+   },
+   {
+    "fecha": "2026-10-24",
+    "titulo": "Así fue el fuerte aguacero en Medellín y el Valle de Aburrá, con granizo en Laureles y tormenta eléctrica",
+    "medio": "semana.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.semana.com/nacion/medellin/articulo/asi-fue-el-fuerte-aguacero-en-medellin-y-el-valle-de-aburra-con-granizo-en-laureles-y-tormenta-electrica/202627/",
+    "temas": [
+     "ambiente"
+    ]
+   },
+   {
+    "fecha": "2026-10-24",
+    "titulo": "Crimen de lesa humanidad de Álvaro Medina Ochoa: Fiscalía reabre caso en Medellín, Colombia",
+    "medio": "pulzo.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.pulzo.com/nacion/crimen-de-lesa-humanidad-de-alvaro-medina-ochoa-fiscalia-reabre-caso-en-medellin-colombia-PP5339157A",
+    "temas": [
+     "seguridad"
+    ]
+   },
+   {
+    "fecha": "2026-10-24",
+    "titulo": "Medellín presenta los detalles del Escudo de las Américas",
+    "medio": "lafm.com.co",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.lafm.com.co/orden-publico/medellin-presenta-los-detalles-del-escudo-de-las-americas-pentagono-seguridad-415041",
+    "temas": []
+   },
+   {
+    "fecha": "2026-10-24",
+    "titulo": "EXCLUSIVE: Medellin Cartel Co - Founder Carlos Lehder on Getting Kidnapped, Escobar War on Kidnappers",
+    "medio": "vladtv.com",
+    "idioma": "inglés",
+    "pais": "United States",
+    "url": "https://www.vladtv.com/article/316289/medellin-cartel-co-founder-carlos-lehder-on-getting-kidnapped-escobars",
+    "temas": [
+     "seguridad"
+    ]
+   },
+   {
+    "fecha": "2026-10-24",
+    "titulo": "Medellín. sede de Coalición contra Carteles de Américas",
+    "medio": "lafm.com.co",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.lafm.com.co/sociedad/medellin-sede-coalicion-contra-carteles-de-las-americas-415055",
+    "temas": [
+     "seguridad"
+    ]
+   },
+   {
+    "fecha": "2026-10-24",
+    "titulo": "Escudo de las Américas comenzará a operar en Medellín para combatir el narcotráfico, la delincuencia y el crimen en la ciudad",
+    "medio": "semana.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.semana.com/politica/articulo/escudo-de-las-americas-comenzara-a-operar-en-medellin-para-combatir-el-narcotrafico-la-delincuencia-y-el-crimen-en-la-ciudad/202631/",
+    "temas": [
+     "seguridad"
+    ]
+   },
+   {
+    "fecha": "2026-10-24",
+    "titulo": "Sin esclarecer muerte de boricua en Medellín",
+    "medio": "metro.pr",
+    "idioma": "español",
+    "pais": "Puerto Rico",
+    "url": "https://www.metro.pr/noticias/2026/10/24/sin-esclarecer-muerte-de-boricua-en-medellin/",
+    "temas": [
+     "seguridad"
+    ]
+   },
+   {
+    "fecha": "2026-10-23",
+    "titulo": "¡Alerta naranja! Fuertes lluvias en Medellín ponen en vigilancia a las quebradas Santa Elena y La Presidenta",
+    "medio": "minuto30.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.minuto30.com/alerta-naranja-fuertes-lluvias-en-medellin-ponen-en-vigilancia-a-las-quebradas-santa-elena-y-la-presidenta/1723506/",
+    "temas": [
+     "ambiente"
+    ]
+   },
+   {
+    "fecha": "2026-10-23",
+    "titulo": "Cuatro comunas de Medellín elegirán a sus representantes en los Comités Comunales de Inclusión",
+    "medio": "minuto30.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.minuto30.com/cuatro-comunas-de-medellin-elegiran-a-sus-representantes-en-los-comites-comunales-de-inclusion/1723541/",
+    "temas": []
+   },
+   {
+    "fecha": "2026-10-23",
+    "titulo": "Hombre que se hizo pasar por policía para secuestrar a dos comerciantes en Medellín fue enviado a la cárcel: exigía más de 250 millones de pesos",
+    "medio": "eltiempo.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.eltiempo.com/colombia/medellin/hombre-que-se-hizo-pasar-por-policia-para-secuestrar-a-dos-comerciantes-en-medellin-fue-enviado-a-la-carcel-exigia-mas-de-250-millones-de-pesos-3595894",
+    "temas": [
+     "seguridad"
+    ]
+   },
+   {
+    "fecha": "2026-10-22",
+    "titulo": "Entrerríos, Antioquia: la Suiza colombiana cerca de Medellín",
+    "medio": "colombia.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.colombia.com:443/turismo/noticias/entrerrios-antioquia-la-suiza-colombiana-cerca-de-medellin-608201",
+    "temas": []
+   },
+   {
+    "fecha": "2026-10-22",
+    "titulo": "Aumenta la extorsión en Medellín según Planeación Nacional",
+    "medio": "lafm.com.co",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.lafm.com.co/orden-publico/medellin-extorsion-ciudades-aumenta-414727",
+    "temas": [
+     "seguridad"
+    ]
+   },
+   {
+    "fecha": "2026-10-22",
+    "titulo": "Nacieron en Medellín los cuatro bebés monocigóticos",
+    "medio": "lafm.com.co",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.lafm.com.co/actualidad/nacieron-en-medellin-los-cuatro-bebes-monocigoticos-de-caucasia-un-caso-extraordinario-en-colombia-414737",
+    "temas": []
+   },
+   {
+    "fecha": "2026-10-22",
+    "titulo": "Rotación de pico y placa en Medellín este jueves, 22 de octubre",
+    "medio": "colombia.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.colombia.com:443/actualidad/nacionales/rotacion-de-pico-y-placa-en-medellin-este-jueves-22-de-octubre-608022",
+    "temas": [
+     "movilidad"
+    ]
+   },
+   {
+    "fecha": "2026-10-22",
+    "titulo": "MEGACÁRCEL EN MEDELLÍN: EL PROYECTO PENITENCIARIO QUE PREVÉ ABRIR EN 2027",
+    "medio": "hsbnoticias.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "http://hsbnoticias.com/noticias/megacarcel-en-medellin-el-proyecto-penitenciario-que-preve-abrir-en-2027",
+    "temas": [
+     "seguridad"
+    ]
+   },
+   {
+    "fecha": "2026-10-22",
+    "titulo": "Medellín es la segunda ciudad con más extorsiones en Colombia: suma más de 750 denuncias en 2026",
+    "medio": "elcolombiano.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.elcolombiano.com/medellin/medellin-segunda-ciudad-extorsiones-colombia-cifras-EL42588914",
+    "temas": [
+     "seguridad"
+    ]
+   },
+   {
+    "fecha": "2026-10-22",
+    "titulo": "Puente de noviembre: pueblos cerca de Medellín para visitar",
+    "medio": "colombia.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.colombia.com:443/turismo/noticias/puente-de-noviembre-pueblos-cerca-de-medellin-para-visitar-608332",
+    "temas": [
+     "turismo"
+    ]
+   },
+   {
+    "fecha": "2026-10-22",
+    "titulo": "Federico Gutiérrez hizo advertencia ante intensas lluvias y posible desbordamiento de quebradas en Medellín",
+    "medio": "semana.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.semana.com/nacion/medellin/articulo/federico-gutierrez-hizo-advertencia-ante-intensas-lluvias-y-posible-desbordamiento-de-quebradas-en-medellin/202639/",
+    "temas": [
+     "ambiente"
+    ]
+   },
+   {
+    "fecha": "2026-10-22",
+    "titulo": "Disminuyen las transferencias de EPM a Medellín para 2027: impacto de Afinia y El Niño",
+    "medio": "eltiempo.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.eltiempo.com/colombia/medellin/el-billonario-hueco-en-las-finanzas-de-medellin-por-que-epm-recortara-a-la-mitad-sus-transferencias-al-distrito-3595566",
+    "temas": [
+     "servicios",
+     "ambiente"
+    ]
+   },
+   {
+    "fecha": "2026-10-22",
+    "titulo": "Nacieron cuatrillizos idénticos a nivel genético: el caso excpecional ocurrió en Medellín",
+    "medio": "elpais.com.co",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.elpais.com.co/colombia/caso-excepcional-una-mujer-tuvo-cuatrillizos-geneticamente-identicos-en-medellin-2224.html",
+    "temas": []
+   },
+   {
+    "fecha": "2026-10-21",
+    "titulo": "Lo último sobre la muerte de un puertorriqueño en Medellín:",
+    "medio": "metro.pr",
+    "idioma": "español",
+    "pais": "Puerto Rico",
+    "url": "https://www.metro.pr/noticias/2026/10/20/lo-ultimo-sobre-la-muerte-de-un-puertorriqueno-en-medellin/",
+    "temas": [
+     "seguridad"
+    ]
+   },
+   {
+    "fecha": "2026-10-21",
+    "titulo": "Bogotá, Medellín y Cali aparecen en el ranking de 1.000 ciudades con mejor desempeño económico del mundo",
+    "medio": "portafolio.co",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.portafolio.co/economia/regiones/bogota-medellin-y-cali-aparecen-en-el-ranking-de-1-000-ciudades-con-mejor-desempeno-economico-del-mundo-504816",
+    "temas": [
+     "economia"
+    ]
+   },
+   {
+    "fecha": "2026-10-21",
+    "titulo": "Concejo de Medellín aprobó la reforma administrativa del Distrito",
+    "medio": "minuto30.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.minuto30.com/concejo-de-medellin-aprobo-la-reforma-administrativa-del-distrito/1723143/",
+    "temas": [
+     "gobierno"
+    ]
+   },
+   {
+    "fecha": "2026-10-21",
+    "titulo": "Medellín, una de las 5 ciudades en auge del mundo que los viajeros no deberían perderse, según la BBC",
+    "medio": "minuto30.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.minuto30.com/medellin-una-de-las-5-ciudades-en-auge-del-mundo-que-los-viajeros-no-deberian-perderse/1723133/",
+    "temas": [
+     "movilidad"
+    ]
+   },
+   {
+    "fecha": "2026-10-21",
+    "titulo": "Rotación de pico y placa en Medellín este miércoles, 21 de octubre",
+    "medio": "colombia.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.colombia.com/actualidad/nacionales/rotacion-de-pico-y-placa-en-medellin-este-miercoles-21-de-octubre-608016",
+    "temas": [
+     "movilidad"
+    ]
+   },
+   {
+    "fecha": "2026-10-21",
+    "titulo": "¡Medellín se contagia de la fiebre por los deportes de raqueta! Ya son cientos los que se suman",
+    "medio": "minuto30.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.minuto30.com/medellin-se-contagia-de-la-fiebre-por-los-deportes-de-raqueta-ya-son-cientos-los-que-se-suman/1723199/",
+    "temas": []
+   },
+   {
+    "fecha": "2026-10-21",
+    "titulo": "Adopciones, juegos y bienestar animal: así será Expopet Medellín 2026",
+    "medio": "elespectador.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.elespectador.com/la-red-zoocial/adopciones-juegos-y-bienestar-animal-asi-sera-expopet-medellin-2026/",
+    "temas": []
+   },
+   {
+    "fecha": "2026-10-21",
+    "titulo": "Fico vuelve a señalar a la administración Quintero tras recuperar obra: Se robaron a Medellín",
+    "medio": "semana.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.semana.com/nacion/medellin/articulo/fico-vuelve-a-senalar-a-la-administracion-quintero-tras-recuperar-obra-se-robaron-a-medellin/202631/",
+    "temas": []
+   },
+   {
+    "fecha": "2026-10-21",
+    "titulo": "¡Medellín puso a prueba su respuesta ante emergencias! 470 mil personas participaron en el Simulacro Nacional",
+    "medio": "minuto30.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.minuto30.com/medellin-puso-a-prueba-su-respuesta-ante-emergencias-470-mil-personas-participaron-en-el-simulacro-nacional/1723258/",
+    "temas": []
+   },
+   {
+    "fecha": "2026-10-21",
+    "titulo": "¡Robaron imagen religiosa en Medellín y apareció en Armenia! Está avaluada en $45 millones",
+    "medio": "minuto30.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.minuto30.com/robaron-imagen-religiosa-en-medellin-y-aparecio-en-armenia-esta-avaluada-en-45-millones/1723206/",
+    "temas": []
+   },
+   {
+    "fecha": "2026-10-21",
+    "titulo": "El Concejo de Medellín aprueba en primer debate el proyecto para ajustar el POT",
+    "medio": "eltiempo.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.eltiempo.com/colombia/medellin/el-proyecto-para-ajustar-el-pot-de-medellin-supero-su-primer-debate-que-se-aprobo-y-cuales-son-los-cambios-clave-3595313",
+    "temas": [
+     "gobierno"
+    ]
+   },
+   {
+    "fecha": "2026-10-21",
+    "titulo": "Grupo Niche anuncia conciertos sinfónicos en Bogotá y Medellín para 2027",
+    "medio": "colombia.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.colombia.com:443/entretenimiento/noticias/grupo-niche-anuncia-conciertos-sinfonicos-en-bogota-y-medellin-para-2027-608191",
+    "temas": [
+     "turismo"
+    ]
+   },
+   {
+    "fecha": "2026-10-21",
+    "titulo": "Capturan a falsos taxistas que secuestraron y robaron a dos mujeres en Medellín",
+    "medio": "eltiempo.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.eltiempo.com/colombia/medellin/terror-en-un-taxi-a-la-carcel-dos-extranjeros-senalados-de-fingir-una-encomienda-para-secuestrar-y-extorsionar-a-dos-mujeres-en-medellin-3595293",
+    "temas": [
+     "seguridad"
+    ]
+   },
+   {
+    "fecha": "2026-10-20",
+    "titulo": "Medellín anuncia una megacárcel como la de Bukele",
+    "medio": "elmundo.es",
+    "idioma": "español",
+    "pais": "Spain",
+    "url": "https://www.elmundo.es/internacional/2026/10/20/6ad69812e85ece83378b4588.html",
+    "temas": [
+     "seguridad"
+    ]
+   },
+   {
+    "fecha": "2026-10-20",
+    "titulo": "Piden recuperar en oro el dinero que fue robado en Medellín",
+    "medio": "lafm.com.co",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.lafm.com.co/sociedad/piden-recuperar-en-oro-y-criptomonedas-el-dinero-que-fue-robado-en-medellin-414466",
+    "temas": []
+   },
+   {
+    "fecha": "2026-10-20",
+    "titulo": "Salir a comer en Medellín se volvió un lujo, pero los restaurantes están al borde de la quiebra",
+    "medio": "semana.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.semana.com/economia/articulo/crisis-en-el-sector-gastronomico-de-medellin-salir-a-comer-se-volvio-un-lujo-pero-restaurantes-estan-al-borde-de-la-quiebra/202654/",
+    "temas": []
+   },
+   {
+    "fecha": "2026-10-20",
+    "titulo": "Rotación de pico y placa en Medellín este martes, 20 de octubre",
+    "medio": "colombia.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.colombia.com/actualidad/nacionales/rotacion-de-pico-y-placa-en-medellin-este-martes-20-de-octubre-607821",
+    "temas": [
+     "movilidad"
+    ]
+   },
+   {
+    "fecha": "2026-10-20",
+    "titulo": "En Medellín han atendido 132 casos de violencia sexual: el 76 por ciento han sido denunciados por hombres",
+    "medio": "semana.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.semana.com/nacion/medellin/articulo/en-medellin-han-atendido-132-casos-de-violencia-sexual-el-76-por-ciento-han-sido-denunciados-por-hombres/202623/",
+    "temas": []
+   },
+   {
+    "fecha": "2026-10-20",
+    "titulo": "Megacárcel de Medellín: avance, inversión y cupos del proyecto en San Cristóbal",
+    "medio": "pulzo.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.pulzo.com/nacion/medellin/mega-carcel-medellin-avance-inversion-cupos-proyecto-san-cristobal-PP5334801",
+    "temas": [
+     "seguridad",
+     "economia"
+    ]
+   },
+   {
+    "fecha": "2026-10-20",
+    "titulo": "Alcaldía de Medellín terminará en mayo de 2027 la construcción de la primera megacárcel",
+    "medio": "elheraldo.co",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.elheraldo.co/colombia/2026/10/19/alcaldia-de-medellin-terminara-en-mayo-de-2027-la-construccion-de-la-primera-megacarcel/",
+    "temas": [
+     "seguridad",
+     "gobierno"
+    ]
+   },
+   {
+    "fecha": "2026-10-20",
+    "titulo": "Pico y placa en Medellín para el martes 20 de octubre de 2026: estos son los carros, motos y taxis con restricción",
+    "medio": "eltiempo.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.eltiempo.com/colombia/medellin/pico-y-placa-en-medellin-para-el-martes-20-de-octubre-de-2026-estos-son-los-carros-motos-y-taxis-con-restriccion-3594684",
+    "temas": [
+     "movilidad"
+    ]
+   },
+   {
+    "fecha": "2026-10-20",
+    "titulo": "Medellín prepara la apertura de su primera cárcel bajo el modelo de Asociación Público - Privada",
+    "medio": "elpais.com.co",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.elpais.com.co/colombia/la-nueva-carcel-metropolitana-de-medellin-alcanza-un-47-de-avance-en-sus-obras-sera-publico-privada-2039.html",
+    "temas": [
+     "seguridad"
+    ]
+   },
+   {
+    "fecha": "2026-10-20",
+    "titulo": "Medellín hace parte de las 10 ciudades de Latinoamérica con mejor desempeño económico",
+    "medio": "elcolombiano.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.elcolombiano.com/negocios/medellin-mejores-economias-ciudades-america-latina-2026-KK42485935",
+    "temas": [
+     "economia"
+    ]
+   },
+   {
+    "fecha": "2026-10-20",
+    "titulo": "Demolieron pesebreras que pertenecían al Cartel de Medellín en San Cristóbal y estaban vinculadas a un famoso rejoneador cercano a los Ochoa",
+    "medio": "eltiempo.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.eltiempo.com/colombia/medellin/demolieron-pesebreras-que-pertenecian-al-cartel-de-medellin-en-san-cristobal-y-estaban-vinculadas-a-un-famoso-rejoneador-cercano-a-los-ochoa-3594960",
+    "temas": [
+     "seguridad"
+    ]
+   },
+   {
+    "fecha": "2026-10-20",
+    "titulo": "Medellín, primera ciudad de Colombia en probar entregas de paquetes con drones: así funcionan",
+    "medio": "minuto30.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.minuto30.com/medellin-primera-ciudad-de-colombia-en-probar-entregas-de-paquetes-con-drones-asi-funcionan/1723048/",
+    "temas": []
+   },
+   {
+    "fecha": "2026-10-20",
+    "titulo": "¡Vuelven a operar! Restablecen el servicio de cinco líneas de Metrocable en Medellín",
+    "medio": "minuto30.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.minuto30.com/vuelven-a-operar-restablecen-el-servicio-de-cinco-lineas-de-metrocable-en-medellin/1723112/",
+    "temas": [
+     "movilidad"
+    ]
+   },
+   {
+    "fecha": "2026-10-20",
+    "titulo": "¡Alerta en Medellín! Lluvias, 131 descargas eléctricas y tres líneas de Metrocable suspendidas",
+    "medio": "minuto30.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.minuto30.com/alerta-en-medellin-lluvias-131-descargas-electricas-y-tres-lineas-de-metrocable-suspendidas/1723095/",
+    "temas": [
+     "movilidad",
+     "ambiente"
+    ]
+   },
+   {
+    "fecha": "2026-10-20",
+    "titulo": "Lluvias en el norte de Medellín dejan acumulados de hasta 6 milímetros y se extienden al norte del Valle",
+    "medio": "minuto30.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.minuto30.com/lluvias-en-el-norte-de-medellin-dejan-acumulados-de-hasta-6-milimetros-y-se-extienden-al-norte-del-valle/1723097/",
+    "temas": [
+     "ambiente"
+    ]
+   },
+   {
+    "fecha": "2026-10-20",
+    "titulo": "Cae otro presunto narco neerlandés buscado por Interpol en Medellín: su socio cayó en Cali",
+    "medio": "elcolombiano.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.elcolombiano.com/medellin/cae-narco-neerlandes-buscado-interpol-medellin-cali-LC42515907",
+    "temas": [
+     "seguridad"
+    ]
+   },
+   {
+    "fecha": "2026-10-19",
+    "titulo": "Medellín Music Lab: así se forman los Juanes, Karol G y Crudo del futuro",
+    "medio": "elcolombiano.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.elcolombiano.com/cultura/medellin-music-lab-KM42395834",
+    "temas": [
+     "turismo"
+    ]
+   },
+   {
+    "fecha": "2026-10-19",
+    "titulo": "Jonathan Risueño y su guiño para Independiente Medellín",
+    "medio": "colombia.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.colombia.com:443/futbol/futbol-colombiano/jonathan-risueno-y-su-guino-para-independiente-medellin-607736",
+    "temas": [
+     "deporte"
+    ]
+   },
+   {
+    "fecha": "2026-10-19",
+    "titulo": "La megacárcel de Medellín alcanza el 47% y abrirá sus puertas en julio de 2027",
+    "medio": "elcolombiano.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.elcolombiano.com/medellin/megacarcel-medellin-cuando-abrira-puertas-julio-2027-NB42439499",
+    "temas": [
+     "seguridad"
+    ]
+   },
+   {
+    "fecha": "2026-10-19",
+    "titulo": "¡Medellín construye su megacárcel y ya va casi por la mitad! Así será el centro para más de mil sindicados",
+    "medio": "minuto30.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.minuto30.com/medellin-construye-su-megacarcel-y-ya-va-casi-por-la-mitad-asi-sera-el-centro-para-mas-de-mil-sindicados/1722889/",
+    "temas": [
+     "seguridad"
+    ]
+   },
+   {
+    "fecha": "2026-10-19",
+    "titulo": "Megacárcel de Medellín: Fico Gutiérrez confirma importante avance en el centro de detención",
+    "medio": "semana.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.semana.com/nacion/medellin/articulo/megacarcel-de-medellin-fico-gutierrez-confirma-importante-avance-en-el-centro-de-detencion/202617/",
+    "temas": [
+     "seguridad"
+    ]
+   },
+   {
+    "fecha": "2026-10-19",
+    "titulo": "Primera megacárcel de Colombia ya tiene 47% de avance: estos son los detalles de la obra en Medellín",
+    "medio": "lapatria.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.lapatria.com/colombia/primera-megacarcel-de-colombia-ya-tiene-47-de-avance-estos-son-los-detalles-de-la-obra-en",
+    "temas": [
+     "seguridad"
+    ]
+   },
+   {
+    "fecha": "2026-10-19",
+    "titulo": "Medellín abrirá su primera megacárcel en 2027",
+    "medio": "elsalvador.com",
+    "idioma": "español",
+    "pais": "United States",
+    "url": "https://www.elsalvador.com/noticias/internacional/medellin-megacarcel-bukele/1299493/2026/",
+    "temas": [
+     "seguridad"
+    ]
+   },
+   {
+    "fecha": "2026-10-18",
+    "titulo": "Medellín logra reducir la desnutrición infantil del 1, 1% al 0, 5% y refuerza las ayudas alimentarias",
+    "medio": "minuto30.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.minuto30.com/medellin-logra-reducir-la-desnutricion-infantil-del-11-al-05-y-refuerza-las-ayudas-alimentarias/1722701/",
+    "temas": []
+   },
+   {
+    "fecha": "2026-10-18",
+    "titulo": "¡Prometían viajes, pero vaciaban bolsillos! Cae red que habría estafado a más de 1.000 personas en Medellín",
+    "medio": "minuto30.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.minuto30.com/prometian-viajes-pero-vaciaban-bolsillos-cae-red-que-habria-estafado-a-mas-de-1-000-personas-en-medellin/1722728/",
+    "temas": []
+   },
+   {
+    "fecha": "2026-10-18",
+    "titulo": "Robos con escopolamina en Medellín pasaron de 299 a 566 en menos de un año",
+    "medio": "elespectador.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.elespectador.com/colombia/medellin/robos-con-escopolamina-en-medellin-pasaron-de-299-a-566-en-menos-de-un-ano/",
+    "temas": [
+     "seguridad"
+    ]
+   },
+   {
+    "fecha": "2026-10-17",
+    "titulo": "Neivi Berrío se reencontró con su familia en Medellín y volverá a Cartagena",
+    "medio": "eluniversal.com.co",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.eluniversal.com.co/sucesos/2026/10/16/neivi-berrio-se-reencontro-con-su-familia-en-medellin-y-volvera-a-cartagena/",
+    "temas": []
+   },
+   {
+    "fecha": "2026-10-17",
+    "titulo": "¿Sumar o complicarse?: Once Caldas afronta prueba de fuego en el Atanasio ante Independiente Medellín",
+    "medio": "lapatria.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.lapatria.com/deportes/sumar-o-complicarse-once-caldas-afronta-prueba-de-fuego-en-el-atanasio-ante-independiente",
+    "temas": [
+     "deporte"
+    ]
+   },
+   {
+    "fecha": "2026-10-17",
+    "titulo": "¡Cuidar a quienes enseñan! Así acompaña Medellín a las maestras embarazadas y lactantes",
+    "medio": "minuto30.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.minuto30.com/cuidar-a-quienes-ensenan-asi-acompana-medellin-a-las-maestras-embarazadas-y-lactantes/1722657/",
+    "temas": []
+   },
+   {
+    "fecha": "2026-10-17",
+    "titulo": "50 mujeres de Medellín arrancan formación para lograr su autonomía económica",
+    "medio": "minuto30.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.minuto30.com/50-mujeres-de-medellin-arrancan-formacion-para-lograr-su-autonomia-economica/1722631/",
+    "temas": [
+     "economia"
+    ]
+   },
+   {
+    "fecha": "2026-10-16",
+    "titulo": "Rotación de pico y placa en Medellín este viernes, 16 de octubre",
+    "medio": "colombia.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.colombia.com/actualidad/nacionales/rotacion-de-pico-y-placa-en-medellin-este-viernes-16-de-octubre-607268",
+    "temas": [
+     "movilidad"
+    ]
+   },
+   {
+    "fecha": "2026-10-16",
+    "titulo": "Las imágenes inéditas del interior de la casa del terror de El Poblado, en Medellín, que perteneció a la viuda de Pablo Escobar y fue demolida",
+    "medio": "eltiempo.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.eltiempo.com/colombia/medellin/las-imagenes-ineditas-del-interior-de-la-casa-del-terror-de-el-poblado-en-medellin-que-pertenecio-a-la-viuda-de-pablo-escobar-y-fue-demolida-3593776",
+    "temas": []
+   },
+   {
+    "fecha": "2026-10-16",
+    "titulo": "Pico y placa en Medellín para el viernes 16 de octubre de 2026: estos son los carros, motos y taxis con restricción",
+    "medio": "eltiempo.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.eltiempo.com/colombia/medellin/pico-y-placa-en-medellin-para-el-viernes-16-de-octubre-de-2026-estos-son-los-carros-motos-y-taxis-con-restriccion-3593762",
+    "temas": [
+     "movilidad"
+    ]
+   },
+   {
+    "fecha": "2026-10-16",
+    "titulo": "¡Prográmese! El Grupo Niche presentará su disco sinfónico por primera vez en Medellín",
+    "medio": "elcolombiano.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.elcolombiano.com/cultura/musica/concierto-grupo-niche-sinfonico-medellin-DG42335677",
+    "temas": []
+   },
+   {
+    "fecha": "2026-10-16",
+    "titulo": "Uno puede quitarse el uniforme, pero la vocación nunca se acaba: Medellín rinde homenaje a 66 veteranos",
+    "medio": "minuto30.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.minuto30.com/uno-puede-quitarse-el-uniforme-pero-la-vocacion-nunca-se-acaba-medellin-rinde-homenaje-a-66-veteranos/1722590/",
+    "temas": []
+   },
+   {
+    "fecha": "2026-10-16",
+    "titulo": "¡Para que no se inunden! Medellín limpia 15 soterrados viales por lluvias",
+    "medio": "minuto30.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.minuto30.com/para-que-no-se-inunden-medellin-limpia-15-soterrados-viales-por-lluvias/1722614/",
+    "temas": [
+     "movilidad",
+     "ambiente"
+    ]
+   },
+   {
+    "fecha": "2026-10-15",
+    "titulo": "Muertes de extranjeros en festival EDC Medellín fueron por intoxicación aguda",
+    "medio": "pulzo.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.pulzo.com/nacion/medellin/muertes-extranjeros-festival-edc-medellin-fueron-intoxicacion-aguda-PP5330191A",
+    "temas": [
+     "seguridad",
+     "turismo"
+    ]
+   },
+   {
+    "fecha": "2026-10-15",
+    "titulo": "Atlético Nacional venció al Medellín y avanzó a semifinales de la Copa Colombia",
+    "medio": "vanguardia.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.vanguardia.com/deportes/futbol/2026/10/15/atletico-nacional-vencio-al-medellin-y-avanzo-a-semifinales-de-la-copa-colombia/",
+    "temas": [
+     "deporte"
+    ]
+   },
+   {
+    "fecha": "2026-10-15",
+    "titulo": "Carlos Antonio Vélez analizó el clásico Nacional vs. Medellín: opinó sobre James, Rengifo y Amaranto",
+    "medio": "semana.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.semana.com/deportes/articulo/carlos-antonio-velez-analizo-el-clasico-nacional-vs-medellin-opino-sobre-james-rengifo-y-amaranto/202634/",
+    "temas": []
+   },
+   {
+    "fecha": "2026-10-15",
+    "titulo": "Demuelen casa de Pablo Escobar en Medellín que supuestamente se usaba para hacer satanismo",
+    "medio": "diariodesevilla.es",
+    "idioma": "español",
+    "pais": "Spain",
+    "url": "https://www.diariodesevilla.es/sociedad/demuelen-casa-pablo-escobar-medellin-brujeria_0_2008256318.html",
+    "temas": []
+   },
+   {
+    "fecha": "2026-10-15",
+    "titulo": "¡Ellas se llevaron los aplausos! Estas son las 20 mujeres que brillaron en la Gran Noche de Medellín",
+    "medio": "minuto30.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.minuto30.com/ellas-se-llevaron-los-aplausos-estas-son-las-20-mujeres-que-brillaron-en-la-gran-noche-de-medellin/1722465/",
+    "temas": []
+   },
+   {
+    "fecha": "2026-10-15",
+    "titulo": "¡Creyeron que tenían asegurada la plata! Cámaras en Medellín delataron a dos fleteros en moto",
+    "medio": "minuto30.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.minuto30.com/creyeron-que-tenian-asegurada-la-plata-camaras-en-medellin-delataron-a-dos-fleteros-en-moto/1722461/",
+    "temas": [
+     "movilidad"
+    ]
+   },
+   {
+    "fecha": "2026-10-15",
+    "titulo": "Respetamos la protesta pacífica, pero no toleramos el vandalismo: Federico Gutiérrez se refirió a jornada de marchas en Medellín",
+    "medio": "elcolombiano.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.elcolombiano.com/medellin/federico-gutierrez-balance-marchas-desmanes-medellin-ON42296495",
+    "temas": []
+   },
+   {
+    "fecha": "2026-10-15",
+    "titulo": "Medellín inició demolición de casa vinculada a Pablo Escobar: supuestamente se usaba para satanismo",
+    "medio": "lapatria.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.lapatria.com/colombia/medellin-inicio-demolicion-de-casa-vinculada-pablo-escobar-supuestamente-se-usaba-para",
+    "temas": []
+   },
    {
     "fecha": "2026-10-02",
     "titulo": "Fuerte aguacero causa caos en Medellín: hay árboles caídos y cortes de energía",
@@ -8138,17 +8992,6 @@
    },
    {
     "fecha": "2026-10-01",
-    "titulo": "Capturaron a alias El Gemelo en El Poblado, Medellín / Min30",
-    "medio": "minuto30.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.minuto30.com/capturan-el-gemelo-el-poblado/1720988/",
-    "temas": [
-     "seguridad"
-    ]
-   },
-   {
-    "fecha": "2026-10-01",
     "titulo": "Personería alerta por habitantes de calle en Medellín / Min30",
     "medio": "minuto30.com",
     "idioma": "español",
@@ -8156,6 +8999,29 @@
     "url": "https://www.minuto30.com/personeria-alerta-habitantes-medellin/1720969/",
     "temas": [
      "gobierno"
+    ]
+   },
+   {
+    "fecha": "2026-10-01",
+    "titulo": "Siguen los cortes de agua en Medellín por El Niño / Min30",
+    "medio": "minuto30.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.minuto30.com/mantienen-cortes-agua-medellin/1720972/",
+    "temas": [
+     "servicios",
+     "ambiente"
+    ]
+   },
+   {
+    "fecha": "2026-10-01",
+    "titulo": "Emergencia en la Línea A del Metro de Medellín: cierre de estaciones por «incidente con persona en la vía»",
+    "medio": "minuto30.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.minuto30.com/emergencia-en-la-linea-a-del-metro-de-medellin-cierre-de-estaciones-por-incidente-con-persona-en-la-via/1720962/",
+    "temas": [
+     "movilidad"
     ]
    },
    {
@@ -8235,6 +9101,17 @@
    },
    {
     "fecha": "2026-09-30",
+    "titulo": "Ambulancia que esperaba ubicación de paciente de 93 años fue multada e inmovilizada en Medellín",
+    "medio": "eltiempo.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.eltiempo.com/colombia/medellin/ambulancia-que-esperaba-ubicacion-de-paciente-de-93-anos-fue-multada-e-inmovilizada-en-medellin-3590132",
+    "temas": [
+     "salud"
+    ]
+   },
+   {
+    "fecha": "2026-09-30",
     "titulo": "Medellín recibe crédito millonario: podría cambiar radicalmente como se mueve la ciudad",
     "medio": "semana.com",
     "idioma": "español",
@@ -8246,6 +9123,26 @@
    },
    {
     "fecha": "2026-09-30",
+    "titulo": "Millonarios: Cuadrado responde a la pancarta Judas, el traidor en Medellín",
+    "medio": "lafm.com.co",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.lafm.com.co/deportes/cuadrado-responde-pancarta-judas-traidor-medellin-millonarios-412564",
+    "temas": []
+   },
+   {
+    "fecha": "2026-09-30",
+    "titulo": "Dos premiaciones distinguieron en Medellín el liderazgo ambiental de ciudades y organismos",
+    "medio": "diariolasamericas.com",
+    "idioma": "español",
+    "pais": "United States",
+    "url": "https://www.diariolasamericas.com/florida/dos-premiaciones-distinguieron-medellin-el-liderazgo-ambiental-ciudades-y-organismos-n5403017",
+    "temas": [
+     "ambiente"
+    ]
+   },
+   {
+    "fecha": "2026-09-30",
     "titulo": "Fico Gutiérrez estará fuera de Medellín unos días y dejará alcalde encargado: este es el motivo",
     "medio": "semana.com",
     "idioma": "español",
@@ -8253,6 +9150,17 @@
     "url": "https://www.semana.com/nacion/medellin/articulo/fico-gutierrez-estara-fuera-de-medellin-unos-dias-y-dejara-alcalde-encargado-este-es-el-motivo/202614/",
     "temas": [
      "gobierno"
+    ]
+   },
+   {
+    "fecha": "2026-09-30",
+    "titulo": "Capturan a narco vinculado con las disidencias en Medellín",
+    "medio": "lafm.com.co",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.lafm.com.co/orden-publico/capturan-a-narco-disidencias-ivan-mordisco-antioquia-412586",
+    "temas": [
+     "seguridad"
     ]
    },
    {
@@ -8299,6 +9207,17 @@
    },
    {
     "fecha": "2026-09-29",
+    "titulo": "El emotivo regreso de Jackson Martínez al Deportivo Independiente Medellín, después de 17 años: así fue su primer día",
+    "medio": "eltiempo.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.eltiempo.com/deportes/futbol-colombiano/el-emotivo-regreso-de-jackson-martinez-al-deportivo-independiente-medellin-despues-de-17-anos-asi-fue-su-primer-dia-3589681",
+    "temas": [
+     "deporte"
+    ]
+   },
+   {
+    "fecha": "2026-09-29",
     "titulo": "Rotación de pico y placa en Medellín este martes, 29 de septiembre",
     "medio": "colombia.com",
     "idioma": "español",
@@ -8310,14 +9229,13 @@
    },
    {
     "fecha": "2026-09-29",
-    "titulo": "Peruano murió al caer de un tercer piso en Medellín a pesar del esfuerzo de sus vecinos por salvarle la vida; investigan si fue un homicidio",
-    "medio": "semana.com",
+    "titulo": "Jackson Martínez, Juan Guillermo Cuadrado, DIM, Independiente Medellín, Atanasio Girardot",
+    "medio": "colombia.com",
     "idioma": "español",
     "pais": "Colombia",
-    "url": "https://www.semana.com/nacion/medellin/articulo/peruano-murio-al-caer-de-un-tercer-piso-en-medellin-a-pesar-del-esfuerzo-de-sus-vecinos-por-salvarle-la-vida-investigan-si-fue-un-homicidio/202612/",
+    "url": "https://www.colombia.com/futbol/liga-colombiana/bienvenida-a-jackson-y-cuadrado-el-dim-prepara-una-noche-especial-604791",
     "temas": [
-     "seguridad",
-     "economia"
+     "deporte"
     ]
    },
    {
@@ -8329,6 +9247,17 @@
     "url": "https://www.pulzo.com/nacion/medellin/debora-arango-homenaje-y-experiencias-inmersivas-en-la-temporada-cultural-medellin-2024-PP5316397A",
     "temas": [
      "turismo"
+    ]
+   },
+   {
+    "fecha": "2026-09-29",
+    "titulo": "Racionamiento de agua en Medellín podría extenderse; EPM mantiene cortes programados",
+    "medio": "elespectador.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.elespectador.com/colombia/medellin/racionamiento-de-agua-en-medellin-podria-extenderse-epm-mantiene-cortes-programados/",
+    "temas": [
+     "servicios"
     ]
    },
    {
@@ -8366,6 +9295,18 @@
    },
    {
     "fecha": "2026-09-28",
+    "titulo": "Investigan la muerte de un peruano tras caer de un tercer piso en Medellín",
+    "medio": "vanguardia.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.vanguardia.com/colombia/2026/09/28/investigan-la-muerte-de-un-peruano-tras-caer-de-un-tercer-piso-en-medellin/",
+    "temas": [
+     "seguridad",
+     "economia"
+    ]
+   },
+   {
+    "fecha": "2026-09-28",
     "titulo": "La menor Sara Valentina Pino desapareció en Medellín",
     "medio": "minuto30.com",
     "idioma": "español",
@@ -8373,6 +9314,17 @@
     "url": "https://www.minuto30.com/la-menor-sara-valentina-pino-desaparecio-en-medellin/1720566/",
     "temas": [
      "seguridad"
+    ]
+   },
+   {
+    "fecha": "2026-09-28",
+    "titulo": "Vivienda turística en Medellín no será prohibida / Min30",
+    "medio": "minuto30.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.minuto30.com/vivienda-turistica-medellin/1720552/",
+    "temas": [
+     "economia"
     ]
    },
    {
@@ -8449,12 +9401,54 @@
     ]
    },
    {
+    "fecha": "2026-09-27",
+    "titulo": "«Mi deber es defender a la gente»: Fico Gutiérrez se planta firme sobre la regulación de rentas cortas en Medellín",
+    "medio": "minuto30.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.minuto30.com/mi-deber-es-defender-a-la-gente-fico-gutierrez-se-planta-firme-sobre-la-regulacion-de-rentas-cortas-en-medellin/1720440/",
+    "temas": []
+   },
+   {
+    "fecha": "2026-09-27",
+    "titulo": "El rock se levantó por damnificados del terremoto: concierto Rockatón en Medellín reunió a 76 bandas",
+    "medio": "lapatria.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.lapatria.com/entretenimiento/el-rock-se-levanto-por-damnificados-del-terremoto-concierto-rockaton-en-medellin",
+    "temas": [
+     "seguridad",
+     "turismo",
+     "ambiente"
+    ]
+   },
+   {
     "fecha": "2026-09-25",
     "titulo": "Anfitriones de Airbnb de Medellín recibieron $435.000",
     "medio": "lafm.com.co",
     "idioma": "español",
     "pais": "Colombia",
     "url": "https://www.lafm.com.co/sociedad/anfitriones-de-airbnb-de-medellin-recibieron-435000-millones-en-2025-411974",
+    "temas": [
+     "turismo"
+    ]
+   },
+   {
+    "fecha": "2026-09-25",
+    "titulo": "Cae señalado de engañar y abusar de dos niñas en Medellín: las convenció de no entrar a clases para llevarlas a su casa",
+    "medio": "elcolombiano.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.elcolombiano.com/inicio/hombre-capturado-abuso-sexual-dos-ninas-12-anos-medellin-MI41491490",
+    "temas": []
+   },
+   {
+    "fecha": "2026-09-25",
+    "titulo": "¿Desparchado este fin de semana? Prográmese con la agenda cultural de Medellín",
+    "medio": "elcolombiano.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.elcolombiano.com/inicio/desparchado-este-fin-de-semana-programese-con-la-agenda-cultural-de-medellin-CJ41482044",
     "temas": [
      "turismo"
     ]
@@ -8512,17 +9506,6 @@
     "url": "https://www.pulzo.com/nacion/capturan-medellin-presunto-cabecilla-que-seria-aliado-tren-aragua-PP5311783A",
     "temas": [
      "seguridad"
-    ]
-   },
-   {
-    "fecha": "2026-09-24",
-    "titulo": "Bebé de 7 meses murió en Medellín y médicos encontraron múltiples golpes",
-    "medio": "pulzo.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.pulzo.com/nacion/medellin/bebe-7-meses-murio-medellin-medicos-encontraron-multiples-golpes-PP5311786",
-    "temas": [
-     "salud"
     ]
    },
    {
@@ -8628,18 +9611,6 @@
    },
    {
     "fecha": "2026-09-23",
-    "titulo": "Pilas con lavar el carro o la moto en la calle: estas son las multas en Medellín a quienes desperdician agua limpiando sus vehículos",
-    "medio": "semana.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.semana.com/nacion/medellin/articulo/pilas-con-lavar-el-carro-o-la-moto-en-la-calle-estas-son-las-multas-en-medellin-a-quienes-desperdician-agua-limpiando-sus-vehiculos/202636/",
-    "temas": [
-     "movilidad",
-     "servicios"
-    ]
-   },
-   {
-    "fecha": "2026-09-23",
     "titulo": "Chapecoense e Atlético Nacional se reencontram em Medellín para amistoso que celebra amizade construída pelo futebol",
     "medio": "record.r7.com",
     "idioma": "portugués",
@@ -8724,17 +9695,6 @@
     "temas": []
    },
    {
-    "fecha": "2026-09-22",
-    "titulo": "Joven ejecutivo murió en caso de robo en Medellín: fingieron estrellarse",
-    "medio": "colombia.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.colombia.com:443/actualidad/nacionales/crimen-de-esteban-ramirez-en-medellin-fingieron-un-choque-601773",
-    "temas": [
-     "seguridad"
-    ]
-   },
-   {
     "fecha": "2026-09-21",
     "titulo": "Bomberos de Medellín combaten incendio forestal en el corregimiento Altavista",
     "medio": "minuto30.com",
@@ -8779,17 +9739,6 @@
     ]
    },
    {
-    "fecha": "2026-09-21",
-    "titulo": "Bacterias en las hojas de los árboles podrían ayudar a mejorar la calidad del aire que se respira en Medellín",
-    "medio": "eltiempo.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.eltiempo.com/vida/medio-ambiente/bacterias-en-las-hojas-de-los-arboles-podrian-ayudar-a-mejorar-la-calidad-del-aire-que-se-respira-en-medellin-3587603",
-    "temas": [
-     "ambiente"
-    ]
-   },
-   {
     "fecha": "2026-09-20",
     "titulo": "Medellín entra al top 35 de ciudades para recorrer a pie en 2026: GuruWalk destaca su arte e innovación, y transformación urbana en el mundo",
     "medio": "eltiempo.com",
@@ -8810,28 +9759,6 @@
     "url": "https://www.hsbnoticias.com/aeropuerto-la-nubia-recupera-conexiones-bogota-medellin-sismo/",
     "temas": [
      "movilidad"
-    ]
-   },
-   {
-    "fecha": "2026-09-20",
-    "titulo": "A la cárcel, hombre señalado de abusar de cuatro mujeres en un taxi en Medellín y robarles 12 millones de pesos",
-    "medio": "eltiempo.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.eltiempo.com/colombia/medellin/a-la-carcel-hombre-senalado-de-abusar-de-cuatro-mujeres-en-un-taxi-en-medellin-y-robarles-12-millones-de-pesos-3587437",
-    "temas": [
-     "seguridad"
-    ]
-   },
-   {
-    "fecha": "2026-09-12",
-    "titulo": "La Fiesta del Libro celebra 20 años: ojo a la programación para este fin de semana en Medellín",
-    "medio": "colombia.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.colombia.com/actualidad/noticias/programacion-fiesta-del-libro-este-fin-de-semana-en-medellin-600250",
-    "temas": [
-     "turismo"
     ]
    },
    {
@@ -8893,24 +9820,6 @@
     "temas": []
    },
    {
-    "fecha": "2026-09-11",
-    "titulo": "Caldense falleció en Medellín: llamado a sus familiares para que lo reclamen",
-    "medio": "lapatria.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.lapatria.com/sucesos/caldense-fallecio-en-medellin-llamado-sus-familiares-para-que-lo-reclamen",
-    "temas": []
-   },
-   {
-    "fecha": "2026-09-11",
-    "titulo": "Buscan a jóvenes en Medellín con proyectos transformadores: Estos son los requisitos e incentivos",
-    "medio": "elcolombiano.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.elcolombiano.com/inicio/gen-n-medellin-2026-convocatoria-jovenes-requisitos-inscripcion-ruta-n-FI40956164",
-    "temas": []
-   },
-   {
     "fecha": "2026-09-10",
     "titulo": "El tango avanza para ser patrimonio cultural de Medellín",
     "medio": "minuto30.com",
@@ -8945,39 +9854,6 @@
    },
    {
     "fecha": "2026-09-09",
-    "titulo": "Joven que murió en la maratón de Medellín era la novia de uno de los hijos del vicepresidente José Manuel Restrepo",
-    "medio": "elheraldo.co",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.elheraldo.co/colombia/2026/09/09/joven-que-murio-en-la-maraton-de-medellin-era-la-novia-de-uno-de-los-hijos-del-vicepresidente-jose-manuel-restrepo/",
-    "temas": [
-     "deporte"
-    ]
-   },
-   {
-    "fecha": "2026-09-09",
-    "titulo": "Pasto - Medellín se enfrentan en los octavos de final de Copa Dimayor: Nacional espera por el ganador",
-    "medio": "hsbnoticias.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.hsbnoticias.com/pasto-medellin-se-enfrentan-en-los-octavos-de-final-de-copa-dimayor-nacional-espera-por-el-ganador/",
-    "temas": [
-     "deporte"
-    ]
-   },
-   {
-    "fecha": "2026-09-09",
-    "titulo": "Tragedia en la Maratón de Medellín: lo que se sabe de Juliana Ávila, la joven corredora que falleció",
-    "medio": "marca.com",
-    "idioma": "español",
-    "pais": "Spain",
-    "url": "https://www.marca.com/co/2026/09/09/tragedia-maraton-medellin-juliana-avila-joven-corredora-fallecio.html",
-    "temas": [
-     "deporte"
-    ]
-   },
-   {
-    "fecha": "2026-09-09",
     "titulo": "Tensión en Manrique, en el nororiente de Medellín, por evacuación preventiva en zona de alto riesgo",
     "medio": "semana.com",
     "idioma": "español",
@@ -8985,17 +9861,6 @@
     "url": "https://www.semana.com/nacion/medellin/articulo/tension-en-manrique-en-el-nororiente-de-medellin-por-evacuacion-preventiva-en-zona-de-alto-riesgo/202653/",
     "temas": [
      "ambiente"
-    ]
-   },
-   {
-    "fecha": "2026-09-09",
-    "titulo": "Colombia | Juliana Ávila, joven que murió tras la Maratón de Medellín, era nuera del exministro José Manuel Restrepo",
-    "medio": "eluniversal.com",
-    "idioma": "español",
-    "pais": "Venezuela",
-    "url": "https://www.eluniversal.com/internacional/240972/juliana-avila-joven-que-murio-tras-la-maraton-de-medellin-era-nuera-del-exministro-colombiano-jose",
-    "temas": [
-     "deporte"
     ]
    },
    {
@@ -9078,17 +9943,6 @@
    },
    {
     "fecha": "2026-09-09",
-    "titulo": "Muere corredora de 20 años tras emergencia en Maratón Medellín",
-    "medio": "yucatan.quadratin.com.mx",
-    "idioma": "español",
-    "pais": "Mexico",
-    "url": "https://yucatan.quadratin.com.mx/sucesos/muere-corredora-de-20-anos-tras-emergencia-en-maraton-medellin/",
-    "temas": [
-     "deporte"
-    ]
-   },
-   {
-    "fecha": "2026-09-09",
     "titulo": "Fico Gutiérrez dio detalles de la muerte de Juliana Ávila en Maratón de Medellín",
     "medio": "pulzo.com",
     "idioma": "español",
@@ -9136,17 +9990,6 @@
    },
    {
     "fecha": "2026-09-09",
-    "titulo": "Fiesta del Libro y la Cultura de Medellín llega a su edición número 20",
-    "medio": "hsbnoticias.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.hsbnoticias.com/fiesta-del-libro-y-la-cultura-de-medellin-llega-a-su-edicion-numero-20/",
-    "temas": [
-     "turismo"
-    ]
-   },
-   {
-    "fecha": "2026-09-09",
     "titulo": "Atlético Nacional y Chapecoense se reencuentran en Medellín: el amistoso que marcará los 10 años de la tragedia",
     "medio": "vanguardia.com",
     "idioma": "español",
@@ -9169,62 +10012,6 @@
    },
    {
     "fecha": "2026-09-08",
-    "titulo": "Falleció joven de 20 años tras la Maratón Medellín 2026",
-    "medio": "lafm.com.co",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.lafm.com.co/sociedad/fallecio-juliana-joven-de-20-anos-que-sufrio-un-paro-cardiaco-en-la-maraton-medellin-2026-410238",
-    "temas": [
-     "deporte"
-    ]
-   },
-   {
-    "fecha": "2026-09-08",
-    "titulo": "Joven de 20 años murió tras complicación en la Maratón Medellín 2026",
-    "medio": "pulzo.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.pulzo.com/nacion/medellin/joven-20-anos-murio-complicacion-maraton-medellin-2026-PP5295616",
-    "temas": [
-     "deporte"
-    ]
-   },
-   {
-    "fecha": "2026-09-08",
-    "titulo": "En la Maratón de Medellín falleció una joven mujer de 20 años por temas cardíacos",
-    "medio": "elpais.com.co",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.elpais.com.co/deportes/fallecio-atleta-de-20-anos-que-padecio-problemas-de-salud-durante-la-maraton-de-medellin-2026-0714.html",
-    "temas": [
-     "deporte"
-    ]
-   },
-   {
-    "fecha": "2026-09-08",
-    "titulo": "Murió Juliana, la atleta de 20 años que sufrió un paro cardiaco en la Maratón de Medellín",
-    "medio": "semana.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.semana.com/nacion/medellin/articulo/murio-juliana-la-atleta-de-20-anos-que-sufrio-un-paro-cardiaco-en-la-maraton-de-medellin/202642/",
-    "temas": [
-     "deporte",
-     "salud"
-    ]
-   },
-   {
-    "fecha": "2026-09-08",
-    "titulo": "Quién era la joven que falleció en Maratón Medellín, familiar del vicepresidente",
-    "medio": "pulzo.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.pulzo.com/nacion/medellin/quien-era-joven-que-fallecio-maraton-medellin-familiar-vicepresidente-PP5296327",
-    "temas": [
-     "deporte"
-    ]
-   },
-   {
-    "fecha": "2026-09-08",
     "titulo": "Cerca a Medellín: 5 pueblos con la mejor comida para escaparse a almorzar en familia los domingos",
     "medio": "colombia.com",
     "idioma": "español",
@@ -9232,17 +10019,6 @@
     "url": "https://www.colombia.com:443/gastronomia/noticias/5-pueblos-cerca-a-medellin-para-ir-a-almorzar-en-domingo-con-familia-599598",
     "temas": [
      "turismo"
-    ]
-   },
-   {
-    "fecha": "2026-09-08",
-    "titulo": "Atleta fallecida durante Maratón Medellín 2026 era novia del hijo del vicepresidente",
-    "medio": "vanguardia.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.vanguardia.com/colombia/2026/09/08/atleta-fallecida-durante-maraton-medellin-2026-era-novia-del-hijo-del-vicepresidente/",
-    "temas": [
-     "deporte"
     ]
    },
    {
@@ -9269,17 +10045,6 @@
    },
    {
     "fecha": "2026-09-08",
-    "titulo": "Joven que murió en maratón de Medellín era novia del hijo del vicepresidente Restrepo",
-    "medio": "eluniversal.com.co",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.eluniversal.com.co/colombia/2026/09/08/joven-que-murio-en-maraton-de-medellin-era-novia-del-hijo-del-vicepresidente-restrepo/",
-    "temas": [
-     "deporte"
-    ]
-   },
-   {
-    "fecha": "2026-09-08",
     "titulo": "Beéle en Medellín y Concierto de Conciertos en Bogotá: dos grandes shows para cerrar 2026",
     "medio": "publimetro.co",
     "idioma": "español",
@@ -9287,30 +10052,6 @@
     "url": "https://www.publimetro.co/entretenimiento/2026/09/08/beele-en-medellin-y-concierto-de-conciertos-en-bogota-dos-grandes-shows-para-cerrar-2026/",
     "temas": [
      "turismo"
-    ]
-   },
-   {
-    "fecha": "2026-09-08",
-    "titulo": "La joven fallecida en la Maratón de Medellín era novia del hijo mayor del vicepresidente José Manuel Restrepo",
-    "medio": "publimetro.co",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.publimetro.co/deportes/2026/09/08/la-joven-fallecida-en-la-maraton-de-medellin-era-novia-del-hijo-mayor-del-vicepresidente-jose-manuel-restrepo/",
-    "temas": [
-     "deporte"
-    ]
-   },
-   {
-    "fecha": "2026-09-08",
-    "titulo": "Colegio Anglo Colombiano lamenta la muerte de Juliana Ávila, exalumna que murió mientras corría en la Maratón de Medellín",
-    "medio": "semana.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.semana.com/gente/articulo/colegio-anglo-colombiano-lamenta-la-muerte-de-juliana-avila-exalumna-que-murio-mientras-corria-en-la-maraton-de-medellin/202613/",
-    "temas": [
-     "seguridad",
-     "deporte",
-     "educacion"
     ]
    },
    {
@@ -9344,17 +10085,6 @@
     "temas": [
      "deporte",
      "salud"
-    ]
-   },
-   {
-    "fecha": "2026-09-07",
-    "titulo": "Maratón Medellín: 26.000 latidos, un anillo y muchas historias en una vibrante jornada que arrancó de madrugada",
-    "medio": "elcolombiano.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.elcolombiano.com/inicio/maraton-medellin-historias-corredores-pedida-de-mano-ganadores-GB40722271",
-    "temas": [
-     "deporte"
     ]
    },
    {
@@ -9414,41 +10144,6 @@
     ]
    },
    {
-    "fecha": "2026-09-07",
-    "titulo": "Atención: vuelven los cortes de agua en Medellín; serán de 8 horas y en estas zonas",
-    "medio": "elcolombiano.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.elcolombiano.com/medellin/vuelven-los-cortes-de-agua-en-medellin-AH40744433",
-    "temas": [
-     "servicios"
-    ]
-   },
-   {
-    "fecha": "2026-09-07",
-    "titulo": "A la cárcel hombre por el homicidio de un compañero de celda en Medellín",
-    "medio": "eltiempo.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.eltiempo.com/colombia/medellin/a-la-carcel-un-hombre-senalado-de-participar-en-un-macabro-ataque-en-una-celda-de-medellin-la-victima-sufria-de-esquizofrenia-3584261",
-    "temas": [
-     "seguridad"
-    ]
-   },
-   {
-    "fecha": "2026-09-06",
-    "titulo": "Alerta en Medellín tras 53 incendios: alcalde dice que hay mano criminal",
-    "medio": "vanguardia.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.vanguardia.com/colombia/2026/09/06/alerta-en-medellin-tras-53-incendios-alcalde-dice-que-hay-mano-criminal/",
-    "temas": [
-     "seguridad",
-     "gobierno",
-     "ambiente"
-    ]
-   },
-   {
     "fecha": "2026-09-06",
     "titulo": "El Niño en Medellín: consumo de agua bajó, pero EPM alerta por racionamiento",
     "medio": "eltiempo.com",
@@ -9484,17 +10179,6 @@
    },
    {
     "fecha": "2026-09-06",
-    "titulo": "Neerlandés condenado por narcotráfico fue ubicado en Medellín tras años de búsqueda internacional",
-    "medio": "minuto30.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.minuto30.com/neerlandes-condenado-por-narcotrafico-fue-ubicado-en-medellin-tras-anos-de-busqueda-internacional/1718180/",
-    "temas": [
-     "seguridad"
-    ]
-   },
-   {
-    "fecha": "2026-09-06",
     "titulo": "Emergencia en la Maratón Medellín: Una joven de 20 años sufrió paro cardiaco y otro corredor presentó convulsiones",
     "medio": "publimetro.co",
     "idioma": "español",
@@ -9526,17 +10210,6 @@
     "url": "https://www.lacapitalmdp.com/walter-larroquet-en-medellin-encontre-mi-lugar-para-trabajar-de-lo-que-me-gusta-la-musica/",
     "temas": [
      "turismo"
-    ]
-   },
-   {
-    "fecha": "2026-09-05",
-    "titulo": "Trágico final: hallan sin vida en Córdoba a ciudadano argentino que desapareció en Medellín",
-    "medio": "colombia.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.colombia.com:443/actualidad/nacionales/argentino-desaparecido-en-medellin-fue-hallado-sin-vida-en-cordoba-599179",
-    "temas": [
-     "seguridad"
     ]
    },
    {
@@ -9670,40 +10343,6 @@
    },
    {
     "fecha": "2026-09-04",
-    "titulo": "Agresión al personal médico en el Hospital General de Medellín terminó con dos capturas",
-    "medio": "minuto30.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.minuto30.com/agresion-al-personal-medico-en-el-hospital-general-de-medellin-termino-con-dos-capturas/1717944/",
-    "temas": [
-     "seguridad",
-     "salud"
-    ]
-   },
-   {
-    "fecha": "2026-09-04",
-    "titulo": "Hallan sin vida al argentino Pablo Carrizo, que había desaparecido en Medellín",
-    "medio": "elcolombiano.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.elcolombiano.com/inicio/hallan-muerto-bartender-argentino-pablo-carrizo-desaparecido-medellin-FH40657938",
-    "temas": [
-     "seguridad"
-    ]
-   },
-   {
-    "fecha": "2026-09-04",
-    "titulo": "Hallan muerto en Córdoba a Pablo Emilio Carrizo, el argentino que había desaparecido en Medellín – Publimetro Colombia",
-    "medio": "publimetro.co",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.publimetro.co/medellin/2026/09/04/dos-semanas-desaparecido-revelan-que-paso-con-el-argentino-buscado-en-medellin/",
-    "temas": [
-     "seguridad"
-    ]
-   },
-   {
-    "fecha": "2026-09-04",
     "titulo": "Crisis de agua en Medellín: alcaldía advierte cortes por fallas en el reto de ahorro",
     "medio": "eltiempo.com",
     "idioma": "español",
@@ -9723,28 +10362,6 @@
     "url": "https://www.minuto30.com/licitacion-complejo-gran-parque-medellin/1717978/",
     "temas": [
      "turismo"
-    ]
-   },
-   {
-    "fecha": "2026-09-04",
-    "titulo": "Fico Gutiérrez alerta por incendios provocados en Medellín",
-    "medio": "minuto30.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.minuto30.com/incendios-provocados-en-medellin/1717987/",
-    "temas": [
-     "ambiente"
-    ]
-   },
-   {
-    "fecha": "2026-09-04",
-    "titulo": "El argentino Pablo Emilio Carrizo fue hallado sin vida tras desaparecer en Medellín",
-    "medio": "elpais.com.co",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.elpais.com.co/judicial/hallan-sin-vida-a-pablo-emilio-carrizo-argentino-reportado-como-desaparecido-en-medellin-0440.html",
-    "temas": [
-     "seguridad"
     ]
    },
    {
@@ -9783,17 +10400,6 @@
     ]
    },
    {
-    "fecha": "2026-09-04",
-    "titulo": "Pablo Emilio Carrizzo, famoso bartender que habían reportado como desaparecido en Medellín, murió en un impactante accidente en la vía a la Costa",
-    "medio": "semana.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.semana.com/nacion/medellin/articulo/pablo-emilio-carrizzo-famoso-bartender-que-habian-reportado-como-desaparecido-en-medellin-murio-en-un-impactante-accidente-en-la-via-a-la-costa/202658/",
-    "temas": [
-     "seguridad"
-    ]
-   },
-   {
     "fecha": "2026-09-03",
     "titulo": "Rotación del pico y placa en Medellín y Valle de Aburrá este jueves, 3 de septiembre: ¿qué vehículos pueden circular?",
     "medio": "colombia.com",
@@ -9823,17 +10429,6 @@
     "idioma": "español",
     "pais": "Colombia",
     "url": "https://www.elcolombiano.com/medellin/entraban-vestidos-de-enfermeros-y-robaban-apartamentos-medellin-DC40607554",
-    "temas": [
-     "seguridad"
-    ]
-   },
-   {
-    "fecha": "2026-09-03",
-    "titulo": "Vistiéndose de enfermeros se robaron más de $150 millones en apartamentos de Envigado y Medellín: cinco integrantes de la banda fueron capturados",
-    "medio": "eltiempo.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.eltiempo.com/colombia/medellin/vistiendose-de-enfermeros-se-robaron-mas-de-150-millones-en-apartamentos-de-envigado-y-medellin-cinco-integrantes-de-la-banda-fueron-capturados-3583236",
     "temas": [
      "seguridad"
     ]
@@ -9925,18 +10520,6 @@
     "temas": [
      "movilidad",
      "deporte"
-    ]
-   },
-   {
-    "fecha": "2026-09-02",
-    "titulo": "Más de 50 años de prisión para integrantes de La Sierra por el crimen de un policía y un ambientalista en Medellín",
-    "medio": "elcolombiano.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.elcolombiano.com/inicio/condenan-asesinos-policia-ambientalista-santa-elena-medellin-que-paso-EI40592655",
-    "temas": [
-     "seguridad",
-     "ambiente"
     ]
    },
    {
@@ -10037,17 +10620,6 @@
     ]
    },
    {
-    "fecha": "2026-08-30",
-    "titulo": "¡Alerta por construcciones sin licencia! Suspenden 7 obras en zona de protección ambiental de Medellín",
-    "medio": "minuto30.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.minuto30.com/alerta-por-construcciones-sin-licencia-suspenden-7-obras-en-zona-de-proteccion-ambiental-de-medellin/1717510/",
-    "temas": [
-     "ambiente"
-    ]
-   },
-   {
     "fecha": "2026-08-29",
     "titulo": "Tres incendios forestales se registran este viernes en Medellín",
     "medio": "eluniversal.com.co",
@@ -10137,17 +10709,6 @@
    },
    {
     "fecha": "2026-08-28",
-    "titulo": "Cierres viales en Medellín este fin de semana / Min30",
-    "medio": "minuto30.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.minuto30.com/cierres-viales-en-medellin-2/1717291/",
-    "temas": [
-     "movilidad"
-    ]
-   },
-   {
-    "fecha": "2026-08-28",
     "titulo": "Rotación del pico y placa en Medellín y Valle de Aburrá este viernes, 28 de agosto: ¿qué vehículos pueden circular?",
     "medio": "colombia.com",
     "idioma": "español",
@@ -10155,17 +10716,6 @@
     "url": "https://www.colombia.com:443/actualidad/nacionales/rotacion-de-pico-y-placa-en-medellin-este-viernes-28-de-agosto-597947",
     "temas": [
      "movilidad"
-    ]
-   },
-   {
-    "fecha": "2026-08-28",
-    "titulo": "Medellín enviará kits menstruales y de lactancia a mujeres víctimas del terremoto en Chocó",
-    "medio": "elcolombiano.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.elcolombiano.com/medellin/medellin-kits-menstruales-lactancia-mujeres-damnificadas-terremoto-choco-NB40415239",
-    "temas": [
-     "ambiente"
     ]
    },
    {
@@ -10228,17 +10778,6 @@
     "url": "https://www.semana.com/turismo/articulo/no-es-cartagena-ni-medellin-el-destino-colombiano-que-enamoro-a-un-turista-espanol-porque-es-espectacular/202615/",
     "temas": [
      "turismo"
-    ]
-   },
-   {
-    "fecha": "2026-08-27",
-    "titulo": "Medellín rescata a dos perros por maltrato en Castilla / Min30",
-    "medio": "minuto30.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.minuto30.com/rescataron-perritos-maltrato-animal/1717252/",
-    "temas": [
-     "seguridad"
     ]
    },
    {
@@ -10475,17 +11014,6 @@
    },
    {
     "fecha": "2026-08-21",
-    "titulo": "Capturan en Medellín a mexicano buscado por feminicidio en Querétaro",
-    "medio": "pulzo.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.pulzo.com/nacion/capturan-medellin-mexicano-buscado-por-feminicidio-queretaro-PP5280452",
-    "temas": [
-     "seguridad"
-    ]
-   },
-   {
-    "fecha": "2026-08-21",
     "titulo": "¡Ojo, conductores! Pico y placa en Medellín para este viernes 21 de agosto de 2026: consulte las placas con restricción",
     "medio": "eltiempo.com",
     "idioma": "español",
@@ -10601,15 +11129,6 @@
      "turismo",
      "ambiente"
     ]
-   },
-   {
-    "fecha": "2026-08-20",
-    "titulo": "Nuevo tiroteo en Medellín dejó tres personas heridas: los detalles tras el hecho",
-    "medio": "semana.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.semana.com/nacion/medellin/articulo/nuevo-tiroteo-en-medellin-dejo-tres-personas-heridas-los-detalles-tras-el-hecho/202632/",
-    "temas": []
    },
    {
     "fecha": "2026-08-20",
@@ -10756,15 +11275,6 @@
     ]
    },
    {
-    "fecha": "2026-08-19",
-    "titulo": "Medellín frena seis obras en el camposanto de Villatina, donde reposan víctimas de la tragedia de 1987",
-    "medio": "elcolombiano.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.elcolombiano.com/inicio/medellin-frena-construcciones-ilegales-camposanto-villatina-ON40095597",
-    "temas": []
-   },
-   {
     "fecha": "2026-08-18",
     "titulo": "Pico y placa Medellín martes 18 de agosto: estas son las placas que tienen restricción",
     "medio": "colombia.com",
@@ -10840,29 +11350,6 @@
     ]
    },
    {
-    "fecha": "2026-08-17",
-    "titulo": "Capturado el presunto responsable del incendio en Las Palmas de Medellín: cámaras fueron clave para localizarlo",
-    "medio": "hsbnoticias.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.hsbnoticias.com/capturado-el-presunto-responsable-del-incendio-en-las-palmas-de-medellin-camaras-fueron-clave-para-localizarlo/",
-    "temas": [
-     "seguridad",
-     "ambiente"
-    ]
-   },
-   {
-    "fecha": "2026-08-16",
-    "titulo": "Un herido tras un accidente de tráfico en Medellín",
-    "medio": "hoy.es",
-    "idioma": "español",
-    "pais": "Spain",
-    "url": "https://www.hoy.es/prov-badajoz/herido-tras-accidente-trafico-medellin-20260815222825-nt.html",
-    "temas": [
-     "movilidad"
-    ]
-   },
-   {
     "fecha": "2026-08-16",
     "titulo": "Incendio en Medellín, en la vía Las Palmas, fue provocado: cámaras de seguridad ayudaron a las autoridades a ubicar y capturar al presunto responsable",
     "medio": "eltiempo.com",
@@ -10871,28 +11358,6 @@
     "url": "https://www.eltiempo.com/colombia/medellin/incendio-en-medellin-en-la-via-las-palmas-fue-provocado-camaras-de-seguridad-ayudaron-a-las-autoridades-a-ubicar-y-capturar-al-presunto-responsable-3578718",
     "temas": [
      "seguridad",
-     "ambiente"
-    ]
-   },
-   {
-    "fecha": "2026-08-16",
-    "titulo": "HERIDO SALIDA VÍA MEDELLÍN | Un hombre de 76 años resulta herido tras salirse de la vía en la EX - 206, en Medellín",
-    "medio": "lacronicabadajoz.com",
-    "idioma": "español",
-    "pais": "Spain",
-    "url": "https://www.lacronicabadajoz.com/extremadura/2026/08/16/hombre-76-resulta-herido-salirse-via-medellin-133401067.html",
-    "temas": []
-   },
-   {
-    "fecha": "2026-08-16",
-    "titulo": "Concierto en Medellín recauda casi dos millones de dólares para víctimas de terremoto",
-    "medio": "eldia.com.do",
-    "idioma": "español",
-    "pais": "Dominican Republic",
-    "url": "https://eldia.com.do/concierto-en-medellin-recauda-casi-dos-millones-de-dolares-para-victimas-de-terremoto/",
-    "temas": [
-     "economia",
-     "turismo",
      "ambiente"
     ]
    },
@@ -10913,17 +11378,6 @@
     "pais": "Colombia",
     "url": "https://www.minuto30.com/medellin-previene-desercion-escolar/1716166/",
     "temas": []
-   },
-   {
-    "fecha": "2026-08-14",
-    "titulo": "Festival Buen Comienzo ofrece 70 experiencias en Medellín",
-    "medio": "minuto30.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.minuto30.com/festival-buen-comienzo-medellin-2026/1716135/",
-    "temas": [
-     "turismo"
-    ]
    },
    {
     "fecha": "2026-08-13",
@@ -10968,15 +11422,6 @@
     "temas": [
      "ambiente"
     ]
-   },
-   {
-    "fecha": "2026-08-09",
-    "titulo": "I «Corridoi Verdi» di Medellín: come la città colombiana è riuscita ad abbassare le temperature urbane",
-    "medio": "corriere.it",
-    "idioma": "italiano",
-    "pais": "Italy",
-    "url": "https://www.corriere.it/tecnologia/26_agosto_08/i-corridoi-verdi-di-medellin-come-la-citta-colombiana-e-riuscita-ad-abbassare-le-temperature-urbane-d607af04-8ce7-4f9c-85e7-809d5c750xlk.shtml",
-    "temas": []
    },
    {
     "fecha": "2026-08-09",
@@ -11135,17 +11580,6 @@
    },
    {
     "fecha": "2026-08-06",
-    "titulo": "Hallan sin vida al silletero de 15 años Alejandro Grajales en Santa Elena, Medellín",
-    "medio": "eltiempo.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.eltiempo.com/colombia/medellin/tragedia-en-medellin-hallan-sin-vida-en-zona-boscosa-de-santa-elena-a-alejandro-grajales-el-joven-silletero-de-15-anos-reportado-como-desaparecido-3576699",
-    "temas": [
-     "seguridad"
-    ]
-   },
-   {
-    "fecha": "2026-08-06",
     "titulo": "Conductor cae por agredir a agente de tránsito en Medellín",
     "medio": "minuto30.com",
     "idioma": "español",
@@ -11289,17 +11723,6 @@
    },
    {
     "fecha": "2026-08-04",
-    "titulo": "¡Triunfo agónico! Medellín superó al Cali, escaló al grupo de los cuatro y sanó heridas en la Liga BetPlay",
-    "medio": "minuto30.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.minuto30.com/triunfo-agonico-medellin-supero-al-cali-escalo-al-grupo-de-los-cuatro-y-sano-heridas-en-la-liga-betplay/1715084/",
-    "temas": [
-     "deporte"
-    ]
-   },
-   {
-    "fecha": "2026-08-04",
     "titulo": "Bomberos Medellín cumple 109 años de servicio / Min30",
     "medio": "minuto30.com",
     "idioma": "español",
@@ -11319,14 +11742,14 @@
     ]
    },
    {
-    "fecha": "2026-08-04",
-    "titulo": "Mujer murió en Medellín al caer de tercer piso de parqueadero en Lomas de Bernal",
-    "medio": "pulzo.com",
+    "fecha": "2026-08-03",
+    "titulo": "Rotación del pico y placa en Medellín y Valle de Aburrá este lunes, 3 de agosto: ¿qué vehículos pueden circular?",
+    "medio": "colombia.com",
     "idioma": "español",
     "pais": "Colombia",
-    "url": "https://www.pulzo.com/nacion/medellin/mujer-murio-medellin-caer-tercer-piso-parqueadero-lomas-bernal-PP5265576A",
+    "url": "https://www.colombia.com:443/actualidad/nacionales/rotacion-de-pico-y-placa-en-medellin-este-lunes-3-de-agosto-594154",
     "temas": [
-     "turismo"
+     "movilidad"
     ]
    },
    {
@@ -11342,6 +11765,15 @@
    },
    {
     "fecha": "2026-08-03",
+    "titulo": "Cuatro senderistas fueron rescatados en el cerro El Romeral, área metropolitana de Medellín",
+    "medio": "elcolombiano.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.elcolombiano.com/inicio/bomberos-rescataron-senderistas-en-cerro-el-romeral-de-la-estrella-sur-del-area-metropolitana-de-medellin-CK39553980",
+    "temas": []
+   },
+   {
+    "fecha": "2026-08-03",
     "titulo": "Para desconectarse: 3 pozos de aguas termales a pocas horas de Medellín",
     "medio": "colombia.com",
     "idioma": "español",
@@ -11351,11 +11783,33 @@
    },
    {
     "fecha": "2026-08-02",
+    "titulo": "La metamorfosis urbana que deja el Metro de la 80: así cambian los barrios y la memoria del occidente de Medellín",
+    "medio": "elcolombiano.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.elcolombiano.com/antioquia/metro-de-la-80-transformacion-urbana-social-medellin-barrios-GP39503555",
+    "temas": [
+     "movilidad"
+    ]
+   },
+   {
+    "fecha": "2026-08-02",
     "titulo": "Atentos conductores de carros y motos en Medellín: este lunes 3 de agosto empieza a regir la nueva rotación del pico y placa",
     "medio": "semana.com",
     "idioma": "español",
     "pais": "Colombia",
     "url": "https://www.semana.com/vehiculos/articulo/atentos-conductores-de-carros-y-motos-en-medellin-este-lunes-3-de-agosto-empieza-a-regir-la-nueva-rotacion-del-pico-y-placa/202618/",
+    "temas": [
+     "movilidad"
+    ]
+   },
+   {
+    "fecha": "2026-08-02",
+    "titulo": "Nuevo pico y placa en Medellín desde el 3 de agosto 2026",
+    "medio": "lafm.com.co",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.lafm.com.co/actualidad/pico-y-placa-medellin-nueva-rotacion-3-de-agosto-2026-406666",
     "temas": [
      "movilidad"
     ]
@@ -11380,6 +11834,27 @@
     "url": "https://www.minuto30.com/terminales-medellin-viajeros-feria-flores/1714827/",
     "temas": [
      "movilidad",
+     "turismo"
+    ]
+   },
+   {
+    "fecha": "2026-08-01",
+    "titulo": "Avenida Primavera tendrá 26 carrozas en Medellín / Min30",
+    "medio": "minuto30.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.minuto30.com/desfile-avenida-primavera-feria-flores-2/1714812/",
+    "temas": []
+   },
+   {
+    "fecha": "2026-07-31",
+    "titulo": "Medellín se alista para recibir la mayor feria de construcción de Latinoamérica con negocios por más de 1.198 millones de dólares",
+    "medio": "semana.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.semana.com/economia/capsulas/articulo/medellin-se-alista-para-recibir-la-mayor-feria-de-construccion-de-latinoamerica-con-negocios-por-mas-de-1198-millones-de-dolares/202605/",
+    "temas": [
+     "economia",
      "turismo"
     ]
    },
@@ -11441,6 +11916,28 @@
    },
    {
     "fecha": "2026-07-30",
+    "titulo": "La Copa Sudamericana le dio la espalda al Independiente Medellín en una noche amarga",
+    "medio": "colombia.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.colombia.com:443/futbol/copa-sudamericana/la-copa-sudamericana-le-dio-la-espalda-al-independiente-medellin-en-una-noche-amarga-593948",
+    "temas": [
+     "deporte"
+    ]
+   },
+   {
+    "fecha": "2026-07-30",
+    "titulo": "Resultado de Vasco da Gama vs Medellín hoy en Copa Sudamericana: resumen",
+    "medio": "pulzo.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.pulzo.com/deportes/resultado-vasco-da-gama-vs-medellin-hoy-copa-sudamericana-resumen-PP5260065",
+    "temas": [
+     "deporte"
+    ]
+   },
+   {
+    "fecha": "2026-07-30",
     "titulo": "Vasco da Gama fulminó el sueño del Medellín: agónico gol definió la llave de Sudamericana",
     "medio": "semana.com",
     "idioma": "español",
@@ -11448,6 +11945,17 @@
     "url": "https://www.semana.com/deportes/articulo/vasco-da-gama-fulmino-el-sueno-del-medellin-agonico-gol-definio-la-llave-de-sudamericana/202607/",
     "temas": [
      "deporte"
+    ]
+   },
+   {
+    "fecha": "2026-07-30",
+    "titulo": "Rotación del pico y placa en Medellín y Valle de Aburrá este jueves, 30 de julio: ¿qué vehículos pueden circular?",
+    "medio": "colombia.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.colombia.com/actualidad/nacionales/rotacion-de-pico-y-placa-en-medellin-este-jueves-30-de-julio-593840",
+    "temas": [
+     "movilidad"
     ]
    },
    {
@@ -11511,6 +12019,17 @@
     "temas": []
    },
    {
+    "fecha": "2026-07-30",
+    "titulo": "Con sello olímpico: Medellín transformó su pista de BMX para recibir eventos internacionales",
+    "medio": "elcolombiano.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.elcolombiano.com/inicio/pista-bmx-mariana-pajon-medellin-renovada-AM39428855",
+    "temas": [
+     "deporte"
+    ]
+   },
+   {
     "fecha": "2026-07-29",
     "titulo": "Turismo gastronómico: lanzan actualización de la guía Medellín sí sabe",
     "medio": "semana.com",
@@ -11540,6 +12059,17 @@
     "pais": "Colombia",
     "url": "https://www.lafm.com.co/entretenimiento/florecer-biodiversidad-jardin-botanico-medellin-feria-de-las-flores-406238",
     "temas": []
+   },
+   {
+    "fecha": "2026-07-29",
+    "titulo": "Rotación del pico y placa en Medellín y Valle de Aburrá este miércoles, 29 de julio: ¿qué vehículos pueden circular?",
+    "medio": "colombia.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.colombia.com:443/actualidad/nacionales/rotacion-de-pico-y-placa-en-medellin-este-miercoles-29de-julio-593794",
+    "temas": [
+     "movilidad"
+    ]
    },
    {
     "fecha": "2026-07-29",
@@ -11583,12 +12113,56 @@
    },
    {
     "fecha": "2026-07-28",
+    "titulo": "Tras alerta por amputaciones y lesiones graves, Medellín reporta caída en casos asociados al tusi",
+    "medio": "minuto30.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.minuto30.com/tras-alerta-por-amputaciones-y-lesiones-graves-medellin-reporta-caida-en-casos-asociados-al-tusi/1714390/",
+    "temas": []
+   },
+   {
+    "fecha": "2026-07-28",
+    "titulo": "Rotación del pico y placa en Medellín y Valle de Aburrá este martes, 28 de julio: ¿qué vehículos pueden circular?",
+    "medio": "colombia.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.colombia.com/actualidad/nacionales/rotacion-de-pico-y-placa-en-medellin-este-martes-28-de-julio-593655",
+    "temas": [
+     "movilidad"
+    ]
+   },
+   {
+    "fecha": "2026-07-28",
     "titulo": "Abelardo De La Espriella llegó a Medellín para asistir a la pasarela inaugural de Manuela Álvarez en Colombiamoda",
     "medio": "semana.com",
     "idioma": "español",
     "pais": "Colombia",
     "url": "https://www.semana.com/confidenciales/articulo/abelardo-de-la-espriella-llego-a-medellin-para-asistir-a-la-pasarela-inaugural-de-manuela-alvarez-en-colombiamoda/202658/",
     "temas": []
+   },
+   {
+    "fecha": "2026-07-28",
+    "titulo": "Medellín se alía con el FBI y el Departamento de Justicia de EE. UU. en un Task Force para blindar la Feria de las Flores",
+    "medio": "elcolombiano.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.elcolombiano.com/medellin/medellin-fbi-justicia-estados-unidos-task-force-feria-de-flores-turismo-GA39289528",
+    "temas": [
+     "turismo"
+    ]
+   },
+   {
+    "fecha": "2026-07-28",
+    "titulo": "Revisión del POT en Medellín: propuestas para vivienda y turismo",
+    "medio": "eltiempo.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.eltiempo.com/colombia/medellin/el-plan-de-medellin-para-combatir-el-deficit-habitacional-y-regular-el-hospedaje-turistico-3574417",
+    "temas": [
+     "gobierno",
+     "economia",
+     "turismo"
+    ]
    },
    {
     "fecha": "2026-07-28",
@@ -11614,11 +12188,33 @@
    },
    {
     "fecha": "2026-07-27",
+    "titulo": "Medellín mantiene la actual rotación del pico y placa este lunes 27 de julio de 2026: la medida se actualizará en agosto",
+    "medio": "eltiempo.com",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.eltiempo.com/colombia/medellin/medellin-mantiene-la-actual-rotacion-del-pico-y-placa-este-lunes-27-de-julio-de-2026-la-medida-se-actualizara-en-agosto-3573576",
+    "temas": [
+     "movilidad"
+    ]
+   },
+   {
+    "fecha": "2026-07-27",
     "titulo": "Conozca cómo funcionará el pico y placa de Medellín entre el 28 de julio y el 31 de agosto: después la rotación cambiará",
     "medio": "semana.com",
     "idioma": "español",
     "pais": "Colombia",
     "url": "https://www.semana.com/vehiculos/articulo/conozca-como-funcionara-el-pico-y-placa-de-medellin-entre-el-28-de-julio-y-el-31-de-agosto-despues-la-rotacion-cambiara/202653/",
+    "temas": [
+     "movilidad"
+    ]
+   },
+   {
+    "fecha": "2026-07-27",
+    "titulo": "Ya hay nueva rotación del Pico y Placa en Medellín: Estos son los números y la fecha en la que comenzará a regir en el segundo semestre",
+    "medio": "publimetro.co",
+    "idioma": "español",
+    "pais": "Colombia",
+    "url": "https://www.publimetro.co/medellin/2026/07/27/ya-hay-nueva-rotacion-del-pico-y-placa-en-medellin-estos-son-los-numeros-y-la-fecha-en-la-que-comenzara-a-regir-en-el-segundo-semestre/",
     "temas": [
      "movilidad"
     ]
@@ -11677,1172 +12273,30 @@
     "temas": [
      "deporte"
     ]
-   },
-   {
-    "fecha": "2026-07-26",
-    "titulo": "¡Oro para Colombia! El ciclista Walter Vargas del Team Medellín se coronó campeón en los Centroamericanos",
-    "medio": "minuto30.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.minuto30.com/oro-para-colombia-el-ciclista-walter-vargas-del-team-medellin-se-corono-campeon-en-los-centroamericanos/1714236/",
-    "temas": [
-     "deporte"
-    ]
-   },
-   {
-    "fecha": "2026-07-26",
-    "titulo": "Pasto arrancó con derrota ante el Medellín la Liga II 2026",
-    "medio": "hsbnoticias.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.hsbnoticias.com/pasto-arranco-con-derrota-ante-el-medellin-la-liga-ii-2026/",
-    "temas": [
-     "deporte"
-    ]
-   },
-   {
-    "fecha": "2026-07-24",
-    "titulo": "Petro dice que Abelardo de la Espriella se equivocó con Medellín – Publimetro Colombia",
-    "medio": "publimetro.co",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.publimetro.co/medellin/2026/07/23/abelardo-esta-completamente-equivocado-con-medellin-presidente-petro/",
-    "temas": [
-     "gobierno"
-    ]
-   },
-   {
-    "fecha": "2026-07-24",
-    "titulo": "Gustavo Petro le responde a Abelardo de la Espriella: Medellín ya no es el epicentro del narcotráfico",
-    "medio": "colombia.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.colombia.com/actualidad/politica/gustavo-petro-asegura-que-la-mineria-ilegal-del-oro-se-ha-tomado-antioquia-593155",
-    "temas": [
-     "seguridad",
-     "gobierno"
-    ]
-   },
-   {
-    "fecha": "2026-07-24",
-    "titulo": "Golpe al hurto de celulares en Medellín: Policía y Ejército reforzarán operativos en estas glorietas críticas de Medellín",
-    "medio": "elcolombiano.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.elcolombiano.com/inicio/robo-celulares-medellin-glorietas-aguacatala-operativos-MN39168646",
-    "temas": [
-     "seguridad"
-    ]
-   },
-   {
-    "fecha": "2026-07-24",
-    "titulo": "Medellín mejora bienestar para personas cuidadoras / Min30",
-    "medio": "minuto30.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.minuto30.com/apoyo-personas-cuidadoras-medellin/1714082/",
-    "temas": []
-   },
-   {
-    "fecha": "2026-07-23",
-    "titulo": "Veja gols de Independiente Medellín x Vasco: Cuesta segundo gol contra da noite",
-    "medio": "lance.com.br",
-    "idioma": "portugués",
-    "pais": "Brazil",
-    "url": "https://www.lance.com.br/vasco/veja-o-gol-de-independiente-medellin-x-vasco-montano-abre-o-placar.html",
-    "temas": [
-     "deporte"
-    ]
-   },
-   {
-    "fecha": "2026-07-23",
-    "titulo": "Dos trabajadores de la empresa de aseo de Medellín hallan cadáver cuando barrían las calles de Aranjuez: esto es lo que se sabe",
-    "medio": "semana.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.semana.com/nacion/medellin/articulo/dos-trabajadores-de-la-empresa-de-aseo-de-medellin-hallan-cadaver-cuando-barrian-las-calles-de-aranjuez-esto-es-lo-que-se-sabe/202601/",
-    "temas": [
-     "economia",
-     "servicios"
-    ]
-   },
-   {
-    "fecha": "2026-07-23",
-    "titulo": "Independiente Medellín 2 x 2 Vasco: veja os melhores momentos",
-    "medio": "ge.globo.com",
-    "idioma": "portugués",
-    "pais": "Brazil",
-    "url": "https://ge.globo.com/futebol/times/vasco/noticia/2026/07/22/independiente-medellin-2-x-2-vasco-veja-os-melhores-momentos.ghtml",
-    "temas": [
-     "deporte"
-    ]
-   },
-   {
-    "fecha": "2026-07-23",
-    "titulo": "Vasco empata com Independiente Medellín na estreia",
-    "medio": "boainformacao.com.br",
-    "idioma": "portugués",
-    "pais": "Brazil",
-    "url": "https://boainformacao.com.br/2026/07/vasco-empata-com-independiente-medellin-na-estreia-de-novo-treinador/",
-    "temas": [
-     "deporte"
-    ]
-   },
-   {
-    "fecha": "2026-07-23",
-    "titulo": "Vasco oscila na partida, mas arranca empate contra o Medellín",
-    "medio": "lance.com.br",
-    "idioma": "portugués",
-    "pais": "Brazil",
-    "url": "https://www.lance.com.br/vasco/vasco-oscila-na-partida-mas-arranca-empate-contra-o-medellin-pela-sul-americana.html",
-    "temas": [
-     "deporte"
-    ]
-   },
-   {
-    "fecha": "2026-07-23",
-    "titulo": "Independiente Medellín no pudo con Vasca da Gama y dejó en vilo su clasificación",
-    "medio": "elpais.com.co",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.elpais.com.co/deportes/independiente-medellin-se-dejo-empatar-ante-vasco-da-gama-en-el-debut-de-amaranto-perea-en-sudamericana-la-llave-se-define-en-brasil-2242.html",
-    "temas": [
-     "deporte"
-    ]
-   },
-   {
-    "fecha": "2026-07-23",
-    "titulo": "Independiente Medellín dejó escapar dos ventajas en el estreno de Amaranto Perea",
-    "medio": "colombia.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.colombia.com:443/futbol/copa-sudamericana/independiente-medellin-dejo-escapar-dos-ventajas-en-el-estreno-de-amaranto-perea-593062",
-    "temas": [
-     "deporte"
-    ]
-   },
-   {
-    "fecha": "2026-07-23",
-    "titulo": "Vasco da Gama de Pedro Emanuel empata frente ao Independiente Medellín para a Taça Sul - Americana",
-    "medio": "record.pt",
-    "idioma": "portugués",
-    "pais": "Portugal",
-    "url": "https://www.record.pt/internacional/paises/brasil/detalhe/vasco-da-gama-de-pedro-emanuel-empata-frente-ao-independiente-medellin-para-a-taca-sul-americana",
-    "temas": [
-     "deporte"
-    ]
-   },
-   {
-    "fecha": "2026-07-23",
-    "titulo": "Incautan casi tres toneladas de carne en Medellín / Min30",
-    "medio": "minuto30.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.minuto30.com/incautan-carne-no-apta-consumo-medellin/1713976/",
-    "temas": [
-     "seguridad"
-    ]
-   },
-   {
-    "fecha": "2026-07-23",
-    "titulo": "Gustavo Petro reaccionó al aplaudido discurso de Abelardo De La Espriella en Medellín: Completamente equivocado",
-    "medio": "semana.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.semana.com/politica/articulo/gustavo-petro-reacciono-a-los-aplausos-que-recibio-abelardo-de-la-espriella-por-discurso-en-medellin-completamente-equivocado/202609/",
-    "temas": [
-     "gobierno"
-    ]
-   },
-   {
-    "fecha": "2026-07-23",
-    "titulo": "Gustavo Petro responde a Abelardo de la Espriella: Medellín no es el epicentro del narcotráfico",
-    "medio": "elpais.com.co",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.elpais.com.co/politica/abelardo-esta-completamente-equivocado-petro-contradice-declaraciones-de-de-la-espriella-sobre-medellin-2300.html",
-    "temas": [
-     "seguridad",
-     "gobierno"
-    ]
-   },
-   {
-    "fecha": "2026-07-22",
-    "titulo": "Abelardo De La Espriella anunció que Medellín será la sede principal del Escudo de las Américas para luchar contra el narcotráfico en compaa de EE. UU.",
-    "medio": "ntn24.com",
-    "idioma": "español",
-    "pais": "Venezuela",
-    "url": "https://www.ntn24.com/noticias-politica/abelardo-de-la-espriella-anuncio-que-medellin-sera-la-sede-principal-del-escudo-de-las-americas-634883",
-    "temas": [
-     "seguridad"
-    ]
-   },
-   {
-    "fecha": "2026-07-22",
-    "titulo": "Medellín mantiene la actual rotación del pico y placa: así operará la restricción este miércoles 22 de julio",
-    "medio": "eltiempo.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.eltiempo.com/colombia/medellin/medellin-mantiene-la-actual-rotacion-del-pico-y-placa-asi-operara-la-restriccion-este-miercoles-22-de-julio-3572709",
-    "temas": [
-     "movilidad"
-    ]
-   },
-   {
-    "fecha": "2026-07-22",
-    "titulo": "Independiente Medellín - COL x Vasco - Onde assistir, horário e escalaes",
-    "medio": "futebolinterior.com.br",
-    "idioma": "portugués",
-    "pais": "Brazil",
-    "url": "https://www.futebolinterior.com.br/independiente-medellin-col-x-vasco-onde-assistir-horario-e-escalacoes/",
-    "temas": [
-     "deporte"
-    ]
-   },
-   {
-    "fecha": "2026-07-22",
-    "titulo": "Colômbia: Antes da posse, De la Espriella entrega Medellín ao Escudo das Américas e lança país nos braços dos EUA",
-    "medio": "dialogosdosul.operamundi.uol.com.br",
-    "idioma": "portugués",
-    "pais": "Brazil",
-    "url": "https://dialogosdosul.operamundi.uol.com.br/colombia-espriella-trump/",
-    "temas": []
-   },
-   {
-    "fecha": "2026-07-22",
-    "titulo": "Cultura Parque Rodante llega a Medellín / Min30",
-    "medio": "minuto30.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.minuto30.com/cultura-parque-rodante-medellin/1713878/",
-    "temas": [
-     "turismo"
-    ]
-   },
-   {
-    "fecha": "2026-07-21",
-    "titulo": "Medellín mantiene la actual rotación del pico y placa: así operará la restricción este martes 21 de julio",
-    "medio": "eltiempo.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.eltiempo.com/colombia/medellin/medellin-mantiene-la-actual-rotacion-del-pico-y-placa-asi-operara-la-restriccion-este-martes-21-de-julio-3572458",
-    "temas": [
-     "movilidad"
-    ]
-   },
-   {
-    "fecha": "2026-07-21",
-    "titulo": "Ruben Blades Concert in Medellín: Ticket Details 2026",
-    "medio": "riotimesonline.com",
-    "idioma": "inglés",
-    "pais": "Brazil",
-    "url": "https://www.riotimesonline.com/ruben-blades-concert-medellin-2026-tickets/",
-    "temas": [
-     "turismo"
-    ]
-   },
-   {
-    "fecha": "2026-07-21",
-    "titulo": "Independiente Medellin x Vasco: onde assistir ao vivo, horário e prováveis escalaes pelos playoffs da Sul - Americana",
-    "medio": "jc.uol.com.br",
-    "idioma": "portugués",
-    "pais": "Brazil",
-    "url": "https://jc.uol.com.br/blog-do-torcedor/onde-assistir/2026/07/21/independiente-medellin-x-vasco-onde-assistir-ao-vivo-horario-e-provaveis-escalacoes-pelos-playoffs-da-sul-americana.html",
-    "temas": [
-     "deporte"
-    ]
-   },
-   {
-    "fecha": "2026-07-21",
-    "titulo": "Medellín será sede del Escudo de las Américas / Min30",
-    "medio": "minuto30.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.minuto30.com/medellin-escudo-americas/1713749/",
-    "temas": []
-   },
-   {
-    "fecha": "2026-07-21",
-    "titulo": "Abelardo De La Espriella trasladará sede de ProColombia Medellín",
-    "medio": "semana.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.semana.com/politica/articulo/abelardo-de-la-espriella-apuesta-por-medellin-y-trasladara-sede-de-procolombia-a-la-capital-de-antioquia/202610/",
-    "temas": []
-   },
-   {
-    "fecha": "2026-07-21",
-    "titulo": "Abelardo De la Espriella anuncia que Medellín será la sede principal del Escudo de las Américas, alianza impulsada por Trump",
-    "medio": "elheraldo.co",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.elheraldo.co/politica/2026/07/21/medellin-sera-la-sede-principal-del-escudo-de-las-americas-y-centro-de-operaciones-del-nuevo-gobierno-abelardo-de-la-espriella/",
-    "temas": []
-   },
-   {
-    "fecha": "2026-07-21",
-    "titulo": "Kraken Sinfónico alista sus presentaciones en Bogotá, Cali y Medellín tras agotar boletería",
-    "medio": "eltiempo.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.eltiempo.com/cultura/musica-y-libros/kraken-sinfonico-alista-sus-presentaciones-en-bogota-cali-y-medellin-tras-agotar-boleteria-3572776",
-    "temas": []
-   },
-   {
-    "fecha": "2026-07-21",
-    "titulo": "Independiente Medellín vs Vasco da Gama en vivo horario canales tv ida playoffs Copa Sudamericana 2026 Partidos de hoy",
-    "medio": "rpp.pe",
-    "idioma": "español",
-    "pais": "Peru",
-    "url": "https://rpp.pe/futbol/copa-sudamericana/independiente-medellin-vs-vasco-da-gama-en-vivo-horario-canales-tv-ida-playoffs-copa-sudamericana-2026-partidos-de-hoy-noticia-1698292",
-    "temas": [
-     "deporte"
-    ]
-   },
-   {
-    "fecha": "2026-07-20",
-    "titulo": "De La Espriella celebró el 20 de Julio en Medellín: Antioquia resistió y Colombia se salvó",
-    "medio": "vanguardia.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.vanguardia.com/politica/2026/07/20/abelardo-de-la-espriella-celebro-el-20-de-julio-en-medellin-antioquia-resistio-y-colombia-se-salvo/",
-    "temas": []
-   },
-   {
-    "fecha": "2026-07-19",
-    "titulo": "El futuro de las flores: niños y jóvenes florecen en la edición XXVIII del Desfile de Silleteritos en Medellín",
-    "medio": "eltiempo.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.eltiempo.com/colombia/medellin/el-futuro-de-las-flores-ninos-y-jovenes-florecen-en-la-edicion-xxviii-del-desfile-de-silleteritos-en-medellin-3572277",
-    "temas": []
-   },
-   {
-    "fecha": "2026-07-19",
-    "titulo": "Sin democracia no hay empresa: Cámara de Comercio de Medellín homenajeó al registrador nacional Hernán Penagos",
-    "medio": "eltiempo.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.eltiempo.com/colombia/medellin/sin-democracia-no-hay-empresas-camara-de-comercio-de-medellin-homenajeo-al-registrador-nacional-hernan-penagos-3572340",
-    "temas": [
-     "economia"
-    ]
-   },
-   {
-    "fecha": "2026-07-19",
-    "titulo": "Medellín Viva La Salsa Concert Kicks Off the Flower Festival",
-    "medio": "riotimesonline.com",
-    "idioma": "inglés",
-    "pais": "Brazil",
-    "url": "https://www.riotimesonline.com/viva-la-salsa-medellin-2026-feria-de-las-flores/",
-    "temas": [
-     "turismo"
-    ]
-   },
-   {
-    "fecha": "2026-07-18",
-    "titulo": "¡Operativo en Medellín! Frenan en seco construcciones clandestinas en zona de riesgo ambiental",
-    "medio": "minuto30.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.minuto30.com/operativo-en-medellin-frenan-en-seco-construcciones-clandestinas-en-zona-de-riesgo-ambiental/1713385/",
-    "temas": [
-     "ambiente"
-    ]
-   },
-   {
-    "fecha": "2026-07-18",
-    "titulo": "La aerolínea Clic ampliará a cinco vuelos diarios la ruta Cali – Medellín desde septiembre",
-    "medio": "larepublica.co",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.larepublica.co/empresas/ampliacion-de-rutas-de-clic-4438447",
-    "temas": [
-     "movilidad"
-    ]
-   },
-   {
-    "fecha": "2026-07-18",
-    "titulo": "Coninsa invertirá más de $300.000 millones en Watana, un nuevo proyecto en Medellín",
-    "medio": "larepublica.co",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.larepublica.co/empresas/entrevista-con-alejandra-zapata-castano-presidenta-de-coninsa-sobre-nuevo-proyecto-watana-4438668",
-    "temas": []
-   },
-   {
-    "fecha": "2026-07-18",
-    "titulo": "Medellín Feria de las Flores 2026 opens with Viva la Salsa",
-    "medio": "riotimesonline.com",
-    "idioma": "inglés",
-    "pais": "Brazil",
-    "url": "https://www.riotimesonline.com/medellin-feria-de-las-flores-viva-la-salsa-2026/",
-    "temas": [
-     "turismo"
-    ]
-   },
-   {
-    "fecha": "2026-07-18",
-    "titulo": "Desfile del 20 de julio en Medellín: este será el recorrido de 4. 1 kilómetros y los cierres viales",
-    "medio": "eltiempo.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.eltiempo.com/colombia/medellin/desfile-del-20-de-julio-en-medellin-este-sera-el-recorrido-de-4-1-kilometros-y-los-cierres-viales-3572189",
-    "temas": [
-     "movilidad"
-    ]
-   },
-   {
-    "fecha": "2026-07-18",
-    "titulo": "Hasta 14 frascos de leche materna por semana: la madre de Medellín que convirtió su congelador en un banco de vida",
-    "medio": "eltiempo.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.eltiempo.com/colombia/medellin/hasta-14-frascos-de-leche-materna-por-semana-la-madre-de-medellin-que-convirtio-su-congelador-en-un-banco-de-vida-3572196",
-    "temas": [
-     "economia"
-    ]
-   },
-   {
-    "fecha": "2026-07-18",
-    "titulo": "La Orquesta de Cámara Solidaria inicia en Medellín su gira por Colombia | El Comercio: Diario de Asturias",
-    "medio": "elcomercio.es",
-    "idioma": "español",
-    "pais": "Spain",
-    "url": "https://www.elcomercio.es/area-metropolitana-asturias/siero-centro/orquesta-camara-solidaria-inicia-medellin-gira-colombia-20260718205137-nt.html",
-    "temas": [
-     "economia"
-    ]
-   },
-   {
-    "fecha": "2026-07-17",
-    "titulo": "Metro de Medellín restablece servicio de la Línea A tras falla eléctrica este 16 de jul",
-    "medio": "eltiempo.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.eltiempo.com/colombia/medellin/el-metro-de-medellin-supero-la-compleja-falla-electrica-y-normalizo-su-operacion-para-la-hora-pico-gerente-entrego-detalles-de-los-trabajos-3571827",
-    "temas": [
-     "movilidad"
-    ]
-   },
-   {
-    "fecha": "2026-07-17",
-    "titulo": "Salario del alcalde de Medellín 2026: ¿de cuánto es el incremento aprobado?",
-    "medio": "eltiempo.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.eltiempo.com/colombia/medellin/aprobado-este-es-el-sueldo-que-recibira-el-alcalde-de-medellin-federico-gutierrez-en-3571805",
-    "temas": [
-     "gobierno",
-     "economia"
-    ]
-   },
-   {
-    "fecha": "2026-07-17",
-    "titulo": "Adiós a El Gurú del Sabor, la voz que impulsó el reguetón en la radio de Medellín – Publimetro Colombia",
-    "medio": "publimetro.co",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.publimetro.co/entretenimiento/2026/07/16/murio-el-guru-del-sabor-el-locutor-que-ayudo-a-cambiar-la-historia-musical-de-medellin/",
-    "temas": []
-   },
-   {
-    "fecha": "2026-07-17",
-    "titulo": "Rotación del pico y placa en Medellín y Valle de Aburrá este viernes, 17 de julio: ¿qué vehículos pueden circular?",
-    "medio": "colombia.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.colombia.com/actualidad/nacionales/rotacion-de-pico-y-placa-en-medellin-este-viernes-17-de-julio-592255",
-    "temas": [
-     "movilidad"
-    ]
-   },
-   {
-    "fecha": "2026-07-17",
-    "titulo": "Convocatoria para trabajar en las Casas de Cultura en Medellín",
-    "medio": "minuto30.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.minuto30.com/convocatoria-casas-cultura-medellin/1713306/",
-    "temas": [
-     "turismo"
-    ]
-   },
-   {
-    "fecha": "2026-07-16",
-    "titulo": "Con la compra de Liceo Francés de Medellín los ingleses del grupo Ashmore vuelven a pisar duro en el sector educativo",
-    "medio": "las2orillas.co",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.las2orillas.co/con-la-compra-de-liceo-frances-de-medellin-los-ingleses-del-grupo-ashmore-vuelven-a-pisar-duro-en-el-sector-educativo/",
-    "temas": [
-     "educacion"
-    ]
-   },
-   {
-    "fecha": "2026-07-16",
-    "titulo": "Rotación del pico y placa en Medellín y Valle de Aburrá este jueves, 16 de julio: ¿qué vehículos pueden circular?",
-    "medio": "colombia.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.colombia.com:443/actualidad/nacionales/rotacion-de-pico-y-placa-en-medellin-este-jueves-16-de-julio-592080",
-    "temas": [
-     "movilidad"
-    ]
-   },
-   {
-    "fecha": "2026-07-16",
-    "titulo": "Goles y seguridad: Estos son los dos nuevos fichajes de Independiente Medellín",
-    "medio": "minuto30.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.minuto30.com/goles-y-seguridad-estos-son-los-dos-nuevos-fichajes-de-independiente-medellin/1713148/",
-    "temas": [
-     "deporte"
-    ]
-   },
-   {
-    "fecha": "2026-07-16",
-    "titulo": "Destacan que turistas internacionales que llegan a Colombia escogen a Medellín como destino principal",
-    "medio": "semana.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.semana.com/turismo/articulo/destacan-que-turistas-internacionales-que-llegan-a-colombia-escogen-a-medellin-como-destino-principal/202628/",
-    "temas": [
-     "turismo"
-    ]
-   },
-   {
-    "fecha": "2026-07-16",
-    "titulo": "¿Puede sacar su vehículo? Pico y placa en Medellín se mantiene este jueves 16 de julio de 2026",
-    "medio": "eltiempo.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.eltiempo.com/colombia/medellin/puede-sacar-su-vehiculo-pico-y-placa-en-medellin-se-mantiene-este-jueves-16-de-julio-de-3571564",
-    "temas": [
-     "movilidad"
-    ]
-   },
-   {
-    "fecha": "2026-07-16",
-    "titulo": "Atención: falla eléctrica en el Metro de Medellín afecta la movilidad en la ciudad",
-    "medio": "semana.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.semana.com/nacion/medellin/articulo/falla-electrica-en-el-metro-de-medellin-afecta-la-movilidad-en-la-ciudad/202653/",
-    "temas": [
-     "movilidad"
-    ]
-   },
-   {
-    "fecha": "2026-07-16",
-    "titulo": "Atención: Metro de Medellín anunció plan de contingencia temporal tras fallo técnico en catenaria de la Línea A; movilidad está colapsada en el sur",
-    "medio": "eltiempo.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.eltiempo.com/colombia/medellin/atencion-metro-de-medellin-anuncio-plan-de-contingencia-temporal-tras-fallo-tecnico-en-catenaria-de-la-linea-a-movilidad-esta-colapsada-en-el-sur-3571632",
-    "temas": [
-     "movilidad"
-    ]
-   },
-   {
-    "fecha": "2026-07-16",
-    "titulo": "Cuide su salud mental: el Metro de Medellín abre nuevo Escuchadero en la estación Niquía",
-    "medio": "elcolombiano.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.elcolombiano.com/medellin/metro-de-medellin-escuchadero-estacion-niquia-KC38902495",
-    "temas": [
-     "movilidad",
-     "salud"
-    ]
-   },
-   {
-    "fecha": "2026-07-16",
-    "titulo": "Abren inscripciones para Festival de Descenso en Medellín",
-    "medio": "minuto30.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.minuto30.com/festival-descenso-adrenalina-medellin/1713267/",
-    "temas": [
-     "turismo"
-    ]
-   },
-   {
-    "fecha": "2026-07-16",
-    "titulo": "Fico presentó la Feria de las Flores «Medellín te quiere y florece para ti»: un regalo para volver a las raíces y las tradiciones",
-    "medio": "minuto30.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.minuto30.com/fico-feria-de-las-flores-medellin/1713230/",
-    "temas": [
-     "turismo"
-    ]
-   },
-   {
-    "fecha": "2026-07-16",
-    "titulo": "Metro de Medellín restableció servicio en toda la Línea A",
-    "medio": "minuto30.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.minuto30.com/metro-medellin-restablece-linea-a-2/1713261/",
-    "temas": [
-     "movilidad"
-    ]
-   },
-   {
-    "fecha": "2026-07-16",
-    "titulo": "Atención: el metro de Medellín restablece su operación entre las estaciones Niquía y La Estrella",
-    "medio": "elcolombiano.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.elcolombiano.com/inicio/metro-de-medellin-restablece-su-operacion-entre-estaciones-niquia-la-estrella-PD38919143",
-    "temas": [
-     "movilidad"
-    ]
-   },
-   {
-    "fecha": "2026-07-15",
-    "titulo": "Rotación del pico y placa en Medellín y Valle de Aburrá este miércoles, 15 de julio: ¿qué vehículos pueden circular?",
-    "medio": "colombia.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.colombia.com:443/actualidad/nacionales/rotacion-de-pico-y-placa-en-medellin-este-miercoles-15-de-julio-591930",
-    "temas": [
-     "movilidad"
-    ]
-   },
-   {
-    "fecha": "2026-07-15",
-    "titulo": "Ejército rescató 45 civiles secuestrados por el ELN y habilitó el paso en la vía Quibdó - Medellín",
-    "medio": "minuto30.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.minuto30.com/ejercito-rescato-secuestrados-quibdo-medellin/1713034/",
-    "temas": []
-   },
-   {
-    "fecha": "2026-07-15",
-    "titulo": "Alejandro De Bedout, presidente del Concejo de Medellín, alerta e instaura denuncia por presunta fuga de presos en la cárcel de Itag",
-    "medio": "minuto30.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.minuto30.com/alejandro-de-bedout-presidente-del-concejo-de-medellin-alerta-e-instaura-denuncia-por-presunta-fuga-de-presos-en-la-carcel-de-itagui/1713033/",
-    "temas": [
-     "seguridad",
-     "gobierno"
-    ]
-   },
-   {
-    "fecha": "2026-07-15",
-    "titulo": "¡Hazaña histórica! El chocoano Ronal Longa rompe récords en el Panamericano de Atletismo de Medellín",
-    "medio": "hsbnoticias.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.hsbnoticias.com/hazana-historica-el-chocoano-ronal-longa-rompe-records-en-el-panamericano-de-atletismo-de-medellin/",
-    "temas": []
-   },
-   {
-    "fecha": "2026-07-15",
-    "titulo": "Medellín mantiene la actual rotación del pico y placa: así funcionará este miércoles 15 de julio",
-    "medio": "eltiempo.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.eltiempo.com/colombia/medellin/medellin-mantiene-la-actual-rotacion-del-pico-y-placa-asi-funcionara-este-miercoles-15-de-julio-3570961",
-    "temas": [
-     "movilidad"
-    ]
-   },
-   {
-    "fecha": "2026-07-15",
-    "titulo": "Presidente del Concejo de Medellín denunció un presunto plan de fuga masiva de la cárcel de Itag programado para la posesión de De la Espriella",
-    "medio": "eltiempo.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.eltiempo.com/colombia/medellin/presidente-del-concejo-de-medellin-denuncio-un-presunto-plan-de-fuga-masiva-de-la-carcel-de-itaguei-programado-para-la-posesion-de-de-la-espriella-3571368",
-    "temas": [
-     "seguridad",
-     "gobierno"
-    ]
-   },
-   {
-    "fecha": "2026-07-15",
-    "titulo": "Festival Buen Comienzo tendrá 70 experiencias en Medellín",
-    "medio": "minuto30.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.minuto30.com/festival-buen-comienzo-medellin-universo/1713083/",
-    "temas": [
-     "turismo"
-    ]
-   },
-   {
-    "fecha": "2026-07-15",
-    "titulo": "Alquería invirtió cerca de $1.000 millones para abrir nuevo laboratorio ubicado en Medellín",
-    "medio": "larepublica.co",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.larepublica.co/empresas/nuevo-laboratorio-de-alqueria-en-medellin-4436679",
-    "temas": []
-   },
-   {
-    "fecha": "2026-07-14",
-    "titulo": "Rotación del pico y placa en Medellín y Valle de Aburrá este martes, 14 de julio: ¿qué vehículos pueden circular?",
-    "medio": "colombia.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.colombia.com:443/actualidad/nacionales/rotacion-de-pico-y-placa-en-medellin-este-martes-14-de-julio-591519",
-    "temas": [
-     "movilidad"
-    ]
-   },
-   {
-    "fecha": "2026-07-14",
-    "titulo": "Medellín mantiene la actual rotación del pico y placa: así funcionará este martes 14 de julio",
-    "medio": "eltiempo.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.eltiempo.com/colombia/medellin/medellin-mantiene-la-actual-rotacion-del-pico-y-placa-asi-funcionara-este-martes-14-de-julio-3570505",
-    "temas": [
-     "movilidad"
-    ]
-   },
-   {
-    "fecha": "2026-07-14",
-    "titulo": "Estados Unidos pidió en extradición al recién capturado cabecilla de Los Chivo: alias El Menor era uno de los principales objetivos en Medellín",
-    "medio": "eltiempo.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.eltiempo.com/colombia/medellin/estados-unidos-pidio-en-extradicion-al-recien-capturado-cabecilla-de-los-chivos-alias-el-menor-era-uno-de-los-principales-objetivos-en-medellin-3571068",
-    "temas": [
-     "seguridad"
-    ]
-   },
-   {
-    "fecha": "2026-07-13",
-    "titulo": "Medellín, la città che ha abbassato il caldo di due gradi con appena 6 euro per abitante",
-    "medio": "today.it",
-    "idioma": "italiano",
-    "pais": "Italy",
-    "url": "https://www.today.it/dossier/scienze/caldo-come-abbassare-temperatura-citta-esempio-medellin.html",
-    "temas": []
-   },
-   {
-    "fecha": "2026-07-13",
-    "titulo": "Más de 52.000 metros de andenes han sido intervenidos en Medellín: estas son las zonas beneficiadas",
-    "medio": "minuto30.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.minuto30.com/mas-de-52-000-metros-de-andenes-han-sido-intervenidos-en-medellin-estas-son-las-zonas-beneficiadas/1712917/",
-    "temas": []
-   },
-   {
-    "fecha": "2026-07-13",
-    "titulo": "Pico y placa Medellín: así regirá del 14 al 17 de julio",
-    "medio": "lafm.com.co",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.lafm.com.co/actualidad/pico-y-placa-medellin-hoy-tercera-semana-julio-2026-404665",
-    "temas": [
-     "movilidad"
-    ]
-   },
-   {
-    "fecha": "2026-07-12",
-    "titulo": "El enredo con el Cartel de Medellín por el que René Higuita perdió una casa en El Poblado",
-    "medio": "elcolombiano.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.elcolombiano.com/inicio/rene-higuita-extincion-de-dominio-cartel-de-medellin-GJ38753261",
-    "temas": [
-     "seguridad"
-    ]
-   },
-   {
-    "fecha": "2026-07-12",
-    "titulo": "Un incendio amenaza el conjunto histórico de Medellín sin causar daños patrimoniales",
-    "medio": "elperiodicoextremadura.com",
-    "idioma": "español",
-    "pais": "Spain",
-    "url": "https://www.elperiodicoextremadura.com/extremadura/2026/07/12/incendio-amenaza-conjunto-historico-medellin-132385998.html",
-    "temas": [
-     "ambiente"
-    ]
-   },
-   {
-    "fecha": "2026-07-11",
-    "titulo": "Medellin Feria de las Flores 2026: Dates and Guide",
-    "medio": "riotimesonline.com",
-    "idioma": "inglés",
-    "pais": "Brazil",
-    "url": "https://www.riotimesonline.com/medellin-feria-de-las-flores-2026-silleteros-expats/",
-    "temas": [
-     "turismo"
-    ]
-   },
-   {
-    "fecha": "2026-07-10",
-    "titulo": "Personería de Medellín pidió medidas de protección para concejal del Pacto Histórico que fue amenazado por un civil en una sesión de la corporación",
-    "medio": "eltiempo.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.eltiempo.com/colombia/medellin/personeria-de-medellin-pidio-medidas-de-proteccion-para-concejal-del-pacto-historico-que-fue-amenazado-por-un-civil-en-una-sesion-de-la-corporacion-3570344",
-    "temas": [
-     "gobierno"
-    ]
-   },
-   {
-    "fecha": "2026-07-10",
-    "titulo": "Fico Gutiérrez sentencia a supuestos implicados en el saqueo a Medellín: Les tengo separado el pabellón Q",
-    "medio": "semana.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.semana.com/politica/articulo/fico-gutierrez-sentencia-a-supuestos-implicados-en-el-saqueo-a-medellin-les-tengo-separado-el-pabellon-q/202614/",
-    "temas": []
-   },
-   {
-    "fecha": "2026-07-10",
-    "titulo": "Medellín renovó 272 restaurantes escolares / Min30",
-    "medio": "minuto30.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.minuto30.com/restaurantes-escolares-renovacion/1712692/",
-    "temas": []
-   },
-   {
-    "fecha": "2026-07-10",
-    "titulo": "Tractomula se volcó en la calle 4 Sur de Medellín / Min30",
-    "medio": "minuto30.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.minuto30.com/tractomula-se-volco-4-sur-medellin/1712712/",
-    "temas": []
-   },
-   {
-    "fecha": "2026-07-10",
-    "titulo": "Sunglass Hut hizo la apertura de una nueva tienda en Medellín en el centro comercial Santafé",
-    "medio": "larepublica.co",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.larepublica.co/empresas/nueva-tienda-de-sunglass-hut-en-medellin-4433811",
-    "temas": []
-   },
-   {
-    "fecha": "2026-07-10",
-    "titulo": "Nueva pelea política en Medellín: Fico Gutiérrez reacciona a imputación de Miguel Quintero",
-    "medio": "hsbnoticias.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.hsbnoticias.com/federico-gutierrez-reaccion-imputacion-miguel-quintero-2/",
-    "temas": [
-     "gobierno"
-    ]
-   },
-   {
-    "fecha": "2026-07-10",
-    "titulo": "Rescatan perro víctima de maltrato en Medellín / Min30",
-    "medio": "minuto30.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.minuto30.com/rescate-perro-maltrato-medellin/1712757/",
-    "temas": [
-     "seguridad"
-    ]
-   },
-   {
-    "fecha": "2026-07-09",
-    "titulo": "Así va el proceso de ensamble de los 13 nuevos trenes que llegaran al metro de Medellín",
-    "medio": "semana.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.semana.com/nacion/medellin/articulo/asi-avanza-el-ensamblaje-de-los-13-nuevos-trenes-del-metro-de-medellin/202620/",
-    "temas": [
-     "movilidad"
-    ]
-   },
-   {
-    "fecha": "2026-07-09",
-    "titulo": "Quién es Arif J. Human, capo canadiense capturado en Smart Fit de Medellín",
-    "medio": "pulzo.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.pulzo.com/nacion/quien-es-arif-j-human-capo-canadiense-capturado-smart-fit-medellin-PP5240874",
-    "temas": [
-     "seguridad"
-    ]
-   },
-   {
-    "fecha": "2026-07-09",
-    "titulo": "¿Quién es el canadiense capturado en un operativo antinarcóticos en un gimnasio de El Poblado, en Medellín?",
-    "medio": "semana.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.semana.com/nacion/medellin/articulo/quien-es-el-canadiense-capturado-en-un-operativo-antinarcoticos-en-un-gimnasio-de-el-poblado-en-medellin/202659/",
-    "temas": [
-     "seguridad"
-    ]
-   },
-   {
-    "fecha": "2026-07-09",
-    "titulo": "Federico Gutiérrez reveló detalles de la captura de un canadiense en un gimnasio de Medellín acusado de integrar una red de tráfico de drogas y armas",
-    "medio": "eltiempo.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.eltiempo.com/colombia/medellin/federico-gutierrez-revelo-detalles-de-la-captura-de-un-canadiense-acusado-de-integrar-una-red-de-trafico-de-drogas-y-armas-en-un-gimnasio-de-medellin-3570057",
-    "temas": [
-     "seguridad",
-     "movilidad"
-    ]
-   },
-   {
-    "fecha": "2026-07-09",
-    "titulo": "27 capos transnacionales han sido capturados en Medellín en 2026: ¿cuál es el interés de los delincuentes extranjeros en la capital de Antioquia?",
-    "medio": "eltiempo.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.eltiempo.com/colombia/medellin/27-capos-transnacionales-han-sido-capturados-en-medellin-en-2026-cual-es-el-interes-de-los-delincuentes-extranjeros-en-la-capital-de-antioquia-3569862",
-    "temas": [
-     "seguridad"
-    ]
-   },
-   {
-    "fecha": "2026-07-09",
-    "titulo": "Medellín invertirá en 69 colegios en su infraestructura",
-    "medio": "minuto30.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.minuto30.com/69-colegios-renovaran-infraestructura/1712606/",
-    "temas": [
-     "educacion"
-    ]
-   },
-   {
-    "fecha": "2026-07-09",
-    "titulo": "Medellín tendrá 13 nuevos trenes del Metro: así avanza el ensamblaje en Bello y México",
-    "medio": "eltiempo.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.eltiempo.com/colombia/medellin/asi-se-construyen-los-13-nuevos-trenes-del-metro-de-medellin-que-aumentaran-en-20-por-ciento-la-capacidad-del-sistema-3570162",
-    "temas": [
-     "movilidad"
-    ]
-   },
-   {
-    "fecha": "2026-07-09",
-    "titulo": "El capo que se escondía en un gimnasio de Medellín: así fue la captura de alias Gillani",
-    "medio": "vanguardia.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.vanguardia.com/colombia/2026/07/09/el-capo-que-se-escondia-en-un-gimnasio-de-medellin-asi-fue-la-captura-de-alias-gillani/",
-    "temas": [
-     "seguridad"
-    ]
-   },
-   {
-    "fecha": "2026-07-08",
-    "titulo": "René Higuita perdió lujoso predio en El Poblado: será objeto de extinción de dominio porque perteneció a narcos del Cartel de Medellín",
-    "medio": "semana.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.semana.com/nacion/articulo/rene-higuita-pierde-lujoso-predio-en-el-poblado-habria-sido-obtenido-con-dineros-del-narcotrafico/202646/",
-    "temas": [
-     "seguridad"
-    ]
-   },
-   {
-    "fecha": "2026-07-08",
-    "titulo": "Iniciaron las obras de remodelación del estadio Atanasio Girardot de Medellín: no cerrará hasta mediados de 2027; así será la primera fase",
-    "medio": "eltiempo.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.eltiempo.com/colombia/medellin/iniciaron-las-obras-de-remodelacion-del-estadio-atanasio-girardot-de-medellin-tras-la-entrega-de-la-licencia-de-construccion-asi-sera-la-primera-fase-3569895",
-    "temas": [
-     "deporte"
-    ]
-   },
-   {
-    "fecha": "2026-07-08",
-    "titulo": "William Oswaldo Suarez desapareció en Medellín",
-    "medio": "minuto30.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.minuto30.com/william-oswaldo-suarez-desaparecio-en-medellin/1712530/",
-    "temas": [
-     "seguridad"
-    ]
-   },
-   {
-    "fecha": "2026-07-08",
-    "titulo": "Candelaria Women Fest: El primer festival de mujeres que transforma el centro de Medellín",
-    "medio": "elcolombiano.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.elcolombiano.com/inicio/candelaria-women-fest-festival-de-mujeres-centro-medellin-comuna-10-EO38637704",
-    "temas": [
-     "turismo"
-    ]
-   },
-   {
-    "fecha": "2026-07-08",
-    "titulo": "Avanza ensamblaje de los nuevos trenes del Metro de Medellín",
-    "medio": "minuto30.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.minuto30.com/metro-medellin-ensamblaje-trenes/1712582/",
-    "temas": [
-     "movilidad"
-    ]
-   },
-   {
-    "fecha": "2026-07-08",
-    "titulo": "Red de Músicas abre nueva escuela en Medellín / Min30",
-    "medio": "minuto30.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.minuto30.com/red-musicas-medellin-nueva-escuela/1712555/",
-    "temas": [
-     "turismo",
-     "educacion"
-    ]
-   },
-   {
-    "fecha": "2026-07-08",
-    "titulo": "Avanza proyecto de 13 nuevos trenes del Metro de Medellín",
-    "medio": "minuto30.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.minuto30.com/metro-medellin-13-trenes-nuevos/1712551/",
-    "temas": [
-     "movilidad"
-    ]
-   },
-   {
-    "fecha": "2026-07-07",
-    "titulo": "Ordenan la extinción de dominio de un inmueble vinculado a René Higuita en Medellín",
-    "medio": "hsbnoticias.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.hsbnoticias.com/ordenan-la-extincion-de-dominio-de-un-inmueble-vinculado-a-rene-higuita-en-medellin/",
-    "temas": []
-   },
-   {
-    "fecha": "2026-07-07",
-    "titulo": "Medellín reduce su huella ambiental: cerca de 35.000 toneladas de residuos fueron aprovechadas",
-    "medio": "minuto30.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.minuto30.com/medellin-reduce-su-huella-ambiental-cerca-de-35-000-toneladas-de-residuos-fueron-aprovechadas/1712358/",
-    "temas": [
-     "ambiente"
-    ]
-   },
-   {
-    "fecha": "2026-07-07",
-    "titulo": "Luz Ángela Corredor desapareció en Medellín",
-    "medio": "minuto30.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.minuto30.com/luz-angela-corredor-desaparecio-en-medellin/1712385/",
-    "temas": [
-     "seguridad",
-     "servicios",
-     "deporte"
-    ]
-   },
-   {
-    "fecha": "2026-07-06",
-    "titulo": "Villa del Refugio se impuso 2 - 1 a Medellín en el Nacional de Ligas Pequeñas",
-    "medio": "horacero.com.mx",
-    "idioma": "español",
-    "pais": "Mexico",
-    "url": "https://horacero.com.mx/deportes/villa-del-refugio-se-impuso-2-1-a-medellin-en-el-nacional-de-ligas-pequenas",
-    "temas": []
-   },
-   {
-    "fecha": "2026-07-06",
-    "titulo": "Pico y placa Medellín: así rige este lunes 6 de julio",
-    "medio": "lafm.com.co",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.lafm.com.co/actualidad/pico-y-placa-medellin-julio-2026-asi-aplica-403980",
-    "temas": [
-     "movilidad"
-    ]
-   },
-   {
-    "fecha": "2026-07-06",
-    "titulo": "Guerra de trinos entre Petro y Fico por mural en Medellín: Te quedan 31 días y acusaciones de fascismo",
-    "medio": "vanguardia.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.vanguardia.com/politica/2026/07/06/guerra-de-trinos-entre-petro-y-fico-por-mural-en-medellin-te-quedan-31-dias-y-acusaciones-de-fascismo/",
-    "temas": [
-     "gobierno"
-    ]
-   },
-   {
-    "fecha": "2026-07-06",
-    "titulo": "Dimos tranquilidad y apoyo a personas que lo perdieron todo: Medellín condecora a los 22 bomberos que atendieron tragedia en Venezuela",
-    "medio": "elcolombiano.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.elcolombiano.com/inicio/medellin-condecora-a-los-22-bomberos-que-atendieron-tragedia-en-venezuela-BK38542704",
-    "temas": []
-   },
-   {
-    "fecha": "2026-07-06",
-    "titulo": "A pocos minutos de Medellín: el mirador ideal para desconectarse y ver el paisaje desde las alturas",
-    "medio": "colombia.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.colombia.com:443/turismo/noticias/san-felix-desde-medellin-parapente-ruta-y-recomendaciones-590821",
-    "temas": []
-   },
-   {
-    "fecha": "2026-07-06",
-    "titulo": "No es censura, es gobernar: Fico le responde a Petro tras polémica por mural en Medellín",
-    "medio": "elheraldo.co",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.elheraldo.co/colombia/2026/07/06/no-es-censura-es-gobernar-fico-le-responde-a-petro-tras-polemica-por-mural-en-medellin/",
-    "temas": [
-     "gobierno"
-    ]
-   },
-   {
-    "fecha": "2026-07-06",
-    "titulo": "Supersalud denuncia penalmente al alcalde Federico Gutiérrez por presunta violencia y obstrucción a auditoría en Medellín",
-    "medio": "elcolombiano.com",
-    "idioma": "español",
-    "pais": "Colombia",
-    "url": "https://www.elcolombiano.com/inicio/daniel-quintero-supersalud-denuncia-penal-federico-gutierrez-DL38555699",
-    "temas": [
-     "gobierno"
-    ]
    }
   ],
   "prensa_definicion": [
    {
-    "ventana": "5 jul 2026 – 2 oct 2026",
+    "ventana": "27 jul 2026 – 24 oct 2026",
     "consulta": "(medellín OR medellin)",
     "cortes": [
      {
-      "desde": "5 jul 2026",
-      "hasta": "3 ago 2026",
+      "desde": "27 jul 2026",
+      "hasta": "25 ago 2026",
       "articulos": 250
      },
      {
-      "desde": "4 ago 2026",
-      "hasta": "2 sep 2026",
+      "desde": "26 ago 2026",
+      "hasta": "24 sep 2026",
       "articulos": 250
      },
      {
-      "desde": "3 sep 2026",
-      "hasta": "2 oct 2026",
+      "desde": "25 sep 2026",
+      "hasta": "24 oct 2026",
       "articulos": 250
      }
     ],
-    "sin_tema": 70
+    "sin_tema": 75
    }
   ]
  }

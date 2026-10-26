@@ -97,7 +97,7 @@
   {
    "id": "mintic-internet-fijo",
    "nombre": "Accesos a internet fijo por municipio, segmento y tecnología",
-   "entidad": "Ministerio de Tecnologías de la Información y las Comunicaciones",
+   "entidad": "Comisión de Regulación de Comunicaciones (CRC) · Postdata",
    "url": "https://www.postdata.gov.co/sites/default/files/ACCESOS_INTERNET_FIJO_3_5.csv",
    "estado": "observado",
    "probado": "2026-09-27"

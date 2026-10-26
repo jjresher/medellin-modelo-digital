@@ -1,7 +1,7 @@
 {
  "tema": "territorio",
  "titulo": "Territorio y cultura",
- "probado": "2026-09-30",
+ "probado": "2026-10-24",
  "ancla": [
   "construcciones_amenaza_alta",
   "bic",
@@ -14,7 +14,7 @@
    "entidad": "Alcaldía de Medellín · capas protocolizadas del POT (Acuerdo 48 de 2014)",
    "url": "https://www.medellin.gov.co/servidormapas/rest/services/ambiente_dllo_sost/VC_Gestion_Riesgo/MapServer",
    "estado": "observado",
-   "probado": "2026-09-30"
+   "probado": "2026-10-24"
   },
   {
    "id": "alc-usos-suelo",
@@ -22,7 +22,7 @@
    "entidad": "Departamento Administrativo de Planeación · Alcaldía de Medellín",
    "url": "https://www.medellin.gov.co/servidormapas/rest/services/ordenamiento_ter/VM_POT48_Tematicos/MapServer/5",
    "estado": "observado",
-   "probado": "2026-09-30"
+   "probado": "2026-10-24"
   },
   {
    "id": "alc-tratamientos",
@@ -30,7 +30,7 @@
    "entidad": "Departamento Administrativo de Planeación · Alcaldía de Medellín",
    "url": "https://www.medellin.gov.co/servidormapas/rest/services/ordenamiento_ter/VM_22_Tratamientos_Urbanos/MapServer/0",
    "estado": "observado",
-   "probado": "2026-09-30"
+   "probado": "2026-10-24"
   },
   {
    "id": "alc-pot-2025",
@@ -38,7 +38,7 @@
    "entidad": "Departamento Administrativo de Planeación · Alcaldía de Medellín",
    "url": "https://www.medellin.gov.co/servidormapas/rest/services/ordenamiento_ter/VM_34_POT_2025/MapServer",
    "estado": "declarado",
-   "probado": "2026-09-30"
+   "probado": "2026-10-24"
   },
   {
    "id": "alc-bic",
@@ -46,7 +46,7 @@
    "entidad": "Secretaría de Cultura Ciudadana · Alcaldía de Medellín",
    "url": "https://www.medellin.gov.co/servidormapas/rest/services/cultura/VC_BIC_Patrimonial/MapServer/0",
    "estado": "observado",
-   "probado": "2026-09-30"
+   "probado": "2026-10-24"
   },
   {
    "id": "alc-bibliotecas",
@@ -54,7 +54,7 @@
    "entidad": "Secretaría de Cultura Ciudadana · Alcaldía de Medellín",
    "url": "https://www.medellin.gov.co/servidormapas/rest/services/cultura/VM_Red_Bibliotecas/MapServer/0",
    "estado": "observado",
-   "probado": "2026-09-30"
+   "probado": "2026-10-24"
   },
   {
    "id": "alc-sedes-educativas",
@@ -62,7 +62,7 @@
    "entidad": "Secretaría de Educación · Alcaldía de Medellín",
    "url": "https://www.medellin.gov.co/servidormapas/rest/services/educacion/VC_Sedes/MapServer/0",
    "estado": "observado",
-   "probado": "2026-09-30"
+   "probado": "2026-10-24"
   },
   {
    "id": "idem-pot-equipamientos",
@@ -78,7 +78,7 @@
    "entidad": "Área Metropolitana del Valle de Aburrá y Universidad Nacional (Alcaldía de Medellín)",
    "url": "https://www.medellin.gov.co/servidormapas/rest/services/ambiente_dllo_sost/VA_SistemaArbolUrbano_Base/MapServer/5",
    "estado": "observado",
-   "probado": "2026-09-30"
+   "probado": "2026-10-24"
   },
   {
    "id": "alc-espacio-publico",
@@ -86,7 +86,7 @@
    "entidad": "Departamento Administrativo de Planeación · Alcaldía de Medellín",
    "url": "https://www.medellin.gov.co/servidormapas/rest/services/ordenamiento_ter/VM_Espacio_Publico/MapServer/0",
    "estado": "observado",
-   "probado": "2026-09-30"
+   "probado": "2026-10-24"
   }
  ],
  "cifras": {
@@ -229,7 +229,7 @@
    "unidad": "",
    "etiqueta": "POT vigente",
    "fuente": "alc-pot-2025",
-   "vigencia": "Consultado el 30 de septiembre de 2026",
+   "vigencia": "Consultado el 24 de octubre de 2026",
    "estado": "declarado",
    "nota": "La capa \"POT 2025\" es un mapa provisional con las capas del Acuerdo 48 de 2014 que no cambian en la revisión de mediano plazo; no es un POT nuevo. Descripción del servicio: Mapa provisional, conformado por las capas protocolizadas del POT 48 del 2014 de que no serán objeto de actualización durante la revisión de mediano plazo que se ejecuta en 2025 . Servicio de Mapa con información protocolizada del Plan de Ordenamiento Territorial (POT)- Acuerdo 48 de 2014, para el uso del Sistema de Gestión de Instrumentos de Ordenamiento Territorial – MapGIS POT. Este servicio será reestructurado cuando quede se apruebe la adopción del proceso de revisión y ajuste de mediano plazo del POT."
   },
@@ -279,21 +279,21 @@
    "nota": "1.116 ha son de propiedad pública o fiscal. Incluye zonas verdes públicas y privadas: parques, retiros de quebrada, antejardines, separadores y zonas verdes de unidades residenciales, entre otras. Polígonos desde 4 m². El inventario cubre el suelo urbano: en los corregimientos solo aparecen las zonas verdes de sus centros poblados urbanos, si las hay."
   },
   "m2_verde_hab": {
-   "valor": 14.8,
+   "valor": 15.2,
    "unidad": "m²/hab.",
    "etiqueta": "Espacio verde urbano por habitante",
    "fuente": "amva-espacio-verde",
-   "vigencia": "Inventario de 2019 (ortofotos de 2016 a 2019); población 2026",
+   "vigencia": "Inventario de 2019 (ortofotos de 2016 a 2019); población 2019",
    "estado": "derivado",
    "decimales": 1,
-   "nota": "Espacio verde de 2019 sobre la población proyectada por el DANE para 2026."
+   "nota": "Espacio verde del inventario de 2019 sobre la población de 2019."
   },
   "m2_verde_publico_hab": {
-   "valor": 4.4,
+   "valor": 4.5,
    "unidad": "m²/hab.",
    "etiqueta": "Espacio verde público por habitante",
    "fuente": "amva-espacio-verde",
-   "vigencia": "Inventario de 2019 (ortofotos de 2016 a 2019); población 2026",
+   "vigencia": "Inventario de 2019 (ortofotos de 2016 a 2019); población 2019",
    "estado": "derivado",
    "decimales": 1
   },
@@ -311,10 +311,10 @@
    "unidad": "m²/hab.",
    "etiqueta": "Espacio público efectivo por habitante",
    "fuente": "alc-espacio-publico",
-   "vigencia": "Inventario 2023; población 2026",
+   "vigencia": "Inventario 2023; población 2023",
    "estado": "derivado",
    "decimales": 1,
-   "nota": "Inventario 2023 sobre la población proyectada por el DANE para 2026."
+   "nota": "Inventario 2023 sobre la población de 2023."
   }
  },
  "series": {},
@@ -6232,6 +6232,46 @@
     "nota": "Sedes activas sobre la población proyectada por el DANE para 2026."
    },
    {
+    "clave": "ha_espacio_verde",
+    "etiqueta": "Espacio verde urbano",
+    "unidad": "ha",
+    "fuente": "amva-espacio-verde",
+    "estado": "observado",
+    "vigencia": "Inventario de 2019 (ortofotos de 2016 a 2019)",
+    "decimales": 1,
+    "nota": "Incluye zonas verdes públicas y privadas: parques, retiros de quebrada, antejardines, separadores y zonas verdes de unidades residenciales, entre otras. Polígonos desde 4 m². El inventario cubre el suelo urbano: en los corregimientos solo aparecen las zonas verdes de sus centros poblados urbanos, si las hay."
+   },
+   {
+    "clave": "m2_verde_hab",
+    "etiqueta": "Espacio verde urbano por habitante",
+    "unidad": "m²/hab.",
+    "fuente": "amva-espacio-verde",
+    "estado": "derivado",
+    "vigencia": "Inventario de 2019 (ortofotos de 2016 a 2019); población 2019",
+    "decimales": 1,
+    "nota": "Espacio verde del inventario de 2019 sobre la población de 2019 (total DANE de ese año repartido según el DAP): inventario y población son del mismo año. Incluye zonas verdes públicas y privadas: parques, retiros de quebrada, antejardines, separadores y zonas verdes de unidades residenciales, entre otras. Polígonos desde 4 m². El inventario cubre el suelo urbano: en los corregimientos solo aparecen las zonas verdes de sus centros poblados urbanos, si las hay."
+   },
+   {
+    "clave": "m2_verde_publico_hab",
+    "etiqueta": "Espacio verde público por habitante",
+    "unidad": "m²/hab.",
+    "fuente": "amva-espacio-verde",
+    "estado": "derivado",
+    "vigencia": "Inventario de 2019 (ortofotos de 2016 a 2019); población 2019",
+    "decimales": 1,
+    "nota": "Solo los polígonos de propiedad pública o fiscal."
+   },
+   {
+    "clave": "m2_espacio_publico_hab",
+    "etiqueta": "Espacio público efectivo por habitante",
+    "unidad": "m²/hab.",
+    "fuente": "alc-espacio-publico",
+    "estado": "derivado",
+    "vigencia": "Inventario 2023; población 2023",
+    "decimales": 1,
+    "nota": "Parques, plazas, plazoletas y zonas verdes públicas permanentes de la comuna o corregimiento, sobre la población de 2023, el mismo año del inventario."
+   },
+   {
     "clave": "equipamientos",
     "etiqueta": "Equipamientos del POT",
     "unidad": "equipamientos",
@@ -6249,46 +6289,6 @@
     "vigencia": "POT (Acuerdo 48 de 2014), capa vigente; población 2026",
     "decimales": 1,
     "nota": "Equipamientos sobre la población proyectada por el DANE para 2026."
-   },
-   {
-    "clave": "ha_espacio_verde",
-    "etiqueta": "Espacio verde urbano",
-    "unidad": "ha",
-    "fuente": "amva-espacio-verde",
-    "estado": "observado",
-    "vigencia": "Inventario de 2019 (ortofotos de 2016 a 2019)",
-    "decimales": 1,
-    "nota": "Incluye zonas verdes públicas y privadas: parques, retiros de quebrada, antejardines, separadores y zonas verdes de unidades residenciales, entre otras. Polígonos desde 4 m². El inventario cubre el suelo urbano: en los corregimientos solo aparecen las zonas verdes de sus centros poblados urbanos, si las hay."
-   },
-   {
-    "clave": "m2_verde_hab",
-    "etiqueta": "Espacio verde urbano por habitante",
-    "unidad": "m²/hab.",
-    "fuente": "amva-espacio-verde",
-    "estado": "derivado",
-    "vigencia": "Inventario de 2019 (ortofotos de 2016 a 2019); población 2026",
-    "decimales": 1,
-    "nota": "Espacio verde de 2019 sobre la población proyectada por el DANE para 2026: los dos datos no son del mismo año. Incluye zonas verdes públicas y privadas: parques, retiros de quebrada, antejardines, separadores y zonas verdes de unidades residenciales, entre otras. Polígonos desde 4 m². El inventario cubre el suelo urbano: en los corregimientos solo aparecen las zonas verdes de sus centros poblados urbanos, si las hay."
-   },
-   {
-    "clave": "m2_verde_publico_hab",
-    "etiqueta": "Espacio verde público por habitante",
-    "unidad": "m²/hab.",
-    "fuente": "amva-espacio-verde",
-    "estado": "derivado",
-    "vigencia": "Inventario de 2019 (ortofotos de 2016 a 2019); población 2026",
-    "decimales": 1,
-    "nota": "Solo los polígonos de propiedad pública o fiscal."
-   },
-   {
-    "clave": "m2_espacio_publico_hab",
-    "etiqueta": "Espacio público efectivo por habitante",
-    "unidad": "m²/hab.",
-    "fuente": "alc-espacio-publico",
-    "estado": "derivado",
-    "vigencia": "Inventario 2023; población 2026",
-    "decimales": 1,
-    "nota": "Parques, plazas, plazoletas y zonas verdes públicas permanentes de la comuna o corregimiento, sobre la población proyectada por el DANE para 2026."
    }
   ],
   "territorios": [
@@ -6342,23 +6342,23 @@
      "sedes_por_10mil": {
       "2024": 2.2
      },
+     "ha_espacio_verde": {
+      "2019": 77.5
+     },
+     "m2_verde_hab": {
+      "2019": 5.6
+     },
+     "m2_verde_publico_hab": {
+      "2019": 1.8
+     },
+     "m2_espacio_publico_hab": {
+      "2023": 1.2
+     },
      "equipamientos": {
       "2026": 92
      },
      "equipamientos_por_10mil": {
       "2026": 6.5
-     },
-     "ha_espacio_verde": {
-      "2019": 77.5
-     },
-     "m2_verde_hab": {
-      "2019": 5.4
-     },
-     "m2_verde_publico_hab": {
-      "2019": 1.7
-     },
-     "m2_espacio_publico_hab": {
-      "2023": 1.2
      }
     }
    },
@@ -6412,23 +6412,23 @@
      "sedes_por_10mil": {
       "2024": 2.0
      },
-     "equipamientos": {
-      "2026": 63
-     },
-     "equipamientos_por_10mil": {
-      "2026": 5.4
-     },
      "ha_espacio_verde": {
       "2019": 30.7
      },
      "m2_verde_hab": {
-      "2019": 2.6
+      "2019": 2.7
      },
      "m2_verde_publico_hab": {
       "2019": 0.9
      },
      "m2_espacio_publico_hab": {
       "2023": 0.8
+     },
+     "equipamientos": {
+      "2026": 63
+     },
+     "equipamientos_por_10mil": {
+      "2026": 5.4
      }
     }
    },
@@ -6482,23 +6482,23 @@
      "sedes_por_10mil": {
       "2024": 2.2
      },
-     "equipamientos": {
-      "2026": 102
-     },
-     "equipamientos_por_10mil": {
-      "2026": 6.0
-     },
      "ha_espacio_verde": {
       "2019": 153.5
      },
      "m2_verde_hab": {
-      "2019": 9.0
+      "2019": 9.2
      },
      "m2_verde_publico_hab": {
       "2019": 3.3
      },
      "m2_espacio_publico_hab": {
       "2023": 1.1
+     },
+     "equipamientos": {
+      "2026": 102
+     },
+     "equipamientos_por_10mil": {
+      "2026": 6.0
      }
     }
    },
@@ -6552,23 +6552,23 @@
      "sedes_por_10mil": {
       "2024": 3.4
      },
+     "ha_espacio_verde": {
+      "2019": 84.3
+     },
+     "m2_verde_hab": {
+      "2019": 6.0
+     },
+     "m2_verde_publico_hab": {
+      "2019": 2.3
+     },
+     "m2_espacio_publico_hab": {
+      "2023": 3.5
+     },
      "equipamientos": {
       "2026": 110
      },
      "equipamientos_por_10mil": {
       "2026": 8.2
-     },
-     "ha_espacio_verde": {
-      "2019": 84.3
-     },
-     "m2_verde_hab": {
-      "2019": 6.3
-     },
-     "m2_verde_publico_hab": {
-      "2019": 2.5
-     },
-     "m2_espacio_publico_hab": {
-      "2023": 3.6
      }
     }
    },
@@ -6622,23 +6622,23 @@
      "sedes_por_10mil": {
       "2024": 4.3
      },
+     "ha_espacio_verde": {
+      "2019": 155.3
+     },
+     "m2_verde_hab": {
+      "2019": 12.5
+     },
+     "m2_verde_publico_hab": {
+      "2019": 6.6
+     },
+     "m2_espacio_publico_hab": {
+      "2023": 5.4
+     },
      "equipamientos": {
       "2026": 152
      },
      "equipamientos_por_10mil": {
       "2026": 13.1
-     },
-     "ha_espacio_verde": {
-      "2019": 155.3
-     },
-     "m2_verde_hab": {
-      "2019": 13.4
-     },
-     "m2_verde_publico_hab": {
-      "2019": 7.0
-     },
-     "m2_espacio_publico_hab": {
-      "2023": 5.6
      }
     }
    },
@@ -6692,23 +6692,23 @@
      "sedes_por_10mil": {
       "2024": 2.6
      },
+     "ha_espacio_verde": {
+      "2019": 62.2
+     },
+     "m2_verde_hab": {
+      "2019": 3.5
+     },
+     "m2_verde_publico_hab": {
+      "2019": 2.1
+     },
+     "m2_espacio_publico_hab": {
+      "2023": 2.2
+     },
      "equipamientos": {
       "2026": 112
      },
      "equipamientos_por_10mil": {
       "2026": 6.6
-     },
-     "ha_espacio_verde": {
-      "2019": 62.2
-     },
-     "m2_verde_hab": {
-      "2019": 3.7
-     },
-     "m2_verde_publico_hab": {
-      "2019": 2.2
-     },
-     "m2_espacio_publico_hab": {
-      "2023": 2.3
      }
     }
    },
@@ -6762,23 +6762,23 @@
      "sedes_por_10mil": {
       "2024": 3.0
      },
+     "ha_espacio_verde": {
+      "2019": 445.3
+     },
+     "m2_verde_hab": {
+      "2019": 23.2
+     },
+     "m2_verde_publico_hab": {
+      "2019": 8.3
+     },
+     "m2_espacio_publico_hab": {
+      "2023": 9.9
+     },
      "equipamientos": {
       "2026": 172
      },
      "equipamientos_por_10mil": {
       "2026": 8.6
-     },
-     "ha_espacio_verde": {
-      "2019": 445.3
-     },
-     "m2_verde_hab": {
-      "2019": 22.4
-     },
-     "m2_verde_publico_hab": {
-      "2019": 8.0
-     },
-     "m2_espacio_publico_hab": {
-      "2023": 9.9
      }
     }
    },
@@ -6832,23 +6832,23 @@
      "sedes_por_10mil": {
       "2024": 2.2
      },
+     "ha_espacio_verde": {
+      "2019": 224.5
+     },
+     "m2_verde_hab": {
+      "2019": 14.4
+     },
+     "m2_verde_publico_hab": {
+      "2019": 4.2
+     },
+     "m2_espacio_publico_hab": {
+      "2023": 3.1
+     },
      "equipamientos": {
       "2026": 145
      },
      "equipamientos_por_10mil": {
       "2026": 8.7
-     },
-     "ha_espacio_verde": {
-      "2019": 224.5
-     },
-     "m2_verde_hab": {
-      "2019": 13.5
-     },
-     "m2_verde_publico_hab": {
-      "2019": 3.9
-     },
-     "m2_espacio_publico_hab": {
-      "2023": 3.1
      }
     }
    },
@@ -6902,23 +6902,23 @@
      "sedes_por_10mil": {
       "2024": 2.7
      },
+     "ha_espacio_verde": {
+      "2019": 226.8
+     },
+     "m2_verde_hab": {
+      "2019": 14.3
+     },
+     "m2_verde_publico_hab": {
+      "2019": 4.2
+     },
+     "m2_espacio_publico_hab": {
+      "2023": 3.5
+     },
      "equipamientos": {
       "2026": 115
      },
      "equipamientos_por_10mil": {
       "2026": 6.8
-     },
-     "ha_espacio_verde": {
-      "2019": 226.8
-     },
-     "m2_verde_hab": {
-      "2019": 13.4
-     },
-     "m2_verde_publico_hab": {
-      "2019": 3.9
-     },
-     "m2_espacio_publico_hab": {
-      "2023": 3.5
      }
     }
    },
@@ -6972,23 +6972,23 @@
      "sedes_por_10mil": {
       "2024": 7.8
      },
+     "ha_espacio_verde": {
+      "2019": 95.7
+     },
+     "m2_verde_hab": {
+      "2019": 12.6
+     },
+     "m2_verde_publico_hab": {
+      "2019": 3.2
+     },
+     "m2_espacio_publico_hab": {
+      "2023": 8.3
+     },
      "equipamientos": {
       "2026": 180
      },
      "equipamientos_por_10mil": {
       "2026": 24.6
-     },
-     "ha_espacio_verde": {
-      "2019": 95.7
-     },
-     "m2_verde_hab": {
-      "2019": 13.1
-     },
-     "m2_verde_publico_hab": {
-      "2019": 3.3
-     },
-     "m2_espacio_publico_hab": {
-      "2023": 8.6
      }
     }
    },
@@ -7042,23 +7042,23 @@
      "sedes_por_10mil": {
       "2024": 4.8
      },
+     "ha_espacio_verde": {
+      "2019": 138.3
+     },
+     "m2_verde_hab": {
+      "2019": 13.9
+     },
+     "m2_verde_publico_hab": {
+      "2019": 3.6
+     },
+     "m2_espacio_publico_hab": {
+      "2023": 6.7
+     },
      "equipamientos": {
       "2026": 66
      },
      "equipamientos_por_10mil": {
       "2026": 7.2
-     },
-     "ha_espacio_verde": {
-      "2019": 138.3
-     },
-     "m2_verde_hab": {
-      "2019": 15.0
-     },
-     "m2_verde_publico_hab": {
-      "2019": 3.9
-     },
-     "m2_espacio_publico_hab": {
-      "2023": 7.0
      }
     }
    },
@@ -7112,23 +7112,23 @@
      "sedes_por_10mil": {
       "2024": 5.3
      },
+     "ha_espacio_verde": {
+      "2019": 72.9
+     },
+     "m2_verde_hab": {
+      "2019": 8.5
+     },
+     "m2_verde_publico_hab": {
+      "2019": 2.7
+     },
+     "m2_espacio_publico_hab": {
+      "2023": 2.7
+     },
      "equipamientos": {
       "2026": 76
      },
      "equipamientos_por_10mil": {
       "2026": 9.4
-     },
-     "ha_espacio_verde": {
-      "2019": 72.9
-     },
-     "m2_verde_hab": {
-      "2019": 9.0
-     },
-     "m2_verde_publico_hab": {
-      "2019": 2.9
-     },
-     "m2_espacio_publico_hab": {
-      "2023": 2.8
      }
     }
    },
@@ -7182,23 +7182,23 @@
      "sedes_por_10mil": {
       "2024": 1.9
      },
+     "ha_espacio_verde": {
+      "2019": 150.9
+     },
+     "m2_verde_hab": {
+      "2019": 9.4
+     },
+     "m2_verde_publico_hab": {
+      "2019": 4.1
+     },
+     "m2_espacio_publico_hab": {
+      "2023": 2.6
+     },
      "equipamientos": {
       "2026": 109
      },
      "equipamientos_por_10mil": {
       "2026": 6.5
-     },
-     "ha_espacio_verde": {
-      "2019": 150.9
-     },
-     "m2_verde_hab": {
-      "2019": 9.0
-     },
-     "m2_verde_publico_hab": {
-      "2019": 3.9
-     },
-     "m2_espacio_publico_hab": {
-      "2023": 2.5
      }
     }
    },
@@ -7252,23 +7252,23 @@
      "sedes_por_10mil": {
       "2024": 2.9
      },
+     "ha_espacio_verde": {
+      "2019": 619.0
+     },
+     "m2_verde_hab": {
+      "2019": 57.8
+     },
+     "m2_verde_publico_hab": {
+      "2019": 7.7
+     },
+     "m2_espacio_publico_hab": {
+      "2023": 6.0
+     },
      "equipamientos": {
       "2026": 81
      },
      "equipamientos_por_10mil": {
       "2026": 7.8
-     },
-     "ha_espacio_verde": {
-      "2019": 619.0
-     },
-     "m2_verde_hab": {
-      "2019": 59.8
-     },
-     "m2_verde_publico_hab": {
-      "2019": 8.0
-     },
-     "m2_espacio_publico_hab": {
-      "2023": 6.2
      }
     }
    },
@@ -7322,23 +7322,23 @@
      "sedes_por_10mil": {
       "2024": 5.0
      },
+     "ha_espacio_verde": {
+      "2019": 197.9
+     },
+     "m2_verde_hab": {
+      "2019": 30.8
+     },
+     "m2_verde_publico_hab": {
+      "2019": 11.9
+     },
+     "m2_espacio_publico_hab": {
+      "2023": 5.8
+     },
      "equipamientos": {
       "2026": 86
      },
      "equipamientos_por_10mil": {
       "2026": 14.8
-     },
-     "ha_espacio_verde": {
-      "2019": 197.9
-     },
-     "m2_verde_hab": {
-      "2019": 34.1
-     },
-     "m2_verde_publico_hab": {
-      "2019": 13.2
-     },
-     "m2_espacio_publico_hab": {
-      "2023": 6.1
      }
     }
    },
@@ -7392,12 +7392,6 @@
      "sedes_por_10mil": {
       "2024": 3.4
      },
-     "equipamientos": {
-      "2026": 126
-     },
-     "equipamientos_por_10mil": {
-      "2026": 6.2
-     },
      "ha_espacio_verde": {
       "2019": 228.2
      },
@@ -7409,6 +7403,12 @@
      },
      "m2_espacio_publico_hab": {
       "2023": 3.8
+     },
+     "equipamientos": {
+      "2026": 126
+     },
+     "equipamientos_por_10mil": {
+      "2026": 6.2
      }
     }
    },
@@ -7462,12 +7462,6 @@
      "sedes_por_10mil": {
       "2024": 13.9
      },
-     "equipamientos": {
-      "2026": 28
-     },
-     "equipamientos_por_10mil": {
-      "2026": 43.2
-     },
      "ha_espacio_verde": {
       "2019": 0.0
      },
@@ -7479,6 +7473,12 @@
      },
      "m2_espacio_publico_hab": {
       "2023": 0.6
+     },
+     "equipamientos": {
+      "2026": 28
+     },
+     "equipamientos_por_10mil": {
+      "2026": 43.2
      }
     }
    },
@@ -7532,23 +7532,23 @@
      "sedes_por_10mil": {
       "2024": 1.8
      },
+     "ha_espacio_verde": {
+      "2019": 474.4
+     },
+     "m2_verde_hab": {
+      "2019": 38.9
+     },
+     "m2_verde_publico_hab": {
+      "2019": 11.1
+     },
+     "m2_espacio_publico_hab": {
+      "2023": 7.9
+     },
      "equipamientos": {
       "2026": 109
      },
      "equipamientos_por_10mil": {
       "2026": 6.8
-     },
-     "ha_espacio_verde": {
-      "2019": 474.4
-     },
-     "m2_verde_hab": {
-      "2019": 29.5
-     },
-     "m2_verde_publico_hab": {
-      "2019": 8.4
-     },
-     "m2_espacio_publico_hab": {
-      "2023": 7.0
      }
     }
    },
@@ -7602,23 +7602,23 @@
      "sedes_por_10mil": {
       "2024": 2.5
      },
+     "ha_espacio_verde": {
+      "2019": 64.1
+     },
+     "m2_verde_hab": {
+      "2019": 16.2
+     },
+     "m2_verde_publico_hab": {
+      "2019": 3.2
+     },
+     "m2_espacio_publico_hab": {
+      "2023": 25.1
+     },
      "equipamientos": {
       "2026": 44
      },
      "equipamientos_por_10mil": {
       "2026": 10.0
-     },
-     "ha_espacio_verde": {
-      "2019": 64.1
-     },
-     "m2_verde_hab": {
-      "2019": 14.6
-     },
-     "m2_verde_publico_hab": {
-      "2019": 2.9
-     },
-     "m2_espacio_publico_hab": {
-      "2023": 24.3
      }
     }
    },
@@ -7672,23 +7672,23 @@
      "sedes_por_10mil": {
       "2024": 2.6
      },
+     "ha_espacio_verde": {
+      "2019": 202.9
+     },
+     "m2_verde_hab": {
+      "2019": 20.7
+     },
+     "m2_verde_publico_hab": {
+      "2019": 6.9
+     },
+     "m2_espacio_publico_hab": {
+      "2023": 4.5
+     },
      "equipamientos": {
       "2026": 93
      },
      "equipamientos_por_10mil": {
       "2026": 7.8
-     },
-     "ha_espacio_verde": {
-      "2019": 202.9
-     },
-     "m2_verde_hab": {
-      "2019": 17.0
-     },
-     "m2_verde_publico_hab": {
-      "2019": 5.7
-     },
-     "m2_espacio_publico_hab": {
-      "2023": 4.2
      }
     }
    },
@@ -7742,23 +7742,23 @@
      "sedes_por_10mil": {
       "2024": 6.3
      },
+     "ha_espacio_verde": {
+      "2019": 32.7
+     },
+     "m2_verde_hab": {
+      "2019": 13.2
+     },
+     "m2_verde_publico_hab": {
+      "2019": 1.7
+     },
+     "m2_espacio_publico_hab": {
+      "2023": 50.6
+     },
      "equipamientos": {
       "2026": 76
      },
      "equipamientos_por_10mil": {
       "2026": 22.9
-     },
-     "ha_espacio_verde": {
-      "2019": 32.7
-     },
-     "m2_verde_hab": {
-      "2019": 9.8
-     },
-     "m2_verde_publico_hab": {
-      "2019": 1.2
-     },
-     "m2_espacio_publico_hab": {
-      "2023": 44.9
      }
     }
    }

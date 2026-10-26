@@ -1,7 +1,7 @@
 {
  "tema": "demografia",
  "titulo": "Gente",
- "probado": "2026-10-01",
+ "probado": "2026-10-24",
  "ancla": [
   "poblacion",
   "hogares"
@@ -13,7 +13,7 @@
    "entidad": "DANE",
    "url": "https://www.dane.gov.co/files/censo2018/proyecciones-de-poblacion/Municipal/PPED-AreaMun-2018-2042_VP.xlsx",
    "estado": "observado",
-   "probado": "2026-10-01"
+   "probado": "2026-10-24"
   },
   {
    "id": "dane-pped-edad",
@@ -21,7 +21,7 @@
    "entidad": "DANE",
    "url": "https://www.dane.gov.co/files/censo2018/proyecciones-de-poblacion/Municipal/PPED-AreaSexoEdadMun-2018-2042_VP.xlsx",
    "estado": "observado",
-   "probado": "2026-10-01"
+   "probado": "2026-10-24"
   },
   {
    "id": "dap-proyecciones",
@@ -29,7 +29,7 @@
    "entidad": "Departamento Administrativo de Planeación · Alcaldía de Medellín",
    "url": "https://www.medellin.gov.co/servidormapas/rest/services/mapas_nacionales/VC_Distribucion_Poblacional/MapServer",
    "estado": "observado",
-   "probado": "2026-10-01"
+   "probado": "2026-10-24"
   },
   {
    "id": "alc-ecv",
@@ -37,7 +37,7 @@
    "entidad": "Departamento Administrativo de Planeación · Alcaldía de Medellín",
    "url": "https://www.medellin.gov.co/servidormapas/rest/services/estadisticas/VC_Indicadores_ECV/MapServer",
    "estado": "observado",
-   "probado": "2026-10-01"
+   "probado": "2026-10-24"
   },
   {
    "id": "catastro-estratos",
@@ -45,7 +45,7 @@
    "entidad": "Subsecretaría de Catastro · Alcaldía de Medellín",
    "url": "https://www.medellin.gov.co/servidormapas/rest/services/ServiciosCatastro/ConsultaOperadorCatastral_geo/MapServer/23",
    "estado": "observado",
-   "probado": "2026-10-01"
+   "probado": "2026-10-24"
   },
   {
    "id": "sivigila-salud",
@@ -53,7 +53,7 @@
    "entidad": "Secretaría de Salud · Alcaldía de Medellín",
    "url": "https://www.medellin.gov.co/servidormapas/rest/services/salud_protec_soc/VC_Datos_Enfermedades/MapServer",
    "estado": "observado",
-   "probado": "2026-10-01"
+   "probado": "2026-10-24"
   }
  ],
  "cifras": {
@@ -185,7 +185,7 @@
    "unidad": "%",
    "etiqueta": "Manzanas de estrato 1 (bajo-bajo)",
    "fuente": "catastro-estratos",
-   "vigencia": "Base catastral consultada el 2026-10-01",
+   "vigencia": "Base catastral consultada el 2026-10-24",
    "estado": "derivado",
    "nota": "7.008 de 32.384 manzanas. Cuenta manzanas según su estrato socioeconómico, no viviendas ni personas: una manzana grande y una pequeña pesan lo mismo."
   },
@@ -194,7 +194,7 @@
    "unidad": "%",
    "etiqueta": "Manzanas de estrato 2 (bajo)",
    "fuente": "catastro-estratos",
-   "vigencia": "Base catastral consultada el 2026-10-01",
+   "vigencia": "Base catastral consultada el 2026-10-24",
    "estado": "derivado",
    "nota": "10.905 de 32.384 manzanas. Cuenta manzanas según su estrato socioeconómico, no viviendas ni personas: una manzana grande y una pequeña pesan lo mismo."
   },
@@ -203,7 +203,7 @@
    "unidad": "%",
    "etiqueta": "Manzanas de estrato 3 (medio-bajo)",
    "fuente": "catastro-estratos",
-   "vigencia": "Base catastral consultada el 2026-10-01",
+   "vigencia": "Base catastral consultada el 2026-10-24",
    "estado": "derivado",
    "nota": "9.329 de 32.384 manzanas. Cuenta manzanas según su estrato socioeconómico, no viviendas ni personas: una manzana grande y una pequeña pesan lo mismo."
   },
@@ -212,7 +212,7 @@
    "unidad": "%",
    "etiqueta": "Manzanas de estrato 4 (medio)",
    "fuente": "catastro-estratos",
-   "vigencia": "Base catastral consultada el 2026-10-01",
+   "vigencia": "Base catastral consultada el 2026-10-24",
    "estado": "derivado",
    "nota": "2.848 de 32.384 manzanas. Cuenta manzanas según su estrato socioeconómico, no viviendas ni personas: una manzana grande y una pequeña pesan lo mismo."
   },
@@ -221,7 +221,7 @@
    "unidad": "%",
    "etiqueta": "Manzanas de estrato 5 (medio-alto)",
    "fuente": "catastro-estratos",
-   "vigencia": "Base catastral consultada el 2026-10-01",
+   "vigencia": "Base catastral consultada el 2026-10-24",
    "estado": "derivado",
    "nota": "1.438 de 32.384 manzanas. Cuenta manzanas según su estrato socioeconómico, no viviendas ni personas: una manzana grande y una pequeña pesan lo mismo."
   },
@@ -230,7 +230,7 @@
    "unidad": "%",
    "etiqueta": "Manzanas de estrato 6 (alto)",
    "fuente": "catastro-estratos",
-   "vigencia": "Base catastral consultada el 2026-10-01",
+   "vigencia": "Base catastral consultada el 2026-10-24",
    "estado": "derivado",
    "nota": "856 de 32.384 manzanas. Cuenta manzanas según su estrato socioeconómico, no viviendas ni personas: una manzana grande y una pequeña pesan lo mismo."
   },
@@ -239,7 +239,7 @@
    "unidad": "manzanas",
    "etiqueta": "Manzanas con estrato asignado",
    "fuente": "catastro-estratos",
-   "vigencia": "Base catastral consultada el 2026-10-01",
+   "vigencia": "Base catastral consultada el 2026-10-24",
    "estado": "observado"
   },
   "natalidad_total": {
@@ -941,6 +941,323 @@
     "valor": 7151
    }
   ],
+  "poblacion_anual_por_territorio": [
+   {
+    "codigo": "01",
+    "nombre": "Popular",
+    "valores": {
+     "2018": 136986,
+     "2019": 138625,
+     "2020": 140585,
+     "2021": 141532,
+     "2022": 141840,
+     "2023": 141962,
+     "2024": 142452,
+     "2025": 142579,
+     "2026": 142383
+    }
+   },
+   {
+    "codigo": "02",
+    "nombre": "Santa Cruz",
+    "valores": {
+     "2018": 113064,
+     "2019": 114275,
+     "2020": 115724,
+     "2021": 116331,
+     "2022": 116411,
+     "2023": 116326,
+     "2024": 116503,
+     "2025": 116427,
+     "2026": 116077
+    }
+   },
+   {
+    "codigo": "03",
+    "nombre": "Manrique",
+    "valores": {
+     "2018": 164858,
+     "2019": 166808,
+     "2020": 169137,
+     "2021": 170239,
+     "2022": 170568,
+     "2023": 170630,
+     "2024": 171082,
+     "2025": 171194,
+     "2026": 170915
+    }
+   },
+   {
+    "codigo": "04",
+    "nombre": "Aranjuez",
+    "valores": {
+     "2018": 141312,
+     "2019": 141366,
+     "2020": 141758,
+     "2021": 141123,
+     "2022": 139861,
+     "2023": 138404,
+     "2024": 137072,
+     "2025": 135605,
+     "2026": 133848
+    }
+   },
+   {
+    "codigo": "05",
+    "nombre": "Castilla",
+    "valores": {
+     "2018": 123992,
+     "2019": 123853,
+     "2020": 124035,
+     "2021": 123360,
+     "2022": 122166,
+     "2023": 120802,
+     "2024": 119412,
+     "2025": 117939,
+     "2026": 116248
+    }
+   },
+   {
+    "codigo": "06",
+    "nombre": "Doce de Octubre",
+    "valores": {
+     "2018": 177190,
+     "2019": 177454,
+     "2020": 178125,
+     "2021": 177521,
+     "2022": 176131,
+     "2023": 174517,
+     "2024": 173142,
+     "2025": 171500,
+     "2026": 169499
+    }
+   },
+   {
+    "codigo": "07",
+    "nombre": "Robledo",
+    "valores": {
+     "2018": 189238,
+     "2019": 191838,
+     "2020": 194872,
+     "2021": 196515,
+     "2022": 197248,
+     "2023": 197689,
+     "2024": 198630,
+     "2025": 199097,
+     "2026": 199095
+    }
+   },
+   {
+    "codigo": "08",
+    "nombre": "Villa Hermosa",
+    "valores": {
+     "2018": 153216,
+     "2019": 155877,
+     "2020": 158953,
+     "2021": 160853,
+     "2022": 162067,
+     "2023": 163021,
+     "2024": 164321,
+     "2025": 165312,
+     "2026": 165931
+    }
+   },
+   {
+    "codigo": "09",
+    "nombre": "Buenos Aires",
+    "valores": {
+     "2018": 155391,
+     "2019": 158227,
+     "2020": 161460,
+     "2021": 163581,
+     "2022": 164971,
+     "2023": 166094,
+     "2024": 167503,
+     "2025": 168607,
+     "2026": 169333
+    }
+   },
+   {
+    "codigo": "10",
+    "nombre": "La Candelaria",
+    "valores": {
+     "2018": 75913,
+     "2019": 76178,
+     "2020": 76589,
+     "2021": 76477,
+     "2022": 75969,
+     "2023": 75357,
+     "2024": 74694,
+     "2025": 74082,
+     "2026": 73316
+    }
+   },
+   {
+    "codigo": "11",
+    "nombre": "Laureles Estadio",
+    "valores": {
+     "2018": 99904,
+     "2019": 99605,
+     "2020": 99578,
+     "2021": 98886,
+     "2022": 97811,
+     "2023": 96608,
+     "2024": 94799,
+     "2025": 93461,
+     "2026": 91954
+    }
+   },
+   {
+    "codigo": "12",
+    "nombre": "La América",
+    "valores": {
+     "2018": 85416,
+     "2019": 85422,
+     "2020": 85633,
+     "2021": 85259,
+     "2022": 84546,
+     "2023": 83711,
+     "2024": 82632,
+     "2025": 81698,
+     "2026": 80596
+    }
+   },
+   {
+    "codigo": "13",
+    "nombre": "San Javier",
+    "valores": {
+     "2018": 157243,
+     "2019": 159727,
+     "2020": 162597,
+     "2021": 164350,
+     "2022": 165392,
+     "2023": 166197,
+     "2024": 167263,
+     "2025": 168018,
+     "2026": 168409
+    }
+   },
+   {
+    "codigo": "14",
+    "nombre": "El Poblado",
+    "valores": {
+     "2018": 106805,
+     "2019": 107114,
+     "2020": 107719,
+     "2021": 107663,
+     "2022": 107156,
+     "2023": 106536,
+     "2024": 105508,
+     "2025": 104611,
+     "2026": 103525
+    }
+   },
+   {
+    "codigo": "15",
+    "nombre": "Guayabal",
+    "valores": {
+     "2018": 64651,
+     "2019": 64273,
+     "2020": 64028,
+     "2021": 63366,
+     "2022": 62417,
+     "2023": 61415,
+     "2024": 60312,
+     "2025": 59233,
+     "2026": 58053
+    }
+   },
+   {
+    "codigo": "16",
+    "nombre": "Belén",
+    "valores": {
+     "2018": 202931,
+     "2019": 204397,
+     "2020": 206412,
+     "2021": 207062,
+     "2022": 206884,
+     "2023": 206416,
+     "2024": 205543,
+     "2025": 204688,
+     "2026": 203444
+    }
+   },
+   {
+    "codigo": "50",
+    "nombre": "San Sebastián de Palmitas",
+    "valores": {
+     "2018": 5474,
+     "2019": 5624,
+     "2020": 5784,
+     "2021": 5918,
+     "2022": 6045,
+     "2023": 6154,
+     "2024": 6275,
+     "2025": 6387,
+     "2026": 6481
+    }
+   },
+   {
+    "codigo": "60",
+    "nombre": "San Cristóbal",
+    "valores": {
+     "2018": 116420,
+     "2019": 122080,
+     "2020": 128275,
+     "2021": 133777,
+     "2022": 138890,
+     "2023": 143947,
+     "2024": 149889,
+     "2025": 155565,
+     "2026": 161065
+    }
+   },
+   {
+    "codigo": "70",
+    "nombre": "Altavista",
+    "valores": {
+     "2018": 38856,
+     "2019": 39694,
+     "2020": 40641,
+     "2021": 41360,
+     "2022": 41918,
+     "2023": 42389,
+     "2024": 42987,
+     "2025": 43457,
+     "2026": 43848
+    }
+   },
+   {
+    "codigo": "80",
+    "nombre": "San Antonio de Prado",
+    "valores": {
+     "2018": 94801,
+     "2019": 98229,
+     "2020": 102041,
+     "2021": 105243,
+     "2022": 108112,
+     "2023": 110883,
+     "2024": 114010,
+     "2025": 116913,
+     "2026": 119599
+    }
+   },
+   {
+    "codigo": "90",
+    "nombre": "Santa Elena",
+    "valores": {
+     "2018": 23468,
+     "2019": 24670,
+     "2020": 26010,
+     "2021": 27204,
+     "2022": 28307,
+     "2023": 29422,
+     "2024": 30717,
+     "2025": 31970,
+     "2026": 33177
+    }
+   }
+  ],
   "hogares_por_territorio": [
    {
     "nombre": "Belén",
@@ -1190,7 +1507,7 @@
     "unidad": "% de manzanas",
     "fuente": "catastro-estratos",
     "estado": "derivado",
-    "vigencia": "Base catastral consultada el 2026-10-01",
+    "vigencia": "Base catastral consultada el 2026-10-24",
     "decimales": 1,
     "nota": "Cuenta manzanas según su estrato socioeconómico, no viviendas ni personas: una manzana grande y una pequeña pesan lo mismo."
    },
@@ -1200,7 +1517,7 @@
     "unidad": "% de manzanas",
     "fuente": "catastro-estratos",
     "estado": "derivado",
-    "vigencia": "Base catastral consultada el 2026-10-01",
+    "vigencia": "Base catastral consultada el 2026-10-24",
     "decimales": 1,
     "nota": "Cuenta manzanas según su estrato socioeconómico, no viviendas ni personas: una manzana grande y una pequeña pesan lo mismo."
    },
@@ -1210,7 +1527,7 @@
     "unidad": "% de manzanas",
     "fuente": "catastro-estratos",
     "estado": "derivado",
-    "vigencia": "Base catastral consultada el 2026-10-01",
+    "vigencia": "Base catastral consultada el 2026-10-24",
     "decimales": 1,
     "nota": "Cuenta manzanas según su estrato socioeconómico, no viviendas ni personas: una manzana grande y una pequeña pesan lo mismo."
    },
@@ -1220,7 +1537,7 @@
     "unidad": "% de manzanas",
     "fuente": "catastro-estratos",
     "estado": "derivado",
-    "vigencia": "Base catastral consultada el 2026-10-01",
+    "vigencia": "Base catastral consultada el 2026-10-24",
     "decimales": 1,
     "nota": "Cuenta manzanas según su estrato socioeconómico, no viviendas ni personas: una manzana grande y una pequeña pesan lo mismo."
    },
@@ -1230,7 +1547,7 @@
     "unidad": "% de manzanas",
     "fuente": "catastro-estratos",
     "estado": "derivado",
-    "vigencia": "Base catastral consultada el 2026-10-01",
+    "vigencia": "Base catastral consultada el 2026-10-24",
     "decimales": 1,
     "nota": "Cuenta manzanas según su estrato socioeconómico, no viviendas ni personas: una manzana grande y una pequeña pesan lo mismo."
    },
@@ -1240,7 +1557,7 @@
     "unidad": "% de manzanas",
     "fuente": "catastro-estratos",
     "estado": "derivado",
-    "vigencia": "Base catastral consultada el 2026-10-01",
+    "vigencia": "Base catastral consultada el 2026-10-24",
     "decimales": 1,
     "nota": "Cuenta manzanas según su estrato socioeconómico, no viviendas ni personas: una manzana grande y una pequeña pesan lo mismo."
    },

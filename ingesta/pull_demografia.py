@@ -161,7 +161,8 @@ def vigencia_real(filas, campos):
     return anios, f'{anios[0]}–{anios[-1]}' if len(anios) > 1 else str(anios[0])
 
 
-def proyeccion_dap(t, terr, anio, dane_total):
+def proyeccion_dap(t, terr, anio, dane):
+    dane_total = dane[anio]
     t.fuente('dap-proyecciones', 'Proyecciones de población, hogares y viviendas 2018–2030 por comuna y corregimiento',
              'Departamento Administrativo de Planeación · Alcaldía de Medellín', DAP)
     poblacion = arcgis(f'{DAP}/1')
@@ -181,16 +182,28 @@ def proyeccion_dap(t, terr, anio, dane_total):
                    estado='derivado',
                    nota=f'Total DANE {anio} ({miles(dane_total)}) × la proporción de cada territorio en la proyección '
                         f'del DAP ({miles(total_dap)} en total, '
-                        f'{str(round((total_dap / dane_total - 1) * 100, 1)).replace(".", ",")} % más que el DANE).')
+                        f'{str(round((total_dap / dane_total - 1) * 100, 1)).replace(".", ",")} % más que el DANE).',
+                   proxy='la población de cada comuna, que el DANE no publica por año')
     for f in poblacion:
         codigo = codigo_de.get(f['nombre'].strip())
         if not codigo:
             raise RuntimeError(f'Sin código para el territorio del DAP "{f["nombre"]}"')
         terr.valor(codigo, 'poblacion', anio, round(dane_total * f[campo] / total_dap))
+
+    # La misma población, año por año, para dividir los casos de un año entre los habitantes de ESE año (una tasa con
+    # el numerador de 2022 y el denominador de 2026 mezcla años). Cada año: total DANE del año × proporción del DAP.
+    anuales = {}
+    for a in range(2018, anio + 1):
+        total_a = sum(f[f'total_{a}'] for f in poblacion)
+        if a in dane:
+            for f in poblacion:
+                anuales.setdefault(codigo_de[f['nombre'].strip()], {'nombre': f['nombre'].strip(), 'valores': {}})[
+                    'valores'][str(a)] = round(dane[a] * f[f'total_{a}'] / total_a)
+    t.lista('poblacion_anual_por_territorio', [{'codigo': c, **v} for c, v in sorted(anuales.items())])
     areas = terr.areas_km2()
     terr.indicador('densidad', 'Densidad de población', 'hab./km²', 'dap-proyecciones', str(anio), estado='derivado',
                    nota='Población del territorio ÷ su área según los límites del catastro. En los corregimientos el área '
-                        'incluye el suelo rural.')
+                        'incluye el suelo rural.', proxy='la población de cada comuna, que el DANE no publica por año')
     for codigo, fila in terr.filas.items():
         poblacion_territorio = fila['valores'].get('poblacion', {}).get(str(anio))
         if poblacion_territorio:
@@ -250,7 +263,8 @@ def estratos(t, terr):
     for e, n in sorted(ciudad.items()):
         t.cifra(f'manzanas_estrato_{e}', round(n / len(validas) * 100, 1), '%',
                 f'Manzanas de estrato {e} ({ESTRATO_NOMBRE[e].lower()})', 'catastro-estratos', vigencia,
-                estado='derivado', nota=f'{miles(n)} de {miles(len(validas))} manzanas. {nota}')
+                estado='derivado', nota=f'{miles(n)} de {miles(len(validas))} manzanas. {nota}',
+                proxy='la distribución de las personas por estrato')
     t.cifra('manzanas_estratificadas', len(validas), 'manzanas', 'Manzanas con estrato asignado', 'catastro-estratos',
             vigencia)
     por_comuna = {}
@@ -258,7 +272,7 @@ def estratos(t, terr):
         por_comuna.setdefault(f['comuna'].zfill(2), Counter())[f['estrato']] += 1
     for e in ESTRATO_NOMBRE:
         terr.indicador(f'estrato_{e}', f'Manzanas de estrato {e}', '% de manzanas', 'catastro-estratos', vigencia,
-                       estado='derivado', decimales=1, nota=nota)
+                       estado='derivado', decimales=1, nota=nota, proxy='la distribución de las personas por estrato')
     for codigo, conteo in por_comuna.items():
         total = sum(conteo.values())
         for e in ESTRATO_NOMBRE:
@@ -309,7 +323,7 @@ def main():
     with t.bloque('dap-proyecciones'):
         if anio not in dane:
             raise RuntimeError('Falta el total DANE para repartir la población del DAP')
-        proyeccion_dap(t, terr, anio, dane[anio])
+        proyeccion_dap(t, terr, anio, dane)
     with t.bloque('alc-ecv'):
         condiciones_de_vida(t, terr)
     with t.bloque('catastro-estratos'):
@@ -325,7 +339,8 @@ def main():
         if fuente == 'dane-pped-edad' and t.previo and 'piramide' in t.previo['listas']:
             t.lista('piramide', t.previo['listas']['piramide'])
         if fuente == 'dap-proyecciones' and t.previo:
-            for clave in ('poblacion_dap_por_territorio', 'hogares_por_territorio', 'viviendas_por_territorio'):
+            for clave in ('poblacion_dap_por_territorio', 'poblacion_anual_por_territorio', 'hogares_por_territorio',
+                          'viviendas_por_territorio'):
                 if clave in t.previo['listas']:
                     t.lista(clave, t.previo['listas'][clave])
     terr.escribir(t)

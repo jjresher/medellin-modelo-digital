@@ -1,0 +1,62 @@
+{
+ "hurto_persona_por_10mil_2022": {
+  "indicador": "Hurto a persona por 10.000 habitantes (SISC)",
+  "unidad": "por 10.000 hab.",
+  "fuente": "F21",
+  "periodo": "2022",
+  "estado": "derivado",
+  "proxy": null,
+  "probada": "2026-10-24",
+  "licencia": "Atribución 4.0 Internacional (CC BY 4.0)"
+ },
+ "hurto_persona_casos_2022": {
+  "indicador": "Hurto a persona (SISC)",
+  "unidad": "casos",
+  "fuente": "F21",
+  "periodo": "2022",
+  "estado": "observado",
+  "proxy": null,
+  "probada": "2026-10-24",
+  "licencia": "Atribución 4.0 Internacional (CC BY 4.0)"
+ },
+ "verde_m2_por_habitante_2019": {
+  "indicador": "Espacio verde urbano por habitante",
+  "unidad": "m²/hab.",
+  "fuente": "F78",
+  "periodo": "Inventario de 2019 (ortofotos de 2016 a 2019); población 2019",
+  "estado": "derivado",
+  "proxy": null,
+  "probada": "2026-10-24",
+  "licencia": "No declarada en la fuente. El servicio solo trae un crédito (copyrightText): «ÁREA METROPOLITANA DEL VALLE DE ABURRÁ & UNIVERSIDAD NACIONAL DE COLOMBIA, SEDE MEDELLÍN, 2019. ANÁLISIS DE LA CONECTIVIDAD ECOLÓGICA FUNCIONAL Y ESTRUCTURAL EN EL ÁREA METROPOLITANA DEL VALLE DE ABURRÁ. CONTRATO 1344 DE 2018.»"
+ },
+ "venta_pesos_m2_2024_2025": {
+  "indicador": "Precio de oferta por m² (venta)",
+  "unidad": "$/m²",
+  "fuente": "F08",
+  "periodo": "2024–2025",
+  "estado": "observado",
+  "proxy": null,
+  "probada": "2026-10-24",
+  "licencia": "No declarada en la fuente. El servicio ArcGIS tiene el campo copyrightText vacío"
+ },
+ "arriendo_pesos_m2_mes_2024_2025": {
+  "indicador": "Arriendo de oferta por m²",
+  "unidad": "$/m² al mes",
+  "fuente": "F08",
+  "periodo": "2024–2025",
+  "estado": "observado",
+  "proxy": null,
+  "probada": "2026-10-24",
+  "licencia": "No declarada en la fuente. El servicio ArcGIS tiene el campo copyrightText vacío"
+ },
+ "rentabilidad_bruta_apartamentos_2024_2025": {
+  "indicador": "Rentabilidad bruta del arriendo (apartamentos)",
+  "unidad": "%",
+  "fuente": "F08",
+  "periodo": "2024–2025",
+  "estado": "derivado",
+  "proxy": null,
+  "probada": "2026-10-24",
+  "licencia": "No declarada en la fuente. El servicio ArcGIS tiene el campo copyrightText vacío"
+ }
+}

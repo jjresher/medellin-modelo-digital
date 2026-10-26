@@ -321,13 +321,23 @@ def aforos(t, terr):
             nota='Volumen en vehículos equivalentes en la hora de máxima demanda de cada día aforado, promediado por intersección.')
 
 
+CELDA_VIAL = 0.001  # grados (~110 m): la misma celda de la rejilla de "Analizar punto"
+
+
+def centro_de_celda(valor):
+    """Centro de la celda de CELDA_VIAL grados que contiene el valor."""
+    return round((math.floor(valor / CELDA_VIAL) + 0.5) * CELDA_VIAL, 6)
+
+
 def siniestros_pmtiles(victimas):
+    """Mapa de calor de víctimas viales. Cada punto se lleva al centro de su celda de ~110 m y solo conserva el año: ni la
+    dirección exacta, ni el sexo, la edad, la gravedad o el radicado de la fuente llegan al mapa. Lo delicado se agrega por zona."""
     DIR_CRUDOS.mkdir(parents=True, exist_ok=True)
     ndjson = DIR_CRUDOS / 'victimas_viales.ndjson'
     with ndjson.open('w', encoding='utf-8') as archivo:
         for v in victimas:
-            archivo.write(json.dumps({'type': 'Feature', 'geometry': {'type': 'Point', 'coordinates': [round(v['x'], 6), round(v['y'], 6)]},
-                                      'properties': {'y': v['anio'], 'm': int(v['gravedad'] == 'Muertos')}}) + '\n')
+            archivo.write(json.dumps({'type': 'Feature', 'geometry': {'type': 'Point', 'coordinates': [centro_de_celda(v['x']), centro_de_celda(v['y'])]},
+                                      'properties': {'y': v['anio']}}) + '\n')
     temporal = SINIESTROS.with_suffix('.tmp.pmtiles')
     subprocess.run([str(TIPPECANOE), '-o', str(temporal), '--force', '-l', 'siniestros', '-Z10', '-z15', '-r1',
                     '--no-feature-limit', '--no-tile-size-limit', '--no-tile-stats', '--quiet', str(ndjson)], check=True)

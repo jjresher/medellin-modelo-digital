@@ -10,14 +10,22 @@ prueba hace más de DIAS_AVISO días) se muestran, pero no la hacen fallar.
 import datetime as dt
 import json
 import math
+import re
 import sys
 
-from lago import DIR_LAGO, ESTADOS, existe, hoy
+from lago import DIR_LAGO, ESTADOS, RAIZ, existe, hoy
+from registro import NIVELES
 
 DIAS_AVISO = 45
 CAMPOS_TEMA = ('tema', 'titulo', 'probado', 'ancla', 'fuentes', 'cifras', 'series', 'listas')
 CAMPOS_FUENTE = ('id', 'nombre', 'entidad', 'url', 'estado')
 CAMPOS_CIFRA = ('valor', 'unidad', 'etiqueta', 'fuente', 'vigencia', 'estado')
+# Nombres de campo que describen a una persona. Ninguno puede aparecer en lo que se publica (el lago y las capas del
+# mapa): lo delicado se agrega por zona antes de llegar aquí, y el crudo se queda en datos/crudos/, fuera de git.
+CAMPOS_DE_PERSONA = frozenset({
+    'sexo', 'genero', 'edad', 'estado_civil', 'ocupacion', 'discapacidad', 'grupo_especial', 'grupo_actor', 'parentesco',
+    'nivel_academico', 'radicado', 'nombre_victima', 'victima', 'telefono', 'celular', 'correo', 'email', 'documento',
+    'cedula', 'nit_proveedor', 'tipodocproveedor', 'proveedor_adjudicado'})
 
 
 class Informe:
@@ -167,7 +175,55 @@ def verificar_indice_y_catalogo(temas, inf):
         for f in t['fuentes']:
             if f['id'] not in ids:
                 inf.error('catalogo.json', f'falta la fuente {f["id"]} del tema {t["tema"]}')
+    verificar_fichas(catalogo, inf)
     return catalogo
+
+
+def verificar_fichas(catalogo, inf):
+    """Cada fuente del catálogo lleva su código Fnn, la licencia leída en la fuente y lo que dice sobre personas."""
+    codigos = [d.get('codigo') for d in catalogo['datasets']]
+    for d in catalogo['datasets']:
+        lugar = f'catalogo.json › {d["id"]}'
+        if not re.fullmatch(r'F\d{2,}', d.get('codigo') or ''):
+            inf.error(lugar, f'código inválido: {d.get("codigo")!r}')
+        elif codigos.count(d['codigo']) > 1:
+            inf.error(lugar, f'el código {d["codigo"]} está repetido')
+        if not d.get('licencia') or not fecha(d.get('licencia_probada')) or not d.get('licencia_url'):
+            inf.error(lugar, 'sin licencia, enlace donde se leyó o fecha de lectura (corre ingesta/licencias.py)')
+        elif d['licencia'].startswith('Sin verificar'):
+            inf.aviso(lugar, 'licencia sin verificar: la fuente no respondió (vuelve a correr ingesta/licencias.py)')
+        if not d.get('personas'):
+            inf.error(lugar, 'sin la nota "personas" (qué datos de personas trae la fuente)')
+        if not d.get('proteccion') or not d['proteccion'].startswith(NIVELES):
+            inf.error(lugar, f'"proteccion" debe empezar por uno de: {", ".join(NIVELES)}')
+        if d.get('personas', '').startswith(('Sí', 'Posible')) and d.get('proteccion', '').startswith('Abierto') and \
+                not d['proteccion'].startswith('Abierto,'):
+            inf.error(lugar, 'trae datos de personas pero queda "Abierto" a secas; debe ser solo agregados, con filtro o no se publica')
+
+
+def campos_de_persona(dato, ruta=''):
+    """Rutas de todo campo con nombre de dato de persona dentro de un JSON (en objetos, listas y propiedades GeoJSON)."""
+    if isinstance(dato, dict):
+        # Las claves de `cifras`, `series` y `valores` son nombres de métrica ("ocupacion" es la tasa de ocupación), no campos.
+        for clave, valor in dato.items():
+            if str(clave).lower() in CAMPOS_DE_PERSONA and not ruta.endswith(('/cifras', '/series', '/valores')):
+                yield f'{ruta}/{clave}'
+            yield from campos_de_persona(valor, f'{ruta}/{clave}')
+    elif isinstance(dato, list):
+        # Con mirar los primeros elementos basta: todos los de una lista comparten campos.
+        for i, valor in enumerate(dato[:3]):
+            yield from campos_de_persona(valor, f'{ruta}[{i}]')
+
+
+def verificar_personas(inf):
+    for ruta in sorted(list(DIR_LAGO.glob('*.json')) + list((RAIZ / 'public' / 'data' / 'geo').rglob('*.json'))
+                       + list((RAIZ / 'public' / 'data' / 'geo').rglob('*.geojson'))):
+        try:
+            dato = json.loads(ruta.read_text(encoding='utf-8'))
+        except json.JSONDecodeError:
+            continue
+        for donde in sorted(set(campos_de_persona(dato))):
+            inf.error(ruta.relative_to(RAIZ).as_posix(), f'campo de persona publicado: {donde}')
 
 
 def verificar_red(catalogo, inf):
@@ -188,6 +244,7 @@ def main(argumentos):
     if not temas:
         inf.error('lago', f'no hay temas en {DIR_LAGO}')
     catalogo = verificar_indice_y_catalogo(temas, inf)
+    verificar_personas(inf)
     if '--red' in argumentos and catalogo:
         verificar_red(catalogo, inf)
 

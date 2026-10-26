@@ -213,7 +213,13 @@ export function construirBarrios(archivos, lugares) {
         ind,
         // La vigencia hace de "año" ("2021–2023", "Base catastral vigente"); el rótulo de histórico va en la procedencia.
         anio: ind.vigencia.replace(' (histórico)', ''),
-        valores: Object.fromEntries(lugares.map((l) => [l.codigo, archivo.barrios[l.codigo]?.[ind.clave] ?? faltante]))
+        // undefined: el lugar no aparece (cuenta como `faltante`); null: dato suprimido por ser menos del mínimo publicable.
+        valores: Object.fromEntries(
+          lugares.map((l) => {
+            const v = archivo.barrios[l.codigo]?.[ind.clave];
+            return [l.codigo, v === undefined ? faltante : v];
+          })
+        )
       });
     }
   }

@@ -151,7 +151,7 @@ export const lenses = {
   cruce: {
     key: '1', label: 'Cruce urbano', icon: '◎', index: 'indice_cruce',
     fuentes: ['epm-red-electrica', 'catastro-puntos', 'medata-victimas-viales', 'medata-aforos'],
-    method: 'Promedio de los índices de energía, densificación y presión vial. Cada índice ubica al territorio entre 0 (valor mínimo observado entre las 21 comunas y corregimientos) y 100 (valor máximo). Es una posición relativa, no un umbral.'
+    method: 'PROXY (índice compuesto, no una medición): Promedio de los índices de energía, densificación y presión vial. Cada índice ubica al territorio entre 0 (valor mínimo observado entre las 21 comunas y corregimientos) y 100 (valor máximo). Es una posición relativa, no un umbral.'
   },
   energia: {
     key: '2', label: 'Energía', icon: '⚡', index: 'indice_energia',
@@ -163,7 +163,7 @@ export const lenses = {
       { id: 'lente-subestaciones-label', type: 'symbol', source: 'energia_subestaciones', minzoom: 12, layout: { 'text-field': ['get', 'nombre'], 'text-font': ['Noto Sans Regular'], 'text-size': 10, 'text-offset': [0, 1.3], 'text-anchor': 'top' }, paint: { 'text-color': '#e6db74', 'text-halo-color': '#272822', 'text-halo-width': 1.4 } }
     ],
     legend: [['Subestación', '#e6db74'], ['Línea de alta tensión', '#e6db74']],
-    method: 'Densidad de infraestructura eléctrica: kilómetros de red de media tensión y de líneas de alta tensión por km² de territorio. No hay datos abiertos de demanda eléctrica por comuna: la lente muestra infraestructura, no consumo.'
+    method: 'PROXY: aproxima la demanda o la presión real con lo que sí es abierto. Densidad de infraestructura eléctrica: kilómetros de red de media tensión y de líneas de alta tensión por km² de territorio. No hay datos abiertos de demanda eléctrica por comuna: la lente muestra infraestructura, no consumo.'
   },
   densificacion: {
     key: '3', label: 'Densificación', icon: '▥', index: 'indice_densificacion',
@@ -179,7 +179,7 @@ export const lenses = {
       { id: 'lente-aforos', type: 'circle', source: 'movilidad_aforos', paint: { 'circle-radius': ['interpolate', ['linear'], ['get', 'veh_eq_hora_pico'], 500, 4, 4000, 10, 10000, 18], 'circle-color': '#66d9ef', 'circle-opacity': 0.55, 'circle-stroke-color': '#66d9ef', 'circle-stroke-width': 1 } }
     ],
     legend: [['Víctimas en siniestros viales (densidad)', '#f92672'], ['Intersección aforada (tamaño = volumen en hora pico)', '#66d9ef']],
-    method: 'Indicador estructural de 0 a 100, no tráfico en vivo: víctimas en siniestros viales por km² al año y volumen vehicular en la hora de máxima demanda de los aforos. Las fuentes abiertas llegan hasta los años indicados abajo.'
+    method: 'PROXY: aproxima la demanda o la presión real con lo que sí es abierto. Indicador estructural de 0 a 100, no tráfico en vivo: víctimas en siniestros viales por km² al año y volumen vehicular en la hora de máxima demanda de los aforos. Las fuentes abiertas llegan hasta los años indicados abajo.'
   }
 };
 

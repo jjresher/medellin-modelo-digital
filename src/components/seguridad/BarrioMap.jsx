@@ -14,6 +14,14 @@ const RAMPA = [
   [100, '#f92672']
 ];
 
+// Un barrio con menos del mínimo publicable (seguridad_barrios.json, `minimo_publicable`) trae null: no se publica el número.
+// Se pinta aparte y su valor es -1; un barrio que no aparece en el archivo no tuvo registros (0).
+const SUPRIMIDO = '#23241f';
+function valorDe(datos, codigo, categoria) {
+  const v = datos?.barrios[codigo]?.[categoria];
+  return v === undefined ? 0 : v === null ? -1 : v;
+}
+
 export default function BarrioMap({ datos, categoria, height = 420 }) {
   const container = useRef(null);
   const mapRef = useRef(null);
@@ -91,7 +99,7 @@ export default function BarrioMap({ datos, categoria, height = 420 }) {
             nombre: f.properties.nombre,
             comuna: f.properties.comuna,
             tipo: f.properties.tipo,
-            valor: datosRef.current?.barrios[f.properties.CODIGO]?.[categoriaRef.current] ?? 0
+            valor: valorDe(datosRef.current, f.properties.CODIGO, categoriaRef.current)
           });
         });
         map.on('mouseenter', 'seg-fill', () => {
@@ -118,22 +126,17 @@ export default function BarrioMap({ datos, categoria, height = 420 }) {
     if (!ready || !map.getSource('seg-barrios') || !geoRef.current) return;
     let max = 1;
     geoRef.current.features.forEach((f) => {
-      const valor = datos?.barrios[f.properties.CODIGO]?.[categoria] ?? 0;
+      const valor = valorDe(datos, f.properties.CODIGO, categoria);
       f.properties.valor = valor;
       max = Math.max(max, valor);
     });
     map.getSource('seg-barrios').setData(geoRef.current);
     setMaxValor(max);
     map.setPaintProperty('seg-fill', 'fill-color', [
-      'interpolate',
-      ['linear'],
-      ['get', 'valor'],
-      0,
-      RAMPA[0][1],
-      max / 2,
-      RAMPA[1][1],
-      max,
-      RAMPA[2][1]
+      'case',
+      ['<', ['get', 'valor'], 0],
+      SUPRIMIDO,
+      ['interpolate', ['linear'], ['get', 'valor'], 0, RAMPA[0][1], max / 2, RAMPA[1][1], max, RAMPA[2][1]]
     ]);
     setPopup(null);
   }, [ready, categoria, datos]);
@@ -148,7 +151,7 @@ export default function BarrioMap({ datos, categoria, height = 420 }) {
           <p>{popup.comuna}</p>
           <dl>
             <dt>Casos en la ventana</dt>
-            <dd>{popup.valor}</dd>
+            <dd>{popup.valor < 0 ? `menos de ${datos?.minimo_publicable ?? 5} (no se publica)` : popup.valor}</dd>
           </dl>
           <button onClick={() => setPopup(null)}>Cerrar</button>
         </div>
@@ -162,6 +165,10 @@ export default function BarrioMap({ datos, categoria, height = 420 }) {
             <i>{Math.round(maxValor / 2)}</i>
             <i>{maxValor}</i>
           </div>
+          <em>
+            <i className="square" style={{ background: SUPRIMIDO }} />
+            Menos de {datos?.minimo_publicable ?? 5}: no se publica
+          </em>
         </div>
       </div>
     </div>

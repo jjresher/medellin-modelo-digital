@@ -114,6 +114,7 @@ def mercado_laboral(t):
 OIME = f'{ALC}/vivienda_ciudad_terri/VM_Oferta_Comercial_Oime/MapServer/0'
 AREA_MIN, AREA_MAX = 20, 500   # m² de área privada; fuera de ese rango casi siempre es un error de captura
 MIN_OFERTAS = 20               # por comuna o estrato; con menos, la mediana no se publica
+MIN_OFERTAS_RENTABILIDAD = 30  # ofertas de venta Y de arriendo de apartamentos para publicar una rentabilidad
 ANIOS_VENTANA = 2              # años completos que se juntan para tener muestra en todas las comunas
 NOTA_OIME = ('Mediana del precio de oferta por m² de área privada de apartamentos y casas, investigados por el '
              f'Catastro. Se excluyen los registros que el Catastro marca como atípicos y las áreas fuera de '
@@ -128,8 +129,8 @@ def vivienda(t, terr):
     t.fuente('oime-ofertas', 'Observatorio Inmobiliario de Medellín (OIME): ofertas de vivienda investigadas por el '
              'Catastro', 'Subsecretaría de Catastro · Alcaldía de Medellín', OIME)
     filas = arcgis(OIME, where="property_type IN ('APARTAMENTO','CASA')",
-                   campos='anio,investigation_type,private_area,commercial_value,stratum,codigo_comuna,atypical')
-    ofertas = [{'anio': f['anio'], 'tipo': f['investigation_type'], 'estrato': f['stratum'],
+                   campos='anio,investigation_type,private_area,commercial_value,stratum,codigo_comuna,atypical,property_type')
+    ofertas = [{'anio': f['anio'], 'tipo': f['investigation_type'], 'estrato': f['stratum'], 'inmueble': f['property_type'],
                 'comuna': (f['codigo_comuna'] or '').strip(), 'm2': f['commercial_value'] / f['private_area']}
                for f in filas
                if not f['atypical'] and f['anio'] and f['commercial_value'] and f['commercial_value'] > 0
@@ -152,32 +153,48 @@ def vivienda(t, terr):
                                            '$/m² al mes')):
         por_anio = {a: valores(tipo, [a]) for a in sorted({o['anio'] for o in ofertas}) if a <= completo}
         puntos = [[str(a), mediana(v)] for a, v in por_anio.items() if len(v) >= 100]
-        t.serie(f'{clave}_anual', puntos, unidad, f'{etiqueta} (mediana por año)', 'oime-ofertas', nota=NOTA_OIME)
+        t.serie(f'{clave}_anual', puntos, unidad, f'{etiqueta} (mediana por año)', 'oime-ofertas', nota=NOTA_OIME,
+                proxy='el precio de cierre, que no es dato abierto')
         ciudad = valores(tipo, ventana)
         t.cifra(clave, mediana(ciudad), unidad, etiqueta, 'oime-ofertas', periodo, ancla=clave == 'venta_m2',
-                nota=f'{NOTA_OIME} {miles(len(ciudad))} ofertas en {periodo}.')
+                nota=f'{NOTA_OIME} {miles(len(ciudad))} ofertas en {periodo}.', proxy='el precio de cierre, que no es dato abierto')
 
-    venta, arriendo = t.cifras['venta_m2']['valor'], t.cifras['arriendo_m2']['valor']
-    nota_rent = ('Arriendo mensual por m² × 12 ÷ precio de venta por m², con las medianas de oferta del mismo periodo. '
-                 'Es un cociente de medianas, no la rentabilidad de un mismo inmueble, y no descuenta administración, '
-                 'impuestos ni vacancia.')
-    t.cifra('rentabilidad_bruta', round(arriendo * 12 / venta * 100, 2), '%', 'Rentabilidad bruta del arriendo',
-            'oime-ofertas', periodo, estado='derivado', decimales=1, nota=nota_rent)
+    # La rentabilidad compara lo mismo con lo mismo: apartamentos con apartamentos. Con todos los inmuebles, el arriendo
+    # (casi todo apartamentos) se dividía entre una venta con muchas casas viejas, y en estrato 1 salía 18 %: 31 ofertas
+    # de arriendo, 29 de ellas apartamentos, contra 366 de venta, 303 de ellas casas a la mitad del precio por m².
+    def rentabilidad(**filtro):
+        v = valores('VENTA', ventana, inmueble='APARTAMENTO', **filtro)
+        a = valores('ARRENDAMIENTO', ventana, inmueble='APARTAMENTO', **filtro)
+        if min(len(v), len(a)) < MIN_OFERTAS_RENTABILIDAD:
+            return None, len(v), len(a)
+        return round(mediana(a) * 12 / mediana(v) * 100, 2), len(v), len(a)
+
+    ciudad_r, nv, na = rentabilidad()
+    nota_rent = ('Arriendo mensual por m² × 12 ÷ precio de venta por m², con las medianas de oferta de APARTAMENTOS del mismo '
+                 f'periodo ({miles(nv)} de venta y {miles(na)} de arriendo). Es un cociente de medianas, no la rentabilidad de un '
+                 'mismo inmueble, y no descuenta administración, impuestos ni vacancia. Solo se publica con al menos '
+                 f'{MIN_OFERTAS_RENTABILIDAD} ofertas de cada lado.')
+    t.cifra('rentabilidad_bruta', ciudad_r, '%', 'Rentabilidad bruta del arriendo (apartamentos)',
+            'oime-ofertas', periodo, estado='derivado', decimales=1, nota=nota_rent,
+            proxy='la rentabilidad real de un inmueble')
 
     # Por comuna y corregimiento.
     terr.indicador('venta_m2', 'Precio de oferta por m² (venta)', '$/m²', 'oime-ofertas', periodo,
-                   nota=f'{NOTA_OIME} Solo territorios con al menos {MIN_OFERTAS} ofertas en {periodo}.')
+                   nota=f'{NOTA_OIME} Solo territorios con al menos {MIN_OFERTAS} ofertas en {periodo}.',
+                   proxy='el precio de cierre, que no es dato abierto')
     terr.indicador('arriendo_m2', 'Arriendo de oferta por m²', '$/m² al mes', 'oime-ofertas', periodo,
-                   nota=f'{NOTA_OIME} Solo territorios con al menos {MIN_OFERTAS} ofertas en {periodo}.')
-    terr.indicador('rentabilidad_bruta', 'Rentabilidad bruta del arriendo', '%', 'oime-ofertas', periodo,
-                   estado='derivado', decimales=1, nota=nota_rent)
+                   nota=f'{NOTA_OIME} Solo territorios con al menos {MIN_OFERTAS} ofertas en {periodo}.',
+                   proxy='el canon pagado, que no es dato abierto')
+    terr.indicador('rentabilidad_bruta', 'Rentabilidad bruta del arriendo (apartamentos)', '%', 'oime-ofertas', periodo,
+                   estado='derivado', decimales=1, nota=nota_rent,
+                   proxy='la rentabilidad real de un inmueble')
     for codigo in terr.filas:
         v, a = valores('VENTA', ventana, comuna=codigo), valores('ARRENDAMIENTO', ventana, comuna=codigo)
         mv = mediana(v) if len(v) >= MIN_OFERTAS else None
         ma = mediana(a) if len(a) >= MIN_OFERTAS else None
         terr.valor(codigo, 'venta_m2', periodo, mv)
         terr.valor(codigo, 'arriendo_m2', periodo, ma)
-        terr.valor(codigo, 'rentabilidad_bruta', periodo, round(ma * 12 / mv * 100, 2) if mv and ma else None)
+        terr.valor(codigo, 'rentabilidad_bruta', periodo, rentabilidad(comuna=codigo)[0])
 
     # Por estrato (1 a 6), toda la ciudad.
     por_estrato = []
@@ -185,9 +202,10 @@ def vivienda(t, terr):
         v, a = valores('VENTA', ventana, estrato=e), valores('ARRENDAMIENTO', ventana, estrato=e)
         mv = mediana(v) if len(v) >= MIN_OFERTAS else None
         ma = mediana(a) if len(a) >= MIN_OFERTAS else None
+        r, nv_e, na_e = rentabilidad(estrato=e)
         por_estrato.append({'estrato': e, 'venta_m2': mv, 'ofertas_venta': len(v), 'arriendo_m2': ma,
-                            'ofertas_arriendo': len(a),
-                            'rentabilidad_bruta': round(ma * 12 / mv * 100, 2) if mv and ma else None})
+                            'ofertas_arriendo': len(a), 'rentabilidad_bruta': r,
+                            'ofertas_venta_apto': nv_e, 'ofertas_arriendo_apto': na_e})
     t.lista('vivienda_por_estrato', por_estrato)
 
 

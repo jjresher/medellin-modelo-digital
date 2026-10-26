@@ -1,7 +1,7 @@
 {
  "tema": "seguridad",
  "titulo": "Seguridad",
- "probado": "2026-10-01",
+ "probado": "2026-10-24",
  "ancla": [
   "homicidios_anio_curso",
   "homicidios_tasa"
@@ -13,7 +13,7 @@
    "entidad": "Ministerio de Defensa Nacional · Policía Nacional",
    "url": "https://www.datos.gov.co/d/m8fd-ahd9",
    "estado": "observado",
-   "probado": "2026-10-01"
+   "probado": "2026-10-24"
   },
   {
    "id": "policia-hurto-personas",
@@ -21,7 +21,7 @@
    "entidad": "Ministerio de Defensa Nacional · Policía Nacional",
    "url": "https://www.datos.gov.co/d/4rxi-8m8d",
    "estado": "observado",
-   "probado": "2026-10-01"
+   "probado": "2026-10-24"
   },
   {
    "id": "policia-hurto-vehiculos",
@@ -29,7 +29,7 @@
    "entidad": "Ministerio de Defensa Nacional · Policía Nacional",
    "url": "https://www.datos.gov.co/d/csb4-y6v2",
    "estado": "observado",
-   "probado": "2026-10-01"
+   "probado": "2026-10-24"
   },
   {
    "id": "policia-extorsion",
@@ -37,7 +37,7 @@
    "entidad": "Ministerio de Defensa Nacional · Policía Nacional",
    "url": "https://www.datos.gov.co/d/q2ib-t9am",
    "estado": "observado",
-   "probado": "2026-10-01"
+   "probado": "2026-10-24"
   },
   {
    "id": "policia-violencia-intrafamiliar",
@@ -45,7 +45,7 @@
    "entidad": "Ministerio de Defensa Nacional · Policía Nacional",
    "url": "https://www.datos.gov.co/d/gepp-dxcs",
    "estado": "observado",
-   "probado": "2026-10-01"
+   "probado": "2026-10-24"
   },
   {
    "id": "policia-delitos-sexuales",
@@ -53,7 +53,7 @@
    "entidad": "Ministerio de Defensa Nacional · Policía Nacional",
    "url": "https://www.datos.gov.co/d/bz43-8ahq",
    "estado": "observado",
-   "probado": "2026-10-01"
+   "probado": "2026-10-24"
   },
   {
    "id": "policia-lesiones-personales",
@@ -61,7 +61,7 @@
    "entidad": "Ministerio de Defensa Nacional · Policía Nacional",
    "url": "https://www.datos.gov.co/d/jr6v-i33g",
    "estado": "observado",
-   "probado": "2026-10-01"
+   "probado": "2026-10-24"
   },
   {
    "id": "sisc-homicidio",
@@ -69,7 +69,7 @@
    "entidad": "Secretaría de Seguridad y Convivencia · Alcaldía de Medellín (SISC / MEData)",
    "url": "http://medata.gov.co/sites/default/files/distribution/1-027-23-000008/homicidio.csv",
    "estado": "observado",
-   "probado": "2026-10-01"
+   "probado": "2026-10-24"
   },
   {
    "id": "sisc-hurto-persona",
@@ -77,7 +77,7 @@
    "entidad": "Secretaría de Seguridad y Convivencia · Alcaldía de Medellín (SISC / MEData)",
    "url": "http://medata.gov.co/sites/default/files/distribution/1-027-23-000011/hurto_a_persona.csv",
    "estado": "observado",
-   "probado": "2026-10-01"
+   "probado": "2026-10-24"
   },
   {
    "id": "sisc-hurto-carro",
@@ -85,7 +85,7 @@
    "entidad": "Secretaría de Seguridad y Convivencia · Alcaldía de Medellín (SISC / MEData)",
    "url": "http://medata.gov.co/sites/default/files/distribution/1-027-23-000013/hurto_de_carro.csv",
    "estado": "observado",
-   "probado": "2026-10-01"
+   "probado": "2026-10-24"
   },
   {
    "id": "sisc-hurto-moto",
@@ -93,7 +93,7 @@
    "entidad": "Secretaría de Seguridad y Convivencia · Alcaldía de Medellín (SISC / MEData)",
    "url": "http://medata.gov.co/sites/default/files/distribution/1-027-23-000014/hurto_de_moto.csv",
    "estado": "observado",
-   "probado": "2026-10-01"
+   "probado": "2026-10-24"
   },
   {
    "id": "sisc-hurto-residencia",
@@ -101,7 +101,7 @@
    "entidad": "Secretaría de Seguridad y Convivencia · Alcaldía de Medellín (SISC / MEData)",
    "url": "http://medata.gov.co/sites/default/files/distribution/1-027-23-000012/hurto_a_residencia.csv",
    "estado": "observado",
-   "probado": "2026-10-01"
+   "probado": "2026-10-24"
   },
   {
    "id": "sisc-hurto-comercio",
@@ -109,7 +109,7 @@
    "entidad": "Secretaría de Seguridad y Convivencia · Alcaldía de Medellín (SISC / MEData)",
    "url": "http://medata.gov.co/sites/default/files/distribution/1-027-23-000010/hurto_a_establecimiento_comercial.csv",
    "estado": "observado",
-   "probado": "2026-10-01"
+   "probado": "2026-10-24"
   },
   {
    "id": "sisc-extorsion-sisc",
@@ -117,7 +117,7 @@
    "entidad": "Secretaría de Seguridad y Convivencia · Alcaldía de Medellín (SISC / MEData)",
    "url": "http://medata.gov.co/sites/default/files/distribution/1-027-23-000007/extorsion.csv",
    "estado": "observado",
-   "probado": "2026-10-01"
+   "probado": "2026-10-24"
   },
   {
    "id": "sisc-lesion-dolosa",
@@ -125,7 +125,7 @@
    "entidad": "Secretaría de Seguridad y Convivencia · Alcaldía de Medellín (SISC / MEData)",
    "url": "http://medata.gov.co/sites/default/files/distribution/1-027-23-000002/lesion_no_fatal_dolosa_segun_policia.csv",
    "estado": "observado",
-   "probado": "2026-10-01"
+   "probado": "2026-10-24"
   }
  ],
  "cifras": {
@@ -138,23 +138,23 @@
    "estado": "observado"
   },
   "homicidios_anio_curso": {
-   "valor": 176,
+   "valor": 183,
    "unidad": "casos",
    "etiqueta": "Homicidios en 2026",
    "fuente": "policia-homicidios",
-   "vigencia": "ene–ago 2026",
+   "vigencia": "ene–sep 2026",
    "estado": "observado",
-   "nota": "Del 1 de enero al 2026-08-29, último día publicado."
+   "nota": "Del 1 de enero al 2026-09-27, último día publicado."
   },
   "homicidios_variacion": {
-   "valor": -20.0,
+   "valor": -25.3,
    "unidad": "%",
    "etiqueta": "Homicidios: variación frente a 2025",
    "fuente": "policia-homicidios",
-   "vigencia": "ene–ago 2026",
+   "vigencia": "ene–sep 2026",
    "estado": "derivado",
    "decimales": 1,
-   "nota": "176 casos frente a 220 en el mismo periodo de 2025."
+   "nota": "183 casos frente a 245 en el mismo periodo de 2025."
   },
   "homicidios_tasa": {
    "valor": 13.17,
@@ -175,23 +175,23 @@
    "estado": "observado"
   },
   "hurto_personas_anio_curso": {
-   "valor": 16630,
+   "valor": 18908,
    "unidad": "casos",
    "etiqueta": "Hurto a personas en 2026",
    "fuente": "policia-hurto-personas",
-   "vigencia": "ene–ago 2026",
+   "vigencia": "ene–sep 2026",
    "estado": "observado",
-   "nota": "Del 1 de enero al 2026-08-31, último día publicado."
+   "nota": "Del 1 de enero al 2026-09-30, último día publicado."
   },
   "hurto_personas_variacion": {
-   "valor": 9.9,
+   "valor": 9.3,
    "unidad": "%",
    "etiqueta": "Hurto a personas: variación frente a 2025",
    "fuente": "policia-hurto-personas",
-   "vigencia": "ene–ago 2026",
+   "vigencia": "ene–sep 2026",
    "estado": "derivado",
    "decimales": 1,
-   "nota": "16630 casos frente a 15128 en el mismo periodo de 2025."
+   "nota": "18908 casos frente a 17295 en el mismo periodo de 2025."
   },
   "hurto_personas_tasa": {
    "valor": 985.78,
@@ -212,23 +212,23 @@
    "estado": "observado"
   },
   "hurto_vehiculos_anio_curso": {
-   "valor": 3214,
+   "valor": 3678,
    "unidad": "casos",
    "etiqueta": "Hurto de vehículos en 2026",
    "fuente": "policia-hurto-vehiculos",
-   "vigencia": "ene–ago 2026",
+   "vigencia": "ene–sep 2026",
    "estado": "observado",
-   "nota": "Del 1 de enero al 2026-08-31, último día publicado."
+   "nota": "Del 1 de enero al 2026-09-30, último día publicado."
   },
   "hurto_vehiculos_variacion": {
-   "valor": -28.2,
+   "valor": -25.1,
    "unidad": "%",
    "etiqueta": "Hurto de vehículos: variación frente a 2025",
    "fuente": "policia-hurto-vehiculos",
-   "vigencia": "ene–ago 2026",
+   "vigencia": "ene–sep 2026",
    "estado": "derivado",
    "decimales": 1,
-   "nota": "3214 casos frente a 4477 en el mismo periodo de 2025."
+   "nota": "3678 casos frente a 4910 en el mismo periodo de 2025."
   },
   "hurto_vehiculos_tasa": {
    "valor": 237.31,
@@ -249,23 +249,23 @@
    "estado": "observado"
   },
   "extorsion_anio_curso": {
-   "valor": 719,
+   "valor": 757,
    "unidad": "casos",
    "etiqueta": "Extorsión en 2026",
    "fuente": "policia-extorsion",
-   "vigencia": "ene–ago 2026",
+   "vigencia": "ene–sep 2026",
    "estado": "observado",
-   "nota": "Del 1 de enero al 2026-08-30, último día publicado."
+   "nota": "Del 1 de enero al 2026-09-28, último día publicado."
   },
   "extorsion_variacion": {
-   "valor": 19.8,
+   "valor": 9.7,
    "unidad": "%",
    "etiqueta": "Extorsión: variación frente a 2025",
    "fuente": "policia-extorsion",
-   "vigencia": "ene–ago 2026",
+   "vigencia": "ene–sep 2026",
    "estado": "derivado",
    "decimales": 1,
-   "nota": "719 casos frente a 600 en el mismo periodo de 2025."
+   "nota": "757 casos frente a 690 en el mismo periodo de 2025."
   },
   "extorsion_tasa": {
    "valor": 38.44,
@@ -286,23 +286,23 @@
    "estado": "observado"
   },
   "violencia_intrafamiliar_anio_curso": {
-   "valor": 7624,
+   "valor": 8725,
    "unidad": "casos",
    "etiqueta": "Violencia intrafamiliar en 2026",
    "fuente": "policia-violencia-intrafamiliar",
-   "vigencia": "ene–ago 2026",
+   "vigencia": "ene–sep 2026",
    "estado": "observado",
-   "nota": "Del 1 de enero al 2026-08-31, último día publicado."
+   "nota": "Del 1 de enero al 2026-09-30, último día publicado."
   },
   "violencia_intrafamiliar_variacion": {
-   "valor": 4.2,
+   "valor": 4.1,
    "unidad": "%",
    "etiqueta": "Violencia intrafamiliar: variación frente a 2025",
    "fuente": "policia-violencia-intrafamiliar",
-   "vigencia": "ene–ago 2026",
+   "vigencia": "ene–sep 2026",
    "estado": "derivado",
    "decimales": 1,
-   "nota": "7624 casos frente a 7319 en el mismo periodo de 2025."
+   "nota": "8725 casos frente a 8385 en el mismo periodo de 2025."
   },
   "violencia_intrafamiliar_tasa": {
    "valor": 420.75,
@@ -323,23 +323,23 @@
    "estado": "observado"
   },
   "delitos_sexuales_anio_curso": {
-   "valor": 1435,
+   "valor": 1741,
    "unidad": "casos",
    "etiqueta": "Delitos sexuales en 2026",
    "fuente": "policia-delitos-sexuales",
-   "vigencia": "ene–ago 2026",
+   "vigencia": "ene–sep 2026",
    "estado": "observado",
-   "nota": "Del 1 de enero al 2026-08-31, último día publicado."
+   "nota": "Del 1 de enero al 2026-09-30, último día publicado."
   },
   "delitos_sexuales_variacion": {
-   "valor": -15.9,
+   "valor": -9.1,
    "unidad": "%",
    "etiqueta": "Delitos sexuales: variación frente a 2025",
    "fuente": "policia-delitos-sexuales",
-   "vigencia": "ene–ago 2026",
+   "vigencia": "ene–sep 2026",
    "estado": "derivado",
    "decimales": 1,
-   "nota": "1435 casos frente a 1707 en el mismo periodo de 2025."
+   "nota": "1741 casos frente a 1915 en el mismo periodo de 2025."
   },
   "delitos_sexuales_tasa": {
    "valor": 94.13,
@@ -360,23 +360,23 @@
    "estado": "observado"
   },
   "lesiones_personales_anio_curso": {
-   "valor": 3323,
+   "valor": 3907,
    "unidad": "casos",
    "etiqueta": "Lesiones personales en 2026",
    "fuente": "policia-lesiones-personales",
-   "vigencia": "ene–ago 2026",
+   "vigencia": "ene–sep 2026",
    "estado": "observado",
-   "nota": "Del 1 de enero al 2026-08-31, último día publicado."
+   "nota": "Del 1 de enero al 2026-09-30, último día publicado."
   },
   "lesiones_personales_variacion": {
-   "valor": 5.3,
+   "valor": 9.5,
    "unidad": "%",
    "etiqueta": "Lesiones personales: variación frente a 2025",
    "fuente": "policia-lesiones-personales",
-   "vigencia": "ene–ago 2026",
+   "vigencia": "ene–sep 2026",
    "estado": "derivado",
    "decimales": 1,
-   "nota": "3323 casos frente a 3157 en el mismo periodo de 2025."
+   "nota": "3907 casos frente a 3568 en el mismo periodo de 2025."
   },
   "lesiones_personales_tasa": {
    "valor": 185.5,
@@ -388,77 +388,77 @@
    "decimales": 2,
    "nota": "4690 casos (Policía) ÷ 2.528.343 habitantes (proyección DANE) × 100.000."
   },
-  "sisc_homicidio_ventana": {
-   "valor": 1139,
+  "sisc_homicidio_anio": {
+   "valor": 391,
    "unidad": "casos",
-   "etiqueta": "Homicidio, 2021–2023 (histórico)",
+   "etiqueta": "Homicidio, 2022",
    "fuente": "sisc-homicidio",
-   "vigencia": "2021–2023 (histórico)",
+   "vigencia": "2022",
    "estado": "observado",
-   "nota": "Suma de las 21 comunas y corregimientos con comuna diligenciada en el registro; excluye registros sin comuna asignada."
+   "nota": "Casos de 2022 con comuna diligenciada. El archivo llega hasta el 2023-11-29, así que 2022 es el último año completo. Suma de las 21 comunas y corregimientos; excluye registros sin comuna asignada."
   },
-  "sisc_hurto_persona_ventana": {
-   "valor": 97234,
+  "sisc_hurto_persona_anio": {
+   "valor": 39088,
    "unidad": "casos",
-   "etiqueta": "Hurto a persona, 2021–2023 (histórico)",
+   "etiqueta": "Hurto a persona, 2022",
    "fuente": "sisc-hurto-persona",
-   "vigencia": "2021–2023 (histórico)",
+   "vigencia": "2022",
    "estado": "observado",
-   "nota": "Suma de las 21 comunas y corregimientos con comuna diligenciada en el registro; excluye registros sin comuna asignada."
+   "nota": "Casos de 2022 con comuna diligenciada. El archivo llega hasta el 2023-11-30, así que 2022 es el último año completo. Suma de las 21 comunas y corregimientos; excluye registros sin comuna asignada."
   },
-  "sisc_hurto_carro_ventana": {
-   "valor": 2682,
+  "sisc_hurto_carro_anio": {
+   "valor": 997,
    "unidad": "casos",
-   "etiqueta": "Hurto de carro, 2021–2023 (histórico)",
+   "etiqueta": "Hurto de carro, 2022",
    "fuente": "sisc-hurto-carro",
-   "vigencia": "2021–2023 (histórico)",
+   "vigencia": "2022",
    "estado": "observado",
-   "nota": "Suma de las 21 comunas y corregimientos con comuna diligenciada en el registro; excluye registros sin comuna asignada."
+   "nota": "Casos de 2022 con comuna diligenciada. El archivo llega hasta el 2023-11-30, así que 2022 es el último año completo. Suma de las 21 comunas y corregimientos; excluye registros sin comuna asignada."
   },
-  "sisc_hurto_moto_ventana": {
-   "valor": 15460,
+  "sisc_hurto_moto_anio": {
+   "valor": 5766,
    "unidad": "casos",
-   "etiqueta": "Hurto de moto, 2021–2023 (histórico)",
+   "etiqueta": "Hurto de moto, 2022",
    "fuente": "sisc-hurto-moto",
-   "vigencia": "2021–2023 (histórico)",
+   "vigencia": "2022",
    "estado": "observado",
-   "nota": "Suma de las 21 comunas y corregimientos con comuna diligenciada en el registro; excluye registros sin comuna asignada."
+   "nota": "Casos de 2022 con comuna diligenciada. El archivo llega hasta el 2023-11-30, así que 2022 es el último año completo. Suma de las 21 comunas y corregimientos; excluye registros sin comuna asignada."
   },
-  "sisc_hurto_residencia_ventana": {
-   "valor": 7578,
+  "sisc_hurto_residencia_anio": {
+   "valor": 2752,
    "unidad": "casos",
-   "etiqueta": "Hurto a residencia, 2021–2023 (histórico)",
+   "etiqueta": "Hurto a residencia, 2022",
    "fuente": "sisc-hurto-residencia",
-   "vigencia": "2021–2023 (histórico)",
+   "vigencia": "2022",
    "estado": "observado",
-   "nota": "Suma de las 21 comunas y corregimientos con comuna diligenciada en el registro; excluye registros sin comuna asignada."
+   "nota": "Casos de 2022 con comuna diligenciada. El archivo llega hasta el 2023-11-30, así que 2022 es el último año completo. Suma de las 21 comunas y corregimientos; excluye registros sin comuna asignada."
   },
-  "sisc_hurto_comercio_ventana": {
-   "valor": 11381,
+  "sisc_hurto_comercio_anio": {
+   "valor": 4413,
    "unidad": "casos",
-   "etiqueta": "Hurto a establecimiento comercial, 2021–2023 (histórico)",
+   "etiqueta": "Hurto a establecimiento comercial, 2022",
    "fuente": "sisc-hurto-comercio",
-   "vigencia": "2021–2023 (histórico)",
+   "vigencia": "2022",
    "estado": "observado",
-   "nota": "Suma de las 21 comunas y corregimientos con comuna diligenciada en el registro; excluye registros sin comuna asignada."
+   "nota": "Casos de 2022 con comuna diligenciada. El archivo llega hasta el 2023-11-30, así que 2022 es el último año completo. Suma de las 21 comunas y corregimientos; excluye registros sin comuna asignada."
   },
-  "sisc_extorsion_sisc_ventana": {
-   "valor": 1798,
+  "sisc_extorsion_sisc_anio": {
+   "valor": 459,
    "unidad": "casos",
-   "etiqueta": "Extorsión, 2021–2023 (histórico)",
+   "etiqueta": "Extorsión, 2022",
    "fuente": "sisc-extorsion-sisc",
-   "vigencia": "2021–2023 (histórico)",
+   "vigencia": "2022",
    "estado": "observado",
-   "nota": "Suma de las 21 comunas y corregimientos con comuna diligenciada en el registro; excluye registros sin comuna asignada."
+   "nota": "Casos de 2022 con comuna diligenciada. El archivo llega hasta el 2023-11-23, así que 2022 es el último año completo. Suma de las 21 comunas y corregimientos; excluye registros sin comuna asignada."
   },
-  "sisc_lesion_dolosa_ventana": {
-   "valor": 13641,
+  "sisc_lesion_dolosa_anio": {
+   "valor": 4705,
    "unidad": "casos",
-   "etiqueta": "Lesión no fatal dolosa, 2021–2023 (histórico)",
+   "etiqueta": "Lesión no fatal dolosa, 2022",
    "fuente": "sisc-lesion-dolosa",
-   "vigencia": "2021–2023 (histórico)",
+   "vigencia": "2022",
    "estado": "observado",
-   "nota": "Suma de las 21 comunas y corregimientos con comuna diligenciada en el registro; excluye registros sin comuna asignada."
+   "nota": "Casos de 2022 con comuna diligenciada. El archivo llega hasta el 2023-11-30, así que 2022 es el último año completo. Suma de las 21 comunas y corregimientos; excluye registros sin comuna asignada."
   }
  },
  "series": {
@@ -503,17 +503,17 @@
     ],
     [
      "2026",
-     176
+     183
     ]
    ],
-   "nota": "2026 parcial: hasta el 2026-08-29."
+   "nota": "2026 parcial: hasta el 2026-09-27."
   },
   "homicidios_mensual": {
    "etiqueta": "Homicidios por mes",
    "unidad": "casos",
    "fuente": "policia-homicidios",
    "estado": "observado",
-   "vigencia": "2024-01 – 2026-08",
+   "vigencia": "2024-01 – 2026-09",
    "puntos": [
     [
      "2024-01",
@@ -641,7 +641,11 @@
     ],
     [
      "2026-08",
-     19
+     21
+    ],
+    [
+     "2026-09",
+     5
     ]
    ]
   },
@@ -686,17 +690,17 @@
     ],
     [
      "2026",
-     16630
+     18908
     ]
    ],
-   "nota": "2026 parcial: hasta el 2026-08-31."
+   "nota": "2026 parcial: hasta el 2026-09-30."
   },
   "hurto_personas_mensual": {
    "etiqueta": "Hurto a personas por mes",
    "unidad": "casos",
    "fuente": "policia-hurto-personas",
    "estado": "observado",
-   "vigencia": "2024-01 – 2026-08",
+   "vigencia": "2024-01 – 2026-09",
    "puntos": [
     [
      "2024-01",
@@ -796,35 +800,39 @@
     ],
     [
      "2026-01",
-     2371
+     2374
     ],
     [
      "2026-02",
-     1901
+     1909
     ],
     [
      "2026-03",
-     2478
+     2502
     ],
     [
      "2026-04",
-     2192
+     2215
     ],
     [
      "2026-05",
-     2452
+     2482
     ],
     [
      "2026-06",
-     2003
+     2068
     ],
     [
      "2026-07",
-     1839
+     2120
     ],
     [
      "2026-08",
-     1394
+     2076
+    ],
+    [
+     "2026-09",
+     1162
     ]
    ]
   },
@@ -869,17 +877,17 @@
     ],
     [
      "2026",
-     3214
+     3678
     ]
    ],
-   "nota": "2026 parcial: hasta el 2026-08-31."
+   "nota": "2026 parcial: hasta el 2026-09-30."
   },
   "hurto_vehiculos_mensual": {
    "etiqueta": "Hurto de vehículos por mes",
    "unidad": "casos",
    "fuente": "policia-hurto-vehiculos",
    "estado": "observado",
-   "vigencia": "2024-01 – 2026-08",
+   "vigencia": "2024-01 – 2026-09",
    "puntos": [
     [
      "2024-01",
@@ -979,35 +987,39 @@
     ],
     [
      "2026-01",
-     571
+     575
     ],
     [
      "2026-02",
-     491
+     493
     ],
     [
      "2026-03",
-     477
+     482
     ],
     [
      "2026-04",
-     390
+     398
     ],
     [
      "2026-05",
-     356
+     365
     ],
     [
      "2026-06",
-     404
+     419
     ],
     [
      "2026-07",
-     333
+     410
     ],
     [
      "2026-08",
-     192
+     368
+    ],
+    [
+     "2026-09",
+     168
     ]
    ]
   },
@@ -1052,17 +1064,17 @@
     ],
     [
      "2026",
-     719
+     757
     ]
    ],
-   "nota": "2026 parcial: hasta el 2026-08-30."
+   "nota": "2026 parcial: hasta el 2026-09-28."
   },
   "extorsion_mensual": {
    "etiqueta": "Extorsión por mes",
    "unidad": "casos",
    "fuente": "policia-extorsion",
    "estado": "observado",
-   "vigencia": "2024-01 – 2026-08",
+   "vigencia": "2024-01 – 2026-09",
    "puntos": [
     [
      "2024-01",
@@ -1166,31 +1178,35 @@
     ],
     [
      "2026-02",
-     79
+     63
     ],
     [
      "2026-03",
-     107
+     85
     ],
     [
      "2026-04",
-     109
+     87
     ],
     [
      "2026-05",
-     131
+     119
     ],
     [
      "2026-06",
-     126
+     121
     ],
     [
      "2026-07",
-     70
+     92
     ],
     [
      "2026-08",
-     22
+     84
+    ],
+    [
+     "2026-09",
+     31
     ]
    ]
   },
@@ -1235,17 +1251,17 @@
     ],
     [
      "2026",
-     7624
+     8725
     ]
    ],
-   "nota": "2026 parcial: hasta el 2026-08-31."
+   "nota": "2026 parcial: hasta el 2026-09-30."
   },
   "violencia_intrafamiliar_mensual": {
    "etiqueta": "Violencia intrafamiliar por mes",
    "unidad": "casos",
    "fuente": "policia-violencia-intrafamiliar",
    "estado": "observado",
-   "vigencia": "2024-01 – 2026-08",
+   "vigencia": "2024-01 – 2026-09",
    "puntos": [
     [
      "2024-01",
@@ -1345,35 +1361,39 @@
     ],
     [
      "2026-01",
-     935
+     939
     ],
     [
      "2026-02",
-     970
+     976
     ],
     [
      "2026-03",
-     1079
+     1083
     ],
     [
      "2026-04",
-     958
+     975
     ],
     [
      "2026-05",
-     1162
+     1184
     ],
     [
      "2026-06",
-     964
+     1019
     ],
     [
      "2026-07",
-     806
+     883
     ],
     [
      "2026-08",
-     750
+     926
+    ],
+    [
+     "2026-09",
+     740
     ]
    ]
   },
@@ -1418,17 +1438,17 @@
     ],
     [
      "2026",
-     1435
+     1741
     ]
    ],
-   "nota": "2026 parcial: hasta el 2026-08-31."
+   "nota": "2026 parcial: hasta el 2026-09-30."
   },
   "delitos_sexuales_mensual": {
    "etiqueta": "Delitos sexuales por mes",
    "unidad": "casos",
    "fuente": "policia-delitos-sexuales",
    "estado": "observado",
-   "vigencia": "2024-01 – 2026-08",
+   "vigencia": "2024-01 – 2026-09",
    "puntos": [
     [
      "2024-01",
@@ -1528,35 +1548,39 @@
     ],
     [
      "2026-01",
-     210
+     216
     ],
     [
      "2026-02",
-     181
+     185
     ],
     [
      "2026-03",
-     194
+     202
     ],
     [
      "2026-04",
-     168
+     182
     ],
     [
      "2026-05",
-     243
+     257
     ],
     [
      "2026-06",
-     150
+     170
     ],
     [
      "2026-07",
-     141
+     169
     ],
     [
      "2026-08",
-     148
+     204
+    ],
+    [
+     "2026-09",
+     156
     ]
    ]
   },
@@ -1601,17 +1625,17 @@
     ],
     [
      "2026",
-     3323
+     3907
     ]
    ],
-   "nota": "2026 parcial: hasta el 2026-08-31."
+   "nota": "2026 parcial: hasta el 2026-09-30."
   },
   "lesiones_personales_mensual": {
    "etiqueta": "Lesiones personales por mes",
    "unidad": "casos",
    "fuente": "policia-lesiones-personales",
    "estado": "observado",
-   "vigencia": "2024-01 – 2026-08",
+   "vigencia": "2024-01 – 2026-09",
    "puntos": [
     [
      "2024-01",
@@ -1711,35 +1735,39 @@
     ],
     [
      "2026-01",
-     353
+     355
     ],
     [
      "2026-02",
-     402
+     408
     ],
     [
      "2026-03",
-     474
+     476
     ],
     [
      "2026-04",
-     431
+     441
     ],
     [
      "2026-05",
-     544
+     559
     ],
     [
      "2026-06",
-     377
+     394
     ],
     [
      "2026-07",
-     358
+     384
     ],
     [
      "2026-08",
-     384
+     468
+    ],
+    [
+     "2026-09",
+     422
     ]
    ]
   },
@@ -2501,890 +2529,890 @@
    {
     "codigo": "10",
     "nombre": "La Candelaria",
-    "casos": 225,
-    "tasa_x10mil": 27.81
-   },
-   {
-    "codigo": "04",
-    "nombre": "Aranjuez",
-    "casos": 97,
-    "tasa_x10mil": 6.57
+    "casos": 75,
+    "tasa_x10mil": 9.87
    },
    {
     "codigo": "07",
     "nombre": "Robledo",
-    "casos": 81,
-    "tasa_x10mil": 3.69
+    "casos": 35,
+    "tasa_x10mil": 1.77
    },
    {
-    "codigo": "16",
-    "nombre": "Belén",
-    "casos": 70,
-    "tasa_x10mil": 3.12
-   },
-   {
-    "codigo": "60",
-    "nombre": "Corregimiento de San Cristóbal",
-    "casos": 69,
-    "tasa_x10mil": 3.88
-   },
-   {
-    "codigo": "08",
-    "nombre": "Villa Hermosa",
-    "casos": 63,
-    "tasa_x10mil": 3.44
+    "codigo": "04",
+    "nombre": "Aranjuez",
+    "casos": 32,
+    "tasa_x10mil": 2.29
    },
    {
     "codigo": "13",
     "nombre": "San Javier",
-    "casos": 61,
-    "tasa_x10mil": 3.28
+    "casos": 29,
+    "tasa_x10mil": 1.75
+   },
+   {
+    "codigo": "60",
+    "nombre": "Corregimiento de San Cristóbal",
+    "casos": 26,
+    "tasa_x10mil": 1.87
+   },
+   {
+    "codigo": "16",
+    "nombre": "Belén",
+    "casos": 25,
+    "tasa_x10mil": 1.21
    },
    {
     "codigo": "05",
     "nombre": "Castilla",
-    "casos": 56,
-    "tasa_x10mil": 4.37
-   },
-   {
-    "codigo": "03",
-    "nombre": "Manrique",
-    "casos": 55,
-    "tasa_x10mil": 2.92
+    "casos": 19,
+    "tasa_x10mil": 1.56
    },
    {
     "codigo": "11",
     "nombre": "Laureles Estadio",
-    "casos": 51,
-    "tasa_x10mil": 5.03
+    "casos": 19,
+    "tasa_x10mil": 1.94
    },
    {
-    "codigo": "06",
-    "nombre": "Doce de Octubre",
-    "casos": 49,
-    "tasa_x10mil": 2.62
+    "codigo": "08",
+    "nombre": "Villa Hermosa",
+    "casos": 18,
+    "tasa_x10mil": 1.11
    },
    {
     "codigo": "09",
     "nombre": "Buenos Aires",
-    "casos": 45,
-    "tasa_x10mil": 2.41
+    "casos": 18,
+    "tasa_x10mil": 1.09
    },
    {
     "codigo": "02",
     "nombre": "Santa Cruz",
-    "casos": 38,
-    "tasa_x10mil": 2.97
+    "casos": 14,
+    "tasa_x10mil": 1.2
    },
    {
     "codigo": "15",
     "nombre": "Guayabal",
-    "casos": 38,
-    "tasa_x10mil": 5.93
+    "casos": 14,
+    "tasa_x10mil": 2.24
+   },
+   {
+    "codigo": "03",
+    "nombre": "Manrique",
+    "casos": 13,
+    "tasa_x10mil": 0.76
+   },
+   {
+    "codigo": "06",
+    "nombre": "Doce de Octubre",
+    "casos": 13,
+    "tasa_x10mil": 0.74
    },
    {
     "codigo": "01",
     "nombre": "Popular",
-    "casos": 37,
-    "tasa_x10mil": 2.36
-   },
-   {
-    "codigo": "14",
-    "nombre": "El Poblado",
-    "casos": 23,
-    "tasa_x10mil": 2.01
+    "casos": 12,
+    "tasa_x10mil": 0.85
    },
    {
     "codigo": "70",
     "nombre": "Corregimiento de Altavista",
-    "casos": 23,
-    "tasa_x10mil": 4.75
+    "casos": 7,
+    "tasa_x10mil": 1.67
    },
    {
-    "codigo": "90",
-    "nombre": "Corregimiento de Santa Elena",
-    "casos": 19,
-    "tasa_x10mil": 5.19
+    "codigo": "14",
+    "nombre": "El Poblado",
+    "casos": 6,
+    "tasa_x10mil": 0.56
    },
    {
     "codigo": "80",
     "nombre": "Corregimiento de San Antonio de Prado",
-    "casos": 19,
-    "tasa_x10mil": 1.44
+    "casos": 6,
+    "tasa_x10mil": 0.55
+   },
+   {
+    "codigo": "90",
+    "nombre": "Corregimiento de Santa Elena",
+    "casos": 5,
+    "tasa_x10mil": 1.77
    },
    {
     "codigo": "12",
     "nombre": "La América",
-    "casos": 16,
-    "tasa_x10mil": 1.8
+    "casos": 4,
+    "tasa_x10mil": 0.47
    },
    {
     "codigo": "50",
     "nombre": "Corregimiento de San Sebastián de Palmitas",
-    "casos": 4,
-    "tasa_x10mil": 5.59
+    "casos": 1,
+    "tasa_x10mil": 1.65
    }
   ],
   "sisc_ranking_hurto_persona": [
    {
     "codigo": "10",
     "nombre": "La Candelaria",
-    "casos": 25089,
-    "tasa_x10mil": 3101.54
+    "casos": 10280,
+    "tasa_x10mil": 1353.18
    },
    {
     "codigo": "11",
     "nombre": "Laureles Estadio",
-    "casos": 12346,
-    "tasa_x10mil": 1216.88
+    "casos": 5454,
+    "tasa_x10mil": 557.61
    },
    {
     "codigo": "14",
     "nombre": "El Poblado",
-    "casos": 12295,
-    "tasa_x10mil": 1076.4
+    "casos": 4817,
+    "tasa_x10mil": 449.53
    },
    {
     "codigo": "16",
     "nombre": "Belén",
-    "casos": 7744,
-    "tasa_x10mil": 344.99
+    "casos": 2997,
+    "tasa_x10mil": 144.86
    },
    {
     "codigo": "04",
     "nombre": "Aranjuez",
-    "casos": 5526,
-    "tasa_x10mil": 374.19
+    "casos": 2188,
+    "tasa_x10mil": 156.44
    },
    {
     "codigo": "05",
     "nombre": "Castilla",
-    "casos": 5293,
-    "tasa_x10mil": 412.67
+    "casos": 2176,
+    "tasa_x10mil": 178.12
    },
    {
     "codigo": "07",
     "nombre": "Robledo",
-    "casos": 4497,
-    "tasa_x10mil": 204.72
+    "casos": 1628,
+    "tasa_x10mil": 82.54
    },
    {
     "codigo": "15",
     "nombre": "Guayabal",
-    "casos": 3979,
-    "tasa_x10mil": 621.21
+    "casos": 1618,
+    "tasa_x10mil": 259.22
    },
    {
     "codigo": "12",
     "nombre": "La América",
-    "casos": 3942,
-    "tasa_x10mil": 443.29
+    "casos": 1591,
+    "tasa_x10mil": 188.18
    },
    {
     "codigo": "09",
     "nombre": "Buenos Aires",
-    "casos": 3697,
-    "tasa_x10mil": 197.88
+    "casos": 1444,
+    "tasa_x10mil": 87.53
    },
    {
     "codigo": "08",
     "nombre": "Villa Hermosa",
-    "casos": 2701,
-    "tasa_x10mil": 147.53
-   },
-   {
-    "codigo": "13",
-    "nombre": "San Javier",
-    "casos": 1783,
-    "tasa_x10mil": 95.96
+    "casos": 993,
+    "tasa_x10mil": 61.27
    },
    {
     "codigo": "03",
     "nombre": "Manrique",
-    "casos": 1684,
-    "tasa_x10mil": 89.3
+    "casos": 673,
+    "tasa_x10mil": 39.46
    },
    {
     "codigo": "06",
     "nombre": "Doce de Octubre",
-    "casos": 1595,
-    "tasa_x10mil": 85.29
+    "casos": 638,
+    "tasa_x10mil": 36.22
+   },
+   {
+    "codigo": "13",
+    "nombre": "San Javier",
+    "casos": 623,
+    "tasa_x10mil": 37.67
    },
    {
     "codigo": "60",
     "nombre": "Corregimiento de San Cristóbal",
-    "casos": 1384,
-    "tasa_x10mil": 77.88
+    "casos": 463,
+    "tasa_x10mil": 33.34
    },
    {
     "codigo": "01",
     "nombre": "Popular",
-    "casos": 1009,
-    "tasa_x10mil": 64.23
-   },
-   {
-    "codigo": "02",
-    "nombre": "Santa Cruz",
-    "casos": 862,
-    "tasa_x10mil": 67.31
-   },
-   {
-    "codigo": "80",
-    "nombre": "Corregimiento de San Antonio de Prado",
-    "casos": 786,
-    "tasa_x10mil": 59.56
+    "casos": 390,
+    "tasa_x10mil": 27.5
    },
    {
     "codigo": "90",
     "nombre": "Corregimiento de Santa Elena",
-    "casos": 707,
-    "tasa_x10mil": 193.14
+    "casos": 374,
+    "tasa_x10mil": 132.12
+   },
+   {
+    "codigo": "02",
+    "nombre": "Santa Cruz",
+    "casos": 309,
+    "tasa_x10mil": 26.54
+   },
+   {
+    "codigo": "80",
+    "nombre": "Corregimiento de San Antonio de Prado",
+    "casos": 264,
+    "tasa_x10mil": 24.42
    },
    {
     "codigo": "70",
     "nombre": "Corregimiento de Altavista",
-    "casos": 280,
-    "tasa_x10mil": 57.88
+    "casos": 152,
+    "tasa_x10mil": 36.26
    },
    {
     "codigo": "50",
     "nombre": "Corregimiento de San Sebastián de Palmitas",
-    "casos": 35,
-    "tasa_x10mil": 48.94
+    "casos": 16,
+    "tasa_x10mil": 26.47
    }
   ],
   "sisc_ranking_hurto_carro": [
    {
     "codigo": "11",
     "nombre": "Laureles Estadio",
-    "casos": 397,
-    "tasa_x10mil": 39.13
+    "casos": 155,
+    "tasa_x10mil": 15.85
    },
    {
     "codigo": "10",
     "nombre": "La Candelaria",
-    "casos": 237,
-    "tasa_x10mil": 29.3
+    "casos": 97,
+    "tasa_x10mil": 12.77
    },
    {
     "codigo": "05",
     "nombre": "Castilla",
-    "casos": 234,
-    "tasa_x10mil": 18.24
-   },
-   {
-    "codigo": "04",
-    "nombre": "Aranjuez",
-    "casos": 227,
-    "tasa_x10mil": 15.37
+    "casos": 88,
+    "tasa_x10mil": 7.2
    },
    {
     "codigo": "16",
     "nombre": "Belén",
-    "casos": 210,
-    "tasa_x10mil": 9.36
+    "casos": 81,
+    "tasa_x10mil": 3.92
    },
    {
     "codigo": "09",
     "nombre": "Buenos Aires",
-    "casos": 206,
-    "tasa_x10mil": 11.03
+    "casos": 79,
+    "tasa_x10mil": 4.79
    },
    {
-    "codigo": "07",
-    "nombre": "Robledo",
-    "casos": 177,
-    "tasa_x10mil": 8.06
+    "codigo": "04",
+    "nombre": "Aranjuez",
+    "casos": 77,
+    "tasa_x10mil": 5.51
    },
    {
     "codigo": "12",
     "nombre": "La América",
-    "casos": 167,
-    "tasa_x10mil": 18.78
+    "casos": 62,
+    "tasa_x10mil": 7.33
+   },
+   {
+    "codigo": "07",
+    "nombre": "Robledo",
+    "casos": 52,
+    "tasa_x10mil": 2.64
    },
    {
     "codigo": "08",
     "nombre": "Villa Hermosa",
-    "casos": 131,
-    "tasa_x10mil": 7.16
+    "casos": 50,
+    "tasa_x10mil": 3.09
    },
    {
     "codigo": "15",
     "nombre": "Guayabal",
-    "casos": 124,
-    "tasa_x10mil": 19.36
-   },
-   {
-    "codigo": "13",
-    "nombre": "San Javier",
-    "casos": 105,
-    "tasa_x10mil": 5.65
+    "casos": 48,
+    "tasa_x10mil": 7.69
    },
    {
     "codigo": "06",
     "nombre": "Doce de Octubre",
-    "casos": 93,
-    "tasa_x10mil": 4.97
+    "casos": 40,
+    "tasa_x10mil": 2.27
+   },
+   {
+    "codigo": "13",
+    "nombre": "San Javier",
+    "casos": 38,
+    "tasa_x10mil": 2.3
    },
    {
     "codigo": "60",
     "nombre": "Corregimiento de San Cristóbal",
-    "casos": 79,
-    "tasa_x10mil": 4.45
-   },
-   {
-    "codigo": "14",
-    "nombre": "El Poblado",
-    "casos": 78,
-    "tasa_x10mil": 6.83
+    "casos": 27,
+    "tasa_x10mil": 1.94
    },
    {
     "codigo": "03",
     "nombre": "Manrique",
-    "casos": 69,
-    "tasa_x10mil": 3.66
+    "casos": 26,
+    "tasa_x10mil": 1.52
    },
    {
-    "codigo": "80",
-    "nombre": "Corregimiento de San Antonio de Prado",
-    "casos": 45,
-    "tasa_x10mil": 3.41
+    "codigo": "14",
+    "nombre": "El Poblado",
+    "casos": 21,
+    "tasa_x10mil": 1.96
    },
    {
     "codigo": "90",
     "nombre": "Corregimiento de Santa Elena",
-    "casos": 33,
-    "tasa_x10mil": 9.01
+    "casos": 16,
+    "tasa_x10mil": 5.65
+   },
+   {
+    "codigo": "80",
+    "nombre": "Corregimiento de San Antonio de Prado",
+    "casos": 16,
+    "tasa_x10mil": 1.48
    },
    {
     "codigo": "02",
     "nombre": "Santa Cruz",
-    "casos": 29,
-    "tasa_x10mil": 2.26
+    "casos": 11,
+    "tasa_x10mil": 0.94
    },
    {
     "codigo": "01",
     "nombre": "Popular",
-    "casos": 27,
-    "tasa_x10mil": 1.72
-   },
-   {
-    "codigo": "50",
-    "nombre": "Corregimiento de San Sebastián de Palmitas",
-    "casos": 7,
-    "tasa_x10mil": 9.79
+    "casos": 9,
+    "tasa_x10mil": 0.63
    },
    {
     "codigo": "70",
     "nombre": "Corregimiento de Altavista",
-    "casos": 7,
-    "tasa_x10mil": 1.45
+    "casos": 4,
+    "tasa_x10mil": 0.95
+   },
+   {
+    "codigo": "50",
+    "nombre": "Corregimiento de San Sebastián de Palmitas",
+    "casos": 0,
+    "tasa_x10mil": 0.0
    }
   ],
   "sisc_ranking_hurto_moto": [
    {
     "codigo": "10",
     "nombre": "La Candelaria",
-    "casos": 1630,
-    "tasa_x10mil": 201.5
+    "casos": 589,
+    "tasa_x10mil": 77.53
    },
    {
     "codigo": "04",
     "nombre": "Aranjuez",
-    "casos": 1606,
-    "tasa_x10mil": 108.75
+    "casos": 576,
+    "tasa_x10mil": 41.18
    },
    {
     "codigo": "09",
     "nombre": "Buenos Aires",
-    "casos": 1467,
-    "tasa_x10mil": 78.52
+    "casos": 557,
+    "tasa_x10mil": 33.76
    },
    {
     "codigo": "07",
     "nombre": "Robledo",
-    "casos": 1439,
-    "tasa_x10mil": 65.51
+    "casos": 435,
+    "tasa_x10mil": 22.05
    },
    {
     "codigo": "05",
     "nombre": "Castilla",
-    "casos": 1162,
-    "tasa_x10mil": 90.6
-   },
-   {
-    "codigo": "08",
-    "nombre": "Villa Hermosa",
-    "casos": 1054,
-    "tasa_x10mil": 57.57
-   },
-   {
-    "codigo": "03",
-    "nombre": "Manrique",
-    "casos": 947,
-    "tasa_x10mil": 50.22
+    "casos": 418,
+    "tasa_x10mil": 34.22
    },
    {
     "codigo": "16",
     "nombre": "Belén",
-    "casos": 897,
-    "tasa_x10mil": 39.96
+    "casos": 378,
+    "tasa_x10mil": 18.27
+   },
+   {
+    "codigo": "08",
+    "nombre": "Villa Hermosa",
+    "casos": 351,
+    "tasa_x10mil": 21.66
+   },
+   {
+    "codigo": "03",
+    "nombre": "Manrique",
+    "casos": 339,
+    "tasa_x10mil": 19.87
    },
    {
     "codigo": "06",
     "nombre": "Doce de Octubre",
-    "casos": 825,
-    "tasa_x10mil": 44.11
-   },
-   {
-    "codigo": "13",
-    "nombre": "San Javier",
-    "casos": 674,
-    "tasa_x10mil": 36.27
+    "casos": 294,
+    "tasa_x10mil": 16.69
    },
    {
     "codigo": "11",
     "nombre": "Laureles Estadio",
-    "casos": 670,
-    "tasa_x10mil": 66.04
+    "casos": 278,
+    "tasa_x10mil": 28.42
+   },
+   {
+    "codigo": "13",
+    "nombre": "San Javier",
+    "casos": 252,
+    "tasa_x10mil": 15.24
    },
    {
     "codigo": "12",
     "nombre": "La América",
-    "casos": 579,
-    "tasa_x10mil": 65.11
+    "casos": 250,
+    "tasa_x10mil": 29.57
    },
    {
     "codigo": "60",
     "nombre": "Corregimiento de San Cristóbal",
-    "casos": 534,
-    "tasa_x10mil": 30.05
+    "casos": 215,
+    "tasa_x10mil": 15.48
    },
    {
     "codigo": "01",
     "nombre": "Popular",
-    "casos": 486,
-    "tasa_x10mil": 30.94
+    "casos": 212,
+    "tasa_x10mil": 14.95
    },
    {
     "codigo": "02",
     "nombre": "Santa Cruz",
-    "casos": 417,
-    "tasa_x10mil": 32.56
-   },
-   {
-    "codigo": "15",
-    "nombre": "Guayabal",
-    "casos": 408,
-    "tasa_x10mil": 63.7
+    "casos": 159,
+    "tasa_x10mil": 13.66
    },
    {
     "codigo": "80",
     "nombre": "Corregimiento de San Antonio de Prado",
-    "casos": 298,
-    "tasa_x10mil": 22.58
+    "casos": 155,
+    "tasa_x10mil": 14.34
+   },
+   {
+    "codigo": "15",
+    "nombre": "Guayabal",
+    "casos": 144,
+    "tasa_x10mil": 23.07
    },
    {
     "codigo": "14",
     "nombre": "El Poblado",
-    "casos": 225,
-    "tasa_x10mil": 19.7
+    "casos": 77,
+    "tasa_x10mil": 7.19
    },
    {
     "codigo": "90",
     "nombre": "Corregimiento de Santa Elena",
-    "casos": 79,
-    "tasa_x10mil": 21.58
+    "casos": 49,
+    "tasa_x10mil": 17.31
    },
    {
     "codigo": "70",
     "nombre": "Corregimiento de Altavista",
-    "casos": 56,
-    "tasa_x10mil": 11.58
+    "casos": 34,
+    "tasa_x10mil": 8.11
    },
    {
     "codigo": "50",
     "nombre": "Corregimiento de San Sebastián de Palmitas",
-    "casos": 7,
-    "tasa_x10mil": 9.79
+    "casos": 4,
+    "tasa_x10mil": 6.62
    }
   ],
   "sisc_ranking_hurto_residencia": [
    {
     "codigo": "11",
     "nombre": "Laureles Estadio",
-    "casos": 1219,
-    "tasa_x10mil": 120.15
+    "casos": 473,
+    "tasa_x10mil": 48.36
    },
    {
     "codigo": "14",
     "nombre": "El Poblado",
-    "casos": 980,
-    "tasa_x10mil": 85.8
+    "casos": 375,
+    "tasa_x10mil": 35.0
    },
    {
     "codigo": "16",
     "nombre": "Belén",
-    "casos": 977,
-    "tasa_x10mil": 43.53
-   },
-   {
-    "codigo": "12",
-    "nombre": "La América",
-    "casos": 549,
-    "tasa_x10mil": 61.74
-   },
-   {
-    "codigo": "10",
-    "nombre": "La Candelaria",
-    "casos": 501,
-    "tasa_x10mil": 61.93
+    "casos": 347,
+    "tasa_x10mil": 16.77
    },
    {
     "codigo": "07",
     "nombre": "Robledo",
-    "casos": 452,
-    "tasa_x10mil": 20.58
+    "casos": 194,
+    "tasa_x10mil": 9.84
+   },
+   {
+    "codigo": "10",
+    "nombre": "La Candelaria",
+    "casos": 190,
+    "tasa_x10mil": 25.01
    },
    {
     "codigo": "09",
     "nombre": "Buenos Aires",
-    "casos": 401,
-    "tasa_x10mil": 21.46
+    "casos": 161,
+    "tasa_x10mil": 9.76
+   },
+   {
+    "codigo": "12",
+    "nombre": "La América",
+    "casos": 147,
+    "tasa_x10mil": 17.39
    },
    {
     "codigo": "04",
     "nombre": "Aranjuez",
-    "casos": 293,
-    "tasa_x10mil": 19.84
-   },
-   {
-    "codigo": "08",
-    "nombre": "Villa Hermosa",
-    "casos": 281,
-    "tasa_x10mil": 15.35
+    "casos": 109,
+    "tasa_x10mil": 7.79
    },
    {
     "codigo": "03",
     "nombre": "Manrique",
-    "casos": 246,
-    "tasa_x10mil": 13.05
-   },
-   {
-    "codigo": "13",
-    "nombre": "San Javier",
-    "casos": 245,
-    "tasa_x10mil": 13.19
+    "casos": 94,
+    "tasa_x10mil": 5.51
    },
    {
     "codigo": "05",
     "nombre": "Castilla",
-    "casos": 227,
-    "tasa_x10mil": 17.7
+    "casos": 84,
+    "tasa_x10mil": 6.88
    },
    {
     "codigo": "60",
     "nombre": "Corregimiento de San Cristóbal",
-    "casos": 218,
-    "tasa_x10mil": 12.27
-   },
-   {
-    "codigo": "15",
-    "nombre": "Guayabal",
-    "casos": 203,
-    "tasa_x10mil": 31.69
+    "casos": 80,
+    "tasa_x10mil": 5.76
    },
    {
     "codigo": "01",
     "nombre": "Popular",
-    "casos": 192,
-    "tasa_x10mil": 12.22
+    "casos": 78,
+    "tasa_x10mil": 5.5
    },
    {
-    "codigo": "80",
-    "nombre": "Corregimiento de San Antonio de Prado",
-    "casos": 150,
-    "tasa_x10mil": 11.37
+    "codigo": "08",
+    "nombre": "Villa Hermosa",
+    "casos": 77,
+    "tasa_x10mil": 4.75
    },
    {
-    "codigo": "06",
-    "nombre": "Doce de Octubre",
-    "casos": 148,
-    "tasa_x10mil": 7.91
+    "codigo": "13",
+    "nombre": "San Javier",
+    "casos": 69,
+    "tasa_x10mil": 4.17
    },
    {
     "codigo": "90",
     "nombre": "Corregimiento de Santa Elena",
-    "casos": 120,
-    "tasa_x10mil": 32.78
+    "casos": 63,
+    "tasa_x10mil": 22.26
+   },
+   {
+    "codigo": "15",
+    "nombre": "Guayabal",
+    "casos": 56,
+    "tasa_x10mil": 8.97
+   },
+   {
+    "codigo": "80",
+    "nombre": "Corregimiento de San Antonio de Prado",
+    "casos": 53,
+    "tasa_x10mil": 4.9
+   },
+   {
+    "codigo": "06",
+    "nombre": "Doce de Octubre",
+    "casos": 50,
+    "tasa_x10mil": 2.84
    },
    {
     "codigo": "02",
     "nombre": "Santa Cruz",
-    "casos": 105,
-    "tasa_x10mil": 8.2
+    "casos": 35,
+    "tasa_x10mil": 3.01
    },
    {
     "codigo": "70",
     "nombre": "Corregimiento de Altavista",
-    "casos": 63,
-    "tasa_x10mil": 13.02
+    "casos": 16,
+    "tasa_x10mil": 3.82
    },
    {
     "codigo": "50",
     "nombre": "Corregimiento de San Sebastián de Palmitas",
-    "casos": 8,
-    "tasa_x10mil": 11.19
+    "casos": 1,
+    "tasa_x10mil": 1.65
    }
   ],
   "sisc_ranking_hurto_comercio": [
    {
     "codigo": "10",
     "nombre": "La Candelaria",
-    "casos": 2609,
-    "tasa_x10mil": 322.53
+    "casos": 948,
+    "tasa_x10mil": 124.79
    },
    {
     "codigo": "14",
     "nombre": "El Poblado",
-    "casos": 1738,
-    "tasa_x10mil": 152.16
+    "casos": 702,
+    "tasa_x10mil": 65.51
    },
    {
     "codigo": "11",
     "nombre": "Laureles Estadio",
-    "casos": 1492,
-    "tasa_x10mil": 147.06
+    "casos": 576,
+    "tasa_x10mil": 58.89
    },
    {
     "codigo": "16",
     "nombre": "Belén",
-    "casos": 815,
-    "tasa_x10mil": 36.31
-   },
-   {
-    "codigo": "15",
-    "nombre": "Guayabal",
-    "casos": 613,
-    "tasa_x10mil": 95.7
-   },
-   {
-    "codigo": "04",
-    "nombre": "Aranjuez",
-    "casos": 586,
-    "tasa_x10mil": 39.68
+    "casos": 278,
+    "tasa_x10mil": 13.44
    },
    {
     "codigo": "05",
     "nombre": "Castilla",
-    "casos": 570,
-    "tasa_x10mil": 44.44
+    "casos": 232,
+    "tasa_x10mil": 18.99
+   },
+   {
+    "codigo": "15",
+    "nombre": "Guayabal",
+    "casos": 224,
+    "tasa_x10mil": 35.89
+   },
+   {
+    "codigo": "04",
+    "nombre": "Aranjuez",
+    "casos": 208,
+    "tasa_x10mil": 14.87
    },
    {
     "codigo": "07",
     "nombre": "Robledo",
-    "casos": 509,
-    "tasa_x10mil": 23.17
-   },
-   {
-    "codigo": "12",
-    "nombre": "La América",
-    "casos": 426,
-    "tasa_x10mil": 47.91
+    "casos": 202,
+    "tasa_x10mil": 10.24
    },
    {
     "codigo": "09",
     "nombre": "Buenos Aires",
-    "casos": 395,
-    "tasa_x10mil": 21.14
+    "casos": 171,
+    "tasa_x10mil": 10.37
+   },
+   {
+    "codigo": "12",
+    "nombre": "La América",
+    "casos": 169,
+    "tasa_x10mil": 19.99
    },
    {
     "codigo": "06",
     "nombre": "Doce de Octubre",
-    "casos": 286,
-    "tasa_x10mil": 15.29
-   },
-   {
-    "codigo": "08",
-    "nombre": "Villa Hermosa",
-    "casos": 244,
-    "tasa_x10mil": 13.33
+    "casos": 135,
+    "tasa_x10mil": 7.66
    },
    {
     "codigo": "13",
     "nombre": "San Javier",
-    "casos": 222,
-    "tasa_x10mil": 11.95
-   },
-   {
-    "codigo": "03",
-    "nombre": "Manrique",
-    "casos": 213,
-    "tasa_x10mil": 11.3
+    "casos": 97,
+    "tasa_x10mil": 5.86
    },
    {
     "codigo": "01",
     "nombre": "Popular",
-    "casos": 178,
-    "tasa_x10mil": 11.33
+    "casos": 96,
+    "tasa_x10mil": 6.77
    },
    {
-    "codigo": "80",
-    "nombre": "Corregimiento de San Antonio de Prado",
-    "casos": 143,
-    "tasa_x10mil": 10.84
+    "codigo": "08",
+    "nombre": "Villa Hermosa",
+    "casos": 96,
+    "tasa_x10mil": 5.92
+   },
+   {
+    "codigo": "03",
+    "nombre": "Manrique",
+    "casos": 74,
+    "tasa_x10mil": 4.34
    },
    {
     "codigo": "60",
     "nombre": "Corregimiento de San Cristóbal",
-    "casos": 122,
-    "tasa_x10mil": 6.87
+    "casos": 52,
+    "tasa_x10mil": 3.74
    },
    {
-    "codigo": "02",
-    "nombre": "Santa Cruz",
-    "casos": 95,
-    "tasa_x10mil": 7.42
+    "codigo": "80",
+    "nombre": "Corregimiento de San Antonio de Prado",
+    "casos": 49,
+    "tasa_x10mil": 4.53
    },
    {
     "codigo": "90",
     "nombre": "Corregimiento de Santa Elena",
-    "casos": 90,
-    "tasa_x10mil": 24.59
+    "casos": 48,
+    "tasa_x10mil": 16.96
+   },
+   {
+    "codigo": "02",
+    "nombre": "Santa Cruz",
+    "casos": 39,
+    "tasa_x10mil": 3.35
    },
    {
     "codigo": "70",
     "nombre": "Corregimiento de Altavista",
-    "casos": 25,
-    "tasa_x10mil": 5.17
+    "casos": 15,
+    "tasa_x10mil": 3.58
    },
    {
     "codigo": "50",
     "nombre": "Corregimiento de San Sebastián de Palmitas",
-    "casos": 10,
-    "tasa_x10mil": 13.98
+    "casos": 2,
+    "tasa_x10mil": 3.31
    }
   ],
   "sisc_ranking_extorsion_sisc": [
    {
     "codigo": "10",
     "nombre": "La Candelaria",
-    "casos": 346,
-    "tasa_x10mil": 42.77
+    "casos": 104,
+    "tasa_x10mil": 13.69
    },
    {
     "codigo": "16",
     "nombre": "Belén",
-    "casos": 160,
-    "tasa_x10mil": 7.13
-   },
-   {
-    "codigo": "11",
-    "nombre": "Laureles Estadio",
-    "casos": 120,
-    "tasa_x10mil": 11.83
-   },
-   {
-    "codigo": "04",
-    "nombre": "Aranjuez",
-    "casos": 109,
-    "tasa_x10mil": 7.38
+    "casos": 43,
+    "tasa_x10mil": 2.08
    },
    {
     "codigo": "05",
     "nombre": "Castilla",
-    "casos": 103,
-    "tasa_x10mil": 8.03
+    "casos": 30,
+    "tasa_x10mil": 2.46
    },
    {
-    "codigo": "09",
-    "nombre": "Buenos Aires",
-    "casos": 103,
-    "tasa_x10mil": 5.51
-   },
-   {
-    "codigo": "07",
-    "nombre": "Robledo",
-    "casos": 102,
-    "tasa_x10mil": 4.64
-   },
-   {
-    "codigo": "13",
-    "nombre": "San Javier",
-    "casos": 95,
-    "tasa_x10mil": 5.11
-   },
-   {
-    "codigo": "14",
-    "nombre": "El Poblado",
-    "casos": 88,
-    "tasa_x10mil": 7.7
-   },
-   {
-    "codigo": "12",
-    "nombre": "La América",
-    "casos": 84,
-    "tasa_x10mil": 9.45
-   },
-   {
-    "codigo": "08",
-    "nombre": "Villa Hermosa",
-    "casos": 72,
-    "tasa_x10mil": 3.93
-   },
-   {
-    "codigo": "80",
-    "nombre": "Corregimiento de San Antonio de Prado",
-    "casos": 64,
-    "tasa_x10mil": 4.85
-   },
-   {
-    "codigo": "06",
-    "nombre": "Doce de Octubre",
-    "casos": 62,
-    "tasa_x10mil": 3.32
-   },
-   {
-    "codigo": "60",
-    "nombre": "Corregimiento de San Cristóbal",
-    "casos": 62,
-    "tasa_x10mil": 3.49
+    "codigo": "04",
+    "nombre": "Aranjuez",
+    "casos": 27,
+    "tasa_x10mil": 1.93
    },
    {
     "codigo": "03",
     "nombre": "Manrique",
-    "casos": 59,
-    "tasa_x10mil": 3.13
+    "casos": 24,
+    "tasa_x10mil": 1.41
    },
    {
-    "codigo": "15",
-    "nombre": "Guayabal",
-    "casos": 54,
-    "tasa_x10mil": 8.43
+    "codigo": "07",
+    "nombre": "Robledo",
+    "casos": 23,
+    "tasa_x10mil": 1.17
    },
    {
-    "codigo": "01",
-    "nombre": "Popular",
-    "casos": 52,
-    "tasa_x10mil": 3.31
+    "codigo": "11",
+    "nombre": "Laureles Estadio",
+    "casos": 22,
+    "tasa_x10mil": 2.25
+   },
+   {
+    "codigo": "60",
+    "nombre": "Corregimiento de San Cristóbal",
+    "casos": 22,
+    "tasa_x10mil": 1.58
+   },
+   {
+    "codigo": "14",
+    "nombre": "El Poblado",
+    "casos": 21,
+    "tasa_x10mil": 1.96
+   },
+   {
+    "codigo": "09",
+    "nombre": "Buenos Aires",
+    "casos": 19,
+    "tasa_x10mil": 1.15
+   },
+   {
+    "codigo": "13",
+    "nombre": "San Javier",
+    "casos": 19,
+    "tasa_x10mil": 1.15
    },
    {
     "codigo": "02",
     "nombre": "Santa Cruz",
-    "casos": 46,
-    "tasa_x10mil": 3.59
+    "casos": 16,
+    "tasa_x10mil": 1.37
+   },
+   {
+    "codigo": "15",
+    "nombre": "Guayabal",
+    "casos": 15,
+    "tasa_x10mil": 2.4
+   },
+   {
+    "codigo": "08",
+    "nombre": "Villa Hermosa",
+    "casos": 14,
+    "tasa_x10mil": 0.86
+   },
+   {
+    "codigo": "12",
+    "nombre": "La América",
+    "casos": 14,
+    "tasa_x10mil": 1.66
+   },
+   {
+    "codigo": "06",
+    "nombre": "Doce de Octubre",
+    "casos": 12,
+    "tasa_x10mil": 0.68
+   },
+   {
+    "codigo": "80",
+    "nombre": "Corregimiento de San Antonio de Prado",
+    "casos": 12,
+    "tasa_x10mil": 1.11
+   },
+   {
+    "codigo": "01",
+    "nombre": "Popular",
+    "casos": 11,
+    "tasa_x10mil": 0.78
    },
    {
     "codigo": "70",
     "nombre": "Corregimiento de Altavista",
-    "casos": 11,
-    "tasa_x10mil": 2.27
+    "casos": 8,
+    "tasa_x10mil": 1.91
    },
    {
     "codigo": "90",
     "nombre": "Corregimiento de Santa Elena",
-    "casos": 6,
-    "tasa_x10mil": 1.64
+    "casos": 3,
+    "tasa_x10mil": 1.06
    },
    {
     "codigo": "50",
@@ -3397,128 +3425,128 @@
    {
     "codigo": "10",
     "nombre": "La Candelaria",
-    "casos": 2404,
-    "tasa_x10mil": 297.19
+    "casos": 773,
+    "tasa_x10mil": 101.75
    },
    {
     "codigo": "04",
     "nombre": "Aranjuez",
-    "casos": 887,
-    "tasa_x10mil": 60.06
-   },
-   {
-    "codigo": "16",
-    "nombre": "Belén",
-    "casos": 852,
-    "tasa_x10mil": 37.96
-   },
-   {
-    "codigo": "03",
-    "nombre": "Manrique",
-    "casos": 849,
-    "tasa_x10mil": 45.02
-   },
-   {
-    "codigo": "07",
-    "nombre": "Robledo",
-    "casos": 840,
-    "tasa_x10mil": 38.24
+    "casos": 323,
+    "tasa_x10mil": 23.09
    },
    {
     "codigo": "11",
     "nombre": "Laureles Estadio",
-    "casos": 769,
-    "tasa_x10mil": 75.8
+    "casos": 291,
+    "tasa_x10mil": 29.75
    },
    {
     "codigo": "08",
     "nombre": "Villa Hermosa",
-    "casos": 749,
-    "tasa_x10mil": 40.91
+    "casos": 282,
+    "tasa_x10mil": 17.4
    },
    {
-    "codigo": "01",
-    "nombre": "Popular",
-    "casos": 746,
-    "tasa_x10mil": 47.49
+    "codigo": "07",
+    "nombre": "Robledo",
+    "casos": 278,
+    "tasa_x10mil": 14.09
+   },
+   {
+    "codigo": "03",
+    "nombre": "Manrique",
+    "casos": 275,
+    "tasa_x10mil": 16.12
    },
    {
     "codigo": "05",
     "nombre": "Castilla",
-    "casos": 741,
-    "tasa_x10mil": 57.77
+    "casos": 271,
+    "tasa_x10mil": 22.18
+   },
+   {
+    "codigo": "01",
+    "nombre": "Popular",
+    "casos": 260,
+    "tasa_x10mil": 18.33
    },
    {
     "codigo": "09",
     "nombre": "Buenos Aires",
-    "casos": 685,
-    "tasa_x10mil": 36.66
+    "casos": 258,
+    "tasa_x10mil": 15.64
+   },
+   {
+    "codigo": "16",
+    "nombre": "Belén",
+    "casos": 252,
+    "tasa_x10mil": 12.18
    },
    {
     "codigo": "06",
     "nombre": "Doce de Octubre",
-    "casos": 663,
-    "tasa_x10mil": 35.45
-   },
-   {
-    "codigo": "13",
-    "nombre": "San Javier",
-    "casos": 629,
-    "tasa_x10mil": 33.85
+    "casos": 231,
+    "tasa_x10mil": 13.12
    },
    {
     "codigo": "14",
     "nombre": "El Poblado",
-    "casos": 567,
-    "tasa_x10mil": 49.64
+    "casos": 202,
+    "tasa_x10mil": 18.85
+   },
+   {
+    "codigo": "13",
+    "nombre": "San Javier",
+    "casos": 201,
+    "tasa_x10mil": 12.15
    },
    {
     "codigo": "02",
     "nombre": "Santa Cruz",
-    "casos": 474,
-    "tasa_x10mil": 37.01
+    "casos": 160,
+    "tasa_x10mil": 13.74
    },
    {
     "codigo": "60",
     "nombre": "Corregimiento de San Cristóbal",
-    "casos": 430,
-    "tasa_x10mil": 24.2
+    "casos": 154,
+    "tasa_x10mil": 11.09
    },
    {
     "codigo": "15",
     "nombre": "Guayabal",
-    "casos": 411,
-    "tasa_x10mil": 64.17
+    "casos": 138,
+    "tasa_x10mil": 22.11
    },
    {
     "codigo": "12",
     "nombre": "La América",
-    "casos": 387,
-    "tasa_x10mil": 43.52
+    "casos": 137,
+    "tasa_x10mil": 16.2
    },
    {
     "codigo": "80",
     "nombre": "Corregimiento de San Antonio de Prado",
-    "casos": 338,
-    "tasa_x10mil": 25.61
+    "casos": 118,
+    "tasa_x10mil": 10.91
    },
    {
     "codigo": "90",
     "nombre": "Corregimiento de Santa Elena",
-    "casos": 116,
-    "tasa_x10mil": 31.69
+    "casos": 52,
+    "tasa_x10mil": 18.37
    },
    {
     "codigo": "70",
     "nombre": "Corregimiento de Altavista",
-    "casos": 83,
-    "tasa_x10mil": 17.16
+    "casos": 41,
+    "tasa_x10mil": 9.78
    },
    {
     "codigo": "50",
     "nombre": "Corregimiento de San Sebastián de Palmitas",
-    "casos": 21,
-    "tasa_x10mil": 29.37
+    "casos": 8,
+    "tasa_x10mil": 13.23
    }
   ],
   "indicadores": [
@@ -3528,9 +3556,9 @@
     "unidad": "casos",
     "fuente": "sisc-homicidio",
     "estado": "observado",
-    "vigencia": "2021–2023 (histórico)",
+    "vigencia": "2022",
     "decimales": 0,
-    "nota": "Casos registrados por el SISC entre 2021 y 2023, con comuna diligenciada."
+    "nota": "Casos de 2022 con comuna diligenciada. El archivo llega hasta el 2023-11-29, así que 2022 es el último año completo."
    },
    {
     "clave": "sisc_homicidio_tasa",
@@ -3538,9 +3566,10 @@
     "unidad": "por 10.000 hab.",
     "fuente": "sisc-homicidio",
     "estado": "derivado",
-    "vigencia": "2021–2023 (histórico)",
+    "vigencia": "2022",
     "decimales": 2,
-    "nota": "Casos de 2021–2023 (los 3 años sumados) ÷ población proyectada por el DAP × 10.000. No es una tasa anual."
+    "nota": "Casos de 2022 (año completo) ÷ población de 2022 del territorio × 10.000. La población es el total DANE de 2022 repartido según la proyección del DAP para 2022.",
+    "proxy": "la incidencia por habitante: la población de cada comuna es una estimación"
    },
    {
     "clave": "sisc_hurto_persona",
@@ -3548,9 +3577,9 @@
     "unidad": "casos",
     "fuente": "sisc-hurto-persona",
     "estado": "observado",
-    "vigencia": "2021–2023 (histórico)",
+    "vigencia": "2022",
     "decimales": 0,
-    "nota": "Casos registrados por el SISC entre 2021 y 2023, con comuna diligenciada."
+    "nota": "Casos de 2022 con comuna diligenciada. El archivo llega hasta el 2023-11-30, así que 2022 es el último año completo."
    },
    {
     "clave": "sisc_hurto_persona_tasa",
@@ -3558,9 +3587,10 @@
     "unidad": "por 10.000 hab.",
     "fuente": "sisc-hurto-persona",
     "estado": "derivado",
-    "vigencia": "2021–2023 (histórico)",
+    "vigencia": "2022",
     "decimales": 2,
-    "nota": "Casos de 2021–2023 (los 3 años sumados) ÷ población proyectada por el DAP × 10.000. No es una tasa anual."
+    "nota": "Casos de 2022 (año completo) ÷ población de 2022 del territorio × 10.000. La población es el total DANE de 2022 repartido según la proyección del DAP para 2022.",
+    "proxy": "la incidencia por habitante: la población de cada comuna es una estimación"
    },
    {
     "clave": "sisc_hurto_carro",
@@ -3568,9 +3598,9 @@
     "unidad": "casos",
     "fuente": "sisc-hurto-carro",
     "estado": "observado",
-    "vigencia": "2021–2023 (histórico)",
+    "vigencia": "2022",
     "decimales": 0,
-    "nota": "Casos registrados por el SISC entre 2021 y 2023, con comuna diligenciada."
+    "nota": "Casos de 2022 con comuna diligenciada. El archivo llega hasta el 2023-11-30, así que 2022 es el último año completo."
    },
    {
     "clave": "sisc_hurto_carro_tasa",
@@ -3578,9 +3608,10 @@
     "unidad": "por 10.000 hab.",
     "fuente": "sisc-hurto-carro",
     "estado": "derivado",
-    "vigencia": "2021–2023 (histórico)",
+    "vigencia": "2022",
     "decimales": 2,
-    "nota": "Casos de 2021–2023 (los 3 años sumados) ÷ población proyectada por el DAP × 10.000. No es una tasa anual."
+    "nota": "Casos de 2022 (año completo) ÷ población de 2022 del territorio × 10.000. La población es el total DANE de 2022 repartido según la proyección del DAP para 2022.",
+    "proxy": "la incidencia por habitante: la población de cada comuna es una estimación"
    },
    {
     "clave": "sisc_hurto_moto",
@@ -3588,9 +3619,9 @@
     "unidad": "casos",
     "fuente": "sisc-hurto-moto",
     "estado": "observado",
-    "vigencia": "2021–2023 (histórico)",
+    "vigencia": "2022",
     "decimales": 0,
-    "nota": "Casos registrados por el SISC entre 2021 y 2023, con comuna diligenciada."
+    "nota": "Casos de 2022 con comuna diligenciada. El archivo llega hasta el 2023-11-30, así que 2022 es el último año completo."
    },
    {
     "clave": "sisc_hurto_moto_tasa",
@@ -3598,9 +3629,10 @@
     "unidad": "por 10.000 hab.",
     "fuente": "sisc-hurto-moto",
     "estado": "derivado",
-    "vigencia": "2021–2023 (histórico)",
+    "vigencia": "2022",
     "decimales": 2,
-    "nota": "Casos de 2021–2023 (los 3 años sumados) ÷ población proyectada por el DAP × 10.000. No es una tasa anual."
+    "nota": "Casos de 2022 (año completo) ÷ población de 2022 del territorio × 10.000. La población es el total DANE de 2022 repartido según la proyección del DAP para 2022.",
+    "proxy": "la incidencia por habitante: la población de cada comuna es una estimación"
    },
    {
     "clave": "sisc_hurto_residencia",
@@ -3608,9 +3640,9 @@
     "unidad": "casos",
     "fuente": "sisc-hurto-residencia",
     "estado": "observado",
-    "vigencia": "2021–2023 (histórico)",
+    "vigencia": "2022",
     "decimales": 0,
-    "nota": "Casos registrados por el SISC entre 2021 y 2023, con comuna diligenciada."
+    "nota": "Casos de 2022 con comuna diligenciada. El archivo llega hasta el 2023-11-30, así que 2022 es el último año completo."
    },
    {
     "clave": "sisc_hurto_residencia_tasa",
@@ -3618,9 +3650,10 @@
     "unidad": "por 10.000 hab.",
     "fuente": "sisc-hurto-residencia",
     "estado": "derivado",
-    "vigencia": "2021–2023 (histórico)",
+    "vigencia": "2022",
     "decimales": 2,
-    "nota": "Casos de 2021–2023 (los 3 años sumados) ÷ población proyectada por el DAP × 10.000. No es una tasa anual."
+    "nota": "Casos de 2022 (año completo) ÷ población de 2022 del territorio × 10.000. La población es el total DANE de 2022 repartido según la proyección del DAP para 2022.",
+    "proxy": "la incidencia por habitante: la población de cada comuna es una estimación"
    },
    {
     "clave": "sisc_hurto_comercio",
@@ -3628,9 +3661,9 @@
     "unidad": "casos",
     "fuente": "sisc-hurto-comercio",
     "estado": "observado",
-    "vigencia": "2021–2023 (histórico)",
+    "vigencia": "2022",
     "decimales": 0,
-    "nota": "Casos registrados por el SISC entre 2021 y 2023, con comuna diligenciada."
+    "nota": "Casos de 2022 con comuna diligenciada. El archivo llega hasta el 2023-11-30, así que 2022 es el último año completo."
    },
    {
     "clave": "sisc_hurto_comercio_tasa",
@@ -3638,9 +3671,10 @@
     "unidad": "por 10.000 hab.",
     "fuente": "sisc-hurto-comercio",
     "estado": "derivado",
-    "vigencia": "2021–2023 (histórico)",
+    "vigencia": "2022",
     "decimales": 2,
-    "nota": "Casos de 2021–2023 (los 3 años sumados) ÷ población proyectada por el DAP × 10.000. No es una tasa anual."
+    "nota": "Casos de 2022 (año completo) ÷ población de 2022 del territorio × 10.000. La población es el total DANE de 2022 repartido según la proyección del DAP para 2022.",
+    "proxy": "la incidencia por habitante: la población de cada comuna es una estimación"
    },
    {
     "clave": "sisc_extorsion_sisc",
@@ -3648,9 +3682,9 @@
     "unidad": "casos",
     "fuente": "sisc-extorsion-sisc",
     "estado": "observado",
-    "vigencia": "2021–2023 (histórico)",
+    "vigencia": "2022",
     "decimales": 0,
-    "nota": "Casos registrados por el SISC entre 2021 y 2023, con comuna diligenciada."
+    "nota": "Casos de 2022 con comuna diligenciada. El archivo llega hasta el 2023-11-23, así que 2022 es el último año completo."
    },
    {
     "clave": "sisc_extorsion_sisc_tasa",
@@ -3658,9 +3692,10 @@
     "unidad": "por 10.000 hab.",
     "fuente": "sisc-extorsion-sisc",
     "estado": "derivado",
-    "vigencia": "2021–2023 (histórico)",
+    "vigencia": "2022",
     "decimales": 2,
-    "nota": "Casos de 2021–2023 (los 3 años sumados) ÷ población proyectada por el DAP × 10.000. No es una tasa anual."
+    "nota": "Casos de 2022 (año completo) ÷ población de 2022 del territorio × 10.000. La población es el total DANE de 2022 repartido según la proyección del DAP para 2022.",
+    "proxy": "la incidencia por habitante: la población de cada comuna es una estimación"
    },
    {
     "clave": "sisc_lesion_dolosa",
@@ -3668,9 +3703,9 @@
     "unidad": "casos",
     "fuente": "sisc-lesion-dolosa",
     "estado": "observado",
-    "vigencia": "2021–2023 (histórico)",
+    "vigencia": "2022",
     "decimales": 0,
-    "nota": "Casos registrados por el SISC entre 2021 y 2023, con comuna diligenciada."
+    "nota": "Casos de 2022 con comuna diligenciada. El archivo llega hasta el 2023-11-30, así que 2022 es el último año completo."
    },
    {
     "clave": "sisc_lesion_dolosa_tasa",
@@ -3678,9 +3713,10 @@
     "unidad": "por 10.000 hab.",
     "fuente": "sisc-lesion-dolosa",
     "estado": "derivado",
-    "vigencia": "2021–2023 (histórico)",
+    "vigencia": "2022",
     "decimales": 2,
-    "nota": "Casos de 2021–2023 (los 3 años sumados) ÷ población proyectada por el DAP × 10.000. No es una tasa anual."
+    "nota": "Casos de 2022 (año completo) ÷ población de 2022 del territorio × 10.000. La población es el total DANE de 2022 repartido según la proyección del DAP para 2022.",
+    "proxy": "la incidencia por habitante: la población de cada comuna es una estimación"
    }
   ],
   "territorios": [
@@ -3690,52 +3726,52 @@
     "tipo": "Comuna",
     "valores": {
      "sisc_homicidio": {
-      "2021–2023": 37
+      "2022": 12
      },
      "sisc_homicidio_tasa": {
-      "2021–2023": 2.36
+      "2022": 0.85
      },
      "sisc_hurto_persona": {
-      "2021–2023": 1009
+      "2022": 390
      },
      "sisc_hurto_persona_tasa": {
-      "2021–2023": 64.23
+      "2022": 27.5
      },
      "sisc_hurto_carro": {
-      "2021–2023": 27
+      "2022": 9
      },
      "sisc_hurto_carro_tasa": {
-      "2021–2023": 1.72
+      "2022": 0.63
      },
      "sisc_hurto_moto": {
-      "2021–2023": 486
+      "2022": 212
      },
      "sisc_hurto_moto_tasa": {
-      "2021–2023": 30.94
+      "2022": 14.95
      },
      "sisc_hurto_residencia": {
-      "2021–2023": 192
+      "2022": 78
      },
      "sisc_hurto_residencia_tasa": {
-      "2021–2023": 12.22
+      "2022": 5.5
      },
      "sisc_hurto_comercio": {
-      "2021–2023": 178
+      "2022": 96
      },
      "sisc_hurto_comercio_tasa": {
-      "2021–2023": 11.33
+      "2022": 6.77
      },
      "sisc_extorsion_sisc": {
-      "2021–2023": 52
+      "2022": 11
      },
      "sisc_extorsion_sisc_tasa": {
-      "2021–2023": 3.31
+      "2022": 0.78
      },
      "sisc_lesion_dolosa": {
-      "2021–2023": 746
+      "2022": 260
      },
      "sisc_lesion_dolosa_tasa": {
-      "2021–2023": 47.49
+      "2022": 18.33
      }
     }
    },
@@ -3745,52 +3781,52 @@
     "tipo": "Comuna",
     "valores": {
      "sisc_homicidio": {
-      "2021–2023": 38
+      "2022": 14
      },
      "sisc_homicidio_tasa": {
-      "2021–2023": 2.97
+      "2022": 1.2
      },
      "sisc_hurto_persona": {
-      "2021–2023": 862
+      "2022": 309
      },
      "sisc_hurto_persona_tasa": {
-      "2021–2023": 67.31
+      "2022": 26.54
      },
      "sisc_hurto_carro": {
-      "2021–2023": 29
+      "2022": 11
      },
      "sisc_hurto_carro_tasa": {
-      "2021–2023": 2.26
+      "2022": 0.94
      },
      "sisc_hurto_moto": {
-      "2021–2023": 417
+      "2022": 159
      },
      "sisc_hurto_moto_tasa": {
-      "2021–2023": 32.56
+      "2022": 13.66
      },
      "sisc_hurto_residencia": {
-      "2021–2023": 105
+      "2022": 35
      },
      "sisc_hurto_residencia_tasa": {
-      "2021–2023": 8.2
+      "2022": 3.01
      },
      "sisc_hurto_comercio": {
-      "2021–2023": 95
+      "2022": 39
      },
      "sisc_hurto_comercio_tasa": {
-      "2021–2023": 7.42
+      "2022": 3.35
      },
      "sisc_extorsion_sisc": {
-      "2021–2023": 46
+      "2022": 16
      },
      "sisc_extorsion_sisc_tasa": {
-      "2021–2023": 3.59
+      "2022": 1.37
      },
      "sisc_lesion_dolosa": {
-      "2021–2023": 474
+      "2022": 160
      },
      "sisc_lesion_dolosa_tasa": {
-      "2021–2023": 37.01
+      "2022": 13.74
      }
     }
    },
@@ -3800,52 +3836,52 @@
     "tipo": "Comuna",
     "valores": {
      "sisc_homicidio": {
-      "2021–2023": 55
+      "2022": 13
      },
      "sisc_homicidio_tasa": {
-      "2021–2023": 2.92
+      "2022": 0.76
      },
      "sisc_hurto_persona": {
-      "2021–2023": 1684
+      "2022": 673
      },
      "sisc_hurto_persona_tasa": {
-      "2021–2023": 89.3
+      "2022": 39.46
      },
      "sisc_hurto_carro": {
-      "2021–2023": 69
+      "2022": 26
      },
      "sisc_hurto_carro_tasa": {
-      "2021–2023": 3.66
+      "2022": 1.52
      },
      "sisc_hurto_moto": {
-      "2021–2023": 947
+      "2022": 339
      },
      "sisc_hurto_moto_tasa": {
-      "2021–2023": 50.22
+      "2022": 19.87
      },
      "sisc_hurto_residencia": {
-      "2021–2023": 246
+      "2022": 94
      },
      "sisc_hurto_residencia_tasa": {
-      "2021–2023": 13.05
+      "2022": 5.51
      },
      "sisc_hurto_comercio": {
-      "2021–2023": 213
+      "2022": 74
      },
      "sisc_hurto_comercio_tasa": {
-      "2021–2023": 11.3
+      "2022": 4.34
      },
      "sisc_extorsion_sisc": {
-      "2021–2023": 59
+      "2022": 24
      },
      "sisc_extorsion_sisc_tasa": {
-      "2021–2023": 3.13
+      "2022": 1.41
      },
      "sisc_lesion_dolosa": {
-      "2021–2023": 849
+      "2022": 275
      },
      "sisc_lesion_dolosa_tasa": {
-      "2021–2023": 45.02
+      "2022": 16.12
      }
     }
    },
@@ -3855,52 +3891,52 @@
     "tipo": "Comuna",
     "valores": {
      "sisc_homicidio": {
-      "2021–2023": 97
+      "2022": 32
      },
      "sisc_homicidio_tasa": {
-      "2021–2023": 6.57
+      "2022": 2.29
      },
      "sisc_hurto_persona": {
-      "2021–2023": 5526
+      "2022": 2188
      },
      "sisc_hurto_persona_tasa": {
-      "2021–2023": 374.19
+      "2022": 156.44
      },
      "sisc_hurto_carro": {
-      "2021–2023": 227
+      "2022": 77
      },
      "sisc_hurto_carro_tasa": {
-      "2021–2023": 15.37
+      "2022": 5.51
      },
      "sisc_hurto_moto": {
-      "2021–2023": 1606
+      "2022": 576
      },
      "sisc_hurto_moto_tasa": {
-      "2021–2023": 108.75
+      "2022": 41.18
      },
      "sisc_hurto_residencia": {
-      "2021–2023": 293
+      "2022": 109
      },
      "sisc_hurto_residencia_tasa": {
-      "2021–2023": 19.84
+      "2022": 7.79
      },
      "sisc_hurto_comercio": {
-      "2021–2023": 586
+      "2022": 208
      },
      "sisc_hurto_comercio_tasa": {
-      "2021–2023": 39.68
+      "2022": 14.87
      },
      "sisc_extorsion_sisc": {
-      "2021–2023": 109
+      "2022": 27
      },
      "sisc_extorsion_sisc_tasa": {
-      "2021–2023": 7.38
+      "2022": 1.93
      },
      "sisc_lesion_dolosa": {
-      "2021–2023": 887
+      "2022": 323
      },
      "sisc_lesion_dolosa_tasa": {
-      "2021–2023": 60.06
+      "2022": 23.09
      }
     }
    },
@@ -3910,52 +3946,52 @@
     "tipo": "Comuna",
     "valores": {
      "sisc_homicidio": {
-      "2021–2023": 56
+      "2022": 19
      },
      "sisc_homicidio_tasa": {
-      "2021–2023": 4.37
+      "2022": 1.56
      },
      "sisc_hurto_persona": {
-      "2021–2023": 5293
+      "2022": 2176
      },
      "sisc_hurto_persona_tasa": {
-      "2021–2023": 412.67
+      "2022": 178.12
      },
      "sisc_hurto_carro": {
-      "2021–2023": 234
+      "2022": 88
      },
      "sisc_hurto_carro_tasa": {
-      "2021–2023": 18.24
+      "2022": 7.2
      },
      "sisc_hurto_moto": {
-      "2021–2023": 1162
+      "2022": 418
      },
      "sisc_hurto_moto_tasa": {
-      "2021–2023": 90.6
+      "2022": 34.22
      },
      "sisc_hurto_residencia": {
-      "2021–2023": 227
+      "2022": 84
      },
      "sisc_hurto_residencia_tasa": {
-      "2021–2023": 17.7
+      "2022": 6.88
      },
      "sisc_hurto_comercio": {
-      "2021–2023": 570
+      "2022": 232
      },
      "sisc_hurto_comercio_tasa": {
-      "2021–2023": 44.44
+      "2022": 18.99
      },
      "sisc_extorsion_sisc": {
-      "2021–2023": 103
+      "2022": 30
      },
      "sisc_extorsion_sisc_tasa": {
-      "2021–2023": 8.03
+      "2022": 2.46
      },
      "sisc_lesion_dolosa": {
-      "2021–2023": 741
+      "2022": 271
      },
      "sisc_lesion_dolosa_tasa": {
-      "2021–2023": 57.77
+      "2022": 22.18
      }
     }
    },
@@ -3965,52 +4001,52 @@
     "tipo": "Comuna",
     "valores": {
      "sisc_homicidio": {
-      "2021–2023": 49
+      "2022": 13
      },
      "sisc_homicidio_tasa": {
-      "2021–2023": 2.62
+      "2022": 0.74
      },
      "sisc_hurto_persona": {
-      "2021–2023": 1595
+      "2022": 638
      },
      "sisc_hurto_persona_tasa": {
-      "2021–2023": 85.29
+      "2022": 36.22
      },
      "sisc_hurto_carro": {
-      "2021–2023": 93
+      "2022": 40
      },
      "sisc_hurto_carro_tasa": {
-      "2021–2023": 4.97
+      "2022": 2.27
      },
      "sisc_hurto_moto": {
-      "2021–2023": 825
+      "2022": 294
      },
      "sisc_hurto_moto_tasa": {
-      "2021–2023": 44.11
+      "2022": 16.69
      },
      "sisc_hurto_residencia": {
-      "2021–2023": 148
+      "2022": 50
      },
      "sisc_hurto_residencia_tasa": {
-      "2021–2023": 7.91
+      "2022": 2.84
      },
      "sisc_hurto_comercio": {
-      "2021–2023": 286
+      "2022": 135
      },
      "sisc_hurto_comercio_tasa": {
-      "2021–2023": 15.29
+      "2022": 7.66
      },
      "sisc_extorsion_sisc": {
-      "2021–2023": 62
+      "2022": 12
      },
      "sisc_extorsion_sisc_tasa": {
-      "2021–2023": 3.32
+      "2022": 0.68
      },
      "sisc_lesion_dolosa": {
-      "2021–2023": 663
+      "2022": 231
      },
      "sisc_lesion_dolosa_tasa": {
-      "2021–2023": 35.45
+      "2022": 13.12
      }
     }
    },
@@ -4020,52 +4056,52 @@
     "tipo": "Comuna",
     "valores": {
      "sisc_homicidio": {
-      "2021–2023": 81
+      "2022": 35
      },
      "sisc_homicidio_tasa": {
-      "2021–2023": 3.69
+      "2022": 1.77
      },
      "sisc_hurto_persona": {
-      "2021–2023": 4497
+      "2022": 1628
      },
      "sisc_hurto_persona_tasa": {
-      "2021–2023": 204.72
+      "2022": 82.54
      },
      "sisc_hurto_carro": {
-      "2021–2023": 177
+      "2022": 52
      },
      "sisc_hurto_carro_tasa": {
-      "2021–2023": 8.06
+      "2022": 2.64
      },
      "sisc_hurto_moto": {
-      "2021–2023": 1439
+      "2022": 435
      },
      "sisc_hurto_moto_tasa": {
-      "2021–2023": 65.51
+      "2022": 22.05
      },
      "sisc_hurto_residencia": {
-      "2021–2023": 452
+      "2022": 194
      },
      "sisc_hurto_residencia_tasa": {
-      "2021–2023": 20.58
+      "2022": 9.84
      },
      "sisc_hurto_comercio": {
-      "2021–2023": 509
+      "2022": 202
      },
      "sisc_hurto_comercio_tasa": {
-      "2021–2023": 23.17
+      "2022": 10.24
      },
      "sisc_extorsion_sisc": {
-      "2021–2023": 102
+      "2022": 23
      },
      "sisc_extorsion_sisc_tasa": {
-      "2021–2023": 4.64
+      "2022": 1.17
      },
      "sisc_lesion_dolosa": {
-      "2021–2023": 840
+      "2022": 278
      },
      "sisc_lesion_dolosa_tasa": {
-      "2021–2023": 38.24
+      "2022": 14.09
      }
     }
    },
@@ -4075,52 +4111,52 @@
     "tipo": "Comuna",
     "valores": {
      "sisc_homicidio": {
-      "2021–2023": 63
+      "2022": 18
      },
      "sisc_homicidio_tasa": {
-      "2021–2023": 3.44
+      "2022": 1.11
      },
      "sisc_hurto_persona": {
-      "2021–2023": 2701
+      "2022": 993
      },
      "sisc_hurto_persona_tasa": {
-      "2021–2023": 147.53
+      "2022": 61.27
      },
      "sisc_hurto_carro": {
-      "2021–2023": 131
+      "2022": 50
      },
      "sisc_hurto_carro_tasa": {
-      "2021–2023": 7.16
+      "2022": 3.09
      },
      "sisc_hurto_moto": {
-      "2021–2023": 1054
+      "2022": 351
      },
      "sisc_hurto_moto_tasa": {
-      "2021–2023": 57.57
+      "2022": 21.66
      },
      "sisc_hurto_residencia": {
-      "2021–2023": 281
+      "2022": 77
      },
      "sisc_hurto_residencia_tasa": {
-      "2021–2023": 15.35
+      "2022": 4.75
      },
      "sisc_hurto_comercio": {
-      "2021–2023": 244
+      "2022": 96
      },
      "sisc_hurto_comercio_tasa": {
-      "2021–2023": 13.33
+      "2022": 5.92
      },
      "sisc_extorsion_sisc": {
-      "2021–2023": 72
+      "2022": 14
      },
      "sisc_extorsion_sisc_tasa": {
-      "2021–2023": 3.93
+      "2022": 0.86
      },
      "sisc_lesion_dolosa": {
-      "2021–2023": 749
+      "2022": 282
      },
      "sisc_lesion_dolosa_tasa": {
-      "2021–2023": 40.91
+      "2022": 17.4
      }
     }
    },
@@ -4130,52 +4166,52 @@
     "tipo": "Comuna",
     "valores": {
      "sisc_homicidio": {
-      "2021–2023": 45
+      "2022": 18
      },
      "sisc_homicidio_tasa": {
-      "2021–2023": 2.41
+      "2022": 1.09
      },
      "sisc_hurto_persona": {
-      "2021–2023": 3697
+      "2022": 1444
      },
      "sisc_hurto_persona_tasa": {
-      "2021–2023": 197.88
+      "2022": 87.53
      },
      "sisc_hurto_carro": {
-      "2021–2023": 206
+      "2022": 79
      },
      "sisc_hurto_carro_tasa": {
-      "2021–2023": 11.03
+      "2022": 4.79
      },
      "sisc_hurto_moto": {
-      "2021–2023": 1467
+      "2022": 557
      },
      "sisc_hurto_moto_tasa": {
-      "2021–2023": 78.52
+      "2022": 33.76
      },
      "sisc_hurto_residencia": {
-      "2021–2023": 401
+      "2022": 161
      },
      "sisc_hurto_residencia_tasa": {
-      "2021–2023": 21.46
+      "2022": 9.76
      },
      "sisc_hurto_comercio": {
-      "2021–2023": 395
+      "2022": 171
      },
      "sisc_hurto_comercio_tasa": {
-      "2021–2023": 21.14
+      "2022": 10.37
      },
      "sisc_extorsion_sisc": {
-      "2021–2023": 103
+      "2022": 19
      },
      "sisc_extorsion_sisc_tasa": {
-      "2021–2023": 5.51
+      "2022": 1.15
      },
      "sisc_lesion_dolosa": {
-      "2021–2023": 685
+      "2022": 258
      },
      "sisc_lesion_dolosa_tasa": {
-      "2021–2023": 36.66
+      "2022": 15.64
      }
     }
    },
@@ -4185,52 +4221,52 @@
     "tipo": "Comuna",
     "valores": {
      "sisc_homicidio": {
-      "2021–2023": 225
+      "2022": 75
      },
      "sisc_homicidio_tasa": {
-      "2021–2023": 27.81
+      "2022": 9.87
      },
      "sisc_hurto_persona": {
-      "2021–2023": 25089
+      "2022": 10280
      },
      "sisc_hurto_persona_tasa": {
-      "2021–2023": 3101.54
+      "2022": 1353.18
      },
      "sisc_hurto_carro": {
-      "2021–2023": 237
+      "2022": 97
      },
      "sisc_hurto_carro_tasa": {
-      "2021–2023": 29.3
+      "2022": 12.77
      },
      "sisc_hurto_moto": {
-      "2021–2023": 1630
+      "2022": 589
      },
      "sisc_hurto_moto_tasa": {
-      "2021–2023": 201.5
+      "2022": 77.53
      },
      "sisc_hurto_residencia": {
-      "2021–2023": 501
+      "2022": 190
      },
      "sisc_hurto_residencia_tasa": {
-      "2021–2023": 61.93
+      "2022": 25.01
      },
      "sisc_hurto_comercio": {
-      "2021–2023": 2609
+      "2022": 948
      },
      "sisc_hurto_comercio_tasa": {
-      "2021–2023": 322.53
+      "2022": 124.79
      },
      "sisc_extorsion_sisc": {
-      "2021–2023": 346
+      "2022": 104
      },
      "sisc_extorsion_sisc_tasa": {
-      "2021–2023": 42.77
+      "2022": 13.69
      },
      "sisc_lesion_dolosa": {
-      "2021–2023": 2404
+      "2022": 773
      },
      "sisc_lesion_dolosa_tasa": {
-      "2021–2023": 297.19
+      "2022": 101.75
      }
     }
    },
@@ -4240,52 +4276,52 @@
     "tipo": "Comuna",
     "valores": {
      "sisc_homicidio": {
-      "2021–2023": 51
+      "2022": 19
      },
      "sisc_homicidio_tasa": {
-      "2021–2023": 5.03
+      "2022": 1.94
      },
      "sisc_hurto_persona": {
-      "2021–2023": 12346
+      "2022": 5454
      },
      "sisc_hurto_persona_tasa": {
-      "2021–2023": 1216.88
+      "2022": 557.61
      },
      "sisc_hurto_carro": {
-      "2021–2023": 397
+      "2022": 155
      },
      "sisc_hurto_carro_tasa": {
-      "2021–2023": 39.13
+      "2022": 15.85
      },
      "sisc_hurto_moto": {
-      "2021–2023": 670
+      "2022": 278
      },
      "sisc_hurto_moto_tasa": {
-      "2021–2023": 66.04
+      "2022": 28.42
      },
      "sisc_hurto_residencia": {
-      "2021–2023": 1219
+      "2022": 473
      },
      "sisc_hurto_residencia_tasa": {
-      "2021–2023": 120.15
+      "2022": 48.36
      },
      "sisc_hurto_comercio": {
-      "2021–2023": 1492
+      "2022": 576
      },
      "sisc_hurto_comercio_tasa": {
-      "2021–2023": 147.06
+      "2022": 58.89
      },
      "sisc_extorsion_sisc": {
-      "2021–2023": 120
+      "2022": 22
      },
      "sisc_extorsion_sisc_tasa": {
-      "2021–2023": 11.83
+      "2022": 2.25
      },
      "sisc_lesion_dolosa": {
-      "2021–2023": 769
+      "2022": 291
      },
      "sisc_lesion_dolosa_tasa": {
-      "2021–2023": 75.8
+      "2022": 29.75
      }
     }
    },
@@ -4295,52 +4331,52 @@
     "tipo": "Comuna",
     "valores": {
      "sisc_homicidio": {
-      "2021–2023": 16
+      "2022": 4
      },
      "sisc_homicidio_tasa": {
-      "2021–2023": 1.8
+      "2022": 0.47
      },
      "sisc_hurto_persona": {
-      "2021–2023": 3942
+      "2022": 1591
      },
      "sisc_hurto_persona_tasa": {
-      "2021–2023": 443.29
+      "2022": 188.18
      },
      "sisc_hurto_carro": {
-      "2021–2023": 167
+      "2022": 62
      },
      "sisc_hurto_carro_tasa": {
-      "2021–2023": 18.78
+      "2022": 7.33
      },
      "sisc_hurto_moto": {
-      "2021–2023": 579
+      "2022": 250
      },
      "sisc_hurto_moto_tasa": {
-      "2021–2023": 65.11
+      "2022": 29.57
      },
      "sisc_hurto_residencia": {
-      "2021–2023": 549
+      "2022": 147
      },
      "sisc_hurto_residencia_tasa": {
-      "2021–2023": 61.74
+      "2022": 17.39
      },
      "sisc_hurto_comercio": {
-      "2021–2023": 426
+      "2022": 169
      },
      "sisc_hurto_comercio_tasa": {
-      "2021–2023": 47.91
+      "2022": 19.99
      },
      "sisc_extorsion_sisc": {
-      "2021–2023": 84
+      "2022": 14
      },
      "sisc_extorsion_sisc_tasa": {
-      "2021–2023": 9.45
+      "2022": 1.66
      },
      "sisc_lesion_dolosa": {
-      "2021–2023": 387
+      "2022": 137
      },
      "sisc_lesion_dolosa_tasa": {
-      "2021–2023": 43.52
+      "2022": 16.2
      }
     }
    },
@@ -4350,52 +4386,52 @@
     "tipo": "Comuna",
     "valores": {
      "sisc_homicidio": {
-      "2021–2023": 61
+      "2022": 29
      },
      "sisc_homicidio_tasa": {
-      "2021–2023": 3.28
+      "2022": 1.75
      },
      "sisc_hurto_persona": {
-      "2021–2023": 1783
+      "2022": 623
      },
      "sisc_hurto_persona_tasa": {
-      "2021–2023": 95.96
+      "2022": 37.67
      },
      "sisc_hurto_carro": {
-      "2021–2023": 105
+      "2022": 38
      },
      "sisc_hurto_carro_tasa": {
-      "2021–2023": 5.65
+      "2022": 2.3
      },
      "sisc_hurto_moto": {
-      "2021–2023": 674
+      "2022": 252
      },
      "sisc_hurto_moto_tasa": {
-      "2021–2023": 36.27
+      "2022": 15.24
      },
      "sisc_hurto_residencia": {
-      "2021–2023": 245
+      "2022": 69
      },
      "sisc_hurto_residencia_tasa": {
-      "2021–2023": 13.19
+      "2022": 4.17
      },
      "sisc_hurto_comercio": {
-      "2021–2023": 222
+      "2022": 97
      },
      "sisc_hurto_comercio_tasa": {
-      "2021–2023": 11.95
+      "2022": 5.86
      },
      "sisc_extorsion_sisc": {
-      "2021–2023": 95
+      "2022": 19
      },
      "sisc_extorsion_sisc_tasa": {
-      "2021–2023": 5.11
+      "2022": 1.15
      },
      "sisc_lesion_dolosa": {
-      "2021–2023": 629
+      "2022": 201
      },
      "sisc_lesion_dolosa_tasa": {
-      "2021–2023": 33.85
+      "2022": 12.15
      }
     }
    },
@@ -4405,52 +4441,52 @@
     "tipo": "Comuna",
     "valores": {
      "sisc_homicidio": {
-      "2021–2023": 23
+      "2022": 6
      },
      "sisc_homicidio_tasa": {
-      "2021–2023": 2.01
+      "2022": 0.56
      },
      "sisc_hurto_persona": {
-      "2021–2023": 12295
+      "2022": 4817
      },
      "sisc_hurto_persona_tasa": {
-      "2021–2023": 1076.4
+      "2022": 449.53
      },
      "sisc_hurto_carro": {
-      "2021–2023": 78
+      "2022": 21
      },
      "sisc_hurto_carro_tasa": {
-      "2021–2023": 6.83
+      "2022": 1.96
      },
      "sisc_hurto_moto": {
-      "2021–2023": 225
+      "2022": 77
      },
      "sisc_hurto_moto_tasa": {
-      "2021–2023": 19.7
+      "2022": 7.19
      },
      "sisc_hurto_residencia": {
-      "2021–2023": 980
+      "2022": 375
      },
      "sisc_hurto_residencia_tasa": {
-      "2021–2023": 85.8
+      "2022": 35.0
      },
      "sisc_hurto_comercio": {
-      "2021–2023": 1738
+      "2022": 702
      },
      "sisc_hurto_comercio_tasa": {
-      "2021–2023": 152.16
+      "2022": 65.51
      },
      "sisc_extorsion_sisc": {
-      "2021–2023": 88
+      "2022": 21
      },
      "sisc_extorsion_sisc_tasa": {
-      "2021–2023": 7.7
+      "2022": 1.96
      },
      "sisc_lesion_dolosa": {
-      "2021–2023": 567
+      "2022": 202
      },
      "sisc_lesion_dolosa_tasa": {
-      "2021–2023": 49.64
+      "2022": 18.85
      }
     }
    },
@@ -4460,52 +4496,52 @@
     "tipo": "Comuna",
     "valores": {
      "sisc_homicidio": {
-      "2021–2023": 38
+      "2022": 14
      },
      "sisc_homicidio_tasa": {
-      "2021–2023": 5.93
+      "2022": 2.24
      },
      "sisc_hurto_persona": {
-      "2021–2023": 3979
+      "2022": 1618
      },
      "sisc_hurto_persona_tasa": {
-      "2021–2023": 621.21
+      "2022": 259.22
      },
      "sisc_hurto_carro": {
-      "2021–2023": 124
+      "2022": 48
      },
      "sisc_hurto_carro_tasa": {
-      "2021–2023": 19.36
+      "2022": 7.69
      },
      "sisc_hurto_moto": {
-      "2021–2023": 408
+      "2022": 144
      },
      "sisc_hurto_moto_tasa": {
-      "2021–2023": 63.7
+      "2022": 23.07
      },
      "sisc_hurto_residencia": {
-      "2021–2023": 203
+      "2022": 56
      },
      "sisc_hurto_residencia_tasa": {
-      "2021–2023": 31.69
+      "2022": 8.97
      },
      "sisc_hurto_comercio": {
-      "2021–2023": 613
+      "2022": 224
      },
      "sisc_hurto_comercio_tasa": {
-      "2021–2023": 95.7
+      "2022": 35.89
      },
      "sisc_extorsion_sisc": {
-      "2021–2023": 54
+      "2022": 15
      },
      "sisc_extorsion_sisc_tasa": {
-      "2021–2023": 8.43
+      "2022": 2.4
      },
      "sisc_lesion_dolosa": {
-      "2021–2023": 411
+      "2022": 138
      },
      "sisc_lesion_dolosa_tasa": {
-      "2021–2023": 64.17
+      "2022": 22.11
      }
     }
    },
@@ -4515,52 +4551,52 @@
     "tipo": "Comuna",
     "valores": {
      "sisc_homicidio": {
-      "2021–2023": 70
+      "2022": 25
      },
      "sisc_homicidio_tasa": {
-      "2021–2023": 3.12
+      "2022": 1.21
      },
      "sisc_hurto_persona": {
-      "2021–2023": 7744
+      "2022": 2997
      },
      "sisc_hurto_persona_tasa": {
-      "2021–2023": 344.99
+      "2022": 144.86
      },
      "sisc_hurto_carro": {
-      "2021–2023": 210
+      "2022": 81
      },
      "sisc_hurto_carro_tasa": {
-      "2021–2023": 9.36
+      "2022": 3.92
      },
      "sisc_hurto_moto": {
-      "2021–2023": 897
+      "2022": 378
      },
      "sisc_hurto_moto_tasa": {
-      "2021–2023": 39.96
+      "2022": 18.27
      },
      "sisc_hurto_residencia": {
-      "2021–2023": 977
+      "2022": 347
      },
      "sisc_hurto_residencia_tasa": {
-      "2021–2023": 43.53
+      "2022": 16.77
      },
      "sisc_hurto_comercio": {
-      "2021–2023": 815
+      "2022": 278
      },
      "sisc_hurto_comercio_tasa": {
-      "2021–2023": 36.31
+      "2022": 13.44
      },
      "sisc_extorsion_sisc": {
-      "2021–2023": 160
+      "2022": 43
      },
      "sisc_extorsion_sisc_tasa": {
-      "2021–2023": 7.13
+      "2022": 2.08
      },
      "sisc_lesion_dolosa": {
-      "2021–2023": 852
+      "2022": 252
      },
      "sisc_lesion_dolosa_tasa": {
-      "2021–2023": 37.96
+      "2022": 12.18
      }
     }
    },
@@ -4570,52 +4606,52 @@
     "tipo": "Corregimiento",
     "valores": {
      "sisc_homicidio": {
-      "2021–2023": 4
+      "2022": 1
      },
      "sisc_homicidio_tasa": {
-      "2021–2023": 5.59
+      "2022": 1.65
      },
      "sisc_hurto_persona": {
-      "2021–2023": 35
+      "2022": 16
      },
      "sisc_hurto_persona_tasa": {
-      "2021–2023": 48.94
+      "2022": 26.47
      },
      "sisc_hurto_carro": {
-      "2021–2023": 7
+      "2022": 0
      },
      "sisc_hurto_carro_tasa": {
-      "2021–2023": 9.79
+      "2022": 0.0
      },
      "sisc_hurto_moto": {
-      "2021–2023": 7
+      "2022": 4
      },
      "sisc_hurto_moto_tasa": {
-      "2021–2023": 9.79
+      "2022": 6.62
      },
      "sisc_hurto_residencia": {
-      "2021–2023": 8
+      "2022": 1
      },
      "sisc_hurto_residencia_tasa": {
-      "2021–2023": 11.19
+      "2022": 1.65
      },
      "sisc_hurto_comercio": {
-      "2021–2023": 10
+      "2022": 2
      },
      "sisc_hurto_comercio_tasa": {
-      "2021–2023": 13.98
+      "2022": 3.31
      },
      "sisc_extorsion_sisc": {
-      "2021–2023": 0
+      "2022": 0
      },
      "sisc_extorsion_sisc_tasa": {
-      "2021–2023": 0.0
+      "2022": 0.0
      },
      "sisc_lesion_dolosa": {
-      "2021–2023": 21
+      "2022": 8
      },
      "sisc_lesion_dolosa_tasa": {
-      "2021–2023": 29.37
+      "2022": 13.23
      }
     }
    },
@@ -4625,52 +4661,52 @@
     "tipo": "Corregimiento",
     "valores": {
      "sisc_homicidio": {
-      "2021–2023": 69
+      "2022": 26
      },
      "sisc_homicidio_tasa": {
-      "2021–2023": 3.88
+      "2022": 1.87
      },
      "sisc_hurto_persona": {
-      "2021–2023": 1384
+      "2022": 463
      },
      "sisc_hurto_persona_tasa": {
-      "2021–2023": 77.88
+      "2022": 33.34
      },
      "sisc_hurto_carro": {
-      "2021–2023": 79
+      "2022": 27
      },
      "sisc_hurto_carro_tasa": {
-      "2021–2023": 4.45
+      "2022": 1.94
      },
      "sisc_hurto_moto": {
-      "2021–2023": 534
+      "2022": 215
      },
      "sisc_hurto_moto_tasa": {
-      "2021–2023": 30.05
+      "2022": 15.48
      },
      "sisc_hurto_residencia": {
-      "2021–2023": 218
+      "2022": 80
      },
      "sisc_hurto_residencia_tasa": {
-      "2021–2023": 12.27
+      "2022": 5.76
      },
      "sisc_hurto_comercio": {
-      "2021–2023": 122
+      "2022": 52
      },
      "sisc_hurto_comercio_tasa": {
-      "2021–2023": 6.87
+      "2022": 3.74
      },
      "sisc_extorsion_sisc": {
-      "2021–2023": 62
+      "2022": 22
      },
      "sisc_extorsion_sisc_tasa": {
-      "2021–2023": 3.49
+      "2022": 1.58
      },
      "sisc_lesion_dolosa": {
-      "2021–2023": 430
+      "2022": 154
      },
      "sisc_lesion_dolosa_tasa": {
-      "2021–2023": 24.2
+      "2022": 11.09
      }
     }
    },
@@ -4680,52 +4716,52 @@
     "tipo": "Corregimiento",
     "valores": {
      "sisc_homicidio": {
-      "2021–2023": 23
+      "2022": 7
      },
      "sisc_homicidio_tasa": {
-      "2021–2023": 4.75
+      "2022": 1.67
      },
      "sisc_hurto_persona": {
-      "2021–2023": 280
+      "2022": 152
      },
      "sisc_hurto_persona_tasa": {
-      "2021–2023": 57.88
+      "2022": 36.26
      },
      "sisc_hurto_carro": {
-      "2021–2023": 7
+      "2022": 4
      },
      "sisc_hurto_carro_tasa": {
-      "2021–2023": 1.45
+      "2022": 0.95
      },
      "sisc_hurto_moto": {
-      "2021–2023": 56
+      "2022": 34
      },
      "sisc_hurto_moto_tasa": {
-      "2021–2023": 11.58
+      "2022": 8.11
      },
      "sisc_hurto_residencia": {
-      "2021–2023": 63
+      "2022": 16
      },
      "sisc_hurto_residencia_tasa": {
-      "2021–2023": 13.02
+      "2022": 3.82
      },
      "sisc_hurto_comercio": {
-      "2021–2023": 25
+      "2022": 15
      },
      "sisc_hurto_comercio_tasa": {
-      "2021–2023": 5.17
+      "2022": 3.58
      },
      "sisc_extorsion_sisc": {
-      "2021–2023": 11
+      "2022": 8
      },
      "sisc_extorsion_sisc_tasa": {
-      "2021–2023": 2.27
+      "2022": 1.91
      },
      "sisc_lesion_dolosa": {
-      "2021–2023": 83
+      "2022": 41
      },
      "sisc_lesion_dolosa_tasa": {
-      "2021–2023": 17.16
+      "2022": 9.78
      }
     }
    },
@@ -4735,52 +4771,52 @@
     "tipo": "Corregimiento",
     "valores": {
      "sisc_homicidio": {
-      "2021–2023": 19
+      "2022": 6
      },
      "sisc_homicidio_tasa": {
-      "2021–2023": 1.44
+      "2022": 0.55
      },
      "sisc_hurto_persona": {
-      "2021–2023": 786
+      "2022": 264
      },
      "sisc_hurto_persona_tasa": {
-      "2021–2023": 59.56
+      "2022": 24.42
      },
      "sisc_hurto_carro": {
-      "2021–2023": 45
+      "2022": 16
      },
      "sisc_hurto_carro_tasa": {
-      "2021–2023": 3.41
+      "2022": 1.48
      },
      "sisc_hurto_moto": {
-      "2021–2023": 298
+      "2022": 155
      },
      "sisc_hurto_moto_tasa": {
-      "2021–2023": 22.58
+      "2022": 14.34
      },
      "sisc_hurto_residencia": {
-      "2021–2023": 150
+      "2022": 53
      },
      "sisc_hurto_residencia_tasa": {
-      "2021–2023": 11.37
+      "2022": 4.9
      },
      "sisc_hurto_comercio": {
-      "2021–2023": 143
+      "2022": 49
      },
      "sisc_hurto_comercio_tasa": {
-      "2021–2023": 10.84
+      "2022": 4.53
      },
      "sisc_extorsion_sisc": {
-      "2021–2023": 64
+      "2022": 12
      },
      "sisc_extorsion_sisc_tasa": {
-      "2021–2023": 4.85
+      "2022": 1.11
      },
      "sisc_lesion_dolosa": {
-      "2021–2023": 338
+      "2022": 118
      },
      "sisc_lesion_dolosa_tasa": {
-      "2021–2023": 25.61
+      "2022": 10.91
      }
     }
    },
@@ -4790,52 +4826,52 @@
     "tipo": "Corregimiento",
     "valores": {
      "sisc_homicidio": {
-      "2021–2023": 19
+      "2022": 5
      },
      "sisc_homicidio_tasa": {
-      "2021–2023": 5.19
+      "2022": 1.77
      },
      "sisc_hurto_persona": {
-      "2021–2023": 707
+      "2022": 374
      },
      "sisc_hurto_persona_tasa": {
-      "2021–2023": 193.14
+      "2022": 132.12
      },
      "sisc_hurto_carro": {
-      "2021–2023": 33
+      "2022": 16
      },
      "sisc_hurto_carro_tasa": {
-      "2021–2023": 9.01
+      "2022": 5.65
      },
      "sisc_hurto_moto": {
-      "2021–2023": 79
+      "2022": 49
      },
      "sisc_hurto_moto_tasa": {
-      "2021–2023": 21.58
+      "2022": 17.31
      },
      "sisc_hurto_residencia": {
-      "2021–2023": 120
+      "2022": 63
      },
      "sisc_hurto_residencia_tasa": {
-      "2021–2023": 32.78
+      "2022": 22.26
      },
      "sisc_hurto_comercio": {
-      "2021–2023": 90
+      "2022": 48
      },
      "sisc_hurto_comercio_tasa": {
-      "2021–2023": 24.59
+      "2022": 16.96
      },
      "sisc_extorsion_sisc": {
-      "2021–2023": 6
+      "2022": 3
      },
      "sisc_extorsion_sisc_tasa": {
-      "2021–2023": 1.64
+      "2022": 1.06
      },
      "sisc_lesion_dolosa": {
-      "2021–2023": 116
+      "2022": 52
      },
      "sisc_lesion_dolosa_tasa": {
-      "2021–2023": 31.69
+      "2022": 18.37
      }
     }
    }

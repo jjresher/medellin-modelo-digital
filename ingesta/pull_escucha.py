@@ -199,14 +199,16 @@ def ingestar_wikipedia(t):
         nota = f'{definicion} Artículo «{articulo["titulo"]}» de Wikipedia en {idioma} y {len(articulo["redirecciones"])} redirecciones.'
         actual, anterior = suma(serie, doce), suma(serie, previos)
         t.cifra(f'wiki_medellin_{proyecto}_12m', actual, 'vistas', f'Vistas del artículo Medellín · Wikipedia en {idioma}',
-                'wikimedia-pageviews', vig12, ancla=proyecto == 'es', nota=nota)
+                'wikimedia-pageviews', vig12, ancla=proyecto == 'es', nota=nota,
+                proxy='el interés de las personas por la ciudad')
         t.cifra(f'wiki_medellin_{proyecto}_variacion_12m', variacion(actual, anterior), '%',
                 f'Variación de las vistas · Wikipedia en {idioma}', 'wikimedia-pageviews', f'{vig12} frente a {vig_previos}',
                 estado='derivado', decimales=1,
                 nota=f'Vistas de los últimos 12 meses ({miles(actual)}) frente a las de los 12 anteriores ({miles(anterior)}).')
         meses = sorted(m for m in serie if m <= ultimo)
         t.serie(f'wiki_medellin_{proyecto}_mensual', [[etiqueta_mes(m), serie[m]] for m in meses], 'vistas',
-                f'Vistas mensuales del artículo Medellín · Wikipedia en {idioma}', 'wikimedia-pageviews', nota=nota)
+                f'Vistas mensuales del artículo Medellín · Wikipedia en {idioma}', 'wikimedia-pageviews', nota=nota,
+                proxy='el interés de las personas por la ciudad')
         t.serie(f'wiki_medellin_{proyecto}_por_millon', [[etiqueta_mes(m), round(serie[m] / sitio[proyecto][m] * 1e6, 2)]
                                                          for m in meses if sitio[proyecto].get(m)],
                 'vistas por millón', f'Vistas del artículo Medellín por millón de vistas de Wikipedia en {idioma}',
@@ -302,10 +304,17 @@ REGLAS_RUIDO = [
                                   'o Medellín (Badajoz, España)'),
     ('otro_sujeto', 'Medellín como nombre propio', 'el titular habla de la Lotería de Medellín o de los resultados de '
                                                    'las loterías, no de la ciudad'),
+    ('persona', 'Hechos que le ocurrieron a una persona', 'el titular cuenta una muerte, una captura, un ataque o una desaparición de '
+                                                         'alguien: es el dato de una persona, y no se publica'),
     ('duplicado', 'Titular repetido', 'el mismo titular ya está en la lista, publicado por otro medio o en otra fecha'),
 ]
 NOMBRA_MEDELLIN = re.compile(r'\bmedell[ií]n\b', re.I)
 OTRO_SUJETO = re.compile(r'\blo?ter[ií]as?\b', re.I)
+# Verbos y palabras con que un titular cuenta lo que le pasó a alguien. "Medellín logra su menor tasa de homicidios" no entra:
+# habla de una cifra, no de una persona.
+PERSONA = re.compile(r'\b(falleci\w*|muri[oó]\w*|muere\w*|mueren|murieron|asesin(ad|o|ó|an|aron)\w*|homicidio de|capturad\w*|captura de|'
+                     r'alias|v[ií]ctima\w*|desaparecid\w*|sin vida|abus(o|ó|ad)\w*|viol(ó|aci[oó]n)\w*|feminicid\w*|sicari\w*|'
+                     r'apu[ñn]ala\w*|bale(ad|ó)\w*|herid[oa]s?|cad[aá]ver|cuerpo)\b', re.I)
 HOMONIMOS = re.compile(r'\b(cebu|cebú|filipinas|philippines|veracruz|medell[ií]n de bravo|badajoz|extremadura)\b', re.I)
 
 # Temas: palabras clave en el titular, en español y algunas en inglés. Cada palabra es un comienzo de palabra ("homicid"
@@ -423,6 +432,8 @@ def filtrar_titulares(articulos):
             sacados['homonimo'] += 1
         elif OTRO_SUJETO.search(titulo):
             sacados['otro_sujeto'] += 1
+        elif PERSONA.search(titulo):
+            sacados['persona'] += 1
         elif clave_titular(titulo) in vistos:
             sacados['duplicado'] += 1
         else:
@@ -465,11 +476,13 @@ def ingestar_volumen(t, g):
         nota += (f' GDELT no publica datos de {len(sin_dato)} días de la ventana ({", ".join(fecha_corta(d) for d in sin_dato)}); '
                  'se muestran como hueco.')
     t.cifra('prensa_menciones_90d', total, 'artículos', f'Artículos de prensa que nombran a Medellín · {DIAS} días',
-            'gdelt-volumen', vigencia, ancla=True, nota=nota)
+            'gdelt-volumen', vigencia, ancla=True, nota=nota,
+            proxy='la atención de los medios sobre la ciudad')
     t.cifra('prensa_menciones_dia', round(total / len(puntos)), 'artículos/día', 'Promedio diario de artículos',
             'gdelt-volumen', vigencia, estado='derivado', nota=f'Total de la ventana dividido por los {len(puntos)} días con dato.')
     t.serie('prensa_menciones_diarias', [[fecha_corta(d), puntos[d]['value'] if d in puntos else None] for d in dias],
-            'artículos', 'Artículos de prensa que nombran a Medellín, por día', 'gdelt-volumen', nota=nota)
+            'artículos', 'Artículos de prensa que nombran a Medellín, por día', 'gdelt-volumen', nota=nota,
+            proxy='la atención de los medios sobre la ciudad')
     t.serie('prensa_menciones_por_millon',
             [[fecha_corta(d), round(puntos[d]['value'] / puntos[d]['norm'] * 1e6) if d in puntos and puntos[d].get('norm') else None]
              for d in dias],

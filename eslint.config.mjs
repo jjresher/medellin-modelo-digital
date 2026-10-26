@@ -9,7 +9,7 @@ const config = [
     languageOptions: { globals: { ...globals.browser, ...globals.node } },
     rules: { 'no-undef': 'error', 'no-unused-vars': ['warn', { args: 'none', ignoreRestSiblings: true, caughtErrors: 'none' }] }
   },
-  { ignores: ['.next/**', '.cache/**', '.venv/**', '.herramientas/**', 'node_modules/**', 'public/**', 'datos/**', 'next.config.mjs'] }
+  { ignores: ['.next/**', '.cache/**', '.venv/**', '.herramientas/**', 'node_modules/**', 'public/**', 'datos/**', 'exploracion/**/node_modules/**', 'exploracion/**/.venv/**', 'exploracion/**/dist/**', 'exploracion/**/.observablehq/**', 'next.config.mjs'] }
 ];
 
 export default config;

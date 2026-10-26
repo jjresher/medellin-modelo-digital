@@ -160,7 +160,8 @@ function Vivienda({ tema, onSource }) {
                 <th>Ofertas</th>
                 <th>Arriendo $/m² mes</th>
                 <th>Ofertas</th>
-                <th>Rentab. bruta</th>
+                <th>Ofertas de apartamentos (venta / arriendo)</th>
+                <th>Rentab. bruta (apartamentos)</th>
               </tr>
             </thead>
             <tbody>
@@ -171,6 +172,7 @@ function Vivienda({ tema, onSource }) {
                   <td>{formato(e.ofertas_venta)}</td>
                   <td>{e.arriendo_m2 ? formato(e.arriendo_m2) : '—'}</td>
                   <td>{formato(e.ofertas_arriendo)}</td>
+                  <td>{e.ofertas_venta_apto == null ? '—' : `${formato(e.ofertas_venta_apto)} / ${formato(e.ofertas_arriendo_apto)}`}</td>
                   <td>{e.rentabilidad_bruta == null ? '—' : `${formato(e.rentabilidad_bruta, 1)} %`}</td>
                 </tr>
               ))}

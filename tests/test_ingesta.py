@@ -137,5 +137,57 @@ class VigenciaDelCatalogo(unittest.TestCase):
         self.assertEqual(correr.vigencia_de(tema_valido(cifras={}), 'f1'), '')
 
 
+class FichasDelCatalogo(unittest.TestCase):
+    def verificar(self, datasets):
+        inf = verificar.Informe()
+        verificar.verificar_fichas({'datasets': datasets}, inf)
+        return inf
+
+    def ficha(self, **cambios):
+        base = {'id': 'x', 'codigo': 'F001', 'licencia': 'CC BY 4.0', 'licencia_url': 'https://a.co', 'licencia_probada': '2026-10-24',
+                'personas': 'No: la fuente no trae datos de personas.', 'proteccion': 'Abierto'}
+        return {**base, **cambios}
+
+    def test_una_ficha_completa_pasa(self):
+        self.assertEqual(self.verificar([self.ficha()]).errores, [])
+
+    def test_sin_licencia_o_sin_codigo_falla(self):
+        self.assertTrue(self.verificar([self.ficha(licencia='')]).errores)
+        self.assertTrue(self.verificar([self.ficha(codigo='1')]).errores)
+
+    def test_codigo_repetido_falla(self):
+        self.assertTrue(self.verificar([self.ficha(), self.ficha(id='y')]).errores)
+
+    def test_licencia_sin_verificar_es_aviso_no_error(self):
+        inf = self.verificar([self.ficha(licencia='Sin verificar: la fuente no respondió')])
+        self.assertEqual(inf.errores, [])
+        self.assertTrue(inf.avisos)
+
+    def test_datos_de_personas_no_pueden_quedar_abiertos_a_secas(self):
+        self.assertTrue(self.verificar([self.ficha(personas='Sí: sexo y edad de la víctima.', proteccion='Abierto')]).errores)
+        self.assertEqual(self.verificar([self.ficha(personas='Sí: sexo y edad de la víctima.', proteccion='Abierto, solo agregados: conteos')]).errores, [])
+
+
+class CamposDePersona(unittest.TestCase):
+    def test_encuentra_un_campo_de_persona_en_listas_y_propiedades(self):
+        self.assertEqual(list(verificar.campos_de_persona({'listas': {'x': [{'sexo': 'M', 'casos': 1}]}})), ['/listas/x[0]/sexo'])
+        self.assertEqual(list(verificar.campos_de_persona({'features': [{'properties': {'edad': 30}}]})), ['/features[0]/properties/edad'])
+
+    def test_una_metrica_llamada_ocupacion_no_es_un_campo(self):
+        self.assertEqual(list(verificar.campos_de_persona({'cifras': {'ocupacion': {'valor': 60}}})), [])
+
+    def test_lo_publicado_no_trae_campos_de_persona(self):
+        inf = verificar.Informe()
+        verificar.verificar_personas(inf)
+        self.assertEqual(inf.errores, [])
+
+
+class SiniestrosAgregados(unittest.TestCase):
+    def test_el_punto_va_al_centro_de_su_celda(self):
+        import pull_lentes
+        self.assertEqual(pull_lentes.centro_de_celda(-75.5593), -75.5595)
+        self.assertEqual(pull_lentes.centro_de_celda(6.26691), 6.2665)
+
+
 if __name__ == '__main__':
     unittest.main()

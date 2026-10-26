@@ -22,6 +22,7 @@ const SECCIONES = lista
   ? lista.split(',')
   : [
       'panorama',
+      'questions',
       'twin',
       'people',
       'economy',

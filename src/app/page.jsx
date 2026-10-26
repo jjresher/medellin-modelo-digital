@@ -2,12 +2,16 @@
 
 import dynamic from 'next/dynamic';
 import { useCallback, useEffect, useMemo, useRef, useState, useSyncExternalStore } from 'react';
+import Estado from '../components/Estado';
 import Buscador from '../components/shell/Buscador';
 import EstadoLago from '../components/shell/EstadoLago';
+import PieEquipo from '../components/shell/PieEquipo';
 import Presentacion from '../components/shell/Presentacion';
 import RelojClima from '../components/shell/RelojClima';
 import SourcesView from '../components/SourcesView';
+import { equipo } from '../data/equipo';
 import { navigation } from '../data/navegacion';
+import { CatalogoContext, porId } from '../lib/catalogo';
 import { consultaGemelo } from '../lib/buscador';
 import { formatoUnidad, formatoValor, useLago } from '../lib/lago';
 import { fuenteDe, hashDe, leerRuta, tituloDe } from '../lib/ruta';
@@ -15,6 +19,10 @@ import { fuenteDe, hashDe, leerRuta, tituloDe } from '../lib/ruta';
 const PanoramaView = dynamic(() => import('../components/PanoramaView'), {
   ssr: false,
   loading: () => <div className="view-loading">Cargando el panorama…</div>
+});
+const PreguntasView = dynamic(() => import('../components/PreguntasView'), {
+  ssr: false,
+  loading: () => <div className="view-loading">Cargando las preguntas…</div>
 });
 const DigitalTwinView = dynamic(() => import('../components/DigitalTwinView'), {
   ssr: false,
@@ -73,6 +81,7 @@ const vistas = {
   twin: ({ lago, vistaGemelo }) => (
     <DigitalTwinView key={vistaGemelo} gemelo={lago.temas.gemelo} lentes={lago.temas.lentes} catalogo={lago.catalogo} />
   ),
+  questions: ({ lago, onSource }) => <PreguntasView lago={lago} onSource={onSource} />,
   people: ({ lago, onSource }) => <GenteView tema={lago.temas.demografia} onSource={onSource} />,
   economy: ({ lago, onSource }) => <EconomiaView tema={lago.temas.economia} onSource={onSource} />,
   tourism: ({ lago, onSource }) => <TurismoView tema={lago.temas.turismo} onSource={onSource} />,
@@ -137,6 +146,11 @@ function Sidebar({ active, onNavigate, isOpen, onClose, lago }) {
           </button>
         ))}
       </nav>
+      <p className="sidebar-equipo">
+        {equipo.integrantes.map((nombre) => (
+          <span key={nombre}>{nombre}</span>
+        ))}
+      </p>
       <EstadoLago
         lago={lago}
         onNavigate={(id) => {
@@ -175,8 +189,8 @@ function AvisoCifra({ cifra, onCerrar }) {
           {cifra.etiqueta}: {formatoValor(cifra)}
           {unidad && ` ${unidad}`}
         </strong>{' '}
-        ({cifra.vigencia} · <span className={`estado ${cifra.estado}`}>{cifra.estado}</span>). {cifra.nombreSeccion} no muestra esta cifra en una
-        tarjeta: está en una gráfica, detrás de un selector o en el mapa.
+        ({cifra.vigencia} · <Estado item={cifra} />
+        ). {cifra.nombreSeccion} no muestra esta cifra en una tarjeta: está en una gráfica, detrás de un selector o en el mapa.
       </p>
       <button onClick={onCerrar} aria-label="Cerrar aviso">
         ×
@@ -187,6 +201,7 @@ function AvisoCifra({ cifra, onCerrar }) {
 
 export default function Home() {
   const lago = useLago();
+  const fuentes = useMemo(() => porId(lago.catalogo), [lago.catalogo]);
   const hash = useSyncExternalStore(suscribirRuta, hashActual, sinHash);
   const ruta = useMemo(() => leerRuta(hash), [hash]);
   const mac = useSyncExternalStore(sinSuscripcion, esMac, noEsMac);
@@ -289,53 +304,56 @@ export default function Home() {
   const fuenteClima = lago.catalogo?.datasets.find((d) => d.id === 'open-meteo');
   const Vista = vistas[active];
   return (
-    <div className={`app-shell ${presentando ? 'presentando' : ''}`}>
-      <button className="saltar" onClick={saltarAlContenido}>
-        Saltar al contenido
-      </button>
-      <Sidebar active={active} onNavigate={navigate} isOpen={menuOpen} onClose={() => setMenuOpen(false)} lago={lago} />
-      <main className="workspace" ref={main} tabIndex={-1}>
-        <header className="topbar">
-          <button className="menu-button" onClick={() => setMenuOpen(true)} aria-label="Abrir menú">
-            ☰
-          </button>
-          <div className="topbar-ruta">
-            <span className="topbar-modelo">MODELO DIGITAL</span>
-            <span className="topbar-sep">/</span> <strong>{current}</strong>
-          </div>
-          <div className="topbar-acciones">
-            <button
-              className="topbar-buscar"
-              onClick={() => setBuscando(true)}
-              aria-label="Buscar secciones, cifras y lugares"
-              aria-keyshortcuts="Control+K Meta+K"
-              title={`Buscar secciones, cifras y lugares (${mac ? '⌘K' : 'Ctrl+K'})`}
-            >
-              <span aria-hidden="true">⌕</span>
-              <b>Buscar</b>
-              <kbd>{mac ? '⌘K' : 'Ctrl K'}</kbd>
+    <CatalogoContext.Provider value={fuentes}>
+      <div className={`app-shell ${presentando ? 'presentando' : ''}`}>
+        <button className="saltar" onClick={saltarAlContenido}>
+          Saltar al contenido
+        </button>
+        <Sidebar active={active} onNavigate={navigate} isOpen={menuOpen} onClose={() => setMenuOpen(false)} lago={lago} />
+        <main className="workspace" ref={main} tabIndex={-1}>
+          <header className="topbar">
+            <button className="menu-button" onClick={() => setMenuOpen(true)} aria-label="Abrir menú">
+              ☰
             </button>
-            <RelojClima fuente={fuenteClima} onSource={openSource} onNavigate={navigate} />
-            <button
-              className="topbar-presentar"
-              onClick={() => setPresentando(true)}
-              aria-label="Modo presentación"
-              title="Modo presentación: recorre las secciones a pantalla completa"
-            >
-              <span aria-hidden="true">▶</span>
-              <b>Presentar</b>
-            </button>
-            <button className="source-shortcut" onClick={() => navigate('sources')}>
-              Fuentes <span>↗</span>
-            </button>
-          </div>
-        </header>
-        {active === 'panorama' && <PanoramaView lago={lago} onSource={openSource} onTwin={(query = '') => navigate('twin', { query })} />}
-        {Vista && <Vista lago={lago} vistaGemelo={vistaGemelo} onSource={openSource} focusId={fuenteDe(ruta)} />}
-      </main>
-      {sinTarjeta && <AvisoCifra cifra={sinTarjeta} onCerrar={() => setSinTarjeta(null)} />}
-      {buscando && <Buscador lago={lago} onCerrar={() => setBuscando(false)} onElegir={elegir} />}
-      {presentando && <Presentacion activo={active} onIr={(id) => navigate(id, { replace: true })} onSalir={() => setPresentando(false)} />}
-    </div>
+            <div className="topbar-ruta">
+              <span className="topbar-modelo">MODELO DIGITAL</span>
+              <span className="topbar-sep">/</span> <strong>{current}</strong>
+            </div>
+            <div className="topbar-acciones">
+              <button
+                className="topbar-buscar"
+                onClick={() => setBuscando(true)}
+                aria-label="Buscar secciones, cifras y lugares"
+                aria-keyshortcuts="Control+K Meta+K"
+                title={`Buscar secciones, cifras y lugares (${mac ? '⌘K' : 'Ctrl+K'})`}
+              >
+                <span aria-hidden="true">⌕</span>
+                <b>Buscar</b>
+                <kbd>{mac ? '⌘K' : 'Ctrl K'}</kbd>
+              </button>
+              <RelojClima fuente={fuenteClima} onSource={openSource} onNavigate={navigate} />
+              <button
+                className="topbar-presentar"
+                onClick={() => setPresentando(true)}
+                aria-label="Modo presentación"
+                title="Modo presentación: recorre las secciones a pantalla completa"
+              >
+                <span aria-hidden="true">▶</span>
+                <b>Presentar</b>
+              </button>
+              <button className="source-shortcut" onClick={() => navigate('sources')}>
+                Fuentes <span>↗</span>
+              </button>
+            </div>
+          </header>
+          {active === 'panorama' && <PanoramaView lago={lago} onSource={openSource} onTwin={(query = '') => navigate('twin', { query })} />}
+          {Vista && <Vista lago={lago} vistaGemelo={vistaGemelo} onSource={openSource} focusId={fuenteDe(ruta)} />}
+          <PieEquipo />
+        </main>
+        {sinTarjeta && <AvisoCifra cifra={sinTarjeta} onCerrar={() => setSinTarjeta(null)} />}
+        {buscando && <Buscador lago={lago} onCerrar={() => setBuscando(false)} onElegir={elegir} />}
+        {presentando && <Presentacion activo={active} onIr={(id) => navigate(id, { replace: true })} onSalir={() => setPresentando(false)} />}
+      </div>
+    </CatalogoContext.Provider>
   );
 }

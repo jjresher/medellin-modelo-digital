@@ -10,6 +10,7 @@ import { accent } from './charts/tokens';
 import MetricCard from './MetricCard';
 import MapaTerritorios from './territorios/MapaTerritorios';
 import { Procedencia, formato, formatoIndicador, unidadCorta } from './territorios/PanelTerritorios';
+import Estado from './Estado';
 
 // Atlas de comunas y barrios. No tiene un tema propio en el lago: junta las métricas por territorio que publica cada
 // tema (src/lib/atlas.js elige cuáles) y las compara en un mapa, un ranking y una ficha con el puesto de cada territorio.
@@ -89,7 +90,7 @@ function Fichas({ grupos, titulos, metricas, codigo, activa, onMetrica }) {
                       <tr key={m.id} className={m.id === activa ? 'activo' : ''}>
                         <td>
                           <button onClick={() => onMetrica(m)}>{m.ind.etiqueta}</button>{' '}
-                          <span className={`estado ${m.ind.estado}`}>{m.ind.estado}</span>
+                          <Estado item={m.ind} />
                         </td>
                         <td>{m.anio}</td>
                         <td>{valor == null ? 'sin dato' : conUnidad(valor, m.ind)}</td>

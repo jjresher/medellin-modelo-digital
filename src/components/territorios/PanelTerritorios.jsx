@@ -4,6 +4,7 @@ import { useMemo, useState } from 'react';
 import BarChart from '../charts/BarChart';
 import LineChart from '../charts/LineChart';
 import { accent } from '../charts/tokens';
+import Estado from '../Estado';
 
 // Ranking y ficha de las 16 comunas y 5 corregimientos para cualquier tema del lago que traiga las listas
 // `indicadores` y `territorios` (contrato de lago.Territorios). Lo usan Gente y Economía, y lo usará el Atlas.
@@ -29,7 +30,7 @@ export function Procedencia({ indicador, fuentes, onSource }) {
   return (
     <p className="procedencia">
       <span>Vigencia: {minusculaInicial(indicador.vigencia)}</span>
-      <span className={`estado ${indicador.estado}`}>{indicador.estado}</span>
+      <Estado item={indicador} />
       {fuente && <button onClick={() => onSource(fuente.id)}>{fuente.entidad} ↗</button>}
     </p>
   );
@@ -160,7 +161,7 @@ export default function PanelTerritorios({
                   return (
                     <tr key={k} className={k === clave ? 'activo' : ''}>
                       <td>
-                        {i.etiqueta} <span className={`estado ${i.estado}`}>{i.estado}</span>
+                        {i.etiqueta} <Estado item={i} />
                       </td>
                       <td>{a ?? '—'}</td>
                       <td>{v == null ? 'sin dato' : `${formatoIndicador(v, i)} ${unidadCorta(i)}`.trim()}</td>

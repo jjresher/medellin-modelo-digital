@@ -415,7 +415,7 @@ def internet(t):
     if not urls:
         raise RuntimeError('La ficha del MinTIC no enlaza el CSV de accesos de internet fijo')
     fuente = t.fuente('mintic-internet-fijo', 'Accesos a internet fijo por municipio, segmento y tecnología',
-                      'Ministerio de Tecnologías de la Información y las Comunicaciones', urls[0])
+                      'Comisión de Regulación de Comunicaciones (CRC) · Postdata', urls[0])
     por_trimestre, por_segmento = collections.Counter(), collections.Counter()
     with open(archivo_internet(urls[0]), encoding='utf-8-sig', newline='') as archivo:
         lector = csv.DictReader(archivo, delimiter=';')

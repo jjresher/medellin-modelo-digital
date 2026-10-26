@@ -33,3 +33,9 @@ datos/crudos/
 
 # Configuración local de desarrollo (IP del computador para abrir la app desde el celular)
 next.config.mjs
+
+# Pruebas de herramientas (exploracion/): entornos y salidas que se regeneran
+exploracion/**/node_modules/
+exploracion/**/dist/
+exploracion/**/.venv/
+exploracion/**/.observablehq/cache/

@@ -155,6 +155,17 @@ def poblacion():
     return salida, max(anios)
 
 
+def poblacion_en(anio):
+    """Población de cada territorio en ESE año (total DANE del año repartido según el DAP de ese año). Los m² por habitante
+    dividen un inventario de un año entre los habitantes de ese mismo año, no entre los de hoy."""
+    datos = json.loads(DEMOGRAFIA.read_text(encoding='utf-8'))
+    filas = datos['listas'].get('poblacion_anual_por_territorio', [])
+    salida = {f['codigo']: f['valores'][str(anio)] for f in filas if str(anio) in f['valores']}
+    if not salida:
+        raise RuntimeError(f'demografia.json no trae la población de {anio}: corre antes pull_demografia')
+    return salida
+
+
 # ---------------------------------------------------------------- amenazas y riesgo
 
 def amenazas(t, terr, cruce):
@@ -419,7 +430,9 @@ def equipamientos(t, terr, cruce, pob, anio_pob):
 
 # ---------------------------------------------------------------- espacio verde y espacio público
 
-def espacio_verde(t, terr, pob, anio_pob):
+def espacio_verde(t, terr):
+    anio_inv = 2019
+    pob, anio_pob = poblacion_en(anio_inv), anio_inv
     fuente = t.fuente('amva-espacio-verde', 'Espacio verde urbano (EVU) del Sistema Árbol Urbano',
                       'Área Metropolitana del Valle de Aburrá y Universidad Nacional (Alcaldía de Medellín)', f'{ARBOL}/5')
     # La capa cubre todo el Valle de Aburrá y no dice en qué municipio está cada polígono. Traer sus 195.000 geometrías
@@ -450,25 +463,25 @@ def espacio_verde(t, terr, pob, anio_pob):
     terr.indicador('ha_espacio_verde', 'Espacio verde urbano', 'ha', fuente, vigencia, decimales=1, nota=nota)
     terr.indicador('m2_verde_hab', 'Espacio verde urbano por habitante', 'm²/hab.', fuente, f'{vigencia}; población {anio_pob}',
                    estado='derivado', decimales=1,
-                   nota=f'Espacio verde de 2019 sobre la población proyectada por el DANE para {anio_pob}: los dos datos no son del mismo año. {nota}')
+                   nota=f'Espacio verde del inventario de {anio_inv} sobre la población de {anio_pob} (total DANE de ese año repartido según el DAP): inventario y población son del mismo año. {nota}')
     terr.indicador('m2_verde_publico_hab', 'Espacio verde público por habitante', 'm²/hab.', fuente, f'{vigencia}; población {anio_pob}',
                    estado='derivado', decimales=1, nota='Solo los polígonos de propiedad pública o fiscal.')
     for codigo in terr.filas:
-        terr.valor(codigo, 'ha_espacio_verde', 2019, round(total[codigo], 1))
+        terr.valor(codigo, 'ha_espacio_verde', anio_inv, round(total[codigo], 1))
         if pob.get(codigo):
-            terr.valor(codigo, 'm2_verde_hab', 2019, round(total[codigo] * 1e4 / pob[codigo], 1))
-            terr.valor(codigo, 'm2_verde_publico_hab', 2019, round(publico[codigo] * 1e4 / pob[codigo], 1))
+            terr.valor(codigo, 'm2_verde_hab', anio_inv, round(total[codigo] * 1e4 / pob[codigo], 1))
+            terr.valor(codigo, 'm2_verde_publico_hab', anio_inv, round(publico[codigo] * 1e4 / pob[codigo], 1))
     ha_total, ha_publico, habitantes = sum(total.values()), sum(publico.values()), sum(pob.values())
     t.cifra('ha_espacio_verde', round(ha_total), 'ha', 'Espacio verde urbano', fuente, vigencia,
             nota=f'{miles(ha_publico)} ha son de propiedad pública o fiscal. {nota}')
     t.cifra('m2_verde_hab', round(ha_total * 1e4 / habitantes, 1), 'm²/hab.', 'Espacio verde urbano por habitante', fuente,
             f'{vigencia}; población {anio_pob}', estado='derivado', decimales=1, ancla=True,
-            nota=f'Espacio verde de 2019 sobre la población proyectada por el DANE para {anio_pob}.')
+            nota=f'Espacio verde del inventario de {anio_inv} sobre la población de {anio_pob}.')
     t.cifra('m2_verde_publico_hab', round(ha_publico * 1e4 / habitantes, 1), 'm²/hab.', 'Espacio verde público por habitante',
             fuente, f'{vigencia}; población {anio_pob}', estado='derivado', decimales=1)
 
 
-def espacio_publico(t, terr, pob, anio_pob):
+def espacio_publico(t, terr):
     fuente = t.fuente('alc-espacio-publico', 'Inventario de espacio público de esparcimiento y encuentro (espacio público efectivo)',
                       'Departamento Administrativo de Planeación · Alcaldía de Medellín', ESPACIO_PUBLICO)
     servicio = json_url(ESPACIO_PUBLICO, {'f': 'json'})
@@ -477,6 +490,7 @@ def espacio_publico(t, terr, pob, anio_pob):
         raise RuntimeError('La capa de espacio público ya no declara su vigencia en la descripción')
     anio = anio.group(1)
     vigencia = f'Inventario {anio}'
+    pob, anio_pob = poblacion_en(int(anio)), int(anio)
     datos = consulta_arcgis(ESPACIO_PUBLICO, {
         'where': '1=1', 'groupByFieldsForStatistics': 'cod_comuna', 'f': 'json',
         'outStatistics': json.dumps([{'statisticType': 'sum', 'onStatisticField': 'st_area(shape)', 'outStatisticFieldName': 'm2'}])})
@@ -485,7 +499,7 @@ def espacio_publico(t, terr, pob, anio_pob):
     terr.indicador('m2_espacio_publico_hab', 'Espacio público efectivo por habitante', 'm²/hab.', fuente,
                    f'{vigencia}; población {anio_pob}', estado='derivado', decimales=1,
                    nota=f'Parques, plazas, plazoletas y zonas verdes públicas permanentes de la comuna o corregimiento, sobre la '
-                        f'población proyectada por el DANE para {anio_pob}.')
+                        f'población de {anio_pob}, el mismo año del inventario.')
     for codigo in terr.filas:
         if pob.get(codigo):
             terr.valor(codigo, 'm2_espacio_publico_hab', anio, round(area.get(codigo, 0) / pob[codigo], 1))
@@ -494,7 +508,7 @@ def espacio_publico(t, terr, pob, anio_pob):
             nota=f'{miles(sin_comuna / 1e4)} ha no tienen comuna asignada en la fuente.' if sin_comuna else None)
     t.cifra('m2_espacio_publico_hab', round(total / sum(pob.values()), 1), 'm²/hab.', 'Espacio público efectivo por habitante',
             fuente, f'{vigencia}; población {anio_pob}', estado='derivado', decimales=1,
-            nota=f'Inventario {anio} sobre la población proyectada por el DANE para {anio_pob}.')
+            nota=f'Inventario {anio} sobre la población de {anio_pob}.')
 
 
 # ---------------------------------------------------------------- principal
@@ -527,9 +541,9 @@ def main():
     with t.bloque('idem-pot-equipamientos'):
         equipamientos(t, terr, cruce, pob, anio_pob)
     with t.bloque('amva-espacio-verde'):
-        espacio_verde(t, terr, pob, anio_pob)
+        espacio_verde(t, terr)
     with t.bloque('alc-espacio-publico'):
-        espacio_publico(t, terr, pob, anio_pob)
+        espacio_publico(t, terr)
 
     for fuente in t.fallos:
         # Lo que la fuente alcanzó a escribir antes de fallar se descarta y se hereda la ingesta anterior.

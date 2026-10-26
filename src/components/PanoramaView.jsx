@@ -10,6 +10,7 @@ import { accent, textMuted } from './charts/tokens';
 import MetricCard from './MetricCard';
 import MapaTerritorios from './territorios/MapaTerritorios';
 import { Procedencia, formatoIndicador, unidadCorta } from './territorios/PanelTerritorios';
+import Estado from './Estado';
 
 // Panorama: la portada. Arriba, el diagnóstico de las 16 comunas y 5 corregimientos (src/lib/diagnostico.js); abajo, las
 // cifras ancla que declara cada tema del lago. Nada se escribe a mano: si falta el tema `lentes`, el diagnóstico no se
@@ -527,7 +528,7 @@ function Diagnostico({ diagnostico, lago, onSource, onTwin, onCifras }) {
                   return (
                     <tr key={i.id}>
                       <td>
-                        {i.ind.etiqueta} <span className={`estado ${i.ind.estado}`}>{i.ind.estado}</span>
+                        {i.ind.etiqueta} <Estado item={i.ind} />
                         <small>{i.ind.unidad}</small>
                       </td>
                       <td>{i.ind.vigencia}</td>

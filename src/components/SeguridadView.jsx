@@ -118,11 +118,11 @@ function SiscSection({ tema }) {
       ranking.map((r) => ({
         label: r.nombre.replace(/^Corregimiento de /, ''),
         value: r.casos,
-        note: r.tasa_x10mil != null ? `${r.tasa_x10mil} por 10.000 hab. (DAP)` : 'población no disponible para esta comuna'
+        note: r.tasa_x10mil != null ? `${r.tasa_x10mil} por 10.000 hab., con la población del mismo año` : 'población no disponible para esta comuna'
       })),
     [ranking]
   );
-  const ventana = tema.cifras[`sisc_${clave.v}_ventana`];
+  const ventana = tema.cifras[`sisc_${clave.v}_anio`];
 
   return (
     <section className="sec-block">

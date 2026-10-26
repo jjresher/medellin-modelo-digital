@@ -4,6 +4,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { buscarGeneral, indiceGeneral } from '../../lib/buscador';
 import { formatoUnidad, formatoValor } from '../../lib/lago';
 import { buscarLugares, cargarLugares } from '../../lib/lugares';
+import Estado from '../Estado';
 
 // Buscador general (⌘K / Ctrl+K, issue #16): secciones, cifras del lago y lugares del mapa en un solo cuadro. Se monta al
 // abrirse y se desmonta al cerrarse, así cada búsqueda empieza vacía. Los lugares (1,9 MB) se descargan la primera vez
@@ -161,7 +162,7 @@ function Opcion({ item, territorio }) {
         <span className="buscador-nombre">
           {item.etiqueta}
           <small>
-            {item.nombreSeccion} · {item.vigencia} · <span className={`estado ${item.estado}`}>{item.estado}</span>
+            {item.nombreSeccion} · {item.vigencia} · <Estado item={item} />
           </small>
         </span>
         <strong>

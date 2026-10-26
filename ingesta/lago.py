@@ -10,6 +10,9 @@ Cada tema del lago es un JSON en public/data/lago/<tema>.json con este contrato:
 
 Estados: observado (dato abierto descargado), declarado (leído de PDF o prensa),
 derivado (calculado) y candidato (existe pero no es abierto; no lleva valor).
+
+Cualquier cifra, serie o indicador puede llevar además `proxy`: una frase que dice qué cosa aproxima el dato porque esa cosa
+no se mide directo (un precio de oferta en lugar del de cierre, manzanas en lugar de personas). La app lo rotula PROXY.
 """
 
 import csv
@@ -250,10 +253,12 @@ class Territorios:
         """{código: km²} según los límites del gemelo; en los corregimientos incluye el suelo rural."""
         return {codigo: area_km2(g) for codigo, g in self._geometrias.items()}
 
-    def indicador(self, clave, etiqueta, unidad, fuente, vigencia, estado='observado', decimales=0, nota=None):
+    def indicador(self, clave, etiqueta, unidad, fuente, vigencia, estado='observado', decimales=0, nota=None, proxy=None):
+        """`proxy` dice de qué cosa es aproximación el dato ("la población por comuna, que el DANE no publica"): la app lo
+        rotula PROXY."""
         self.indicadores[clave] = {'clave': clave, 'etiqueta': etiqueta, 'unidad': unidad, 'fuente': fuente,
                                    'estado': estado, 'vigencia': vigencia, 'decimales': decimales,
-                                   **({'nota': nota} if nota else {})}
+                                   **({'nota': nota} if nota else {}), **({'proxy': proxy} if proxy else {})}
 
     def valor(self, codigo, clave, anio, valor):
         fila = self.filas.get(str(codigo).zfill(2))
