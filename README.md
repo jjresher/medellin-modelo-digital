@@ -1,6 +1,6 @@
 # Medellín · sistema de información
 
-**Grupo:** Samuel Madrid Ossa y Juan Jose Restrepo · **Curso:** Tópicos de Sistemas de Información (Taller de datos) · **Enlace:** _pendiente de desplegar en Vercel_ · **Revisado:** 24 de octubre de 2026
+**Grupo:** Samuel Madrid Ossa y Juan Jose Restrepo · **Curso:** Tópicos de Sistemas de Información (Taller de datos) · **Enlace:** https://medellin-modelo-digital.vercel.app/ · **Revisado:** 24 de octubre de 2026
 
 Gemelo territorial de Medellín: un lago de datos abiertos (93 fuentes con su ID, de F001 a F093), un sitio que lo muestra en 15 secciones y un gemelo 3D. Sigue la estructura de [Cerebro Lima](https://cerebro-lima.vercel.app/).
 
@@ -77,7 +77,7 @@ Una advertencia honesta: la herramienta de las vistas (Next.js con MapLibre) se 
 |---|---|---|---|---|---|---|---|---|---|
 | Vistas | Streamlit 1.66.1 | Python y pip. El entorno virtual falló con Python 3.14 (sin `ensurepip`) y se usó 3.12. Instaló 36 paquetes, 470 MB, en 56 s. Sin cuenta para correr; publicar en Community Cloud pide cuenta de GitHub (no lo probamos) | Apache-2.0 | En el servidor de la app y en el repositorio. El mapa de pydeck pide teselas a un servidor externo | Sí: `streamlit run app.py` | Activo: versión del 21-oct-2026 | Selector de indicador, barras, mapa por comuna y tabla en 40 líneas de Python. La procedencia queda como texto bajo el título | `st.bar_chart` ordenó las barras por nombre y no por valor; el mapa por comuna pidió instalar pydeck y armar los colores a mano; la fuente no queda «a un clic»; desde un repositorio público, la app publicada es pública | **No.** Funciona, pero cada gráfico «a un clic de su fuente» y el gemelo 3D habría que construirlos aparte, y el servidor tiene que estar siempre encendido |
 | Vistas | Observable Framework 1.13.4 | Node 18 o más y `npm install`: 13 s, 88 MB. Sin cuenta | ISC | Los cargadores de datos corren al construir y dejan una instantánea en `dist/_file/data/`, descargable por cualquiera | Sí: `npx observable build` (9 s, sitio de 1,2 MB) | Última versión del 6-abr-2026: más de seis meses sin publicar | Ranking, mapa por comuna y procedencia en una página Markdown, como sitio estático | El mapa salió como un rectángulo lleno: los polígonos de ArcGIS vienen con el giro contrario al que espera d3, y se resolvió con la proyección `reflect-y`. Ordenar las barras tomó dos intentos. No aloja ni protege nada | **Casi.** Es la que casi elegimos: estática, liviana y con los datos a la vista. Quedó fuera por el gemelo 3D (no maneja 1 millón de edificios en PMTiles) y porque el proyecto lleva medio año sin versión nueva |
-| Vistas | kepler.gl 3.3.0-alpha.18 (demo web) | Nada: ni cuenta ni instalación | MIT (proyecto abierto) | Según la propia página, solo en el navegador de quien lo abre («No information or map data is sent to any server») | No: se carga a mano | Alfa | Aceptó el GeoJSON de comunas con las seis columnas (283 KB) | El clic en «Add Data» no se completó en Chrome sin ventana. **Prueba sin terminar**: falta hacerla a mano | Sin decidir; sirve para explorar, no para publicar |
+| Vistas | kepler.gl 3.3.0-alpha.18 (demo web) | Nada: ni cuenta ni instalación; el archivo se sube desde el navegador | MIT (proyecto abierto) | Según la propia página, solo en el navegador de quien lo abre («No information or map data is sent to any server») | No: se carga a mano | Alfa | Con el GeoJSON de comunas y las seis columnas (283 KB), el mapa por comuna salió sin escribir código: se eligió la columna en «Fill Color → Color Based On» y al pasar el cursor aparece una tarjeta con los valores de la comuna | Probado a mano en el navegador (en Chrome sin ventana no se pudo automatizar el clic en «Add Data»). Eligió por defecto la escala por cuantiles, que ordena las comunas pero no muestra cuánto más alto es un valor que otro; al cambiarla a «Quantize» La Candelaria se separó del resto, como dicen los datos. El ajuste es manual y no quedó una leyenda en la captura. No muestra el ID de la fuente, el periodo, la licencia ni el rótulo PROXY junto al mapa: esa procedencia no viaja con el archivo | Sirve para explorar y decidir qué mapa hacer; no para publicar con la fuente de cada cifra a un clic |
 | Vistas | **Next.js 16 + MapLibre GL JS 6** (elegida) | Node y `npm install`; ni llave ni tarjeta (mapa base de OpenFreeMap) | MIT (Next.js) y BSD-3-Clause (MapLibre, PMTiles) | En `public/` del repositorio y en el despliegue de Vercel | Sí: `npm run ingesta && npm run build` | Activos: Next 16.4.3 y MapLibre 6.15.0, de octubre de 2026 | Todo: las 15 secciones, cada cifra con su ficha, el mapa por comuna, el gemelo 3D con 1.078.553 construcciones | Es mucho código propio (unas 12.000 líneas que hay que mantener). El plan gratis de Vercel es solo para uso no comercial | **Sí:** es la única que muestra a la vez el gemelo 3D y la fuente de cada cifra a un clic |
 
 ## Protección
@@ -137,7 +137,7 @@ El detalle está en la hoja «3. Bitácora IA» del [Excel actualizado](docs/Dic
 | Licencias | Claude Code | Leer la licencia de 93 fuentes | Propuso leer `copyrightText` de ArcGIS | Es un crédito, no una licencia: queda «no declara» |
 | Catálogo | Claude Code | Numerar las fuentes | F01–F93, distinto del Excel desde F057 | Volvimos a los IDs de la entrega 1 |
 | Protección | Claude Code | Buscar datos de personas a la vista | Encontró titulares con víctimas y barrios con 1 a 4 homicidios | Filtro de titulares y mínimo de 5 por barrio |
-| Exploración | Claude Code | Llevar la tabla a Streamlit, Observable y kepler.gl | Las tres arrancaron | Barras mal ordenadas, un mapa invertido y kepler.gl sin terminar |
+| Exploración | Claude Code | Llevar la tabla a Streamlit, Observable y kepler.gl | Las tres arrancaron | Barras mal ordenadas, un mapa invertido y, en kepler.gl, una escala por cuantiles que no muestra magnitudes |
 
 ## Revisión cruzada
 
@@ -149,7 +149,16 @@ _Pendiente: se hace en clase con otro grupo._
 
 ## Quién hizo qué
 
-_Por completar por el grupo: qué hizo cada uno (fuentes, preguntas, protección, exploración de herramientas, presentación)._
+Dos personas, dos maneras de aportar: una construyó el sistema y la otra lo documentó y lo revisó.
+
+| | Juan Jose Restrepo | Samuel Madrid Ossa |
+|---|---|---|
+| **Papel** | Construyó el modelo digital | Documentó y revisó |
+| **Entrega 1** | Levantó el lago de datos y su ingesta, y construyó la primera versión del sitio y del gemelo 3D | Escribió la documentación de la entrega 1 (el diccionario y el documento «Por qué estos datos») y revisó lo que se entregó |
+| **Entrega 2** | Aplicó las correcciones que pidió el profesor, agregó la sección Preguntas, la protección de los datos y las pruebas de herramientas, y desplegó el sitio | Revisó el trabajo y lo que pide el enunciado de la entrega |
+| **Cómo trabajó** | Dividió el proyecto en 17 issues (`docs/issues.md`) para avanzar una parte a la vez, con la IA como apoyo en cada una | Acompañó las issues con ideas y revisiones, y cuidó que la documentación dijera lo mismo que el sistema |
+
+**Sobre el historial de git.** Los commits del repositorio son todos de Juan Jose, porque el código lo escribió en su computador con ayuda de la IA. Samuel trabajó fuera de git, en los documentos y en las revisiones, y ese trabajo está en `docs/entrega1/` y en lo que se corrigió después de leerlo.
 
 ## Ver la app
 

@@ -101,8 +101,8 @@ Lo que pidió la retroalimentación de la entrega 1 y el enunciado de la parte 2
 - **Sección Preguntas:** las preguntas 2 (homicidios) y 3 (natalidad) de la entrega 1, más el verde por habitante; la 1 (ICA) queda pendiente con su razón.
 - **Nombres del grupo** en la barra lateral y al pie de cada sección.
 - **Excel del diccionario actualizado:** `ingesta/diccionario.py` parte del Excel de la entrega 1 y escribe `docs/Diccionario_de_datos_TallerDatos_entrega2.xlsx`.
-- **Exploración de herramientas:** Streamlit, Observable Framework y kepler.gl (sin terminar), con la misma tabla, en `exploracion/`.
-- **Pendiente:** desplegar en Vercel y correr las pruebas de terminal contra el enlace; terminar a mano la prueba de kepler.gl; la revisión cruzada con otro grupo; volver a leer las 10 licencias del Área Metropolitana cuando su portal responda.
+- **Exploración de herramientas:** Streamlit, Observable Framework y kepler.gl, con la misma tabla, en `exploracion/`.
+- **Pendiente:** la revisión cruzada con otro grupo; volver a leer las 10 licencias del Área Metropolitana cuando su portal responda.
 
 ---
 
